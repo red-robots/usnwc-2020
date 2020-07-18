@@ -665,6 +665,15 @@ a,input,button,select,textarea {
 	}
 }
 
+
+/* FOOTER */
+.site-footer {
+	background-color: #000;
+	color: #FFF;
+	font-size: 13px;
+	line-height: 1.2;
+}
+
 body.logged-in.admin-bar {
 	.site-header {
 		top: 32px;
