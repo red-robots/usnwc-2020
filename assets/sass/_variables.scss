@@ -2,14 +2,18 @@ $color_link: royalblue;
 $color_link_visited: purple;
 $color_link_hover: midnightblue;
 $color_text_main: #404040;
+$primary: #191919;
+$gray: #F2F2F2;
 
-$font_main: 'Roboto', sans-serif;
+$font_primary: 'Nanum Gothic', sans-serif;
+$font_secondary: 'Poppins', sans-serif;
+$font_third: 'Montserrat', sans-serif;
 $font_code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font_pre: "Courier 10 Pitch", Courier, monospace;
 
 $xswidth: 480px;
-$tabwidth: 600px;
-$midwidth: 900px;
+$tabwidth: 768px;
+$midwidth: 960px;
 $deskwidth: 1200px;
 
 @mixin xs { @media (min-width: $xswidth) { @content; } }

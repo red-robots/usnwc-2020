@@ -5,17 +5,78 @@
  */
 
 jQuery(document).ready(function ($) {
-	
-	var swiper = new Swiper('#slideshow', {
-		effect: 'fade', /* "fade", "cube", "coverflow" or "flip" */
-		loop: true,
-		noSwiping: false,
-		simulateTouch : false,
-		speed: 1000,
-		autoplay: {
-			delay: 4000,
+	var is_video_playing = false;
+
+	var $slides = $('.flexslider .slides li');
+    if ($slides.length > 0) {
+        $slides.eq(1).add($slides.eq(-1)).find('img.lazy')
+            .each(function () {
+                var src = $(this).attr('data-src');
+                $(this).removeClass('lazy');
+                $(this).attr('src', src).removeAttr('data-src');
+            });
+    }
+
+    var slideShow = $('.flexslider').flexslider({
+		animation: "fade",
+		smoothHeight: true,
+		before: function (slider) { 
+			var $slides = $(slider.slides),
+                index = slider.animatingTo,
+                current = index,
+                nxt_slide = current + 1,
+                prev_slide = current - 1;
+            if ($slides.length > 0) {
+                $slides.eq(current).add($slides.eq(nxt_slide)).add($slides.eq(prev_slide))
+                    .find('img.lazy').each(function () {
+                        var src = $(this).attr('data-src');
+                        $(this).removeClass('lazy');
+                        $(this).attr('src', src).removeAttr('data-src');
+                    });
+                if($slides.eq(current).find('.iframe-wrapper').length > 0){
+                    slider.pause();
+                    setTimeout(function(){
+                      slider.play();
+                    },10000);
+                }
+            }
+		},
+		start: function(slider){
+			var $slides = $(slider.slides);
+            if ($slides.length > 0) {
+                if($slides.eq(0).find('.iframe-wrapper').length > 0){
+                    slider.pause();
+                    setTimeout(function(){
+                    slider.play();
+                    },10000);
+                }
+            }
+            $(document).on("click",".playVidBtn",function(e){
+				e.preventDefault();
+				var iframeSRC = $(this).attr("data-embed");
+				var parent = $(this).parents(".videoIframeDiv");
+				parent.find("iframe.videoIframe")[0].src += "&autoplay=1";
+				parent.find("iframe.videoIframe").fadeIn();
+				is_video_playing = true;
+				//slideShow.flexslider("pause");
+				slider.pause();
+			});
 		}
-    });
+	});
+
+    
+
+	
+ 	
+
+	
+
+
+ 	/* Today (Top) */
+ 	$(".topinfo .today a").on("click",function(e){
+ 		e.preventDefault();
+ 		$(".topinfo .today").toggleClass("open");
+ 	});
 
     /* Smooth Scroll */
     $('a[href*="#"]')

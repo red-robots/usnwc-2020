@@ -13,15 +13,15 @@ function bellaworks_scripts() {
 
 	wp_enqueue_script( 
 			'bellaworks-blocks', 
-			get_template_directory_uri() . '/assets/js/vendors.js', 
-			array(), '20120206', 
+			get_template_directory_uri() . '/assets/js/vendors.min.js', 
+			array(), '20200713', 
 			true 
 		);
 
 	wp_enqueue_script( 
 			'bellaworks-custom', 
 			get_template_directory_uri() . '/assets/js/custom.js', 
-			array(), '20120206', 
+			array(), '20200713', 
 			true 
 		);
 
