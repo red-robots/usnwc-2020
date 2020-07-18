@@ -96,6 +96,34 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 		</section>
 		<?php } ?>
 
+
+		<?php
+		/*===== ROW 2 =====*/
+		$row3_title = get_field('row3_title');  
+		$row3_button_name = get_field('row3_button_name');  
+		$row3_button_link = get_field('row3_button_link');  
+		?>
+		<?php if ($row3_title) { ?>
+		<section class="homerow row3 wow fadeIn">
+
+			<?php if ($row3_title) { ?>
+			<div class="wrapper text-center">
+				<div class="icondiv"><span class="calendar"></span></div>
+				<h2 class="stitle"><?php echo $row3_title ?></h2>
+				<?php if ($row3_button_name && $row3_button_link) { ?>
+				<div class="buttondiv">
+					<a href="<?php echo $row3_button_link['url'] ?>" target="<?php echo $row3_button_link['target'] ?>" class="btn-sm"><span><?php echo $row3_button_name ?></span></a>
+				</div>	
+				<?php } ?>
+			</div>
+			<?php } ?>
+
+			<?php /*===== UPCOMING EVENTS =====*/ ?>
+			
+
+		</section>
+		<?php } ?>
+
 		
 
 	<?php endwhile; ?>

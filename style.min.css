@@ -1810,9 +1810,14 @@ a,input,button,select,textarea{-webkit-transition:all ease .3s;transition:all ea
 .homerow.row2 .wrapper{padding-top:50px;padding-bottom:50px}
 .homerow.row2 h2.stitle{margin:0;text-transform:uppercase;font-family:"Poppins",sans-serif;font-weight:400;font-size:25px;color:#000}
 .homerow.row2 .buttondiv{margin-top:20px}
+.homerow.row3{background-color:#f2f2f2}
+.homerow.row3 .wrapper{padding-top:50px;padding-bottom:50px}
+.homerow.row3 h2.stitle{margin:0;text-transform:uppercase;font-family:"Poppins",sans-serif;font-weight:400;font-size:25px;color:#000}
+.homerow.row3 .buttondiv{margin-top:20px}
 .icondiv{text-align:center;margin-bottom:12px}
-.icondiv span{display:inline-block;position:relative;background-position:top center;background-repeat:no-repeat}
-.icondiv span.tree{background-image:url("images/icons/bw_tree.svg");width:30px;height:30px}
+.icondiv span{display:inline-block;position:relative;background-position:top center;background-repeat:no-repeat;width:30px;height:30px}
+.icondiv span.tree{background-image:url("images/icons/bw_tree.svg")}
+.icondiv span.calendar{background-image:url("images/icons/bw_calendar.svg")}
 .btn-sm{display:inline-block;text-decoration:none;color:#5a5959;padding:5px 15px;border:1px solid #a2a2a2;overflow:hidden;position:relative}
 .btn-sm span{position:relative;z-index:5}
 .btn-sm:before{content:"";display:block;width:150%;height:100%;background:#000;-webkit-transform:translateX(-100%) skew(-45deg);-ms-transform:translateX(-100%) skew(-45deg);transform:translateX(-100%) skew(-45deg);position:absolute;top:0;left:-20%;-webkit-transition:all ease .5s;transition:all ease .5s}
