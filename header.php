@@ -27,8 +27,8 @@
 						<span class="s"></span>
 					</span>
 					<span class="today el">
-						<a href="#"><i class="txt">TODAY</i><i class="arrow"></i></a>
-						<div class="businessHours">
+						<a href="#" id="todayToggle"><i id="todayTxt" class="txt">TODAY</i><i class="arrow"></i></a>
+						<div id="businessHours" class="businessHours">
 							<ul>
 								<li class="info">
 									<div class="icon"><i class="ci-clock"></i></div>

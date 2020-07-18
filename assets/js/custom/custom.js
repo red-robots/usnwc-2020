@@ -73,10 +73,28 @@ jQuery(document).ready(function ($) {
 
 
  	/* Today (Top) */
- 	$(".topinfo .today a").on("click",function(e){
- 		e.preventDefault();
- 		$(".topinfo .today").toggleClass("open");
- 	});
+ 	// $(".topinfo .today a").on("click",function(e){
+ 	// 	e.preventDefault();
+ 	// 	$(".topinfo .today").toggleClass("open");
+ 	// });
+ 	$(".topinfo .today a").hover(
+ 		function(){
+ 			$(".topinfo .today").addClass("open");
+ 		}, function(){
+ 			//$(".topinfo .today").removeClass("open");
+ 		}
+ 	);
+
+ 	$(document).on('click', function (e) {
+ 		if ( e.target.id!='todayToggle' || e.target.id!='todayTxt' ) {
+ 			e.preventDefault();
+ 			$(".topinfo .today").toggleClass("open");
+ 		} else {
+			if ($(e.target).closest("#businessHours").length === 0) {
+ 				$(".site-header .today").removeClass("open");
+ 			}
+ 		}
+	});
 
     /* Smooth Scroll */
     $('a[href*="#"]')
