@@ -86,7 +86,7 @@ jQuery(document).ready(function ($) {
  	);
 
  	$(document).on('click', function (e) {
- 		if ( e.target.id!='todayToggle' || e.target.id!='todayTxt' ) {
+ 		if ( e.target.id=='todayToggle' || e.target.id=='todayTxt' ) {
  			e.preventDefault();
  			$(".topinfo .today").toggleClass("open");
  		} else {
