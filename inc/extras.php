@@ -152,8 +152,7 @@ function get_social_links() {
     $social_types = social_icons();
     $social = array();
     foreach($social_types as $k=>$icon) {
-        $value = get_field($k,'option');
-        if($value) {
+        if( $value = get_field($k,'option') ) {
             $social[$k] = array('link'=>$value,'icon'=>$icon);
         }
     }
@@ -162,12 +161,12 @@ function get_social_links() {
 
 function social_icons() {
     $social_types = array(
-        'facebook'  => 'fab fa-facebook-f',
-        'twitter'   => 'fab fa-twitter',
-        'linkedin'  => 'fab fa-linkedin-in',
+        'facebook'  => 'fab fa-facebook-square',
+        'twitter'   => 'fab fa-twitter-square',
+        'linkedin'  => 'fab fa-linkedin',
         'instagram' => 'fab fa-instagram',
         'youtube'   => 'fab fa-youtube',
-        'snapchat'  => 'fab fa-snapchat-ghost',
+        'vimeo'  => 'fab fa-vimeo',
     );
     return $social_types;
 }
@@ -222,4 +221,78 @@ function parse_external_url( $url = '', $internal_class = 'internal-link', $exte
 }
 
 
+function GetDays($sStartDate, $sEndDate){  
+    // Firstly, format the provided dates.  
+    // This function works best with YYYY-MM-DD  
+    // but other date formats will work thanks  
+    // to strtotime().  
+    $sStartDate = gmdate("Y-m-d", strtotime($sStartDate));  
+    $sEndDate = gmdate("Y-m-d", strtotime($sEndDate));  
 
+    // Start the variable off with the start date  
+    $aDays[] = $sStartDate;  
+
+    // Set a 'temp' variable, sCurrentDate, with  
+    // the start date - before beginning the loop  
+    $sCurrentDate = $sStartDate;  
+
+    // While the current date is less than the end date  
+    while($sCurrentDate < $sEndDate){  
+        // Add a day to the current date  
+        $sCurrentDate = gmdate("Y-m-d", strtotime("+1 day", strtotime($sCurrentDate)));  
+
+        // Add this new day to the aDays array  
+        $aDays[] = $sCurrentDate;  
+    }  
+
+    // Once the loop has finished, return the  
+    // array of days.  
+    return $aDays;  
+}  
+
+
+function get_event_date_range($start,$end) {
+    $event_date = '';
+    $date_range = array($start,$end);
+    if($date_range && array_filter($date_range) ) {
+        $dates = array_filter( array_unique($date_range) );
+        $count = count($dates);
+        if($count>1) {
+            $s_day =  date('d',strtotime($start));
+            $e_day =  date('d',strtotime($end));
+            
+            /* If the same year */
+            if( date("Y",strtotime($start)) == date("Y",strtotime($end)) ) {
+                $year = date('Y',strtotime($start));
+
+                if( date("m",strtotime($start)) == date("m",strtotime($end)) ) {
+                    $month = date('M',strtotime($start));
+                    $event_date = $month . ' ' . $s_day . '-' . $e_day . ', ' . $year;
+                }
+                if( date("m",strtotime($start)) != date("m",strtotime($end)) ) {
+                    $event_date_start = date('M',strtotime($start)) . ' ' . $s_day;
+                    $event_date_end = date('M',strtotime($end)) . ' ' . $e_day;
+                    $event_date = $event_date_start . ' - ' . $event_date_end . ', ' . $year;
+                }
+
+            } else {
+
+                $year_start = date('Y',strtotime($start));
+                $year_end = date('Y',strtotime($end));
+                $event_date_start = date('M',strtotime($start)) . ' ' . $s_day . ', ' . $year_start;
+                $event_date_end = date('M',strtotime($end)) . ' ' . $e_day . ', ' . $year_end;
+                $event_date = $event_date_start . ' - ' . $event_date_end;
+
+            }
+
+        } else {
+
+            if($start) {
+                $event_date = date('M d, Y', strtotime($start));
+            }
+            
+        } 
+
+    }
+    return $event_date;
+}

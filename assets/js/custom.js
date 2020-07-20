@@ -146,4 +146,13 @@ jQuery(document).ready(function ($) {
 		$('body').toggleClass('open-mobile-menu');
 	});
 
+
+	/* Footer Subscribe Form */
+	$('#footSubscribeForm input[type="email"]').on("focus",function(){
+		$("#footSubscribeForm").addClass('input-focus');
+	});
+	$('#footSubscribeForm input[type="email"]').on("focusout blur",function(){
+		$("#footSubscribeForm").removeClass('input-focus');
+	});
+
 });// END #####################################    END

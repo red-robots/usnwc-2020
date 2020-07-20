@@ -161,193 +161,159 @@ function js_custom_init() {
     }
 }
 
-// Add new taxonomy, make it hierarchical (like categories)
-// add_action( 'init', 'ii_custom_taxonomies', 0 );
-// function ii_custom_taxonomies() {
-//         $posts = array(
-//             array(
-//                 'post_type' => array('pass', 'activity', 'faqs'),
-//                 'menu_name' => 'Pass Type',
-//                 'plural'    => 'Pass Types',
-//                 'single'    => 'Pass Type',
-//                 'taxonomy'  => 'pass',
-//                 'rewrite'   => 'pass'
-//             ),
-//             array(
-//                 'post_type' => array('race_series'),
-//                 'menu_name' => 'Race Status',
-//                 'plural'    => 'Race Status',
-//                 'single'    => 'Race Status',
-//                 'taxonomy'  => 'race_status',
-//                 'rewrite'   => 'race-status'
-//             ),
-//         );
-    
-//     if($posts) {
-//         foreach($posts as $p) {
-//             $p_type = ( isset($p['post_type']) && $p['post_type'] ) ? $p['post_type'] : ""; 
-//             $single_name = ( isset($p['single']) && $p['single'] ) ? $p['single'] : "Custom Post"; 
-//             $plural_name = ( isset($p['plural']) && $p['plural'] ) ? $p['plural'] : "Custom Post"; 
-//             $menu_name = ( isset($p['menu_name']) && $p['menu_name'] ) ? $p['menu_name'] : $p['plural'];
-//             $taxonomy = ( isset($p['taxonomy']) && $p['taxonomy'] ) ? $p['taxonomy'] : "";
-//             $rewrite = ( isset($p['rewrite']) && $p['rewrite'] ) ? $p['rewrite'] : $taxonomy;
-            
-            
-//             if( $taxonomy && $p_type ) {
-//                 $labels = array(
-//                     'name' => _x( $menu_name, 'taxonomy general name' ),
-//                     'singular_name' => _x( $single_name, 'taxonomy singular name' ),
-//                     'search_items' =>  __( 'Search ' . $plural_name ),
-//                     'popular_items' => __( 'Popular ' . $plural_name ),
-//                     'all_items' => __( 'All ' . $plural_name ),
-//                     'parent_item' => __( 'Parent ' .  $single_name),
-//                     'parent_item_colon' => __( 'Parent ' . $single_name . ':' ),
-//                     'edit_item' => __( 'Edit ' . $single_name ),
-//                     'update_item' => __( 'Update ' . $single_name ),
-//                     'add_new_item' => __( 'Add New ' . $single_name ),
-//                     'new_item_name' => __( 'New ' . $single_name ),
-//                   );
 
-//               register_taxonomy($taxonomy,array($p_type), array(
-//                 'hierarchical' => true,
-//                 'labels' => $labels,
-//                 'show_ui' => true,
-//                 'show_in_rest' => true,
-//                 'show_admin_column' => true,
-//                 'query_var' => true,
-//                 'rewrite' => array( 'slug' => $rewrite ),
-//               ));
-//             }
-            
-//         }
-//     }
-// }
-/*
-##############################################
 
-    Custom Taxonomies
+/* ##########################################################
+ * Add new taxonomy, make it hierarchical (like categories)
+ * Custom Taxonomies
 */
 add_action( 'init', 'build_taxonomies', 0 );
  
 function build_taxonomies() {
-// cusotm tax
+// custom tax
+    register_taxonomy( 
+        'event-location', 
+        array('music'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Location', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'event-location' ),
+            '_builtin' => true
+        ) 
+    );
+
     register_taxonomy( 
         'pass_type', 
         array('activity', 'pass'),
-     array( 
-        'hierarchical' => true, // true = acts like categories false = acts like tags
-        'label' => 'Pass Type', 
-        'query_var' => true, 
-        'rewrite' => true ,
-        'show_admin_column' => true,
-        'public' => true,
-        'rewrite' => array( 'slug' => 'pass-type' ),
-        '_builtin' => true
-    ) );
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Pass Type', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'pass-type' ),
+            '_builtin' => true
+        ) 
+    );
 
     register_taxonomy( 
         'activity_type', 
         array('film', 'story'),
-     array( 
-        'hierarchical' => true, // true = acts like categories false = acts like tags
-        'label' => 'Activity', 
-        'query_var' => true, 
-        'rewrite' => true ,
-        'show_admin_column' => true,
-        'public' => true,
-        'rewrite' => array( 'slug' => 'activity-type' ),
-        '_builtin' => true
-    ) );
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Activity', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'activity-type' ),
+            '_builtin' => true
+        )
+    );
 
     register_taxonomy( 
         'faq_type', 
         array('faqs'),
-     array( 
-        'hierarchical' => true, // true = acts like categories false = acts like tags
-        'label' => 'FAQ Type', 
-        'query_var' => true, 
-        'rewrite' => true ,
-        'show_admin_column' => true,
-        'public' => true,
-        'rewrite' => array( 'slug' => 'faq-type' ),
-        '_builtin' => true
-    ) );
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'FAQ Type', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'faq-type' ),
+            '_builtin' => true
+        )
+    );
 
 
-    register_taxonomy( 'festival', 'festival_activity',
-     array( 
-        'hierarchical' => true, // true = acts like categories false = acts like tags
-        'label' => 'Festival Name', 
-        'query_var' => true, 
-        'rewrite' => true ,
-        'show_admin_column' => true,
-        'public' => true,
-        'rewrite' => array( 'slug' => 'festival' ),
-        '_builtin' => true
-    ) );
+    register_taxonomy( 
+        'festival', 'festival_activity',
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Festival Name', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'festival' ),
+            '_builtin' => true
+        )
+    );
 
-    register_taxonomy( 'festival_day', 'festival_activity',
-     array( 
-        'hierarchical' => true, // true = acts like categories false = acts like tags
-        'label' => 'Festival Day', 
-        'query_var' => true, 
-        'rewrite' => true ,
-        'show_admin_column' => true,
-        'public' => true,
-        'rewrite' => array( 'slug' => 'festival-day' ),
-        '_builtin' => true
-    ) );
+    register_taxonomy( 
+        'festival_day', 'festival_activity',
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Festival Day', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'festival-day' ),
+            '_builtin' => true
+        )
+    );
     
 } // End build taxonomies
 
+
+
 // Add the custom columns to the position post type:
-// add_filter( 'manage_posts_columns', 'set_custom_cpt_columns' );
-// function set_custom_cpt_columns($columns) {
-//     global $wp_query;
-//     $query = isset($wp_query->query) ? $wp_query->query : '';
-//     $post_type = ( isset($query['post_type']) ) ? $query['post_type'] : '';
+add_filter( 'manage_posts_columns', 'set_custom_cpt_columns' );
+function set_custom_cpt_columns($columns) {
+    global $wp_query;
+    $query = isset($wp_query->query) ? $wp_query->query : '';
+    $post_type = ( isset($query['post_type']) ) ? $query['post_type'] : '';
     
+    if($post_type=='music') {
+        unset($columns['taxonomy-event-location']);
+        unset($columns['date']);
+        $columns['title'] = __( 'Name', 'bellaworks' );
+        $columns['show_on_homepage'] = __( 'Show on<br>Homepage', 'bellaworks' );
+        $columns['featimage'] = __( 'Image', 'bellaworks' );
+        $columns['taxonomy-event-location'] = __( 'Location', 'bellaworks' );
+        $columns['date'] = __( 'Date', 'bellaworks' );
+    }
     
-//     if($post_type=='teams') {
-//         unset( $columns['taxonomy-team-groups'] );
-//         unset( $columns['title'] );
-//         unset( $columns['date'] );
-//         $columns['title'] = __( 'Name', 'bellaworks' );
-//         $columns['photo'] = __( 'Photo', 'bellaworks' );
-//         $columns['taxonomy-team-groups'] = __( 'Group', 'bellaworks' );
-//         $columns['date'] = __( 'Date', 'bellaworks' );
-//     }
-    
-//     return $columns;
-// }
+    return $columns;
+}
 
-// Add the data to the custom columns for the book post type:
-// add_action( 'manage_posts_custom_column' , 'custom_post_column', 10, 2 );
-// function custom_post_column( $column, $post_id ) {
-//     global $wp_query;
-//     $query = isset($wp_query->query) ? $wp_query->query : '';
-//     $post_type = ( isset($query['post_type']) ) ? $query['post_type'] : '';
+//Add the data to the custom columns for the book post type:
+add_action( 'manage_posts_custom_column' , 'custom_post_column', 10, 2 );
+function custom_post_column( $column, $post_id ) {
+    global $wp_query;
+    $query = isset($wp_query->query) ? $wp_query->query : '';
+    $post_type = ( isset($query['post_type']) ) ? $query['post_type'] : '';
     
-//     if($post_type=='teams') {
-//         switch ( $column ) {
-//             case 'jobtitle' :
-//                 $jobtitle = get_field("jobtitle",$post_id);
-//                 echo ($jobtitle) ? $jobtitle : '';
-//                 break;
+    if($post_type=='music') {
+        switch ( $column ) {
 
-//             case 'photo' :
-//                 $img = get_field('image',$post_id);
-//                 $img_src = ($img) ? $img['sizes']['medium'] : '';
-//                 $the_photo = '<span class="tmphoto" style="display:inline-block;width:50px;height:50px;background:#e2e1e1;text-align:center;border:1px solid #CCC;overflow:hidden;">';
-//                 if($img_src) {
-//                    $the_photo .= '<span style="display:block;width:100%;height:100%;background:url('.$img_src.') top center no-repeat;background-size:cover;transform:scale(1.2)"></span>';
-//                 } else {
-//                     $the_photo .= '<i class="dashicons dashicons-businessperson" style="font-size:25px;position:relative;top:13px;left: -3px;opacity:0.3;"></i>';
-//                 }
-//                 $the_photo .= '</span>';
-//                 echo $the_photo;
-//                 break;
-//         }
-//     }
+            case 'show_on_homepage' :
+                $show = get_field('show_on_homepage',$post_id);
+                if($show=='yes') {
+                    echo '<span style="display:inline-block;width:50px;text-align:center;"><i class="dashicons dashicons-star-filled" style="color:#f1b429;font-size:25px;"></i></span>';
+                } 
+                break;
+
+            case 'featimage' :
+                $img = get_field('thumbnail_image',$post_id);
+                $img_src = ($img) ? $img['sizes']['medium'] : '';
+                $the_photo = '<span class="tmphoto" style="display:inline-block;width:50px;height:50px;background:#e2e1e1;text-align:center;border:1px solid #CCC;overflow:hidden;">';
+                if($img_src) {
+                   $the_photo .= '<span style="display:block;width:100%;height:100%;background:url('.$img_src.') top center no-repeat;background-size:cover;transform:scale(1.2)"></span>';
+                } else {
+                    $the_photo .= '<i class="dashicons dashicons-format-image" style="font-size:25px;position:relative;top:13px;left: -3px;opacity:0.3;"></i>';
+                }
+                $the_photo .= '</span>';
+                echo $the_photo;
+                break;
+        }
+    }
     
-// }
+}
