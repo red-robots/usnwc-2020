@@ -19,63 +19,65 @@ $blank_image = THEMEURI . "images/rectangle.png";
 	</div>
 
 	<?php /* VIDEOS */ ?>
-	<div class="home-video-gallery full">
-		<div class="inner-wrap">
-			<div class="flexwrap">
-				<div class="colLeft video-big">
-					<div class="imagediv wavehover" style="background-image:url('<?php echo $sample?>')">
-						<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
-						<div class="videoBtn">
-							<a href="#" class="play-btn large"></a>
+	<div style="display:none;">
+		<div class="home-video-gallery full">
+			<div class="inner-wrap">
+				<div class="flexwrap">
+					<div class="colLeft video-big">
+						<div class="imagediv wavehover" style="background-image:url('<?php echo $sample?>')">
+							<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
+							<div class="videoBtn">
+								<a href="#" class="play-btn large"></a>
+							</div>
+							<div class="videoName"><span>Title Goes Here</span></div>
+							<div class="wave"></div>
 						</div>
-						<div class="videoName"><span>Title Goes Here</span></div>
-						<div class="wave"></div>
 					</div>
-				</div>
 
-				<div class="colRight small-videos">
-					<div class="wrap">
-						<div class="sm-video">
-							<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
-								<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
-								<div class="videoBtn">
-									<a href="#" class="play-btn"></a>
+					<div class="colRight small-videos">
+						<div class="wrap">
+							<div class="sm-video">
+								<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
+									<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
+									<div class="videoBtn">
+										<a href="#" class="play-btn"></a>
+									</div>
+									<div class="videoName"><span>Title Goes Here</span></div>
+									<div class="wave"></div>
 								</div>
-								<div class="videoName"><span>Title Goes Here</span></div>
-								<div class="wave"></div>
 							</div>
-						</div>
 
-						<div class="sm-video">
-							<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
-								<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
-								<div class="videoBtn">
-									<a href="#" class="play-btn"></a>
+							<div class="sm-video">
+								<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
+									<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
+									<div class="videoBtn">
+										<a href="#" class="play-btn"></a>
+									</div>
+									<div class="videoName"><span>Title Goes Here</span></div>
+									<div class="wave"></div>
 								</div>
-								<div class="videoName"><span>Title Goes Here</span></div>
-								<div class="wave"></div>
 							</div>
-						</div>
 
-						<div class="sm-video">
-							<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
-								<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
-								<div class="videoBtn">
-									<a href="#" class="play-btn"></a>
+							<div class="sm-video">
+								<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
+									<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
+									<div class="videoBtn">
+										<a href="#" class="play-btn"></a>
+									</div>
+									<div class="videoName"><span>Title Goes Here</span></div>
+									<div class="wave"></div>
 								</div>
-								<div class="videoName"><span>Title Goes Here</span></div>
-								<div class="wave"></div>
 							</div>
-						</div>
 
-						<div class="sm-video">
-							<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
-								<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
-								<div class="videoBtn">
-									<a href="#" class="play-btn"></a>
+							<div class="sm-video">
+								<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
+									<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
+									<div class="videoBtn">
+										<a href="#" class="play-btn"></a>
+									</div>
+									<div class="videoName"><span>Title Goes Here</span></div>
+									<div class="wave"></div>
 								</div>
-								<div class="videoName"><span>Title Goes Here</span></div>
-								<div class="wave"></div>
 							</div>
 						</div>
 					</div>
