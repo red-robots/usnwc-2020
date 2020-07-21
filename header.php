@@ -21,43 +21,54 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="topbar">
 			<div class="wrapper">
+				<?php
+				$trail_status_option = get_field("trail_status","option");
+				$trail_status = ($trail_status_option=='open') ? 'active':'inactive';
+				?>
 				<div class="topinfo">
-					<span class="trail-status el active">
+					<span class="trail-status el <?php echo $trail_status ?>">
 						<span class="t">Trail Status</span>
 						<span class="s"></span>
 					</span>
 					<span class="today el">
-						<a href="#" id="todayToggle"><i id="todayTxt" class="txt">TODAY</i><i class="arrow"></i></a>
-						<div id="businessHours" class="businessHours">
-							<ul>
-								<li class="info">
-									<div class="icon"><i class="ci-clock"></i></div>
-									<div class="text">
-										<div class="n">Hours of Operation</div>
-										<div class="v">8AM - 4AM</div>
-										<div class="d">* individual activity times vary</div>
-									</div>
-								</li>
-								<li class="info">
-									<div class="icon"><i class="ci-silverware"></i></div>
-									<div class="text">
-										<div class="n">Food & Beverage</div>
-										<div class="v">11AM - 10PM</div>
-									</div>
-								</li>
-								<li class="info">
-									<div class="icon"><i class="ci-tshirt2"></i></div>
-									<div class="text">
-										<div class="n">Outfitters Store</div>
-										<div class="v">8AM - 8PM</div>
-									</div>
-								</li>
-							</ul>
-						</div>
+						<?php $today_options = get_field("today","option"); ?>
+						<?php if ($today_options) { ?>
+							<a href="#" id="todayToggle"><i id="todayTxt" class="txt">TODAY</i><i class="arrow"></i></a>
+							<div id="businessHours" class="businessHours">
+								<ul id="today-options">
+									<?php foreach ($today_options as $t) { 
+										$text1 = $t['text1'];
+										$text2 = $t['text2'];
+										$icon_class = ($t['icon_class']) ? $t['icon_class']:'no-icon';
+									?>
+									<li class="info <?php echo ($t['icon_class']) ? 'hasIcon':'noIcon'; ?>">
+										<div class="icon"><i class="<?php echo $icon_class ?>"></i></div>
+										<div class="text">
+											<?php if ($text1) { ?>
+											<div class="n t1"><?php echo $text1 ?></div>
+											<?php } ?>
+											<?php if ($text2) { ?>
+											<div class="d t2"><?php echo $text2 ?></div>
+											<?php } ?>
+										</div>
+									</li>
+									<?php } ?>
+								</ul>
+							</div>
+						<?php } ?>
 					</span>
 					<span class="el">
-						<a class="search"><i class="fas fa-search"></i></a>
+						<a id="searchHereBtn" class="search"><i class="fas fa-search"></i></a>
 					</span>
+				</div>
+			</div>
+		</div>
+		<div id="topSearchBar" class="top-search-bar">
+			<div class="wrapper">
+				<div class="form-wrapper">
+					<?php echo get_search_form(); ?>
+					<a href="#" id="topsearchBtn"><i class="fas fa-search"></i></a>
+					<a href="#" id="closeTopSearch"><span>Close</span></a>
 				</div>
 			</div>
 		</div>

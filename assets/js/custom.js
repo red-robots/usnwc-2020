@@ -146,6 +146,29 @@ jQuery(document).ready(function ($) {
 		$('body').toggleClass('open-mobile-menu');
 	});
 
+	/* Search Form (Header) */
+	$(document).on("click","#topsearchBtn",function(e){
+		e.preventDefault();
+		$("#topSearchBar form").submit();
+	});
+
+	$(document).on("click","#searchHereBtn",function(e){
+		e.preventDefault();
+		$(this).toggleClass('search-open');
+		$('#topSearchBar').toggleClass('show');
+		$('body').toggleClass('search-form-open');
+		$("input.search-field").focus();
+	});
+
+	$(document).on("click","#closeTopSearch",function(e){
+		e.preventDefault();
+		$('#searchHereBtn').removeClass('search-open');
+		$('#topSearchBar').removeClass('show');
+		$('body').removeClass('search-form-open');
+		//$("input.search-field").val("");
+	});
+
+	
 
 	/* Footer Subscribe Form */
 	$('#footSubscribeForm input[type="email"]').on("focus",function(){

@@ -296,3 +296,14 @@ function get_event_date_range($start,$end) {
     }
     return $event_date;
 }
+
+add_action('admin_head', 'my_custom_admin_css');
+function my_custom_admin_css() { ?>
+<style type="text/css">
+div.acf-field-repeater[data-name="today"] table tr.acf-row td {
+    border-bottom: 6px solid #d6d6d6;
+
+}
+</style>
+<?php }
+

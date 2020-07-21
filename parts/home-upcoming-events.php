@@ -11,7 +11,7 @@ $blank_image = THEMEURI . "images/square.png";
 <?php if ($row3_title) { ?>
 	<div class="title-area full">
 		<?php if ($row3_title) { ?>
-		<div class="wrapper text-center">
+		<div class="wrapper inner-content text-center">
 			<div class="icondiv"><span class="calendar"></span></div>
 			<h2 class="stitle"><?php echo $row3_title ?></h2>
 			<?php if ($row3_button_name && $row3_button_link) { ?>

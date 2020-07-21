@@ -44,10 +44,10 @@ $rectangle = THEMEURI . "images/rectangle-narrow.png";
 		$activities = get_field('activities');  
 		?>
 		<?php if ($row2_title || $activities) { ?>
-		<section class="homerow row2">
+		<section id="section-activities" class="homerow row2">
 
 			<?php if ($row2_title) { ?>
-			<div class="wrapper text-center">
+			<div class="wrapper inner-content text-center">
 				<div class="icondiv"><span class="tree"></span></div>
 				<h2 class="stitle"><?php echo $row2_title ?></h2>
 				<?php if ($row2_button_name && $row2_button_link) { ?>
@@ -100,10 +100,18 @@ $rectangle = THEMEURI . "images/rectangle-narrow.png";
 	<?php endwhile; ?>
 
 
-	<?php /*===== UPCOMING EVENTS =====*/ ?>
+	<?php /*===== ROW 3: UPCOMING EVENTS =====*/ ?>
 	<?php get_template_part('parts/home-upcoming-events'); ?>
 
-		
+
+	<?php /*===== ROW 4: STORIES =====*/
+	get_template_part('parts/home-stories-videos'); ?>
+
+
+	<?php /*===== ROW 5: SEASONAL ACTIVITIES =====*/
+	get_template_part('parts/home-seasonal-activities'); ?>
+
+
 
 	
 </div><!-- #primary -->
