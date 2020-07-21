@@ -1770,6 +1770,7 @@ a,input,button,select,textarea{-webkit-transition:all ease .3s;transition:all ea
 .site-header .topinfo .businessHours .d{font-style:italic;font-size:9px;margin-top:5px}
 .site-header .topinfo .businessHours .icon{position:absolute;top:2px;left:-2px}
 .site-header .topinfo .businessHours .icon i{font-size:20px}
+.site-header .topinfo .businessHours .icon svg{font-size:20px;line-height:1}
 .site-header .topinfo span.today.open .businessHours{height:auto;max-height:100%;opacity:1;overflow:visible;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);z-index:50}
 .site-header .topinfo span.today.open a i.arrow{-webkit-transform:translateY(3px) rotate(180deg);-ms-transform:translateY(3px) rotate(180deg);transform:translateY(3px) rotate(180deg)}
 .navbar{width:100%;float:left;position:relative;background:rgba(255,255,255,0.75)}
