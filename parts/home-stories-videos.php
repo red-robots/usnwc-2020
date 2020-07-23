@@ -19,7 +19,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 	</div>
 
 	<?php /* VIDEOS */ ?>
-	<div style="display:block;">
+	<div style="display:none;">
 		<div class="home-video-gallery full">
 			<div class="inner-wrap">
 				<div class="flexwrap">
