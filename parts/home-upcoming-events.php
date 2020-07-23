@@ -37,15 +37,6 @@ $posts = new WP_Query($args);
 if ( $posts->have_posts() ) {  
 $count = $posts->found_posts;	
 $dateNow = date('Y-m-d');
-// $test = array( '2010-10-01', '2010-10-02', '2010-10-03', '2010-10-04', '2010-10-05' );
-// $period = new DatePeriod(
-//      new DateTime('2010-10-01'),
-//      new DateInterval('P1D'),
-//      new DateTime('2010-10-05')
-// );
-// foreach ($period as $key => $value) {
-//     echo $value->format('Y-m-d');       
-// }
 ?>
 <div class="featured-events-section full">
 	<div class="wrapper-full">

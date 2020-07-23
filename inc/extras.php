@@ -300,10 +300,79 @@ function get_event_date_range($start,$end) {
 add_action('admin_head', 'my_custom_admin_css');
 function my_custom_admin_css() { ?>
 <style type="text/css">
+body.post-type-acf-field-group #expirationdatediv.postbox  {
+    display: none!important;
+}
 div.acf-field-repeater[data-name="today"] table tr.acf-row td {
     border-bottom: 6px solid #d6d6d6;
-
+}
+#acf-group_5f1912cfb5ecf .parent-menu-text {
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 5px;
+}
+#acf-group_5f1912cfb5ecf [data-layout="child_menu_data"] .parent-menu-text {
+    display: none;
+}
+#acf-group_5f1912cfb5ecf [data-layout="menu_group"] > .acf-fc-layout-handle {
+    color: transparent;
+    background: #f1f2f3;
+}
+#acf-group_5f1912cfb5ecf [data-layout="menu_group"]:before {
+    content:attr(data-parenttext);
+    display: block;
+    position: absolute;
+    top: 9px;
+    left: 42px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 15;
+}
+#acf-group_5f1912cfb5ecf [data-layout="child_menu_data"]:before {
+    content: attr(data-parenttext);
+    display: block;
+    position: absolute;
+    top: 11px;
+    left: 117px;
+    font-size: 11px;
+    font-weight: bold;
+    z-index: 15;
+    color: #61a963;
+}
+#acf-group_5f1912cfb5ecf .acf-flexible-content .layout {
+    margin-top: 10px;
 }
 </style>
 <?php }
+
+add_action('admin_footer', 'my_custom_admin_js');
+function my_custom_admin_js() { ?>
+<script type="text/javascript">
+jQuery(document).ready(function($){
+    if( $("#acf-group_5f1912cfb5ecf").length > 0 ) {
+        $('[data-layout="menu_group"]').each(function(){
+            var parent = $(this).find('[data-name="parent_menu_name"] .acf-input-wrap input').val();
+            var parentMenu = ( parent.replace(/\s+/g,'').trim() ) ? parent.replace(/\s+/g,' ').trim() : '(Blank)';
+            var parentMenu_child = ( parent.replace(/\s+/g,'').trim() ) ? parent.replace(/\s+/g,' ').trim() : '';
+            $(this).attr("data-parenttext",parentMenu);
+            $(this).find('[data-layout="child_menu_data"]').attr("data-parenttext","- "+parentMenu_child);
+        });
+    }
+});
+</script>
+<?php
+}
+
+
+function be_acf_options_page() {
+    if ( ! function_exists( 'acf_add_options_page' ) )
+        return;
+
+    acf_add_options_page( array( 
+        'title'      => 'Menu Options',
+        'capability' => 'manage_options',
+    ) );
+}
+add_action( 'init', 'be_acf_options_page' );
+
 
