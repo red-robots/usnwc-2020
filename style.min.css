@@ -1785,7 +1785,8 @@ a,input,button,select,textarea{-webkit-transition:all ease .3s;transition:all ea
 .menu-toggle span.bar:before,.menu-toggle span.bar:after{content:"";display:block;width:100%;top:0;left:0}
 .menu-toggle span.bar:before{top:-8px}
 .menu-toggle span.bar:after{top:8px}
-#banner{width:100%;float:left}
+#banner{width:100%;float:left;background-color:#000}
+#banner .flexslider{border-radius:0}
 #banner .flexslider .slides .iframe-wrapper{padding:0;position:relative}
 #banner .flexslider .slides img.image-size-ref{visibility:hidden}
 #banner .flexslider .slides .videoIframeDiv{width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat;position:absolute;top:0;left:0}

@@ -348,7 +348,9 @@ a,input,button,select,textarea {
 #banner {
 	width: 100%;
 	float: left;
+	background-color: #000;
 	.flexslider {
+		border-radius: 0px;
 		.slides {
 			.iframe-wrapper {
 				padding: 0 0;
