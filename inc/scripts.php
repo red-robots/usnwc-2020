@@ -19,6 +19,13 @@ function bellaworks_scripts() {
 		);
 
 	wp_enqueue_script( 
+			'vimeo-player', 
+			'https://player.vimeo.com/api/player.js', 
+			array(), '2.12.2', 
+			true 
+		);
+
+	wp_enqueue_script( 
 			'bellaworks-custom', 
 			get_template_directory_uri() . '/assets/js/custom.js', 
 			array(), '20200713', 
