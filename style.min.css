@@ -1811,7 +1811,7 @@ a,input,button,select,textarea{-webkit-transition:all ease .3s;transition:all ea
 .icondiv span.calendar{background-image:url("images/icons/bw_calendar.svg")}
 .icondiv span.video{background-image:url("images/icons/bw_video_white.svg")}
 .homerow.row1{background-color:#000;background-size:cover;background-repeat:no-repeat;background-position:center;color:#FFF}
-.homerow.row1 .wrapper{padding-top:60px;padding-bottom:50px}
+.homerow.row1 .wrapper{padding-top:100px;padding-bottom:90px}
 .homerow.row1 .textwrap{max-width:900px;width:100%;margin:0 auto;font-family:"Poppins",sans-serif;font-size:20px;font-weight:300;line-height:1.5;text-transform:uppercase;text-align:center}
 .homerow.row1 .t2{margin-top:20px}
 .homerow.row1 .t2.items span{display:inline-block;padding:5px 25px;position:relative}
