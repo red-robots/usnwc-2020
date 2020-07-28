@@ -5,6 +5,19 @@
  */
 
 jQuery(document).ready(function ($) {
+
+	$('[data-fancybox]').fancybox({
+	    youtube : {
+	        controls : 0,
+	        showinfo : 0,
+	        rel: 0
+	    },
+	    vimeo : {
+	        color : 'ffffff'
+	    }
+	});
+
+
 	var is_video_playing = false;
 
 	var $slides = $('.flexslider .slides li');

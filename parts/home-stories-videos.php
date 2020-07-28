@@ -19,71 +19,111 @@ $blank_image = THEMEURI . "images/rectangle.png";
 	</div>
 
 	<?php /* VIDEOS */ ?>
-	<div style="display:none;">
-		<div class="home-video-gallery full">
-			<div class="inner-wrap">
-				<div class="flexwrap">
-					<div class="colLeft video-big">
-						<div class="imagediv wavehover" style="background-image:url('<?php echo $sample?>')">
-							<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
-							<div class="videoBtn">
-								<a href="#" class="play-btn large"></a>
-							</div>
-							<div class="videoName"><span>Title Goes Here</span></div>
-							<div class="wave"></div>
+	<?php  
+	$args = array(
+		'numberposts'	=> 7,
+		'post_type'		=> 'story',
+		'post_status'	=> 'publish'
+	);
+	$posts = new WP_Query($args);
+	if ( $posts->have_posts() ) { ?>
+	<div class="home-video-gallery full">
+		<div class="inner-wrap">
+			<div class="flexwrap">
+				<?php $i=1; while ( $posts->have_posts() ) : $posts->the_post(); 
+				$post_title = get_the_title(); 
+				$videoURL = get_field("video");
+				$custom_thumb = get_field("image");
+				$thumbType = get_field("thumbnail_type");
+				$thumbnail_type = ($thumbType=='custom_image') ? $thumbType : 'default_image';
+				$video_thumbnail = '';
+				$default_thumb = '';
+				$youtubeID = '';
+				$vimeoID = '';
+
+				//Youtube
+				if ( (strpos( strtolower($videoURL), 'youtube.com') !== false) || (strpos( strtolower($videoURL), 'youtu.be') !== false) ) {
+					if(strpos( strtolower($videoURL), 'youtu.be') !== false) {
+						$parts = explode("/",$videoURL);
+						$youtubeID = end($parts);
+					}
+					if(strpos( strtolower($videoURL), 'youtube.com') !== false) {
+						$parts = parse_url($videoURL);
+						parse_str($parts['query'], $query);
+						$youtubeID = (isset($query['v']) && $query['v']) ? $query['v']:''; 
+					}
+					$video_thumbnail = 'https://i.ytimg.com/vi/'.$youtubeID.'/maxresdefault.jpg';
+					$default_thumb = $video_thumbnail;
+				}
+
+				//Vimeo
+				if (strpos( strtolower($videoURL), 'vimeo.com') !== false) {
+					$vimeo_parts = explode("/",$videoURL);
+					$parts = ($vimeo_parts && array_filter($vimeo_parts) ) ? array_filter($vimeo_parts) : '';
+					$vimeoId = ($parts) ?  preg_replace('/\s+/', '', end($parts)) : '';
+					$vimeoData = ($vimeoId) ? get_vimeo_data($vimeoId) : '';
+					$videoURL .= '?autoplay=1';
+					if($vimeoData) { 
+						$video_thumbnail = $vimeoData->thumbnail_large;
+						$default_thumb = $video_thumbnail;
+					}
+				}
+
+
+				if($thumbnail_type=='default_image') {
+					$video_thumbnail = $default_thumb;
+				} else {
+					if($custom_thumb) {
+						$video_thumbnail = $custom_thumb['url'];
+					}
+				}
+
+				$imageBg = ($video_thumbnail) ? ' style="background-image:url('.$video_thumbnail.')"':'';
+
+				if ($i==1) { ?>
+				<div class="colLeft video-big">
+					<div class="imagediv wavehover"<?php echo $imageBg ?>>
+						<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
+						
+						<?php if ($thumbnail_type=='default_image') { ?>
+						<div class="videoBtn">
+							<a href="#" class="play-btn large"></a>
 						</div>
-					</div>
+						<?php } ?>
 
-					<div class="colRight small-videos">
-						<div class="wrap">
-							<div class="sm-video">
-								<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
-									<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
-									<div class="videoBtn">
-										<a href="#" class="play-btn"></a>
-									</div>
-									<div class="videoName"><span>Title Goes Here</span></div>
-									<div class="wave"></div>
-								</div>
-							</div>
-
-							<div class="sm-video">
-								<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
-									<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
-									<div class="videoBtn">
-										<a href="#" class="play-btn"></a>
-									</div>
-									<div class="videoName"><span>Title Goes Here</span></div>
-									<div class="wave"></div>
-								</div>
-							</div>
-
-							<div class="sm-video">
-								<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
-									<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
-									<div class="videoBtn">
-										<a href="#" class="play-btn"></a>
-									</div>
-									<div class="videoName"><span>Title Goes Here</span></div>
-									<div class="wave"></div>
-								</div>
-							</div>
-
-							<div class="sm-video">
-								<div class="thumb wavehover" style="background-image:url('<?php echo $sample?>')">
-									<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
-									<div class="videoBtn">
-										<a href="#" class="play-btn"></a>
-									</div>
-									<div class="videoName"><span>Title Goes Here</span></div>
-									<div class="wave"></div>
-								</div>
-							</div>
-						</div>
+						<div class="videoName"><span><?php echo $post_title ?></span></div>
+						<div class="wave"></div>
+						<?php if ($videoURL) { ?>
+						<a data-fancybox href="<?php echo $videoURL ?>" class="videoLink"><span>Play Video</span></a>
+						<?php } ?>
 					</div>
 				</div>
+				<div class="colRight small-videos">
+					<div class="wrap">
+				<?php } else { ?>
+						<div class="sm-video">
+							<div class="thumb wavehover"<?php echo $imageBg ?>>
+								<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
+								<?php if ($thumbnail_type=='default_image') { ?>
+								<div class="videoBtn">
+									<a href="#" class="play-btn large"></a>
+								</div>
+								<?php } ?>
+								<div class="videoName"><span><?php echo $post_title ?></span></div>
+								<div class="wave"></div>
+								<?php if ($videoURL) { ?>
+								<a data-fancybox href="<?php echo $videoURL ?>" class="videoLink"><span>Play Video</span></a>
+								<?php } ?>
+							</div>
+						</div>
+				<?php } ?>
+				<?php $i++; endwhile; wp_reset_postdata(); ?>
+					</div><!-- .wrap -->
+				</div><!-- .colRight -->
 			</div>
 		</div>
 	</div>
+	<?php } ?>
+
 </section>
 <?php } ?>

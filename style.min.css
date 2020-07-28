@@ -1864,6 +1864,8 @@ h2.stitle{margin:0;text-transform:uppercase;font-family:"Poppins",sans-serif;fon
 .home-video-gallery .video-big{width:100%;margin-bottom:16px}
 @media(min-width:768px){.home-video-gallery .video-big{width:50%;margin-bottom:0}
 }.home-video-gallery .video-big .imagediv{width:100%;height:100%;float:left;overflow:hidden;position:relative;background-position:center;background-size:cover;background-repeat:no-repeat}
+.home-video-gallery .videoLink{display:block;text-decoration:none;width:100%;height:100%;position:absolute;top:0;left:0;z-index:100;text-align:center}
+.home-video-gallery .videoLink span{display:block;width:0;height:0;overflow:hidden;text-indent:-99em}
 .home-video-gallery .small-videos{width:100%;height:100%}
 @media(min-width:768px){.home-video-gallery .small-videos{width:50%}
 }.home-video-gallery .small-videos .wrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;margin:-8px}
