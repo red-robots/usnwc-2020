@@ -52,14 +52,16 @@ $placeholder = THEMEURI . 'images/rectangle-lg.png';
 													$embed_url = 'https://www.youtube.com/embed/'.$youtubeId.'?version=3&rel=0&loop=0';	
 													$mainImage = 'https://i.ytimg.com/vi/'.$youtubeId.'/maxresdefault.jpg'
 													?>
-													<div class="videoIframeDiv video-youtube" style="background-image:url('<?php echo $mainImage?>');">
-														<div id="playYoutube" class="playButtonDiv">
-															<a href="#" data-type="youtube" class="playVidBtn" data-embed="<?php echo $embed_url; ?>"><span>Play</span></a>
+													<div class="outer-video-wrap video__youtube">
+														<div class="videoIframeDiv video-youtube" style="background-image:url('<?php echo $mainImage?>');">
+															<div id="playYoutube" class="playButtonDiv">
+																<a href="#" data-type="youtube" class="playVidBtn" data-embed="<?php echo $embed_url; ?>"><span>Play</span></a>
+															</div>
+															<iframe class="videoIframe iframe-youtube" data-vid="youtube" src="<?php echo $embed_url; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+															<?php if (isset($row['slide_text']) && $row['slide_text']) { ?>
+															<div class="slideCaption"><div class="text"><?php echo $row['slide_text'] ?></div></div>
+															<?php } ?>
 														</div>
-														<iframe class="videoIframe iframe-youtube" data-vid="youtube" src="<?php echo $embed_url; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-														<?php if (isset($row['slide_text']) && $row['slide_text']) { ?>
-														<div class="slideCaption"><div class="text"><?php echo $row['slide_text'] ?></div></div>
-														<?php } ?>
 													</div>
 												<?php }  ?>
 											<?php }  ?>
@@ -71,21 +73,24 @@ $placeholder = THEMEURI . 'images/rectangle-lg.png';
 												$vimeoId = ($parts) ?  preg_replace('/\s+/', '', end($parts)) : '';
 												$vimeoData = ($vimeoId) ? get_vimeo_data($vimeoId) : '';
 												$data = json_decode( file_get_contents( 'https://vimeo.com/api/oembed.json?url=' . $videoURL ) );
-												if($data) {
-													$vimeoImage =  $data->thumbnail_url;
-													//$vimeoImage = $vimeoData->thumbnail_large;
-													//$vimeoImage = $vimeoData['thumbnail_large'];
-													?> 
-												<div class="videoIframeDiv video-vimeo" style="background-image:url('<?php echo $vimeoImage?>');">
-													<div id="playVimeo" class="playButtonDiv">
-														<a href="#" data-type="vimeo" class="playVidBtn" data-embed=""><span>Play</span></a>
+												?>
+												<div class="outer-video-wrap video__vimeo">
+													<?php if($data) {
+														$vimeoImage =  $data->thumbnail_url;
+														//$vimeoImage = $vimeoData->thumbnail_large;
+														//$vimeoImage = $vimeoData['thumbnail_large'];
+														?> 
+													<div class="videoIframeDiv video-vimeo" style="background-image:url('<?php echo $vimeoImage?>');">
+														<div id="playVimeo" class="playButtonDiv">
+															<a href="#" data-type="vimeo" class="playVidBtn" data-embed=""><span>Play</span></a>
+														</div>
+														<iframe class="videoIframe iframe-vimeo" data-vid="vimeo" src="https://player.vimeo.com/video/<?php echo $vimeoId?>" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+														<?php if (isset($row['slide_text']) && $row['slide_text']) { ?>
+														<div class="slideCaption"><div class="text"><?php echo $row['slide_text'] ?></div></div>
+														<?php } ?>
 													</div>
-													<iframe class="videoIframe iframe-vimeo" data-vid="vimeo" src="https://player.vimeo.com/video/<?php echo $vimeoId?>" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-													<?php if (isset($row['slide_text']) && $row['slide_text']) { ?>
-													<div class="slideCaption"><div class="text"><?php echo $row['slide_text'] ?></div></div>
 													<?php } ?>
 												</div>
-												<?php } ?>
 											<?php } ?>
 									
 									<?php endif;
