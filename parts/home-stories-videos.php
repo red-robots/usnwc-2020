@@ -109,7 +109,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 								<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
 								<?php if ($thumbnail_type=='default_image') { ?>
 								<div class="videoBtn">
-									<a href="#" class="play-btn large"></a>
+									<a href="#" class="play-btn"></a>
 								</div>
 								<?php } ?>
 								<div class="videoName"><span><?php echo $post_title ?></span></div>

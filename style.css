@@ -7228,7 +7228,7 @@ h2.stitle {
     width: 35px;
     height: 35px;
     border-radius: 100%;
-    border: 2px solid #FFF;
+    border: 3px solid #FFF;
     position: relative;
     -webkit-transition: all ease .3s;
     transition: all ease .3s;
