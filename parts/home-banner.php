@@ -71,7 +71,8 @@ $placeholder = THEMEURI . 'images/rectangle-lg.png';
 												$vimeoId = ($parts) ?  preg_replace('/\s+/', '', end($parts)) : '';
 												$vimeoData = ($vimeoId) ? get_vimeo_data($vimeoId) : '';
 												if($vimeoData) { 
-													$vimeoImage = $vimeoData->thumbnail_large;
+													//$vimeoImage = $vimeoData->thumbnail_large;
+													$vimeoImage = $vimeoData['thumbnail_large'];
 													?> 
 												<div class="videoIframeDiv video-vimeo" style="background-image:url('<?php echo $vimeoImage?>');">
 													<div id="playVimeo" class="playButtonDiv">

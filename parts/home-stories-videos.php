@@ -72,6 +72,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 						$video_thumbnail =  $vimeoData['thumbnail_large'];
 						$default_thumb = $video_thumbnail;
 					}
+
 				}
 
 
