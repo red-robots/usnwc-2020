@@ -66,8 +66,10 @@ $blank_image = THEMEURI . "images/rectangle.png";
 					$vimeoId = ($parts) ?  preg_replace('/\s+/', '', end($parts)) : '';
 					$vimeoData = ($vimeoId) ? get_vimeo_data($vimeoId) : '';
 					$videoURL .= '?autoplay=1';
+
 					if($vimeoData) { 
-						$video_thumbnail = $vimeoData->thumbnail_large;
+						//$video_thumbnail = $vimeoData->thumbnail_large;
+						$video_thumbnail =  $vimeoData['thumbnail_large'];
 						$default_thumb = $video_thumbnail;
 					}
 				}
