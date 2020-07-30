@@ -294,19 +294,21 @@ function set_custom_cpt_columns($columns) {
         $columns['show_on_homepage'] = __( 'Show on<br>Homepage', 'bellaworks' );
         $columns['featimage'] = __( 'Image', 'bellaworks' );
         $columns['taxonomy-event-location'] = __( 'Location', 'bellaworks' );
-        $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
         $columns['date'] = __( 'Date', 'bellaworks' );
+        $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
     }
 
     if($post_type=='story') {
         unset($columns['taxonomy-activity_type']);
+        unset($columns['taxonomy-edition']);
         unset($columns['expirationdate']);
         unset($columns['date']);
         $columns['title'] = __( 'Name', 'bellaworks' );
         $columns['show_on_homepage'] = __( 'Show on<br>Homepage', 'bellaworks' );
+        $columns['taxonomy-edition'] = __( 'Edition', 'bellaworks' );
         $columns['taxonomy-activity_type'] = __( 'Activity', 'bellaworks' );
-        $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
         $columns['date'] = __( 'Date', 'bellaworks' );
+        $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
     }
     
     return $columns;

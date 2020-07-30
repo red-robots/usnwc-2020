@@ -342,9 +342,25 @@ div.acf-field-repeater[data-name="today"] table tr.acf-row td {
 #acf-group_5f1912cfb5ecf .acf-flexible-content .layout {
     margin-top: 10px;
 }
+div.acf-field #expirationdatediv .inside td {
+    padding: 2px 5px;
+    vertical-align: top;
+}
+<?php 
+$has_expiration_post_types = array('festival','music'); 
+foreach($has_expiration_post_types as $pt) { ?>
+    body.post-type-<?php echo $pt?> div.acf-field[data-name="is_event_completed"] h2.hndle,
+    body.post-type-<?php echo $pt?> div.acf-field[data-name="is_event_completed"] .acf-input,
+    body.post-type-<?php echo $pt?> div.acf-field[data-name="is_event_completed"] .acf-label label {
+        display: none;
+    }
+<?php } ?>
+
 </style>
 <?php }
 
+
+/*===== START ADMIN CUSTOM SCRIPTS ======*/
 add_action('admin_footer', 'my_custom_admin_js');
 function my_custom_admin_js() { ?>
 <script type="text/javascript">
@@ -358,11 +374,17 @@ jQuery(document).ready(function($){
             $(this).find('[data-layout="child_menu_data"]').attr("data-parenttext","- "+parentMenu_child);
         });
     }
+    if( ($('body.post-php div.acf-field[data-name="is_event_completed"]').length > 0) && ($("#expirationdatediv").length > 0) ) {
+        $("#expirationdatediv").appendTo('div.acf-field[data-name="is_event_completed"]');
+        //var acfLabel = $('body.post-php div.acf-field[data-name="is_event_completed"] .acf-label label').text();
+        var acfLabel = 'Enable post expiration if event is completed';
+        $('div.acf-field #expirationdatediv label[for="enable-expirationdate"]').html('<strong>'+acfLabel+'</strong>');
+    }
 });
 </script>
 <?php
 }
-
+/*===== END ADMIN CUSTOM SCRIPTS ======*/
 
 function be_acf_options_page() {
     if ( ! function_exists( 'acf_add_options_page' ) )
