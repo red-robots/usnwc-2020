@@ -43,6 +43,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 				$default_thumb = '';
 				$youtubeID = '';
 				$vimeoID = '';
+				$is_video_vimeo = '';
 
 				//Youtube
 				if ( (strpos( strtolower($videoURL), 'youtube.com') !== false) || (strpos( strtolower($videoURL), 'youtu.be') !== false) ) {
@@ -57,15 +58,21 @@ $blank_image = THEMEURI . "images/rectangle.png";
 					}
 					$video_thumbnail = 'https://i.ytimg.com/vi/'.$youtubeID.'/maxresdefault.jpg';
 					$default_thumb = $video_thumbnail;
+					$is_video_vimeo = ' video__youtube';
 				}
 
 				//Vimeo
+				
+				$video_link = $videoURL;
 				if (strpos( strtolower($videoURL), 'vimeo.com') !== false) {
 					$vimeo_parts = explode("/",$videoURL);
 					$parts = ($vimeo_parts && array_filter($vimeo_parts) ) ? array_filter($vimeo_parts) : '';
 					$vimeoId = ($parts) ?  preg_replace('/\s+/', '', end($parts)) : '';
 					$vimeoData = ($vimeoId) ? get_vimeo_data($vimeoId) : '';
+					$video_link = $videoURL;
 					$videoURL .= '?autoplay=1';
+					$is_video_vimeo = ' video__vimeo';
+
 
 					// if($vimeoData) { 
 					// 	//$video_thumbnail = $vimeoData->thumbnail_large;
@@ -94,7 +101,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 
 				if ($i==1) { ?>
 				<div class="colLeft video-big">
-					<div class="imagediv wavehover"<?php echo $imageBg ?>>
+					<div class="imagediv wavehover<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
 						<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
 						
 						<?php if ($thumbnail_type=='default_image') { ?>
@@ -114,7 +121,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 					<div class="wrap">
 				<?php } else { ?>
 						<div class="sm-video">
-							<div class="thumb wavehover"<?php echo $imageBg ?>>
+							<div class="thumb wavehover<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
 								<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
 								<?php if ($thumbnail_type=='default_image') { ?>
 								<div class="videoBtn">

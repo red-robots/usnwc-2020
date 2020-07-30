@@ -20,10 +20,16 @@ jQuery(document).ready(function ($) {
 	if( $(".video__vimeo").length > 0 ) {
 		$(".video__vimeo").each(function(){
 			//https://vimeo.com/api/oembed.json?url=https://vimeo.com/152469591
+			var target = $(this);
 			var vimeoURL = $(this).attr("data-url");
 			var apiURL = 'https://vimeo.com/api/oembed.json?url='+vimeoURL;
 			$.get(apiURL,function(data){
-				console.log(data);
+				var thumbnail = data.thumbnail_url;
+				if( $(".vimeo-bg").length > 0 ) {
+					$(".vimeo-bg").css("background-image","url('"+thumbnail+"')");
+				} else {
+					target.css("background-image","url('"+thumbnail+"')");
+				}
 			});
 		});
 	}
