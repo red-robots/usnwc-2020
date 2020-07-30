@@ -74,7 +74,7 @@ $placeholder = THEMEURI . 'images/rectangle-lg.png';
 												$vimeoData = ($vimeoId) ? get_vimeo_data($vimeoId) : '';
 												$data = json_decode( file_get_contents( 'https://vimeo.com/api/oembed.json?url=' . $videoURL ) );
 												?>
-												<div class="outer-video-wrap video__vimeo">
+												<div class="outer-video-wrap video__vimeo" data-id="<?php echo $vimeoId ?>" data-url="<?php echo $videoURL ?>">
 													<?php if($data) {
 														$vimeoImage =  $data->thumbnail_url;
 														//$vimeoImage = $vimeoData->thumbnail_large;
