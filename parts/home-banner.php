@@ -52,8 +52,8 @@ $placeholder = THEMEURI . 'images/rectangle-lg.png';
 													$embed_url = 'https://www.youtube.com/embed/'.$youtubeId.'?version=3&rel=0&loop=0';	
 													$mainImage = 'https://i.ytimg.com/vi/'.$youtubeId.'/maxresdefault.jpg'
 													?>
-													<div class="outer-video-wrap video__youtube">
-														<div class="videoIframeDiv video-youtube" style="background-image:url('<?php echo $mainImage?>');">
+													<div class="outer-video-wrap">
+														<div class="videoIframeDiv video-youtube video__youtube" style="background-image:url('<?php echo $mainImage?>');">
 															<div id="playYoutube" class="playButtonDiv">
 																<a href="#" data-type="youtube" class="playVidBtn" data-embed="<?php echo $embed_url; ?>"><span>Play</span></a>
 															</div>
@@ -75,8 +75,8 @@ $placeholder = THEMEURI . 'images/rectangle-lg.png';
 												$data = json_decode( file_get_contents( 'https://vimeo.com/api/oembed.json?url=' . $videoURL ) );
 												$vimeoImage = ($data) ? $data->thumbnail_url : '';
 												?>
-												<div class="outer-video-wrap video__vimeo" data-id="<?php echo $vimeoId ?>" data-url="<?php echo $videoURL ?>">
-													<div class="videoIframeDiv video-vimeo vimeo-bg">
+												<div class="outer-video-wrap">
+													<div class="videoIframeDiv video-vimeo video__vimeo" data-id="<?php echo $vimeoId ?>" data-url="<?php echo $videoURL ?>">
 														<div id="playVimeo" class="playButtonDiv">
 															<a href="#" data-type="vimeo" class="playVidBtn" data-embed=""><span>Play</span></a>
 														</div>

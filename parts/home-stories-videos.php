@@ -101,7 +101,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 
 				if ($i==1) { ?>
 				<div class="colLeft video-big">
-					<div class="imagediv wavehover<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
+					<div class="imagediv storyVideo wavehover<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
 						<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
 						
 						<?php if ($thumbnail_type=='default_image') { ?>
@@ -121,7 +121,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 					<div class="wrap">
 				<?php } else { ?>
 						<div class="sm-video">
-							<div class="thumb wavehover<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
+							<div class="thumb storyVideo wavehover<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
 								<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
 								<?php if ($thumbnail_type=='default_image') { ?>
 								<div class="videoBtn">
