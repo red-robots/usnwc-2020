@@ -399,7 +399,7 @@ add_action( 'init', 'be_acf_options_page' );
 
 function get_vimeo_data($vimeoId) {
     if (empty($vimeoId)) return '';
-    $obj = @unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$vimeoId.".php"));
+    $obj = @unserialize(file_get_contents("https://vimeo.com/api/v2/video/".$vimeoId.".php"));
     return ($obj) ? $obj[0] : '';
     //$json_url = 'http://vimeo.com/api/v2/video/'.$vimeoId.'.json?callback=showThumb';
     // $json_data = @file_get_contents($json_url);
