@@ -768,7 +768,7 @@ h2.stitle {
 			position: absolute;
 			top: -30%;
 			left: 0;
-			width: 250%;
+			width: 100vw;
 			height: 100%;
 			transition: all ease .8s;
 			transform: translateY(150%);
@@ -778,7 +778,7 @@ h2.stitle {
 				content:"";
 				display: block;
 				width: 100%;
-				height: 100%;
+				height: 110%;
 				background: #000;
 				position: absolute;
 				bottom: -30%;
@@ -795,6 +795,22 @@ h2.stitle {
 				transform: translateY(0);
 				background-position: top right;
 			}
+		}
+	}
+	&.festival {
+		.postbox {
+			width: 100%;
+			@include xs {
+				width: 50%;
+			}
+			@include tab {
+				width: 25%;
+			}
+		}
+	}
+	@media screen and (max-width:$tabwidth) {
+		.postbox .wave-svg {
+			width: 200vw;
 		}
 	}
 }
@@ -1016,6 +1032,72 @@ h2.stitle {
 			}
 		}
 	}
+	&.count1 {
+		.video-big {
+			width: 100%;
+			height: 380px;
+			img.blankImg {
+				display: none;
+			}
+			.imagediv {
+				background-position: top center;
+			}
+			@include tab {
+				height: 500px;
+			}
+			@include mid {
+				height: 600px;
+			}
+		}
+		.colRight {
+			display: none;
+		}
+		.wavehover .wave {
+			width: 150vw;
+		}
+	}
+	&.count2 {
+		.small-videos {
+			.sm-video {
+				width: 100%;
+				padding: 12px 0;
+			}
+		}
+	}
+	&.count3 {
+		.video-big {
+			width: 100%;
+			@include tab {
+				width: 33.33%;
+			}
+		}
+		.small-videos {
+			width: 100%;
+			@include tab {
+				width: 66.67%;
+			}
+		}
+	}
+	&.count4 {
+		.video-big {
+			width: 100%;
+			@include tab {
+				width: 25%;
+			}
+		}
+		.small-videos {
+			width: 100%;
+			@include tab {
+				width: 75%;
+			}
+			.sm-video {
+				width: 100%;
+				@include tab {
+					width: 33.33%;
+				}
+			}
+		}
+	}	
 }
 
 .homerow.row5 {

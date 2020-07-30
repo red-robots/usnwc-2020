@@ -21,13 +21,16 @@ $blank_image = THEMEURI . "images/rectangle.png";
 	<?php /* VIDEOS */ ?>
 	<?php  
 	$args = array(
-		'numberposts'	=> 7,
+		'posts_per_page'	=> 5,
 		'post_type'		=> 'story',
-		'post_status'	=> 'publish'
+		'post_status'	=> 'publish',
+		'meta_key'		=> 'show_on_homepage',
+		'meta_value'	=> 'yes'
 	);
 	$posts = new WP_Query($args);
-	if ( $posts->have_posts() ) { ?>
-	<div class="home-video-gallery full">
+	if ( $posts->have_posts() ) { 
+	$totalpost = $posts->found_posts;  ?>
+	<div class="home-video-gallery full count<?php echo $totalpost?>">
 		<div class="inner-wrap">
 			<div class="flexwrap">
 				<?php $i=1; while ( $posts->have_posts() ) : $posts->the_post(); 

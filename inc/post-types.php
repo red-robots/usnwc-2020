@@ -259,6 +259,21 @@ function build_taxonomies() {
             '_builtin' => true
         )
     );
+
+    register_taxonomy( 
+        'edition', 
+        array('story'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Edition', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'edition' ),
+            '_builtin' => true
+        ) 
+    );
     
 } // End build taxonomies
 
@@ -273,11 +288,24 @@ function set_custom_cpt_columns($columns) {
     
     if($post_type=='music') {
         unset($columns['taxonomy-event-location']);
+        unset($columns['expirationdate']);
         unset($columns['date']);
         $columns['title'] = __( 'Name', 'bellaworks' );
         $columns['show_on_homepage'] = __( 'Show on<br>Homepage', 'bellaworks' );
         $columns['featimage'] = __( 'Image', 'bellaworks' );
         $columns['taxonomy-event-location'] = __( 'Location', 'bellaworks' );
+        $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
+        $columns['date'] = __( 'Date', 'bellaworks' );
+    }
+
+    if($post_type=='story') {
+        unset($columns['taxonomy-activity_type']);
+        unset($columns['expirationdate']);
+        unset($columns['date']);
+        $columns['title'] = __( 'Name', 'bellaworks' );
+        $columns['show_on_homepage'] = __( 'Show on<br>Homepage', 'bellaworks' );
+        $columns['taxonomy-activity_type'] = __( 'Activity', 'bellaworks' );
+        $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
         $columns['date'] = __( 'Date', 'bellaworks' );
     }
     
@@ -313,6 +341,19 @@ function custom_post_column( $column, $post_id ) {
                 $the_photo .= '</span>';
                 echo $the_photo;
                 break;
+        }
+    }
+
+    if($post_type=='story') {
+        switch ( $column ) {
+
+            case 'show_on_homepage' :
+                $show = get_field('show_on_homepage',$post_id);
+                if($show=='yes') {
+                    echo '<span style="display:inline-block;width:50px;text-align:center;"><i class="dashicons dashicons-star-filled" style="color:#f1b429;font-size:25px;"></i></span>';
+                } 
+                break;
+
         }
     }
     
