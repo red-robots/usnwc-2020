@@ -94,6 +94,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 				} else {
 					if($custom_thumb) {
 						$video_thumbnail = $custom_thumb['url'];
+						$is_video_vimeo = '';
 					}
 				}
 
