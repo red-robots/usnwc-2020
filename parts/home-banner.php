@@ -70,9 +70,11 @@ $placeholder = THEMEURI . 'images/rectangle-lg.png';
 												$parts = ($vimeo_parts && array_filter($vimeo_parts) ) ? array_filter($vimeo_parts) : '';
 												$vimeoId = ($parts) ?  preg_replace('/\s+/', '', end($parts)) : '';
 												$vimeoData = ($vimeoId) ? get_vimeo_data($vimeoId) : '';
-												if($vimeoData) { 
+												$data = json_decode( file_get_contents( 'https://vimeo.com/api/oembed.json?url=' . $videoURL ) );
+												if($data) {
+													$vimeoImage =  $data->thumbnail_url;
 													//$vimeoImage = $vimeoData->thumbnail_large;
-													$vimeoImage = $vimeoData['thumbnail_large'];
+													//$vimeoImage = $vimeoData['thumbnail_large'];
 													?> 
 												<div class="videoIframeDiv video-vimeo" style="background-image:url('<?php echo $vimeoImage?>');">
 													<div id="playVimeo" class="playButtonDiv">

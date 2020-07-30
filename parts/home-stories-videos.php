@@ -67,9 +67,15 @@ $blank_image = THEMEURI . "images/rectangle.png";
 					$vimeoData = ($vimeoId) ? get_vimeo_data($vimeoId) : '';
 					$videoURL .= '?autoplay=1';
 
-					if($vimeoData) { 
-						//$video_thumbnail = $vimeoData->thumbnail_large;
-						$video_thumbnail =  $vimeoData['thumbnail_large'];
+					// if($vimeoData) { 
+					// 	//$video_thumbnail = $vimeoData->thumbnail_large;
+					// 	$video_thumbnail =  $vimeoData['thumbnail_large'];
+					// 	$default_thumb = $video_thumbnail;
+					// }
+
+					$data = json_decode( file_get_contents( 'https://vimeo.com/api/oembed.json?url=' . $videoURL ) );
+					if($data) {
+						$video_thumbnail =  $data->thumbnail_url;
 						$default_thumb = $video_thumbnail;
 					}
 

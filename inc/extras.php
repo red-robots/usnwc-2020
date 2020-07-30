@@ -410,39 +410,6 @@ function get_vimeo_data($vimeoId) {
     //     return ($data) ? $data[0] : '';
     // }
 }
-/*  
-* Return value from get_vimeo_data($vimeoId)
-*
-Array
-(
-      [0] => stdClass Object
-        (
-            [id] => 207171170
-            [title] => U.S. National Whitewater Center
-            [description] => ""
-            [url] => https://vimeo.com/207171170
-            [upload_date] => 2017-03-06 14:44:40
-            [thumbnail_small] => http://i.vimeocdn.com/video/624990951_100x75.jpg
-            [thumbnail_medium] => http://i.vimeocdn.com/video/624990951_200x150.jpg
-            [thumbnail_large] => http://i.vimeocdn.com/video/624990951_640.jpg
-            [user_id] => 6206160
-            [user_name] => U.S. National Whitewater Center
-            [user_url] => https://vimeo.com/usnwc
-            [user_portrait_small] => http://i.vimeocdn.com/portrait/33550254_30x30
-            [user_portrait_medium] => http://i.vimeocdn.com/portrait/33550254_75x75
-            [user_portrait_large] => http://i.vimeocdn.com/portrait/33550254_100x100
-            [user_portrait_huge] => http://i.vimeocdn.com/portrait/33550254_300x300
-            [stats_number_of_likes] => 4
-            [stats_number_of_plays] => 123145
-            [stats_number_of_comments] => 0
-            [duration] => 185
-            [width] => 1920
-            [height] => 816
-            [tags] => USNWC, U.S. National, Whitewater, Center, Raft, Kayak, Climb, Zipline, Mountain Bike, Run, Trails, Music, Beer
-            [embed_privacy] => anywhere
-      )
 
-)
-*/
 
 
