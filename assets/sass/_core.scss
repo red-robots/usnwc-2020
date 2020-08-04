@@ -269,6 +269,10 @@ a,input,button,select,textarea {
     float: left;
     position: relative;
 	background: rgba(255,255,255,.85);
+	box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+	@include tab {
+		box-shadow: none;
+	}
 	.wrapper {
 		height: 100%;
 		padding-top: 10px;
@@ -1590,12 +1594,15 @@ body.subpage.single {
 			.wrap {
 				height: 100%;
 				background: $gray;
-				padding: 15px;
+				padding: 40px 30px;
 				text-align: center;
 				font-size: 15px;
 				font-weight: 300;
 				line-height: 1.6;
 				@include flexgroup-center();
+				@include tab {
+					padding: 15px;
+				}
 			}
 			.inner {
 				max-width: 95%;
@@ -1654,8 +1661,12 @@ body.subpage.single {
 }
 
 .section-content#section-options {
-	padding-top: 60px;
+	padding-top: 20px;
 	padding-bottom: 60px;
+	@include tab {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
 	.activities {
 		width: 100%;
 		float: left;
@@ -2152,6 +2163,19 @@ body.subpage.single {
 body.logged-in.admin-bar {
 	.site-header {
 		top: 32px;
+	}
+}
+
+@media screen and (max-width: 782px) {
+	html #wpadminbar {
+		position: fixed!important;
+		top: 0;
+		left: 0;
+	}
+	body.logged-in.admin-bar {
+		.site-header {
+			top: 46px;
+		}
 	}
 }
 
