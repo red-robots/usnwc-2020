@@ -1,9 +1,14 @@
 <?php
+$post_id = get_the_ID();
 $placeholder = THEMEURI . 'images/rectangle-lg.png';
+$is_subpage = (is_home() || is_front_page()) ? false : true;
+//$pass_availability = get_field('pass_availability',$post_id);
+$top_notification = get_field("top_notification",$post_id);
 ?>
 <div id="banner">
 	<?php 
 	$flexslider = get_field( "flexslider_banner" );
+	$slidesCount = ($flexslider) ? count($flexslider) : 0;
 	$firstImg = array();
 	if($flexslider) {
 		foreach($flexslider as $r) {
@@ -13,8 +18,17 @@ $placeholder = THEMEURI . 'images/rectangle-lg.png';
 		}
 	}
 
+	$slide_class = ($slidesCount>1) ? 'flexslider':'static-banner';
+
 	if ( $flexslider ):?>
-		<div class="flexslider">
+		<div class="slides-wrapper <?php echo $slide_class ?>">
+			<?php if ($is_subpage && $top_notification) { ?>
+			<div class="slideTopTitle animated fadeIn">
+				<div class="wrapper text-center">
+					<span class="toptext"><?php echo $top_notification; ?></span>
+				</div>
+			</div>	
+			<?php } ?>
 			<ul class="slides">
 				<?php for ($i = 0; $i< count($flexslider) ; $i++ ):
 				$row = $flexslider[$i]; 
@@ -123,6 +137,16 @@ $placeholder = THEMEURI . 'images/rectangle-lg.png';
 							</div><!--.image-wrapper-->
 							<?php if ( isset($row['slide_text']) && $row['slide_text'] ) { ?>
 							<div class="slideCaption"><div class="text"><?php echo $row['slide_text'] ?></div></div>
+							<?php } else { ?>
+
+								<?php if ($is_subpage) { ?>
+								<div class="slidePageTitle animated fadeIn">
+									<div class="innertext">
+										<h1 class="text"><?php echo get_the_title(); ?></h1>
+									</div>
+								</div>	
+								<?php } ?>
+
 							<?php } ?>
 						</li>
 					<?php endif; ?>

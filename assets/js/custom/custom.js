@@ -17,6 +17,13 @@ jQuery(document).ready(function ($) {
 	    }
 	});
 
+	if( $(".subpage-sliders").length > 0 ) {
+		$('.subpage-sliders').flexslider({
+			animation: "fade",
+			smoothHeight: true
+		});
+	}
+
 	if( $(".video__vimeo").length > 0 ) {
 		$(".video__vimeo").each(function(){
 			var target = $(this);

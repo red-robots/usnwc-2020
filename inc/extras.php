@@ -411,5 +411,24 @@ function get_vimeo_data($vimeoId) {
     // }
 }
 
+function get_pass_type_category($term_id) {
+    $taxonomy = 'pass_type';
+    $args = array(
+        'posts_per_page'=> -1,
+        'post_type'     => 'pass',
+        'post_status'   => 'publish',
+        'tax_query' => array(
+            array(
+                'taxonomy' => $taxonomy,
+                'field' => 'term_id',
+                'terms' => $term_id
+            )
+        )
+        
+    );
+    $posts = get_posts($args);
+    return ($posts) ? $posts : '';
+}
+
 
 
