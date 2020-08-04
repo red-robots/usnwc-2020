@@ -486,6 +486,22 @@ a,input,button,select,textarea {
 				height: auto;
 				float: left;
 			}
+			&.yes-mobile {
+				img {
+					&.desktop {
+						display: none;
+						@include tab {
+							display: block;
+						}
+					}
+					&.mobile {
+						display: block;
+						@include tab {
+							display: none;
+						}
+					}
+				}
+			}
 		}
 		.slideCaption,
 		.slidePageTitle {
@@ -500,6 +516,7 @@ a,input,button,select,textarea {
 			.innertext {
 				width: 100%;
 				text-align: center;
+				margin-top: 12vh;
 			}
 			.text {
 				display: inline-block;

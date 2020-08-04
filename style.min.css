@@ -1806,8 +1806,12 @@ a,input,button,select,textarea{-webkit-transition:all ease .3s;transition:all ea
 #banner .static-banner{width:100%;float:left}
 #banner .static-banner ul.slides,#banner .static-banner li.slideItem,#banner .static-banner .image-wrapper{width:100%;float:left;position:relative}
 #banner .static-banner .image-wrapper img{width:100%;height:auto;float:left}
-#banner .static-banner .slideCaption,#banner .static-banner .slidePageTitle{width:100%;height:100%;position:absolute;top:0;left:0;z-index:5;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-align:center}
-#banner .static-banner .slideCaption .innertext,#banner .static-banner .slidePageTitle .innertext{width:100%;text-align:center}
+#banner .static-banner .image-wrapper.yes-mobile img.desktop{display:none}
+@media(min-width:768px){#banner .static-banner .image-wrapper.yes-mobile img.desktop{display:block}
+}#banner .static-banner .image-wrapper.yes-mobile img.mobile{display:block}
+@media(min-width:768px){#banner .static-banner .image-wrapper.yes-mobile img.mobile{display:none}
+}#banner .static-banner .slideCaption,#banner .static-banner .slidePageTitle{width:100%;height:100%;position:absolute;top:0;left:0;z-index:5;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-align:center}
+#banner .static-banner .slideCaption .innertext,#banner .static-banner .slidePageTitle .innertext{width:100%;text-align:center;margin-top:12vh}
 #banner .static-banner .slideCaption .text,#banner .static-banner .slidePageTitle .text{display:inline-block;width:auto;padding:.5em 1em .4em;background:rgba(0,0,0,0.85);color:#FFF;font-family:"Poppins",sans-serif;font-size:2em;font-weight:300;text-transform:uppercase;letter-spacing:2px;float:none;margin:0 auto}
 #banner .slideTopTitle{width:100%;color:#FFF;background:rgba(186,12,47,0.85);position:absolute;top:88px;left:0;z-index:100}
 #banner .slideTopTitle .wrapper{padding-top:8px;padding-bottom:8px}
