@@ -310,6 +310,7 @@ jQuery(document).ready(function ($) {
 			var default_image = $("#defaultModel").attr('data-default');
 			if( $(image_part).length > 0 ) {
 				var img_src = $(image_part).attr('data-src');
+				$(".partImg").removeClass("fadeIn");
 				$(image_part).addClass("fadeIn");
 			} else {
 				$(".partImg").removeClass("fadeIn");
