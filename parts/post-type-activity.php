@@ -248,15 +248,16 @@
 			<div class="flexwrap">
 				<?php if ($wtw_default_image) { ?>
 				<div class="col model">
-					<div id="defaultModel" class="default" data-default="<?php echo $wtw_default_image['url'] ?>" style="background-image:url('<?php echo $wtw_default_image['url'] ?>')"></div>
-					<?php if ($wtw_options) { ?>
-						<?php $i=1; foreach ($wtw_options as $m) { 
-							$wImg = $m['w_image']; 
-							if($wImg) { ?>
-							<div id="partImg<?php echo $i?>" class="part animated" data-src="<?php echo $wImg['url'] ?>"></div>
-							<?php } ?>
-						<?php $i++; } ?>
-					<?php } ?>
+					<div id="defaultModel" class="default" data-default="<?php echo $wtw_default_image['url'] ?>" style="background-image:url('<?php echo $wtw_default_image['url'] ?>')">
+						<?php if ($wtw_options) { ?>
+							<?php $i=1; foreach ($wtw_options as $m) { 
+								$wImg = $m['w_image']; 
+								if($wImg) { ?>
+								<div id="partImg<?php echo $i?>" class="part partImg animated" data-src="<?php echo $wImg['url'] ?>" style="background-image:url('<?php echo $wImg['url'] ?>')"></div>
+								<?php } ?>
+							<?php $i++; } ?>
+						<?php } ?>
+					</div>
 				</div>	
 				<?php } ?>
 
@@ -309,9 +310,9 @@ jQuery(document).ready(function ($) {
 			var default_image = $("#defaultModel").attr('data-default');
 			if( $(image_part).length > 0 ) {
 				var img_src = $(image_part).attr('data-src');
-				$("#defaultModel").css("background-image","url('"+img_src+"')");
+				$(image_part).addClass("fadeIn");
 			} else {
-				$("#defaultModel").css("background-image","url('"+default_image+"')");
+				$(".partImg").removeClass("fadeIn");
 			}
 		}
 	}); 
