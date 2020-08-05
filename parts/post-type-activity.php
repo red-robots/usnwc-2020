@@ -46,7 +46,7 @@
 	?>
 
 	<?php if ($left_text || $galleries) { ?>
-	<section id="section-intro" data-title="Intro" class="section-content intro-galleries <?php echo $introClass ?>">
+	<section id="section-intro" data-section="Intro" class="section-content intro-galleries <?php echo $introClass ?>">
 		<div class="flexwrap">
 			<?php if ($left_text) { ?>
 			<div class="leftcol textcol">
@@ -89,7 +89,7 @@
 	$activities = get_field("activities");
 	$options_class = ($activities && $categories) ? 'half':'full';
 	if($activities || $categories) { ?>
-	<section id="section-options" data-title="Options" class="section-content <?php echo $options_class ?>">
+	<section id="section-options" data-section="Options" class="section-content <?php echo $options_class ?>">
 		<div class="wrapper">
 			<?php if ($activities) { ?>
 			<div class="optcol activities">
@@ -234,6 +234,90 @@
 		</div>
 	</section>
 	<?php } ?>
-	
 
+
+	<?php
+	/* WHAT TO WEAR */ 
+	$wtw_section_title = get_field("wtw_section_title");  
+	$wtw_default_image = get_field("wtw_default_image");  
+	$wtw_options = get_field("wtw_options");  
+	$wtw_class = ($wtw_default_image && $wtw_options) ? 'half':'full';
+	if ($wtw_options) { ?>
+	<section id="section-whattowear" data-section="What To Wear" class="section-content <?php echo $wtw_class ?>">
+		<div class="wrapper">
+			<div class="flexwrap">
+				<?php if ($wtw_default_image) { ?>
+				<div class="col model">
+					<div id="defaultModel" class="default" data-default="<?php echo $wtw_default_image['url'] ?>" style="background-image:url('<?php echo $wtw_default_image['url'] ?>')"></div>
+					<?php if ($wtw_options) { ?>
+						<?php $i=1; foreach ($wtw_options as $m) { 
+							$wImg = $m['w_image']; 
+							if($wImg) { ?>
+							<div id="partImg<?php echo $i?>" class="part animated" data-src="<?php echo $wImg['url'] ?>"></div>
+							<?php } ?>
+						<?php $i++; } ?>
+					<?php } ?>
+				</div>	
+				<?php } ?>
+
+				<?php if ($wtw_options) { ?>
+				<div class="col options">
+					<?php if ($wtw_section_title) { ?>
+					<div class="titlediv"><h2><?php echo $wtw_section_title ?></h2></div>	
+					<?php } ?>
+
+					<?php if ($wtw_options) { ?>
+					<div class="wtw-options">
+						<?php $n=1; foreach ($wtw_options as $m) { 
+							$title = $m['w_title'];
+							$description = $m['w_text'];
+							$image_part = $m['w_image']; 
+							$hasMapImage = ($image_part) ? 'has-map-image':'no-map-image';
+							if($title) { ?>
+							<div id="wtw<?php echo $n?>" data-part="#partImg<?php echo $n?>" class="wtw-row collapsible <?php echo $hasMapImage ?>">
+								<?php if ($title) { ?>
+									<h3 class="option-name"><?php echo $title ?> <span class="arrow"></span></h3>
+								<?php } ?>
+
+								<?php if ($description) { ?>
+									<div class="option-text"><?php echo $description ?></div>
+								<?php } ?>
+							</div>
+							<?php } ?>
+						<?php $n++; } ?>
+					</div>	
+					<?php } ?>
+				</div>	
+				<?php } ?>
+			</div>
+		</div>
+	</section>
+	<?php } ?>
+	
 <?php endwhile; ?>
+
+
+
+<script>
+jQuery(document).ready(function ($) {
+	$(".collapsible").on("click",function(){
+		var image_part = $(this).attr("data-part");
+		$(".collapsible").removeClass("active fadeIn");
+		$(this).toggleClass("active fadeIn");
+
+		if( $("#defaultModel").length> 0 ) {
+			var default_image = $("#defaultModel").attr('data-default');
+			if( $(image_part).length > 0 ) {
+				var img_src = $(image_part).attr('data-src');
+				$("#defaultModel").css("background-image","url('"+img_src+"')");
+			} else {
+				$("#defaultModel").css("background-image","url('"+default_image+"')");
+			}
+		}
+	}); 
+	if( $(".col.options").length>0 && $("#defaultModel").length>0 ) {
+		var optionsHeight = $(".col.options").height();
+		$("#defaultModel").css("height",optionsHeight+"px");
+	}
+});
+</script>

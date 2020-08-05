@@ -17,6 +17,20 @@ jQuery(document).ready(function ($) {
 	    }
 	});
 
+	var windowHeight = $(window).scrollTop();
+	if(windowHeight  > 100) {
+		$("body").addClass('scrolled');
+	}
+
+	$(window).scroll(function() {    
+		var wHeight = $(window).scrollTop();
+		if(wHeight  > 100) {
+			$("body").addClass('scrolled');
+		} else{
+			$("body").removeClass('scrolled');
+		}
+	});
+
 	if( $(".subpage-sliders").length > 0 ) {
 		$('.subpage-sliders').flexslider({
 			animation: "fade",
