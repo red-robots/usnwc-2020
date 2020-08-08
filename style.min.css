@@ -1995,7 +1995,7 @@ a,input,button,select,textarea{-webkit-transition:all ease .3s;transition:all ea
 .homerow.row3{background-color:#FFF}
 h2.stitle{margin:0;text-transform:uppercase;font-family:"Poppins",sans-serif;font-weight:400;font-size:25px;letter-spacing:2px;color:#000}
 .buttondiv{margin-top:20px}
-.btn-sm{display:inline-block;text-decoration:none;color:#5a5959;padding:5px 15px;border:1px solid #a2a2a2;overflow:hidden;position:relative}
+.btn-sm{display:inline-block;text-decoration:none;color:#5a5959;padding:5px 15px;border:1px solid #a2a2a2;overflow:hidden;position:relative;font-size:12px}
 .btn-sm span{position:relative;z-index:5}
 .btn-sm:before{content:"";display:block;width:150%;height:100%;background:#000;-webkit-transform:translateX(-100%) skew(-45deg);-ms-transform:translateX(-100%) skew(-45deg);transform:translateX(-100%) skew(-45deg);position:absolute;top:0;left:-20%;-webkit-transition:all ease .5s;transition:all ease .5s}
 .btn-sm:hover{color:#FFF;border-color:#000}
@@ -2024,7 +2024,7 @@ h2.stitle{margin:0;text-transform:uppercase;font-family:"Poppins",sans-serif;fon
 .featured-events-section .postbox .details .event-name{font-family:"Poppins",sans-serif;font-size:18px;font-weight:300;line-height:1.2;letter-spacing:1px;text-transform:uppercase}
 .featured-events-section .postbox .details *{-webkit-transition:all ease .3s;transition:all ease .3s}
 .featured-events-section .postbox div.wave{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;opacity:.7}
-.featured-events-section .postbox .wave-svg{background-image:url("images/wave.svg");background-repeat:no-repeat;background-position:top left;position:absolute;top:-30%;left:0;width:100vw;height:100%;-webkit-transition:all ease .8s;transition:all ease .8s;-webkit-transform:translateY(150%);-ms-transform:translateY(150%);transform:translateY(150%);-webkit-animation:waveEffect .4s cubic-bezier(0.55,0.55,0.55,0.55) infinite;animation:waveEffect .4s cubic-bezier(0.55,0.55,0.55,0.55) infinite}
+.featured-events-section .postbox .wave-svg{background-image:url("images/wave.svg");background-repeat:no-repeat;background-position:top left;position:absolute;top:-30%;left:0;width:75vw;height:100%;-webkit-transition:all ease .8s;transition:all ease .8s;-webkit-transform:translateY(150%);-ms-transform:translateY(150%);transform:translateY(150%);-webkit-animation:waveEffect .4s cubic-bezier(0.55,0.55,0.55,0.55) infinite;animation:waveEffect .4s cubic-bezier(0.55,0.55,0.55,0.55) infinite}
 .featured-events-section .postbox .wave-svg:before{content:"";display:block;width:100%;height:110%;background:#000;position:absolute;bottom:-30%;left:0;-webkit-transition:all ease 5s;transition:all ease 5s}
 .featured-events-section .postbox .boxlink:hover .details .info{opacity:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
 .featured-events-section .postbox .boxlink:hover .wave-svg{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);background-position:top right}
@@ -2203,6 +2203,7 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 .btn-border:hover{background:#ba0d30;border-color:#ba0d30;color:#FFF}
 .btn-border-white{display:inline-block;text-decoration:none;cursor:pointer;border:1px solid #FFF;color:#FFF;font-size:12px;line-height:1.2;padding:8px 10px}
 .btn-border-white:hover{background:#FFF;color:#ba0d30}
+.sectionTitle{font-family:"Poppins",sans-serif;font-size:23px;font-weight:400;line-height:1.3;text-transform:uppercase;letter-spacing:2px;color:#191919;margin:0}
 #section-whattowear{padding-top:80px;padding-bottom:80px;background:#f2f2f2}
 #section-whattowear .model,#section-whattowear .options{width:100%;float:left;position:relative}
 @media(min-width:768px){#section-whattowear.half .model{width:35%;padding-right:10vw}
@@ -2214,9 +2215,10 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 #section-whattowear .model .default,#section-whattowear .model .part{width:100%;height:100%;background-size:contain;background-position:center;background-repeat:no-repeat;-webkit-transition:all ease .3s;transition:all ease .3s}
 #section-whattowear .model .part{position:absolute;top:0;left:0;z-index:2;display:none;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-duration:var(--animate-duration);animation-duration:var(--animate-duration);-webkit-animation-fill-mode:both;animation-fill-mode:both}
 #section-whattowear .model .part.fadeIn{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
-#section-whattowear .options .titlediv{margin-bottom:30px}
-#section-whattowear .options .titlediv h2{font-family:"Poppins",sans-serif;font-size:25px;font-weight:400;line-height:1.3;text-transform:uppercase;letter-spacing:2px;color:#191919;margin:0}
-.collapsible{padding:30px 20px;border-top:1px solid #bdbdbd;-webkit-transition:all ease .3s;transition:all ease .3s;cursor:pointer;position:relative;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-duration:var(--animate-duration);animation-duration:var(--animate-duration);-webkit-animation-fill-mode:both;animation-fill-mode:both}
+#section-whattowear .options .titlediv{margin-bottom:20px}
+@media screen and (max-width:768px){#section-whattowear .model #defaultModel.default{height:330px !important}
+}.collapsible{padding:30px 20px;border-top:1px solid #bdbdbd;-webkit-transition:all ease .3s;transition:all ease .3s;cursor:pointer;position:relative;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-duration:var(--animate-duration);animation-duration:var(--animate-duration);-webkit-animation-fill-mode:both;animation-fill-mode:both}
+.collapsible.first{border-top:0}
 .collapsible:before{content:"";display:block;width:100%;height:0;position:absolute;top:0;left:0;background:#ba0d30;-webkit-transition:all ease .3s;transition:all ease .3s}
 .collapsible *{-webkit-transition:all ease .3s;transition:all ease .3s}
 .collapsible .option-name,.collapsible .option-text{z-index:10}
@@ -2232,6 +2234,62 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 .collapsible.active .option-name span.arrow,.collapsible.active .option-text span.arrow{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}
 .collapsible.active .option-name span.arrow:before,.collapsible.active .option-name span.arrow:after,.collapsible.active .option-text span.arrow:before,.collapsible.active .option-text span.arrow:after{background:#FFF}
 .collapsible.active .option-text{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
+#section-checkin .flexwrap{padding:5px}
+#section-checkin .col-left,#section-checkin .col-right{width:100%;position:relative}
+@media(min-width:768px){#section-checkin .col-left,#section-checkin .col-right{width:50%}
+}#section-checkin .flex-content{width:100%;float:left;position:relative;padding:5px;color:#FFF}
+#section-checkin .flex-content .inside{background:#6fa2b6}
+#section-checkin .flex-content.has-text{text-align:center}
+#section-checkin .flex-content.has-text h1,#section-checkin .flex-content.has-text h2,#section-checkin .flex-content.has-text h3,#section-checkin .flex-content.has-text h4,#section-checkin .flex-content.has-text h5,#section-checkin .flex-content.has-text h6{font-family:"Poppins",sans-serif;font-weight:400;line-height:1.2;margin:0 0 18px;text-transform:uppercase;letter-spacing:1px}
+#section-checkin .flex-content.has-text h1{font-size:28px}
+#section-checkin .flex-content.has-text h2{font-size:23px}
+#section-checkin .flex-content.has-text h3{font-size:18px}
+#section-checkin .flex-content.has-text h4{font-size:16px}
+#section-checkin .flex-content.has-text h5{font-size:14px}
+#section-checkin .flex-content.has-text h6{font-size:13px}
+#section-checkin .flex-content.has-text .caption{font-size:14px;font-weight:400;line-height:1.4;padding:30px 30px}
+#section-checkin .flex-content.has-text .caption p:last-child{margin-bottom:0}
+#section-checkin .inside.has-image{width:100%;float:left}
+#section-checkin .image-only{width:100%;float:left;background-size:cover;background-position:center;background-repeat:no-repeat}
+#section-checkin .image-only img{width:100%;height:auto;float:left}
+@media(min-width:768px){#section-checkin .col-left .flex-content{height:50%}
+}#section-checkin .col-left .flex-content .inside{height:100%}
+#section-checkin .col-left .flex-content.has-text .inside{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+#section-checkin .col-left .image-only{height:100%}
+#section-checkin .col-left .image-only img{display:block}
+@media(min-width:768px){#section-checkin .col-left .image-only img{display:none}
+}#section-checkin .col-right img.placeholder{display:none}
+#section-faqs{background:#FFF;padding-top:70px;padding-bottom:70px}
+#section-faqs .titlediv{text-align:right;margin-bottom:20px}
+#section-faqs .faqs,#section-faqs .faq-image{width:100%;position:relative}
+#section-faqs.half .faqs{width:100%}
+@media(min-width:768px){#section-faqs.half .faqs{width:60%;padding-right:4vw}
+}#section-faqs.half .faq-image{width:100%}
+@media(min-width:768px){#section-faqs.half .faq-image{width:40%}
+}#section-faqs.half .faq-image img{width:100%;height:auto}
+#section-featured-posts .flexwrap{margin-left:-5px;margin-right:-5px;padding-bottom:5px}
+#section-featured-posts .block{width:100%;padding:5px;text-align:center}
+#section-featured-posts.half .block{width:100%}
+@media(min-width:768px){#section-featured-posts.half .block{width:50%}
+}#section-featured-posts .block .inside{background:#f2f2f2}
+#section-featured-posts .block .icon{margin-bottom:10px}
+#section-featured-posts .block .icon span{display:inline-block;width:30px;height:30px;background-size:100%;background-position:center;background-repeat:no-repeat}
+#section-featured-posts .block .textwrap{padding:40px 6vw;color:#707070;font-size:14px;line-height:1.5}
+#section-featured-posts .block .wrap{background:#f2f2f2}
+#section-featured-posts .block div.button{margin-top:20px}
+#section-featured-posts .block .sectionTitle{margin-bottom:10px}
+#section-featured-posts .block .feat-image .bg{width:100%;float:left;background-size:cover;background-position:center;background-repeat:no-repeat}
+#section-featured-posts .block .feat-image .bg img{width:100%;height:auto;float:left}
+.explore-other-stuff{width:100%;float:left;background-color:#707070;color:#FFF;position:relative}
+.explore-other-stuff:before{content:"";display:block;width:100%;height:70%;position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);background-image:url("images/logo-white.png");background-size:contain;background-position:center;background-repeat:no-repeat;opacity:.1}
+.explore-other-stuff .wrapper{position:relative;z-index:10;padding-top:40px;padding-bottom:40px}
+.explore-other-stuff .sectionTitle{color:#FFF;text-align:center;margin-bottom:15px}
+.explore-other-stuff .columns{-webkit-column-count:2;-moz-column-count:2;column-count:2}
+@media(min-width:480px){.explore-other-stuff .columns{-webkit-column-count:3;-moz-column-count:3;column-count:3}
+}@media(min-width:768px){.explore-other-stuff .columns{-webkit-column-count:5;-moz-column-count:5;column-count:5}
+}.explore-other-stuff .entry{width:100%;float:left;line-height:1.2}
+.explore-other-stuff .entry a{display:inline-block;text-decoration:none;color:#FFF;font-size:13px;line-height:1.2}
+.explore-other-stuff .entry a:hover{opacity:.3}
 @media(min-width:768px){body.scrolled .site-header{box-shadow:0 3px 8px rgba(0,0,0,0.1)}
 body.scrolled .site-header .navbar{background:rgba(255,255,255,0.95)}
 }.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}

@@ -28,8 +28,8 @@ $blank_image = THEMEURI . "images/square.png";
 <?php
 $postype = 'festival';
 $args = array(
-	'posts_per_page'=> -1,
-	'post_type'		=> $postype,
+	'posts_per_page'=> 8,
+	'post_type'		=> array('festival','music'),
 	'post_status'	=> 'publish',
 	'meta_key'		=> 'show_on_homepage',
 	'meta_value'	=> 'yes'
@@ -53,10 +53,11 @@ $dateNow = date('Y-m-d');
 			<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?>">
 				<a href="<?php echo $pagelink ?>" class="inside boxlink">
 					<?php if ($thumbImage) { ?>
-						<div class="imagediv" style="background-image:url('<?php echo $thumbImage['url'] ?>')"></div>
-						<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img">
+						<div class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></div>
+						<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none">
+						<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
 					<?php } else { ?>
-						<img src="<?php echo $blank_image ?>" alt="" class="feat-img no-image">
+						<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder no-image">
 					<?php } ?>
 					<div class="details">
 						<div class="info">

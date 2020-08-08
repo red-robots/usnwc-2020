@@ -411,6 +411,16 @@ function get_vimeo_data($vimeoId) {
     // }
 }
 
+/* Options page under Activity custom post type */
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_sub_page(array(
+        'page_title'     => 'Activity Global Options',
+        'menu_title'    => 'Activity Global Options',
+        'parent_slug'    => 'edit.php?post_type=activity',
+    ));
+}
+
+
 function get_pass_type_category($term_id) {
     $taxonomy = 'pass_type';
     $args = array(
@@ -428,6 +438,64 @@ function get_pass_type_category($term_id) {
     );
     $posts = get_posts($args);
     return ($posts) ? $posts : '';
+}
+
+
+function get_faqs_by_single_post($post_id) {
+    global $wpdb;
+    $faq_posts = array();
+
+    $query = "SELECT p.ID, m.meta_value as content_type FROM {$wpdb->posts} p, {$wpdb->postmeta} m
+              WHERE m.post_id=p.ID AND p.post_type='faqs' AND p.post_status='publish' AND m.meta_key='content'";
+    $result = $wpdb->get_results($query);
+    if($result) {
+        foreach($result as $row) {
+            $faq_post_id = $row->ID;
+            $type = $row->content_type; /* single or multiple */
+            if($type) {
+                $metaKey = $type . '_type'; /* This may result `single_type` or `multiple_type` */ 
+                $meta = get_content_type_data($faq_post_id,$metaKey);
+                if($meta) {
+                    if( $metaPostIds = $meta->meta_value ) {
+                        if( in_array($post_id, $metaPostIds) ) {
+                            $faq_posts[] = $faq_post_id;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return $faq_posts;
+}
+
+function get_content_type_data($post_id,$metaKey) {
+    global $wpdb;
+    $query = "SELECT * FROM {$wpdb->postmeta} m 
+              WHERE m.post_id=".$post_id." AND m.meta_key='".$metaKey."'";
+    $result = $wpdb->get_row($query);
+    if($result) {
+        $metaVal = ($result->meta_value) ? @unserialize($result->meta_value) : '';
+        $result->meta_value = $metaVal;
+    }
+    return ($result) ? $result : '';
+}
+
+function get_faqs_by_assigned_page_id($postIds) {
+    $faqs = array();
+    if( empty($postIds) ) return '';
+    foreach($postIds as $id) {
+        $parent = get_the_title($id);
+        $children = get_field("faqs",$id);
+        if($children) {
+            $item['ID'] = $id;
+            $item['title'] = $parent;
+            $item['faqs'] = $children;
+            $faqs[] = $item;
+        }
+    }
+
+    return $faqs;
 }
 
 
