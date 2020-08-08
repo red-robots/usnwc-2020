@@ -2259,6 +2259,11 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 #section-checkin .col-left .image-only img{display:block}
 @media(min-width:768px){#section-checkin .col-left .image-only img{display:none}
 }#section-checkin .col-right img.placeholder{display:none}
+#section-checkin .text-and-image .inside{position:relative;overflow:hidden}
+#section-checkin .text-and-image .imagediv{width:100%;height:100%;position:absolute;top:0;left:0}
+#section-checkin .text-and-image .imagediv img{display:none}
+#section-checkin .text-and-image .caption{width:100%;height:100%;position:relative;z-index:10;background:rgba(0,0,0,0.4);display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+#section-checkin .text-and-image .caption .text{width:100%;text-align:center;font-size:15px}
 #section-faqs{background:#FFF;padding-top:70px;padding-bottom:70px}
 #section-faqs .titlediv{text-align:right;margin-bottom:20px}
 #section-faqs .faqs,#section-faqs .faq-image{width:100%;position:relative}
@@ -2274,7 +2279,8 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 }#section-featured-posts .block .inside{background:#f2f2f2}
 #section-featured-posts .block .icon{margin-bottom:10px}
 #section-featured-posts .block .icon span{display:inline-block;width:30px;height:30px;background-size:100%;background-position:center;background-repeat:no-repeat}
-#section-featured-posts .block .textwrap{padding:40px 6vw;color:#707070;font-size:14px;line-height:1.5}
+#section-featured-posts .block .textwrap{padding:40px 6vw;color:#707070;font-size:14px;line-height:1.5;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+#section-featured-posts .block .textwrap .inner-wrap{width:100%}
 #section-featured-posts .block .wrap{background:#f2f2f2}
 #section-featured-posts .block div.button{margin-top:20px}
 #section-featured-posts .block .sectionTitle{margin-bottom:10px}
@@ -2290,6 +2296,13 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 }.explore-other-stuff .entry{width:100%;float:left;line-height:1.2}
 .explore-other-stuff .entry a{display:inline-block;text-decoration:none;color:#FFF;font-size:13px;line-height:1.2}
 .explore-other-stuff .entry a:hover{opacity:.3}
+#pageTabs{text-align:center;position:relative;top:-30px;margin-bottom:20px}
+#pageTabs #tabcontent{display:inline-block;position:relative;padding-left:5vw;padding-right:5vw}
+#pageTabs #tabcontent:before,#pageTabs #tabcontent:after{content:"";display:block;width:30px;height:100%;position:absolute;top:0;background-image:url("images/double-arrow.svg");background-position:center;background-size:70%;background-repeat:no-repeat}
+#pageTabs #tabcontent:before{left:0;-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}
+#pageTabs #tabcontent:after{right:0}
+#pageTabs a{font-family:"Poppins",sans-serif;font-size:16px;font-weight:300;display:inline-block;text-decoration:none;color:#707070;text-transform:uppercase;letter-spacing:1px;padding:5px 30px}
+#pageTabs a:hover{color:#ba0d30}
 @media(min-width:768px){body.scrolled .site-header{box-shadow:0 3px 8px rgba(0,0,0,0.1)}
 body.scrolled .site-header .navbar{background:rgba(255,255,255,0.95)}
 }.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}

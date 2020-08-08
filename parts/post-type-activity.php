@@ -342,11 +342,15 @@ while ( have_posts() ) : the_post();
 							<div class="imagediv" style="background-image:url('<?php echo $image['url'] ?>')">
 								<img src="<?php echo $rectangle ?>" alt="">
 							</div>
-							<div class="caption"><?php echo $verbiage ?></div>
+							<div class="caption">
+								<div class="text"><?php echo $verbiage ?></div>
+							</div>
 						<?php } else { ?>
 							
 							<?php if ($verbiage) { ?>
-								<div class="caption"><?php echo $verbiage ?></div>
+								<div class="caption">
+									<div class="text"><?php echo $verbiage ?></div>
+								</div>
 							<?php } ?>
 
 							<?php if ($image) { ?>
@@ -376,7 +380,9 @@ while ( have_posts() ) : the_post();
 								</div>
 							<?php } else { ?>
 								<?php if ($verbiage) { ?>
-									<div class="caption"><?php echo $verbiage ?></div>
+									<div class="caption">
+										<div class="text"><?php echo $verbiage ?></div>
+									</div>
 								<?php } ?>
 
 								<?php if ($image) { ?>
@@ -403,39 +409,37 @@ while ( have_posts() ) : the_post();
 	$faqsIds = get_faqs_by_single_post($postid);
 	$faqs = get_faqs_by_assigned_page_id($faqsIds);
 	$faq_class = ($faqs && $faq_image) ? 'half':'full';
-	?>
+	if($faqs) { ?>
 	<section id="section-faqs" data-section="FAQ" class="section-content <?php echo $faq_class ?>">
 		<div class="wrapper">
 			<div class="flexwrap">
 
-				<?php if ($faqs) { ?>
-					<div class="col faqs">
-						<div class="titlediv"><h2 class="sectionTitle">FAQ</h2></div>
-						<div class="faqsItems">
-							<?php foreach ($faqs as $q) { 
-								$faq_id = $q['ID'];
-								$faq_title = $q['title'];
-								$faq_items = $q['faqs'];
-								if($faq_items) { ?>
-									<div id="faq-<?php echo $faq_id?>" class="faq-group">
-										<?php $n=1; foreach ($faq_items as $f) { 
-											$question = $f['question'];
-											$answer = $f['answer'];
-											$isFirst = ($n==1) ? ' first':'';
-											if($question && $answer) { ?>
-											<div class="faq-item collapsible<?php echo $isFirst ?>">
-												<h3 class="option-name"><?php echo $question ?><span class="arrow"></span></h3>
-												<div class="option-text"><?php echo $answer ?></div>
-											</div>
-											<?php } ?>
+				<div class="col faqs">
+					<div class="titlediv"><h2 class="sectionTitle">FAQ</h2></div>
+					<div class="faqsItems">
+						<?php foreach ($faqs as $q) { 
+							$faq_id = $q['ID'];
+							$faq_title = $q['title'];
+							$faq_items = $q['faqs'];
+							if($faq_items) { ?>
+								<div id="faq-<?php echo $faq_id?>" class="faq-group">
+									<?php $n=1; foreach ($faq_items as $f) { 
+										$question = $f['question'];
+										$answer = $f['answer'];
+										$isFirst = ($n==1) ? ' first':'';
+										if($question && $answer) { ?>
+										<div class="faq-item collapsible<?php echo $isFirst ?>">
+											<h3 class="option-name"><?php echo $question ?><span class="arrow"></span></h3>
+											<div class="option-text"><?php echo $answer ?></div>
+										</div>
+										<?php } ?>
 
-										<?php $n++; } ?>
-									</div>
-								<?php } ?>
+									<?php $n++; } ?>
+								</div>
 							<?php } ?>
-						</div>	
-					</div>
-				<?php } ?>
+						<?php } ?>
+					</div>	
+				</div>
 
 				<?php if ($faq_image) { ?>
 				<div class="col faq-image">
@@ -445,10 +449,11 @@ while ( have_posts() ) : the_post();
 			</div>
 		</div>
 	</section>
+	<?php } ?>
 
 	<?php /* Featured Articles */ ?>
 	<?php get_template_part("parts/single-post-options","activity") ?>
-	
+
 
 <script>
 jQuery(document).ready(function ($) {
@@ -494,5 +499,17 @@ jQuery(document).ready(function ($) {
 		var optionsHeight = $(".col.options").height();
 		$("#defaultModel").css("height",optionsHeight+"px");
 	}
+
+	/* page anchors */
+	if( $('[data-section]').length > 0 ) {
+		var tabs = '';
+		$('[data-section]').each(function(){
+			var name = $(this).attr('data-section');
+			var id = $(this).attr("id");
+			tabs += '<a href="#'+id+'">'+name+'</a>';
+		});
+		$("#pageTabs").html('<div class="wrapper"><div id="tabcontent">'+tabs+'</div></div>');
+	}
+	
 });
 </script>

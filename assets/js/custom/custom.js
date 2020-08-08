@@ -186,6 +186,8 @@ jQuery(document).ready(function ($) {
 	      location.hostname == this.hostname
 	    ) {
 	      // Figure out element to scroll to
+	  	  var headHeight = $("#masthead").height();
+	  	  var offset = headHeight + 30;
 	      var target = $(this.hash);
 	      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 	      // Does a scroll target exist?
@@ -193,7 +195,7 @@ jQuery(document).ready(function ($) {
 	        // Only prevent default if animation is actually gonna happen
 	        event.preventDefault();
 	        $('html, body').animate({
-	          scrollTop: target.offset().top
+	          scrollTop: target.offset().top - offset
 	        }, 1000, function() {
 	          // Callback after animation
 	          // Must change focus!
@@ -217,6 +219,8 @@ jQuery(document).ready(function ($) {
 	*
 	------------------------------------*/
 	new WOW().init();
+
+	$('.js-blocks').matchHeight();
 
 
 	$(document).on("click","#toggleMenu",function(){

@@ -19,25 +19,27 @@ $colClass = ($count>1) ? 'half':'full';
 				<div class="block">
 					<div class="inside">
 
-						<div class="textwrap">
-							<?php if ($icon) { ?>
-								<div class="icon"><span style="background-image:url('<?php echo $icon['url'] ?>')"></span></div>
-							<?php } ?>
+						<div class="textwrap js-blocks">
+							<div class="inner-wrap">
+								<?php if ($icon) { ?>
+									<div class="icon"><span style="background-image:url('<?php echo $icon['url'] ?>')"></span></div>
+								<?php } ?>
 
-							<?php if ($title) { ?>
-								<h3 class="sectionTitle"><span><?php echo $title ?></span></h3>
-							<?php } ?>
+								<?php if ($title) { ?>
+									<h3 class="sectionTitle"><span><?php echo $title ?></span></h3>
+								<?php } ?>
 
-							<?php if ($description) { ?>
-								<div class="text"><?php echo $description ?></div>
-							<?php } ?>
+								<?php if ($description) { ?>
+									<div class="text"><?php echo $description ?></div>
+								<?php } ?>
 
-							<?php if ($button) { 
-								$target = ($button['target']) ? ' target="'.$button['target'].'"':'';?>
-								<div class="button">
-									<a href="<?php echo $button['url'] ?>" class="btn-sm"<?php echo $target ?>><span><?php echo $button['title'] ?></span></a>
-								</div>
-							<?php } ?>
+								<?php if ($button) { 
+									$target = ($button['target']) ? ' target="'.$button['target'].'"':'';?>
+									<div class="button">
+										<a href="<?php echo $button['url'] ?>" class="btn-sm"<?php echo $target ?>><span><?php echo $button['title'] ?></span></a>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 
 						<?php if ($image) { ?>
