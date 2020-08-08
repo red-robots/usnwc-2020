@@ -406,8 +406,9 @@ while ( have_posts() ) : the_post();
 	<?php /* FAQ */ ?>
 	<?php 
 	$faq_image = get_field("faq_image"); 
-	$faqsIds = get_faqs_by_single_post($postid);
-	$faqs = get_faqs_by_assigned_page_id($faqsIds);
+	//$faqsIds = get_faqs_by_single_post($postid);
+	//$faqs = get_faqs_by_assigned_page_id($faqsIds);
+	$faqs = get_faq_listings($postid);
 	$faq_class = ($faqs && $faq_image) ? 'half':'full';
 	if($faqs) { ?>
 	<section id="section-faqs" data-section="FAQ" class="section-content <?php echo $faq_class ?>">

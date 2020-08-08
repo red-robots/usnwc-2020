@@ -444,6 +444,9 @@ function get_pass_type_category($term_id) {
 function get_faqs_by_single_post($post_id) {
     global $wpdb;
     $faq_posts = array();
+    $faq_post_types = array();
+
+    $post_type = get_post_type($post_id);
 
     $query = "SELECT p.ID, m.meta_value as content_type FROM {$wpdb->posts} p, {$wpdb->postmeta} m
               WHERE m.post_id=p.ID AND p.post_type='faqs' AND p.post_status='publish' AND m.meta_key='content'";
@@ -455,10 +458,22 @@ function get_faqs_by_single_post($post_id) {
             if($type) {
                 $metaKey = $type . '_type'; /* This may result `single_type` or `multiple_type` */ 
                 $meta = get_content_type_data($faq_post_id,$metaKey);
-                if($meta) {
-                    if( $metaPostIds = $meta->meta_value ) {
-                        if( in_array($post_id, $metaPostIds) ) {
-                            $faq_posts[] = $faq_post_id;
+                if($type=='single') {
+                    
+                    if($meta) {
+                        if( $metaPostIds = $meta->meta_value ) {
+                            if( in_array($post_id, $metaPostIds) ) {
+                                $faq_posts[] = $faq_post_id;
+                            }
+                        }
+                    }
+                } elseif($type=='multiple') {
+                    /* get post type assigned */
+                    if($post_type) {
+                        if( $assigned_posttypes = $meta->meta_value ) {
+                            if( in_array($post_type, $assigned_posttypes) ) {
+                                $faq_posts[] = $faq_post_id;
+                            }
                         }
                     }
                 }
@@ -468,6 +483,7 @@ function get_faqs_by_single_post($post_id) {
 
     return $faq_posts;
 }
+
 
 function get_content_type_data($post_id,$metaKey) {
     global $wpdb;
@@ -495,6 +511,15 @@ function get_faqs_by_assigned_page_id($postIds) {
         }
     }
 
+    return $faqs;
+}
+
+
+function get_faq_listings($post_id) {
+    $faqs = '';
+    if( $faqsIds = get_faqs_by_single_post($post_id) ) {
+        $faqs = get_faqs_by_assigned_page_id($faqsIds);
+    }
     return $faqs;
 }
 
