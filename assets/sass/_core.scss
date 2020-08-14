@@ -526,6 +526,9 @@ a,input,button,select,textarea {
 	transition: all ease .3s;
 	overflow: hidden;
 	z-index: 100;
+	&#closeNavChild {
+		display: none;
+	}
 	span {
 		display: block;
 		width: 100%;
@@ -2990,6 +2993,9 @@ body.scrolled {
 				&:before, &:after {
 					background: $red;
 				}
+			}
+			&#closeNavChild {
+				display: inline-block;
 			}
 		}
 		#closeNav.closeNav {
