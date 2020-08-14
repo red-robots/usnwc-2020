@@ -523,5 +523,23 @@ function get_faq_listings($post_id) {
     return $faqs;
 }
 
+function get_page_id_by_permalink($url) {
+    global $wpdb;
+    $siteURL = get_site_url();
+    if( empty($url) ) return '';
+
+    /* Check if internal or external link */
+    $parse = parse_external_url($url);
+    $basename = basename($url);
+    if( $parse['class']=='internal-link' ) {
+        $query = "SELECT p.ID, p.post_type FROM {$wpdb->posts} p 
+                  WHERE p.post_name='".$basename."'";
+        $result = $wpdb->get_row($query);
+        return ($result) ? $result : '';
+    } else {
+        return '';
+    }
+}
+
 
 

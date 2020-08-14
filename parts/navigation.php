@@ -1,0 +1,115 @@
+<?php
+/* Main Navigation */
+global $post;
+$current_post_id = ( isset($post->ID) && $post->ID ) ? $post->ID : '';
+$current_url = ($current_post_id) ? get_permalink($current_post_id) : '';
+$current_url = ($current_url) ? rtrim($current_url,"/") : '';
+
+$parents = get_field("parent_menu","option");
+$childenMenuItems = array();
+
+if($parents) { ?>
+
+<div id="site-navigation">
+	<a href="#" id="closeNav" class="closeNav"><span>x</span></a>
+	<div class="nav-inner">
+		<nav class="navigation">
+			<ul class="menu">
+				<?php $i=1; foreach ($parents as $p) { 
+					$parent_name = $p['parent_menu_name'];
+					$parent_link = $p['parent_menu_link'];
+					$children_menu = $p['children_menu'];
+					$has_children = ($p['has_children_menu']=='yes') ? true : false;
+					$has_children_class = ($has_children) ? ' has-children':'';
+					$parent_class = '';
+					$parent_id = 'parent-menu-' . $i;
+					if($has_children) {
+						$parent_class = ' has-children';
+					}
+					if($parent_name) { 
+						if($children_menu) {
+							foreach($children_menu as $cm) {
+								$childenMenuItems[$parent_id]['parent_name'] = $parent_name;
+								$childenMenuItems[$parent_id]['children_data'][] = $cm;
+							}
+						} ?>
+					<li id="<?php echo $parent_id ?>" class="parent-link<?php echo $parent_class ?>">
+						<?php if ($parent_link) { ?>
+						<a href="<?php echo $parent_link['url'] ?>" data-parent=".<?php echo $parent_id ?>" class="parentlink" target="<?php echo ($parent_link['url']) ? $parent_link['url']:'_self' ?>"><span><?php echo $parent_name ?></span></a>
+						<?php } else { ?>
+						<a href="#" class="parentlink<?php echo $has_children_class ?>" data-parent=".<?php echo $parent_id ?>"><span><?php echo $parent_name ?></span></a>
+						<?php } ?>
+					</li>
+					<?php } ?>
+				<?php $i++; } ?>
+			</ul>
+			<div class="squiggly"><div class="line"></div></div>
+		</nav>
+	</div>
+
+	<?php /* CHILDREN MENU */ 
+	if($childenMenuItems) { ?>
+
+		<div id="childrenNavs" class="navigation-children">
+			<a href="#" id="closeNavChild" class="closeNav"><span>x</span></a>
+			<div class="navchild-inner">
+				
+				<?php $c=1; foreach ($childenMenuItems as $k=>$ch) { 
+					$parent_name = $ch['parent_name'];
+					$childrenData = $ch['children_data'];
+					if($childrenData) { ?>
+					<div class="children-group <?php echo $k ?>" data-parent="<?php echo $k ?>">
+						<div class="parent-name"><?php echo $parent_name ?></div>
+						<div class="children-menu-wrap">
+							<?php foreach ($childrenData as $e) { 
+								$child_menu_name = $e['child_menu_name'];
+								$child_links = $e['child_menu_links'];
+								?>
+								<div class="children-menu-content">
+									<?php if ($child_menu_name) { ?>
+										<div class="submenu-name"><?php echo $child_menu_name ?></div>
+									<?php } ?>
+									
+									<?php if ($child_links) { ?>
+										<div class="submenu-links">
+											<ul class="submenu">
+												<?php foreach ($child_links as $ld) { 
+													$n = $ld['link'];
+													if($n) {
+														$name = $n['title'];
+														$link = ($n['url']) ? rtrim($n['url'],"/") : '#';
+														$target = ($n['target']) ? $n['target'] : '_self';
+														$res = ($link) ? get_page_id_by_permalink($link) : '';
+														$pageID = ( isset($res->ID) ) ? $res->ID : '';
+														$link_class = ($pageID) ? 'internal menu-page-' . $pageID : 'external';
+														if($pageID && $pageID==$current_post_id) {
+															$link_class .= ' current_page_item';
+														}
+														if($name) { ?>
+														<li class="<?php echo $link_class ?>" data-pageid="<?php echo $pageID ?>">
+															<a href="<?php echo $link ?>" target="<?php echo $target ?>" class="child-link"><span><?php echo $name; ?></span></a>
+														</li>
+														<?php } ?>
+													<?php } ?>
+
+												<?php } ?>
+											</ul>
+										</div>
+									<?php } ?>
+								</div>
+							<?php } ?>
+						</div>
+					</div>
+					<?php } ?>
+				<?php $c++; } ?>
+
+
+			</div>
+		</div>
+
+	<?php } ?>
+
+
+</div>
+
+<?php } ?>

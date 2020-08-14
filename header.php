@@ -17,53 +17,62 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site cf">
+	<div id="overlay"></div>
 	<a class="skip-link sr" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="topbar">
-			<div class="wrapper">
-				<?php
-				$trail_status_option = get_field("trail_status","option");
-				$trail_status = ($trail_status_option=='open') ? 'active':'inactive';
-				?>
-				<div class="topinfo">
-					<span class="trail-status el <?php echo $trail_status ?>">
-						<span class="t">Trail Status</span>
-						<span class="s"></span>
-					</span>
-					<span class="today el">
-						<?php $today_options = get_field("today","option"); ?>
-						<?php if ($today_options) { ?>
-							<a href="#" id="todayToggle"><i id="todayTxt" class="txt">TODAY</i><i class="arrow"></i></a>
-							<div id="businessHours" class="businessHours">
-								<ul id="today-options">
-									<?php foreach ($today_options as $t) { 
-										$text1 = $t['text1'];
-										$text2 = $t['text2'];
-										$icon_class = ($t['icon_class']) ? $t['icon_class']:'no-icon';
-									?>
-									<li class="info <?php echo ($t['icon_class']) ? 'hasIcon':'noIcon'; ?>">
-										<div class="icon"><i class="<?php echo $icon_class ?>"></i></div>
-										<div class="text">
-											<?php if ($text1) { ?>
-											<div class="n t1"><?php echo $text1 ?></div>
-											<?php } ?>
-											<?php if ($text2) { ?>
-											<div class="d t2"><?php echo $text2 ?></div>
-											<?php } ?>
-										</div>
-									</li>
-									<?php } ?>
-								</ul>
-							</div>
-						<?php } ?>
-					</span>
-					<span class="el">
-						<a id="searchHereBtn" class="search"><i class="fas fa-search"></i></a>
-					</span>
-				</div>
+	<?php
+	/* NAVIGATION */
+	get_template_part("parts/navigation");
+	?>
+
+
+	<div class="topbar">
+		<div class="wrapper">
+			<?php
+			$trail_status_option = get_field("trail_status","option");
+			$trail_status = ($trail_status_option=='open') ? 'active':'inactive';
+			?>
+			<div class="topinfo">
+				<span class="trail-status el <?php echo $trail_status ?>">
+					<span class="t">Trail Status</span>
+					<span class="s"></span>
+				</span>
+				<span class="today el">
+					<?php $today_options = get_field("today","option"); ?>
+					<?php if ($today_options) { ?>
+						<a href="#" id="todayToggle"><i id="todayTxt" class="txt">TODAY</i><i class="arrow"></i></a>
+						<div id="businessHours" class="businessHours">
+							<ul id="today-options">
+								<?php foreach ($today_options as $t) { 
+									$text1 = $t['text1'];
+									$text2 = $t['text2'];
+									$icon_class = ($t['icon_class']) ? $t['icon_class']:'no-icon';
+								?>
+								<li class="info <?php echo ($t['icon_class']) ? 'hasIcon':'noIcon'; ?>">
+									<div class="icon"><i class="<?php echo $icon_class ?>"></i></div>
+									<div class="text">
+										<?php if ($text1) { ?>
+										<div class="n t1"><?php echo $text1 ?></div>
+										<?php } ?>
+										<?php if ($text2) { ?>
+										<div class="d t2"><?php echo $text2 ?></div>
+										<?php } ?>
+									</div>
+								</li>
+								<?php } ?>
+							</ul>
+						</div>
+					<?php } ?>
+				</span>
+				<span class="el">
+					<a id="searchHereBtn" class="search"><i class="fas fa-search"></i></a>
+				</span>
 			</div>
 		</div>
+	</div>
+
+	<header id="masthead" class="site-header" role="banner">
+		
 		<div id="topSearchBar" class="top-search-bar">
 			<div class="wrapper">
 				<div class="form-wrapper">
@@ -87,9 +96,6 @@
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="sr"><?php esc_html_e( 'MENU', 'bellaworks' ); ?></span><span class="bar"></span></button>
 			</div>
 		</div>
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
 	<?php get_template_part("parts/slideshow"); ?>

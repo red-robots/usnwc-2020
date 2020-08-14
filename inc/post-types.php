@@ -72,14 +72,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-groups',
             'supports'  => array('title','editor')
         ),
-        array(
-            'post_type' => 'films',
-            'menu_name' => 'Films',
-            'plural'    => 'Films',
-            'single'    => 'Film',
-            'menu_icon' => 'dashicons-groups',
-            'supports'  => array('title','editor')
-        ),
+        // array(
+        //     'post_type' => 'films',
+        //     'menu_name' => 'Films',
+        //     'plural'    => 'Films',
+        //     'single'    => 'Film',
+        //     'menu_icon' => 'dashicons-groups',
+        //     'supports'  => array('title','editor')
+        // ),
         array(
             'post_type' => 'brewery',
             'menu_name' => 'Breweries',
@@ -274,6 +274,21 @@ function build_taxonomies() {
             '_builtin' => true
         ) 
     );
+
+    // register_taxonomy( 
+    //     'story-types', 
+    //     array('story'),
+    //     array( 
+    //         'hierarchical' => true, // true = acts like categories false = acts like tags
+    //         'label' => 'Story Types', 
+    //         'query_var' => true, 
+    //         'rewrite' => true ,
+    //         'show_admin_column' => true,
+    //         'public' => true,
+    //         'rewrite' => array( 'slug' => 'story-types' ),
+    //         '_builtin' => true
+    //     ) 
+    // );
     
 } // End build taxonomies
 
