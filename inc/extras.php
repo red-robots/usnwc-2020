@@ -412,13 +412,13 @@ function get_vimeo_data($vimeoId) {
 }
 
 /* Options page under Activity custom post type */
-if( function_exists('acf_add_options_page') ) {
-    acf_add_options_sub_page(array(
-        'page_title'     => 'Activity Global Options',
-        'menu_title'    => 'Activity Global Options',
-        'parent_slug'    => 'edit.php?post_type=activity',
-    ));
-}
+// if( function_exists('acf_add_options_page') ) {
+//     acf_add_options_sub_page(array(
+//         'page_title'     => 'Activity Global Options',
+//         'menu_title'    => 'Activity Global Options',
+//         'parent_slug'    => 'edit.php?post_type=activity',
+//     ));
+// }
 
 
 function get_pass_type_category($term_id) {
@@ -592,27 +592,5 @@ function get_categories_by_page_id($post_id,$taxonomy,$related=null) {
     return $related_posts;
 }
 
-// $test = insert_stories_to_posts();
-// function insert_stories_to_posts() {
-//     global $wpdb;
-//     $args = array(
-//         'posts_per_page'=> -1,
-//         'post_type'     => 'story',
-//         'post_status'   => 'publish',
-//         'orderby'       => 'date',
-//         'order'         => 'DESC'
-//     );
-//     $posts = get_posts($args);
-//     if($posts) {
-//         foreach($posts as $p) {
-//             $arr = array(
-//                 'ID'=>$p->ID,
-//                 'post_type'=>'post'
-//             );
-//             wp_update_post($arr,true);
-//             //wp_insert_post($arr);
-//         }
-//     }
-// }
 
 
