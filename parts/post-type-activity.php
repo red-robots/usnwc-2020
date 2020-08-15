@@ -453,7 +453,7 @@ while ( have_posts() ) : the_post();
 	<?php } ?>
 
 	<?php /* Featured Articles */ ?>
-	<?php get_template_part("parts/single-post-options","activity") ?>
+	<?php get_template_part("parts/bottom-content-activity"); ?>
 
 
 <script>

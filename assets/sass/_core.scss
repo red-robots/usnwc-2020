@@ -512,6 +512,44 @@ a,input,button,select,textarea {
 		display: none;
 	}
 }
+
+.secondary-menu {
+	padding: 35px 50px 20px;
+	ul.menu2 {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+	}
+	li {
+		text-align: right;
+		a {
+			font-family: $font_secondary;
+			font-weight: 300;
+			font-size: 14px;
+			line-height: 1.2;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			display: inline-block;
+			text-decoration: none;
+			color: #FFF;
+			position: relative;
+			padding: 8px 25px 8px 10px;
+			.navIcon {
+				position: absolute;
+				top: 6px;
+				right: 0;
+				font-size: 18px;
+				&.fa-calendar-alt {
+					right: 3px;
+				}
+			}
+			&:hover {
+				opacity: 0.4;
+			}
+		}
+	}
+}
+
 .closeNav {
 	display: block;
 	width: 25px;
@@ -2309,7 +2347,8 @@ body.subpage.single {
 		transition: all ease .3s;
 	}
 	.option-name, .option-text {
-		z-index: 10;
+		position: relative;
+		z-index: 100;
 	}
 	.option-name {
 		display: block;
@@ -2598,10 +2637,26 @@ body.subpage.single {
 				background-size: cover;
 				background-position: center;
 				background-repeat: no-repeat;
+				background-color: #dedede;
+				position: relative;
 				img {
 					width: 100%;
 					height: auto;
 					float: left;
+				}
+			}
+			&.no-image {
+				.bg:before {
+					content:"Photo Not Available";
+					display: block;
+					width: 100%;
+					text-align: center;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					transform: translateY(-50%);
+					font-size: 1.2em;
+    			color: #a9a9a9;
 				}
 			}
 		}

@@ -20,9 +20,11 @@ $blank_image = THEMEURI . "images/rectangle.png";
 
 	<?php /* VIDEOS */ ?>
 	<?php  
+	//$post_type = 'story';
+	$post_type = 'post';
 	$args = array(
 		'posts_per_page'	=> 5,
-		'post_type'		=> 'story',
+		'post_type'		=> $post_type,
 		'post_status'	=> 'publish',
 		'meta_key'		=> 'show_on_homepage',
 		'meta_value'	=> 'yes'

@@ -64,14 +64,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-location',
             'supports'  => array('title','editor')
         ),
-        array(
-            'post_type' => 'story',
-            'menu_name' => 'Stories',
-            'plural'    => 'Stories',
-            'single'    => 'Story',
-            'menu_icon' => 'dashicons-groups',
-            'supports'  => array('title','editor')
-        ),
+        // array(
+        //     'post_type' => 'story',
+        //     'menu_name' => 'Stories',
+        //     'plural'    => 'Stories',
+        //     'single'    => 'Story',
+        //     'menu_icon' => 'dashicons-groups',
+        //     'supports'  => array('title','editor')
+        // ),
         // array(
         //     'post_type' => 'films',
         //     'menu_name' => 'Films',
@@ -203,7 +203,7 @@ function build_taxonomies() {
 
     register_taxonomy( 
         'activity_type', 
-        array('film', 'story'),
+        array('film', 'activity','post'),
         array( 
             'hierarchical' => true, // true = acts like categories false = acts like tags
             'label' => 'Activity', 
@@ -313,15 +313,18 @@ function set_custom_cpt_columns($columns) {
         $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
     }
 
-    if($post_type=='story') {
+    if($post_type=='post') {
+        unset($columns['tags']);
+        unset($columns['author']);
+        unset($columns['categories']);
         unset($columns['taxonomy-activity_type']);
-        unset($columns['taxonomy-edition']);
         unset($columns['expirationdate']);
         unset($columns['date']);
         $columns['title'] = __( 'Name', 'bellaworks' );
         $columns['show_on_homepage'] = __( 'Show on<br>Homepage', 'bellaworks' );
-        $columns['taxonomy-edition'] = __( 'Edition', 'bellaworks' );
         $columns['taxonomy-activity_type'] = __( 'Activity', 'bellaworks' );
+        $columns['categories'] = __( 'Category', 'bellaworks' );
+        $columns['author'] = __( 'Author', 'bellaworks' );
         $columns['date'] = __( 'Date', 'bellaworks' );
         $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
     }
@@ -361,7 +364,7 @@ function custom_post_column( $column, $post_id ) {
         }
     }
 
-    if($post_type=='story') {
+    if($post_type=='post') {
         switch ( $column ) {
 
             case 'show_on_homepage' :

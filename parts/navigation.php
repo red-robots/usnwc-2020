@@ -8,6 +8,8 @@ $current_url = ($current_url) ? rtrim($current_url,"/") : '';
 $parents = get_field("parent_menu","option");
 $childenMenuItems = array();
 
+$secondary_menu = get_field("secondary_menu","option");
+
 if($parents) { ?>
 
 <div id="site-navigation">
@@ -44,6 +46,31 @@ if($parents) { ?>
 				<?php $i++; } ?>
 			</ul>
 			<div class="squiggly"><div class="line"></div></div>
+
+			<?php if ($secondary_menu) { ?>
+			<div class="secondary-menu">
+				<ul class="menu2">
+				<?php foreach ($secondary_menu as $sm) { 
+					$s = $sm['link'];
+					$s_icon = $sm['icon_class'];
+					if($s) {
+						$s_name = $s['title'];
+						$s_link = $s['url'];
+						$s_target = ($s['target']) ? $s['target'] : '_self';
+						?>
+						<li>
+							<a href="<?php echo $s_link ?>" target="<?php echo $s_target ?>">
+								<span><?php echo $s_name ?></span>
+								<?php if ($s_icon) { ?>
+								<i class="navIcon <?php echo $s_icon ?>"></i>
+								<?php } ?>
+							</a>
+						</li>
+					<?php } ?>
+				<?php } ?>
+				</ul>
+			</div>
+			<?php } ?>
 		</nav>
 	</div>
 

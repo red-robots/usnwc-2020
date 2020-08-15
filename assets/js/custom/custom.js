@@ -30,16 +30,22 @@ jQuery(document).ready(function ($) {
 		$("#site-navigation").removeClass("child-open");
 	});
 
-	$(document).on("click",".navigation a.parentlink.has-children", function(e){
+	$(document).on("click",".navigation a.parentlink", function(e){
 		e.preventDefault();
-		var child_menu = $(this).attr("data-parent");
-		$("#site-navigation li.parent-link").removeClass("active");
-		$("#site-navigation").addClass("child-open");
-		$("#childrenNavs").addClass("open");
-		$(".children-group").removeClass("open");
-		$(".children-group"+child_menu).addClass("open");
-		$(this).addClass("active");
-		$(this).parents("li").addClass('active');
+		var link = $(this).attr("href");
+		if(link=='#') {
+			var child_menu = $(this).attr("data-parent");
+			$("#site-navigation li.parent-link").removeClass("active");
+			$(".children-group").removeClass("open");
+			if( $(".children-group"+child_menu).length > 0 ) {
+				$("#site-navigation").addClass("child-open");
+				$("#childrenNavs").addClass("open");
+				$(".children-group"+child_menu).addClass("open");
+				$(this).addClass("active");
+				$(this).parents("li").addClass('active');
+			}
+		}
+		
 	});
 
 

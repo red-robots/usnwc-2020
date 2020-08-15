@@ -541,5 +541,78 @@ function get_page_id_by_permalink($url) {
     }
 }
 
+function get_categories_by_page_id($post_id,$taxonomy,$related=null) {
+    global $wpdb;
+    $related_posts = array();
+    $related_terms = ( isset($related['terms']) && $related['terms'] ) ? $related['terms'] : '';
+    $related_taxonomy = ( isset($related['taxonomy']) && $related['taxonomy'] ) ? $related['taxonomy'] : '';
+    
+    $related_post_type = ( isset($related['post_type']) && $related['post_type'] ) ? $related['post_type'] : '';
+
+    $query = "SELECT rel.object_id as post_id, tax.term_id, terms.name, terms.slug, tax.taxonomy FROM {$wpdb->terms} terms, {$wpdb->term_taxonomy} tax, {$wpdb->term_relationships} rel
+              WHERE rel.term_taxonomy_id=tax.term_taxonomy_id AND tax.term_id=terms.term_id AND tax.taxonomy='".$taxonomy."' AND rel.object_id=".$post_id;
+
+    $result = $wpdb->get_results($query);
+    if($result) {
+      foreach($result as $row) {
+        $term_id = $row->term_id;
+        $query2 = "SELECT p.*, terms.term_id, terms.name, terms.slug, tax.taxonomy FROM {$wpdb->posts} p, {$wpdb->terms} terms, {$wpdb->term_taxonomy} tax, {$wpdb->term_relationships} rel
+                  WHERE p.ID=rel.object_id AND p.post_type='".$related_post_type."' AND p.post_status='publish' 
+                  AND rel.term_taxonomy_id=tax.term_taxonomy_id AND tax.term_id=".$term_id." AND terms.term_id=tax.term_id GROUP BY p.ID ORDER BY p.post_date DESC";
+        $related = $wpdb->get_results($query2);
+
+        $limit = 2;
+        if($related) {
+          $i=1; foreach($related as $rel) {
+            $post_terms = get_the_terms($rel,$related_taxonomy);
+            if($post_terms) {
+              foreach($post_terms as $p) {
+                $p_term_slug = $p->slug;
+                
+                if( $related_terms && in_array($p_term_slug,$related_terms) ) {
+
+                  $related_term_id = $p->related_terms;
+                  
+                  if($i<=$limit) {
+                    $rel->related_terms = $p;
+                    $related_posts[] = $rel; 
+                  }
+
+                  $i++;
+                }
+
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+    return $related_posts;
+}
+
+// $test = insert_stories_to_posts();
+// function insert_stories_to_posts() {
+//     global $wpdb;
+//     $args = array(
+//         'posts_per_page'=> -1,
+//         'post_type'     => 'story',
+//         'post_status'   => 'publish',
+//         'orderby'       => 'date',
+//         'order'         => 'DESC'
+//     );
+//     $posts = get_posts($args);
+//     if($posts) {
+//         foreach($posts as $p) {
+//             $arr = array(
+//                 'ID'=>$p->ID,
+//                 'post_type'=>'post'
+//             );
+//             wp_update_post($arr,true);
+//             //wp_insert_post($arr);
+//         }
+//     }
+// }
 
 

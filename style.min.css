@@ -1958,6 +1958,13 @@ a,input,button,select,textarea{-webkit-transition:all ease .3s;transition:all ea
 .navigation-children .children-group.open{display:block;-webkit-animation-name:fadeInRight;animation-name:fadeInRight}
 .navigation-children.open{width:450px}
 .navigation-children .parent-name{display:none}
+.secondary-menu{padding:35px 50px 20px}
+.secondary-menu ul.menu2{margin:0;padding:0;list-style:none}
+.secondary-menu li{text-align:right}
+.secondary-menu li a{font-family:"Poppins",sans-serif;font-weight:300;font-size:14px;line-height:1.2;text-transform:uppercase;letter-spacing:1px;display:inline-block;text-decoration:none;color:#FFF;position:relative;padding:8px 25px 8px 10px}
+.secondary-menu li a .navIcon{position:absolute;top:6px;right:0;font-size:18px}
+.secondary-menu li a .navIcon.fa-calendar-alt{right:3px}
+.secondary-menu li a:hover{opacity:.4}
 .closeNav{display:block;width:25px;height:25px;color:#FFF;text-align:center;border:1px solid #FFF;border-radius:100px;position:absolute;top:30px;right:30px;-webkit-transition:all ease .3s;transition:all ease .3s;overflow:hidden;z-index:100}
 .closeNav#closeNavChild{display:none}
 .closeNav span{display:block;width:100%;height:100%;text-indent:-999em;position:relative}
@@ -2259,7 +2266,7 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 .collapsible.first{border-top:0}
 .collapsible:before{content:"";display:block;width:100%;height:0;position:absolute;top:0;left:0;background:#ba0d30;-webkit-transition:all ease .3s;transition:all ease .3s}
 .collapsible *{-webkit-transition:all ease .3s;transition:all ease .3s}
-.collapsible .option-name,.collapsible .option-text{z-index:10}
+.collapsible .option-name,.collapsible .option-text{position:relative;z-index:100}
 .collapsible .option-name{display:block;width:100%;font-family:"Poppins",sans-serif;font-size:18px;font-weight:400;line-height:1.3;text-transform:uppercase;letter-spacing:1px;margin:0;position:relative}
 .collapsible .option-name span.arrow{display:block;width:18px;height:18px;position:absolute;top:0;right:5px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .collapsible .option-name span.arrow:before,.collapsible .option-name span.arrow:after{content:"";display:block;width:100%;height:1px;background:#191919;position:absolute;top:10px;left:0;-webkit-transition:all ease .3s;transition:all ease .3s}
@@ -2323,8 +2330,9 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 #section-featured-posts .block .wrap{background:#f2f2f2}
 #section-featured-posts .block div.button{margin-top:20px}
 #section-featured-posts .block .sectionTitle{margin-bottom:10px}
-#section-featured-posts .block .feat-image .bg{width:100%;float:left;background-size:cover;background-position:center;background-repeat:no-repeat}
+#section-featured-posts .block .feat-image .bg{width:100%;float:left;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#dedede;position:relative}
 #section-featured-posts .block .feat-image .bg img{width:100%;height:auto;float:left}
+#section-featured-posts .block .feat-image.no-image .bg:before{content:"Photo Not Available";display:block;width:100%;text-align:center;position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);font-size:1.2em;color:#a9a9a9}
 .explore-other-stuff{width:100%;float:left;background-color:#707070;color:#FFF;position:relative}
 .explore-other-stuff:before{content:"";display:block;width:100%;height:70%;position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);background-image:url("images/logo-white.png");background-size:contain;background-position:center;background-repeat:no-repeat;opacity:.1}
 .explore-other-stuff .wrapper{position:relative;z-index:10;padding-top:40px;padding-bottom:40px}
