@@ -9,7 +9,7 @@
 
 get_header(); 
 $post_type = get_post_type();
-$customPostTypes = array('activity');
+$customPostTypes = array('activity','festival');
 ?>
 <div id="primary" class="content-area-full content-default post-type-<?php echo $post_type;?>">
 	
