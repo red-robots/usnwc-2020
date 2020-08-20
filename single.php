@@ -23,10 +23,10 @@ $customPostTypes = array('activity','festival');
 			<?php endwhile; ?>
 		</main>
 	<?php } else { ?>
-			
-		<?php foreach ($customPostTypes as $pt) {
-			get_template_part('parts/post-type',$pt);
-		} ?>
+
+		<?php if ( in_array($post_type, $customPostTypes) ) { ?>
+			<?php get_template_part('parts/post-type-'.$post_type); ?>
+		<?php } ?>
 
 	<?php } ?>
 
