@@ -140,11 +140,11 @@ $top_notification = get_field("top_notification",$post_id);
 							<?php } else { ?>
 
 								<?php if ($is_subpage) { ?>
-								<div class="slidePageTitle animated fadeIn">
+								<!-- <div class="slidePageTitle animated fadeIn">
 									<div class="innertext">
-										<h1 class="text"><?php echo get_the_title(); ?></h1>
+										<h1 class="text"><?php //echo get_the_title(); ?></h1>
 									</div>
-								</div>	
+								</div>	 -->
 								<?php } ?>
 
 							<?php } ?>

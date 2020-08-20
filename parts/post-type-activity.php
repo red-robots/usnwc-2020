@@ -24,6 +24,7 @@ while ( have_posts() ) : the_post();
 	<?php if ($show_main_description && $main_description) { ?>
 	<section class="main-description">
 		<div class="wrapper text-center">
+			<h1 class="pagetitle"><span><?php echo get_the_title(); ?></span></h1>
 			<?php echo $main_description ?>
 		</div>
 	</section>
@@ -88,15 +89,44 @@ while ( have_posts() ) : the_post();
 	/* OPTIONS */
 	$activities = get_field("activities");
 	$options_class = ($activities && $categories) ? 'half':'full';
+	$legend = get_field("activity_legend","option");
 	if($activities || $categories) { ?>
 	<section id="section-options" data-section="Options" class="section-content <?php echo $options_class ?>">
 		<div class="wrapper">
 			<?php if ($activities) { ?>
 			<div class="optcol activities">
+			
+				<?php if ($legend) { ?>
+				<div class="legend-for-mobile">
+					<?php foreach ($legend as $e) { 
+						$color = $e['color'];
+						$level = $e['level'];
+						if($color && $level) { ?>
+						<div class="levelblock"><span class="level"><em class="right"><span><?php echo $color ?></span></em><em class="left"><?php echo $level ?></em></span></div>
+						<?php } ?>
+					<?php } ?>
+				</div>
+				<?php } ?>
+
 				<div class="flex-items">
 					<div id="items-head" class="item headings">
 						<div class="cell hd1">Options</div>
-						<div class="cell hd2">Difficulty</div>
+						<div class="cell hd2">
+							<?php if ($legend) { ?>
+								<span class="txt">Difficulty <i id="legend-info">i</i></span>
+								<span id="legendData" class="legend">
+									<?php foreach ($legend as $e) { 
+										$color = $e['color'];
+										$level = $e['level'];
+										if($color && $level) { ?>
+										<span><em class="right"><?php echo $color ?></em><em class="left"><?php echo $level ?></em></span>
+										<?php } ?>
+									<?php } ?>
+								</span>
+							<?php } else { ?>
+								Difficulty
+							<?php } ?>
+						</div>
 						<div class="cell hd3">Age</div>
 					</div>
 
@@ -511,6 +541,29 @@ jQuery(document).ready(function ($) {
 		});
 		$("#pageTabs").html('<div class="wrapper"><div id="tabcontent">'+tabs+'</div></div>');
 	}
+
+
+	$("#legend-info").on("click",function(){
+		$("#legendData").toggleClass('show');
+	});
+	$(document).on("click",function(e) {
+    var selectors = ['#legend-info','#legendData'];
+    var target = e.target;
+    var is_legend = [];
+    if( $(target).attr("id")!=undefined && $(target).attr("id")=='legend-info' ) {
+    	is_legend.push(1);
+    }
+
+    $(target).parents().each(function(k,v){
+    	if( $(this).hasClass("legend") ) {
+    		is_legend.push(1);
+    	}
+    });
+
+    if(is_legend.length==0) {
+    	$("#legendData").removeClass('show');
+    }
+});
 	
 });
 </script>

@@ -26,6 +26,11 @@ body {
 	line-height: 1.3;
 	color: #000;
 }
+section, div {
+	&:focus {
+		outline: 0;
+	}
+}
 a,input,button,select,textarea {
 	transition: all ease .3s;
 }
@@ -1885,8 +1890,30 @@ body.subpage.single  .content-default {
 	    font-weight: 400;
 	}
 	.main-description {
-		padding-top: 50px;
+		padding-top: 70px;
 		padding-bottom: 50px;
+	}
+	h1.pagetitle {
+		font-family: $font_secondary;
+		font-weight: 400;
+		font-size: 25px;
+		line-height: 1.2;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		margin: 0 0 25px;
+		position: relative;
+		span {
+			display: inline-block;
+			position: relative;
+			&:after {
+				content:"";
+				display: block;
+				width: 30%;
+				height: 2px;
+				background: $red;
+				margin: 25px auto 0;
+			}
+		}
 	}
 }
 body.subpage.single {
@@ -1983,7 +2010,54 @@ body.subpage.single {
 			padding-right: 40px;
 		}
 	}
+	.legend-for-mobile {
+		display: block;
+		width: 100%;
+		float: left;
+		// border: 1px dotted $red;
+  //   padding: 0 15px 20px;
+		@include tab {
+			display: none;
+		}
+		.levelblock {
+			width: 100%;
+			float: left;
+		}
+		span.level {
+			display: block;
+			float: left;
+			width: 100%;
+			position: relative;
+			color: $red;
+			border-bottom: 2px dotted $red;
+			em {
+				display: inline-block;
+				position: relative;
+				padding: 0 3px;
+				z-index: 2;
+				bottom: -9px;
+				font-size: 14px;
+				font-style: normal;
+			}
+			em.right {
+				float: left;
+				width: 140px;
+				padding-left: 0;
+				span {
+					display: inline-block;
+					background: #FFF;
+					padding-right: 3px;
+				}
+			}
+			em.left {
+				float: right;
+				background: #FFF;
+			}
+		}
+	}
 	.flex-items {
+		width: 100%;
+    float: left;
 		@include flexgroup();
 		.item {
 			font-size: 14px;
@@ -1998,6 +2072,66 @@ body.subpage.single {
 			}
 			.cell {
 				position: relative;
+				span.txt {
+					display: inline-block;
+					position: relative;
+				}
+				i {
+					display: inline-block;
+					position: absolute;
+					top: -2px;
+					right: -16px;
+					color: $red;
+					font-style: normal;
+					text-transform: none;
+					border: 1px solid $red;
+					width: 13px;
+					height: 13px;
+					font-size: 8px;
+					font-weight: 700;
+					line-height: 13px;
+					border-radius: 100px;
+					cursor: pointer;
+				}
+			}
+			.legend {
+				width: 150px;
+				position: absolute;
+				top: 12px;
+				left: 34px;
+				font-family: $font_primary;
+				font-size: 10px;
+				text-transform: none;
+				color: $red;
+				text-align: left;
+				display: none;
+				@include animateThis();
+				&.show {
+					display: block;
+					-webkit-animation-name: fadeIn;
+  				animation-name: fadeIn;
+				}
+				span {
+					display: block;
+					margin:0 0;
+					width: 100%;
+					float: left;
+					border-bottom: 2px dotted $red;
+				}
+				em {
+					display: inline-block;
+					position: relative;
+					padding: 2px 3px;
+					z-index: 2;
+					bottom: -6px;
+					background: #FFF;
+				}
+				em.right {
+					float: left;
+				}
+				em.left {
+					float: right;
+				}
 			}
 			.cell.hd1,
 			.cell.desc-col {
@@ -2725,7 +2859,8 @@ body.subpage.single {
 	text-align: center;
 	position: relative;
 	top: -30px;
-	margin-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 35px;
 	#tabcontent {
 		display: inline-block;
 		position: relative;
