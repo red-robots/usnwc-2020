@@ -13,11 +13,12 @@ while ( have_posts() ) : the_post();
 	}
 
 	/* Show description if category slug is 'all-access-pass' */
-	$show_main_description = false;
-	if( $categories &&  in_array('all-access-pass',$catSlugs) ) {
-		$show_main_description = true;
-	}
+	//$show_main_description = false;
+	// if( $categories &&  in_array('all-access-pass',$catSlugs) ) {
+	// 	$show_main_description = true;
+	// }
 
+	$show_main_description = true;
 	$pageTabs = array('intro','options','what to wear','check-in','faq');
 	?>
 	
@@ -567,6 +568,8 @@ jQuery(document).ready(function ($) {
 	$("#legend-info").on("click",function(){
 		$("#legendData").toggleClass('show');
 	});
+
+
 	$(document).on("click",function(e) {
     var selectors = ['#legend-info','#legendData'];
     var target = e.target;
@@ -584,7 +587,11 @@ jQuery(document).ready(function ($) {
     if(is_legend.length==0) {
     	$("#legendData").removeClass('show');
     }
-});
+	});
+
+	$(document).on("click","#tabcontent a",function(e) {
+		$("body").addClass('subnav-clicked');
+	});
 	
 });
 </script>

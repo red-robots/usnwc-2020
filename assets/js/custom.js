@@ -60,19 +60,40 @@ jQuery(document).ready(function ($) {
 	    }
 	});
 
+
 	var windowHeight = $(window).scrollTop();
-	if(windowHeight  > 100) {
+	if(windowHeight  > 200) {
 		$("body").addClass('scrolled');
 	}
 
 	$(window).scroll(function() {    
 		var wHeight = $(window).scrollTop();
-		if(wHeight  > 100) {
+		if(wHeight  > 200) {
 			$("body").addClass('scrolled');
 		} else{
 			$("body").removeClass('scrolled');
+			//$('body').removeClass('subnav-clicked');
 		}
 	});
+
+	if( $("#banner").length > 0 && $("#pageTabs").length>0 ) {
+		
+		$(window).scroll(function() { 
+			var tabsHeight = $("#pageTabs").height();
+			if( $(".main-description").length>0 ) {
+				var main = $(".main-description").height();
+				tabsHeight = main;
+			}
+			var bannerHeight = $("#banner").height();
+			var screenOffset = bannerHeight + tabsHeight;
+			var wHeight = $(window).scrollTop();
+			if(wHeight  > screenOffset) {
+				$("#pageTabs").addClass('fixed-top');
+			} else {
+				$("#pageTabs").removeClass('fixed-top');
+			}
+		});
+	}
 
 	if( $(".subpage-sliders").length > 0 ) {
 		$('.subpage-sliders').flexslider({
@@ -231,7 +252,7 @@ jQuery(document).ready(function ($) {
 	    ) {
 	      // Figure out element to scroll to
 	  	  var headHeight = $("#masthead").height();
-	  	  var offset = headHeight + 30;
+	  	  var offset = headHeight + 100;
 	      var target = $(this.hash);
 	      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 	      // Does a scroll target exist?
@@ -255,7 +276,56 @@ jQuery(document).ready(function ($) {
 	      }
 	    }
 	});
-	
+
+
+	/* Load More */
+	$("#loadMoreBtn").on("click",function(event){
+		event.preventDefault();
+		var loadButton = $(this);
+		var pageURL = ( typeof $("a.page-numbers").eq(0)!=undefined ) ? $("a.page-numbers").attr("href") : '';
+		var current_page = $(this).attr("data-current");
+		var next_page = parseInt(current_page) + 1;
+		var last_page = $(this).attr("data-end");
+		if(pageURL) {
+			var parts = pageURL.split("pg=");
+			var num = parts[1];
+			var url = pageURL.replace('pg='+num,'pg='+next_page);
+			loadButton.attr("data-current",next_page);
+
+			
+
+
+			$(".next-posts").load(url + " #data-container",function(){
+				var htmlContent = $(this).find("#data-container").html();
+				$("#data-container").append(htmlContent);
+
+				if(next_page==last_page) {
+					$(".loadmorediv .wrapper").html('<span class="end">No more post to load</span>');
+					// var target = $("#stopHere");
+					// if (target.length) {
+		   //      // Only prevent default if animation is actually gonna happen
+		   //      event.preventDefault();
+		   //      $('html, body').animate({
+		   //        scrollTop: target.offset().top
+		   //      }, 1000, function() {
+		   //        target.focus();
+		   //        if (target.is(":focus")) { // Checking if the target was focused
+		   //          return false;
+		   //        } else {
+		   //          target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+		   //          target.focus(); // Set focus again
+		   //        };
+		   //      });
+		   //    }
+
+				} 
+			});
+		}
+
+		
+		
+		
+	});
 
 	/*
 	*
