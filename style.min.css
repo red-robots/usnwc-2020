@@ -2397,30 +2397,30 @@ h1.page-title span:after{content:"";display:block;width:30%;height:2px;backgroun
 .intro-text{font-size:20px;line-height:1.7;font-weight:400}
 .intro-text p:last-child{margin-bottom:0}
 .festival-page{width:100%;float:left}
-.post-type-entries.festival{width:100%;float:left}
-.post-type-entries.festival .posts-inner{width:100%;float:left}
-.post-type-entries.festival .flex-inner{padding-left:10px;padding-right:10px;padding-bottom:10px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
-@media(min-width:600px){.post-type-entries.festival .flex-inner{margin-left:-10px;margin-right:-10px;padding-left:0;padding-right:0;padding-bottom:0}
-}.post-type-entries.festival .postbox{width:100%;padding:10px;position:relative}
-@media(min-width:600px){.post-type-entries.festival .postbox{width:50%}
-}@media(min-width:768px){.post-type-entries.festival .postbox{width:25%}
-}.post-type-entries.festival .postbox:after{content:"";display:block;width:calc(100% - 20px);height:calc(100% - 20px);position:absolute;top:10px;left:10px;background:#f2f2f2}
-.post-type-entries.festival .inside,.post-type-entries.festival .photo{width:100%;position:relative;float:left}
-.post-type-entries.festival .inside{z-index:10}
-.post-type-entries.festival .photo{display:block;text-decoration:none;height:100%;overflow:hidden}
-.post-type-entries.festival .no-image .photo{background:#CCC}
-.post-type-entries.festival .no-image .photo:before{content:"Photo Not Available";display:block;width:100%;text-align:center;font-family:"Poppins",sans-serif;font-size:15px;font-weight:400;color:#9e9e9e;text-transform:uppercase;position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
-.post-type-entries.festival .imagediv{width:100%;height:100%;position:absolute;top:0;left:0;background-size:cover;background-position:top center;background-repeat:no-repeat;z-index:10}
-.post-type-entries.festival img.feat-img{width:100%;height:auto;visibility:hidden;float:left}
-.post-type-entries.festival .details,.post-type-entries.festival .info{width:100%;float:left;background:#f2f2f2}
-.post-type-entries.festival .details{text-align:center;padding:20px;color:#707070}
-.post-type-entries.festival h3.event-name{margin:0 0 20px;font-family:"Poppins",sans-serif;font-weight:400;font-size:18px;line-height:1.2;text-transform:uppercase;letter-spacing:1px;color:#404040}
-.post-type-entries.festival .short-description{font-size:13px;line-height:1.5;margin-top:20px}
-.post-type-entries.festival div.button{margin-top:20px}
-.post-type-entries.festival .postbox.canceled .wave-effect .wave{margin-top:-5vw;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
-.post-type-entries.festival .postbox.canceled .wave-effect .boxTitle{display:none}
-.post-type-entries.festival span.canceledStat{display:block;width:100%;position:absolute;top:47%;left:0;-webkit-transform:translateY(-47%);-ms-transform:translateY(-47%);transform:translateY(-47%);z-index:60;text-align:center}
-.post-type-entries.festival span.canceledStat img{max-width:230px;width:85%;height:auto}
+.post-type-entries{width:100%;float:left}
+.post-type-entries .posts-inner{width:100%;float:left}
+.post-type-entries .flex-inner{padding-left:10px;padding-right:10px;padding-bottom:10px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+@media(min-width:600px){.post-type-entries .flex-inner{margin-left:-10px;margin-right:-10px;padding-left:0;padding-right:0;padding-bottom:0}
+}.post-type-entries .postbox{width:100%;padding:10px;position:relative}
+@media(min-width:600px){.post-type-entries .postbox{width:50%}
+}@media(min-width:768px){.post-type-entries .postbox{width:25%}
+}.post-type-entries .postbox:after{content:"";display:block;width:calc(100% - 20px);height:calc(100% - 20px);position:absolute;top:10px;left:10px;background:#f2f2f2}
+.post-type-entries .inside,.post-type-entries .photo{width:100%;position:relative;float:left}
+.post-type-entries .inside{z-index:10}
+.post-type-entries .photo{display:block;text-decoration:none;height:100%;overflow:hidden}
+.post-type-entries .no-image .photo{background:#CCC}
+.post-type-entries .no-image .photo:before{content:"Photo Not Available";display:block;width:100%;text-align:center;font-family:"Poppins",sans-serif;font-size:15px;font-weight:400;color:#9e9e9e;text-transform:uppercase;position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+.post-type-entries .imagediv{width:100%;height:100%;position:absolute;top:0;left:0;background-size:cover;background-position:top center;background-repeat:no-repeat;z-index:10}
+.post-type-entries img.feat-img{width:100%;height:auto;visibility:hidden;float:left}
+.post-type-entries .details,.post-type-entries .info{width:100%;float:left;background:#f2f2f2}
+.post-type-entries .details{text-align:center;padding:20px;color:#707070}
+.post-type-entries h3.event-name{margin:0 0 20px;font-family:"Poppins",sans-serif;font-weight:400;font-size:18px;line-height:1.2;text-transform:uppercase;letter-spacing:1px;color:#404040}
+.post-type-entries .short-description{font-size:13px;line-height:1.5;margin-top:20px}
+.post-type-entries div.button{margin-top:20px}
+.post-type-entries .postbox.canceled .wave-effect .wave{margin-top:-5vw;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
+.post-type-entries .postbox.canceled .wave-effect .boxTitle{display:none}
+.post-type-entries span.canceledStat{display:block;width:100%;position:absolute;top:47%;left:0;-webkit-transform:translateY(-47%);-ms-transform:translateY(-47%);transform:translateY(-47%);z-index:60;text-align:center}
+.post-type-entries span.canceledStat img{max-width:230px;width:85%;height:auto}
 .event-completed{width:100%;position:absolute;top:0;left:0;z-index:70;text-align:center;background:#71c943}
 .event-completed span{font-family:"Poppins",sans-serif;font-size:25px;font-weight:400;line-height:1.1;text-transform:uppercase;letter-spacing:2px;color:#FFF;padding:10px;display:block}
 .loadmorediv{width:100%;float:left;text-align:center;margin:30px 0}

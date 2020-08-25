@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Festivals
+ * Template Name: Activities
  */
 
 get_header(); 
@@ -21,7 +21,7 @@ $square = THEMEURI . "images/square.png";
 		<?php endwhile;  ?>
 
 		<?php
-		$postype = 'festival';
+		$postype = 'activity';
 		$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 		$args = array(
 			'posts_per_page'=> 8,
