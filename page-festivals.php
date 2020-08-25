@@ -32,7 +32,7 @@ $square = THEMEURI . "images/square.png";
 		$posts = new WP_Query($args);
 		if ( $posts->have_posts() ) {  
 		$total_pages = $posts->max_num_pages; ?>
-		<div id="posts-festival" class="post-type-entries <?php echo $postype ?>">
+		<div class="post-type-entries <?php echo $postype ?>">
 			<div id="data-container">
 				<div class="posts-inner animate__animated animate__fadeIn">
 					<div class="flex-inner">
