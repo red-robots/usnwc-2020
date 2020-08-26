@@ -106,7 +106,8 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 			<?php } else { ?>
 				
 				<div class="subhead">
-					<h2 class="event-date">No Scheduled Activity Today</h2>
+					<h2 class="event-date"><?php echo $dateToday ?></h2>
+					<div class="pass-hours">NO SCHEDULED ACTIVITY TODAY</div>	
 				</div>
 			
 			<?php } ?>
