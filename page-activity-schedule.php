@@ -36,12 +36,12 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 
 
 			<?php
+			$dateToday = date('l, F jS');
 			$postype = 'activity_schedule';
 			$post = get_current_activity_schedule($postype);
 			if($post) { 
 				$postID = $post->ID;
 				$post_title = $post->post_title;
-				$dateToday = date('l, F jS');
 				$pass_hours = get_field("pass_hours",$postID);
 				$note = get_field("note",$postID);
 				$scheduled_activities = get_field("scheduled_activities",$postID);
