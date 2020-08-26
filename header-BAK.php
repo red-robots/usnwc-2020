@@ -35,6 +35,14 @@
 			$toplink = get_field("toplink","option");
 			?>
 			<div class="topinfo">
+				<?php if ($toplink) { ?>
+				<span id="daily-schedule" class="daily-schedule el open">
+					<a href="<?php echo $toplink['url'] ?>" target="<?php echo ($toplink['target']) ? $toplink['target']:'_self'?>" class="spanlink">
+						<em class="ds-txt"><?php echo $toplink['title'] ?></em>
+						<em class="ds-stat"></em>
+					</a>
+				</span>
+				<?php } ?>
 				<span class="trail-status el <?php echo $trail_status ?>">
 					<span class="t">Trail Status</span>
 					<span class="s"></span>

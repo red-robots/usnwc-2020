@@ -13,15 +13,23 @@ function js_custom_init() {
             'menu_name' => 'Activities',
             'plural'    => 'Activities',
             'single'    => 'Activity',
-            'menu_icon' => 'dashicons-format-quote',
+            'menu_icon' => 'dashicons-sos',
             'supports'  => array('title','editor')
+        ),
+        array(
+            'post_type' => 'activity_schedule',
+            'menu_name' => 'Activity Schedule',
+            'plural'    => 'Activity Schedules',
+            'single'    => 'Activity Schedule',
+            'menu_icon' => 'dashicons-calendar-alt',
+            'supports'  => array('title')
         ),
         array(
             'post_type' => 'pass',
             'menu_name' => 'Passes',
             'plural'    => 'Passes',
             'single'    => 'Pass',
-            'menu_icon' => 'dashicons-location',
+            'menu_icon' => 'dashicons-tickets-alt',
             'supports'  => array('title','editor')
         ),
         array(
@@ -29,7 +37,7 @@ function js_custom_init() {
             'menu_name' => 'Race Series',
             'plural'    => 'Races',
             'single'    => 'Race',
-            'menu_icon' => 'dashicons-location',
+            'menu_icon' => 'dashicons-location-alt',
             'supports'  => array('title','editor')
         ),
         array(
@@ -37,7 +45,7 @@ function js_custom_init() {
             'menu_name' => 'River Jam',
             'plural'    => 'Music',
             'single'    => 'Music ',
-            'menu_icon' => 'dashicons-groups',
+            'menu_icon' => 'dashicons-format-audio',
             'supports'  => array('title','editor')
         ),
         array(
@@ -45,7 +53,7 @@ function js_custom_init() {
             'menu_name' => 'Festival',
             'plural'    => 'Festival',
             'single'    => 'Festival ',
-            'menu_icon' => 'dashicons-groups',
+            'menu_icon' => 'dashicons-megaphone',
             'supports'  => array('title','editor')
         ),
         array(
@@ -53,7 +61,7 @@ function js_custom_init() {
             'menu_name' => 'Festival Activities',
             'plural'    => 'Festival Activities',
             'single'    => 'Festival Activity',
-            'menu_icon' => 'dashicons-groups',
+            'menu_icon' => 'dashicons-buddicons-groups',
             'supports'  => array('title','editor')
         ),
         array(
@@ -85,7 +93,7 @@ function js_custom_init() {
             'menu_name' => 'Breweries',
             'plural'    => 'Breweries',
             'single'    => 'Brewery',
-            'menu_icon' => 'dashicons-groups',
+            'menu_icon' => 'dashicons-beer',
             'supports'  => array('title','editor')
         ),
         array(
@@ -93,7 +101,7 @@ function js_custom_init() {
             'menu_name' => 'FAQs',
             'plural'    => 'FAQs',
             'single'    => 'FAQ',
-            'menu_icon' => 'dashicons-groups',
+            'menu_icon' => 'dashicons-info',
             'supports'  => array('title','editor')
         ),
         array(
@@ -101,7 +109,7 @@ function js_custom_init() {
             'menu_name' => 'Jobs',
             'plural'    => 'Jobs',
             'single'    => 'Job',
-            'menu_icon' => 'dashicons-groups',
+            'menu_icon' => 'dashicons-index-card',
             'supports'  => array('title','editor')
         ),
     );

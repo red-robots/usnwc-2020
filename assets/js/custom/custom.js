@@ -229,13 +229,22 @@ jQuery(document).ready(function ($) {
  	// );
 
  	$(document).on('click', function (e) {
- 		if ( e.target.id=='todayToggle' || e.target.id=='todayTxt' ) {
- 			e.preventDefault();
- 			$(".topinfo .today").toggleClass("open");
+ 		var tag = $(this);
+ 		var exceptions = ['todayToggle','todayLink','todayTxt','today-options'];
+ 		var elementId = e.target.id;
+ 		var is_open = false;
+ 		if( elementId=='today-options' ) {
+ 			$(".topinfo .today").addClass("open");
  		} else {
-			if ($(e.target).closest("#businessHours").length === 0) {
- 				$(".site-header .today").removeClass("open");
- 			}
+ 			if($.inArray(elementId, exceptions) != -1) {
+				if( $(".topinfo .today").hasClass("open") ) {
+					$(".topinfo .today").removeClass("open");
+				} else {
+					$(".topinfo .today").addClass("open");
+				}
+	 		} else {
+	 			$(".topinfo .today").removeClass("open");
+	 		}
  		}
 	});
 
@@ -300,7 +309,8 @@ jQuery(document).ready(function ($) {
 				$("#data-container").append(htmlContent);
 
 				if(next_page==last_page) {
-					$(".loadmorediv .wrapper").html('<span class="end">No more post to load</span>');
+					//$(".loadmorediv .wrapper").html('<span class="end">No more post to load</span>');
+					$(".loadmorediv").html('').hide();
 					// var target = $("#stopHere");
 					// if (target.length) {
 		   //      // Only prevent default if animation is actually gonna happen

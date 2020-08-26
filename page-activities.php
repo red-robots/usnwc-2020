@@ -40,7 +40,7 @@ $square = THEMEURI . "images/square.png";
 							$dateNow = date('Y-m-d');
 							$title = get_the_title();
 							$pagelink = get_permalink();
-							$thumbImage = get_field("thumbnail_image");
+							//$thumbImage = get_field("thumbnail_image");
 							$start = get_field("start_date");
 							$end = get_field("end_date");
 							$event_date = get_event_date_range($start,$end);
@@ -64,6 +64,27 @@ $square = THEMEURI . "images/square.png";
 								}
 							}
 
+							$sliders = get_field( "flexslider_banner" );
+							$slideImages = array();
+							if($sliders) {
+								foreach($sliders as $s) {
+									$desktopImg = $s['image'];
+									$mobileImg = $s['mobile_image'];
+									$img = '';
+									if($desktopImg) {
+										$img = $desktopImg;
+									}
+									if($mobileImg) {
+										$img = $mobileImg;
+									}
+								}
+								if($img) {
+									$slideImages[] = $img;
+								}
+							}
+
+							$thumbImage = (isset($slideImages[0]) && $slideImages[0]) ? $slideImages[0] : '';
+
 							?>
 							<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?><?php echo $eventStat ?>">
 								<div class="inside">
@@ -74,8 +95,9 @@ $square = THEMEURI . "images/square.png";
 									<?php } ?>
 									<a href="<?php echo $pagelink ?>" class="photo wave-effect js-blocks">
 									<?php if ($thumbImage) { ?>
-										<div class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></div>
-										<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img">
+										<div class="imagediv" style="background-image:url('<?php echo $thumbImage['url']?>')"></div>
+										<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none!important;">
+										<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
 									<?php } else { ?>
 										<div class="imagediv"></div>
 										<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">

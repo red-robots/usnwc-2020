@@ -45,8 +45,10 @@ $square = THEMEURI . "images/square.png";
 							$end = get_field("end_date");
 							$event_date = get_event_date_range($start,$end);
 							$short_description = get_field("short_description");
-							$canceled = (get_field("is_canceled")=='yes') ? 1 : '';
-							$eventStat = ($canceled) ? ' canceled':'';
+							$eventStatus = (get_field("eventstatus")) ? get_field("eventstatus"):'active';
+							$canceled = ($eventStatus=='canceled') ? 1 : '';
+							// $canceled = (get_field("eventstatus")=='canceled') ? 1 : '';
+							// $eventStat = ($canceled) ? ' canceled':'';
 							$canceledImage = THEMEURI . "images/canceled.svg";
 							$completed_date = $start;
 							if($end) {
@@ -58,17 +60,17 @@ $square = THEMEURI . "images/square.png";
 							if($completed_date) {
 								if($completed_date<$dateNow) {
 									$is_completed = true;
-									if (!$canceled) {
+									if ( empty($canceled) ) {
 										$eventStat = ' completed';
 									}
 								}
 							}
 
 							?>
-							<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?><?php echo $eventStat ?>">
+							<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?>">
 								<div class="inside">
 									<?php if ( empty($canceled) ) { ?>
-										<?php if ($is_completed) { ?>
+										<?php if ($is_completed || $eventStatus=='completed') { ?>
 										<div class="event-completed"><span>Event Complete</span></div>	
 										<?php } ?>
 									<?php } ?>

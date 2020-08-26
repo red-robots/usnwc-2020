@@ -134,10 +134,12 @@ a {
 		font-weight: 200;
 		font-size: 13px;
 		position: relative;
+		padding-right: 15px;
+		padding-left: 13px;
 		@include mid {
 			font-size: 12px;
 		}
-		&:before {
+		&:after {
 			content: "";
 			display: block;
 			width: 1px;
@@ -145,12 +147,17 @@ a {
 			background: rgba(255,255,255,.45);
 			position: absolute;
 			top: 9px;
-			left: 0;
+			right: 0;
 		}
 		.search {
 			padding-left: 22px;
 			&.search-open {
 				opacity: 0.2;
+			}
+		}
+		.spanlink {
+			&:hover {
+				opacity: 0.5;
 			}
 		}
 	}
@@ -159,8 +166,48 @@ a {
 			display: none;
 		}
 	}
+	span.daily-schedule {
+		display: none;
+		@include tab {
+			display: inline-block;
+		}
+		a {
+			display: inline-block;
+			position: relative;
+			em {
+				font-style: normal;
+			}
+			em.ds-txt {
+				padding-right: 23px;
+			}
+			em.ds-stat {
+				display: block;
+				width: 10px;
+				height: 10px;
+				background: #ef0808;
+				border-radius: 100px;
+				position: absolute;
+				top: 11px;
+				right: 0;
+			}
+		}
+		&.open {
+			a em.ds-stat {
+				background: #3AFF05;
+			}
+		}
+	}
+	span.srchLink {
+		padding-left: 0;
+		margin-left: 0;
+		&:after {
+			display: none;
+		}
+	}
+	span.toplink,
 	span.trail-status {
-		padding: 0 35px 0 0;
+		padding-right: 38px;
+		margin-left: 0;
 		span.s {
 			display: block;
 			width: 10px;
@@ -178,9 +225,12 @@ a {
 		}
 	}
 	span.today {
+		padding-left: 0;
+		padding-right: 10px;
+		margin-left: 0;
 		a {
 			display: block;
-			padding: 0 35px 0 20px;
+			padding: 0 32px 0 12px;
 			position: relative;
 			cursor: pointer;
 			z-index: 60;
@@ -194,7 +244,7 @@ a {
 			height: 8px;
 			position: absolute;
 			top: 10px;
-			right: 15px;
+			right: 8px;
 			transition: all ease .3s;
 			&:before, &:after {
 				content:"";
@@ -233,6 +283,9 @@ a {
 		overflow: hidden;
 		opacity: 0;
 		transform: translateY(-30px);
+		* {
+			transition: all ease .3s;
+		}
 		ul {
 			margin: 0 0;
 			padding: 5px 15px;
@@ -265,6 +318,21 @@ a {
 			svg {
 				font-size: 20px;
 				line-height: 1;
+			}
+		}
+		
+		.tdlink {
+			display: block;
+			text-decoration: none;
+			padding: 0 0;
+			cursor: pointer;
+			* {
+				cursor: pointer;
+			}
+			&:hover {
+				.t1, .t2 {
+					opacity:0.5;
+				}
 			}
 		}
 	}
@@ -3118,6 +3186,7 @@ h1.page-title {
 		text-decoration: none;
 		height: 100%;
 		overflow: hidden;
+		background-color: #CCC;
 	}
 	.no-image {
 		.photo {
@@ -3244,6 +3313,83 @@ h1.page-title {
     visibility: hidden;
 	}
 }
+
+/* Activity Schedule */
+.activity-schedule {
+	min-height: 30em;
+	&.has-banner {
+
+	}
+	&.no-banner {
+		margin-top: 88px;
+    border-top: 1px solid #444;
+	}
+	.intro-text-wrap {
+		padding-bottom: 0;
+	}
+}
+
+.schedule-activities-info {
+	.subhead {
+		text-align: center;
+	}
+	.event-date {
+		font-family: $font_secondary;
+		font-size: 40px;
+		font-weight: 500;
+		line-height: 1.2;
+		margin: 0 0 10px;
+		text-transform: uppercase;
+	}
+	.pass-hours {
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+	.note {
+		font-size: 15px;
+	}
+	.activities {
+		margin-bottom: 80px;
+		.info {
+			margin: 30px 0;
+		}
+		h3.type {
+			margin: 0 0;
+			font-family: $font_secondary;
+			font-weight: 300;
+			font-size: 22px;
+			line-height: 1.2;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			background-color: $red;
+			color: #FFF;
+			padding: 6px 15px;
+		}
+		ul.list {
+			margin: 0 0;
+			padding: 0 0;
+			list-style: none;
+			border-bottom: 2px solid #f1f1f1;
+			li.data {
+				padding: 10px 10px;
+				@include flexgroup();
+			}
+			li.data:nth-child(odd) {
+				background-color: #f1f1f1;
+			} 
+			.cell {
+				&.name {
+					width: 60%;
+				}
+				&.time {
+					width: 40%;
+					text-align: right;
+				}
+			}
+		}
+	}
+}
+
 .wave-effect {
 	position: relative;
 	overflow: hidden;
@@ -3320,6 +3466,7 @@ h1.page-title {
 			width: 100%;
 		}
 		span.twrap {
+			padding: 20px;
 			position: absolute;
 			top: 55%;
 			left: 0;

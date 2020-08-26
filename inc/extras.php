@@ -346,6 +346,40 @@ div.acf-field #expirationdatediv .inside td {
     padding: 2px 5px;
     vertical-align: top;
 }
+#acf-group_5f460b222fe52 div.acf-fc-layout-handle {
+    font-size: 0px;
+    color: transparent;
+    position: relative;
+}
+#acf-group_5f460b222fe52 div.acf-fc-layout-handle .customTabName {
+    font-size: 15px;
+    color: #444!important;
+    position: absolute;
+    left: 40px;
+    top: 17px;
+    z-index: 5;
+}
+body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
+    position: relative;
+}
+body.wp-admin.post-type-activity_schedule #poststuff #titlewrap input:focus {
+    outline: 0;
+    box-shadow: none;
+}
+body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
+    display: none;
+}
+#poststuff #titlewrap span.cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    background: #f1f1f1;
+    opacity: 0.7;
+}
 <?php 
 $has_expiration_post_types = array('festival','music'); 
 foreach($has_expiration_post_types as $pt) { ?>
@@ -365,6 +399,8 @@ add_action('admin_footer', 'my_custom_admin_js');
 function my_custom_admin_js() { ?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
+
+    /* ACF Flexible Content for Menu Options */
     if( $("#acf-group_5f1912cfb5ecf").length > 0 ) {
         $('[data-layout="menu_group"]').each(function(){
             var parent = $(this).find('[data-name="parent_menu_name"] .acf-input-wrap input').val();
@@ -380,20 +416,79 @@ jQuery(document).ready(function($){
         var acfLabel = 'Enable post expiration if event is completed';
         $('div.acf-field #expirationdatediv label[for="enable-expirationdate"]').html('<strong>'+acfLabel+'</strong>');
     }
+
+    if( $("#acf-group_5f460b222fe52").length > 0 ) {
+        $('[data-layout="activity"]').each(function(){
+            var parent = $(this).find('[data-name="type"] .acf-input-wrap input').val();
+            var tabTitle = ( parent.replace(/\s+/g,'').trim() ) ? parent.replace(/\s+/g,' ').trim() : '(Untitled)';
+            //var parentMenu_child = ( parent.replace(/\s+/g,'').trim() ) ? parent.replace(/\s+/g,' ').trim() : '';
+            //$(this).find(".acf-fc-layout-handle").attr("data-parenttext",parentMenu);
+            $(this).find(".acf-fc-layout-handle").append('<span class="customTabName">'+tabTitle+'</span>');
+        });
+        $(document).on("keyup",'[data-layout="activity"] [data-name="type"] .acf-input-wrap input',function(){
+            var str = $(this).val().replace(/\s+/g,' ').trim();
+            var parent = $(this).parents('[data-layout="activity"]');
+            parent.find(".customTabName").text(str);
+        });
+    }
+
+
+    if( $("body.wp-admin.post-type-activity_schedule").length > 0 ) {
+        //$('[data-name="eventDateSchedule"] input.hasDatepicker').focus();
+        $("#titlewrap").append('<span class="cover"></span>');
+        $("#titlewrap input").blur();
+        $('[data-name="eventDateSchedule"]').focus();
+        $(document).on("keyup change blur",'[data-name="eventDateSchedule"] input.hasDatepicker',function(){
+            var defaultVal = $("#titlewrap input").val();
+            var str = $(this).val().replace(/\s+/g,' ').trim();
+            $("#titlewrap input").val(str).addClass("focus-visible");
+            $("#title-prompt-text").addClass("screen-reader-text");
+            if(defaultVal) {
+                $(".button.edit-slug").trigger("click");
+                $("#new-post-slug").val("");
+                $(".button.save").trigger("click");
+            }
+        });
+    }
+
+
 });
 </script>
 <?php
 }
 /*===== END ADMIN CUSTOM SCRIPTS ======*/
 
+/* ACF CUSTOM OPTIONS TABS */
 function be_acf_options_page() {
-    if ( ! function_exists( 'acf_add_options_page' ) )
-        return;
+    if ( ! function_exists( 'acf_add_options_page' ) ) return;
+    
+    $acf_option_tabs = array(
+        array( 
+            'title'      => 'Today Options',
+            'capability' => 'manage_options',
+        ),
+        array( 
+            'title'      => 'Menu Options',
+            'capability' => 'manage_options',
+        )
+    );
 
-    acf_add_options_page( array( 
-        'title'      => 'Menu Options',
-        'capability' => 'manage_options',
-    ) );
+    foreach($acf_option_tabs as $options) {
+        acf_add_options_page($options);
+    }
+
+    // acf_add_options_page( 
+    //     array( 
+    //         'title'      => 'Menu Options',
+    //         'capability' => 'manage_options',
+    //     )
+    // );
+    // acf_add_options_page( 
+    //     array( 
+    //         'title'      => 'Today Options',
+    //         'capability' => 'manage_options',
+    //     )
+    // );
 }
 add_action( 'init', 'be_acf_options_page' );
 
@@ -592,5 +687,15 @@ function get_categories_by_page_id($post_id,$taxonomy,$related=null) {
     return $related_posts;
 }
 
+
+function get_current_activity_schedule($postype) {
+    global $wpdb;
+    $dateNow = date('Y-m-d');
+    $today = date('l, F jS, Y');
+    $today_slug = sanitize_title($today);
+    $query = "SELECT * FROM {$wpdb->posts} p WHERE p.post_type='".$postype."' AND p.post_status='publish' AND p.post_name='".$today_slug."'";
+    $result = $wpdb->get_row($query);
+    return ($result) ? $result : '';
+}
 
 
