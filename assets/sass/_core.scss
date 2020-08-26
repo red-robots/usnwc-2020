@@ -3343,7 +3343,11 @@ h1.page-title {
 	}
 	.pass-hours {
 		font-size: 20px;
+		text-transform: uppercase;
 		margin-bottom: 20px;
+		span.ph {
+			padding-right: 5px;
+		}
 	}
 	.note {
 		font-size: 15px;

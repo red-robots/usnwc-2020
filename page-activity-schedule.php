@@ -50,7 +50,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 				<div class="subhead">
 					<h2 class="event-date"><?php echo $dateToday ?></h2>
 					<?php if ($pass_hours) { ?>
-					<div class="pass-hours"><?php echo $pass_hours ?></div>	
+					<div class="pass-hours"><span class="ph">Pass Hours:</span> <?php echo $pass_hours ?></div>	
 					<?php } ?>
 					<?php if ($note) { ?>
 					<div class="note"><?php echo $note ?></div>	
