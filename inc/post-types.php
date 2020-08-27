@@ -49,6 +49,14 @@ function js_custom_init() {
             'supports'  => array('title','editor')
         ),
         array(
+            'post_type' => 'film-series',
+            'menu_name' => 'Film Series',
+            'plural'    => 'Film Series',
+            'single'    => 'Film Series ',
+            'menu_icon' => 'dashicons-video-alt2',
+            'supports'  => array('title','editor')
+        ),
+        array(
             'post_type' => 'festival',
             'menu_name' => 'Festival',
             'plural'    => 'Festival',
