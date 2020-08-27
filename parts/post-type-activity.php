@@ -462,13 +462,20 @@ while ( have_posts() ) : the_post();
 	//$faqs = get_faqs_by_assigned_page_id($faqsIds);
 	$faqs = get_faq_listings($postid);
 	$faq_class = ($faqs && $faq_image) ? 'half':'full';
+	$has_faq_image = ($faq_image) ? ' has-image':' no-image';
 	if($faqs) { ?>
-	<section id="section-faqs" data-section="FAQ" class="section-content <?php echo $faq_class ?>">
+	<section id="section-faqs" data-section="FAQ" class="section-content <?php echo $faq_class.$has_faq_image ?>">
 		<div class="wrapper">
 			<div class="flexwrap">
 
 				<div class="col faqs">
-					<div class="titlediv"><h2 class="sectionTitle">FAQ</h2></div>
+					<div class="titlediv">
+						<?php if ($faq_image) { ?>
+						<h2 class="sectionTitle">FAQ</h2>
+						<?php } else { ?>
+						<h2 class="sectionTitle text-center">FAQ</h2>
+						<?php } ?>
+					</div>
 					<div class="faqsItems">
 						<?php foreach ($faqs as $q) { 
 							$faq_id = $q['ID'];

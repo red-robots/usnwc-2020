@@ -2334,9 +2334,10 @@ body.subpage.single {
 			margin-bottom: 15px;
 		}
 		.box-title {
-			background: $gray_dark;
-			color: #FFF;
-			padding: 13px 15px 12px;
+			// background: $gray_dark;
+			// color: #FFF;
+			color: $gray_dark;
+			padding: 50px 15px 10px;
 		}
 		.box-content {
 			padding: 30px 30px;
@@ -2346,7 +2347,7 @@ body.subpage.single {
 				margin: 0 0;
 				padding: 0 0;
 				list-style: none;
-				text-align: left;
+				text-align: center;
 			}
 			li {
 				padding-left: 28px;
@@ -2357,6 +2358,7 @@ body.subpage.single {
 				text-transform: uppercase;
 				color: $gray_dark;
 				margin-top: 30px;
+				display: inline-block;
 			}
 			li:first-child {
 				margin-top: 0;
@@ -2364,8 +2366,9 @@ body.subpage.single {
 			span.icon {
 				display: inline-block;
 				position: absolute;
-				top: 0;
-				left: 0;
+				// top: 0;
+				// left: 0;
+				margin-left: -26px;
 				width: 20px;
 				height: 20px;
 				background-image:url("images/icons/bw-check-green.svg");
@@ -2392,20 +2395,21 @@ body.subpage.single {
 	}
 
 	.redbox {
-		background: $red;
+		background-color: $gray_dark;
 		color: #FFF;
 		.box-title {
-			background: transparent;
+			// background: transparent;
 			padding: 0 0;
 			margin: 0 0 18px;
+			color: #FFF;
 		}
 		.box-content {
 			font-size: 11px;
 			padding: 5px;
 		}
 		.inner-wrap {
-			padding: 30px;
-			border: 1px solid rgba(255,255,255,.75);
+			padding: 40px;
+			// border: 1px solid rgba(255,255,255,.75);
 		}
 	}
 }
@@ -2822,6 +2826,14 @@ body.subpage.single {
 		text-align: right;
 		margin-bottom: 20px;
 	}
+	&.no-image {
+		.faqsItems {
+			max-width: 900px;
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+	
 	.faqs,
 	.faq-image {
 		width: 100%;
@@ -2944,6 +2956,7 @@ body.subpage.single {
 	background-color: $gray_dark;
 	color: #FFF;
 	position: relative;
+	padding-bottom: 40px;
 	&:before {
 		content:"";
 		display: block;
