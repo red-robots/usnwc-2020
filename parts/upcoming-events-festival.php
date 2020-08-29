@@ -51,7 +51,7 @@ $dateNow = date('Y-m-d');
 			$event_date = get_event_date_range($start,$end);
 			?>
 			<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?>">
-				<a href="<?php echo $pagelink ?>" class="inside boxlink">
+				<a href="<?php echo $pagelink ?>" class="inside boxlink wave-effect">
 					<?php if ($thumbImage) { ?>
 						<div class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></div>
 						<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none">
@@ -66,12 +66,10 @@ $dateNow = date('Y-m-d');
 							<div class="event-date"><?php echo $event_date ?></div>
 							<?php } ?>
 						</div>
-
-						<div class="wave">
-							<div class="wave-svg"></div>
-						</div>
-
 					</div>
+					<span class="wave">
+						<svg class="waveSvg" shape-rendering="auto" preserveAspectRatio="none" viewBox="0 24 150 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="m-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/></defs><g class="waveAnimation"><use x="85" y="5" xlink:href="#a"/></g></svg>
+					</span>
 				</a>
 			</div>
 		<?php $i++; endwhile; wp_reset_postdata(); ?>

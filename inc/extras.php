@@ -300,6 +300,9 @@ function get_event_date_range($start,$end) {
 add_action('admin_head', 'my_custom_admin_css');
 function my_custom_admin_css() { ?>
 <style type="text/css">
+div.acf-field[data-name="is_event_completed"] h2.hndle,
+div.acf-field[data-name="is_event_completed"] div.acf-label,
+div.acf-field[data-name="is_event_completed"] div.acf-input,
 body.post-type-acf-field-group #expirationdatediv.postbox  {
     display: none!important;
 }

@@ -133,6 +133,7 @@ while ( have_posts() ) : the_post();
 
 					<?php $i=1; foreach ($activities as $a) {
 						$a_name = $a['name'];
+						$a_note = $a['spnote'];
 						$a_description = $a['description'];
 						$a_difficulty = $a['difficulty'];
 						$a_qualifiers = $a['qualifiers'];
@@ -143,7 +144,14 @@ while ( have_posts() ) : the_post();
 
 							<?php /* OPTIONS */ ?>
 							<?php if ($a_name) { ?>
-								<div class="item-title"><h2 class="type"><?php echo $a_name ?></h2></div>
+								<div class="item-title">
+									<h2 class="type">
+										<?php echo $a_name ?>
+										<?php if ($a_note) { ?>
+										<em><?php echo $a_note; ?></em>	
+										<?php } ?>
+									</h2>
+								</div>
 							<?php } ?>
 							<div class="cell desc-col">
 								<?php if ($a_description) { ?>

@@ -1248,7 +1248,7 @@ h2.stitle {
 			position: absolute;
 			top: 0;
 			left: 0;
-			z-index: 20;
+			z-index: 60;
 			overflow:hidden;
 			@include flexgroup-center();
 			text-align: center;
@@ -1259,6 +1259,7 @@ h2.stitle {
 				z-index: 30;
 				opacity: 0;
 				transition: all ease .5s;
+				transition-delay: .3s;
 				transform: translateY(25%);
 			}
 			.event-name {
@@ -1269,45 +1270,45 @@ h2.stitle {
 				letter-spacing: 1px;
 				text-transform: uppercase;
 			}
-			* {
-				transition: all ease .3s;
-			}
+			// * {
+			// 	transition: all ease .3s;
+			// }
 		}
 
-		div.wave {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			overflow:hidden;
-			opacity: 0.7;
-		}
-		.wave-svg {
-			background-image:url("images/wave.svg");
-			background-repeat: no-repeat;
-			background-position: top left;
-			position: absolute;
-			top: -30%;
-			left: 0;
-			width: 75vw;
-			height: 100%;
-			transition: all ease .8s;
-			transform: translateY(150%);
-			// animation: waveEffect 0.3s cubic-bezier(.55, .5, .45, .5) infinite;
-			animation: waveEffect 0.4s cubic-bezier(.55, .55, .55, .55) infinite;
-			&:before {
-				content:"";
-				display: block;
-				width: 100%;
-				height: 110%;
-				background: #000;
-				position: absolute;
-				bottom: -30%;
-				left: 0;
-				transition: all ease 5s;
-			}
-		}
+		// div.wave {
+		// 	position: absolute;
+		// 	top: 0;
+		// 	left: 0;
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	overflow:hidden;
+		// 	opacity: 0.7;
+		// }
+		// .wave-svg {
+		// 	background-image:url("images/wave.svg");
+		// 	background-repeat: no-repeat;
+		// 	background-position: top left;
+		// 	position: absolute;
+		// 	top: -30%;
+		// 	left: 0;
+		// 	width: 75vw;
+		// 	height: 100%;
+		// 	transition: all ease .8s;
+		// 	transform: translateY(150%);
+		// 	// animation: waveEffect 0.3s cubic-bezier(.55, .5, .45, .5) infinite;
+		// 	animation: waveEffect 0.4s cubic-bezier(.55, .55, .55, .55) infinite;
+		// 	&:before {
+		// 		content:"";
+		// 		display: block;
+		// 		width: 100%;
+		// 		height: 110%;
+		// 		background: #000;
+		// 		position: absolute;
+		// 		bottom: -30%;
+		// 		left: 0;
+		// 		transition: all ease 5s;
+		// 	}
+		// }
 		.boxlink:hover {
 			.details .info {
 				opacity: 1;
@@ -2264,6 +2265,7 @@ body.subpage.single {
 				letter-spacing: 1px;
 				margin: 0 0 10px;
 				em {
+					font-size: 13px;
 					font-style: normal;
 					color: $red;
 				}

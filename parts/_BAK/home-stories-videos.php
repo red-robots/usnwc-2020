@@ -104,7 +104,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 
 				if ($i==1) { ?>
 				<div class="colLeft video-big">
-					<div class="imagediv storyVideo wave-effect<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
+					<div class="imagediv storyVideo wavehover<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
 						<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
 						
 						<?php if ($thumbnail_type=='default_image') { ?>
@@ -114,9 +114,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 						<?php } ?>
 
 						<div class="videoName"><span><?php echo $post_title ?></span></div>
-						<span class="wave">
-							<svg class="waveSvg" shape-rendering="auto" preserveAspectRatio="none" viewBox="0 24 150 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="m-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/></defs><g class="waveAnimation"><use x="85" y="5" xlink:href="#a"/></g></svg>
-						</span>
+						<div class="wave"></div>
 						<?php if ($videoURL) { ?>
 						<a data-fancybox href="<?php echo $videoURL ?>" class="videoLink"><span>Play Video</span></a>
 						<?php } ?>
@@ -126,7 +124,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 					<div class="wrap">
 				<?php } else { ?>
 						<div class="sm-video">
-							<div class="thumb storyVideo wave-effect<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
+							<div class="thumb storyVideo wavehover<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
 								<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
 								<?php if ($thumbnail_type=='default_image') { ?>
 								<div class="videoBtn">
@@ -134,9 +132,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 								</div>
 								<?php } ?>
 								<div class="videoName"><span><?php echo $post_title ?></span></div>
-								<span class="wave">
-									<svg class="waveSvg" shape-rendering="auto" preserveAspectRatio="none" viewBox="0 24 150 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="m-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/></defs><g class="waveAnimation"><use x="85" y="5" xlink:href="#a"/></g></svg>
-								</span>
+								<div class="wave"></div>
 								<?php if ($videoURL) { ?>
 								<a data-fancybox href="<?php echo $videoURL ?>" class="videoLink"><span>Play Video</span></a>
 								<?php } ?>
