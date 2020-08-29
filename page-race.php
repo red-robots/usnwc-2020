@@ -6,6 +6,7 @@
 get_header(); 
 $blank_image = THEMEURI . "images/square.png";
 $square = THEMEURI . "images/square.png";
+$rectangle = THEMEURI . "images/rectangle-lg.png";
 ?>
 
 <div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full festival-page">
@@ -75,10 +76,10 @@ $square = THEMEURI . "images/square.png";
 									<a href="<?php echo $pagelink ?>" class="photo wave-effect js-blocks">
 									<?php if ($thumbImage) { ?>
 										<div class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></div>
-										<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img">
+										<img src="<?php echo $thumbImage['url'] ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img placeholder">
 									<?php } else { ?>
 										<div class="imagediv"></div>
-										<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
+										<img src="<?php echo $rectangle ?>" alt="" aria-hidden="true" class="feat-img placeholder">
 									<?php } ?>
 										<span class="boxTitle">
 											<span class="twrap">

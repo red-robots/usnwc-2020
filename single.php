@@ -9,26 +9,27 @@
 
 get_header(); 
 $post_type = get_post_type();
-$customPostTypes = array('activity','festival');
+$heroImage = get_field("full_image");
+$has_hero = ($heroImage) ? 'has-banner':'no-banner';
+//$customPostTypes = array('activity','festival');
+get_template_part("parts/subpage-banner");
 ?>
-<div id="primary" class="content-area-full content-default post-type-<?php echo $post_type;?>">
+<div id="primary" class="content-area-full content-default <?php echo $has_hero;?> post-type-<?php echo $post_type;?>">
 	
-	<?php if ($post_type=='post') { ?>
-		<main id="main" class="site-main wrapper" role="main">
-			<?php while ( have_posts() ) : the_post(); ?>
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<header class="entry-header"><?php the_title( '<h1 class="entry-title">', '</h1>' ); ?></header>
-					<div class="entry-content"><?php the_content(); ?></div>
-				</article>
-			<?php endwhile; ?>
-		</main>
-	<?php } else { ?>
+<?php if ($post_type=='post') { ?>
+	<main id="main" class="site-main wrapper" role="main">
+		<?php while ( have_posts() ) : the_post(); ?>
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<header class="entry-header"><?php the_title( '<h1 class="entry-title">', '</h1>' ); ?></header>
+				<div class="entry-content"><?php the_content(); ?></div>
+			</article>
+		<?php endwhile; ?>
+	</main>
+<?php } else { ?>
 
-		<?php if ( in_array($post_type, $customPostTypes) ) { ?>
-			<?php get_template_part('parts/post-type-'.$post_type); ?>
-		<?php } ?>
+	<?php get_template_part('parts/post-type-'.$post_type); ?>
 
-	<?php } ?>
+<?php } ?>
 
 </div><!-- #primary -->
 

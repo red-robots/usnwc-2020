@@ -2020,6 +2020,7 @@ body.nav-open .menu-toggle{opacity:0}
 #banner .slideCaption .text{width:100%;text-align:center;color:#FFF;font-size:40px;font-family:"Poppins",sans-serif;font-weight:500;line-height:1.2;text-transform:uppercase}
 #banner .static-banner{width:100%;float:left}
 #banner .static-banner ul.slides,#banner .static-banner li.slideItem,#banner .static-banner .image-wrapper{width:100%;float:left;position:relative}
+#banner .static-banner .image-wrapper{background-size:cover;background-position:center;background-repeat:no-repeat}
 #banner .static-banner .image-wrapper img{width:100%;height:auto;float:left}
 #banner .static-banner .image-wrapper.yes-mobile img.desktop{display:none}
 @media(min-width:768px){#banner .static-banner .image-wrapper.yes-mobile img.desktop{display:block}
@@ -2203,6 +2204,7 @@ body.search .has-image .image-col{width:100%}
 }body.subpage.single .content-default{padding-top:0;padding-bottom:0}
 body.subpage.single .content-default .wrapper{font-size:20px;line-height:1.7;font-weight:400}
 body.subpage.single .content-default .main-description{padding-top:70px;padding-bottom:50px}
+body.subpage.single .content-default .main-text a{text-decoration:none}
 body.subpage.single .content-default h1.pagetitle{font-family:"Poppins",sans-serif;font-weight:400;font-size:25px;line-height:1.2;letter-spacing:2px;text-transform:uppercase;margin:0 0 25px;position:relative}
 body.subpage.single .content-default h1.pagetitle span{display:inline-block;position:relative}
 body.subpage.single .content-default h1.pagetitle span:after{content:"";display:block;width:30%;height:2px;background:#ba0d30;margin:25px auto 0}
@@ -2385,11 +2387,11 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 .explore-other-stuff:before{content:"";display:block;width:100%;height:70%;position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);background-image:url("images/logo-white.png");background-size:contain;background-position:center;background-repeat:no-repeat;opacity:.1}
 .explore-other-stuff .wrapper{position:relative;z-index:10;padding-top:40px;padding-bottom:40px}
 .explore-other-stuff .sectionTitle{color:#FFF;text-align:center;margin-bottom:15px}
-.explore-other-stuff .columns{-webkit-column-count:2;-moz-column-count:2;column-count:2}
-@media(min-width:600px){.explore-other-stuff .columns{-webkit-column-count:3;-moz-column-count:3;column-count:3}
-}@media(min-width:768px){.explore-other-stuff .columns{-webkit-column-count:5;-moz-column-count:5;column-count:5}
-}.explore-other-stuff .entry{width:100%;float:left;line-height:1.2}
-.explore-other-stuff .entry a{display:inline-block;text-decoration:none;color:#FFF;font-size:13px;line-height:1.2}
+.explore-other-stuff .columns{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.explore-other-stuff .entry{width:100%;float:left;line-height:1.2}
+@media(min-width:600px){.explore-other-stuff .entry{width:50%}
+}@media(min-width:768px){.explore-other-stuff .entry{width:25%}
+}.explore-other-stuff .entry a{display:inline-block;text-decoration:none;color:#FFF;font-size:13px;line-height:1.2}
 .explore-other-stuff .entry a:hover{opacity:.3}
 #pageTabs{text-align:center;position:relative;top:-30px;margin-top:20px;margin-bottom:35px}
 #pageTabs #tabcontent{display:inline-block;position:relative;padding-left:5vw;padding-right:5vw}
@@ -2453,6 +2455,56 @@ h1.page-title span:after{content:"";display:block;width:30%;height:2px;backgroun
 .schedule-activities-info .activities ul.list li.data:nth-child(odd){background-color:#f1f1f1}
 .schedule-activities-info .activities ul.list .cell.name{width:60%}
 .schedule-activities-info .activities ul.list .cell.time{width:40%;text-align:right}
+.title-w-icon{text-align:center;padding-top:50px;padding-bottom:50px}
+.title-w-icon h2{font-family:"Poppins",sans-serif;font-weight:400;font-size:25px;line-height:1.2;text-transform:uppercase;letter-spacing:2px;margin:0}
+.title-w-icon .title-icon span{display:inline-block;width:30px;height:30px;background-size:100%;background-position:center;background-repeat:no-repeat}
+.post-type-race #section-registration .title-w-icon{background:#ba0d30;color:#FFF}
+.post-type-race .race-types{background:#000}
+.post-type-race .race-types .inner-wrap{padding:5px}
+.post-type-race .race-types .flexwrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.post-type-race .race-types .type{width:100%;position:relative;padding:5px;text-align:center}
+.post-type-race .race-types .type .inside{height:100%;background:#FFF}
+.post-type-race .race-types .type .type-details{padding:10px 20px 20px}
+.post-type-race .race-types .type .type-name{background:#707070;padding:35px 20px 30px}
+.post-type-race .race-types .type .type-name h3{margin:0;color:#FFF;font-family:"Poppins",sans-serif;font-weight:400;font-size:20px;line-height:1.2;text-transform:uppercase;letter-spacing:2px}
+.post-type-race .race-types .type .type-details ul.info{margin:0;padding:0;list-style:none}
+.post-type-race .race-types .type .type-details li{margin:35px 0}
+.post-type-race .race-types .type .type-details p{margin:0}
+.post-type-race .race-types .type .type-details p.i-title,.post-type-race .race-types .type .type-details p.i-text{font-family:"Poppins",sans-serif;font-size:20px;text-transform:uppercase}
+.post-type-race .race-types .type .type-details p.i-title{letter-spacing:1px;color:#707070}
+.post-type-race .race-types .type .type-details p.i-text{color:#000;margin-top:10px}
+.post-type-race .race-types .type .type-details p.i-note{font-size:12px;color:#707070}
+.post-type-race .race-types .type .type-details div.button{margin-bottom:30px}
+.post-type-race .race-types.one-col .type{width:100%}
+@media(min-width:768px){.post-type-race .race-types.two-col .type{width:50%}
+}@media(min-width:768px){.post-type-race .race-types.three-col .type{width:33.33%}
+}@media(min-width:768px){.post-type-race .race-types.multi-col .type{width:50%}
+}@media(min-width:960px){.post-type-race .race-types.multi-col .type{width:25%}
+}body.subpage.single .content-default .black-section{background:#000;width:100%;float:left}
+body.subpage.single .content-default .black-section .wrapper{font-size:14px;line-height:1.8;color:#FFF;padding-top:30px;padding-bottom:40px}
+body.subpage.single .content-default .black-section .wrapper a{color:#FFF}
+body.subpage.single .content-default .black-section .wrapper a:hover{color:#ba0d30}
+#section-schedule{padding-bottom:60px}
+#section-schedule .event-date{font-family:"Poppins",sans-serif;font-weight:400;font-size:15px;line-height:1.2;text-transform:uppercase;letter-spacing:2px;color:#707070;margin-top:10px}
+#section-schedule .schedule{display:none;-webkit-animation-duration:1s;animation-duration:1s}
+#section-schedule .schedule.active{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
+#section-schedule .filterBy{width:100%;float:left;position:relative;margin-bottom:50px}
+#section-schedule .filterBy .filter-input{max-width:500px;width:100%;margin:0 auto}
+#section-schedule .filterBy .filter-input span{display:inline-block;width:30%;float:left;background:#707070;color:#FFF;font-family:"Poppins",sans-serif;font-weight:400;font-size:15px;line-height:35px;letter-spacing:1px;text-transform:uppercase;padding:0 10px;text-align:center;position:relative;right:-2px;z-index:5}
+#section-schedule .filterBy .filter-select{width:70%;height:35px;line-height:35px;float:left;font-family:"Poppins",sans-serif;font-weight:400;font-size:15px;letter-spacing:1px;text-transform:uppercase;padding:0 10px}
+#section-schedule .schedule-information{width:100%;float:left}
+#section-schedule .schedule-information .schedule .day{width:100%;text-align:center;font-family:"Poppins",sans-serif;font-weight:400;font-size:20px;line-height:1.2;letter-spacing:1px;text-transform:uppercase;margin-bottom:40px}
+#section-schedule .schedule-information .schedule .day span{display:inline-block;border-bottom:2px solid #ba0d30}
+#section-schedule .schedule-information .activities{max-width:900px;width:100%;margin:0 auto;padding:0;list-style:none}
+#section-schedule .schedule-information .activities .info{padding:5px 0;font-size:14px;overflow:hidden}
+#section-schedule .schedule-information .activities .info .wrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:space-between;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative}
+#section-schedule .schedule-information .activities .info span.time,#section-schedule .schedule-information .activities .info span.event{position:relative}
+#section-schedule .schedule-information .activities .info span.time span,#section-schedule .schedule-information .activities .info span.event span{display:inline-block;background:#FFF;position:relative;z-index:3}
+#section-schedule .schedule-information .activities .info span.time{font-size:16px;font-weight:500;line-height:1.3;text-transform:uppercase;width:30%;top:-13px}
+#section-schedule .schedule-information .activities .info span.time span{padding-right:5px;padding-top:5px;padding-bottom:5px;top:3px}
+#section-schedule .schedule-information .activities .info span.time:after{content:"";display:block;width:100vw;height:1px;background-image:url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");position:absolute;left:0;bottom:8px;opacity:.4}
+#section-schedule .schedule-information .activities .info span.event{width:70%;text-align:right;line-height:1.2;color:#707070}
+#section-schedule .schedule-information .activities .info span.event span{padding-left:7px}
 .wave-effect{position:relative;overflow:hidden}
 .wave-effect .wave{display:block;position:absolute;top:0;left:0;width:100%;height:120%;z-index:50;opacity:.75;-webkit-transition:all ease .9s;transition:all ease .9s;-webkit-transform:translateY(200%);-ms-transform:translateY(200%);transform:translateY(200%)}
 .wave-effect .wave:after{content:"";display:block;width:100%;height:100%;background:#000;position:absolute;top:5vw;left:0}

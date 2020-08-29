@@ -251,7 +251,7 @@ function GetDays($sStartDate, $sEndDate){
 }  
 
 
-function get_event_date_range($start,$end) {
+function get_event_date_range($start,$end,$fullMonth=false) {
     $event_date = '';
     $date_range = array($start,$end);
     if($date_range && array_filter($date_range) ) {
@@ -266,7 +266,11 @@ function get_event_date_range($start,$end) {
                 $year = date('Y',strtotime($start));
 
                 if( date("m",strtotime($start)) == date("m",strtotime($end)) ) {
-                    $month = date('M',strtotime($start));
+                    if($fullMonth) {
+                        $month = date('F',strtotime($start));
+                    } else {
+                        $month = date('M',strtotime($start));
+                    }
                     $event_date = $month . ' ' . $s_day . '-' . $e_day . ', ' . $year;
                 }
                 if( date("m",strtotime($start)) != date("m",strtotime($end)) ) {
@@ -288,7 +292,12 @@ function get_event_date_range($start,$end) {
         } else {
 
             if($start) {
-                $event_date = date('M d, Y', strtotime($start));
+                if($fullMonth) {
+                    $event_date = date('F d, Y', strtotime($start));
+                } else {
+                    $event_date = date('M d, Y', strtotime($start));
+                }
+                
             }
             
         } 
@@ -317,10 +326,22 @@ div.acf-field-repeater[data-name="today"] table tr.acf-row td {
 #acf-group_5f1912cfb5ecf [data-layout="child_menu_data"] .parent-menu-text {
     display: none;
 }
+.acf-flexible-content div[data-layout="race_type"] {
+    margin-top: 10px!important;
+}
+div[data-layout="race_type"] > .acf-fc-layout-handle,
 #acf-group_5f1912cfb5ecf [data-layout="menu_group"] > .acf-fc-layout-handle {
     color: transparent;
     background: #f1f2f3;
 }
+div[data-layout="race_type"] > .acf-fc-layout-handle {
+    color: transparent!important;
+}
+div[data-layout="race_type"] > .acf-fc-layout-handle .acf-fc-layout-order {
+    color: #000!important;
+    background: #FFF!important;
+}
+div[data-layout="race_type"]:before,
 #acf-group_5f1912cfb5ecf [data-layout="menu_group"]:before {
     content:attr(data-parenttext);
     display: block;
@@ -413,6 +434,16 @@ jQuery(document).ready(function($){
             $(this).find('[data-layout="child_menu_data"]').attr("data-parenttext","- "+parentMenu_child);
         });
     }
+
+    if( $('[data-layout="race_type').length > 0 ) {
+        $('[data-layout="race_type').each(function(e){
+            var tab = $(this).find('[data-name="name"] .acf-input-wrap input').val();
+            var tabName = ( tab.replace(/\s+/g,'').trim() ) ? tab.replace(/\s+/g,' ').trim() : '(Untitle)';
+            $(this).attr("data-parenttext",tabName);
+        });
+    }
+
+
     if( ($('body.post-php div.acf-field[data-name="is_event_completed"]').length > 0) && ($("#expirationdatediv").length > 0) ) {
         $("#expirationdatediv").appendTo('div.acf-field[data-name="is_event_completed"]');
         //var acfLabel = $('body.post-php div.acf-field[data-name="is_event_completed"] .acf-label label').text();
