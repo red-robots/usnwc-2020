@@ -200,6 +200,10 @@ while ( have_posts() ) : the_post(); ?>
 	</section>
 	<?php } ?>
 
+
+	<?php /* FAQ */ ?>
+	<?php get_template_part("parts/content-faqs"); ?>
+
 <?php endwhile; ?>
 
 <script>
@@ -209,5 +213,16 @@ jQuery(document).ready(function($){
 		$(".schedule-info").removeClass("active");
 		$(".schedule-info#" + opt).addClass('active');
 	});
+
+	/* FAQS */
+	$(".faqsItems .collapsible").on("click",function(){
+		if( $(this).hasClass('active') ) {
+			$(this).removeClass("active fadeIn");
+		} else {
+			$(".faqsItems .collapsible").removeClass("active fadeIn");
+			$(this).addClass("active fadeIn");
+		}
+	});
+	 
 });	
 </script>
