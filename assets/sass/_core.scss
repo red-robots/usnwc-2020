@@ -3577,6 +3577,7 @@ body.subpage.single .content-default .black-section {
 }
 
 #section-schedule {
+	background: $gray;
 	padding-bottom: 60px;
 	.event-date {
 		font-family: $font_secondary;
@@ -3678,7 +3679,7 @@ body.subpage.single .content-default .black-section {
 					position: relative;
 					span {
 						display: inline-block;
-						background: #FFF;
+						background: $gray;
 						position: relative;
 						z-index: 3;
 					}
@@ -3714,6 +3715,7 @@ body.subpage.single .content-default .black-section {
 					line-height: 1.2;
 					color: $gray_dark;
 					span {
+						display: inline;
 						padding-left: 7px;
 					}
 				}

@@ -2484,7 +2484,7 @@ h1.page-title span:after{content:"";display:block;width:30%;height:2px;backgroun
 body.subpage.single .content-default .black-section .wrapper{font-size:14px;line-height:1.8;color:#FFF;padding-top:30px;padding-bottom:40px}
 body.subpage.single .content-default .black-section .wrapper a{color:#FFF}
 body.subpage.single .content-default .black-section .wrapper a:hover{color:#ba0d30}
-#section-schedule{padding-bottom:60px}
+#section-schedule{background:#f2f2f2;padding-bottom:60px}
 #section-schedule .event-date{font-family:"Poppins",sans-serif;font-weight:400;font-size:15px;line-height:1.2;text-transform:uppercase;letter-spacing:2px;color:#707070;margin-top:10px}
 #section-schedule .schedule{display:none;-webkit-animation-duration:1s;animation-duration:1s}
 #section-schedule .schedule.active{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
@@ -2499,12 +2499,12 @@ body.subpage.single .content-default .black-section .wrapper a:hover{color:#ba0d
 #section-schedule .schedule-information .activities .info{padding:5px 0;font-size:14px;overflow:hidden}
 #section-schedule .schedule-information .activities .info .wrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:space-between;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative}
 #section-schedule .schedule-information .activities .info span.time,#section-schedule .schedule-information .activities .info span.event{position:relative}
-#section-schedule .schedule-information .activities .info span.time span,#section-schedule .schedule-information .activities .info span.event span{display:inline-block;background:#FFF;position:relative;z-index:3}
+#section-schedule .schedule-information .activities .info span.time span,#section-schedule .schedule-information .activities .info span.event span{display:inline-block;background:#f2f2f2;position:relative;z-index:3}
 #section-schedule .schedule-information .activities .info span.time{font-size:16px;font-weight:500;line-height:1.3;text-transform:uppercase;width:30%;top:-13px}
 #section-schedule .schedule-information .activities .info span.time span{padding-right:5px;padding-top:5px;padding-bottom:5px;top:3px}
 #section-schedule .schedule-information .activities .info span.time:after{content:"";display:block;width:100vw;height:1px;background-image:url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");position:absolute;left:0;bottom:8px;opacity:.4}
 #section-schedule .schedule-information .activities .info span.event{width:70%;text-align:right;line-height:1.2;color:#707070}
-#section-schedule .schedule-information .activities .info span.event span{padding-left:7px}
+#section-schedule .schedule-information .activities .info span.event span{display:inline;padding-left:7px}
 .wave-effect{position:relative;overflow:hidden}
 .wave-effect .wave{display:block;position:absolute;top:0;left:0;width:100%;height:120%;z-index:50;opacity:.75;-webkit-transition:all ease .9s;transition:all ease .9s;-webkit-transform:translateY(200%);-ms-transform:translateY(200%);transform:translateY(200%)}
 .wave-effect .wave:after{content:"";display:block;width:100%;height:100%;background:#000;position:absolute;top:5vw;left:0}

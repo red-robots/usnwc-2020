@@ -200,6 +200,25 @@ while ( have_posts() ) : the_post(); ?>
 	</section>
 	<?php } ?>
 
+	<?php 
+	/* COURSE MAP */
+	$course_section_icon = get_field("course_section_icon"); 
+	$course_section_title = get_field("course_section_title"); 
+	if($course_section_title) { ?>
+	<section id="section-coursemap" data-section="Course Map" class="section-content">
+		<?php if ($course_section_title) { ?>
+			<div class="title-w-icon">
+				<div class="wrapper">
+					<?php if ($course_section_icon) { ?>
+						<div class="title-icon"><span style="background-image:url('<?php echo $course_section_icon['url']?>')"></span></div>
+					<?php } ?>
+						<h2><?php echo $course_section_title ?></h2>
+				</div>
+			</div>
+		<?php } ?>
+	</section>
+	<?php } ?>
+
 
 	<?php /* FAQ */ ?>
 	<?php get_template_part("parts/content-faqs"); ?>
@@ -223,6 +242,6 @@ jQuery(document).ready(function($){
 			$(this).addClass("active fadeIn");
 		}
 	});
-	 
+
 });	
 </script>
