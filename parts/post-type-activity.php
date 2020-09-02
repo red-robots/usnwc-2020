@@ -521,7 +521,7 @@ jQuery(document).ready(function ($) {
 		$('[data-section]').each(function(){
 			var name = $(this).attr('data-section');
 			var id = $(this).attr("id");
-			tabs += '<a href="#'+id+'">'+name+'</a>';
+			tabs += '<span class="mini-nav"><a href="#'+id+'">'+name+'</a></span>';
 		});
 		$("#pageTabs").html('<div class="wrapper"><div id="tabcontent">'+tabs+'</div></div>');
 	}

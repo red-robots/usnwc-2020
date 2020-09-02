@@ -80,7 +80,7 @@ $args = array(
 	'post_status'	=> 'publish',
 );
 $posts = new WP_Query($args);
-$explore_title = get_field("explore_section_title","option");
+$explore_title = get_field("activity_bottom_section_title","option");
 if($posts) { ?>
 <section class="explore-other-stuff">
 	<div class="wrapper">

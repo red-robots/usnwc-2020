@@ -204,6 +204,7 @@ while ( have_posts() ) : the_post(); ?>
 	/* COURSE MAP */
 	$course_section_icon = get_field("course_section_icon"); 
 	$course_section_title = get_field("course_section_title"); 
+	$course_images = get_field("course_images"); 
 	if($course_section_title) { ?>
 	<section id="section-coursemap" data-section="Course Map" class="section-content">
 		<?php if ($course_section_title) { ?>
@@ -216,14 +217,187 @@ while ( have_posts() ) : the_post(); ?>
 				</div>
 			</div>
 		<?php } ?>
+
+		<?php if ($course_images) { 
+			$ci_images[] = array('img1','img1_width');
+			$ci_images[] = array('img2','img2_width');
+			$countImages = 0;
+			$courseImagesArrs = array();
+			foreach ($ci_images as $c) { 
+				$img_field = ( isset($c[0]) && $c[0] ) ? $c[0] : '';
+				$img_width = ( isset($c[1]) && $c[1] ) ? $c[1] : '';
+				$img = ( isset($course_images[$img_field]) && $course_images[$img_field] ) ? $course_images[$img_field]:'';
+				$percent = ( isset($course_images[$img_width]) && $course_images[$img_width] ) ? $course_images[$img_width]:'50';
+				if($img) {
+					$courseImagesArrs[$img_field] = $img;
+				}
+			}
+
+			$count_images = ($courseImagesArrs) ? count($courseImagesArrs) : 0;
+			if($courseImagesArrs) { ?>
+			<div class="course-images images-count-<?php echo $count_images?>">
+				<div class="inner">
+					<?php foreach ($ci_images as $c) { 
+						$img_field = ( isset($c[0]) && $c[0] ) ? $c[0] : '';
+						$img_width = ( isset($c[1]) && $c[1] ) ? $c[1] : '';
+						$img = ( isset($course_images[$img_field]) && $course_images[$img_field] ) ? $course_images[$img_field]:'';
+						$percent = ( isset($course_images[$img_width]) && $course_images[$img_width] ) ? $course_images[$img_width]:'50';
+						if($img) { ?>
+							<div class="img" style="width:<?php echo $percent?>%">
+								<div class="wrap" style="background-image:url('<?php echo $img['url'] ?>')">
+									<img src="<?php echo $img['url'] ?>" alt="<?php echo $img['title'] ?>" style="visibility:hidden"/>
+								</div>
+							</div>
+						<?php } ?>
+					<?php } ?>
+				</div>
+			</div>
+			<?php } ?>
+		<?php } ?>
+	</section>
+	<?php } ?>
+
+	<?php
+	/* AWARDS */
+	$awards = get_field("awards");
+	$a_col_icon1 = ( isset($awards['COL1_icon']) && $awards['COL1_icon'] ) ? $awards['COL1_icon']:'';
+	$a_col_title1 = ( isset($awards['COL1_title']) && $awards['COL1_title'] ) ? $awards['COL1_title']:'';
+	$a_col_desc1 = ( isset($awards['COL1_description']) && $awards['COL1_description'] ) ? $awards['COL1_description']:'';
+	$a_col_text1 = ( isset($awards['COL1_text1']) && $awards['COL1_text1'] ) ? $awards['COL1_text1']:'';
+	$a_col_text2 = ( isset($awards['COL1_text2']) && $awards['COL1_text2'] ) ? $awards['COL1_text2']:'';
+	
+	$a_col_icon2 = ( isset($awards['COL2_icon']) && $awards['COL2_icon'] ) ? $awards['COL2_icon']:'';
+	$a_col_title2 = ( isset($awards['COL2_title']) && $awards['COL2_title'] ) ? $awards['COL2_title']:'';
+	$a_col_content2 = ( isset($awards['COL2_columns']) && $awards['COL2_columns'] ) ? $awards['COL2_columns']:'';
+	
+	$awards_content = array($a_col_title1,$a_col_desc1,$a_col_text1,$a_col_text2);
+	if( ($awards_content && array_filter($awards_content )) || ($a_col_title2 && $a_col_content2) ) { ?>
+	<section id="section-awards" data-section="Awards" class="section-content">
+		<div class="flexwrap">
+
+			<?php if ($awards_content && array_filter($awards_content )) { ?>
+				<div class="awards-columns awards">
+					<div class="inside">
+						<?php if ( $a_col_icon1 || $a_col_title1 ) { ?>
+							<div class="col-title">
+								<?php if ($a_col_icon1) { ?>
+									<div class="icon-img"><span style="background-image:url('<?php echo  $a_col_icon1['url']?>')"></span></div>
+								<?php } ?>
+								<?php if ($a_col_title1) { ?>
+									<h2 class="stitle"><?php echo $a_col_title1 ?></h2>
+								<?php } ?>
+							</div>
+						<?php } ?>
+						
+						<?php if ( $a_col_desc1 || $a_col_text1 ||  $a_col_text2 ) { ?>
+							<div class="col-content">
+								<?php if ($a_col_desc1) { ?>
+								<div class="text1"><?php echo $a_col_desc1 ?></div>	
+								<?php } ?>
+
+								<?php if ($a_col_text1) { ?>
+								<div class="text2">
+									<?php
+									$a_col_text1 = str_replace('|',' <span class="red">|</span> ',$a_col_text1); 
+									echo $a_col_text1 
+									?>
+									
+								</div>	
+								<?php } ?>
+
+								<?php if ($a_col_text2) { ?>
+								<div class="text3 ribbon">
+									<div class="layer1">
+										<div class="layer2"><?php echo $a_col_text2 ?></div>
+									</div>
+								</div>	
+								<?php } ?>
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+			<?php } ?>
+
+			<?php if ($a_col_title2 && $a_col_content2) { ?>
+				<div class="awards-columns result">
+					<div class="inside">
+						<div class="col-title">
+							<?php if ($a_col_icon2) { ?>
+								<div class="icon-img"><span style="background-image:url('<?php echo  $a_col_icon2['url']?>')"></span></div>
+							<?php } ?>
+							<?php if ($a_col_title2) { ?>
+								<h2 class="stitle"><?php echo $a_col_title2 ?></h2>
+							<?php } ?>
+						</div>
+
+						<?php if ($a_col_content2) { 
+							$col_count = count($a_col_content2); ?>
+						<div class="col-content col-count-<?php echo $col_count?>">
+							<div class="wrap">
+								<?php foreach ($a_col_content2 as $col) { 
+									$c_title = $col['title'];
+									$c_text = $col['text'];
+									if($c_title || $c_text) { ?>
+									<div class="result-data">
+										<?php if ($c_title) { ?>
+										<h3 class="h3"><?php echo $c_title ?></h3>	
+										<?php } ?>
+
+										<?php if ($c_text) { ?>
+										<div class="rtext"><?php echo $c_text ?></div>	
+										<?php } ?>
+									</div>
+									<?php } ?>
+								<?php } ?>
+							</div>
+						</div>	
+						<?php } ?>
+					</div>
+				</div>
+			<?php } ?>
+
+		</div>
 	</section>
 	<?php } ?>
 
 
-	<?php /* FAQ */ ?>
-	<?php get_template_part("parts/content-faqs"); ?>
-
+	<?php 
+	/* FAQ */ 
+	get_template_part("parts/content-faqs-race"); 
+	?>
 <?php endwhile; ?>
+
+<?php  
+/* Similar Events */ 
+get_template_part("parts/content-similar-events"); 
+?>
+
+
+<?php
+/* EVENT SPONSORS */
+$sponsor_section_title = get_field("sponsor_section_title");  
+$sponsors = get_field("race_sponsors_logo");  
+if($sponsors) { ?>
+<section id="section-sponsors" class="section-content">
+	<div class="wrapper">
+		<?php if ($sponsor_section_title) { ?>
+		<div class="titlediv">
+			<h2 class="sectionTitle text-center"><?php echo $sponsor_section_title ?></h2>
+		</div>
+		<?php } ?>
+		
+		<div class="sponsors-list">
+			<div class="flexwrap">
+				<?php foreach ($sponsors as $s) { ?>
+				<span class="sponsor">
+					<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>">
+				</span>	
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+</section>
+<?php } ?>
 
 <script>
 jQuery(document).ready(function($){
@@ -242,6 +416,17 @@ jQuery(document).ready(function($){
 			$(this).addClass("active fadeIn");
 		}
 	});
+
+	/* page anchors */
+	if( $('[data-section]').length > 0 ) {
+		var tabs = '';
+		$('[data-section]').each(function(){
+			var name = $(this).attr('data-section');
+			var id = $(this).attr("id");
+			tabs += '<span class="mini-nav"><a href="#'+id+'">'+name+'</a></span>';
+		});
+		$("#pageTabs").html('<div class="wrapper"><div id="tabcontent">'+tabs+'</div></div>');
+	}
 
 });	
 </script>
