@@ -1,12 +1,14 @@
 <?php
 /**
- * Template Name: Festivals
+ * Template Name: River Jam
  */
 
 get_header(); 
 $blank_image = THEMEURI . "images/square.png";
 $square = THEMEURI . "images/square.png";
+$rectangle = THEMEURI . "images/rectangle-lg.png";
 ?>
+
 
 <div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full festival-page">
 		<?php while ( have_posts() ) : the_post(); ?>
@@ -21,7 +23,7 @@ $square = THEMEURI . "images/square.png";
 		<?php endwhile;  ?>
 
 		<?php
-		$postype = 'festival';
+		$postype = 'music';
 		$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 		$args = array(
 			'posts_per_page'=> 8,
