@@ -388,9 +388,15 @@ if($sponsors) { ?>
 		
 		<div class="sponsors-list">
 			<div class="flexwrap">
-				<?php foreach ($sponsors as $s) { ?>
+				<?php foreach ($sponsors as $s) { 
+				$link = get_field("image_website",$s['ID']);
+				?>
 				<span class="sponsor">
-					<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>">
+					<?php if ($link) { ?>
+						<a href="<?php echo $link ?>" target="_blank"><img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>"></a>
+					<?php } else { ?>
+						<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>">
+					<?php } ?>
 				</span>	
 				<?php } ?>
 			</div>
