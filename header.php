@@ -1,6 +1,6 @@
-<?php if ( isset($_GET['cron']) && $_GET['cron']=='1' ) { ?>
-	<?php echo 'CRON JOB IS RUNNING!!!!'; ?>
-<?php } ?>
+<?php 
+$res = update_post_status_if_expired();
+?>
 
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>

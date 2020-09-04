@@ -317,39 +317,15 @@ jQuery(document).ready(function ($) {
 			var url = pageURL.replace('pg='+num,'pg='+next_page);
 			loadButton.attr("data-current",next_page);
 
-			
-
-
-			$(".next-posts").load(url + " #data-container",function(){
-				var htmlContent = $(this).find("#data-container").html();
-				$("#data-container").append(htmlContent);
-
+			$(".next-posts").load(url + " .posts-inner .flex-inner",function(){
+				var htmlContent = $(".next-posts .flex-inner").html();
+				$("#data-container .flex-inner").append(htmlContent);
+				$(".next-posts").html("");
 				if(next_page==last_page) {
-					//$(".loadmorediv .wrapper").html('<span class="end">No more post to load</span>');
 					$(".loadmorediv").html('').hide();
-					// var target = $("#stopHere");
-					// if (target.length) {
-		   //      // Only prevent default if animation is actually gonna happen
-		   //      event.preventDefault();
-		   //      $('html, body').animate({
-		   //        scrollTop: target.offset().top
-		   //      }, 1000, function() {
-		   //        target.focus();
-		   //        if (target.is(":focus")) { // Checking if the target was focused
-		   //          return false;
-		   //        } else {
-		   //          target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-		   //          target.focus(); // Set focus again
-		   //        };
-		   //      });
-		   //    }
-
 				} 
 			});
 		}
-
-		
-		
 		
 	});
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Film Series
+ * 
  */
 
 get_header(); 
@@ -21,44 +21,70 @@ $square = THEMEURI . "images/square.png";
 		<?php endwhile;  ?>
 
 		<?php
-		$postype = 'film-series';
-		$perpage = 16;
+		$postype = 'festival';
 		$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
-		$result = custom_query_posts($postype,$perpage,$paged,'ASC');
-		$posts = ( isset($result['records']) && $result['records'] ) ? $result['records']:'';
-		$total = ( isset($result['total']) && $result['total'] ) ? $result['total']:0;
-		$canceledImage = THEMEURI . "images/canceled.svg";
-		$total_pages = ($posts) ? ceil($total / $perpage):0;
-
-		if ( $posts ) { ?>
+		$args = array(
+			'posts_per_page'=> 8,
+			'post_type'		=> $postype,
+			'post_status'	=> 'publish',
+			'paged'			   => $paged,
+			'orderby'   => 'meta_value_num',
+    	'meta_key'  => 'start_date',
+    	'order'     => 'ASC'
+		);
+		$posts = new WP_Query($args);
+		if ( $posts->have_posts() ) {  
+		$total_pages = $posts->max_num_pages; ?>
 		<div class="post-type-entries <?php echo $postype ?>">
 			<div id="data-container">
 				<div class="posts-inner animate__animated animate__fadeIn">
 					<div class="flex-inner">
-						<?php $i=1; foreach ($posts as $p) { 
-							$id = $p->ID;
-							$title = $p->post_title;
-							$pagelink = get_permalink($id);
-							$start = get_field("start_date",$id);
-							$end = get_field("end_date",$id);
+						<?php $i=1; while ( $posts->have_posts() ) : $posts->the_post(); 
+							$dateNow = date('Y-m-d');
+							$title = get_the_title();
+							$pagelink = get_permalink();
+							$thumbImage = get_field("thumbnail_image");
+							$start = get_field("start_date");
+							$end = get_field("end_date");
 							$event_date = get_event_date_range($start,$end);
-							$short_description = get_field("short_description",$id);
-							$eventStatus = (isset($p->eventstatus) && $p->eventstatus) ? $p->eventstatus:'active';
-							$thumbImage = get_field("thumbnail_image",$id);
+							$short_description = get_field("short_description");
+							$eventStatus = (get_field("eventstatus")) ? get_field("eventstatus"):'active';
+							$canceled = ($eventStatus=='canceled') ? 1 : '';
+							// $canceled = (get_field("eventstatus")=='canceled') ? 1 : '';
+							// $eventStat = ($canceled) ? ' canceled':'';
+							$canceledImage = THEMEURI . "images/canceled.svg";
+							$completed_date = $start;
+							if($end) {
+								$completed_date = $end;
+							}
+
+							$is_completed = '';
+							$d3 = ($completed_date) ? strtotime($completed_date) : '';
+							if($completed_date) {
+								if($completed_date<$dateNow) {
+									$is_completed = true;
+									if ( empty($canceled) ) {
+										$eventStat = ' completed';
+									}
+								}
+							}
+
 							?>
 							<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?>">
 								<div class="inside">
-									<?php if ($eventStatus=='completed') { ?>
-										<div class="event-completed"><span>Event Complete</span></div>
+									<?php if ( empty($canceled) ) { ?>
+										<?php if ($is_completed || $eventStatus=='completed') { ?>
+										<div class="event-completed"><span>Event Complete</span></div>	
+										<?php } ?>
 									<?php } ?>
 									<a href="<?php echo $pagelink ?>" class="photo wave-effect js-blocks">
-										<?php if ($thumbImage) { ?>
-											<div class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></div>
-											<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img">
-										<?php } else { ?>
-											<div class="imagediv"></div>
-											<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
-										<?php } ?>
+									<?php if ($thumbImage) { ?>
+										<div class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></div>
+										<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img">
+									<?php } else { ?>
+										<div class="imagediv"></div>
+										<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
+									<?php } ?>
 										<span class="boxTitle">
 											<span class="twrap">
 												<span class="t1"><?php echo $title ?></span>
@@ -77,7 +103,7 @@ $square = THEMEURI . "images/square.png";
 													</g>
 												</svg>
 										</span>
-										<?php if ($eventStatus=='canceled') { ?>
+										<?php if ($canceled) { ?>
 										<span class="canceledStat">
 											<img src="<?php echo $canceledImage ?>" alt="" aria-hidden="true">
 										</span>	
@@ -99,25 +125,25 @@ $square = THEMEURI . "images/square.png";
 									</div>
 								</div>
 							</div>
-						<?php $i++; } ?>
+						<?php $i++; endwhile; wp_reset_postdata(); ?>
 					</div>
 				</div>
 			</div>
-
 			<div class="next-posts" style="display:none;"></div>
 
-				<?php if ($total > $perpage) { ?> 
+				<?php
+			    if ($total_pages > 1){ ?> 
 			    <div id="pagination" class="pagination-wrapper" style="display:none;">
 				        <?php
 						    $pagination = array(
-									'base' => @add_query_arg('pg','%#%'),
-									'format' => '?pg=%#%',
-									'mid-size' => 1,
-									'current' => $paged,
-									'total' => ceil($total / $perpage),
-									'prev_next' => True,
-									'prev_text' => __( '<span class="fa fa-arrow-left"></span>' ),
-									'next_text' => __( '<span class="fa fa-arrow-right"></span>' )
+						        'base' => @add_query_arg('pg','%#%'),
+						        'format' => '?pg=%#%',
+						        'mid-size' => 1,
+						        'current' => $paged,
+						        'total' => $total_pages,
+						        'prev_next' => True,
+						        'prev_text' => __( '<span class="fa fa-arrow-left"></span>' ),
+						        'next_text' => __( '<span class="fa fa-arrow-right"></span>' )
 						    );
 						    echo paginate_links($pagination);
 						?>
@@ -126,7 +152,7 @@ $square = THEMEURI . "images/square.png";
 				<?php } ?>
 		</div>
 
-		<?php if ($total > $perpage) { ?> 
+		<?php if ($total_pages > 1){ ?> 
 		<div class="loadmorediv text-center">
 			<div class="wrapper"><a href="#" id="loadMoreBtn" data-current="1" data-end="<?php echo $total_pages?>" class="btn-sm wide"><span>Load More Festivals</span></a></div>
 		</div>

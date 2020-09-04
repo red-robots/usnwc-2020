@@ -732,4 +732,133 @@ function get_current_activity_schedule($postype) {
     return ($result) ? $result : '';
 }
 
+function update_post_status_if_expired() {
+   global $wpdb;
+   $dateNow = date('Y-m-d');
+   $dateNowStr = strtotime( date('Ymd') );
+   $query = "SELECT p.ID,p.post_title,p.post_type, date_format(str_to_date(m.meta_value, '%Y%m%d'),'%Y-%m-%d') AS start_date
+           FROM {$wpdb->posts} p,{$wpdb->postmeta} m
+           WHERE p.ID=m.post_id AND p.post_status='publish' 
+           AND m.meta_key='start_date' AND (m.meta_value IS NOT NULL OR m.meta_value <> '') ORDER BY start_date ASC";
+   $result = $wpdb->get_results($query); 
+   $last_updated = get_last_post_status_updated();
+
+   $exception = array('completed','canceled');
+   $is_updated = array();
+
+   if( empty($last_updated) || $last_updated!=$dateNow ) {
+
+      if($result) {
+         foreach($result as $row) {
+            $post_id = $row->ID;
+            $start_date = $row->start_date;
+            $end_date = get_field("end_date",$post_id);
+            $status = get_field('eventstatus',$post_id);
+            $based_date = ($start_date) ? strtotime($start_date) : '';
+            if($end_date) {
+               $based_date = strtotime($end_date);
+            }
+            $row->eventstatus = $status;
+            if($based_date) {
+               if( !in_array($status,$exception) ) {
+                  if($start<$dateNowStr) {
+                     $updated = update_post_meta($post_id,'eventstatus','completed');
+                     if($updated) {
+                        $is_updated[] = $post_id;
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+   }   
+   
+
+   if($is_updated) {
+      update_option('last_post_status_updated', $dateNow);
+   }
+
+   return $is_updated;
+}
+
+function get_last_post_status_updated() {
+    global $wpdb;
+    $query = "SELECT opt.option_value FROM {$wpdb->options} opt WHERE opt.option_name='last_post_status_updated'";
+    $result = $wpdb->get_row($query); 
+    $output = '';
+    if($result) {
+        $output = $result->option_value;
+    } else {
+        add_option('last_post_status_updated', NULL);
+    }
+    return $output;
+}
+
+
+function custom_query_posts($posttype,$perpage,$offset,$order='ASC') {
+   global $wpdb;
+   $dateToday = date('Y-m-d');
+   $dateNow = strtotime($dateToday);
+
+   /* Fist option */
+   // $query = "SELECT p.*,date_format(str_to_date(m.meta_value, '%Y%m%d'),'%Y-%m-%d') AS start_date
+   //         FROM {$wpdb->posts} p,{$wpdb->postmeta} m
+   //         WHERE p.ID=m.post_id AND p.post_type='".$posttype."' AND p.post_status='publish'
+   //         AND m.meta_key='start_date' AND (m.meta_value IS NOT NULL OR m.meta_value <> '') 
+   //         AND DATE(m.meta_value) >= CURDATE()";
+
+
+   $query1 = "SELECT p.*, m.meta_value AS eventstatus
+          FROM {$wpdb->posts} p,{$wpdb->postmeta} m
+          WHERE p.ID=m.post_id AND p.post_type='".$posttype."' AND p.post_status='publish'
+          AND m.meta_key='eventstatus' AND m.meta_value='active'";
+
+   $query2 = "SELECT p.*, m.meta_value AS eventstatus
+          FROM {$wpdb->posts} p,{$wpdb->postmeta} m
+          WHERE p.ID=m.post_id AND p.post_type='".$posttype."' AND p.post_status='publish'
+          AND m.meta_key='eventstatus' AND m.meta_value<>'active'";
+
+
+   $a_query = "SELECT q1.*,date_format(str_to_date(mm.meta_value, '%Y%m%d'),'%Y-%m-%d') AS start_date 
+            FROM (".$query1.") q1, {$wpdb->postmeta} mm
+            WHERE q1.ID=mm.post_id AND mm.meta_key='start_date' ORDER BY start_date {$order}";
+
+   $b_query = "SELECT q2.*,date_format(str_to_date(mc.meta_value, '%Y%m%d'),'%Y-%m-%d') AS c_start_date 
+            FROM (".$query2.") q2, {$wpdb->postmeta} mc
+            WHERE q2.ID=mc.post_id AND mc.meta_key='start_date' ORDER BY c_start_date {$order}";
+
+
+   $result1 = $wpdb->get_results($a_query);
+   $result2 = $wpdb->get_results($b_query);
+   $final = ($result1||$result2) ? array_merge($result1,$result2) : '';
+   $total = ($final) ? count($final) : 0;
+   $records = array();
+
+   if($final) {
+      $offset = $offset-1;
+      if($offset<=0) {
+         $offset = 0;
+      }
+
+      $start = $offset;
+      $end = $perpage;
+      if($offset>0) {
+         $start = (($offset+1) * $perpage) - $perpage;
+         $end = ($offset+1) * $perpage;
+      }
+      
+      for($i=$start; $i<$end; $i++) {
+         if( isset($final[$i]) ) {
+            $data = $final[$i];
+            $records[] = $data;
+         }
+      }
+   }
+
+   $output['total'] = $total;
+   $output['records'] = $records;
+   return $output;
+}
+
 
