@@ -20,7 +20,7 @@ get_header(); ?>
 			</section>
 			<?php } ?>
 
-			<div id="pageTabs" class="pageTabs2">
+			<div id="pageTabs" class="pageTabs2" style="display:none;">
 				<div class="wrapper">
 					<div id="tabcontent"></div>
 				</div>
@@ -134,6 +134,8 @@ jQuery(document).ready(function($){
 
   /* Sub-tabs */
   if( $(".menu-sections .mstitle").length > 0 ) {
+  	$("#pageTabs").show();
+
   	$(".menu-sections .mstitle").each(function(){
   		var parent = $(this).parents(".mscol");
   		var parentId = parent.attr("id");
