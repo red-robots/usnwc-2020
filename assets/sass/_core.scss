@@ -2070,6 +2070,37 @@ body.subpage.single {
 		}
 	}
 }
+
+.text-centered-section {
+	font-size: 20px;
+	line-height: 1.7;
+	font-weight: 400;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	@include tab {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+	h1 {
+		font-family: $font_secondary;
+		font-weight: 400;
+    font-size: 25px;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 25px;
+    position: relative;
+    &:after {
+			content: "";
+			display: block;
+			width: 2.5vw;
+			height: 2px;
+			background: $red;
+			margin: 25px auto 0;
+    }
+	}
+}
+
 .section-content {
 	width: 100%;
 	float: left;
@@ -3065,42 +3096,33 @@ body.subpage.single {
 		font-family: $font_secondary;
 		font-size: 16px;
 		font-weight: 300;
+		line-height: 1.2;
 		display: inline-block;
 		text-decoration: none;
 		color: $gray_dark;
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		padding: 5px 30px;
+		// padding: 5px 30px;
+		padding: 5px 0;
+		&:after {
+			content:"";
+			display: block;
+			width: 100%;
+			height: 1px;
+			background: #c3c3c3;
+			margin-top: 2px;
+			transition: all ease .3s;
+		}
 		&:hover {
 			color: $red;
+			&:after {
+				background: $red;
+			}
 		}
 	}
-	// &.fixed-top {
-	// 	position: fixed;
-	// 	top: 101px;
-	// 	left: 0;
-	// 	width: 100%;
-	// 	// background: rgba(255, 255, 255, 0.95);
-	// 	background: rgba(186, 12, 47, 0.85);
-	// 	z-index: 210;
-	// 	@include animateThis();
-	// 	-webkit-animation-name: fadeIn;
- //  	animation-name: fadeIn;
- //  	box-shadow: 0 16px 15px rgba(0, 0, 0, 0.15);
- //  	#tabcontent {
- //  		&:before, &:after {
-	// 			background-image: url(images/double-arrow-white.svg);
- //  		}
- //  		a {
-	//   		color: #FFF;
-	//   		&:hover {
-	//   			opacity: 0.5;
-	//   		}
-	//   	}
- //  	}
-	// }
 	span.mini-nav {
 		display: inline-block;
+		padding: 0 30px;
 	}
 	@media screen and (max-width: $portrait) {
 		span.mini-nav {
@@ -3116,7 +3138,30 @@ body.subpage.single {
 		}
 	}
 }
-
+#pageTabs.pageTabs2 {
+	.mini-nav {
+		padding: 0 30px;
+	}
+	a {
+		padding: 5px 0;
+		position: relative;
+		&:after {
+			content:"";
+			display: block;
+			width: 100%;
+			height: 1px;
+			background: #c3c3c3;
+			margin-top: 2px;
+			transition: all ease .3s;
+		}
+		&:hover {
+			color: $red;
+			&:after {
+				background: $red;
+			}
+		}
+	}
+}
 body.scrolled {
 	.site-header {
 		@include tab {
@@ -4075,6 +4120,108 @@ body.subpage.single .content-default .black-section {
     transform: translate3d(85px,0,0);
   }
 }
+
+.map-images {
+	.flexslider {
+		border-radius: 0px;
+	}
+}
+
+.menu-sections {
+	width: 100%;
+	float: left;
+	margin-top: 50px;
+	.mscol {
+		margin-top: 15px;
+		margin-bottom: 15px;
+		@include flexgroup();
+	}
+	.gallerycol {
+		.flexslider,
+		.slides,
+		.slides li.slide-item {
+			width: 100%;
+			float: left;
+			position: relative;
+			background-color: #CCC;
+			border-radius: 0px;
+		}
+		.slides li.slide-item {
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		img {
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+		img.actual-image {
+			display: none;
+		}
+	}
+	.textcol, .gallerycol {
+		width: 100%;
+		position: relative;
+		background: $gray;
+	}
+	.textcol {
+		font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+		.inside {
+			padding: 5vw;
+			@include tab {
+				height: 100%;
+				@include flexgroup-center();
+			}
+		}
+		.mstitle {
+			font-family: $font_secondary;
+			font-size: 30px;
+			font-weight: 500;
+			line-height: 1.2;
+			margin: 0 0 15px;
+			text-transform: uppercase;
+		}
+		.mstime {
+			font-size: 20px;
+			font-weight: 600;
+			line-height: 1.2;
+		}
+		.buttondiv {
+			margin-top: 25px;
+		}
+	}
+	.half {
+		.textcol {
+			@include tab {
+				width: 40%;
+			}
+		}
+		.gallerycol {
+			@include tab {
+				width: 60%;
+			}
+		}
+		&.odd {
+			.textcol {
+				@include tab {
+					border-right: 15px solid #FFF;
+				}
+			}
+		}
+		&.even {
+			@include flexbox-direction(row-reverse);
+			.textcol {
+				@include tab {
+					border-left: 15px solid #FFF;
+				}
+			}
+		}
+	}
+}
+
 
 /* FOOTER */
 .site-footer {

@@ -1,0 +1,153 @@
+<?php
+/**
+ * Template Name: Food and Beverage
+ */
+$placeholder = THEMEURI . 'images/rectangle.png';
+$banner = get_field("flexslider_banner");
+$has_banner = ($banner) ? 'hasbanner':'nobanner';
+get_header(); ?>
+<div id="primary" class="content-area-full <?php echo $has_banner ?>">
+	<main id="main" class="site-main fw-left" role="main">
+		<?php while ( have_posts() ) : the_post(); ?>
+
+			<?php
+			$section_1 = get_field("section_1");
+			if($section_1) { ?>
+			<section class="text-centered-section">
+				<div class="wrapper text-center">
+					<?php echo anti_email_spam($section_1); ?>
+				</div>
+			</section>
+			<?php } ?>
+
+			<div id="pageTabs" class="pageTabs2">
+				<div class="wrapper">
+					<div id="tabcontent"></div>
+				</div>
+			</div>
+
+			<?php $map_images = get_field("map_images"); ?>
+			<?php if ($map_images) { ?>
+			<section class="map-images">
+				<div id="foodSlides" class="flexslider">
+					<ul class="slides">
+					<?php foreach ($map_images as $m) { 
+						$img = $m['image']; 
+						if($img) { ?>
+						<li><img src="<?php echo $img['url'] ?>" alt="<?php echo $img['title'] ?>" /></li>
+				    <?php } ?>
+					<?php } ?>
+					</ul>
+				</div>
+			</section>	
+			<?php } ?>
+
+
+			<?php $sections = get_field("section_3"); ?>
+			<?php if ($sections) { ?>
+			<section class="menu-sections">
+				<div class="columns-2">
+				<?php $i=1; foreach ($sections as $s) { 
+					$e_title = $s['entrytitle'];
+					$e_text = $s['entrytext'];
+					$e_time = $s['entrytime'];
+					$linktype = ($s['entry_linktype']) ? $s['entry_linktype'] : '';
+					$link_field = ($linktype) ? 'entry_'.$linktype : '';
+					$link_val = ($link_field) ? $s[$link_field] : '';
+					$slides = $s['entryslides'];
+					$boxClass = ( ($e_title || $e_text) && $slides ) ? 'half':'full';
+					if( ($e_title || $e_text) || $slides) {  $colClass = ($i % 2) ? ' odd':' even'; ?>
+					<div id="section<?php echo $i?>" class="mscol <?php echo $boxClass.$colClass ?>">
+							<?php if ( $e_title || $e_text ) { ?>
+							<div class="textcol">
+								<div class="inside">
+
+									<div class="info">
+										<?php if ($e_title) { ?>
+											<h3 class="mstitle"><?php echo $e_title ?></h3>
+										<?php } ?>
+
+										<?php if ($e_text || $e_time) { ?>
+											<div class="textwrap">
+												<?php if ($e_text) { ?>
+													<div class="mstext"><?php echo $e_text ?></div>
+												<?php } ?>
+												<?php if ($e_time) { ?>
+													<div class="mstime"><?php echo $e_time ?></div>
+												<?php } ?>
+											</div>
+										<?php } ?>
+
+										<?php /* Button */ ?>
+										<?php if ($linktype=='pdf' && $link_val ) { 
+											$button_name = $link_val['buttonName'];
+											$button_link = $link_val['pdflink'];
+											if($button_name && $button_link) { ?>
+												<div class="buttondiv">
+													<a href="<?php echo $button_link ?>" target="_blank" class="btn-sm"><span><?php echo $button_name ?></span></a>
+												</div>
+											<?php } ?>
+										<?php } else if($linktype=='link' && $link_val) { 
+											$button_target = ( isset($link_val['target']) ) ? $link_val['target']:'_self'; ?>
+											<div class="buttondiv">
+												<a href="<?php echo $link_val['url'] ?>" target="<?php echo $button_target ?>" class="btn-sm"><span><?php echo $link_val['title'] ?></span></a>
+											</div>
+										<?php } ?>
+									</div><!-- .info -->
+
+								</div><!-- .inside -->
+							</div><!-- .textcol -->	
+							<?php } ?>
+
+							<?php if ( $slides ) { ?>
+							<div class="gallerycol">
+								<div class="flexslider">
+									<ul class="slides">
+										<?php $helper = THEMEURI . 'images/rectangle-narrow.png'; ?>
+										<?php foreach ($slides as $s) { ?>
+											<li class="slide-item" style="background-image:url('<?php echo $s['url']?>')">
+												<img src="<?php echo $helper ?>" alt="" aria-hidden="true" class="placeholder">
+												<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>" class="actual-image" />
+											</li>
+										<?php } ?>
+									</ul>
+								</div>
+							</div>	
+							<?php } ?>
+
+					</div>
+					<?php $i++; } ?>
+				<?php } ?>
+				</div>
+			</section>	
+			<?php } ?>
+
+		<?php endwhile; ?>
+	</main><!-- #main -->
+</div><!-- #primary -->
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	$('#foodSlides').flexslider({
+    animation: "slide"
+  });
+
+  /* Sub-tabs */
+  if( $(".menu-sections .mstitle").length > 0 ) {
+  	$(".menu-sections .mstitle").each(function(){
+  		var parent = $(this).parents(".mscol");
+  		var parentId = parent.attr("id");
+  		var text = $(this).text().replace(/\s/g,' ').trim();
+  		var tab = '<span class="mini-nav"><a href="#'+parentId+'">'+text+'</a></span>';
+  		$("#tabcontent").append(tab);
+  	});
+
+  	$(document).on("click","#tabcontent a",function(e) {
+			$("#tabcontent a").removeClass("active");
+			$(this).addClass('active');
+		});
+  }
+});
+</script>
+<?php
+get_footer();

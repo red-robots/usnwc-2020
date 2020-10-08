@@ -123,30 +123,6 @@ function get_instagram_setup() {
     return $option;
 }
 
-function extract_emails_from($string){
-  preg_match_all("/[\._a-zA-Z0-9-]+@[\._a-zA-Z0-9-]+/i", $string, $matches);
-  return $matches[0];
-}
-
-function email_obfuscator($string) {
-    $output = '';
-    if($string) {
-        $emails_matched = ($string) ? extract_emails_from($string) : '';
-        if($emails_matched) {
-            foreach($emails_matched as $em) {
-                $encrypted = antispambot($em,1);
-                $replace = 'mailto:'.$em;
-                $new_mailto = 'mailto:'.$encrypted;
-                $string = str_replace($replace, $new_mailto, $string);
-                $rep2 = $em.'</a>';
-                $new2 = antispambot($em).'</a>';
-                $string = str_replace($rep2, $new2, $string);
-            }
-        }
-        $output = apply_filters('the_content',$string);
-    }
-    return $output;
-}
 
 function get_social_links() {
     $social_types = social_icons();
@@ -859,6 +835,41 @@ function custom_query_posts($posttype,$perpage,$offset,$order='ASC') {
    $output['total'] = $total;
    $output['records'] = $records;
    return $output;
+}
+
+
+function get_template_by_id($post_id,$template=null) {
+    global $wpdb;
+    if($template) {
+        $result = $wpdb->get_row( "SELECT p.ID FROM {$wpdb->posts} p, {$wpdb->postmeta} m WHERE p.ID=m.post_id AND m.post_id=".$post_id." AND m.meta_key='_wp_page_template' AND m.meta_value='".$template."'" );
+    } else {
+        $result = $wpdb->get_row( "SELECT ID FROM $wpdb->posts WHERE ID=".$post_id );
+    }
+    
+    return ($result) ? $result->ID : '';
+}
+
+
+/* Hide Default WP Richtext Editor */
+add_action( 'load-page.php', 'hide_tinyeditor_wp' );
+function hide_tinyeditor_wp() {
+    if( !isset( $_GET['post'] ) )
+        return;
+    $pages = array();
+    $post_id = $_GET['post'];
+    $templates = array('page-food-beverage');
+    if($templates) {
+        foreach($templates as $filename) {
+            $filename .= ".php";
+            $id = get_template_by_id($post_id,$filename);
+            if($id) {
+                $pages[] = $id;
+            }
+        }
+    }
+    if( $pages && in_array($_GET['post'], $pages) ) {
+        remove_post_type_support('page', 'editor');
+    }
 }
 
 
