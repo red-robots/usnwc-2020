@@ -2587,7 +2587,8 @@ body.subpage.single .content-default .black-section .wrapper a:hover{color:#ba0d
 .menu-sections{width:100%;float:left;margin-top:50px}
 .menu-sections .mscol{margin-top:15px;margin-bottom:15px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .menu-sections .gallerycol .flexslider,.menu-sections .gallerycol .slides,.menu-sections .gallerycol .slides li.slide-item{width:100%;float:left;position:relative;background-color:#CCC;border-radius:0}
-.menu-sections .gallerycol .slides li.slide-item{background-size:cover;background-position:center;background-repeat:no-repeat}
+@media(min-width:768px){.menu-sections .gallerycol .flexslider,.menu-sections .gallerycol .slides,.menu-sections .gallerycol .slides li.slide-item{height:100% !important}
+}.menu-sections .gallerycol .slides li.slide-item{background-size:cover;background-position:center;background-repeat:no-repeat}
 .menu-sections .gallerycol img{width:100%;height:auto;float:left}
 .menu-sections .gallerycol img.actual-image{display:none}
 .menu-sections .textcol,.menu-sections .gallerycol{width:100%;position:relative;background:#f2f2f2}

@@ -4145,6 +4145,9 @@ body.subpage.single .content-default .black-section {
 			position: relative;
 			background-color: #CCC;
 			border-radius: 0px;
+			@include tab {
+				height: 100%!important;
+			}
 		}
 		.slides li.slide-item {
 			background-size: cover;
