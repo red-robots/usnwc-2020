@@ -21,20 +21,18 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 
 <div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full activity-schedule <?php echo $has_banner ?>">
 		<?php while ( have_posts() ) : the_post(); ?>
+			<?php 
+				$custom_page_title = get_field("custom_page_title"); 
+				$page_title = ($custom_page_title) ? $custom_page_title : get_the_title();
+			?>
 			<div class="intro-text-wrap">
 				<div class="wrapper">
-					<h1 class="page-title"><span><?php the_title(); ?></span></h1>
+					<h1 class="page-title"><span><?php echo $page_title; ?></span></h1>
 				</div>
 			</div>
 		<?php endwhile;  ?>
 
-		<div class="schedule-activities-info">
-			<div class="subhead">
-				
-			</div>
-			
-
-
+		<div class="schedule-activities-info new-layout full">
 			<?php
 			$dateToday = date('l, F jS');
 			$postype = 'activity_schedule';
@@ -48,24 +46,35 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 				?>
 				
 				<div class="subhead">
-					<h2 class="event-date"><?php echo $dateToday ?></h2>
-					<?php if ($pass_hours) { ?>
-					<div class="pass-hours"><span class="ph">Pass Hours:</span> <?php echo $pass_hours ?></div>	
-					<?php } ?>
+					<div class="date-hours">
+						<h2 class="event-date"><?php echo $dateToday ?></h2>
+						<?php if ($pass_hours) { ?>
+						<div class="pass-hours"><span class="ph">Pass Hours:</span> <?php echo $pass_hours ?></div>	
+						<?php } ?>
+					</div>
+
 					<?php if ($note) { ?>
 					<div class="note"><?php echo $note ?></div>	
 					<?php } ?>
 				</div>
 
-				<div class="entries">
+				<?php get_template_part("parts/subpage-tabs"); ?>
+
+				<div class="entries full">
+					<div class="status-legend">
+						<div class="wrapper">
+							<span class="open">Activity Open</span>
+							<span class="closed">Activity Closed</span>
+						</div>
+					</div>
 					<div class="wrapper">
 					<?php if ($scheduled_activities) { ?>
 						<div class="activities">
-							<?php foreach ($scheduled_activities as $a) { 
+							<?php $i=1; foreach ($scheduled_activities as $a) { 
 								$type = $a['type'];
 								$activities = $a['activities'];
 								if($type || $activities) { ?>
-									<div class="info">
+									<div id="activity<?php echo $i?>" class="activity-info info">
 										<?php if ($type) { ?>
 											<h3 class="type"><?php echo $type ?></h3>
 										<?php } ?>
@@ -75,28 +84,33 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 												$name = ($e['name']) ? $e['name']->post_title : '';
 												$start = $e['time_start'];
 												$end = $e['time_end'];
+												$status = ( isset($e['status']) && $e['status'] ) ? $e['status'] : 'open';
 												$delimiter = '';
 												if($start && $end) {
 													$delimiter = '<span class="dashed">&ndash;</span>';
 												}
 												?>
-												<li class="data">
-													<div class="cell name"><?php echo $name ?></div>
+												<li class="data" data-status="<?php echo $status?>">
+													<div class="cell name cell-<?php echo $status?>">
+														<span class="cellTxt"><span class="ct <?php echo $status?>"><?php echo $name ?></span></span>
+													</div>
 													<div class="cell time">
-														<?php if ($start) { ?>
-														<span class="time-start"><?php echo $start ?></span>	
-														<?php } ?>
-														<?php echo $delimiter ?>
-														<?php if ($end) { ?>
-														<span class="time-end"><?php echo $end ?></span>	
-														<?php } ?>
+														<span class="cellTxt">
+															<?php if ($start) { ?>
+															<span class="time-start"><?php echo $start ?></span>	
+															<?php } ?>
+															<?php echo $delimiter ?>
+															<?php if ($end) { ?>
+															<span class="time-end"><?php echo $end ?></span>	
+															<?php } ?>
+														</span>
 													</div>
 												</li>	
 												<?php } ?>
 											</ul>
 										<?php } ?>
 									</div>	
-								<?php } ?>
+								<?php $i++; } ?>
 							<?php } ?>
 						</div>
 					<?php } ?>
@@ -106,8 +120,10 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 			<?php } else { ?>
 				
 				<div class="subhead">
-					<h2 class="event-date"><?php echo $dateToday ?></h2>
-					<div class="pass-hours">NO SCHEDULED ACTIVITY TODAY</div>	
+					<div class="date-hours">
+						<h2 class="event-date"><?php echo $dateToday ?></h2>
+						<div class="pass-hours">NO SCHEDULED ACTIVITY TODAY</div>	
+					</div>
 				</div>
 			
 			<?php } ?>
@@ -115,6 +131,22 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 		</div>
 
 </div><!-- #primary -->
+
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	if( $(".activities h3.type").length > 0 ) {
+		$(".activities h3.type").each(function(){
+			var text = $(this).text().replace(/\s+/g,' ').trim();
+			var wrap = $(this).parents(".activity-info");
+			var parentId = wrap.attr("id");
+			var tab = '<span class="mini-nav"><a href="#'+parentId+'">'+text+'</a></span>';
+			$("#tabcontent").append(tab);
+		});
+		$("#pageTabs").show().addClass("show-tabs");
+	}
+});
+</script>
 
 <?php
 get_footer();

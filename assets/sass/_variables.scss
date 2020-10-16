@@ -6,14 +6,16 @@ $primary: #191919;
 $secondary: #BA0C2F;
 $gray: #F2F2F2;
 $gray_dark: #707070;
+$dark: #191919;
 $red: #BA0D30;
 $blue:#1A72BE;
 $limegreen:#71C943;
 $submenu_color: #191919;
 
 //$font_primary: 'Libre Franklin', sans-serif;
+//$font_secondary: 'Poppins', sans-serif;
 $font_primary: 'Nunito Sans', sans-serif;
-$font_secondary: 'Poppins', sans-serif;
+$font_secondary: 'Lato', sans-serif;
 $font_third: 'Montserrat', sans-serif;
 $font_code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font_pre: "Courier 10 Pitch", Courier, monospace;
@@ -123,6 +125,9 @@ $nav_width: 350px;
 	// animation-fill-mode: both;
 }
 
+@mixin custom_dashed() {
+	background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='3' stroke-dasharray='5%2c10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
 }
