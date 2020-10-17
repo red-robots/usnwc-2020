@@ -448,17 +448,17 @@ jQuery(document).ready(function($){
         $("#titlewrap").append('<span class="cover"></span>');
         $("#titlewrap input").blur();
         $('[data-name="eventDateSchedule"]').focus();
-        $(document).on("keyup change blur",'[data-name="eventDateSchedule"] input.hasDatepicker',function(){
-            var defaultVal = $("#titlewrap input").val();
-            var str = $(this).val().replace(/\s+/g,' ').trim();
-            $("#titlewrap input").val(str).addClass("focus-visible");
-            $("#title-prompt-text").addClass("screen-reader-text");
-            if(defaultVal) {
-                $(".button.edit-slug").trigger("click");
-                $("#new-post-slug").val("");
-                $(".button.save").trigger("click");
-            }
-        });
+        // $(document).on("keyup change blur",'[data-name="eventDateSchedule"] input.hasDatepicker',function(){
+        //     var defaultVal = $("#titlewrap input").val();
+        //     var str = $(this).val().replace(/\s+/g,' ').trim();
+        //     $("#titlewrap input").val(str).addClass("focus-visible");
+        //     $("#title-prompt-text").addClass("screen-reader-text");
+        //     if(defaultVal) {
+        //         $(".button.edit-slug").trigger("click");
+        //         $("#new-post-slug").val("");
+        //         $(".button.save").trigger("click");
+        //     }
+        // });
     }
 
 
@@ -701,8 +701,9 @@ function get_categories_by_page_id($post_id,$taxonomy,$related=null) {
 function get_current_activity_schedule($postype) {
     global $wpdb;
     $dateNow = date('Y-m-d');
-    $today = date('l, F jS, Y');
-    $today_slug = sanitize_title($today);
+    ///$today = date('l, F jS, Y');
+    //$today_slug = sanitize_title($today);
+    $today_slug = sanitize_title($dateNow);
     $query = "SELECT * FROM {$wpdb->posts} p WHERE p.post_type='".$postype."' AND p.post_status='publish' AND p.post_name='".$today_slug."'";
     $result = $wpdb->get_row($query);
     return ($result) ? $result : '';
@@ -871,5 +872,35 @@ function hide_tinyeditor_wp() {
         remove_post_type_support('page', 'editor');
     }
 }
+
+
+add_action('acf/save_post', 'my_custom_acf_save_post');
+function my_custom_acf_save_post( $post_id ) {
+    $post_type = get_post_type($post_id);
+    if($post_type=='activity_schedule') {
+        /* Update slug when event date is changed */
+        $event_date = get_field("eventDateSchedule");
+        if($event_date) {
+            $post_title = date('l, F jS, Y',strtotime($event_date));
+            $post_slug = sanitize_title($event_date);
+            $my_post = array(
+                'ID'            =>  $post_id,
+                'post_title'    => $post_title,
+                'post_name'     => $post_slug
+            );
+            wp_update_post( $my_post );
+        }
+    }
+    // // Get newly saved values.
+    // $values = get_fields( $post_id );
+
+    // // Check the new value of a specific field.
+    // $hero_image = get_field('hero_image', $post_id);
+    // if( $hero_image ) {
+    //     // Do something...
+    // }
+}
+
+
 
 

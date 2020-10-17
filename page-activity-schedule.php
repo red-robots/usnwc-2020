@@ -25,16 +25,17 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 				$custom_page_title = get_field("custom_page_title"); 
 				$page_title = ($custom_page_title) ? $custom_page_title : get_the_title();
 			?>
-			<div class="intro-text-wrap">
+			<div class="text-centered-section intro-text-wrap">
 				<div class="wrapper">
-					<h1 class="page-title"><span><?php echo $page_title; ?></span></h1>
+					<?php the_content(); ?>
 				</div>
 			</div>
 		<?php endwhile;  ?>
 
 		<div class="schedule-activities-info new-layout full">
 			<?php
-			$dateToday = date('l, F jS');
+			//$dateToday = date('l, F jS, Y'); /* example result: SATURDAY, OCTOBER 17TH, 2020 */
+			$dateToday = date('l, F j'); /* example resul: SATURDAY, OCTOBER 17 */
 			$postype = 'activity_schedule';
 			$post = get_current_activity_schedule($postype);
 			if($post) { 
