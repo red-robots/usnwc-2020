@@ -73,7 +73,7 @@ get_header(); ?>
 					<div class="flexwrap">
 					<?php foreach ($links as $e) { 
 						$v_link = $e['link'];
-						$v_target = ( isset($v_link['target']) && $v_link['target'] ) ? $v_link['target']:'_selft';
+						$v_target = ( isset($v_link['target']) && $v_link['target'] ) ? $v_link['target']:'_self';
 						$v_icon = $e['icon']; ?>
 
 						<?php if ($v_link) { ?>
