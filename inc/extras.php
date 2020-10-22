@@ -41,10 +41,6 @@ function bellaworks_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'bellaworks_body_classes' );
 
-if( function_exists('acf_add_options_page') ) {
-    acf_add_options_page();
-}
-
 
 function add_query_vars_filter( $vars ) {
   $vars[] = "pg";
@@ -285,6 +281,7 @@ function get_event_date_range($start,$end,$fullMonth=false) {
 add_action('admin_head', 'my_custom_admin_css');
 function my_custom_admin_css() { ?>
 <style type="text/css">
+#adminmenu li#toplevel_page_acf-options,
 div.acf-field[data-name="is_event_completed"] h2.hndle,
 div.acf-field[data-name="is_event_completed"] div.acf-label,
 div.acf-field[data-name="is_event_completed"] div.acf-input,
@@ -473,6 +470,9 @@ jQuery(document).ready(function($){
 /*===== END ADMIN CUSTOM SCRIPTS ======*/
 
 /* ACF CUSTOM OPTIONS TABS */
+// if( function_exists('acf_add_options_page') ) {
+//     acf_add_options_page();
+// }
 function be_acf_options_page() {
     if ( ! function_exists( 'acf_add_options_page' ) ) return;
     
@@ -484,27 +484,18 @@ function be_acf_options_page() {
         array( 
             'title'      => 'Menu Options',
             'capability' => 'manage_options',
+        ),
+        array( 
+            'title'      => 'Global Options',
+            'capability' => 'manage_options',
         )
     );
 
     foreach($acf_option_tabs as $options) {
         acf_add_options_page($options);
     }
-
-    // acf_add_options_page( 
-    //     array( 
-    //         'title'      => 'Menu Options',
-    //         'capability' => 'manage_options',
-    //     )
-    // );
-    // acf_add_options_page( 
-    //     array( 
-    //         'title'      => 'Today Options',
-    //         'capability' => 'manage_options',
-    //     )
-    // );
 }
-add_action( 'init', 'be_acf_options_page' );
+add_action( 'acf/init', 'be_acf_options_page' );
 
 function get_vimeo_data($vimeoId) {
     if (empty($vimeoId)) return '';
@@ -519,16 +510,6 @@ function get_vimeo_data($vimeoId) {
     //     return ($data) ? $data[0] : '';
     // }
 }
-
-/* Options page under Activity custom post type */
-// if( function_exists('acf_add_options_page') ) {
-//     acf_add_options_sub_page(array(
-//         'page_title'     => 'Activity Global Options',
-//         'menu_title'    => 'Activity Global Options',
-//         'parent_slug'    => 'edit.php?post_type=activity',
-//     ));
-// }
-
 
 function get_pass_type_category($term_id) {
     $taxonomy = 'pass_type';
