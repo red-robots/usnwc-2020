@@ -82,26 +82,7 @@
 						?>
 						<?php if ($social_media) { ?>
 						<div class="foot-social-media">
-							<?php if ($links_order) { ?>
-
-								<?php foreach ($links_order as $v) { 
-									if( isset($social_media[$v]) && $social_media[$v] ) { 
-										$m = $social_media[$v]; 
-										$social_link = $m['link'];
-										$social_icon = $m['icon']; ?>
-										<a href="<?php echo $social_link ?>" target="_blank"><i class="<?php echo $social_icon ?>"></i></a>	
-									<?php
-									}	
-								} ?>
-								
-							<?php } else { ?>
-								<?php foreach ($social_media as $k=>$m) { 
-									$social_link = $m['link'];
-									$social_icon = $m['icon'];
-									?>
-									<a href="<?php echo $social_link ?>" target="_blank"><i class="<?php echo $social_icon ?>"></i></a>	
-								<?php } ?>
-							<?php } ?>
+							<?php get_template_part("parts/social-media"); ?>		
 						</div>	
 						<?php } ?>
 					</div>
