@@ -380,6 +380,12 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
     background: #f1f1f1;
     opacity: 0.7;
 }
+
+[data-name="icons_links"] .acf-field[data-name="icon"] .image-wrap img {
+    width: 35px;
+    height:auto;   
+}
+
 <?php 
 $has_expiration_post_types = array('festival','music'); 
 foreach($has_expiration_post_types as $pt) { ?>
@@ -389,10 +395,8 @@ foreach($has_expiration_post_types as $pt) { ?>
         display: none;
     }
 <?php } ?>
-
 </style>
 <?php }
-
 
 /*===== START ADMIN CUSTOM SCRIPTS ======*/
 add_action('admin_footer', 'my_custom_admin_js');
@@ -891,16 +895,54 @@ function my_custom_acf_save_post( $post_id ) {
             wp_update_post( $my_post );
         }
     }
-    // // Get newly saved values.
-    // $values = get_fields( $post_id );
-
-    // // Check the new value of a specific field.
-    // $hero_image = get_field('hero_image', $post_id);
-    // if( $hero_image ) {
-    //     // Do something...
-    // }
 }
 
+/* Shortcode for Company Name */
+function contact_shortcode_company_name( $atts ){
+  $company = get_field("company_name","option");
+  return ($company) ? '<span class="contact-info-company">'.$company.'</span>':'';
+}
+add_shortcode( 'company', 'contact_shortcode_company_name' );
 
+/* Shortcode for Address */
+function contact_shortcode_address( $atts ){
+  $a = shortcode_atts( array(
+    'icon' => '',
+  ), $atts );
+  $icon = $a['icon'];
+  $address = get_field("address","option");
+  if($icon) {
+    $address = '<i class="fa fa-map-marker-alt"></i> ' . $address;
+  }
+  return ($address) ? '<span class="contact-info-address">'.$address.'</span>':'';
+}
+add_shortcode( 'address', 'contact_shortcode_address' );
 
+/* Shortcode for Phone */
+function contact_shortcode_phone( $atts ){
+  $a = shortcode_atts( array(
+    'icon' => '',
+  ), $atts );
+  $icon = $a['icon'];
+  $phone = get_field("phone","option");
+  if($icon) {
+    $phone = '<i class="fa fa-phone"></i> <a href="tel:'.format_phone_number($phone).'">' . $phone . '</a>';
+  }
+  return ($phone) ? '<span class="contact-info-phone">'.$phone.'</span>':'';
+}
+add_shortcode( 'phone', 'contact_shortcode_phone' );
+
+/* Shortcode for Email */
+function contact_shortcode_email( $atts ){
+  $a = shortcode_atts( array(
+    'icon' => '',
+  ), $atts );
+  $icon = $a['icon'];
+  $email = get_field("email","option");
+  if($icon) {
+    $email = '<i class="fa fa-envelope"></i> <a href="mailto:'.antispambot($email,1).'">'.antispambot($email).'</a>';
+  }
+  return ($email) ? '<span class="contact-info-email">'.$email.'</span>':'';
+}
+add_shortcode( 'email', 'contact_shortcode_email' );
 
