@@ -835,30 +835,6 @@ function get_template_by_id($post_id,$template=null) {
     return ($result) ? $result->ID : '';
 }
 
-
-/* Hide Default WP Richtext Editor */
-add_action( 'load-page.php', 'hide_tinyeditor_wp' );
-function hide_tinyeditor_wp() {
-    if( !isset( $_GET['post'] ) )
-        return;
-    $pages = array();
-    $post_id = $_GET['post'];
-    $templates = array('page-food-beverage');
-    if($templates) {
-        foreach($templates as $filename) {
-            $filename .= ".php";
-            $id = get_template_by_id($post_id,$filename);
-            if($id) {
-                $pages[] = $id;
-            }
-        }
-    }
-    if( $pages && in_array($_GET['post'], $pages) ) {
-        remove_post_type_support('page', 'editor');
-    }
-}
-
-
 add_action('acf/save_post', 'my_custom_acf_save_post');
 function my_custom_acf_save_post( $post_id ) {
     $post_type = get_post_type($post_id);
@@ -926,4 +902,121 @@ function contact_shortcode_email( $atts ){
   return ($email) ? '<span class="contact-info-email">'.$email.'</span>':'';
 }
 add_shortcode( 'email', 'contact_shortcode_email' );
+
+
+/* Hide Default WP Richtext Editor */
+add_action( 'load-page.php', 'hide_tinyeditor_wp' );
+function hide_tinyeditor_wp() {
+    global $wpdb;
+    if( !isset( $_GET['post'] ) )
+        return;
+    $pages = array();
+    $post_id = $_GET['post'];
+    $page_option_id = get_site_page_option_id();
+    $templates = array('page-food-beverage');
+    if($templates) {
+        foreach($templates as $filename) {
+            $filename .= ".php";
+            $id = get_template_by_id($post_id,$filename);
+            if($id) {
+                $pages[] = $id;
+            }
+        }
+    }
+
+    if( $pages && in_array($post_id, $pages) ) {
+        remove_post_type_support('page', 'editor');
+    }
+
+    /* Hide other custom field not related to 'Options' */
+    if($post_id==$page_option_id) {
+        $elementsToHide[] = 'a.page-title-action'; 
+        $elementsToHide[] = '.wp-heading-inline'; 
+        $elementsToHide[] = '#edit-slug-box'; 
+        $elementsToHide[] = '#acf_after_title-sortables'; 
+        $elementsToHide[] = '#pageparentdiv';
+        $elementsToHide[] = '#postimagediv';
+        $elementsToHide[] = '.misc-pub-revisions';
+        $elementsToHide[] = '.misc-pub-curtime';
+        $elementsToHide[] = '.misc-pub-post-status';
+        $elementsToHide[] = '#minor-publishing-actions';
+        $elementsToHide[] = '#screen-meta-links';
+        $elements = implode(",",$elementsToHide);
+        echo '<style>'.$elements.'{display:none!important;}</style>';
+        remove_post_type_support('page','editor','thumbnail');
+    } 
+}
+
+function get_site_page_option_id() {
+    global $wpdb;
+    $query_data = "SELECT ID FROM ".$wpdb->prefix."posts WHERE post_name='acf-site-options' AND post_status='private' AND post_type='page'";
+    $result = $wpdb->get_row($query_data);
+    return ($result) ? $result->ID : '';
+}
+
+
+/* Hide Special Pages */
+function wpse_hide_special_pages($query) {
+    global $typenow;
+    $page_option_id = get_site_page_option_id();
+
+    // Only do this for pages
+    if ( 'page' == $typenow) {
+        // Don't show the special pages (get the IDs of the pages and replace these)
+        $query->set( 'post__not_in', array($page_option_id) );
+        return;
+    }
+}
+add_action('pre_get_posts', 'wpse_hide_special_pages');
+
+
+/* ======= ACF OPTIONS PAGE Save Form fixed =======
+* This is the temporary fix for ACF Options issue when saving the form.
+* Issue: Redirects to 404 when saving
+*/
+add_action('admin_footer', 'acfOptionFixJS');
+function acfOptionFixJS() { 
+  $post_id = (isset($_GET['post']) && $_GET['post']) ? $_GET['post'] : 0;
+  $page_option_id = get_site_page_option_id();
+  if( $page_option_id ) { 
+    $post_edit_link = get_admin_url() . "post.php?post=".$page_option_id."&action=edit";
+    $options_page_url = get_admin_url() . "admin.php?page=acf-options";
+    ?>
+    <script type="text/javascript">
+
+    jQuery(document).ready(function($){
+      if( $(".toplevel_page_acf-options-global-options").length>0 ) {
+        $(".toplevel_page_acf-options-global-options").attr("href","<?php echo $post_edit_link ?>");
+
+        <?php if( $page_option_id==$post_id ) { ?>
+        $("li#menu-pages").removeClass("wp-menu-open wp-has-current-submenu");
+        $("li#menu-pages a").removeClass("wp-has-current-submenu wp-menu-open");
+        $("li#toplevel_page_acf-options-global-options").addClass('current');
+        $("li#toplevel_page_acf-options-global-options a").addClass('current');
+        <?php } ?>
+
+      }
+    });   
+    </script>
+    <?php
+  }
+}
+
+
+function _acf_do_save_post102320( $post_id = 0 ) {
+  
+  // Check and update $_POST data.
+  $page_option_id = get_site_page_option_id();
+  $post_id = (isset($_POST['post_ID']) && $_POST['post_ID']) ? $_POST['post_ID'] : 0;
+  if($post_id==$page_option_id) {
+    if( $_POST['acf'] ) {
+      acf_update_values( $_POST['acf'], $page_option_id );
+      acf_update_values( $_POST['acf'], "options" );
+    }
+  } 
+
+}
+add_action( 'acf/save_post', '_acf_do_save_post102320' );
+
+/* ======= end of ACF OPTIONS PAGE Save Form fixed ======= */
 
