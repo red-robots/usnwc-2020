@@ -947,13 +947,6 @@ function hide_tinyeditor_wp() {
     } 
 }
 
-function get_site_page_option_id() {
-    global $wpdb;
-    $query_data = "SELECT ID FROM ".$wpdb->prefix."posts WHERE post_name='acf-site-options' AND post_status='private' AND post_type='page'";
-    $result = $wpdb->get_row($query_data);
-    return ($result) ? $result->ID : '';
-}
-
 
 /* Hide Special Pages */
 function wpse_hide_special_pages($query) {
@@ -1002,17 +995,24 @@ function acfOptionFixJS() {
   }
 }
 
+function get_site_page_option_id() {
+    global $wpdb;
+    $query_data = "SELECT ID FROM ".$wpdb->prefix."posts WHERE post_name='acf-site-options' AND post_status='private' AND post_type='page'";
+    $result = $wpdb->get_row($query_data);
+    return ($result) ? $result->ID : '';
+}
 
 function _acf_do_save_post102320( $post_id = 0 ) {
   
-  // Check and update $_POST data.
-  $page_option_id = get_site_page_option_id();
+  $site_option_post_id = get_site_page_option_id(); /* Get the post ID of "Site Options" page */
   $post_id = (isset($_POST['post_ID']) && $_POST['post_ID']) ? $_POST['post_ID'] : 0;
-  if($post_id==$page_option_id) {
+  if($post_id==$site_option_post_id) {
+
     if( $_POST['acf'] ) {
-      acf_update_values( $_POST['acf'], $page_option_id );
-      acf_update_values( $_POST['acf'], "options" );
+      acf_update_values( $_POST['acf'], $site_option_post_id ); /* Saves fields under `Site Options` page */
+      acf_update_values( $_POST['acf'], "options" ); /* Saves fields under `Options` page */
     }
+
   } 
 
 }
@@ -1020,3 +1020,12 @@ add_action( 'acf/save_post', '_acf_do_save_post102320' );
 
 /* ======= end of ACF OPTIONS PAGE Save Form fixed ======= */
 
+
+function extractURLFromString($string) {
+    $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+    if(preg_match($reg_exUrl, $string, $url)) {
+        return ($url) ? $url[0] : '';
+    } else {
+        return '';
+    }
+}

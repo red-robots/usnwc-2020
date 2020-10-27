@@ -329,6 +329,14 @@ jQuery(document).ready(function ($) {
 		
 	});
 
+	$('#playYoutube').on('click', function(ev) {
+		$(this).hide();
+		$(".videoIframeDiv").addClass('play_video');
+    $(".videoIframe")[0].src += "&autoplay=1";
+    $("#banner").addClass("video-playing");
+    ev.preventDefault();
+  });
+
 	/*
 	*
 	*	Wow Animation

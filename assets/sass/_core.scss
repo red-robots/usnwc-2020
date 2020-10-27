@@ -747,7 +747,15 @@ body.nav-open {
 #banner {
 	width: 100%;
 	float: left;
+	position: relative;
 	background-color: #000;
+	&.video-playing {
+		z-index: 300;
+	}
+	margin-top: 90px;
+	@include tab {
+		margin-top: 0;
+	}
 	.static-banner,
 	.flexslider {
 		border-radius: 0px;
@@ -758,6 +766,26 @@ body.nav-open {
 			}
 			img.image-size-ref {
 				visibility: hidden;
+			}
+			img.image-size-ref-helper {
+				display: none;
+				width: 100%;
+				height: auto;
+				float: left;
+				visibility: hidden;
+				@include tab {
+					display: block;
+				}
+			}
+			img.image-helper-mobile {
+				display: block;
+				width: 100%;
+				height: auto;
+				float: left;
+				visibility: hidden;
+				@include tab {
+					display: none;
+				}
 			}
 			.outer-video-wrap {
 				width: 100%;
@@ -864,11 +892,14 @@ body.nav-open {
 			width: 100%;
 			text-align: center;
 			color: #FFF;
-			font-size: 40px;
+			font-size: 6vw;
 			font-family: $font_secondary;
 			font-weight: 500;
 			line-height: 1.2;
 			text-transform: uppercase;
+			@include tab {
+				font-size: 40px;
+			}
 		}
 	}
 	.static-banner {
@@ -952,6 +983,50 @@ body.nav-open {
 			font-size: 18px;
 			font-weight: 300;
 			line-height: 1.2;
+		}
+	}
+	ul.slides.single-slide {
+		.type-video {
+			width: 100%;
+			float: left;
+			position: relative;
+			// margin-top: 90px;
+			@include tab {
+				margin-top: 0;
+			}
+			.iframe-wrapper {
+				width: 100%;
+				float: left;
+				position: relative;
+			}
+			.videoIframe {
+				width: 100%!important;
+				height: 100%!important;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -100;
+				display: block!important;
+			}
+			.videoIframeDiv.play_video .videoIframe {
+				z-index: 100;
+			}
+		}
+		.outer-video-wrap {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 30;
+		}
+		@media screen and (max-width: 820px) {
+			#playYoutube {
+				display: none;
+			}
+			.type-video .videoIframe {
+				z-index: 101;
+			}
 		}
 	}
 }
@@ -4941,6 +5016,103 @@ body.subpage.single .content-default .black-section {
   0%   { transform: translateY(0); }
   50%  { transform: translateY(-8px); }
   100% { transform: translateY(0); }
+}
+
+/* Stories */
+.alternate-posts {
+	.entry {
+		width: 100%;
+		float: left;
+		margin: 15px 0 0;
+		&.first {
+			margin-top: 0;
+		}
+	}
+	.flexwrap {
+		@include flexgroup();
+	}
+	.textcol, .imagecol {
+		width: 100%;
+		float: left;
+		background: $gray;
+		position: relative;
+	}
+	.textcol {
+		font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+		.inside {
+			padding: 50px 30px;
+			height: 100%;
+			@include flexgroup-center();
+			@include tab {
+				padding: 5vw;
+			}
+			.wrap {
+				width: 100%;
+			}
+		}
+		.title {
+			font-family: $font_secondary;
+			font-size: 30px;
+			font-weight: 500;
+			line-height: 1.2;
+			margin: 0 0 15px;
+			text-transform: uppercase;
+		}
+		.buttondiv {
+			margin-top: 25px;
+		}
+	}
+	.imagecol {
+		overflow: hidden;
+		background-color: #FFF;
+		.blurred {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0.5;
+			filter: blur(15px);
+  		-webkit-filter: blur(15px);
+		}
+		.image, .image img {
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+		.image {
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			position: relative;
+			z-index: 5;
+		}
+	}
+	.half {
+		.textcol {
+			@include tab {
+				width: 40%;
+				border-right: 15px solid #FFF;
+			}
+		}
+		.imagecol {
+			@include tab {
+				width: 60%;
+			}
+		}
+		&.even {
+			.flexwrap {
+				@include tab {
+					@include flexbox-direction(row-reverse);
+				}
+			}
+		}
+	}
 }
 
 /* FOOTER */

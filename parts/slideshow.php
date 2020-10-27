@@ -1,6 +1,7 @@
 <?php
 $post_id = get_the_ID();
 $placeholder = THEMEURI . 'images/rectangle-lg.png';
+$videoHelper = THEMEURI . 'images/rectangle-narrow.png';
 $is_subpage = (is_home() || is_front_page()) ? false : true;
 //$pass_availability = get_field('pass_availability',$post_id);
 $top_notification = get_field("top_notification",$post_id);
@@ -9,6 +10,7 @@ $top_notification = get_field("top_notification",$post_id);
 	<?php 
 	$flexslider = get_field( "flexslider_banner" );
 	$slidesCount = ($flexslider) ? count($flexslider) : 0;
+	$numSlides = ($slidesCount==1) ? 'single-slide':'multiple-slides';
 	$firstImg = array();
 	if($flexslider) {
 		foreach($flexslider as $r) {
@@ -29,7 +31,7 @@ $top_notification = get_field("top_notification",$post_id);
 				</div>
 			</div>	
 			<?php } ?>
-			<ul class="slides">
+			<ul class="slides <?php echo $numSlides ?>">
 				<?php for ($i = 0; $i< count($flexslider) ; $i++ ):
 				$row = $flexslider[$i]; 
 				$is_video = ( isset($row['video']) && $row['video'] ) ? $row['video'] : '';
@@ -51,17 +53,32 @@ $top_notification = get_field("top_notification",$post_id);
 											$videoURL = $row['video'];
 											$parts = parse_url($videoURL);
 											parse_str($parts['query'], $query);
+
 											?>
 
-											<?php if ( isset($firstImg[0]) && $firstImg[0] ) { ?>
-												<img src="<?php echo $firstImg[0] ?>" alt="" class="image-size-ref">	
+											<?php if ($slidesCount==1) { ?>
+												<img src="<?php echo $videoHelper ?>" alt="" aria-hidden="true" class="image-size-ref-helper">	
+												<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" class="image-helper-mobile">	
 											<?php } else { ?>
-												<img src="<?php echo $placeholder; ?>" alt="" class="blank-image image-size-ref">
+												<?php if ( isset($firstImg[0]) && $firstImg[0] ) { ?>
+													<img src="<?php echo $firstImg[0] ?>" alt="" class="image-size-ref uploadedImg">	
+												<?php } else { ?>
+													<img src="<?php echo $placeholder; ?>" alt="" aria-hidden="true" class="blank-image image-size-ref">
+												<?php } ?>
 											<?php } ?>
 
 											<?php /* YOUTUBE VIDEO */ ?>
 											<?php if (strpos( strtolower($videoURL), 'youtube.com') !== false) {
-												$youtubeId = (isset($query['v']) && $query['v']) ? $query['v']:''; 
+												$youtubeId = '';
+
+												/* if iframe */
+												if (strpos( strtolower($videoURL), 'youtube.com/embed') !== false) {
+													$parts = extractURLFromString($videoURL);
+													$youtubeId = basename($parts);
+												} else {
+													$youtubeId = (isset($query['v']) && $query['v']) ? $query['v']:''; 
+												}
+
 												if($youtubeId) {
 													$embed_url = 'https://www.youtube.com/embed/'.$youtubeId.'?version=3&rel=0&loop=0';	
 													$mainImage = 'https://i.ytimg.com/vi/'.$youtubeId.'/maxresdefault.jpg'
