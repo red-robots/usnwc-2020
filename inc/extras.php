@@ -1029,3 +1029,59 @@ function extractURLFromString($string) {
         return '';
     }
 }
+
+
+add_action('wp_ajax_nopriv_posts_load_more', 'posts_load_more');
+add_action('wp_ajax_posts_load_more', 'posts_load_more');
+function posts_load_more(){
+    global $wpdb;
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        $posttype = ($_POST['posttype']) ? $_POST['posttype'] : '';
+        $perpage = ($_POST['perpage']) ? $_POST['perpage'] : '';
+        $baseurl = ($_POST['baseurl']) ? $_POST['baseurl'] : '';
+        $paged = ($_POST['currentpage']) ? $_POST['currentpage'] : '';
+        $content = '';
+        $placeholder = THEMEURI . 'images/rectangle.png';
+        $imageHelper = THEMEURI . 'images/rectangle-narrow.png';
+
+        $args = array(
+            'posts_per_page'   => $perpage,
+            'orderby'          => 'date',
+            'order'            => 'DESC',
+            'post_type'        => $posttype,
+            'post_status'      => 'publish',
+            'paged'            => $paged
+        );
+
+        $blogs = new WP_Query($args);
+        ob_start();
+        if ( $blogs->have_posts() ) {
+            $sec=.1; $i=1; while ( $blogs->have_posts() ) : $blogs->the_post();
+            $thumbId = get_post_thumbnail_id(); 
+            $featImg = wp_get_attachment_image_src($thumbId,'large');
+            $featThumb = wp_get_attachment_image_src($thumbId,'thumbnail');
+            $content = get_the_content();
+            $title = get_the_title();
+            $divclass = (($content || $title) && $featImg) ? 'half':'full';
+            $pagelink = get_permalink();
+            $divclass .= ($i % 2) ? ' odd':' even';
+            $divclass .= ($i==1) ? ' first':'';
+            include( get_stylesheet_directory() . '/parts/content-post.php' );
+            ?>
+            <?php
+            $sec =  $sec + .1;
+            $i++; endwhile; wp_reset_postdata();
+        }
+
+        $content = ob_get_contents();
+        ob_end_clean();
+
+        $return['result'] = $content;
+        echo json_encode($return);
+
+    } else {
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    die();
+}
+

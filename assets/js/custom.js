@@ -337,6 +337,8 @@ jQuery(document).ready(function ($) {
     ev.preventDefault();
   });
 
+  $('.select-single').select2();
+
 	/*
 	*
 	*	Wow Animation
@@ -375,7 +377,6 @@ jQuery(document).ready(function ($) {
 	});
 
 	
-
 	/* Footer Subscribe Form */
 	$('#footSubscribeForm input[type="email"]').on("focus",function(){
 		$("#footSubscribeForm").addClass('input-focus');
@@ -383,5 +384,83 @@ jQuery(document).ready(function ($) {
 	$('#footSubscribeForm input[type="email"]').on("focusout blur",function(){
 		$("#footSubscribeForm").removeClass('input-focus');
 	});
+
+	/* Ajax Load More */
+	$(document).on("click","#loadMoreBtn",function(e){
+		e.preventDefault();
+		var target = $(this);
+		var perpage = target.attr("data-perpage");
+		var posttype = target.attr("data-posttype");
+		var current_page = target.attr("data-page");
+		var base_url = target.attr("data-baseurl");
+		var next_page = parseInt(current_page) + 1;
+		var total_pages = target.attr("data-totalpages");
+		target.attr("data-page",next_page);
+
+		$.ajax({
+			url : frontajax.ajaxurl,
+			type : 'post',
+			dataType : "json",
+			data : {
+				action 	: 'posts_load_more',
+				perpage : perpage,
+				baseurl : base_url,
+				posttype : posttype,
+				currentpage: current_page
+			},
+			beforeSend:function(){
+				$("#loadMoreBtn").hide();
+				$(".wait").show();
+			},
+			success:function( obj ) {
+				if(obj.result) {
+
+					setTimeout(function(){
+						$("#loadMoreBtn").show();
+						$(".wait").hide();
+						$("#postLists").append(obj.result);
+
+						if(next_page>total_pages) {
+							$(".morebuttondiv").remove();
+						}	 
+
+					},800);
+					
+				} else {
+					$("#loadMoreBtn").hide();
+					$(".wait").hide();
+				}
+			},
+			error:function() {
+				$("#loadMoreBtn").hide();
+				$(".wait").show();
+			}
+		});
+
+	});
+
+	if( $("#filter-form").length>0 ) {
+		$(document).on("change",".select-filter",function(e){
+			e.preventDefault();
+			var opt = $(this).val();
+			var name_sel_att = $(this).attr("name");
+			var url = $("input#baseurl_input").val();
+			var params = '';
+
+			var n=1; $(".select-filter").each(function(){
+				var nameAtt = $(this).attr("name");
+				var delimiter = (n==1) ? '?':'&';
+				var val = $(this).find("option:selected").val();
+				params += delimiter + nameAtt +"="+val;
+				n++;
+			});
+
+			var base_url = url + params;
+			$("#load-post-div").load(base_url+" #load-data-div",function(){
+				$('.select-single').select2();
+			});
+
+		});
+	}
 
 });// END #####################################    END

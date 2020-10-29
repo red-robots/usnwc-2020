@@ -14,6 +14,7 @@ $submenu_color: #191919;
 
 //$font_primary: 'Libre Franklin', sans-serif;
 //$font_secondary: 'Poppins', sans-serif;
+//$font_primary: 'Brandon', sans-serif;
 $font_primary: 'Nunito Sans', sans-serif;
 $font_secondary: 'Lato', sans-serif;
 $font_third: 'Montserrat', sans-serif;
@@ -25,12 +26,14 @@ $xswidth: 600px;
 $tabwidth: 768px;
 $midwidth: 960px;
 $deskwidth: 1200px;
+$xxl: 1300px;
 $nav_width: 350px;
 
 @mixin xs { @media (min-width: $xswidth) { @content; } }
 @mixin tab { @media (min-width: $tabwidth) { @content; } }
 @mixin mid { @media (min-width: $midwidth) { @content; } }
 @mixin desk {  @media (min-width: $deskwidth) { @content; } }
+@mixin xxl {  @media (min-width: $xxl) { @content; } }
 
 // Rem output with px fallback
 @mixin font-size($sizeValue: 1) {

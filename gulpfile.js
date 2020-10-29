@@ -196,7 +196,8 @@ gulp.task( 'vendorsJs', function() {
 		'./assets/js/vendors/flexslider.js',
 		'./assets/js/vendors/wow.js',
 		'./assets/js/vendors/blocks.js',
-		'./assets/js/vendors/fancybox.js'
+		'./assets/js/vendors/fancybox.js',
+		'./assets/js/vendors/select2.js'
 		] )
 		.pipe( concat( jsVendorFile + '.js' ) )
 		.pipe( gulp.dest( jsVendorDestination ) )
