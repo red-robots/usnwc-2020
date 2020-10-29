@@ -456,8 +456,13 @@ jQuery(document).ready(function ($) {
 			});
 
 			var base_url = url + params;
+			$("#loaderDiv").addClass("show");
+			
 			$("#load-post-div").load(base_url+" #load-data-div",function(){
 				$('.select-single').select2();
+				setTimeout(function(){
+					$("#loaderDiv").removeClass("show");
+				},500);
 			});
 
 		});

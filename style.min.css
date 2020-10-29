@@ -3154,4 +3154,30 @@ body.logged-in.admin-bar .topbar{top:46px}
 body.logged-in.admin-bar .site-header{top:75px}
 body.logged-in.admin-bar .closeNav{top:65px}
 body.logged-in.admin-bar #site-navigation .nav-inner{padding-top:15vh}
+}#loaderDiv{display:none;width:100%;height:100%;position:fixed;top:0;left:0;background:rgba(0,0,0,0.85);z-index:40000;text-align:center}
+#loaderDiv.show{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+#loaderDiv .loaderInline{display:inline-block}
+.sk-chase{width:60px;height:60px;position:relative;-webkit-animation:sk-chase 2.5s infinite linear both;animation:sk-chase 2.5s infinite linear both}
+.sk-chase-dot{width:100%;height:100%;position:absolute;left:0;top:0;-webkit-animation:sk-chase-dot 2.0s infinite ease-in-out both;animation:sk-chase-dot 2.0s infinite ease-in-out both}
+.sk-chase-dot:before{content:'';display:block;width:25%;height:25%;background-color:#fff;border-radius:100%;-webkit-animation:sk-chase-dot-before 2.0s infinite ease-in-out both;animation:sk-chase-dot-before 2.0s infinite ease-in-out both}
+.sk-chase-dot:nth-child(1){-webkit-animation-delay:-1.1s;animation-delay:-1.1s}
+.sk-chase-dot:nth-child(2){-webkit-animation-delay:-1.0s;animation-delay:-1.0s}
+.sk-chase-dot:nth-child(3){-webkit-animation-delay:-0.9s;animation-delay:-0.9s}
+.sk-chase-dot:nth-child(4){-webkit-animation-delay:-0.8s;animation-delay:-0.8s}
+.sk-chase-dot:nth-child(5){-webkit-animation-delay:-0.7s;animation-delay:-0.7s}
+.sk-chase-dot:nth-child(6){-webkit-animation-delay:-0.6s;animation-delay:-0.6s}
+.sk-chase-dot:nth-child(1):before{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}
+.sk-chase-dot:nth-child(2):before{-webkit-animation-delay:-1.0s;animation-delay:-1.0s}
+.sk-chase-dot:nth-child(3):before{-webkit-animation-delay:-0.9s;animation-delay:-0.9s}
+.sk-chase-dot:nth-child(4):before{-webkit-animation-delay:-0.8s;animation-delay:-0.8s}
+.sk-chase-dot:nth-child(5):before{-webkit-animation-delay:-0.7s;animation-delay:-0.7s}
+.sk-chase-dot:nth-child(6):before{-webkit-animation-delay:-0.6s;animation-delay:-0.6s}
+@-webkit-keyframes sk-chase{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}@keyframes sk-chase{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}@-webkit-keyframes sk-chase-dot{80%,100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}@keyframes sk-chase-dot{80%,100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}@-webkit-keyframes sk-chase-dot-before{50%{-webkit-transform:scale(0.4);transform:scale(0.4)}
+100%,0%{-webkit-transform:scale(1);transform:scale(1)}
+}@keyframes sk-chase-dot-before{50%{-webkit-transform:scale(0.4);transform:scale(0.4)}
+100%,0%{-webkit-transform:scale(1);transform:scale(1)}
 }
