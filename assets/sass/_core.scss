@@ -2160,6 +2160,16 @@ body.subpage.single {
 		padding-top: 80px;
 		padding-bottom: 80px;
 	}
+	&.dark {
+		background: $dark;
+		color: #FFF;
+		padding-top: 50px;
+		padding-bottom: 50px; 
+		@include tab {
+			padding-top: 80px;
+			padding-bottom: 80px; 
+		}
+	}
 	h1 {
 		font-family: $font_secondary;
 		font-weight: 400;
@@ -5371,6 +5381,117 @@ body.page-template-page-stories {
   -ms-animation: rotating 2s linear infinite;
   -o-animation: rotating 2s linear infinite;
   animation: rotating 2s linear infinite;
+}
+
+#primary.single-post {
+	width: 100%;
+	float: left;
+	#main {
+		width: 100%;
+		float: left;
+	}
+	.text-centered-section {
+		.page-header {
+			position: relative;
+			margin-bottom: 35px;
+			&:after {
+				content: "";
+				display: block;
+				width: 10vw;
+				height: 2px;
+				background: $red;
+				margin: 25px auto 0;
+				@include tab {
+					width: 2.5vw;
+				}
+	    }
+			h1 {
+				margin: 0 0;
+				&:after {
+					display: none;
+				}
+			}
+			p.author {
+				margin: 15px 0 0;
+				font-size: 14px;
+				line-height: 1.2;
+				letter-spacing: 1px;
+			}
+		}
+	}
+
+}
+.post-hero-image {
+	width: 100%;
+	float: left;
+	img.featured-image {
+		width: 100%;
+		height: auto;
+		float: left;
+	}
+}
+
+.main-post-text {
+	width: 100%;
+	float: left;
+	background: $gray;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	@include tab {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+	.textcol, .imagescol {
+		width: 100%;
+		float: left;
+	}
+	.textcol {
+		.inside {
+			color: $gray_dark;
+			padding: 0 5vw;
+			font-size: 15px;
+			line-height: 1.6;
+			h2 {
+				font-size: 22px;
+				font-weight: 400;
+				line-height: 1.4;
+				letter-spacing: 1px;
+				color: $dark;
+				text-transform: uppercase;
+				margin: 0 0 30px;
+			}
+		}
+	}
+	.imagescol {
+		.masonry {
+			column-count: 2;
+			column-gap: 1em;
+			&.top {
+				column-count: 1;
+				column-gap: 0;
+			}
+		}
+		.block {
+    	width: 100%;
+    	padding: 0.3em 0;
+    	img {
+    		width: 100%;
+    		height: auto;
+    	}
+		}
+	}
+	&.half {
+		.textcol {
+			@include tab {
+				width:50%;
+			}
+		}
+		.imagescol {
+			@include tab {
+				width:50%;
+			}
+		}
+	}
 }
 
 /* FOOTER */
