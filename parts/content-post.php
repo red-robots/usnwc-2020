@@ -16,7 +16,7 @@
 							<div class="wrap">
 								<h2 class="title"><?php echo $title; ?></h2>
 								<?php if ($content) { ?>
-									<div class="text"><?php echo shortenText($content,500,' ','...'); ?></div>
+									<div class="text"><?php echo shortenText(strip_tags($content),500,' ','...'); ?></div>
 								<?php } ?>
 								<div class="buttondiv">
 									<a href="<?php echo $pagelink ?>" class="btn-sm"><span>Read More</span></a>
