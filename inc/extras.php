@@ -1085,3 +1085,12 @@ function posts_load_more(){
     die();
 }
 
+
+function fwp_archive_per_page( $query ) {
+    if ( is_tax( 'category' ) ) {
+        $query->set( 'posts_per_page', 20 );
+    }
+}
+add_filter( 'pre_get_posts', 'fwp_archive_per_page' );
+
+

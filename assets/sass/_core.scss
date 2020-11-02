@@ -5036,67 +5036,94 @@ body.subpage.single .content-default .black-section {
 	.text-centered-section {
 		color: #FFF;
 	}
-	.filter-wrapper {
+}
+.filter-wrapper {
+	width: 100%;
+	float: left;
+	color: $gray_dark;
+	padding-bottom: 60px;
+	form {
 		width: 100%;
 		float: left;
-		color: $gray_dark;
-		padding-bottom: 60px;
-		form {
-			width: 100%;
-			float: left;
+		display: block;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.filterbytxt {
+		font-size: 16px;
+		line-height: 1.2;
+		text-transform: uppercase;
+		margin-bottom: 5px;
+		letter-spacing: 1px;
+	}
+	.flexwrap {
+		position: relative;
+		margin-left: -6px;
+		margin-right: -6px;
+	}
+	.select-wrap {
+		width: 100%;
+		position: relative;
+		padding-left: 6px;
+		padding-right: 6px;
+		margin-bottom: 15px;
+		@include tab {
+			width: 50%;
+			margin-bottom: 0;
+		}
+		label {
 			display: block;
-			padding-left: 20px;
-			padding-right: 20px;
-		}
-		.filterbytxt {
-			font-size: 16px;
+			width: 30%;
+			height: 37px;
+			float: left;
+			position: relative;
+			top: 0;
+			left: 0;
+			background: $gray_dark;
+			color: #FFF;
+			font-size: 3.5vw;
 			line-height: 1.2;
+			text-align: center;
 			text-transform: uppercase;
-			margin-bottom: 5px;
-			letter-spacing: 1px;
-		}
-		.flexwrap {
-			position: relative;
-			margin-left: -6px;
-			margin-right: -6px;
-		}
-		.select-wrap {
-			width: 100%;
-			position: relative;
-			padding-left: 6px;
-			padding-right: 6px;
-			margin-bottom: 15px;
-			@include tab {
-				width: 50%;
-				margin-bottom: 0;
-			}
-			label {
-				display: block;
-				width: 30%;
-				height: 37px;
-				float: left;
-				position: relative;
-				top: 0;
-				left: 0;
-				background: $gray_dark;
-				color: #FFF;
+			padding: 11px 15px 7px;
+			@include xs() {
 				font-size: 16px;
-				line-height: 1.2;
-				text-align: center;
-				text-transform: uppercase;
-				padding: 11px 15px 7px;
 			}
-			.selectdiv {
-				width: 70%;
-				float: left;
-				select {
-					width: 100%;
-					height: 37px;
-					border: none;
-					padding: 0 10px;
-					background: transparent;
-				}
+		}
+		.selectdiv {
+			width: 70%;
+			float: left;
+			select {
+				width: 100%;
+				height: 37px;
+				border: none;
+				padding: 0 10px;
+				background: transparent;
 			}
+		}
+	}
+	.facetwp-facet {
+		margin-bottom: 0;
+		.fs-wrap {
+			width: 70%;
+			height: 37px;
+			position: relative;
+		}
+		&.facetwp-type-fselect .fs-dropdown {
+			width: 100%!important;
+		}
+		.fs-label-wrap {
+			height: 100%;
+			border: 1px solid $gray_dark;
+			background: transparent;
+		}
+		.fs-label {
+			padding: 12px 22px 10px 8px;
+		}
+		.fs-arrow {
+			top: 2px;
+			right: 10px;
+			border-top: 5px solid $gray_dark;
 		}
 	}
 }
