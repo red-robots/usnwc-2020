@@ -10,8 +10,26 @@ $res = update_post_status_if_expired();
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<script defer src="<?php bloginfo( 'template_url' ); ?>/assets/svg-with-js/js/fontawesome-all.js"></script>
 <link rel="stylesheet" href="<?php bloginfo("template_url") ?>/css/jquery.fancybox.min.css">
+
+
+<?php if ( is_singular(array('post')) ) { 
+global $post;
+$post_id = $post->ID;
+$thumbId = get_post_thumbnail_id($post_id); 
+$featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
+<!-- SOCIAL MEDIA META TAGS -->
+<meta property="og:url"		content="<?php echo get_permalink(); ?>" />
+<meta property="og:type"	content="article" />
+<meta property="og:title"	content="<?php echo get_the_title(); ?>" />
+<meta property="og:description"	content="<?php echo (get_the_excerpt()) ? strip_tags(get_the_excerpt()):''; ?>" />
+<?php if ($featImg) { ?>
+<meta property="og:image"	content="<?php echo $featImg[0] ?>" />
+<?php } ?>
+<!-- end of SOCIAL MEDIA META TAGS -->
+<?php } ?>
+
+<script defer src="<?php bloginfo( 'template_url' ); ?>/assets/svg-with-js/js/fontawesome-all.js"></script>
 <script>var currentURL = '<?php echo get_permalink();?>';</script>
 <?php wp_head(); ?>
 </head>
