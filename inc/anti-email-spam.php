@@ -11,6 +11,7 @@ function extract_emails_from($string) {
 
 add_filter ('the_content', 'anti_email_spam', 15);
 function anti_email_spam ($string) {
+  $content = '';
   $emails_matched = ($string) ? extract_emails_from($string) : '';
   if($emails_matched) {
     foreach($emails_matched as $em) {
@@ -22,8 +23,11 @@ function anti_email_spam ($string) {
       $new2 = antispambot($em).'</a>';
       $string = str_replace($rep2, $new2, $string);
     }
+    $content = wpautop($string);
+  } else {
+    $content = wpautop($string);
   }
-  return $string;
+  return $content;
 }
 
 function email_obfuscator($string) {
@@ -41,9 +45,9 @@ function email_obfuscator($string) {
               $string = str_replace($rep2, $new2, $string);
           }
       }
-      $output = apply_filters('the_content',$string);
+      $string = apply_filters('the_content',$string);
   }
-  return $output;
+  return $string;
 }
 
 ?>

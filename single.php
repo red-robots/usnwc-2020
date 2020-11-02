@@ -43,7 +43,6 @@ $post_id = get_the_ID(); ?>
 							<h1 class="page-title"><?php the_title(); ?></h1>
 							<p class="author">By <?php echo ucwords(get_the_author_meta('display_name')); ?></p>
 						</div>
-						
 						<?php echo anti_email_spam($short_description); ?>
 					</div>
 				</section>
@@ -53,13 +52,21 @@ $post_id = get_the_ID(); ?>
 				<?php  
 				$galleries = get_field("image_gallery");
 				$main_content = get_the_content();
+				$authorId = '';
+				$author_description = get_the_author_meta('description');
 				$main_class = ($main_content && $galleries) ? 'half':'full';
 				if($main_content || $galleries) { ?>
 				<section class="main-post-text <?php echo $main_class ?>">
 					<div class="flexwrap">
 						<?php if ($main_content) { ?>
 						<div class="textcol">
-							<div class="inside"><?php echo anti_email_spam($main_content); ?></div>
+							<div class="inside">
+								<div class="textwrap"><?php echo anti_email_spam( $main_content ); ?></div>
+								<?php if ($author_description) { ?>
+								<div class="author-bio"><?php echo $author_description ?></div>	
+								<?php } ?>
+								<div class="post-social-share"><?php echo do_shortcode('[addtoany]') ?></div>
+							</div>
 						</div>	
 						<?php } ?>
 

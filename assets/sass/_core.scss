@@ -5461,6 +5461,17 @@ body.page-template-page-stories {
 				margin: 0 0 30px;
 			}
 		}
+		.textwrap {
+			position: relative;
+			&:after {
+				content:"";
+				display: block;
+				width: 70px;
+				height: 2px;
+				background: $red;
+				margin: 30px 0;
+			}
+		}
 	}
 	.imagescol {
 		.masonry {
@@ -5489,6 +5500,64 @@ body.page-template-page-stories {
 		.imagescol {
 			@include tab {
 				width:50%;
+			}
+		}
+	}
+	.author-bio {
+		font-style: italic;
+		p:first-child {
+			margin-top: 0;
+		}
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.post-social-share {
+	.addtoany_shortcode {
+		margin-top: 15px;
+		.addtoany_list {
+			position: relative;
+			left: -2px;
+			a {
+				position: relative;
+				margin-right: 15px;
+				span.a2a_svg {
+					border-radius: 0px;
+					width: 20px;
+					height: 20px;
+					line-height: 20px;
+				}
+				&.a2a_button_facebook,
+				&.a2a_button_twitter {
+					width: 80px;
+				}
+
+				&.a2a_button_facebook {
+					&:after {
+						content:"SHARE";
+						display: block;
+						position: absolute;
+						top: 11px;
+						left: 30px;
+						font-size: 11px;
+						line-height: 1;
+						color: $gray_dark;
+					}
+				}
+				&.a2a_button_twitter {
+					&:after {
+						content:"TWEET";
+						display: block;
+						position: absolute;
+						top: 11px;
+						left: 30px;
+						font-size: 11px;
+						line-height: 1;
+						color: $gray_dark;
+					}
+				}
 			}
 		}
 	}

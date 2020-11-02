@@ -3115,13 +3115,25 @@ to{-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotat
 }.main-post-text .textcol,.main-post-text .imagescol{width:100%;float:left}
 .main-post-text .textcol .inside{color:#707070;padding:0 5vw;font-size:15px;line-height:1.6}
 .main-post-text .textcol .inside h2{font-size:22px;font-weight:400;line-height:1.4;letter-spacing:1px;color:#191919;text-transform:uppercase;margin:0 0 30px}
+.main-post-text .textcol .textwrap{position:relative}
+.main-post-text .textcol .textwrap:after{content:"";display:block;width:70px;height:2px;background:#ba0d30;margin:30px 0}
 .main-post-text .imagescol .masonry{-webkit-column-count:2;-moz-column-count:2;column-count:2;-webkit-column-gap:1em;-moz-column-gap:1em;column-gap:1em}
 .main-post-text .imagescol .masonry.top{-webkit-column-count:1;-moz-column-count:1;column-count:1;-webkit-column-gap:0;-moz-column-gap:0;column-gap:0}
 .main-post-text .imagescol .block{width:100%;padding:.3em 0}
 .main-post-text .imagescol .block img{width:100%;height:auto}
 @media(min-width:768px){.main-post-text.half .textcol{width:50%}
 }@media(min-width:768px){.main-post-text.half .imagescol{width:50%}
-}.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
+}.main-post-text .author-bio{font-style:italic}
+.main-post-text .author-bio p:first-child{margin-top:0}
+.main-post-text .author-bio p:last-child{margin-bottom:0}
+.post-social-share .addtoany_shortcode{margin-top:15px}
+.post-social-share .addtoany_shortcode .addtoany_list{position:relative;left:-2px}
+.post-social-share .addtoany_shortcode .addtoany_list a{position:relative;margin-right:15px}
+.post-social-share .addtoany_shortcode .addtoany_list a span.a2a_svg{border-radius:0;width:20px;height:20px;line-height:20px}
+.post-social-share .addtoany_shortcode .addtoany_list a.a2a_button_facebook,.post-social-share .addtoany_shortcode .addtoany_list a.a2a_button_twitter{width:80px}
+.post-social-share .addtoany_shortcode .addtoany_list a.a2a_button_facebook:after{content:"SHARE";display:block;position:absolute;top:11px;left:30px;font-size:11px;line-height:1;color:#707070}
+.post-social-share .addtoany_shortcode .addtoany_list a.a2a_button_twitter:after{content:"TWEET";display:block;position:absolute;top:11px;left:30px;font-size:11px;line-height:1;color:#707070}
+.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}
 .site-footer .coltitle{color:#FFF;font-family:"Lato",sans-serif;font-size:15px;font-weight:300;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
