@@ -105,11 +105,11 @@ function js_custom_init() {
             'supports'  => array('title','editor')
         ),
         array(
-            'post_type' => 'faqs',
-            'menu_name' => 'FAQs',
-            'plural'    => 'FAQs',
-            'single'    => 'FAQ',
-            'menu_icon' => 'dashicons-info',
+            'post_type' => 'dining',
+            'menu_name' => 'Adventure Dining',
+            'plural'    => 'Adventure Dining',
+            'single'    => 'Adventure Dining',
+            'menu_icon' => 'dashicons-coffee',
             'supports'  => array('title','editor')
         ),
         array(
@@ -118,6 +118,14 @@ function js_custom_init() {
             'plural'    => 'Jobs',
             'single'    => 'Job',
             'menu_icon' => 'dashicons-index-card',
+            'supports'  => array('title','editor')
+        ),
+        array(
+            'post_type' => 'faqs',
+            'menu_name' => 'FAQs',
+            'plural'    => 'FAQs',
+            'single'    => 'FAQ',
+            'menu_icon' => 'dashicons-info',
             'supports'  => array('title','editor')
         ),
     );
