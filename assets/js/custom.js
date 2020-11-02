@@ -391,9 +391,9 @@ jQuery(document).ready(function ($) {
 		var target = $(this);
 		var perpage = target.attr("data-perpage");
 		var posttype = target.attr("data-posttype");
-		var current_page = target.attr("data-page");
+		var paged = target.attr("data-page");
 		var base_url = target.attr("data-baseurl");
-		var next_page = parseInt(current_page) + 1;
+		var next_page = parseInt(paged) + 1;
 		var total_pages = target.attr("data-totalpages");
 		target.attr("data-page",next_page);
 
@@ -406,7 +406,7 @@ jQuery(document).ready(function ($) {
 				perpage : perpage,
 				baseurl : base_url,
 				posttype : posttype,
-				currentpage: current_page
+				paged: paged
 			},
 			beforeSend:function(){
 				$("#loadMoreBtn").hide();

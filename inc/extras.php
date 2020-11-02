@@ -1039,7 +1039,7 @@ function posts_load_more(){
         $posttype = ($_POST['posttype']) ? $_POST['posttype'] : '';
         $perpage = ($_POST['perpage']) ? $_POST['perpage'] : '';
         $baseurl = ($_POST['baseurl']) ? $_POST['baseurl'] : '';
-        $paged = ($_POST['currentpage']) ? $_POST['currentpage'] : '';
+        $paged = ($_POST['paged']) ? $_POST['paged'] : '';
         $content = '';
         $placeholder = THEMEURI . 'images/rectangle.png';
         $imageHelper = THEMEURI . 'images/rectangle-narrow.png';
@@ -1050,6 +1050,7 @@ function posts_load_more(){
             'order'            => 'DESC',
             'post_type'        => $posttype,
             'post_status'      => 'publish',
+            'facetwp'          => true,
             'paged'            => $paged
         );
 

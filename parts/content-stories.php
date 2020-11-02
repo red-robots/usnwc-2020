@@ -150,7 +150,7 @@ if ( $blogs->have_posts() ) {  ?>
 		if ($total_pages > 1){ ?>
 			<div class="morebuttondiv">
 				<span class="moreBtnSpan">
-					<a class="moreBtn" id="loadMoreBtn" data-totalpages="<?php echo $total_pages?>" data-perpage="<?php echo $perPage?>" data-posttype="<?php echo $post_type?>" data-page="<?php echo $paged?>" data-baseurl="<?php echo $pageLink?>"><span class="loadtxt">Load More</span></a>
+					<a class="moreBtn" id="loadMoreBtn" data-totalpages="<?php echo $total_pages?>" data-perpage="<?php echo $perPage?>" data-posttype="<?php echo $post_type?>" data-page="2" data-baseurl="<?php echo $pageLink?>"><span class="loadtxt">Load More</span></a>
 					<div class="wait"><span class="fas fa-sync-alt rotate"></span></div>
 				</span>
 			</div>
