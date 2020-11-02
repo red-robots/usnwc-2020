@@ -3069,8 +3069,9 @@ body.page-template-page-stories .select2-container--default .select2-results__op
 }@media(min-width:1300px){.archive-posts-wrap .entry{width:33.33%}
 }.archive-posts-wrap .entry .inner-wrap{height:100%;background:#f2f2f2}
 .archive-posts-wrap .textcol,.archive-posts-wrap .imagecol{width:100%;float:left;background:#f2f2f2;position:relative}
-.archive-posts-wrap .textcol{font-size:16px;line-height:1.5;text-align:center}
-.archive-posts-wrap .textcol .inside{padding:50px 30px;height:100%;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.archive-posts-wrap .textcol{font-size:16px;line-height:1.5;text-align:center;margin-bottom:30px}
+@media(min-width:768px){.archive-posts-wrap .textcol{margin-bottom:0}
+}.archive-posts-wrap .textcol .inside{padding:50px 30px;height:100%;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 @media(min-width:768px){.archive-posts-wrap .textcol .inside{padding:3vw}
 }.archive-posts-wrap .textcol .inside .wrap{width:100%}
 .archive-posts-wrap .textcol .title{font-family:"Lato",sans-serif;font-size:25px;font-weight:500;line-height:1.2;margin:0 0 15px;text-transform:uppercase}
@@ -3120,7 +3121,9 @@ to{-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotat
 .main-post-text{width:100%;float:left;background:#f2f2f2;padding-top:50px;padding-bottom:50px}
 @media(min-width:768px){.main-post-text{padding-top:100px;padding-bottom:100px}
 }.main-post-text .textcol,.main-post-text .imagescol{width:100%;float:left}
-.main-post-text .textcol .inside{color:#707070;padding:0 5vw;font-size:15px;line-height:1.6}
+.main-post-text .textcol{margin-bottom:35px}
+@media(min-width:768px){.main-post-text .textcol{margin-bottom:0}
+}.main-post-text .textcol .inside{color:#707070;padding:0 5vw;font-size:15px;line-height:1.6}
 .main-post-text .textcol .inside h2{font-size:22px;font-weight:400;line-height:1.4;letter-spacing:1px;color:#191919;text-transform:uppercase;margin:0 0 30px}
 .main-post-text .textcol .textwrap{position:relative}
 .main-post-text .textcol .textwrap:after{content:"";display:block;width:70px;height:2px;background:#ba0d30;margin:30px 0}

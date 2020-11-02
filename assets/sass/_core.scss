@@ -5199,6 +5199,10 @@ body.page-template-page-stories {
 		font-size: 16px;
     line-height: 1.5;
     text-align: center;
+    margin-bottom: 30px;
+    @include tab {
+    	margin-bottom: 0;
+    }
 		.inside {
 			padding: 50px 30px;
 			height: 100%;
@@ -5473,6 +5477,10 @@ body.page-template-page-stories {
 		float: left;
 	}
 	.textcol {
+		margin-bottom: 35px;
+		@include tab {
+			margin-bottom: 0;
+		}
 		.inside {
 			color: $gray_dark;
 			padding: 0 5vw;
