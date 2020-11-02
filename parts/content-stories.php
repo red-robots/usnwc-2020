@@ -34,9 +34,28 @@ if( isset($_GET) ) {
 
 if($get_is_all && ($count_get!=count($get_is_all)) ) {
 
-	if( isset($_GET['category']) || $_GET['activity_types'] ) {
-		$cat_id = ($_GET['category'] && $_GET['category']!='all') ? $_GET['category'] : 0;
-		$activity_type_id = ($_GET['activity_type'] && $_GET['activity_type']!='all') ? $_GET['activity_type'] : 0;
+	// if( isset($_GET['category']) || $_GET['activity_types'] ) {
+	// 	$cat_id = ($_GET['category'] && $_GET['category']!='all') ? $_GET['category'] : 0;
+	// 	$activity_type_id = ($_GET['activity_type'] && $_GET['activity_type']!='all') ? $_GET['activity_type'] : 0;
+
+	// 	$args['tax_query'] = array(
+	// 	 'relation' => 'OR',
+	// 	  array(
+	// 	      'taxonomy' => 'category',
+	// 	      'field'    => 'term_id',
+	// 	      'terms'    => $cat_id,
+	// 	  ),
+	// 	  array(
+	// 	      'taxonomy' => 'activity_type',
+	// 	      'field'    => 'term_id',
+	// 	      'terms'    => $activity_type_id,
+	// 	  )
+	// 	);
+	// }
+
+	if( isset($_GET['_categories']) || $_GET['_activity_types'] ) {
+		$cat_id = ($_GET['_categories'] && $_GET['_categories']!='all') ? $_GET['_categories'] : 0;
+		$activity_type_id = ($_GET['_activity_types'] && $_GET['_activity_types']!='all') ? $_GET['_activity_types'] : 0;
 
 		$args['tax_query'] = array(
 		 'relation' => 'OR',
