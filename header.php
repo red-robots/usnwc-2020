@@ -19,6 +19,7 @@ $post_id = $post->ID;
 $thumbId = get_post_thumbnail_id($post_id); 
 $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
 <!-- SOCIAL MEDIA META TAGS -->
+<meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
 <meta property="og:url"		content="<?php echo get_permalink(); ?>" />
 <meta property="og:type"	content="article" />
 <meta property="og:title"	content="<?php echo get_the_title(); ?>" />
