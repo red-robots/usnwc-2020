@@ -3127,9 +3127,10 @@ to{-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotat
 .main-post-text .textcol .inside h2{font-size:22px;font-weight:400;line-height:1.4;letter-spacing:1px;color:#191919;text-transform:uppercase;margin:0 0 30px}
 .main-post-text .textcol .textwrap{position:relative}
 .main-post-text .textcol .textwrap:after{content:"";display:block;width:70px;height:2px;background:#ba0d30;margin:30px 0}
-.main-post-text .imagescol .masonry{-webkit-column-count:2;-moz-column-count:2;column-count:2;-webkit-column-gap:1em;-moz-column-gap:1em;column-gap:1em}
+.main-post-text .imagescol .masonry{-webkit-column-count:1;-moz-column-count:1;column-count:1;-webkit-column-gap:1em;-moz-column-gap:1em;column-gap:1em}
 .main-post-text .imagescol .masonry.top{-webkit-column-count:1;-moz-column-count:1;column-count:1;-webkit-column-gap:0;-moz-column-gap:0;column-gap:0}
-.main-post-text .imagescol .block{width:100%;padding:.3em 0}
+@media(min-width:480px){.main-post-text .imagescol .masonry{-webkit-column-count:2;-moz-column-count:2;column-count:2}
+}.main-post-text .imagescol .block{width:100%;padding:.3em 0}
 .main-post-text .imagescol .block img{width:100%;height:auto}
 @media(min-width:768px){.main-post-text.half .textcol{width:50%}
 }@media(min-width:768px){.main-post-text.half .imagescol{width:50%}

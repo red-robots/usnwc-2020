@@ -5510,11 +5510,14 @@ body.page-template-page-stories {
 	}
 	.imagescol {
 		.masonry {
-			column-count: 2;
+			column-count: 1;
 			column-gap: 1em;
 			&.top {
 				column-count: 1;
 				column-gap: 0;
+			}
+			@include xxs {
+				column-count: 2;
 			}
 		}
 		.block {

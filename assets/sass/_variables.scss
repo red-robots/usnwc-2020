@@ -29,6 +29,7 @@ $deskwidth: 1200px;
 $xxl: 1300px;
 $nav_width: 350px;
 
+@mixin xxs { @media (min-width: $portrait) { @content; } }
 @mixin xs { @media (min-width: $xswidth) { @content; } }
 @mixin tab { @media (min-width: $tabwidth) { @content; } }
 @mixin mid { @media (min-width: $midwidth) { @content; } }
