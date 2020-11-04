@@ -6,19 +6,35 @@
 	$faqs = get_faq_listings($postid);
 	$faq_class = ($faqs && $faq_image) ? 'half':'full';
 	$has_faq_image = ($faq_image) ? ' has-image':' no-image';
+	$show_default_title = ( isset($customFAQTitle) && $customFAQTitle ) ? false : true;
+	$faqTitle = ( isset($customFAQTitle) && $customFAQTitle ) ? $customFAQTitle : "FAQ";
+
 	if($faqs) { ?>
-	<section id="section-faqs" data-section="FAQ" class="section-content <?php echo $faq_class.$has_faq_image ?>">
+	<section id="section-faqs" data-section="<?php echo $faqTitle ?>" class="section-content <?php echo $faq_class.$has_faq_image ?>">
 		<div class="wrapper">
 			<div class="flexwrap">
 
 				<div class="col faqs">
-					<div class="titlediv">
-						<?php if ($faq_image) { ?>
-						<h2 class="sectionTitle">FAQ</h2>
-						<?php } else { ?>
-						<h2 class="sectionTitle text-center">FAQ</h2>
-						<?php } ?>
-					</div>
+
+					<?php if ($show_default_title) { ?>
+						<div class="titlediv">
+							<?php if ($faq_image) { ?>
+							<h2 class="sectionTitle">FAQ</h2>
+							<?php } else { ?>
+							<h2 class="sectionTitle text-center">FAQ</h2>
+							<?php } ?>
+						</div>
+					<?php } else { ?>
+
+							<?php if ( isset($customFAQTitle) && $customFAQTitle ) { ?>
+							<div class="shead-icon text-center">
+								<div class="icon"><span class="ci-help"></span></div>
+								<h2 class="stitle"><?php echo $customFAQTitle ?></h2>
+							</div>
+							<?php } ?>
+
+					<?php } ?>
+					
 					<div class="faqsItems">
 						<?php foreach ($faqs as $q) { 
 							$faq_id = $q['ID'];

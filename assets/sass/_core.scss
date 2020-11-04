@@ -82,6 +82,9 @@ a {
 	padding-left: 20px;
 	padding-right: 20px;
 	position: relative;
+	&.narrow {
+		max-width: 900px;
+	}
 }
 .site {
 	position: relative;
@@ -5664,17 +5667,154 @@ body.page-template-page-stories {
 	}
 }
 body.scrolled.single-dining {
-	@include tab {
-		.post-hero-image .stats {
-			position: fixed;
-		}
+	.post-hero-image .stats {
+		position: fixed;
+		z-index: 50;
 	}
 	&.logged-in.admin-bar {
-		@include tab {
-			.post-hero-image .stats {
+		.post-hero-image .stats {
+			top: 135px;
+			@include tab {
 				top: 120px;
 			}
 		}
+	}
+}
+
+.shead-icon {
+	margin-bottom: 35px;
+	div.icon {
+		span {
+			font-size: 35px;
+			line-height: 1;
+		}
+	}
+}
+
+.dining-event-details {
+	background: $gray;
+	padding-top: 50px;
+	padding-bottom: 40px;
+	@include tab {
+		padding-top: 80px;
+		padding-bottom: 70px;
+	}
+	.details {
+		font-size: 16px;
+		font-weight: normal;
+		line-height: 1.6;
+		color: $gray_dark;
+		text-transform: uppercase;
+		.info {
+			margin: 25px auto;
+		}
+		.infoTitle,
+		.infoText {
+			font-size: 16px;
+		}
+		.infoTitle {
+			margin: 0 0 3px;
+			font-family: $font-secondary;
+			font-weight: 600;
+			line-height: 1.3;
+			color: #000;
+			text-transform: uppercase;
+		}
+		.infoText {
+			font-weight: normal;
+			line-height: 1.6;
+		}
+	}
+	.buttondiv {
+		margin-top: 50px;
+		a.btn-sm {
+			margin: 10px 15px;
+		}
+	}
+}
+
+.dining-section-map {
+	.shead-icon {
+		padding-top: 50px;
+		padding-bottom: 5px;
+		@include tab {
+			padding-top: 70px;
+			padding-bottom: 10px;
+		}
+	}
+	.imageWrapper {
+		padding: 8px;
+	}
+	.imageBlock {
+		width: 100%;
+		position: relative;
+		padding: 8px 8px;
+		.inside {
+			width: 100%;
+			height: 100%;
+			background: $gray_dark;
+			position: relative;
+		}
+		img {
+			width: 100%;
+			height: auto;
+			float: left;
+			visibility: hidden;
+		}
+		span.image {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+	&.full {
+		.flexwrap {
+			max-width: 1000px;
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+	&.half {
+		.imageBlock {
+			width: 100%;
+			@include tab {
+				width: 50%;
+			}
+		}
+	}
+}
+
+.dining-section-whattobring {
+	background: $gray_dark;
+	padding-top: 50px;
+	padding-bottom: 40px;
+	color: #FFF;
+	@include tab {
+		padding-top: 80px;
+		padding-bottom: 70px;
+	}
+	.shead-icon {
+		.stitle {
+			color: #FFF;
+		}
+	}
+}
+
+.post-type-dining #section-faqs.section-content {
+	width: 100%;
+	float: left;
+	padding-top: 50px;
+	padding-bottom: 40px;
+	@include tab {
+		padding-top: 80px;
+		padding-bottom: 70px;
 	}
 }
 

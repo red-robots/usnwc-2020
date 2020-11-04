@@ -1855,10 +1855,20 @@ html[xmlns] .flexslider .slides{display:block}
 .select2-container--classic.select2-container--open .select2-dropdown{border-color:#5897fb}
 @font-face{font-family:'custom-icon';src:url("fonts/custom-icon.eot");src:url("fonts/custom-icon.eot?#iefix") format("embedded-opentype"),url("fonts/custom-icon.woff") format("woff"),url("fonts/custom-icon.ttf") format("truetype"),url("fonts/custom-icon.svg#custom-icon") format("svg");font-weight:normal;font-style:normal}
 [class*='ci-']:before{display:inline-block;font-family:'custom-icon';font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-.ci-calendar:before{content:'\0041'}
-.ci-clock:before{content:'\0043'}
-.ci-silverware:before{content:'\0044'}
-.ci-tshirt:before{content:'\0045'}
+.ci-calendar-alt:before{content:'\0041'}
+.ci-calendar:before{content:'\0042'}
+.ci-camp:before{content:'\0043'}
+.ci-check:before{content:'\0044'}
+.ci-clock:before{content:'\0045'}
+.ci-menu:before{content:'\0046'}
+.ci-people:before{content:'\0047'}
+.ci-pine-tree:before{content:'\0048'}
+.ci-silverware:before{content:'\0049'}
+.ci-tshirt:before{content:'\004a'}
+.ci-video:before{content:'\004b'}
+.ci-map:before{content:'\004c'}
+.ci-help:before{content:'\004d'}
+.ci-backpack:before{content:'\004e'}
 /*!
  * iconmonstr iconic font v1.3.0 
  */@font-face{font-family:'iconmonstr-iconic-font';src:url("fonts/iconmonstr-iconic-font.woff2?v=1.3.0") format("woff2"),url("fonts/iconmonstr-iconic-font.woff?v=1.3.0") format("woff"),url("fonts/iconmonstr-iconic-font.ttf?v=1.3.0") format("truetype");font-weight:normal;font-style:normal}
@@ -2179,6 +2189,7 @@ a:hover{color:#dd8698}
 .sr{clip:rect(1px,1px,1px,1px);position:absolute !important;height:1px;width:1px;overflow:hidden}
 .sr:focus{background-color:#333;border-radius:3px;box-shadow:0 0 2px 2px rgba(0,0,0,0.6);clip:auto !important;color:#FFF;display:block;font-size:14px;font-size:.875rem;font-weight:bold;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}
 .wrapper{max-width:1200px;width:100%;margin:0 auto;padding-left:20px;padding-right:20px;position:relative}
+.wrapper.narrow{max-width:900px}
 .site{position:relative;overflow-x:hidden;overflow-y:auto}
 .flexwrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .site-header{position:fixed;top:30px;left:0;width:100%;z-index:200}
@@ -3151,8 +3162,35 @@ to{-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotat
 .content-area-full.post-type-dining .registerBtn:after{content:"";display:block;width:0;height:0;border-left:28px solid #ba0d30;border-top:26px solid transparent;border-bottom:26px solid transparent;position:absolute;top:0;right:-28px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .content-area-full.post-type-dining .registerBtn:hover{background:#000}
 .content-area-full.post-type-dining .registerBtn:hover:after{border-left-color:#000}
-@media(min-width:768px){body.scrolled.single-dining .post-hero-image .stats{position:fixed}
-}@media(min-width:768px){body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:120px}
+body.scrolled.single-dining .post-hero-image .stats{position:fixed;z-index:50}
+body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:135px}
+@media(min-width:768px){body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:120px}
+}.shead-icon{margin-bottom:35px}
+.shead-icon div.icon span{font-size:35px;line-height:1}
+.dining-event-details{background:#f2f2f2;padding-top:50px;padding-bottom:40px}
+@media(min-width:768px){.dining-event-details{padding-top:80px;padding-bottom:70px}
+}.dining-event-details .details{font-size:16px;font-weight:normal;line-height:1.6;color:#707070;text-transform:uppercase}
+.dining-event-details .details .info{margin:25px auto}
+.dining-event-details .details .infoTitle,.dining-event-details .details .infoText{font-size:16px}
+.dining-event-details .details .infoTitle{margin:0 0 3px;font-family:"Lato",sans-serif;font-weight:600;line-height:1.3;color:#000;text-transform:uppercase}
+.dining-event-details .details .infoText{font-weight:normal;line-height:1.6}
+.dining-event-details .buttondiv{margin-top:50px}
+.dining-event-details .buttondiv a.btn-sm{margin:10px 15px}
+.dining-section-map .shead-icon{padding-top:50px;padding-bottom:5px}
+@media(min-width:768px){.dining-section-map .shead-icon{padding-top:70px;padding-bottom:10px}
+}.dining-section-map .imageWrapper{padding:8px}
+.dining-section-map .imageBlock{width:100%;position:relative;padding:8px 8px}
+.dining-section-map .imageBlock .inside{width:100%;height:100%;background:#707070;position:relative}
+.dining-section-map .imageBlock img{width:100%;height:auto;float:left;visibility:hidden}
+.dining-section-map .imageBlock span.image{display:block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:10;background-size:cover;background-position:center;background-repeat:no-repeat}
+.dining-section-map.full .flexwrap{max-width:1000px;width:100%;margin:0 auto}
+.dining-section-map.half .imageBlock{width:100%}
+@media(min-width:768px){.dining-section-map.half .imageBlock{width:50%}
+}.dining-section-whattobring{background:#707070;padding-top:50px;padding-bottom:40px;color:#FFF}
+@media(min-width:768px){.dining-section-whattobring{padding-top:80px;padding-bottom:70px}
+}.dining-section-whattobring .shead-icon .stitle{color:#FFF}
+.post-type-dining #section-faqs.section-content{width:100%;float:left;padding-top:50px;padding-bottom:40px}
+@media(min-width:768px){.post-type-dining #section-faqs.section-content{padding-top:80px;padding-bottom:70px}
 }.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}
