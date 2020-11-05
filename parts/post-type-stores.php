@@ -20,7 +20,7 @@ if ( $entries->have_posts() ) { ?>
 		$columnClass .= ($i % 2) ? ' odd':' even';
 		?>
 		<div id="entry<?php echo $i ?>" data-section="<?php echo $title ?>" class="entry <?php echo $columnClass ?>">
-			<div class="flexwrap">
+			<div class="flexwrap wow fadeIn">
 				
 				<?php if ($text || $brands) { ?>
 				<div class="block textcol">
