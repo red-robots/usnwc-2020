@@ -136,6 +136,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-info',
             'supports'  => array('title','editor')
         ),
+        array(
+            'post_type' => 'teamdev',
+            'menu_name' => 'Team Developement',
+            'plural'    => 'Team Developement',
+            'single'    => 'Team Developement',
+            'menu_icon' => 'dashicons-groups',
+            'supports'  => array('title','editor')
+        ),
     );
     
     if($post_types) {

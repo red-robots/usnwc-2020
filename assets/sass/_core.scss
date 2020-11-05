@@ -48,7 +48,7 @@ a {
 .cf { *zoom: 1; }
 .text-center {text-align:center;}
 .full {width:100%!important;float:left !important}
-
+.nomtop {margin-top:0!important;}
 /* Text meant only for screen readers. */
 .sr {
 	clip: rect(1px, 1px, 1px, 1px);
@@ -2200,6 +2200,12 @@ body.subpage.single {
 	}
 	p:last-child {
 		margin-bottom: 0;
+	}
+	.buttondiv {
+		text-align: center;
+		a.btn-sm {
+			margin:10px 15px;
+		}
 	}
 }
 
