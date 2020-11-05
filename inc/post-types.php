@@ -113,6 +113,14 @@ function js_custom_init() {
             'supports'  => array('title','editor')
         ),
         array(
+            'post_type' => 'stores',
+            'menu_name' => 'Outfitters',
+            'plural'    => 'Outfitters',
+            'single'    => 'Outfitter',
+            'menu_icon' => 'dashicons-store',
+            'supports'  => array('title','editor')
+        ),
+        array(
             'post_type' => 'job',
             'menu_name' => 'Jobs',
             'plural'    => 'Jobs',

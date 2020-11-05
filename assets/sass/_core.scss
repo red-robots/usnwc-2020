@@ -4518,6 +4518,20 @@ body.subpage.single .content-default .black-section {
 		img.actual-image {
 			display: none;
 		}
+		.flex-control-paging {
+			margin: 0 0;
+			padding: 0 0;
+			list-style: none;
+			li {
+				a {
+					box-shadow: none;
+					border: 1px solid $gray;
+					&.flex-active {
+						background: $gray;
+					}
+				}
+			}
+		}
 	}
 	.textcol, .gallerycol {
 		width: 100%;
@@ -5815,6 +5829,286 @@ body.scrolled.single-dining {
 	@include tab {
 		padding-top: 80px;
 		padding-bottom: 70px;
+	}
+}
+.outfitters {
+	.text-centered-section {
+		padding-top: 50px;
+		padding-bottom: 40px;
+		@include tab {
+			padding-top: 80px;
+			padding-bottom: 60px;
+		}
+	}
+}
+.store-hours-info {
+	.infocol {
+		max-width: 900px;
+		width: 100%;
+		margin: 0 auto;
+		img {
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+	}
+	&.full {
+		.colwrapper {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	}
+	&.half {
+		.colwrapper {
+			@include flexgroup();
+			padding: 8px;
+		}
+		.infocol {
+			max-width: 100%;
+			width: 100%;
+			padding: 8px;
+			@include tab {
+				width: 50%;
+			}
+		}
+		.infocol.first {
+			.block {
+				width: 100%;
+				float: left;
+				position: relative;
+				@include tab {
+					height: 50%;
+				}
+			}
+		}
+	}
+	.block {
+		.stitle {
+			color: #FFF;
+			margin: 0 0 20px;
+		}
+	}
+	.b1 {
+		width: 100%;
+		float: left;
+		background: $dark;
+		color: #FFF;
+		@include tab {
+			@include flexgroup-center();
+			@include flexbox-justify(center);
+		}
+		.inside {
+			padding: 30px 20px;
+		}
+		.hoursCol {
+			font-size: 18px;
+			line-height: 1.6;
+		}
+	}
+	.b2 {
+		position: relative;
+		img.mapImg {
+			display: block;
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+		span.image {
+			display: none;
+		}
+		@include tab {
+			.inside {
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			img.mapImg {
+				display: none;
+			}
+			span.image {
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 5;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+}
+
+.store-listings {
+	margin-top: 50px;
+	.block {
+		width: 100%;
+		overflow: hidden;
+	}
+	.entry {
+		width: 100%;
+		float: left;
+		margin-bottom: 15px;
+	}
+	.stitle {
+		font-size: 30px;
+		margin: 0 0 15px;
+	}
+	.text {
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	.product-brands {
+		margin: 40px 0;
+	}
+	.half {
+		.block.textcol {
+			width: 100%;
+			@include tab {
+				width: 40%;
+			}
+			.inside {
+				padding: 40px 30px 20px;
+				background: $gray;
+				@include tab {
+					padding: 5vw;
+					height: 100%;
+					@include flexgroup-center();
+				}
+			}
+			.wrap {
+				width: 100%;
+			}
+		}
+		.block.imagecol {
+			width: 100%;
+			@include tab {
+				width: 60%;
+			}
+			.inside {
+				background: $gray;
+				@include tab {
+					height: 100%;
+				}
+			}
+		}
+	}
+	.entry.even {
+		.flexwrap {
+			@include tab {
+				@include flexbox-direction(row-reverse);
+			}
+		}
+		&.half {
+			.block.textcol {
+				@include tab {
+					padding-left: 7px;
+				}
+			}
+			.block.imagecol {
+				@include tab {
+					padding-right: 7px;
+				}
+			}
+		}
+	}
+	.entry.odd {
+		&.half {
+			.block.textcol {
+				@include tab {
+					padding-right: 7px;
+				}
+			}
+			.block.imagecol {
+				@include tab {
+					padding-left: 7px;
+				}
+			}
+		}
+	}
+	.product-brands {
+		@include flexgroup();
+		.brand {
+			display: inline-block;
+			width: 50%;
+			height: 80px;
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+			padding: 15px 10px;
+			@include mid {
+				width: 33.33%;
+				height: 80px;
+			}
+			span {
+				display: block;
+				width: 100%;
+				height: 100%;
+				float: left;
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+			a {
+				display: block;
+				width: 100%;
+				height: 100%;
+				float: left;
+				&:hover {
+					opacity: 0.5;
+				}
+			}
+			img {
+				width: 100%;
+				height: auto;
+				float: left;
+				display: none;
+			}
+		}
+	}
+}
+
+.posttypeslider {
+	position: relative;
+	height: 100%!important;
+	&.flexslider {
+		border-radius: 0px;
+	}
+	img.actual-image {
+		display: none;
+	}
+	img.placeholder {
+		width: 100%;
+		height: auto;
+		float: left;
+	}
+	ul.slides {
+		height: 100%!important;
+	}
+	.slide-item {
+		height: 100%;
+		border-radius: 0px;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-color: $gray;
+		position: relative;
+	}
+	.flex-control-paging {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+		li {
+			a {
+				box-shadow: none;
+				border: 1px solid $gray;
+				&.flex-active {
+					background: $gray;
+				}
+			}
+		}
 	}
 }
 

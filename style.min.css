@@ -2944,6 +2944,9 @@ body.subpage.single .content-default .black-section .wrapper a:hover{color:#ba0d
 }.menu-sections .gallerycol .slides li.slide-item{background-size:cover;background-position:center;background-repeat:no-repeat}
 .menu-sections .gallerycol img{width:100%;height:auto;float:left}
 .menu-sections .gallerycol img.actual-image{display:none}
+.menu-sections .gallerycol .flex-control-paging{margin:0;padding:0;list-style:none}
+.menu-sections .gallerycol .flex-control-paging li a{box-shadow:none;border:1px solid #f2f2f2}
+.menu-sections .gallerycol .flex-control-paging li a.flex-active{background:#f2f2f2}
 .menu-sections .textcol,.menu-sections .gallerycol{width:100%;position:relative;background:#f2f2f2}
 .menu-sections .textcol{font-size:16px;line-height:1.5;text-align:center}
 .menu-sections .textcol .inside{padding:5vw}
@@ -3191,7 +3194,64 @@ body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:135p
 }.dining-section-whattobring .shead-icon .stitle{color:#FFF}
 .post-type-dining #section-faqs.section-content{width:100%;float:left;padding-top:50px;padding-bottom:40px}
 @media(min-width:768px){.post-type-dining #section-faqs.section-content{padding-top:80px;padding-bottom:70px}
-}.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
+}.outfitters .text-centered-section{padding-top:50px;padding-bottom:40px}
+@media(min-width:768px){.outfitters .text-centered-section{padding-top:80px;padding-bottom:60px}
+}.store-hours-info .infocol{max-width:900px;width:100%;margin:0 auto}
+.store-hours-info .infocol img{width:100%;height:auto;float:left}
+.store-hours-info.full .colwrapper{padding-left:15px;padding-right:15px}
+.store-hours-info.half .colwrapper{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:8px}
+.store-hours-info.half .infocol{max-width:100%;width:100%;padding:8px}
+@media(min-width:768px){.store-hours-info.half .infocol{width:50%}
+}.store-hours-info.half .infocol.first .block{width:100%;float:left;position:relative}
+@media(min-width:768px){.store-hours-info.half .infocol.first .block{height:50%}
+}.store-hours-info .block .stitle{color:#FFF;margin:0 0 20px}
+.store-hours-info .b1{width:100%;float:left;background:#191919;color:#FFF}
+@media(min-width:768px){.store-hours-info .b1{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+}.store-hours-info .b1 .inside{padding:30px 20px}
+.store-hours-info .b1 .hoursCol{font-size:18px;line-height:1.6}
+.store-hours-info .b2{position:relative}
+.store-hours-info .b2 img.mapImg{display:block;width:100%;height:auto;float:left}
+.store-hours-info .b2 span.image{display:none}
+@media(min-width:768px){.store-hours-info .b2 .inside{width:100%;height:100%;position:relative}
+.store-hours-info .b2 img.mapImg{display:none}
+.store-hours-info .b2 span.image{display:block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:5;background-size:cover;background-position:center;background-repeat:no-repeat}
+}.store-listings{margin-top:50px}
+.store-listings .block{width:100%;overflow:hidden}
+.store-listings .entry{width:100%;float:left;margin-bottom:15px}
+.store-listings .stitle{font-size:30px;margin:0 0 15px}
+.store-listings .text{font-size:16px;line-height:1.5}
+.store-listings .product-brands{margin:40px 0}
+.store-listings .half .block.textcol{width:100%}
+@media(min-width:768px){.store-listings .half .block.textcol{width:40%}
+}.store-listings .half .block.textcol .inside{padding:40px 30px 20px;background:#f2f2f2}
+@media(min-width:768px){.store-listings .half .block.textcol .inside{padding:5vw;height:100%;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+}.store-listings .half .block.textcol .wrap{width:100%}
+.store-listings .half .block.imagecol{width:100%}
+@media(min-width:768px){.store-listings .half .block.imagecol{width:60%}
+}.store-listings .half .block.imagecol .inside{background:#f2f2f2}
+@media(min-width:768px){.store-listings .half .block.imagecol .inside{height:100%}
+}@media(min-width:768px){.store-listings .entry.even .flexwrap{-webkit-flex-direction:row-reverse;-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
+}@media(min-width:768px){.store-listings .entry.even.half .block.textcol{padding-left:7px}
+}@media(min-width:768px){.store-listings .entry.even.half .block.imagecol{padding-right:7px}
+}@media(min-width:768px){.store-listings .entry.odd.half .block.textcol{padding-right:7px}
+}@media(min-width:768px){.store-listings .entry.odd.half .block.imagecol{padding-left:7px}
+}.store-listings .product-brands{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.store-listings .product-brands .brand{display:inline-block;width:50%;height:80px;background-size:contain;background-position:center;background-repeat:no-repeat;padding:15px 10px}
+@media(min-width:960px){.store-listings .product-brands .brand{width:33.33%;height:80px}
+}.store-listings .product-brands .brand span{display:block;width:100%;height:100%;float:left;background-size:contain;background-position:center;background-repeat:no-repeat}
+.store-listings .product-brands .brand a{display:block;width:100%;height:100%;float:left}
+.store-listings .product-brands .brand a:hover{opacity:.5}
+.store-listings .product-brands .brand img{width:100%;height:auto;float:left;display:none}
+.posttypeslider{position:relative;height:100% !important}
+.posttypeslider.flexslider{border-radius:0}
+.posttypeslider img.actual-image{display:none}
+.posttypeslider img.placeholder{width:100%;height:auto;float:left}
+.posttypeslider ul.slides{height:100% !important}
+.posttypeslider .slide-item{height:100%;border-radius:0;background-position:center;background-size:cover;background-repeat:no-repeat;background-color:#f2f2f2;position:relative}
+.posttypeslider .flex-control-paging{margin:0;padding:0;list-style:none}
+.posttypeslider .flex-control-paging li a{box-shadow:none;border:1px solid #f2f2f2}
+.posttypeslider .flex-control-paging li a.flex-active{background:#f2f2f2}
+.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}
 .site-footer .coltitle{color:#FFF;font-family:"Lato",sans-serif;font-size:15px;font-weight:300;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}

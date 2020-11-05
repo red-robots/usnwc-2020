@@ -46,8 +46,6 @@ $blank_image = THEMEURI . "images/square.png";
 				
 				<?php
 				$short_description = get_the_content();
-				
-			
 				if($short_description) { ?>
 				<section class="text-centered-section">
 					<div class="wrapper text-center">
@@ -59,7 +57,7 @@ $blank_image = THEMEURI . "images/square.png";
 				</section>
 				<?php } ?>
 
-				<div id="pageTabs" style="display:none;"></div>
+				<?php get_template_part("parts/subpage-tabs"); ?>
 
 				<?php  
 				/* EVENT DETAILS */
