@@ -41,54 +41,7 @@ get_header(); ?>
 
 			<?php } ?>
 
-			<?php
-			$mapImage1 = get_field("fm_map_image1");
-			$mapImage1width = get_field("fm_map_image1_width");
-			if($mapImage1width) {
-				$mapw1 = ' style="width:'.$mapImage1width.'%"';
-			}
-
-			$mapImage2 = get_field("fm_map_image2");
-			$mapImage2width = get_field("fm_map_image2_width");
-			if($mapImage2width) {
-				$mapw2 = ' style="width:'.$mapImage2width.'%"';
-			}
-			$mapClass = ($mapImage1 && $mapImage2) ? 'half':'full';
-			if($mapImage1 || $mapImage2) { ?>
-			<section class="facility-map-section <?php echo $mapClass ?>">
-				<div class="wrapper">
-					<div class="shead-icon text-center">
-						<div class="icon"><span class="ci-map"></span></div>
-						<h2 class="stitle">MAP</h2>
-					</div>
-				</div>
-
-				<div class="columns-wrapper">
-					<?php if ($mapImage1) { ?>
-					<div class="mapcol c1"<?php echo $mapw1 ?>>
-						<div class="inside" style="background-image:url('<?php echo $mapImage1['url'] ?>')">
-							<a href="<?php echo $mapImage1['url'] ?>" data-fancybox>
-								<img src="<?php echo $mapImage1['url'] ?>" alt="<?php echo $mapImage1['title'] ?>" />
-								<span class="zoom-icon"><i class="fas fa-search"></i></span>
-							</a>
-						</div>
-					</div>
-					<?php } ?>
-
-					<?php if ($mapImage2) { ?>
-					<div class="mapcol c2"<?php echo $mapw2 ?>>
-						<div class="inside" style="background-image:url('<?php echo $mapImage2['url'] ?>')">
-							<a href="<?php echo $mapImage2['url'] ?>" data-fancybox>
-								<img src="<?php echo $mapImage2['url'] ?>" alt="<?php echo $mapImage2['title'] ?>" />
-								<span class="zoom-icon"><i class="fas fa-search"></i></span>
-							</a>
-						</div>
-					</div>
-					<?php } ?>
-				</div>
-
-			</section>
-			<?php } ?>
+			
 		<?php endwhile; ?>
 
 	</main><!-- #main -->
