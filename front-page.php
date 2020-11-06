@@ -48,8 +48,10 @@ $rectangle = THEMEURI . "images/rectangle-narrow.png";
 
 			<?php if ($row2_title) { ?>
 			<div class="wrapper inner-content text-center">
-				<div class="icondiv"><span class="tree"></span></div>
-				<h2 class="stitle"><?php echo $row2_title ?></h2>
+				<div class="shead-icon text-center">
+					<div class="icon"><span class="ci-pine-tree"></span></div>
+					<h2 class="stitle"><?php echo $row2_title ?></h2>
+				</div>
 				<?php if ($row2_button_name && $row2_button_link) { ?>
 				<div class="buttondiv">
 					<a href="<?php echo $row2_button_link['url'] ?>" target="<?php echo $row2_button_link['target'] ?>" class="btn-sm"><span><?php echo $row2_button_name ?></span></a>

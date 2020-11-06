@@ -9,8 +9,13 @@ $blank_image = THEMEURI . "images/rectangle.png";
 <?php if ($row4_title) { ?>
 <section id="section-stories" class="homerow row4">
 	<div class="wrapper inner-content text-center">
-		<div class="icondiv"><span class="video"></span></div>
-		<h2 class="stitle"><?php echo $row4_title ?></h2>
+		<!-- <div class="icondiv"><span class="video"></span></div> -->
+		<!-- <h2 class="stitle"><?php //echo $row4_title ?></h2> -->
+		<div class="shead-icon text-center">
+			<div class="icon"><span class="ci-video"></span></div>
+			<h2 class="stitle"><?php echo $row4_title ?></h2>
+		</div>
+
 		<?php if ($row4_button_name && $row4_button_link) { ?>
 		<div class="buttondiv">
 			<a href="<?php echo $row4_button_link['url'] ?>" target="<?php echo $row4_button_link['target'] ?>" class="btn-sm"><span><?php echo $row4_button_name ?></span></a>

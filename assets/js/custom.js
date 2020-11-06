@@ -60,6 +60,11 @@ jQuery(document).ready(function ($) {
 	    }
 	});
 
+	$('.zoom-image').fancybox({
+	  buttons : ['fullScreen','close'],
+	  hash : false
+	});
+
 
 	var windowHeight = $(window).scrollTop();
 	if(windowHeight  > 200) {
