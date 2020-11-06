@@ -1951,11 +1951,14 @@ h2.stitle {
 
 body.subpage {
 	.content-default {
-		padding-top: 150px;
+		padding-top: 60px;
 		padding-bottom: 50px;
 		width: 100%;
 		float: left;
 		min-height: 35em;
+	}
+	&.pageHasBanner .content-default {
+		min-height: 20em;
 	}
 }
 body.search {
@@ -2174,6 +2177,9 @@ body.subpage.single {
 	@include tab {
 		padding-top: 80px;
 		padding-bottom: 80px;
+	}
+	&.noBanner {
+		margin-top: 80px;
 	}
 	&.dark {
 		background: $dark;
@@ -5492,6 +5498,8 @@ body.page-template-page-stories {
 .post-hero-image {
 	width: 100%;
 	float: left;
+	position: relative;
+	z-index: 150;
 	img.featured-image {
 		width: 100%;
 		height: auto;
@@ -6231,6 +6239,15 @@ body.logged-in.admin-bar.page-template-page-facility {
 	.fancybox-toolbar {
 		top: 75px;
     right: 20px;
+	}
+}
+
+body.pageNoBanner {
+	.site-header {
+		box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+	}
+	.site-content {
+		min-height: 35em;
 	}
 }
 

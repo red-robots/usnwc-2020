@@ -34,8 +34,23 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
 <script>var currentURL = '<?php echo get_permalink();?>';</script>
 <?php wp_head(); ?>
 </head>
-
-<body <?php body_class(); ?>>
+<?php
+$heroImage = get_field("full_image");
+$postHeroImage = get_field("post_image_full");
+$flexbanner = get_field("flexslider_banner");
+$xBodyClass = 'pageNoBanner';
+if($heroImage) {
+	$xBodyClass = ($heroImage) ? 'pageHasBanner':'pageNoBannerr';
+} else {
+	if($flexbanner) {
+		$xBodyClass = ($flexbanner) ? 'pageHasBanner':'pageNoBanner';
+	}
+}
+if($postHeroImage) {
+	$xBodyClass = ($postHeroImage) ? 'pageHasBanner':'pageNoBanner';
+}
+?>
+<body <?php body_class($xBodyClass); ?>>
 <div id="page" class="site cf">
 	<div id="overlay"></div>
 	<a class="skip-link sr" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>

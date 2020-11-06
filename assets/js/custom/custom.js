@@ -50,14 +50,15 @@ jQuery(document).ready(function ($) {
 
 
 	$('[data-fancybox]').fancybox({
-	    youtube : {
-	        controls : 0,
-	        showinfo : 0,
-	        rel: 0
-	    },
-	    vimeo : {
-	        color : 'ffffff'
-	    }
+		touch : true,
+    youtube : {
+        controls : 0,
+        showinfo : 0,
+        rel: 0
+    },
+    vimeo : {
+        color : 'ffffff'
+    }
 	});
 
 	$('.zoom-image').fancybox({

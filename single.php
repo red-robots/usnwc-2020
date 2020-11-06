@@ -10,7 +10,16 @@
 get_header(); 
 $post_type = get_post_type();
 $heroImage = get_field("full_image");
-$has_hero = ($heroImage) ? 'has-banner':'no-banner';
+$flexbanner = get_field("flexslider_banner");
+$has_hero = 'no-banner';
+if($heroImage) {
+	$has_hero = ($heroImage) ? 'has-banner':'no-banner';
+} else {
+	if($flexbanner) {
+		$has_hero = ($flexbanner) ? 'has-banner':'no-banner';
+	}
+}
+
 //$customPostTypes = array('activity','festival');
 get_template_part("parts/subpage-banner");
 $post_id = get_the_ID(); ?>

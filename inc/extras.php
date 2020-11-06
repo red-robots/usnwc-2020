@@ -1095,3 +1095,27 @@ function fwp_archive_per_page( $query ) {
 add_filter( 'pre_get_posts', 'fwp_archive_per_page' );
 
 
+function child_templates($template) {
+    global $post;
+
+    if ($post->post_parent) {
+        // get top level parent page
+        $parent = get_post(
+            reset(array_reverse(get_post_ancestors($post->ID)))
+        );
+
+        // find the child template based on parent's slug or ID
+        $child_template = locate_template(
+            [
+                'child-' . $parent->post_name . '.php',
+                'child-' . $parent->ID . '.php',
+                'child.php',
+            ]
+        );
+
+        if ($child_template) return $child_template;
+    }
+
+    return $template;
+}
+add_filter( 'page_template', 'child_templates' );
