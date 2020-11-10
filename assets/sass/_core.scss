@@ -6251,6 +6251,427 @@ body.pageNoBanner {
 	}
 }
 
+.section-price-ages {
+	.flexwrap {
+		margin-left: -6px;
+		margin-right: -6px;
+		padding-top: 10px;
+    padding-bottom: 10px;
+	}
+	.info {
+		width: 100%;
+		padding: 6px;
+		text-align: center;
+		@include tab {
+			width: 33.33%;
+		}
+		.label {
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 1.2;
+			color: $gray_dark;
+			margin: 0 0 8px;
+			text-transform: uppercase;
+		}
+		.val {
+			font-size: 20px;
+			font-weight: 600;
+			line-height: 1.2;
+			color: $dark;
+			text-transform: uppercase;
+		}
+	}
+	.wrap {
+		padding: 30px 15px;
+		background: $gray;
+	}
+}
+
+#carousel-images {
+	position: relative;
+	.owl-carousel {
+		position: relative;
+	}
+	div.image {
+		width: 100%;
+		height: auto;
+		float: left;
+		background-size: cover;
+		background-position:50% 50%;
+		background-repeat: no-repeat;
+	}
+	.owl-nav {
+		width: 100%;
+		position: static;
+		top: 0;
+		left: 0;
+		z-index: 200;
+	}
+	.owl-prev, .owl-next {
+		display: block;
+		width: 40px;
+		height: 50px;
+		background: $gray_dark;
+		position: absolute;
+		top: 43%;
+		transform: translateY(-43%);
+		transition: all ease .3s;
+		@include tab {
+			top: 46%;
+			transform: translateY(-46%);
+		}
+		&:hover {
+			background: shade($gray_dark,40%);
+		}
+		span {
+			display: inline-block;
+			color: transparent;
+			font-size: 1px;
+			line-height: 1;
+			position: relative;
+			width: 35%;
+			height: 1px;
+			top: -3px;
+			left: -2px;
+			&:before, &:after {
+				content:"";
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: #FFF;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			&:before {
+				top: -10px;
+			}
+			&:after {
+				top: 10px;
+			}
+		}
+	}
+	.owl-prev{
+		left: 0;
+		span:before {
+			transform: translateY(5px) rotate(-42deg);
+		}
+		span:after {
+			transform: translateY(-6px)  rotate(42deg);
+		}
+	}
+	.owl-next {
+		right: 0;
+		span {
+			left: 2px;
+		}
+		span:before {
+			transform: translateY(5px) rotate(42deg);
+		}
+		span:after {
+			transform: translateY(-6px)  rotate(-42deg);
+		}
+	}
+	.owl-dots {
+		text-align: center;
+		margin: 10px 0 8px;
+		.owl-dot {
+			display: inline-block;
+			-webkit-appearance: none;
+			border-radius: 100px;
+			border: 1px solid $gray_dark;
+			box-shadow: none;
+			text-shadow: none;
+			width: 10px;
+			height: 10px;
+			margin: 6px;
+			&.active {
+				background: $gray_dark;
+			}
+		}
+	}
+}
+
+#primary.summer-camps {
+	#section-schedule {
+		background: $gray;
+		padding-top: 50px;
+		padding-bottom: 30px;
+		@include tab {
+			padding-top: 80px;
+			padding-bottom: 70px;
+		}
+	}
+	.schedules-list {
+		padding: 20px 0;
+		ul.items {
+			margin: 0 0;
+			padding: 0 0;
+			list-style: none;
+		}
+		li.item {
+			@include flexgroup();
+			@include flexbox-justify(space-between);
+			position: relative;
+			font-size: 18px;
+			padding: 5px 0 30px;
+			@include tab {
+				padding: 0 0;
+			}
+			&:after {
+				content:"";
+				display: block;
+				position: absolute;
+				left: 0;
+				bottom: 13px;
+				width: 100%;
+				height: 1px;
+				opacity: 0.4;
+				@include custom_dashed();
+			}
+			.time, .event {
+				display: block;
+				position: relative;
+				padding: 0 0;
+				z-index: 10;
+				@include tab {
+					display: inline;
+					padding: 8px 8px;
+					background: $gray;
+				}
+			}
+			.time {
+				color: #000;
+				font-size: 20px;
+				font-weight: 600;
+				width: 100%;
+				@include tab {
+					display: flex;
+					justify-content: flex-end;
+					align-items: flex-end;
+					width: auto;
+				}
+			}
+			.event {
+				width: 100%;
+				max-width: 100%;
+				color: $gray_dark;
+				@include tab {
+					width: auto;
+					max-width: 60%;
+				}
+			}
+		}
+	}
+}
+
+.camp-activities.section-content {
+	background: #FFF;
+	padding-top: 50px;
+	padding-bottom: 0;
+	@include tab {
+		padding-top: 80px;
+	}
+	.entries-flexwrap {
+		margin-left: -8px;
+		margin-right: -8px;
+		position: relative;
+		bottom: -8px;
+	}
+	.fbox {
+		width: 100%;
+		@include tab {
+			width: 33.33%;
+			padding: 8px;
+		}
+		&.fullwidthbox {
+			width: 100%!important;
+		}
+		.inside {
+			text-align: center;
+			background: $gray;
+			height: 100%;
+		}
+		.imagediv {
+			display: block;
+			width: 100%;
+			float: left;
+			position: relative;
+			background-color: #dedede;
+			overflow: hidden;
+			&.noImage {
+				&:before {
+					content:"Photo Not Available";
+					font-family: $font_secondary;
+					font-size: 12px;
+					font-weight: 500;
+					color: #9e9e9e;
+					display: block;
+					width: 100%;
+					text-align: center;
+					text-transform: uppercase;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					transform: translateY(-50%);
+				}
+			}
+			.img {
+				display: block;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				width: 100%;
+				height: 100%;
+				transition: all ease .3s;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			&:hover {
+				.img {
+					transform: scale(1.1);
+				}
+			}
+		}
+		img.placeholder {
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+		.titlediv {
+			width: 100%;
+			float: left;
+			padding: 20px;
+			.name {
+				font-size: 16px;
+				font-weight: 400;
+				text-transform: uppercase;
+				margin: 0 0;
+			}
+		}
+	}
+}
+
+#section-registration {
+	.registerdiv {
+		background: $red;
+		color: #FFF;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		@include tab {
+			padding-top: 70px;
+			padding-bottom: 70px;
+		}
+		.shead-icon {
+			margin: 0 0;
+			.icon {
+				margin-bottom: 10px;
+			}
+		}
+		h2.stitle {
+			color: #FFF;
+		}
+	}
+	.steps-wrapper {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		@include tab {
+			padding-top: 70px;
+			padding-bottom: 80px;
+		}
+		.flexwrap {
+			@include flexbox-justify(space-between);
+		}
+		.step {
+			width: 100%;
+			padding: 15px;
+			text-align: center;
+			margin: 10px 0;
+			@include tab {
+				margin: 0 0;
+				width: 30%;
+			}
+			@include mid {
+				width: 25%;
+			}
+			.wrap {
+				width: 100%;
+				float: left;
+				padding: 30px 20px;
+				background: #FFF;
+				border: 1px solid #000;
+				position: relative;
+			}
+			.text {
+				width: 100%;
+				@include tab {
+					position: absolute;
+					top: 50%;
+					left: 0;
+					transform: translateY(-50%);
+					z-index: 10;
+				}
+			}
+			img.placeholder {
+				display: none;
+				width: 100%;
+				height: auto;
+				float: left;
+				@include tab {
+					display: block;
+				}
+			}
+			div.icon {
+				margin: 0 0 20px;
+				span {
+					display: inline-block;
+					width: 35px;
+					height: 35px;
+					background-size: cover;
+					background-position: center;
+					background-repeat: no-repeat;
+				}
+			}
+			div.title {
+				font-size: 18px;
+				font-weight: 600;
+				line-height: 1.1;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+			}
+			.stepnum {
+				font-family: $font_secondary;
+				font-size: 20px;
+				font-weight: 600;
+				line-height: 1.1;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				margin: 0 0 15px;
+			}
+		}
+		
+	}
+	.stepsdata {
+		position: relative;
+		z-index: 10;
+	}
+	.dashed {
+		@include tab {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 43%;
+			padding: 0 50px;
+			div {
+				width: 100%;
+				height: 1px;
+				@include custom_dashed();
+			}
+		}
+	}
+}
+
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");

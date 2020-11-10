@@ -288,6 +288,11 @@ div.acf-field[data-name="is_event_completed"] div.acf-input,
 body.post-type-acf-field-group #expirationdatediv.postbox  {
     display: none!important;
 }
+
+.acf-field[data-name="steps"] .acf-repeater div.image-wrap img {
+    width: 50px!important;
+}
+
 div.acf-field-repeater[data-name="today"] table tr.acf-row td {
     border-bottom: 6px solid #d6d6d6;
 }

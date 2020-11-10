@@ -30,6 +30,13 @@ function bellaworks_scripts() {
 		);
 
 	wp_enqueue_script( 
+			'bellaworks-carousel', 
+			get_template_directory_uri() . '/assets/js/vendors/owl.carousel.min.js', 
+			array(), '20200101', 
+			true 
+		);
+
+	wp_enqueue_script( 
 			'bellaworks-custom', 
 			get_template_directory_uri() . '/assets/js/custom.js', 
 			array(), '20200713', 
