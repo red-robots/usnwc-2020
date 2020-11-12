@@ -193,7 +193,7 @@ $blank_image = THEMEURI . "images/square.png";
 					<?php
 						$customFAQTitle = $faq_title;
 						include( locate_template('parts/content-faqs.php') ); 
-						include( locate_template('inc/faqs-script.php') ); 
+						include( locate_template('inc/faqs.php') ); 
 					?>
 				<?php } ?>
 

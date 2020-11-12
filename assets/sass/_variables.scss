@@ -129,6 +129,28 @@ $nav_width: 350px;
 	// animation-fill-mode: both;
 }
 
+@mixin fontblock() {
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+@mixin fontHeadingBlock($color:#FFF) {
+	font-family: $font-secondary;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin: 0 0 20px;
+	color: $color;
+}
+
+@mixin backgroundImage($position:center) {
+	background-size: cover;
+	background-position: $position;
+	background-repeat: no-repeat;
+}
+
 @mixin custom_dashed() {
 	background-image: url("data:image/svg+xml,%3csvg width='100%30' height='100%30' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%30' height='100%30' fill='none' stroke='%23333' stroke-width='3' stroke-dasharray='5%2c10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }

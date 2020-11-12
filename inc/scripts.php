@@ -37,6 +37,21 @@ function bellaworks_scripts() {
 		);
 
 	wp_enqueue_script( 
+			'bellaworks-boostrap', 
+			'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', 
+			array(), '20200101', 
+			true 
+		);
+
+	wp_enqueue_script( 
+			'bellaworks-boostrap', 
+			get_template_directory_uri() . 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js', 
+			array(), '20200713', 
+			true 
+		);
+
+
+	wp_enqueue_script( 
 			'bellaworks-custom', 
 			get_template_directory_uri() . '/assets/js/custom.js', 
 			array(), '20200713', 

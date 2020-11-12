@@ -1,204 +1,169 @@
 <?php
 /**
- * Template Name: Summer Camps
+ * Template Name: Summer Camp
  */
-$placeholder = THEMEURI . 'images/rectangle.png';
-$square = THEMEURI . 'images/square.png';
-$banner = get_field("flexslider_banner");
-$has_banner = ($banner) ? 'hasbanner':'nobanner';
-get_header(); ?>
 
-<div id="primary" class="content-area-full summer-camps <?php echo $has_banner ?>">
-	<main id="main" class="site-main" role="main">
+get_header(); 
+$blank_image = THEMEURI . "images/rectangle.png";
+$square = THEMEURI . "images/square.png";
+$currentPageLink = get_permalink();
+?>
 
+<div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full summer-camp-page">
 		<?php while ( have_posts() ) : the_post(); ?>
-
-			<?php
-			$mainText = '';
-			ob_start();
-			the_content();
-			$mainText = ob_get_contents();
-			ob_end_clean();
-			$has_h1 = (strpos($mainText, '<h1>') !== false) ? true : false;
-
-			$short_description = get_the_content();
-			if($banner) {
-				
-				if($short_description) { ?>
-				<section class="text-centered-section">
-					<div class="wrapper text-center">
-						<?php if ($has_h1==false) { ?>
-							<div class="page-header">
-								<h1 class="page-title"><?php the_title(); ?></h1>
-							</div>
-						<?php } ?>
-						<?php echo anti_email_spam($short_description); ?>
+			<?php if( get_the_content() ) { ?>
+				<div class="intro-text-wrap">
+					<div class="wrapper">
+						<h1 class="page-title"><span><?php the_title(); ?></span></h1>
+						<div class="intro-text"><?php the_content(); ?></div>
 					</div>
-				</section>
-				<?php } ?>
-
-			<?php } else { ?>
-
-				<section class="text-centered-section noBanner">
-					<div class="wrapper text-center">
-						<div class="page-header">
-							<h1 class="page-title"><?php the_title(); ?></h1>
-						</div>
-						<?php echo anti_email_spam($short_description); ?>
-					</div>
-				</section>
-
+				</div>
 			<?php } ?>
+		<?php endwhile;  ?>
 
 
-			<?php get_template_part("parts/subpage-tabs"); ?>
+		<?php
+		$postype = 'camp';
+		$perpage = 16;
+		$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
+		$result = custom_query_posts($postype,$perpage,$paged,'ASC');
+		$posts = ( isset($result['records']) && $result['records'] ) ? $result['records']:'';
+		$total = ( isset($result['total']) && $result['total'] ) ? $result['total']:0;
+		$canceledImage = THEMEURI . "images/canceled.svg";
+		$total_pages = ($posts) ? ceil($total / $perpage):0;
 
-
-			<?php  
-			$price = get_field("price");
-			$ages = get_field("ages");
-			$dates = get_field("dates");
-			$info['price'] = array('Price',$price);
-			$info['ages'] = array('Ages',$ages);
-			$info['dates'] = array('Dates',$dates);
-			?>
-
-			<section class="section-price-ages full">
-				<div class="flexwrap">
-					<?php foreach ($info as $n) { ?>
-						<div class="info">
-							<div class="wrap">
-								<div class="label"><?php echo $n[0] ?></div>
-								<div class="val"><?php echo $n[1] ?></div>
-							</div>
-						</div>	
-					<?php } ?>
-				</div>
-
-				<?php 
-				if( $galleries = get_field("gallery") ) { ?>
-				<div id="carousel-images">
-					<div class="loop owl-carousel owl-theme">
-					<?php foreach ($galleries as $g) { ?>
-						<div class="item">
-							<div class="image" style="background-image:url('<?php echo $g['url']?>')">
-								<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" />
-							</div>
-						</div>
-					<?php } ?>
-					</div>
-				</div>
-				<?php } ?>
-			</section>
-
-			<?php 
-			$sched_title = get_field("schedule_title");
-			$schedules = get_field("schedule_items");
-			if($schedules) { ?>
-			<section id="section-schedule" data-section="<?php echo $sched_title ?>" class="section-content">
-				<div class="wrapper">
-
-					<?php if ($sched_title) { ?>
-					<div class="shead-icon text-center">
-						<div class="icon"><span class="ci-menu"></span></div>
-						<h2 class="stitle"><?php echo $sched_title ?></h2>
-					</div>
-					<?php } ?>
-					
-					<div class="schedules-list">
-						<ul class="items">
-						<?php foreach ($schedules as $s) { ?>
-							<li class="item">
-								<div class="time"><?php echo $s['time'] ?></div>
-								<div class="event"><?php echo $s['event'] ?></div>
-							</li>
-						<?php } ?>
-						</ul>
-					</div>
-
-				</div>
-			</section>
-			<?php } ?>
-			
-		<?php endwhile; ?>
-
-
-		<?php get_template_part("parts/post-type-camp"); ?>
-
-
-		<?php  
-		$registration_title = get_field("registration_title");
-		$steps = get_field("steps");
-		if($registration_title || $steps) { ?>
-		<section id="section-registration" data-section="<?php echo $registration_title ?>" class="section-content">
-
-			<?php if ($steps) { ?>
-			<div class="steps-wrapper">
-				<div class="wrapper">
-					<div class="flexwrap stepsdata">
-						<?php $n=1; foreach ($steps as $s){ 
-							$s_icon = $s['icon'];
-							$s_title = $s['title'];
-							if($s_title) { ?>
-							<div class="step">
-								<div class="stepnum">Step <?php echo $n ?></div>
-								<div class="wrap">
-									<div class="text">
-										<?php if ($s_icon) { ?>
-											<div class="icon"><span style="background-image:url('<?php echo $s_icon['url']?>')"></span></div>
+		if ( $posts ) { ?>
+		<div class="post-type-entries <?php echo $postype ?>">
+			<div id="data-container">
+				<div class="posts-inner">
+					<div class="flex-inner">
+						<?php $i=1; foreach ($posts as $p) { 
+							$id = $p->ID;
+							$title = $p->post_title;
+							$pagelink = get_permalink($id);
+							$short_description = get_field("short_description",$id);
+							$eventStatus = get_field("eventstatus",$id);
+							$thumbImage = get_field("thumbnail_image",$id);
+							$price = get_field("price",$id);
+							$ages = get_field("ages",$id);
+							$date_range = get_field("date_range",$id);
+							$dates = ($date_range) ?  array_filter( explode(",",$date_range) ):'';
+							$age_prices = array($ages,$price);
+							$agePriceInfo = ($age_prices && array_filter($age_prices)) ? true : false;
+							?>
+							<div class="postbox animated fadeIn <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?>">
+								<div class="inside">
+									
+									<?php if ($eventStatus=='completed') { ?>
+										<!-- <div class="event-completed"><span>Event Complete</span></div> -->
+									<?php } ?>
+									
+									<a href="<?php echo $pagelink ?>" class="photo wave-effect js-blocks">
+										<?php if ($thumbImage) { ?>
+											<span class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></span>
+											<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none;">
+											<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
+										<?php } else { ?>
+											<span class="imagediv"></span>
+											<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
 										<?php } ?>
-										<?php if ($s_title) { ?>
-											<div class="title"><?php echo $s_title ?></div>
+										<span class="boxTitle">
+											<span class="twrap">
+												<span class="t1"><?php echo $title ?></span>
+											</span>
+										</span>
+
+										<?php include( locate_template('images/wave-svg.php') ); ?>
+
+										<?php if ($eventStatus=='canceled') { ?>
+										<span class="canceledStat">
+											<img src="<?php echo $canceledImage ?>" alt="" aria-hidden="true">
+										</span>	
 										<?php } ?>
+									</a>
+
+									<div class="details">
+										<div class="info">
+											<h3 class="event-name"><?php echo $title ?></h3>
+											<?php if ($agePriceInfo) { ?>
+											<div class="pricewrap">
+												<div class="price-info">
+													<?php if ($ages) { ?>
+													<span class="age"><?php echo $ages ?></span>	
+													<?php } ?>
+													<?php if ($price) { ?>
+													<span class="price"><?php echo $price ?></span>	
+													<?php } ?>
+												</div>
+											</div>
+											<?php } ?>
+
+											<?php if ($dates) { ?>
+											<ul class="dates">
+												<?php foreach ($dates as $date) { ?>
+													<li class="date"><?php echo $date ?></li>	
+												<?php } ?>
+											</ul>
+											<?php } ?>
+
+											<?php if ($short_description) { ?>
+											<div class="short-description">
+												<?php echo $short_description ?>
+											</div>
+											<?php } ?>
+
+											<div class="button">
+												<a href="<?php echo $pagelink ?>" class="btn-sm"><span>See Details</span></a>
+											</div>
+											
+										</div>
 									</div>
-									<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" class="placeholder">
 								</div>
-							</div>	
-							<?php $n++; } ?>
-						<?php  } ?>
-					</div>
-					<div class="dashed"><div></div></div>
-				</div>
-			</div>	
-			<?php } ?>
-
-			<?php if ($registration_title) { ?>
-			<div class="titlediv registerdiv">
-				<div class="wrapper">
-					<div class="shead-icon text-center">
-						<div class="icon"><span class="ci-editor"></span></div>
-						<h2 class="stitle"><?php echo $registration_title ?></h2>
+							</div>
+						<?php $i++; } ?>
 					</div>
 				</div>
 			</div>
-			<?php } ?>
-		</section>
+
+			<div class="hidden-entries" style="display:none;"></div>
+
+		</div>
 		<?php } ?>
 
-	</main><!-- #main -->
-</div><!-- #primary -->
+		<?php if ($total > $perpage) { ?> 
+		<div class="loadmorediv text-center">
+			<div class="wrapper"><a href="#" id="nextPostsBtn" data-current="1" data-baseurl="<?php echo $currentPageLink ?>" data-end="<?php echo $total_pages?>" class="btn-sm wide"><span>Load More Festivals</span></a></div>
+		</div>
+		<?php } ?>
 
-<?php include( locate_template('inc/pagetabs-script.php') );  ?>
+</div><!-- #primary -->
 
 <script type="text/javascript">
 jQuery(document).ready(function($){
-	$('.loop').owlCarousel({
-    center: true,
-    items:2,
-    nav: true,
-    loop:true,
-    margin:15,
-    autoplay:true,
-    autoplayTimeout:3000,
-    autoplayHoverPause:true,
-    responsive:{
-      600:{
-       	items:2
-      },
-      400:{
-       	items:1
-      }
-    }
+	$(document).on("click","#nextPostsBtn",function(e){
+		e.preventDefault();
+		var button = $(this);
+		var baseURL = $(this).attr("data-baseurl");
+		var currentPageNum = $(this).attr("data-current");
+		var nextPageNum = parseInt(currentPageNum) + 1;
+		var pageEnd = $(this).attr("data-end");
+		var nextURL = baseURL + '?pg=' + nextPageNum;
+		button.attr("data-current",nextPageNum);
+		if(nextPageNum==pageEnd) {
+			$(".loadmorediv").remove();
+		}
+		$(".hidden-entries").load(nextURL+" #data-container",function(){
+			if( $(this).find(".posts-inner .flex-inner").length>0 ) {
+				var entries = $(this).find(".posts-inner .flex-inner").html();
+				$("#loaderDiv").addClass("show");
+				if(entries) {
+					$("#data-container .flex-inner").append(entries);
+					setTimeout(function(){
+						$("#loaderDiv").removeClass("show");
+					},500);
+				}
+			}
+		});
 	});
 });
 </script>

@@ -396,24 +396,6 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
     height:auto;   
 }
 
-[data-name="activities_flexcontent"] [data-layout="activities"] .acf-fc-layout-handle {
-  position: relative;
-  font-size: 0;
-  color: transparent;
-}
-[data-name="activities_flexcontent"] [data-layout="activities"] .acf-fc-layout-handle:after {
-  content:attr(data-title);
-  display: inline-block;
-  position: absolute;
-  top: 11px;
-  left: 40px;
-  color: #000;
-  font-size: 13px;
-  font-style: normal;
-  line-height: 1.1;
-  font-weight: bold;
-}
-
 <?php 
 $has_expiration_post_types = array('festival','music'); 
 foreach($has_expiration_post_types as $pt) { ?>
@@ -429,17 +411,82 @@ foreach($has_expiration_post_types as $pt) { ?>
 /*===== START ADMIN CUSTOM SCRIPTS ======*/
 add_action('admin_footer', 'my_custom_admin_js');
 function my_custom_admin_js() { ?>
+<style type="text/css">
+@import url('https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css');
+#fontIconSelections,
+#fontIconSelections * {
+  box-sizing: border-box;
+}
+#fontIconSelections {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background: rgba(0,0,0,.85);
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.fontInner {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #FFF;
+  padding: 20px;
+}
+.fontInner .container-content-items {
+  margin: 0 0;
+  padding: 0 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+}
+.fontInner .content-items-thumb {
+  margin: 0 0;
+  width: 20%;
+  height: 100px;
+  text-align: center;
+  border: 1px solid #CCC;
+  border-right: none;
+  border-bottom: none;
+}
+.fontInner .content-items-thumb-wrap {
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  right: -1px;
+  bottom: -1px;
+  /*margin-left: -1px;
+  margin-right: -1px;*/
+}
+.fontInner .content-items-thumb h4 {
+  margin: 0 0;
+  font-size: 12px;
+}
+</style>
+<div id="fontIconSelections">
+  <div class="fontInner">
+    <?php include( locate_template('inc/font-icons.php') );  ?>
+  </div>
+</div>
+
 <script type="text/javascript">
 jQuery(document).ready(function($){
-
-    /* ACF Flexible Content For Camp Activities */
-    if( $('[data-name="activities_flexcontent"]').length > 0 ) {
-        $('[data-layout="activities"]').each(function(){
-            var str = $(this).find('[data-name="title"] .acf-input-wrap input').val();
-            var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
-            $(this).find(".acf-fc-layout-handle").attr("data-title",title);
-        });
-    }
 
     /* ACF Flexible Content for Menu Options */
     if( $("#acf-group_5f1912cfb5ecf").length > 0 ) {
