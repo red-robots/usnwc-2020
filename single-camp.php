@@ -67,7 +67,7 @@ get_header(); ?>
 			<?php  
 			$price = get_field("price");
 			$ages = get_field("ages");
-			$dates = get_field("dates");
+			$dates = get_field("date_range");
 			$info['price'] = array('Price',$price);
 			$info['ages'] = array('Ages',$ages);
 			$info['dates'] = array('Dates',$dates);
