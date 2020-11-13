@@ -1,17 +1,29 @@
 <?php /* EXPLORE OTHER ACTIVITIES */ ?>
 <?php
+$currentPostType = get_post_type();
+$similarPosts = get_field("similar_posts_section","option");
+$bottomSectionTitle = '';
+if($similarPosts) {
+	foreach($similarPosts as $s) {
+		$posttype = $s['posttype'];
+		$sectionTitle = $s['section_title'];
+		if($posttype==$currentPostType) {
+			$bottomSectionTitle = $sectionTitle;
+		}
+	}
+}
+//$bottom_title = get_field("race_bottom_section_title","option");
 $args = array(
 	'posts_per_page'=> 15,
 	'post_type'		=> array('music','festival','camp'),
 	'post_status'	=> 'publish',
 );
 $posts = new WP_Query($args);
-$bottom_title = get_field("race_bottom_section_title","option");
 if($posts) { ?>
 <section class="explore-other-stuff">
 	<div class="wrapper">
-		<?php if ($bottom_title) { ?>
-			<h3 class="sectionTitle"><?php echo $bottom_title ?></h3>
+		<?php if ($bottomSectionTitle) { ?>
+			<h3 class="sectionTitle"><?php echo $bottomSectionTitle ?></h3>
 		<?php } ?>
 		
 		<div class="post-type-entries">

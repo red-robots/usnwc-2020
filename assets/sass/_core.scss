@@ -3176,22 +3176,23 @@ body.subpage.single {
 		margin-bottom: 15px;
 	}
 	.columns {
-		// column-count: 2;
-		// @include xs {
-		// 	column-count: 3;
-		// }
-		// @include tab {
-		// 	column-count: 5;
-		// }
-		@include flexgroup();
+		
+		@include xs {
+			@include flexgroup();
+			@include flexbox-align-items(center);
+		}
 	}
 	.entry {
 		width: 100%;
-		float: left;
-		line-height: 1.2;
-		margin: 5px 0;
+		text-align: center;
+		margin: 10px 0;
+		font-size: 15px;
+		line-height:1.2;
 		@include xs {
+			display: inline-flex;
+			justify-content: center;
 			width: 50%;
+			margin: 5px 0;
 		}
 		@include tab {
 			width: 25%;
@@ -6300,6 +6301,7 @@ body.pageNoBanner {
 		}
 	}
 	.wrap {
+		height: 100%;
 		padding: 30px 15px;
 		background: $gray;
 	}

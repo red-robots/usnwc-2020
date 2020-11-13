@@ -391,60 +391,39 @@ get_header(); ?>
 </div><!-- #primary -->
 
 <?php
-$similar_title = get_field("similar_title");
-$maxItems = (get_field("maxItems")) ? get_field("maxItems") : 9;
+$currentPostType = get_post_type();
+$similarPosts = get_field("similar_posts_section","option");
+$bottomSectionTitle = '';
+if($similarPosts) {
+	foreach($similarPosts as $s) {
+		$posttype = $s['posttype'];
+		$sectionTitle = $s['section_title'];
+		if($posttype==$currentPostType) {
+			$bottomSectionTitle = $sectionTitle;
+		}
+	}
+}
 $args = array(
-	'posts_per_page'=> $maxItems,
-	'post_type'		=> 'activity',
-	'post_status'	=> 'publish',
+	'posts_per_page'=> 20,
+	'post_type'			=> 'camp',
+	'orderby' 			=> 'rand',
+  'order'    			=> 'ASC',
+	'post_status'		=> 'publish',
 );
 $posts = new WP_Query($args);
 ?>
 <section class="explore-other-stuff">
 	<div class="wrapper">
-		<?php if ($similar_title) { ?>
-		<h3 class="sectionTitle"><?php echo $similar_title ?></h3>
+		<?php if ($bottomSectionTitle) { ?>
+		<h3 class="sectionTitle"><?php echo $bottomSectionTitle ?></h3>
 		<?php } ?>
-		
-				
 		<div class="post-type-entries">
 			<div class="columns">
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/yoga/">Yoga</a>
-					</div>
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/lights/">Lights</a>
-					</div>
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/ice-skating/">Ice Skating</a>
-					</div>
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/mountain-biking/">Mountain Biking, Trail Running + Hiking</a>
-					</div>
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/whitewater-kayaking-sup/">Whitewater Kayaking + SUP</a>
-					</div>
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/jumps/">Jumps</a>
-					</div>
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/ropes-courses/">Ropes Courses</a>
-					</div>
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/climbing/">Climbing</a>
-					</div>
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/deep-water-solo/">Deep Water Solo</a>
-					</div>
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/flatwater-kayaking-sup/">Flatwater Kayaking + SUP</a>
-					</div>
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/ziplining/">Ziplining</a>
-					</div>
-									<div class="entry">
-						<a href="http://bellaworks/usnwc/activity/whitewater-rafting/">Whitewater Rafting</a>
-					</div>
+				<?php $i=1; while ( $posts->have_posts() ) : $posts->the_post(); ?>
+				<div class="entry">
+					<a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
+				</div>
+				<?php $i++; endwhile; wp_reset_postdata(); ?>
 			</div>
 		</div>
 	</div>

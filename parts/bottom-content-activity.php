@@ -74,18 +74,33 @@ $colClass = ($count>1) ? 'half':'full';
 
 <?php /* EXPLORE OTHER ACTIVITIES */ ?>
 <?php
+$currentPostType = get_post_type();
+$similarPosts = get_field("similar_posts_section","option");
+$bottomSectionTitle = '';
+if($similarPosts) {
+	foreach($similarPosts as $s) {
+		$posttype = $s['posttype'];
+		$sectionTitle = $s['section_title'];
+		if($posttype==$currentPostType) {
+			$bottomSectionTitle = $sectionTitle;
+		}
+	}
+}
+
 $args = array(
-	'posts_per_page'=> -1,
-	'post_type'		=> 'activity',
-	'post_status'	=> 'publish',
+	'posts_per_page'	=> 20,
+	'post_type'				=> $currentPostType,
+	'orderby' 				=> 'rand',
+	'order'    				=> 'ASC',
+	'post_status'			=> 'publish',
 );
 $posts = new WP_Query($args);
 $explore_title = get_field("activity_bottom_section_title","option");
 if($posts) { ?>
 <section class="explore-other-stuff">
 	<div class="wrapper">
-		<?php if ($explore_title) { ?>
-			<h3 class="sectionTitle"><?php echo $explore_title ?></h3>
+		<?php if ($bottomSectionTitle) { ?>
+			<h3 class="sectionTitle"><?php echo $bottomSectionTitle ?></h3>
 		<?php } ?>
 		
 		<div class="post-type-entries">
