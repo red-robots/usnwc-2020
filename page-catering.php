@@ -39,6 +39,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 
 		<?php 
 		/* FAQS */
+		$customFAQTitle = 'FAQS'; /* Title will have an icon */
 		include( locate_template('parts/content-faqs.php') );   
 		?>
 
