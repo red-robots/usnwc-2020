@@ -2860,6 +2860,7 @@ body.subpage.single {
 				font-weight: 400;
 				line-height: 1.4;
 				padding: 30px 30px;
+				margin: 0 auto;
 				p:last-child {
 					margin-bottom: 0;
 				}
@@ -2893,6 +2894,8 @@ body.subpage.single {
 			&.has-text {
 				.inside {
 					@include flexgroup-center();
+					@include flexbox-align-items(center);
+					@include flexbox-justify(center);
 				}
 			}
 		}

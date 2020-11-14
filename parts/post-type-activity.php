@@ -109,37 +109,45 @@ while ( have_posts() ) : the_post();
 				</div>
 				<?php } ?>
 
-				<?php $options_heading = array('Options','Difficulty','Qualifiers'); ?>
+				<?php 
+					//$options_heading = array('Options','Difficulty','Qualifiers'); 
+					$options_heading = get_field("activity_options_heading","option"); 
+				?>
 
 				<div class="flex-items">
+					<?php if ($options_heading) { ?>
 					<div id="items-head" class="item headings">
-						<?php $h=1; foreach ($options_heading as $optName) { ?>
+						<?php $h=1; foreach ($options_heading as $opt) { 
+							$optName = $opt['activityOptTitle']; 
+							$optName = ($optName) ? trim(preg_replace('/\s+/',' ', $optName)) : '';
+							if( trim(preg_replace('/\s+/','', $optName)) ) { ?>
 							
-							<?php if ($optName=='Difficulty') { ?>
-							<div class="cell hd<?php echo $h?>">
-								<?php if ($legend) { ?>
-									<span class="txt"><?php echo $optName ?> <i id="legend-info">i</i></span>
-									<span id="legendData" class="legend">
-										<?php foreach ($legend as $e) { 
-											$color = $e['color'];
-											$level = $e['level'];
-											if($color && $level) { ?>
-											<span><em class="right"><?php echo $color ?></em><em class="left"><?php echo $level ?></em></span>
+								<?php if ($optName=='Difficulty') { ?>
+								<div class="cell hd<?php echo $h?>">
+									<?php if ($legend) { ?>
+										<span class="txt"><?php echo $optName ?> <i id="legend-info">i</i></span>
+										<span id="legendData" class="legend">
+											<?php foreach ($legend as $e) { 
+												$color = $e['color'];
+												$level = $e['level'];
+												if($color && $level) { ?>
+												<span><em class="right"><?php echo $color ?></em><em class="left"><?php echo $level ?></em></span>
+												<?php } ?>
 											<?php } ?>
-										<?php } ?>
-									</span>
+										</span>
+									<?php } else { ?>
+										<?php echo $optName ?>
+									<?php } ?>
+								</div>
 								<?php } else { ?>
-									<?php echo $optName ?>
+									<div class="cell hd<?php echo $h?>"><?php echo $optName ?></div>
 								<?php } ?>
-							</div>
-							<?php } else { ?>
-
-								<div class="cell hd<?php echo $h?>"><?php echo $optName ?></div>
 
 							<?php } ?>
 
 						<?php $h++; } ?>
 					</div>
+					<?php } ?>
 
 					<?php $i=1; foreach ($activities as $a) {
 						$a_name = $a['name'];
