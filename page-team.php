@@ -19,7 +19,9 @@ get_header(); ?>
 					<div class="page-header">
 						<h1 class="page-title"><?php the_title(); ?></h1>
 					</div>
-					<?php echo anti_email_spam($short_description); ?>
+					
+					<?php the_content(); ?>
+
 					<?php if ($CTAButtons) { ?>
 					<div class="buttondiv">
 						<?php foreach ($CTAButtons as $cta) { 

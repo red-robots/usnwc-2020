@@ -80,22 +80,6 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-location',
             'supports'  => array('title','editor')
         ),
-        // array(
-        //     'post_type' => 'story',
-        //     'menu_name' => 'Stories',
-        //     'plural'    => 'Stories',
-        //     'single'    => 'Story',
-        //     'menu_icon' => 'dashicons-groups',
-        //     'supports'  => array('title','editor')
-        // ),
-        // array(
-        //     'post_type' => 'films',
-        //     'menu_name' => 'Films',
-        //     'plural'    => 'Films',
-        //     'single'    => 'Film',
-        //     'menu_icon' => 'dashicons-groups',
-        //     'supports'  => array('title','editor')
-        // ),
         array(
             'post_type' => 'brewery',
             'menu_name' => 'Breweries',
@@ -118,6 +102,14 @@ function js_custom_init() {
             'plural'    => 'Outfitters',
             'single'    => 'Outfitter',
             'menu_icon' => 'dashicons-store',
+            'supports'  => array('title','editor')
+        ),
+        array(
+            'post_type' => 'instructions',
+            'menu_name' => 'Instructions',
+            'plural'    => 'Instructions',
+            'single'    => 'Instruction',
+            'menu_icon' => 'dashicons-book-alt',
             'supports'  => array('title','editor')
         ),
         array(

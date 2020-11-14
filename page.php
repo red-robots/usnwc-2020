@@ -27,7 +27,7 @@ get_header(); ?>
 					<div class="page-header">
 						<h1 class="page-title"><?php the_title(); ?></h1>
 					</div>
-					<?php echo anti_email_spam( get_the_content() ); ?>
+					<?php the_content(); ?>
 				</div>
 			</section>
 

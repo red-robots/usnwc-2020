@@ -4,6 +4,19 @@
 /* ==================================================================================
  * No more configuration
  * ================================================================================== */
+
+function remove_plaintext_email($emailAddress) {
+$emailRegEx = '/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4})/i';
+return preg_replace_callback($emailRegEx, "encodeEmail", $emailAddress);
+}
+
+function encodeEmail($result) {
+return antispambot($result[1]);
+}
+add_filter( 'the_content', 'remove_plaintext_email', 20 );
+add_filter( 'widget_text', 'remove_plaintext_email', 20 );
+
+
 function extract_emails_from($string) {
   preg_match_all("/[\._a-zA-Z0-9-]+@[\._a-zA-Z0-9-]+/i", $string, $matches);
   return $matches[0];

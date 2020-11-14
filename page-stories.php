@@ -11,11 +11,10 @@ get_header(); ?>
 	<main id="main" class="site-main fw-left" role="main">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php
-			$main_content = get_the_content();
-			if($main_content) { ?>
+			if( get_the_content() ) { ?>
 			<section class="text-centered-section">
 				<div class="wrapper text-center">
-					<?php echo anti_email_spam($main_content); ?>
+					<div class="intro-text"><?php the_content(); ?></div>
 				</div>
 			</section>
 			<?php } ?>
