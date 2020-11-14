@@ -1202,3 +1202,29 @@ function child_templates($template) {
     return $template;
 }
 add_filter( 'page_template', 'child_templates' );
+
+function callToActionButtonFunc( $atts ) {
+    $a = shortcode_atts( array(
+        'id' => '',
+    ), $atts );
+
+    $buttons = get_field("call-to-actions");
+    $id = $a['id'];
+    $output = '';
+    if($buttons) {
+        $i=1; foreach($buttons as $b) {
+            if( $btn = $b['ctabutton'] ) {
+                $btnName = $btn['title'];
+                $btnLink = $btn['url'];
+                $btnTarget = ( isset($btn['target']) && $btn['target'] ) ? $btn['target'] : '_self';
+                if($id==$i) {
+                    $output .= '<a href="'.$btnLink.'" target="'.$btnTarget.'" class="btn-sm"><span>'.$btnName.'</span></a>';
+                }
+            }
+            $i++;
+        }
+    }
+
+    return $output;
+}
+add_shortcode( 'call-to-action', 'callToActionButtonFunc' );

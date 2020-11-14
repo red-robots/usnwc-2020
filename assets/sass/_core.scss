@@ -6999,6 +6999,31 @@ body.single-camp {
 	
 }
 
+.catering-page {
+	.intro-text-wrap {
+		.btn-sm {
+			margin: 10px 15px;
+		}
+	}
+	#section-faqs {
+		padding-top: 60px;
+		padding-bottom: 60px;
+		@include tab {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+	}
+	.inquiry-wrapper {
+		background: $gray;
+		color: $gray_dark;
+		font-weight: 500;
+		@include fontblock();
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		padding: 35px 0 15px;
+	}
+}
+
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");
