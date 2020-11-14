@@ -109,26 +109,36 @@ while ( have_posts() ) : the_post();
 				</div>
 				<?php } ?>
 
+				<?php $options_heading = array('Options','Difficulty','Qualifiers'); ?>
+
 				<div class="flex-items">
 					<div id="items-head" class="item headings">
-						<div class="cell hd1">Options</div>
-						<div class="cell hd2">
-							<?php if ($legend) { ?>
-								<span class="txt">Difficulty <i id="legend-info">i</i></span>
-								<span id="legendData" class="legend">
-									<?php foreach ($legend as $e) { 
-										$color = $e['color'];
-										$level = $e['level'];
-										if($color && $level) { ?>
-										<span><em class="right"><?php echo $color ?></em><em class="left"><?php echo $level ?></em></span>
+						<?php $h=1; foreach ($options_heading as $optName) { ?>
+							
+							<?php if ($optName=='Difficulty') { ?>
+							<div class="cell hd<?php echo $h?>">
+								<?php if ($legend) { ?>
+									<span class="txt"><?php echo $optName ?> <i id="legend-info">i</i></span>
+									<span id="legendData" class="legend">
+										<?php foreach ($legend as $e) { 
+											$color = $e['color'];
+											$level = $e['level'];
+											if($color && $level) { ?>
+											<span><em class="right"><?php echo $color ?></em><em class="left"><?php echo $level ?></em></span>
+											<?php } ?>
 										<?php } ?>
-									<?php } ?>
-								</span>
+									</span>
+								<?php } else { ?>
+									<?php echo $optName ?>
+								<?php } ?>
+							</div>
 							<?php } else { ?>
-								Difficulty
+
+								<div class="cell hd<?php echo $h?>"><?php echo $optName ?></div>
+
 							<?php } ?>
-						</div>
-						<div class="cell hd3">Age</div>
+
+						<?php $h++; } ?>
 					</div>
 
 					<?php $i=1; foreach ($activities as $a) {
