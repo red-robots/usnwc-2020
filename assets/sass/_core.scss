@@ -2579,11 +2579,34 @@ body.subpage.single {
 				margin-top: 25px;
 			}
 		}
+
+		&.passOptions {
+			.graybox {
+				.box-title {
+					padding: 16px 20px 15px;
+					background: $gray_dark;
+					color: #FFF;
+					margin: 0 0;
+				}
+			}
+		}
+
+		.btn-border-white, .btn-border {
+			&:hover {
+				text-decoration: none!important;
+			}
+		}
 	}
 
 	.redbox {
 		background-color: $gray_dark;
 		color: #FFF;
+		&.reservationDiv {
+			background: $red;
+			.inner-wrap {
+				border: 1px solid #FFF;
+			}
+		}
 		.box-title {
 			// background: transparent;
 			padding: 0 0;
@@ -2598,6 +2621,7 @@ body.subpage.single {
 			padding: 40px;
 			// border: 1px solid rgba(255,255,255,.75);
 		}
+		
 	}
 }
 

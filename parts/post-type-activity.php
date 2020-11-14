@@ -208,7 +208,7 @@ while ( have_posts() ) : the_post();
 			$reservation = get_field("reservation_data");
 			?>
 			<?php if ($categories || $reservation) { ?>
-			<div class="optcol categories">
+			<div class="optcol categories passOptions">
 				<?php if ($categories) { ?>
 					<div class="inner graybox">
 						<h2 class="box-title">Pass Options</h2>
@@ -259,7 +259,7 @@ while ( have_posts() ) : the_post();
 					$res_button =  ( isset($reservation['button']) && $reservation['button'] ) ? $reservation['button']:'';
 					$res_target = ( isset($res_button['target']) && $res_button['target'] ) ? ' target="'.$res_button['target'].'"':'';
 					?>
-					<div class="inner redbox">
+					<div class="inner redbox reservationDiv">
 						<div class="wrap">
 							
 							
