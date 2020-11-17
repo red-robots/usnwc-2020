@@ -1221,6 +1221,9 @@ h2.stitle {
 	&.wide {
 		padding: 8px 35px;
 	}
+	&.white {
+		color: #FFF;
+	}
 	span {
 		position: relative;
 		z-index: 5;
@@ -1243,6 +1246,11 @@ h2.stitle {
 		text-decoration: none!important;
 		&:before {
 			transform: translateX(0) skew(-45deg);
+		}
+	}
+	&.white {
+		&:hover {
+			color: #FFF;
 		}
 	}
 }
@@ -3394,6 +3402,9 @@ h1.page-title {
 	text-align: center;
 	padding-top: 70px;
   padding-bottom: 60px;
+  .btn-sm.btn-cta {
+  	margin-top: 20px;
+  }
 }
 .intro-text {
 	font-size: 20px;
@@ -3418,13 +3429,13 @@ h1.page-title {
 		float: left;
 	}
 	.flex-inner {
-		padding-left: 10px;
-		padding-right: 10px;
-		padding-bottom: 10px;
+		padding-left: 8px;
+		padding-right: 8px;
+		padding-bottom: 8px;
 		@include flexgroup();
 		@include xs {
-			margin-left: -10px;
-			margin-right: -10px;
+			margin-left: -8px;
+			margin-right: -8px;
 			padding-left: 0;
 			padding-right: 0;
 			padding-bottom: 0;
@@ -3432,7 +3443,7 @@ h1.page-title {
 	}
 	.postbox {
 		width: 100%;
-		padding:10px;
+		padding: 8px;
 		position: relative;
 		@include xs {
 			width: 50%;
@@ -3443,11 +3454,11 @@ h1.page-title {
 		&:after {
 			content:"";
 			display: block;
-			width: calc(100% - 20px);
-			height: calc(100% - 20px);
+			width: calc(100% - 16px);
+			height: calc(100% - 16px);
 			position: absolute;
-			top: 10px;
-			left: 10px;
+			top: 8px;
+			left: 8px;
 			background: $gray;
 		}
 	}
@@ -6969,6 +6980,7 @@ body.single-camp {
 	}
 }
 
+.boxedImagesPage,
 .summer-camp-page {
 	.post-type-entries span.canceledStat img {
 		max-width: 150px;
@@ -7022,6 +7034,38 @@ body.single-camp {
 				margin: 8px 0;
 			}
 		}
+		.details {
+			padding: 30px;
+			@include tab {
+				padding: 2vw;
+			}
+		}
+	}
+
+	&.catering-wedding  {
+		.post-type-entries {
+			.details {
+				padding: 30px;
+				@include tab {
+					padding: 30px 20px;
+				}
+			}
+			.price-info span {
+				padding: 3px 12px;
+			}
+			.price-info span:first-child {
+				padding-left: 0;
+			}
+			.price-info span:last-child {
+				padding-right: 0;
+			}
+			.postbox {
+				width: 100%;
+				@include tab {
+					width: 33.33%;
+				}
+			}
+		}
 	}
 	
 }
@@ -7040,14 +7084,114 @@ body.single-camp {
 			padding-bottom: 80px;
 		}
 	}
-	.inquiry-wrapper {
-		background: $gray;
-		color: $gray_dark;
-		font-weight: 500;
-		@include fontblock();
-		letter-spacing: 1px;
-		text-transform: uppercase;
-		padding: 35px 0 15px;
+}
+.catering-wedding {
+	#pageTabs {
+		width: 100%;
+		float: left;
+		margin-bottom: 30px;
+	}
+	
+	#section-faqs {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+}
+
+.inquiry-wrapper {
+	background: $gray;
+	color: $gray_dark;
+	font-weight: 500;
+	@include fontblock();
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: 35px 0 15px;
+}
+
+.cta-button-wrap {
+	width: 100%;
+	float: left;
+	text-align: center;
+	margin-bottom: 16px;
+	.ctaBtn {
+		display: block;
+    text-decoration: none;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    padding: 35px 30px 30px;
+    background: #000;
+    span {
+    	display: inline-block;
+    	position: relative;
+    	&:before, &:after {
+    		content:"";
+    		display: block;
+    		width: 12px;
+    		height: 2px;
+    		background: #FFF;
+    		position: absolute;
+    		top: 12px;
+    		right: -27px;
+    		transition: all ease .3s;
+    	}
+    	&:before {
+    		transform: translateY(-3px) rotate(45deg);
+    	}
+    	&:after {
+    		transform: translateY(4px) rotate(-45deg);
+    	}
+    }
+    &:hover {
+    	background: tint(#000,20%);
+    	span {
+    		&:before, &:after {
+	    		right: -35px;
+	    	}
+    	}
+    	
+    }
+	}
+}
+
+#section-whatsincluded {
+	background: $gray_dark;
+	color: #FFF;
+	margin-bottom: 8px;
+	.wrapper {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		@include tab {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+	}
+	.stitle {
+		color: #FFF;
+		margin-bottom: 30px;
+	}
+	.text {
+		line-height: 1.8;
+		margin-bottom: 30px;
+	}
+}
+
+.note-wrap-red {
+	width: 100%;
+	float: left;
+	background: $red;
+	color: #FFF;
+	margin-bottom: 18px;
+	.wrapper {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		line-height: 1.5;
+	}
+	p:last-child {
+		margin-bottom: 0;
 	}
 }
 

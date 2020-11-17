@@ -2418,10 +2418,12 @@ h2.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-serif;font-w
 .buttondiv{margin-top:20px}
 .btn-sm{cursor:pointer;display:inline-block;text-decoration:none !important;color:#5a5959;padding:5px 15px;border:1px solid #a2a2a2;overflow:hidden;position:relative;font-size:12px;border-radius:0;-webkit-appearance:none;box-shadow:none}
 .btn-sm.wide{padding:8px 35px}
+.btn-sm.white{color:#FFF}
 .btn-sm span{position:relative;z-index:5}
 .btn-sm:before{content:"";display:block;width:150%;height:100%;background:#000;-webkit-transform:translateX(-100%) skew(-45deg);-ms-transform:translateX(-100%) skew(-45deg);transform:translateX(-100%) skew(-45deg);position:absolute;top:0;left:-20%;-webkit-transition:all ease .5s;transition:all ease .5s}
 .btn-sm:hover{color:#FFF;border-color:#000;text-decoration:none !important}
 .btn-sm:hover:before{-webkit-transform:translateX(0) skew(-45deg);-ms-transform:translateX(0) skew(-45deg);transform:translateX(0) skew(-45deg)}
+.btn-sm.white:hover{color:#FFF}
 .homerow .activities .flexwrap{margin-left:-5px;margin-right:-5px}
 .homerow .activities .imagebox{position:relative;width:100%;padding:5px}
 @media(min-width:600px){.homerow .activities .imagebox{width:50%}
@@ -2795,17 +2797,18 @@ h1.page-title{font-family:"Lato",sans-serif;font-weight:400;font-size:25px;line-
 h1.page-title span{display:inline-block;position:relative}
 h1.page-title span:after{content:"";display:block;width:30%;height:2px;background:#ba0d30;margin:25px auto 0}
 .intro-text-wrap{width:100%;float:left;text-align:center;padding-top:70px;padding-bottom:60px}
+.intro-text-wrap .btn-sm.btn-cta{margin-top:20px}
 .intro-text{font-size:20px;line-height:1.7;font-weight:400}
 .intro-text p:last-child{margin-bottom:0}
 .festival-page{width:100%;float:left}
 .post-type-entries{width:100%;float:left}
 .post-type-entries .posts-inner{width:100%;float:left}
-.post-type-entries .flex-inner{padding-left:10px;padding-right:10px;padding-bottom:10px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
-@media(min-width:600px){.post-type-entries .flex-inner{margin-left:-10px;margin-right:-10px;padding-left:0;padding-right:0;padding-bottom:0}
-}.post-type-entries .postbox{width:100%;padding:10px;position:relative}
+.post-type-entries .flex-inner{padding-left:8px;padding-right:8px;padding-bottom:8px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+@media(min-width:600px){.post-type-entries .flex-inner{margin-left:-8px;margin-right:-8px;padding-left:0;padding-right:0;padding-bottom:0}
+}.post-type-entries .postbox{width:100%;padding:8px;position:relative}
 @media(min-width:600px){.post-type-entries .postbox{width:50%}
 }@media(min-width:768px){.post-type-entries .postbox{width:25%}
-}.post-type-entries .postbox:after{content:"";display:block;width:calc(100% - 20px);height:calc(100% - 20px);position:absolute;top:10px;left:10px;background:#f2f2f2}
+}.post-type-entries .postbox:after{content:"";display:block;width:calc(100% - 16px);height:calc(100% - 16px);position:absolute;top:8px;left:8px;background:#f2f2f2}
 .post-type-entries .inside,.post-type-entries .photo{width:100%;position:relative;float:left}
 .post-type-entries .inside{z-index:10}
 .post-type-entries .photo{display:block;text-decoration:none;height:100%;overflow:hidden;background-color:#CCC}
@@ -3447,22 +3450,49 @@ body.pageNoBanner .site-content{min-height:35em}
 .camp-requirements .buttondiv a.btn-sm{border-color:#FFF;color:#FFF}
 .camp-requirements .buttondiv a.btn-sm:hover{border-color:#000}
 body.single-camp #primary{width:100%;float:left}
-.summer-camp-page .post-type-entries span.canceledStat img{max-width:150px;width:100%;height:auto}
-.summer-camp-page .imagediv{display:block;background-size:cover;background-position:center;background-repeat:no-repeat}
-.summer-camp-page .post-type-entries{padding-bottom:8px}
-.summer-camp-page .post-type-entries .pricewrap{display:inline-block}
-.summer-camp-page .post-type-entries .price-info{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;border-bottom:1px solid #707070;margin-bottom:10px}
-.summer-camp-page .post-type-entries .price-info span{display:inline-block;position:relative;padding:3px 15px}
-.summer-camp-page .post-type-entries .price-info span:before{content:"\2022";display:block;font-size:13px;line-height:1;position:absolute;top:4px;left:-4px}
-.summer-camp-page .post-type-entries .price-info span:first-child{padding-left:0}
-.summer-camp-page .post-type-entries .price-info span:first-child:before{display:none}
-.summer-camp-page .post-type-entries .price-info span:last-child{padding-right:0}
-.summer-camp-page .post-type-entries .dates{margin:0;padding:0;list-style:none}
-.summer-camp-page .post-type-entries .dates li{margin:8px 0}
-.catering-page .intro-text-wrap .btn-sm{margin:10px 15px}
+.boxedImagesPage .post-type-entries span.canceledStat img,.summer-camp-page .post-type-entries span.canceledStat img{max-width:150px;width:100%;height:auto}
+.boxedImagesPage .imagediv,.summer-camp-page .imagediv{display:block;background-size:cover;background-position:center;background-repeat:no-repeat}
+.boxedImagesPage .post-type-entries,.summer-camp-page .post-type-entries{padding-bottom:8px}
+.boxedImagesPage .post-type-entries .pricewrap,.summer-camp-page .post-type-entries .pricewrap{display:inline-block}
+.boxedImagesPage .post-type-entries .price-info,.summer-camp-page .post-type-entries .price-info{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;border-bottom:1px solid #707070;margin-bottom:10px}
+.boxedImagesPage .post-type-entries .price-info span,.summer-camp-page .post-type-entries .price-info span{display:inline-block;position:relative;padding:3px 15px}
+.boxedImagesPage .post-type-entries .price-info span:before,.summer-camp-page .post-type-entries .price-info span:before{content:"\2022";display:block;font-size:13px;line-height:1;position:absolute;top:4px;left:-4px}
+.boxedImagesPage .post-type-entries .price-info span:first-child,.summer-camp-page .post-type-entries .price-info span:first-child{padding-left:0}
+.boxedImagesPage .post-type-entries .price-info span:first-child:before,.summer-camp-page .post-type-entries .price-info span:first-child:before{display:none}
+.boxedImagesPage .post-type-entries .price-info span:last-child,.summer-camp-page .post-type-entries .price-info span:last-child{padding-right:0}
+.boxedImagesPage .post-type-entries .dates,.summer-camp-page .post-type-entries .dates{margin:0;padding:0;list-style:none}
+.boxedImagesPage .post-type-entries .dates li,.summer-camp-page .post-type-entries .dates li{margin:8px 0}
+.boxedImagesPage .post-type-entries .details,.summer-camp-page .post-type-entries .details{padding:30px}
+@media(min-width:768px){.boxedImagesPage .post-type-entries .details,.summer-camp-page .post-type-entries .details{padding:2vw}
+}.boxedImagesPage.catering-wedding .post-type-entries .details,.summer-camp-page.catering-wedding .post-type-entries .details{padding:30px}
+@media(min-width:768px){.boxedImagesPage.catering-wedding .post-type-entries .details,.summer-camp-page.catering-wedding .post-type-entries .details{padding:30px 20px}
+}.boxedImagesPage.catering-wedding .post-type-entries .price-info span,.summer-camp-page.catering-wedding .post-type-entries .price-info span{padding:3px 12px}
+.boxedImagesPage.catering-wedding .post-type-entries .price-info span:first-child,.summer-camp-page.catering-wedding .post-type-entries .price-info span:first-child{padding-left:0}
+.boxedImagesPage.catering-wedding .post-type-entries .price-info span:last-child,.summer-camp-page.catering-wedding .post-type-entries .price-info span:last-child{padding-right:0}
+.boxedImagesPage.catering-wedding .post-type-entries .postbox,.summer-camp-page.catering-wedding .post-type-entries .postbox{width:100%}
+@media(min-width:768px){.boxedImagesPage.catering-wedding .post-type-entries .postbox,.summer-camp-page.catering-wedding .post-type-entries .postbox{width:33.33%}
+}.catering-page .intro-text-wrap .btn-sm{margin:10px 15px}
 .catering-page #section-faqs{padding-top:60px;padding-bottom:60px}
 @media(min-width:768px){.catering-page #section-faqs{padding-top:80px;padding-bottom:80px}
-}.catering-page .inquiry-wrapper{background:#f2f2f2;color:#707070;font-weight:500;font-size:16px;line-height:1.5;letter-spacing:1px;text-transform:uppercase;padding:35px 0 15px}
+}.catering-wedding #pageTabs{width:100%;float:left;margin-bottom:30px}
+.catering-wedding #section-faqs{padding-top:60px;padding-bottom:60px}
+.inquiry-wrapper{background:#f2f2f2;color:#707070;font-weight:500;font-size:16px;line-height:1.5;letter-spacing:1px;text-transform:uppercase;padding:35px 0 15px}
+.cta-button-wrap{width:100%;float:left;text-align:center;margin-bottom:16px}
+.cta-button-wrap .ctaBtn{display:block;text-decoration:none;color:#FFF;text-transform:uppercase;font-size:22px;font-weight:500;line-height:1.2;letter-spacing:2px;padding:35px 30px 30px;background:#000}
+.cta-button-wrap .ctaBtn span{display:inline-block;position:relative}
+.cta-button-wrap .ctaBtn span:before,.cta-button-wrap .ctaBtn span:after{content:"";display:block;width:12px;height:2px;background:#FFF;position:absolute;top:12px;right:-27px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.cta-button-wrap .ctaBtn span:before{-webkit-transform:translateY(-3px) rotate(45deg);-ms-transform:translateY(-3px) rotate(45deg);transform:translateY(-3px) rotate(45deg)}
+.cta-button-wrap .ctaBtn span:after{-webkit-transform:translateY(4px) rotate(-45deg);-ms-transform:translateY(4px) rotate(-45deg);transform:translateY(4px) rotate(-45deg)}
+.cta-button-wrap .ctaBtn:hover{background:#333}
+.cta-button-wrap .ctaBtn:hover span:before,.cta-button-wrap .ctaBtn:hover span:after{right:-35px}
+#section-whatsincluded{background:#707070;color:#FFF;margin-bottom:8px}
+#section-whatsincluded .wrapper{padding-top:50px;padding-bottom:50px}
+@media(min-width:768px){#section-whatsincluded .wrapper{padding-top:80px;padding-bottom:80px}
+}#section-whatsincluded .stitle{color:#FFF;margin-bottom:30px}
+#section-whatsincluded .text{line-height:1.8;margin-bottom:30px}
+.note-wrap-red{width:100%;float:left;background:#ba0d30;color:#FFF;margin-bottom:18px}
+.note-wrap-red .wrapper{padding-top:30px;padding-bottom:30px;line-height:1.5}
+.note-wrap-red p:last-child{margin-bottom:0}
 .site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}

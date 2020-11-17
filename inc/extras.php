@@ -396,11 +396,15 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
     height:auto;   
 }
 
+.acf-flexible-content .layout[data-layout="catering"] .acf-fc-layout-handle,
 [data-name="activities_flexcontent"] [data-layout="activities"] .acf-fc-layout-handle {
   position: relative;
   font-size: 0;
-  color: transparent;
+  color: transparent!important;
 }
+
+
+[data-layout="catering"] .acf-fc-layout-handle:after,
 [data-name="activities_flexcontent"] [data-layout="activities"] .acf-fc-layout-handle:after {
   content:attr(data-title);
   display: inline-block;
@@ -435,6 +439,15 @@ jQuery(document).ready(function($){
     /* ACF Flexible Content For Camp Activities */
     if( $('[data-name="activities_flexcontent"]').length > 0 ) {
         $('[data-layout="activities"]').each(function(){
+            var str = $(this).find('[data-name="title"] .acf-input-wrap input').val();
+            var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
+            $(this).find(".acf-fc-layout-handle").attr("data-title",title);
+        });
+    }
+
+    /* Catering Services (Weddings) */
+    if( $('[data-layout="catering"]').length > 0 ) {
+        $('[data-layout="catering"]').each(function(){
             var str = $(this).find('[data-name="title"] .acf-input-wrap input').val();
             var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
             $(this).find(".acf-fc-layout-handle").attr("data-title",title);
@@ -1218,7 +1231,7 @@ function callToActionButtonFunc( $atts ) {
                 $btnLink = $btn['url'];
                 $btnTarget = ( isset($btn['target']) && $btn['target'] ) ? $btn['target'] : '_self';
                 if($id==$i) {
-                    $output .= '<a href="'.$btnLink.'" target="'.$btnTarget.'" class="btn-sm"><span>'.$btnName.'</span></a>';
+                    $output .= '<a href="'.$btnLink.'" target="'.$btnTarget.'" class="btn-sm btn-cta"><span>'.$btnName.'</span></a>';
                 }
             }
             $i++;

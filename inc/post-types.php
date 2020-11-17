@@ -97,6 +97,14 @@ function js_custom_init() {
             'supports'  => array('title','editor')
         ),
         array(
+            'post_type' => 'event-space',
+            'menu_name' => 'Event Spaces',
+            'plural'    => 'Event Spaces',
+            'single'    => 'Event Space',
+            'menu_icon' => 'dashicons-buddicons-community',
+            'supports'  => array('title','editor')
+        ),
+        array(
             'post_type' => 'stores',
             'menu_name' => 'Outfitters',
             'plural'    => 'Outfitters',

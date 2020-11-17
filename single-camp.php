@@ -23,7 +23,7 @@ get_header(); ?>
 
 			$short_description = get_the_content();
 			if($banner) {
-				
+
 				if($short_description) { ?>
 				<section class="text-centered-section">
 					<div class="wrapper text-center">
