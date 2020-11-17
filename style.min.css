@@ -3474,9 +3474,10 @@ body.single-camp #primary{width:100%;float:left}
 }.catering-page .intro-text-wrap .btn-sm{margin:10px 15px}
 .catering-page #section-faqs{padding-top:60px;padding-bottom:60px}
 @media(min-width:768px){.catering-page #section-faqs{padding-top:80px;padding-bottom:80px}
-}.catering-wedding #pageTabs{width:100%;float:left;margin-bottom:30px}
+}.inquiry-wrapper{background:#f2f2f2;color:#707070;font-weight:500;font-size:16px;line-height:1.5;letter-spacing:1px;text-transform:uppercase;padding:35px 0 15px}
+.catering-wedding #pageTabs{width:100%;float:left;margin-bottom:30px}
 .catering-wedding #section-faqs{padding-top:60px;padding-bottom:60px}
-.inquiry-wrapper{background:#f2f2f2;color:#707070;font-weight:500;font-size:16px;line-height:1.5;letter-spacing:1px;text-transform:uppercase;padding:35px 0 15px}
+.catering-wedding .inquiry-wrapper{padding:35px 0 35px}
 .cta-button-wrap{width:100%;float:left;text-align:center;margin-bottom:16px}
 .cta-button-wrap .ctaBtn{display:block;text-decoration:none;color:#FFF;text-transform:uppercase;font-size:22px;font-weight:500;line-height:1.2;letter-spacing:2px;padding:35px 30px 30px;background:#000}
 .cta-button-wrap .ctaBtn span{display:inline-block;position:relative}
