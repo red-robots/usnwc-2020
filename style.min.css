@@ -3471,7 +3471,13 @@ body.single-camp #primary{width:100%;float:left}
 .boxedImagesPage.catering-wedding .post-type-entries .price-info span:last-child,.summer-camp-page.catering-wedding .post-type-entries .price-info span:last-child{padding-right:0}
 .boxedImagesPage.catering-wedding .post-type-entries .postbox,.summer-camp-page.catering-wedding .post-type-entries .postbox{width:100%}
 @media(min-width:768px){.boxedImagesPage.catering-wedding .post-type-entries .postbox,.summer-camp-page.catering-wedding .post-type-entries .postbox{width:33.33%}
-}.catering-page .intro-text-wrap .btn-sm{margin:10px 15px}
+}.post-type-entries.columns3 .postbox{width:100%}
+@media(min-width:768px){.post-type-entries.columns3 .postbox{width:33.33%}
+}.post-type-entries.columns3 .space-features{text-align:center;margin-top:30px;margin-bottom:30px}
+.post-type-entries.columns3 .space-features span.sf{display:inline-block;position:relative;padding:2px 10px;font-size:16px}
+.post-type-entries.columns3 .space-features span.sf:before{content:"";display:block;width:1px;height:80%;background:#707070;position:absolute;top:38%;left:-2px;-webkit-transform:translateY(-38%);-ms-transform:translateY(-38%);transform:translateY(-38%)}
+.post-type-entries.columns3 .space-features span.sf:first-child:before{display:none}
+.catering-page .intro-text-wrap .btn-sm{margin:10px 15px}
 .catering-page #section-faqs{padding-top:60px;padding-bottom:60px}
 @media(min-width:768px){.catering-page #section-faqs{padding-top:80px;padding-bottom:80px}
 }.inquiry-wrapper{background:#f2f2f2;color:#707070;font-weight:500;font-size:16px;line-height:1.5;letter-spacing:1px;text-transform:uppercase;padding:35px 0 15px}
