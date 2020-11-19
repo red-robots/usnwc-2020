@@ -83,12 +83,16 @@ $currentPageLink = get_permalink();
 											<div class="space-features">
 												<?php foreach ($space_features as $k=>$v) { ?>
 													<?php if ( in_array($k, $space_variables) ) {  ?>
+														<?php 
+															if ($k=='type') {
+																if( isset($v['value']) && $v['value']!='na' ) {
+																	$v = ( isset($v['label']) && $v['label'] ) ? $v['label'] : $v;
+																} else {
+																	$v = '';
+																}
+															} ?>	
 														
 														<?php if ($v) { ?>
-															<?php 
-															if ($k=='type') {
-																$v = ( isset($v['label']) && $v['label'] ) ? $v['label'] : $v;
-															} ?>	
 															<span class="sf"><?php echo $v ?></span>
 														<?php } ?>
 														
