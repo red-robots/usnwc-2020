@@ -3522,7 +3522,7 @@ h1.page-title {
 	}
 	.details {
 		text-align: center;
-		padding: 20px;
+		padding: 30px 20px;
 		color: $gray_dark;
 	}
 	h3.event-name {
@@ -5224,6 +5224,21 @@ body.subpage.single .content-default .black-section {
 			top: 2px;
 			right: 10px;
 			border-top: 5px solid $gray_dark;
+		}
+	}
+	&.optionsnum3 {
+		.select-wrap {
+			@include tab {
+				width: 33.33%;
+			}
+			label {
+				font-size: 13px;
+				padding: 0 10px;
+				margin: 0 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 		}
 	}
 }
@@ -7121,7 +7136,14 @@ body.single-camp {
 		}
 	}
 }
-
+.custom-class-faq#section-faqs {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	@include tab {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+}
 .inquiry-wrapper {
 	background: $gray;
 	color: $gray_dark;

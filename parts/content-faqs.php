@@ -8,9 +8,10 @@
 	$has_faq_image = ($faq_image) ? ' has-image':' no-image';
 	$show_default_title = ( isset($customFAQTitle) && $customFAQTitle ) ? false : true;
 	$faqTitle = ( isset($customFAQTitle) && $customFAQTitle ) ? $customFAQTitle : "FAQ";
+	$customClass = ( isset($customFAQClass) && $customFAQClass ) ? " ".$customFAQClass : "";
 
 	if($faqs) { ?>
-	<section id="section-faqs" data-section="<?php echo $faqTitle ?>" class="section-content <?php echo $faq_class.$has_faq_image ?>">
+	<section id="section-faqs" data-section="<?php echo $faqTitle ?>" class="section-content <?php echo $faq_class.$has_faq_image.$customClass ?>">
 		<div class="wrapper">
 			<div class="flexwrap">
 

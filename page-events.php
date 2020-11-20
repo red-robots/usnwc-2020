@@ -9,7 +9,7 @@ $square = THEMEURI . "images/square.png";
 $currentPageLink = get_permalink();
 ?>
 
-<div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full summer-camp-page">
+<div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full page-events-page">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php if( get_the_content() ) { ?>
 				<div class="intro-text-wrap">
@@ -31,9 +31,44 @@ $currentPageLink = get_permalink();
 			'post_type'				=> $postype,
 			'posts_per_page'	=> $perpage,
 			'post_status'			=> 'publish',
+			'facetwp'					=> true
 		);
 		$posts = new WP_Query($args);
 		if( $posts->have_posts() ) { ?>
+		<div class="filter-wrapper optionsnum3">
+			<div class="wrapper">
+				
+				<div class="filter-inner">
+					<div class="filterbytxt">Filter By:</div>
+					<div class="flexwrap">
+
+						<?php if ( do_shortcode('[facetwp facet="event_space_num_guests"]') ) { ?>
+						<div class="select-wrap">
+							<label>Number of Guests</label>
+								<?php echo do_shortcode('[facetwp facet="event_space_num_guests"]'); ?>
+						</div>
+						<?php } ?>
+
+						<?php if ( do_shortcode('[facetwp facet="event_space_venue"]') ) { ?>
+						<div class="select-wrap">
+							<label>Venue Size</label>
+							<?php echo do_shortcode('[facetwp facet="event_space_venue"]'); ?>
+						</div>
+						<?php } ?>
+
+						<?php if ( do_shortcode('[facetwp facet="event_space_loctype"]') ) { ?>
+						<div class="select-wrap">
+							<label>Indoor / Outdoor</label>
+							<?php echo do_shortcode('[facetwp facet="event_space_loctype"]'); ?>
+						</div>
+						<?php } ?>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
 		<div class="post-type-entries columns3 <?php echo $postype ?>">
 			<div id="data-container">
 				<div class="posts-inner">
@@ -124,6 +159,13 @@ $currentPageLink = get_permalink();
 			<div class="wrapper"><a href="#" id="nextPostsBtn" data-current="1" data-baseurl="<?php echo $currentPageLink ?>" data-end="<?php echo $total_pages?>" class="btn-sm wide"><span>Load More Festivals</span></a></div>
 		</div>
 		<?php } ?>
+
+		<?php
+		$customFAQTitle = 'FAQ';
+		$customFAQClass = 'custom-class-faq';
+		include( locate_template('parts/content-faqs.php') );
+		include( locate_template('inc/faqs.php') );
+		?>
 
 </div><!-- #primary -->
 

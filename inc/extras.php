@@ -1241,3 +1241,4 @@ function callToActionButtonFunc( $atts ) {
     return $output;
 }
 add_shortcode( 'call-to-action', 'callToActionButtonFunc' );
+
