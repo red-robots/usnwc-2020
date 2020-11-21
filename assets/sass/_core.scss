@@ -101,6 +101,16 @@ a {
 .flexwrap {
 	@include flexgroup();
 }
+.title3 {
+	font-family: $font-secondary;
+	font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: $gray_dark;
+  margin: 0 0 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 /* Header */
 .site-header {
 	position: fixed;
@@ -1040,6 +1050,20 @@ body.nav-open {
 		}
 	}
 }
+#banner.subpageBanner {
+	margin-top: 102px;
+	@include tab {
+		margin-top: 0;
+	}
+	.slideItem {
+		img {
+			display: block!important;
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+	}
+}
 
 #subpageSlides {
 	position: relative;
@@ -1218,11 +1242,13 @@ h2.stitle {
 	border-radius: 0px;
 	-webkit-appearance: none;
 	box-shadow: none;
+	min-width: 85px;
 	&.wide {
 		padding: 8px 35px;
 	}
 	&.white {
 		color: #FFF;
+		border-color: #FFF;
 	}
 	span {
 		position: relative;
@@ -2853,7 +2879,7 @@ body.subpage.single {
 #section-checkin.section-content {
 	margin-bottom: 60px;
 	.flexwrap {
-		padding: 5px;
+		padding: 8px;
 	}
 	.col-left, .col-right {
 		width: 100%;
@@ -2866,10 +2892,10 @@ body.subpage.single {
 		width: 100%;
 		float: left;
 		position: relative;
-		padding: 5px;
+		padding: 8px;
 		color: #FFF;
 		.inside {
-			background: #6FA2B6;
+			background: $teal;
 		}
 		&.has-text {
 			text-align: center;
@@ -3230,7 +3256,8 @@ body.subpage.single {
 			margin: 5px 0;
 		}
 		@include tab {
-			width: 25%;
+			// width: 25%;
+			width: 33.33%;
 		}
 		a {
 			display: inline-block;
@@ -3246,14 +3273,14 @@ body.subpage.single {
 }
 
 #pageTabs {
+	width: 100%;
+	float: left;
 	text-align: center;
 	position: relative;
 	top: -30px;
 	margin-top: 20px;
 	margin-bottom: 35px;
 	&.show-tabs {
-		width: 100%;
-		float: left;
 		top: 0;
 		margin-top: 50px;
 		margin-bottom: 50px;
@@ -6338,11 +6365,13 @@ body.pageNoBanner {
 			width: 33.33%;
 		}
 		.label {
+			font-family: $font-secondary;
 			font-size: 18px;
-			font-weight: 600;
+			font-weight: 400;
 			line-height: 1.2;
 			color: $gray_dark;
 			margin: 0 0 8px;
+			letter-spacing: 1px;
 			text-transform: uppercase;
 		}
 		.val {
@@ -7254,6 +7283,234 @@ body.single-camp {
 	}
 	p:last-child {
 		margin-bottom: 0;
+	}
+}
+
+.single-event-space {
+	.text-centered-section {
+		padding-top: 50px;
+		padding-bottom: 40px;
+		@include tab {
+			padding-top: 80px;
+			padding-bottom: 70px;
+		}
+	}
+	.fancybox-caption__body {
+		font-size: 20px;
+		line-height:1.3;
+	}
+	#section-checkin.section-content.location-section {
+		padding-left: 4px;
+		padding-right: 4px;
+		margin-bottom: 8px;
+		.wrapper-full {
+			@include flexgroup();
+		}
+		.col-left,
+		.col-right {
+			width: 100%;
+			@include tab {
+				width: 50%;
+			}
+		}
+		.col-left {
+			.has-image {
+				div.image {
+					height: 100%;
+					background-size: cover;
+					background-position: center;
+					background-repeat: no-repeat;
+				}
+				img {
+					width: 100%;
+					height: auto;
+					@include tab {
+						display: none;
+					}
+				}
+			}
+			.flex-content {
+				height: 100%;
+			}
+			&.has-text-and-image {
+				.flex-content {
+					height: auto;
+					@include tab {
+						height: 50%;
+					}
+				}
+			}
+		}
+		.col-right {
+			min-height: auto;
+			@include tab {
+				min-height: 600px;
+			}
+			.has-image {
+				.inside {
+					width: 100%;
+					float: left;
+				}
+				img {
+					width: 100%;
+					height: auto;
+					float: left;
+				}
+			}
+		}
+	
+		.col-full {
+			background: $teal;
+			color: #FFF;
+			padding-top: 60px;
+			padding-bottom: 60px;
+			@include tab {
+				padding-top: 70px;
+				padding-bottom: 70px;
+			}
+			h2 {
+				font-size: 23px;
+			}
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 1.4;
+			padding: 30px 30px;
+			margin: 0 auto;
+			p:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&.full {
+			.column {
+				width: 100%;
+				float: left;
+				@include flexgroup();
+				&.has-text-and-image {
+					.flex-content {
+						width: 100%;
+						height: auto;
+						@include tab {
+							width: 50%;
+							height: auto;
+						}
+					}
+					.has-image {
+						div.image {
+							width: 100%;
+							float: left;
+						}
+						img {
+							display: block;
+							width: 100%;
+							height: auto;
+							float: left;
+						}
+					}
+				}
+			}
+		}
+
+	}
+}
+
+.space-features-wrap {
+	.flexwrap {
+		margin-left: -6px;
+		margin-right: -6px;
+		.info {
+			width: 100%;
+			padding: 6px;
+    	text-align: center;
+			@include tab {
+				width: 25%;
+			}
+		}
+		.wrap {
+			height: 100%;
+			padding: 30px 15px;
+			background: #F2F2F2;
+		}
+		.val {
+			font-size: 20px;
+			line-height:1.2;
+			color: #000;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.floor-plan-section {
+	background: $gray;
+	.wrapper {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	h2.stitle {
+		font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: $gray_dark;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+	}
+	.floorplans {
+		margin-top: 13px;
+	}
+	span.plan {
+		a {
+			cursor: pointer;
+			text-decoration: none;
+			display: inline-block;
+			border-left: 1px solid $gray_dark;
+			padding: 0 15px;
+			position: relative;
+			line-height:1.1;
+		}
+	}
+	span.plan:first-child a {
+		border-left: none;
+	}
+}
+
+.equipments-section {
+	background: $gray;
+	.wrapper {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		@include tab {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+	}
+	.text {
+		color: $gray_dark;
+		font-size: 15px;
+    line-height: 1.6;
+    ul, ol {
+    	margin: 10px 0 0;
+    	padding: 0 0;
+    	list-style: none;
+    	color: #000;
+    	font-size: 16px;
+    	line-height: 1.7;
+    }
+	}
+}
+
+.redbar-full {
+	width: 100%;
+	float: left;
+	background: $red;
+	color: #FFF;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	@include tab {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	.stitle {
+		color: #FFF;
 	}
 }
 

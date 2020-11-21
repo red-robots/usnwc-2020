@@ -10,6 +10,7 @@ $currentPageLink = get_permalink();
 ?>
 
 <div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full page-events-page">
+	
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php if( get_the_content() ) { ?>
 				<div class="intro-text-wrap">

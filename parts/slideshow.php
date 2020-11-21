@@ -5,7 +5,10 @@ $videoHelper = THEMEURI . 'images/rectangle-narrow.png';
 $is_subpage = (is_home() || is_front_page()) ? false : true;
 //$pass_availability = get_field('pass_availability',$post_id);
 $top_notification = get_field("top_notification",$post_id);
-?>
+$banner = get_field("full_image");
+$is_single_post = ( is_single() ) ? true : false;
+$is_default_slide = ($is_single_post && $banner) ? false : true;
+if($is_default_slide) { ?>
 <div id="banner">
 	<?php 
 	$flexslider = get_field( "flexslider_banner" );
@@ -172,3 +175,4 @@ $top_notification = get_field("top_notification",$post_id);
 		</div><!--.flexslider-->
 	<?php endif; ?>
 </div><!--#banner-->
+<?php } ?>

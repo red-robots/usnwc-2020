@@ -6,6 +6,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 $square = THEMEURI . 'images/square.png';
 $banner = get_field("full_image");
 $has_banner = ($banner) ? 'hasbanner':'nobanner';
+$currentPostId = get_the_ID();
 get_header(); ?>
 <?php get_template_part("parts/single-banner"); ?>
 <div id="primary" class="content-area-full summer-camps <?php echo $has_banner ?>">
@@ -13,52 +14,16 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php
-			$mainText = '';
-			ob_start();
-			the_content();
-			$mainText = ob_get_contents();
-			ob_end_clean();
-			$has_h1 = (strpos($mainText, '<h1>') !== false) ? true : false;
-
-			$short_description = get_the_content();
-			if($banner) {
-
-				if($short_description) { ?>
-				<section class="text-centered-section">
-					<div class="wrapper text-center">
-						<?php if ($has_h1==false) { ?>
-							<div class="page-header">
-								<h1 class="page-title"><?php the_title(); ?></h1>
-							</div>
-						<?php } ?>
-						<?php echo anti_email_spam($short_description); ?>
+			<section class="text-centered-section full<?php echo ($banner) ? '':' noBanner' ?>">
+				<div class="wrapper text-center">
+					<div class="page-header">
+						<h1 class="page-title"><?php the_title(); ?></h1>
 					</div>
-				</section>
-				<?php } else { ?>
-
-				<section class="text-centered-section">
-					<div class="wrapper text-center">
-						<div class="page-header">
-							<h1 class="page-title"><?php the_title(); ?></h1>
-						</div>
-					</div>
-				</section>
-
-				<?php } ?>
-
-			<?php } else { ?>
-
-				<section class="text-centered-section noBanner">
-					<div class="wrapper text-center">
-						<div class="page-header">
-							<h1 class="page-title"><?php the_title(); ?></h1>
-						</div>
-						<?php echo anti_email_spam($short_description); ?>
-					</div>
-				</section>
-
-			<?php } ?>
+					<?php if ( get_the_content() ) { ?>
+					<div class="text"><?php the_content(); ?></div>
+					<?php } ?>
+				</div>
+			</section>
 
 
 			<?php get_template_part("parts/subpage-tabs"); ?>
@@ -227,11 +192,12 @@ if($similarPosts) {
 	}
 }
 $args = array(
-	'posts_per_page'=> 20,
-	'post_type'			=> 'camp',
+	'posts_per_page'=> 15,
+	'post_type'			=> $currentPostType,
 	'orderby' 			=> 'rand',
   'order'    			=> 'ASC',
 	'post_status'		=> 'publish',
+	'post__not_in' 	=> array($currentPostId)
 );
 $posts = new WP_Query($args);
 ?>

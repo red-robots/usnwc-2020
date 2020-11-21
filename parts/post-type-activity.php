@@ -407,7 +407,6 @@ while ( have_posts() ) : the_post();
 						$classList .= ' has-image';
 					}
 					?>
-
 					<?php /* LEFT COLUMN */ ?>
 					<?php if($i==1) { ?>
 					<div class="col-left">

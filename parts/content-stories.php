@@ -144,7 +144,6 @@ if ( $blogs->have_posts() ) {  ?>
 			</div>
 		</div>
 
-
 		<?php
 		$total_pages = $blogs->max_num_pages;
 		if ($total_pages > 1){ ?>

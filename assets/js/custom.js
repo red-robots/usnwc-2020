@@ -51,6 +51,7 @@ jQuery(document).ready(function ($) {
 
 	$('[data-fancybox]').fancybox({
 		touch : true,
+		hash : false,
     youtube : {
         controls : 0,
         showinfo : 0,

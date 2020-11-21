@@ -10,32 +10,17 @@ get_header(); ?>
 	<main id="main" class="site-main fw-left" role="main">
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php
-			$short_description = get_the_content();
-			$CTAButtons = get_field("CTAButtons");
-			if($short_description) { ?>
+		
 			<section class="text-centered-section">
 				<div class="wrapper text-center">
 					<div class="page-header">
 						<h1 class="page-title"><?php the_title(); ?></h1>
 					</div>
-					
-					<?php the_content(); ?>
-
-					<?php if ($CTAButtons) { ?>
-					<div class="buttondiv">
-						<?php foreach ($CTAButtons as $cta) { 
-							if($cta['button']) {
-								$b = $cta['button'];
-								$target = ( isset($b['target']) && $b['target'] ) ? $b['target']:'_self'; ?>
-								<a href="<?php echo $b['url'] ?>" target="<?php echo $target ?>" class="btn-sm"><span><?php echo $b['title'] ?></span></a>
-							<?php } ?>
-						<?php } ?>
-					</div>	
+					<?php if ( get_the_content() ) { ?>
+					<div class="text"><?php the_content(); ?></div>
 					<?php } ?>
 				</div>
 			</section>
-			<?php } ?>
 
 			<?php get_template_part("parts/subpage-tabs"); ?>
 
