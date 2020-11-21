@@ -39,7 +39,7 @@ get_header(); ?>
 			<div class="space-features-wrap full">
 				<div class="flexwrap">
 					<?php foreach ($featuresFields as $key=>$val) { 
-						$fieldVal = ( isset($feats[$key]) && $feats[$key] ) ? $feats[$key]:'';
+						$fieldVal = ( isset($feats[$key]) && $feats[$key] ) ? $feats[$key]:'N/A';
 						if($fieldVal && $key=='type') {
 							$fieldVal = $fieldVal['label'];
 						} ?>
