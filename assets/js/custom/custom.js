@@ -475,4 +475,10 @@ jQuery(document).ready(function ($) {
 		});
 	}
 
+	/* Align Bottom Page Vertically Center */
+	if( $(".explore-other-stuff").length>0 ) {
+		var totalEntries = $(".explore-other-stuff .entry").length;
+		$(".explore-other-stuff .post-type-entries").addClass('column-list-'+totalEntries);
+	}
+
 });// END #####################################    END

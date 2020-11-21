@@ -3237,10 +3237,10 @@ body.subpage.single {
 		margin-bottom: 15px;
 	}
 	.columns {
-		
 		@include xs {
 			@include flexgroup();
 			@include flexbox-align-items(center);
+			@include flexbox-align-content(center);
 		}
 	}
 	.entry {
@@ -7510,6 +7510,35 @@ body.single-camp {
 	}
 	.stitle {
 		color: #FFF;
+	}
+}
+
+.explore-other-stuff {
+	.post-type-entries.column-list-1,
+	.post-type-entries.column-list-2 {
+		.columns {
+			max-width: 820px;
+			width: 100%;
+			margin: 0 auto;
+			text-align: center;
+			.entry {
+				width: 100%!important;
+			}
+		}
+	}
+	.post-type-entries.column-list-5,
+	.post-type-entries.column-list-6 {
+		.columns {
+			max-width: 820px;
+			width: 100%;
+			margin: 0 auto;
+			text-align: center;
+			.entry {
+				@include tab {
+					width: 50%!important;
+				}
+			}
+		}
 	}
 }
 
