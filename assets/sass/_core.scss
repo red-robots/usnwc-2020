@@ -7358,28 +7358,6 @@ body.single-camp {
 				}
 			}
 		}
-	
-		.col-full {
-			background: $teal;
-			color: #FFF;
-			padding-top: 60px;
-			padding-bottom: 60px;
-			@include tab {
-				padding-top: 70px;
-				padding-bottom: 70px;
-			}
-			h2 {
-				font-size: 23px;
-			}
-			font-size: 14px;
-			font-weight: 400;
-			line-height: 1.4;
-			padding: 30px 30px;
-			margin: 0 auto;
-			p:last-child {
-				margin-bottom: 0;
-			}
-		}
 
 		&.full {
 			.column {
@@ -7411,6 +7389,27 @@ body.single-camp {
 			}
 		}
 
+	}
+	.col-full {
+		background: $teal;
+		color: #FFF;
+		padding-top: 60px;
+		padding-bottom: 60px;
+		@include tab {
+			padding-top: 70px;
+			padding-bottom: 70px;
+		}
+		h2 {
+			font-size: 23px;
+		}
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.4;
+		padding: 30px 30px;
+		margin: 0 auto;
+		p:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 

@@ -151,6 +151,8 @@ get_header(); ?>
 				</div>
 			</section>
 			<?php } else { ?>
+
+				<div style="display:none;">
 				<?php if ($map_title || $map_text) { ?>
 						<div class="col-full full text-center <?php echo $has_text ?>">
 							<?php if ($map_title || $map_text) { ?>
@@ -165,6 +167,8 @@ get_header(); ?>
 							<?php } ?>
 						</div>
 				<?php } ?>
+				</div>
+
 			<?php } ?>
 			
 			
