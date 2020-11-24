@@ -280,144 +280,8 @@ function get_event_date_range($start,$end,$fullMonth=false) {
 
 add_action('admin_head', 'my_custom_admin_css');
 function my_custom_admin_css() { ?>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/css/admin.css">
 <style type="text/css">
-/*body.post-type-camp [data-name="thumbnail_image"],
-body.post-type-camp [data-name="full_image"] {
-  width: 50%;
-  float: left;
-  clear: none;
-  box-sizing: border-box;
-}*/
-
-#adminmenu li#toplevel_page_acf-options,
-div.acf-field[data-name="is_event_completed"] h2.hndle,
-div.acf-field[data-name="is_event_completed"] div.acf-label,
-div.acf-field[data-name="is_event_completed"] div.acf-input,
-body.post-type-acf-field-group #expirationdatediv.postbox  {
-    display: none!important;
-}
-
-.acf-field[data-name="steps"] .acf-repeater div.image-wrap img {
-    width: 50px!important;
-}
-
-div.acf-field-repeater[data-name="today"] table tr.acf-row td {
-    border-bottom: 6px solid #d6d6d6;
-}
-#acf-group_5f1912cfb5ecf .parent-menu-text {
-    display: inline-block;
-    font-weight: bold;
-    margin-left: 5px;
-}
-#acf-group_5f1912cfb5ecf [data-layout="child_menu_data"] .parent-menu-text {
-    display: none;
-}
-.acf-flexible-content div[data-layout="race_type"] {
-    margin-top: 10px!important;
-}
-div[data-layout="race_type"] > .acf-fc-layout-handle,
-#acf-group_5f1912cfb5ecf [data-layout="menu_group"] > .acf-fc-layout-handle {
-    color: transparent;
-    background: #f1f2f3;
-}
-div[data-layout="race_type"] > .acf-fc-layout-handle {
-    color: transparent!important;
-}
-div[data-layout="race_type"] > .acf-fc-layout-handle .acf-fc-layout-order {
-    color: #000!important;
-    background: #FFF!important;
-}
-div[data-layout="race_type"]:before,
-#acf-group_5f1912cfb5ecf [data-layout="menu_group"]:before {
-    content:attr(data-parenttext);
-    display: block;
-    position: absolute;
-    top: 9px;
-    left: 42px;
-    font-size: 14px;
-    font-weight: bold;
-    z-index: 15;
-}
-#acf-group_5f1912cfb5ecf [data-layout="child_menu_data"]:before {
-    content: attr(data-parenttext);
-    display: block;
-    position: absolute;
-    top: 11px;
-    left: 117px;
-    font-size: 11px;
-    font-weight: bold;
-    z-index: 15;
-    color: #61a963;
-}
-#acf-group_5f1912cfb5ecf .acf-flexible-content .layout {
-    margin-top: 10px;
-}
-div.acf-field #expirationdatediv .inside td {
-    padding: 2px 5px;
-    vertical-align: top;
-}
-#acf-group_5f460b222fe52 div.acf-fc-layout-handle {
-    font-size: 0px;
-    color: transparent;
-    position: relative;
-}
-#acf-group_5f460b222fe52 div.acf-fc-layout-handle .customTabName {
-    font-size: 15px;
-    color: #444!important;
-    position: absolute;
-    left: 40px;
-    top: 17px;
-    z-index: 5;
-}
-body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
-    position: relative;
-}
-body.wp-admin.post-type-activity_schedule #poststuff #titlewrap input:focus {
-    outline: 0;
-    box-shadow: none;
-}
-body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
-    display: none;
-}
-#poststuff #titlewrap span.cover {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 20;
-    background: #f1f1f1;
-    opacity: 0.7;
-}
-
-[data-name="icons_links"] .acf-field[data-name="icon"] .image-wrap img {
-    width: 35px;
-    height:auto;   
-}
-
-.acf-flexible-content .layout[data-layout="catering"] .acf-fc-layout-handle,
-[data-name="activities_flexcontent"] [data-layout="activities"] .acf-fc-layout-handle {
-  position: relative;
-  font-size: 0;
-  color: transparent!important;
-}
-
-
-[data-layout="catering"] .acf-fc-layout-handle:after,
-[data-name="activities_flexcontent"] [data-layout="activities"] .acf-fc-layout-handle:after {
-  content:attr(data-title);
-  display: inline-block;
-  position: absolute;
-  top: 11px;
-  left: 40px;
-  color: #000;
-  font-size: 13px;
-  font-style: normal;
-  line-height: 1.1;
-  font-weight: bold;
-}
-
 <?php 
 $has_expiration_post_types = array('festival','music'); 
 foreach($has_expiration_post_types as $pt) { ?>
@@ -515,12 +379,91 @@ jQuery(document).ready(function($){
         // });
     }
 
+    /* select custom icons */
+    if( $('th[data-name="custom_icon"]').length>0 ) {
+        $('th[data-name="custom_icon"]').each(function(){
+            var iconLink = '<a href="#" class="customIconBtn">Click here to select icons</a>';
+            $(this).append(iconLink);
+        });
+        
+        $(document).on("click",".customIconBtn",function(e){
+            e.preventDefault();
+            $("#customIconsContainer").show();
+        });
+        $(document).on("click","#closeIconList",function(e){
+            e.preventDefault();
+            $("#customIconsContainer").hide();
+        });
+        $(document).on("click",".iconBox .w",function(e){
+            e.preventDefault();
+            var icon = $(this).attr("data-icon");
+            copyToClipboard(icon);
+            alert("Copy to clipboard: " + icon);
+        });
+
+        function copyToClipboard(str) {
+          var $temp = $("<input>");
+          $("body").append($temp);
+          $temp.val(str).select();
+          document.execCommand("copy");
+          $temp.remove();
+        }
+    }
 
 });
 </script>
+<div id="customIconsContainer">
+<?php echo displayCustomIcons(); ?>
+</div>
 <?php
 }
 /*===== END ADMIN CUSTOM SCRIPTS ======*/
+
+/*===== CUSTOM ICONS ======*/
+function displayCustomIcons() {
+    $fontURL = get_stylesheet_directory_uri() . '/fonts/';
+    $path = get_stylesheet_directory_uri() . '/assets/sass/_fonts.scss';
+    $content = @file_get_contents($path);
+    $content = str_replace("fonts/",$fontURL,$content);
+    $styleSheet = $content;
+    $iconList = array();
+    $output = '';
+    ob_start(); ?>
+    <?php if($content) {
+        $content = str_replace("'","",$content);
+        $content = str_replace("{content:","",$content);
+        $content = str_replace(";}","",$content);
+        $parts = explode("/*==custom icons==*/",$content);
+        $icon_parts = (isset($parts[1]) && $parts[1]) ? $parts[1]:'';
+        $icon_parts = explode("\n",$icon_parts);
+        $lists = array_filter($icon_parts);
+        if($lists) {
+            foreach($lists as $str) {
+                $strings = explode(":before",$str);
+                $iconList[] = str_replace(".","",$strings[0]);
+            }
+            if($iconList) { ?>
+            <style type="text/css"><?php echo $styleSheet ?></style>
+            <div class="customIconList">
+                <a href="#" id="closeIconList"><span>x</span></a>
+                <div class="iconContainer">
+                <?php foreach($iconList as $i) {?>
+                <div class="iconBox">
+                    <div class="w" data-icon="<?php echo $i ?>">
+                        <i class="iconClass <?php echo $i?>"></i>
+                        <div class="iconName">.<?php echo $i ?></div>
+                    </div>
+                </div>
+                <?php } ?>
+                </div>
+            </div>
+            <?php }
+        }
+    }
+    $output = ob_get_contents();
+    ob_end_clean();
+    return $output;
+}
 
 /* ACF CUSTOM OPTIONS TABS */
 // if( function_exists('acf_add_options_page') ) {

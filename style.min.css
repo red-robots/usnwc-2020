@@ -1893,24 +1893,32 @@ html[xmlns] .flexslider .slides{display:block}
 .ci-backpack:before{content:'\0041'}
 .ci-board-alt:before{content:'\0042'}
 .ci-board:before{content:'\0043'}
-.ci-cable:before{content:'\0044'}
-.ci-calendar-alt:before{content:'\0045'}
-.ci-calendar:before{content:'\0046'}
-.ci-camp:before{content:'\0047'}
-.ci-check:before{content:'\0048'}
-.ci-clock:before{content:'\0049'}
-.ci-editor:before{content:'\004a'}
-.ci-help:before{content:'\004b'}
-.ci-map:before{content:'\004c'}
-.ci-menu:before{content:'\004d'}
-.ci-people:before{content:'\004e'}
-.ci-pine-tree:before{content:'\004f'}
-.ci-question:before{content:'\0050'}
-.ci-silverware:before{content:'\0051'}
-.ci-smiley:before{content:'\0052'}
-.ci-task:before{content:'\0053'}
-.ci-tshirt:before{content:'\0054'}
-.ci-video:before{content:'\0055'}
+.ci-building:before{content:'\0044'}
+.ci-bus:before{content:'\0045'}
+.ci-cable:before{content:'\0046'}
+.ci-calendar-alt:before{content:'\0047'}
+.ci-calendar:before{content:'\0048'}
+.ci-camp:before{content:'\0049'}
+.ci-check:before{content:'\004a'}
+.ci-church:before{content:'\004b'}
+.ci-clock:before{content:'\004c'}
+.ci-college:before{content:'\004d'}
+.ci-editor:before{content:'\004e'}
+.ci-give:before{content:'\004f'}
+.ci-help:before{content:'\0050'}
+.ci-map:before{content:'\0051'}
+.ci-menu:before{content:'\0052'}
+.ci-military:before{content:'\0053'}
+.ci-people:before{content:'\0054'}
+.ci-pine-tree:before{content:'\0055'}
+.ci-question:before{content:'\0056'}
+.ci-scout:before{content:'\0057'}
+.ci-silverware:before{content:'\0058'}
+.ci-smiley:before{content:'\0059'}
+.ci-task:before{content:'\005a'}
+.ci-tshirt:before{content:'\0061'}
+.ci-video:before{content:'\0062'}
+.ci-wedding:before{content:'\0063'}
 /*!
  * iconmonstr iconic font v1.3.0 
  */@font-face{font-family:'iconmonstr-iconic-font';src:url("fonts/iconmonstr-iconic-font.woff2?v=1.3.0") format("woff2"),url("fonts/iconmonstr-iconic-font.woff?v=1.3.0") format("woff"),url("fonts/iconmonstr-iconic-font.ttf?v=1.3.0") format("truetype");font-weight:normal;font-style:normal}
@@ -3558,7 +3566,17 @@ body.single-camp #primary{width:100%;float:left}
 .explore-other-stuff .post-type-entries.column-list-1 .columns .entry,.explore-other-stuff .post-type-entries.column-list-2 .columns .entry{width:100% !important}
 .explore-other-stuff .post-type-entries.column-list-5 .columns,.explore-other-stuff .post-type-entries.column-list-6 .columns{max-width:820px;width:100%;margin:0 auto;text-align:center}
 @media(min-width:768px){.explore-other-stuff .post-type-entries.column-list-5 .columns .entry,.explore-other-stuff .post-type-entries.column-list-6 .columns .entry{width:50% !important}
-}.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
+}.fancybox-navigation .fancybox-button[disabled]{opacity:.2;cursor:not-allowed}
+.section-content.gray{background:#f2f2f2}
+.section-content.padding .wrapper{padding-top:50px;padding-bottom:50px}
+@media(min-width:768px){.section-content.padding .wrapper{padding-top:80px;padding-bottom:80px}
+}#section-group-types .typebox{width:100%;text-align:center;margin:10px 0}
+@media(min-width:768px){#section-group-types .typebox{width:25%}
+}#section-group-types .typebox .inner{padding:30px}
+#section-group-types .typebox .typeIcon{margin-bottom:10px}
+#section-group-types .typebox .typeIcon i{font-size:45px;line-height:1}
+#section-group-types .typebox h3{margin:0;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1.2}
+.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}
 .site-footer .coltitle{color:#FFF;font-family:"Lato",sans-serif;font-size:15px;font-weight:300;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}

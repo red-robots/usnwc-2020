@@ -4,6 +4,7 @@
  */
 $placeholder = THEMEURI . 'images/rectangle.png';
 $square = THEMEURI . 'images/square.png';
+$imgNotAvailable = THEMEURI . 'images/image-not-available.jpg';
 $banner = get_field("full_image");
 $has_banner = ($banner) ? 'hasbanner':'nobanner';
 $currentPostType = get_post_type();
@@ -68,9 +69,10 @@ get_header(); ?>
 					<?php foreach ($floorplan as $p) { 
 						$fp_title = $p['title'];
 						$fp_image = $p['image'];
-						if($fp_title && $fp_image) { ?>
+						$fp_image_url = ( isset($fp_image['url']) && $fp_image['url'] ) ? $fp_image['url'] : $imgNotAvailable;
+						if($fp_title) { ?>
 						<span class="plan">
-							<a href="<?php echo $fp_image['url'] ?>" data-fancybox="gallery" data-caption="<?php echo $fp_title ?>">
+							<a href="<?php echo $fp_image_url ?>" data-fancybox="gallery" data-caption="<?php echo $fp_title ?>">
 								<span class="plan-name"><?php echo $fp_title ?></span>
 							</a>
 						</span>
