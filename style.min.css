@@ -3382,19 +3382,19 @@ body.pageNoBanner .site-content{min-height:35em}
 @media(min-width:768px){#primary.summer-camps .schedules-list li.item .event{width:auto;max-width:60%}
 }#primary.summer-camps #section-faqs{padding-top:50px;padding-bottom:50px}
 @media(min-width:768px){#primary.summer-camps #section-faqs{padding-top:80px;padding-bottom:80px}
-}.camp-activities.section-content{background:#FFF;padding-top:50px;padding-bottom:0}
-@media(min-width:768px){.camp-activities.section-content{padding-top:80px}
-}.camp-activities.section-content .entries-flexwrap{margin-left:-8px;margin-right:-8px;position:relative;bottom:-8px}
-.camp-activities.section-content .fbox{width:100%}
-@media(min-width:768px){.camp-activities.section-content .fbox{width:33.33%;padding:8px}
-}.camp-activities.section-content .fbox.fullwidthbox{width:100% !important}
-.camp-activities.section-content .fbox .inside{text-align:center;background:#f2f2f2;height:100%}
-.camp-activities.section-content .fbox .imagediv{display:block;width:100%;float:left;position:relative;background-color:#dedede;overflow:hidden}
-.camp-activities.section-content .fbox .imagediv.noImage:before{content:"Photo Not Available";font-family:"Lato",sans-serif;font-size:12px;font-weight:500;color:#9e9e9e;display:block;width:100%;text-align:center;text-transform:uppercase;position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
-.camp-activities.section-content .fbox .imagediv .img{display:block;background-size:cover;background-position:center;background-repeat:no-repeat;width:100%;height:100%;-webkit-transition:all ease .3s;transition:all ease .3s;position:absolute;top:0;left:0}
-.camp-activities.section-content .fbox img.placeholder{width:100%;height:auto;float:left}
-.camp-activities.section-content .fbox .titlediv{width:100%;float:left;padding:20px}
-.camp-activities.section-content .fbox .titlediv .name{font-size:16px;font-weight:400;text-transform:uppercase;margin:0}
+}.group-events-activities.section-content,.camp-activities.section-content{background:#FFF;padding-top:50px;padding-bottom:0}
+@media(min-width:768px){.group-events-activities.section-content,.camp-activities.section-content{padding-top:80px}
+}.group-events-activities.section-content .entries-flexwrap,.camp-activities.section-content .entries-flexwrap{margin-left:-8px;margin-right:-8px;position:relative;bottom:-8px}
+.group-events-activities.section-content .fbox,.camp-activities.section-content .fbox{width:100%}
+@media(min-width:768px){.group-events-activities.section-content .fbox,.camp-activities.section-content .fbox{width:33.33%;padding:8px}
+}.group-events-activities.section-content .fbox.fullwidthbox,.camp-activities.section-content .fbox.fullwidthbox{width:100% !important}
+.group-events-activities.section-content .fbox .inside,.camp-activities.section-content .fbox .inside{text-align:center;background:#f2f2f2;height:100%}
+.group-events-activities.section-content .fbox .imagediv,.camp-activities.section-content .fbox .imagediv{display:block;width:100%;float:left;position:relative;background-color:#dedede;overflow:hidden}
+.group-events-activities.section-content .fbox .imagediv.noImage:before,.camp-activities.section-content .fbox .imagediv.noImage:before{content:"Photo Not Available";font-family:"Lato",sans-serif;font-size:12px;font-weight:500;color:#9e9e9e;display:block;width:100%;text-align:center;text-transform:uppercase;position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+.group-events-activities.section-content .fbox .imagediv .img,.camp-activities.section-content .fbox .imagediv .img{display:block;background-size:cover;background-position:center;background-repeat:no-repeat;width:100%;height:100%;-webkit-transition:all ease .3s;transition:all ease .3s;position:absolute;top:0;left:0}
+.group-events-activities.section-content .fbox img.placeholder,.camp-activities.section-content .fbox img.placeholder{width:100%;height:auto;float:left}
+.group-events-activities.section-content .fbox .titlediv,.camp-activities.section-content .fbox .titlediv{width:100%;float:left;padding:30px 20px}
+.group-events-activities.section-content .fbox .titlediv .name,.camp-activities.section-content .fbox .titlediv .name{font-size:16px;font-weight:400;text-transform:uppercase;margin:0}
 #section-registration .registerdiv{background:#ba0d30;color:#FFF;padding-top:50px;padding-bottom:50px}
 @media(min-width:768px){#section-registration .registerdiv{padding-top:70px;padding-bottom:70px}
 }#section-registration .registerdiv .shead-icon{margin:0}
@@ -3576,6 +3576,44 @@ body.single-camp #primary{width:100%;float:left}
 #section-group-types .typebox .typeIcon{margin-bottom:10px}
 #section-group-types .typebox .typeIcon i{font-size:45px;line-height:1}
 #section-group-types .typebox h3{margin:0;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1.2}
+.summary-block{color:#707070;font-size:13px;line-height:1.5}
+.group-events-activities.section-content{padding-top:20px}
+.group-events-activities.section-content .summary-block{margin:15px 0}
+.group-services-wrapper{width:100%;float:left;margin-top:50px}
+.group-events-services.section-content{margin-top:0;margin-bottom:0}
+.group-events-services.section-content .mscol{margin-top:8px;margin-bottom:8px}
+.subpage-tabs-wrapper{width:100%;float:left}
+.subpage-tabs-wrapper .wrapper{text-align:center;padding-top:30px;padding-bottom:0}
+@media(min-width:768px){.subpage-tabs-wrapper .wrapper{padding-top:40px}
+}.subpage-tabs-wrapper .buttondiv a{display:inline-block;margin:0 10px}
+.section-content#section-itineraries{background:#707070;color:#FFF;padding-top:80px;padding-bottom:80px}
+.section-content#section-itineraries .stitle{color:#FFF}
+.section-content#section-itineraries .accordiondata{margin-top:60px}
+.accordion-wrapper{width:100%;float:left}
+.accordion-wrapper .accordion-item{width:100%;float:left;background:#FFF;color:#707070;margin:6px 0}
+.accordion-wrapper .accordion-title{background:#e4e4e4;color:#000;font-family:"Lato",sans-serif;font-size:20px;font-weight:400;line-height:1.2;letter-spacing:1px;text-transform:uppercase;margin:0;padding:20px 25px;position:relative;cursor:pointer}
+.accordion-wrapper .accordion-title .arrow{display:block;width:30px;height:30px;position:absolute;top:17px;right:25px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.accordion-wrapper .accordion-title .arrow:before,.accordion-wrapper .accordion-title .arrow:after{content:"";display:block;width:70%;height:2px;background:#000;position:absolute;top:14px;left:-2px}
+.accordion-wrapper .accordion-title .arrow:before{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
+.accordion-wrapper .accordion-title .arrow:after{-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);left:12px}
+.accordion-wrapper .accordion-text{padding-top:20px;padding-bottom:20px;-webkit-animation-duration:1s;animation-duration:1s;display:none}
+.accordion-wrapper .accordion-item.active .accordion-title{background:#000;color:#FFF}
+.accordion-wrapper .accordion-item.active .accordion-title .arrow{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}
+.accordion-wrapper .accordion-item.active .accordion-title .arrow:before,.accordion-wrapper .accordion-item.active .accordion-title .arrow:after{background:#FFF}
+.accordion-wrapper .subdata{width:100%;float:left;padding:15px 30px}
+.accordion-wrapper .subdata .flexwrap{border-bottom:1px solid #cacaca;padding-bottom:30px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.accordion-wrapper .subdata .subcol{width:100%}
+.accordion-wrapper .subdata .subcol.image{margin-top:20px}
+.accordion-wrapper .subdata .etitle{font-family:"Lato",sans-serif;font-weight:400;font-size:18px;line-height:1.2;letter-spacing:1px;text-transform:uppercase;margin:0 0 10px;color:#000}
+.accordion-wrapper .subdata .etext{line-height:1.5}
+.accordion-wrapper .subdata .subcol.image{position:relative}
+.accordion-wrapper .subdata .subcol.image div.image{width:100%;height:100%;position:absolute;background-size:cover;background-position:center;background-repeat:no-repeat}
+.accordion-wrapper .subdata .subcol.image img{width:100%;height:auto;float:left}
+.accordion-wrapper .subdata.half .subcol.left{width:100%}
+@media(min-width:768px){.accordion-wrapper .subdata.half .subcol.left{width:65%;padding-right:30px}
+}.accordion-wrapper .subdata.half .subcol.right{width:100%}
+@media(min-width:768px){.accordion-wrapper .subdata.half .subcol.right{width:35%;margin-top:0}
+}.accordion-wrapper .subdata:last-child .flexwrap{border-bottom:0}
 .site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}

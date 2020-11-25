@@ -6574,7 +6574,7 @@ body.pageNoBanner {
 		}
 	}
 }
-
+.group-events-activities.section-content,
 .camp-activities.section-content {
 	background: #FFF;
 	padding-top: 50px;
@@ -6652,7 +6652,7 @@ body.pageNoBanner {
 		.titlediv {
 			width: 100%;
 			float: left;
-			padding: 20px;
+			padding: 30px 20px;
 			.name {
 				font-size: 16px;
 				font-weight: 400;
@@ -7585,6 +7585,201 @@ body.single-camp {
 			font-weight: 400;
 			line-height: 1.2;
 		}
+	}
+}
+
+.summary-block {
+	color: $gray_dark;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.group-events-activities.section-content {
+	padding-top: 20px;
+	.summary-block {
+		margin: 15px 0;
+	}
+}
+.group-services-wrapper {
+	width: 100%;
+	float: left;
+	margin-top: 50px;
+}
+.group-events-services.section-content {
+	margin-top: 0;
+	margin-bottom: 0;
+	.mscol {
+		margin-top: 8px;
+		margin-bottom: 8px;
+	}
+}
+
+.subpage-tabs-wrapper {
+	width: 100%;
+	float: left;
+	.wrapper {
+		text-align: center;
+		padding-top: 30px;
+		padding-bottom: 0;
+		@include tab {
+			padding-top: 40px;
+		}
+	}
+	.buttondiv {
+		a {
+			display: inline-block;
+			margin: 0 10px;
+		}
+	}
+}
+
+.section-content#section-itineraries {
+	background: $gray_dark;
+	color: #FFF;
+	padding-top: 80px;
+	padding-bottom: 80px;
+	.stitle {
+		color: #FFF;
+	}
+	.accordiondata {
+		margin-top: 60px;
+	}
+}
+
+.accordion-wrapper {
+	width: 100%;
+	float: left;
+	.accordion-item {
+		width: 100%;
+		float: left;
+		background: #FFF;
+		color: $gray_dark;
+		margin: 6px 0;
+	}
+	.accordion-title {
+		background: #e4e4e4;
+		color: #000;
+		font-family: $font_secondary;
+		font-size: 20px;
+		font-weight: 400;
+		line-height: 1.2;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		margin: 0 0;
+		padding: 20px 25px;
+		position: relative;
+		cursor: pointer;
+		.arrow {
+			display: block;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 17px;
+			right: 25px;
+			transition: all ease .3s;
+			&:before, &:after {
+				content: "";
+				display: block;
+				width: 70%;
+				height: 2px;
+				background: #000;
+				position: absolute;
+				top: 14px;
+				left: -2px;
+			}
+			&:before {
+				transform: rotate(45deg);
+			}
+			&:after {
+				transform: rotate(-45deg);
+				left: 12px;
+			}
+		}	
+	}
+	.accordion-text {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		@include animateThis(1s);
+		display: none;
+	}
+	.accordion-item.active {
+		// .accordion-text {
+		// 	display: block;
+		// }
+		.accordion-title {
+			background: #000;
+			color: #FFF;
+			.arrow {
+				transform: rotate(180deg);
+				&:before, &:after {
+					background: #FFF;
+				}
+			}
+		}
+	}
+	.subdata {
+		width: 100%;
+		float: left;
+		padding: 15px 30px;
+		.flexwrap {
+			border-bottom: 1px solid #cacaca;
+			padding-bottom: 30px;
+			@include flexbox-align-items(center);
+		}
+		.subcol {
+			width: 100%;
+		}
+		.subcol.image {
+			margin-top: 20px;
+		}
+		.etitle {
+			font-family: $font_secondary;
+			font-weight: 400;
+			font-size: 18px;
+			line-height:1.2;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			margin: 0 0 10px;
+			color: #000;
+		}
+		.etext {
+			line-height: 1.5;
+		}
+		.subcol.image {
+			position: relative;
+			div.image {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+			img {
+				width: 100%;
+				height: auto;
+				float: left;
+			}
+		}
+		&.half {
+			.subcol.left {
+				width: 100%;
+				@include tab {
+					width: 65%;
+					padding-right: 30px;
+				}
+			}
+			.subcol.right {
+				width: 100%;
+				@include tab {
+					width: 35%;
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	.subdata:last-child .flexwrap {
+		border-bottom: none;
 	}
 }
 

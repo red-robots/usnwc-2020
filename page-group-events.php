@@ -21,13 +21,12 @@ $currentPageLink = get_permalink();
 			<?php } ?>
 		<?php endwhile;  ?>
 
-		<?php get_template_part("parts/subpage-tabs"); ?>
-
 		<?php  
 		$group_type_title = get_field("group_type_title");
+		$group_type_ctabutton = get_field("group_type_ctabutton");
 		$group_types = get_field("group_types");
 		if($group_types) { ?>
-		<section id="section-group-types" data-section="<?php echo $group_type_title ?>" class="section-content padding gray">
+		<section id="section-group-types" class="section-content padding gray">
 			<div class="wrapper">
 				<?php if ($group_type_title) { ?>
 				<div class="shead-icon text-center">
@@ -57,7 +56,32 @@ $currentPageLink = get_permalink();
 		</section>
 		<?php } ?>
 
-		
+		<?php if ($group_type_ctabutton && do_shortcode($group_type_ctabutton)) { ?>
+			<div class="subpage-tabs-wrapper">
+				<div class="wrapper">
+					<div class="buttondiv"><?php echo do_shortcode($group_type_ctabutton) ?></div>
+					<?php get_template_part("parts/subpage-tabs"); ?>
+				</div>
+			</div>
+		<?php } else { ?>
+			<?php get_template_part("parts/subpage-tabs"); ?>
+		<?php } ?>
+
+		<?php
+			//ACTIVITIES 
+			get_template_part("parts/group-events-activities");
+		?>
+
+		<?php
+			//SERVICES 
+			get_template_part("parts/group-events-services");
+		?>
+
+		<?php
+			//SAMPLE ITINERARIES 
+			get_template_part("parts/group-events-itineraries");
+		?>
+
 		<?php
 		$customFAQTitle = 'FAQ';
 		$customFAQClass = 'custom-class-faq';

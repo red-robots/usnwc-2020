@@ -104,7 +104,8 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
     width: 35px;
     height:auto;   
 }
-
+[data-layout="accordion_entry"] .acf-fc-layout-handle,
+[data-name="groupevents_featuredservices"] [data-layout="services"] .acf-fc-layout-handle,
 .acf-flexible-content .layout[data-layout="catering"] .acf-fc-layout-handle,
 [data-name="activities_flexcontent"] [data-layout="activities"] .acf-fc-layout-handle {
   position: relative;
@@ -112,8 +113,9 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
   color: transparent!important;
 }
 
-
+[data-layout="accordion_entry"] .acf-fc-layout-handle:after,
 [data-layout="catering"] .acf-fc-layout-handle:after,
+[data-name="groupevents_featuredservices"] [data-layout="services"] .acf-fc-layout-handle:after,
 [data-name="activities_flexcontent"] [data-layout="activities"] .acf-fc-layout-handle:after {
   content:attr(data-title);
   display: inline-block;

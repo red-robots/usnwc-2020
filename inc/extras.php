@@ -300,6 +300,24 @@ function my_custom_admin_js() { ?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
 
+    /* ACF Flexible Content For Group Events Itineraries */
+    if( $('[data-name="accordion_content"]').length > 0 ) {
+        $('[data-layout="accordion_entry"]').each(function(){
+            var str = $(this).find('[data-name="grouptitle"] .acf-input-wrap input').val();
+            var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
+            $(this).find(".acf-fc-layout-handle").attr("data-title",title);
+        });
+    }
+
+    /* ACF Flexible Content For Group Events Services */
+    if( $('[data-name="groupevents_featuredservices"]').length > 0 ) {
+        $('[data-layout="services"]').each(function(){
+            var str = $(this).find('[data-name="title"] .acf-input-wrap input').val();
+            var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
+            $(this).find(".acf-fc-layout-handle").attr("data-title",title);
+        });
+    }
+
     /* ACF Flexible Content For Camp Activities */
     if( $('[data-name="activities_flexcontent"]').length > 0 ) {
         $('[data-layout="activities"]').each(function(){
