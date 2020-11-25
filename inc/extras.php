@@ -381,9 +381,19 @@ jQuery(document).ready(function($){
 
     /* select custom icons */
     if( $('th[data-name="custom_icon"]').length>0 ) {
-        $('th[data-name="custom_icon"]').each(function(){
-            var iconLink = '<a href="#" class="customIconBtn">Click here to select icons</a>';
-            $(this).append(iconLink);
+        // $('th[data-name="custom_icon"]').each(function(){
+        //     var iconLink = '<a href="#" class="customIconBtn">Click here to select icons</a>';
+        //     $(this).append(iconLink);
+        // });
+
+        $('tbody td[data-name="custom_icon"]').each(function(k){
+            var ctr = k+1;
+            var input = $(this).find(".acf-input-wrap input");
+            var id = input.attr("id");
+            var icon = input.val();
+            var label = (icon) ? 'Edit' : 'Add Icon';
+            var btn = '<span class="cusIcon"><i class="'+icon+'"></i></span><a href="#" data-icon="'+icon+'" class="iconOptBtn">'+label+'</a>';
+            $(btn).insertAfter(input);
         });
         
         $(document).on("click",".customIconBtn",function(e){
@@ -393,12 +403,29 @@ jQuery(document).ready(function($){
         $(document).on("click","#closeIconList",function(e){
             e.preventDefault();
             $("#customIconsContainer").hide();
+            $("#customIconsContainer").attr("data-assign","");
+            $("#customIconsContainer .iconBox").removeClass('selected');
         });
         $(document).on("click",".iconBox .w",function(e){
             e.preventDefault();
             var icon = $(this).attr("data-icon");
-            copyToClipboard(icon);
-            alert("Copy to clipboard: " + icon);
+            var inputId = $("#customIconsContainer").attr("data-assign");
+            var parent = $(('td[data-name="custom_icon"]')).find("input#"+inputId).parent();
+            $(('td[data-name="custom_icon"]')).find("input#"+inputId).val(icon);
+            parent.find("span.cusIcon i").removeAttr("class").addClass(icon);
+            parent.find(".iconOptBtn").attr("data-icon",icon);
+            parent.find(".iconOptBtn").text('Edit');
+            $("#closeIconList").trigger("click");
+        });
+
+        $(document).on("click",".iconOptBtn",function(e){
+            e.preventDefault();
+            var icon = $(this).attr("data-icon");
+            var parent = $(this).parents('td[data-name="custom_icon"]');
+            var inputId = parent.find(".acf-input-wrap input").attr("id");
+            $("#customIconsContainer").show();
+            $("#customIconsContainer").attr("data-assign",inputId);
+            $('.iconBox .w[data-icon="'+icon+'"]').parent().addClass("selected");
         });
 
         function copyToClipboard(str) {
@@ -420,24 +447,43 @@ jQuery(document).ready(function($){
 /*===== END ADMIN CUSTOM SCRIPTS ======*/
 
 /*===== CUSTOM ICONS ======*/
+// $test = 'https://wwc.bellaworksdev.com/wp-content/themes/usnwc-2020/assets/sass/_fonts.scss';
+// ob_start();
+// $content = file_get_contents($test);
+// ob_get_contents();
+// ob_end_clean();
+// print_r($content);
+
+
+
+displayCustomIcons();
 function displayCustomIcons() {
+    $fonts = '';
+    $fontsFile = get_template_directory() . '/assets/sass/_fonts.scss';
+    ob_start();
+    include($fontsFile);
+    $fonts = ob_get_contents();
+    ob_end_clean();
+    $parts = explode("/*==custom icons==*/",$fonts);
+    $fontStyle = '';
+    if( isset($parts[2]) ) {
+        unset($parts[2]);
+        $fontStyle = implode("",$parts);
+    }
+    
     $fontURL = get_stylesheet_directory_uri() . '/fonts/';
-    $path = get_stylesheet_directory_uri() . '/assets/sass/_fonts.scss';
-    $content = @file_get_contents($path);
-    $content = str_replace("fonts/",$fontURL,$content);
+    //$path = get_stylesheet_directory_uri() . '/assets/sass/_fonts.scss';
+    //$content = file_get_contents($path);
+    $content = str_replace("fonts/",$fontURL,$fontStyle);
     $styleSheet = $content;
     $iconList = array();
     $output = '';
-    ob_start(); ?>
-    <?php if($content) {
-        $content = str_replace("'","",$content);
-        $content = str_replace("{content:","",$content);
-        $content = str_replace(";}","",$content);
-        $parts = explode("/*==custom icons==*/",$content);
-        $icon_parts = (isset($parts[1]) && $parts[1]) ? $parts[1]:'';
-        $icon_parts = explode("\n",$icon_parts);
-        $lists = array_filter($icon_parts);
-        if($lists) {
+    ob_start();
+    if( isset($parts[1]) && $parts[1] ) {
+        $iconData = str_replace(" ","",$parts[1]);
+        $iconsClasses = preg_replace('/\s+/', '', $iconData);
+        $icons = explode(";}",$iconsClasses);
+        if( $lists = array_filter($icons) ) {
             foreach($lists as $str) {
                 $strings = explode(":before",$str);
                 $iconList[] = str_replace(".","",$strings[0]);

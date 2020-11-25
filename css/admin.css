@@ -144,6 +144,8 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
   padding: 20px;
   color: #FFF;
   display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 #customIconsContainer.show {
   display: block;
@@ -174,15 +176,23 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
   page-break-inside: avoid; 
   break-inside: avoid; 
   vertical-align: middle;
-  /*display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;*/
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
+.customIconList .iconBox.selected:before {
+  content:"\2714";
+  display: inline-block;
+  font-size: 25px;
+  line-height: 1;
+  color: #26920c;
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  z-index: 5;
+}
+
 .customIconList .iconBox:last-child {
   border-bottom: 1px solid #CCC;
 }
@@ -218,6 +228,7 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
   font-size: 16px;
   line-height: 21px;
   border-radius: 100px;
+  z-index: 50;
 }
 #closeIconList span {
   position: relative;
@@ -228,5 +239,18 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
   position: relative;
   left: 5px;
 }
-
+tbody td[data-name="custom_icon"] .acf-input-wrap input {
+  display: none;
+}
+tbody td[data-name="custom_icon"] .cusIcon {
+  font-size: 25px;
+  line-height: 1;
+  position: relative;
+}
+tbody td[data-name="custom_icon"] .iconOptBtn {
+  display: inline-block;
+  position: relative;
+  margin-left: 15px;
+  top: -8px;
+}
 
