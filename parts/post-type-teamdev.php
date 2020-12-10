@@ -29,7 +29,7 @@ if ( $entries->have_posts() ) { ?>
 							<div class="text text-center">
 								<h2 class="stitle"><?php echo $title ?></h2>
 								<?php if ($text) { ?>
-									<?php echo $text; ?>
+									<?php the_content(); ?>
 								<?php } ?>
 							</div>
 						</div>

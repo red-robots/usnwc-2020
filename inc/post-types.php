@@ -368,6 +368,15 @@ function set_custom_cpt_columns($columns) {
         $columns['date'] = __( 'Date', 'bellaworks' );
         $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
     }
+
+    if($post_type=='camp') {
+        unset($columns['expirationdate']);
+        unset($columns['date']);
+        $columns['title'] = __( 'Name', 'bellaworks' );
+        $columns['eventdate'] = __( 'Event Dates', 'bellaworks' );
+        $columns['date'] = __( 'Date', 'bellaworks' );
+        $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
+    }
     
     return $columns;
 }
@@ -414,6 +423,15 @@ function custom_post_column( $column, $post_id ) {
                 } 
                 break;
 
+        }
+    }
+
+    if($post_type=='camp') {
+        switch ( $column ) {
+            case 'eventdate' :
+                $dates = get_field('date_range',$post_id);
+                echo ($dates) ? $dates:'';
+                break;
         }
     }
     

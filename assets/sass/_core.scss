@@ -6506,6 +6506,9 @@ body.pageNoBanner {
 	}
 	.schedules-list {
 		padding: 20px 0;
+		max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
 		ul.items {
 			margin: 0 0;
 			padding: 0 0;
@@ -6515,8 +6518,8 @@ body.pageNoBanner {
 			@include flexgroup();
 			@include flexbox-justify(space-between);
 			position: relative;
-			font-size: 18px;
 			padding: 5px 0 30px;
+			font-size: 16px;
 			@include tab {
 				padding: 0 0;
 			}
@@ -6540,18 +6543,22 @@ body.pageNoBanner {
 					display: inline;
 					padding: 8px 8px;
 					background: $gray;
+					text-align: right;
 				}
 			}
 			.time {
 				color: #000;
-				font-size: 20px;
-				font-weight: 600;
+				font-family: $font-secondary;
+				font-size: 18px;
+				font-weight: 500;
 				width: 100%;
+				letter-spacing: 2px;
 				@include tab {
 					display: flex;
 					justify-content: flex-end;
 					align-items: flex-end;
 					width: auto;
+					padding-right: 5px;
 				}
 			}
 			.event {
@@ -6560,7 +6567,10 @@ body.pageNoBanner {
 				color: $gray_dark;
 				@include tab {
 					width: auto;
-					max-width: 60%;
+					max-width: unset;
+					top: 7px;
+					line-height: 1.2;
+					padding-left: 7px;
 				}
 			}
 		}

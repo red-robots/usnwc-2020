@@ -96,93 +96,95 @@ if($use_global_options=='no') {
 				</div>
 			</div>
 			<?php } ?>
-
-
-			<?php /* FORMS */ ?>
-			<?php
-			$form_text = get_field("form_text");
-			$form_note = get_field("form_note");
-			if($formtypes) { ?>
-			<div class="camp-form-types full">
-				<div class="wrapper">
-					<?php if ($form_title) { ?>
-						<div class="shead-icon text-center">
-							<div class="icon"><span class="ci-board"></span></div>
-							<h2 class="stitle"><span><?php echo $form_title ?></span></h2>
-						</div>
-					<?php } ?>
-					<?php if ($form_text) { ?>
-						<div class="form-text text-center">
-							<?php echo $form_text ?>
-						</div>
-					<?php } ?>
-				</div>
-
-				<?php
-				$countTypes = count($formtypes); 
-				$typesClass = 'columns1';
-				if($countTypes==1) {
-					$typesClass = 'columns1';
-				}
-				else if($countTypes==2) {
-					$typesClass = 'columns2';
-				}
-				else if($countTypes>2) {
-					$typesClass = 'columns3';
-				}
-				?>
-				<div class="form-types <?php echo $typesClass ?>">
-					<div class="flexwrap">
-					<?php foreach ($formtypes as $e) { 
-						$f_title = $e['title'];
-						$f_text = $e['description'];
-						$f_button = $e['button'];
-						$f_buttonName = ( isset($f_button['title']) && $f_button['title'] ) ? $f_button['title']:''; 
-						$f_buttonLink = ( isset($f_button['url']) && $f_button['url'] ) ? $f_button['url']:''; 
-						$f_buttonTarget = ( isset($f_button['target']) && $f_button['target'] ) ? $f_button['target']:'_self'; 
-						$has_button = ($f_buttonName && $f_buttonLink) ? 'hasButton':'noButton';
-						if($f_title || $f_text) { ?>
-						<div class="block text-center <?php echo $has_button ?>">
-							<div class="inner">
-								<?php if ($f_title) { ?>
-									<div class="ftitle">
-										<h2><?php echo $f_title ?></h2>
-									</div>
-								<?php } ?>
-
-								<div class="ftextwrap">
-									<?php if ($f_text) { ?>
-										<div class="ftext">
-											<?php echo $f_text ?>
-										</div>
-									<?php } ?>
-
-									<?php if ($f_buttonName && $f_buttonLink) { ?>
-										<div class="buttondiv">
-											<a href="<?php echo $f_buttonLink ?>" target="<?php echo $f_buttonTarget ?>" class="btn-sm"><span><?php echo $f_buttonName ?></span></a>
-										</div>	
-									<?php } ?>
-								</div>
-
-							</div>
-						</div>
-						<?php } ?>
-					<?php } ?>
-					</div>
-				</div>
-
-				<?php if ($form_note) { ?>
-					<div class="form-note text-center">
-						<?php echo $form_note ?>
-					</div>
-				<?php } ?>
-
-			</div>
-			<?php } ?>
-
-
 		</section>
 		<?php } ?>
+
+		<?php /* FORMS */ ?>
+		<?php
+		$form_text = get_field("form_text");
+		$form_note = get_field("form_note");
+		if( $formtypes || $form_note || $form_text ) { ?>
+			<section id="section-forms" data-section="<?php echo $form_title ?>" class="section-content">
+				<div class="camp-form-types full">
+					<div class="wrapper">
+						<?php if ($form_title) { ?>
+							<div class="shead-icon text-center">
+								<div class="icon"><span class="ci-board"></span></div>
+								<h2 class="stitle"><span><?php echo $form_title ?></span></h2>
+							</div>
+						<?php } ?>
+						<?php if ($form_text) { ?>
+							<div class="form-text text-center">
+								<?php echo $form_text ?>
+							</div>
+						<?php } ?>
+					</div>
+
+					<?php
+					if($formtypes) {
+						$countTypes = count($formtypes); 
+						$typesClass = 'columns1';
+						if($countTypes==1) {
+							$typesClass = 'columns1';
+						}
+						else if($countTypes==2) {
+							$typesClass = 'columns2';
+						}
+						else if($countTypes>2) {
+							$typesClass = 'columns3';
+						}
+						?>
+						<div class="form-types <?php echo $typesClass ?>">
+							<div class="flexwrap">
+							<?php foreach ($formtypes as $e) { 
+								$f_title = $e['title'];
+								$f_text = $e['description'];
+								$f_button = $e['button'];
+								$f_buttonName = ( isset($f_button['title']) && $f_button['title'] ) ? $f_button['title']:''; 
+								$f_buttonLink = ( isset($f_button['url']) && $f_button['url'] ) ? $f_button['url']:''; 
+								$f_buttonTarget = ( isset($f_button['target']) && $f_button['target'] ) ? $f_button['target']:'_self'; 
+								$has_button = ($f_buttonName && $f_buttonLink) ? 'hasButton':'noButton';
+								if($f_title || $f_text) { ?>
+								<div class="block text-center <?php echo $has_button ?>">
+									<div class="inner">
+										<?php if ($f_title) { ?>
+											<div class="ftitle">
+												<h2><?php echo $f_title ?></h2>
+											</div>
+										<?php } ?>
+
+										<div class="ftextwrap">
+											<?php if ($f_text) { ?>
+												<div class="ftext">
+													<?php echo $f_text ?>
+												</div>
+											<?php } ?>
+
+											<?php if ($f_buttonName && $f_buttonLink) { ?>
+												<div class="buttondiv">
+													<a href="<?php echo $f_buttonLink ?>" target="<?php echo $f_buttonTarget ?>" class="btn-sm"><span><?php echo $f_buttonName ?></span></a>
+												</div>	
+											<?php } ?>
+										</div>
+
+									</div>
+								</div>
+								<?php } ?>
+							<?php } ?>
+							</div>
+						</div>
+					<?php } ?>
+
+					<?php if ($form_note) { ?>
+						<div class="form-note text-center">
+							<?php echo $form_note ?>
+						</div>
+					<?php } ?>
+
+				</div>
+			</section>
+		<?php } ?>
+		
 
 <?php } else { ?>
 
@@ -280,13 +282,14 @@ if($use_global_options=='no') {
 				</div>
 			</div>
 			<?php } ?>
+		</section>
+		<?php } ?>
 
-
-			<?php /* FORMS */ ?>
-			<?php
-			$form_text = get_field("form_text","option");
-			$form_note = get_field("form_note","option");
-			if($formtypes) { ?>
+		<?php
+		$form_text = get_field("form_text","option");
+		$form_note = get_field("form_note","option");
+		if( $formtypes || $form_note || $form_text ) { ?>
+		<section id="section-forms" data-section="<?php echo $form_title ?>" class="section-content">
 			<div class="camp-form-types full">
 				<div class="wrapper">
 					<?php if ($form_title) { ?>
@@ -303,57 +306,59 @@ if($use_global_options=='no') {
 				</div>
 
 				<?php
-				$countTypes = count($formtypes); 
-				$typesClass = 'columns1';
-				if($countTypes==1) {
+				if( $formtypes ) {
+					$countTypes = count($formtypes); 
 					$typesClass = 'columns1';
-				}
-				else if($countTypes==2) {
-					$typesClass = 'columns2';
-				}
-				else if($countTypes>2) {
-					$typesClass = 'columns3';
-				}
-				?>
-				<div class="form-types <?php echo $typesClass ?>">
-					<div class="flexwrap">
-					<?php foreach ($formtypes as $e) { 
-						$f_title = $e['title'];
-						$f_text = $e['description'];
-						$f_button = $e['button'];
-						$f_buttonName = ( isset($f_button['title']) && $f_button['title'] ) ? $f_button['title']:''; 
-						$f_buttonLink = ( isset($f_button['url']) && $f_button['url'] ) ? $f_button['url']:''; 
-						$f_buttonTarget = ( isset($f_button['target']) && $f_button['target'] ) ? $f_button['target']:'_self'; 
-						$has_button = ($f_buttonName && $f_buttonLink) ? 'hasButton':'noButton';
-						if($f_title || $f_text) { ?>
-						<div class="block text-center <?php echo $has_button ?>">
-							<div class="inner">
-								<?php if ($f_title) { ?>
-									<div class="ftitle">
-										<h2><?php echo $f_title ?></h2>
-									</div>
-								<?php } ?>
-
-								<div class="ftextwrap">
-									<?php if ($f_text) { ?>
-										<div class="ftext">
-											<?php echo $f_text ?>
+					if($countTypes==1) {
+						$typesClass = 'columns1';
+					}
+					else if($countTypes==2) {
+						$typesClass = 'columns2';
+					}
+					else if($countTypes>2) {
+						$typesClass = 'columns3';
+					}
+					?>
+					<div class="form-types <?php echo $typesClass ?>">
+						<div class="flexwrap">
+						<?php foreach ($formtypes as $e) { 
+							$f_title = $e['title'];
+							$f_text = $e['description'];
+							$f_button = $e['button'];
+							$f_buttonName = ( isset($f_button['title']) && $f_button['title'] ) ? $f_button['title']:''; 
+							$f_buttonLink = ( isset($f_button['url']) && $f_button['url'] ) ? $f_button['url']:''; 
+							$f_buttonTarget = ( isset($f_button['target']) && $f_button['target'] ) ? $f_button['target']:'_self'; 
+							$has_button = ($f_buttonName && $f_buttonLink) ? 'hasButton':'noButton';
+							if($f_title || $f_text) { ?>
+							<div class="block text-center <?php echo $has_button ?>">
+								<div class="inner">
+									<?php if ($f_title) { ?>
+										<div class="ftitle">
+											<h2><?php echo $f_title ?></h2>
 										</div>
 									<?php } ?>
 
-									<?php if ($f_buttonName && $f_buttonLink) { ?>
-										<div class="buttondiv">
-											<a href="<?php echo $f_buttonLink ?>" target="<?php echo $f_buttonTarget ?>" class="btn-sm"><span><?php echo $f_buttonName ?></span></a>
-										</div>	
-									<?php } ?>
-								</div>
+									<div class="ftextwrap">
+										<?php if ($f_text) { ?>
+											<div class="ftext">
+												<?php echo $f_text ?>
+											</div>
+										<?php } ?>
 
+										<?php if ($f_buttonName && $f_buttonLink) { ?>
+											<div class="buttondiv">
+												<a href="<?php echo $f_buttonLink ?>" target="<?php echo $f_buttonTarget ?>" class="btn-sm"><span><?php echo $f_buttonName ?></span></a>
+											</div>	
+										<?php } ?>
+									</div>
+
+								</div>
 							</div>
-						</div>
+							<?php } ?>
 						<?php } ?>
-					<?php } ?>
+						</div>
 					</div>
-				</div>
+				<?php } ?>
 
 				<?php if ($form_note) { ?>
 					<div class="form-note text-center">
@@ -362,12 +367,7 @@ if($use_global_options=='no') {
 				<?php } ?>
 
 			</div>
-			<?php } ?>
-
-
 		</section>
 		<?php } ?>
-
-
 
 <?php } ?>

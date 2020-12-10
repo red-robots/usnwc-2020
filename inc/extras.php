@@ -872,31 +872,6 @@ function custom_query_posts($posttype,$perpage,$offset,$order='ASC') {
   
   $final = ($entries) ? $entries : '';
   $total = ($final) ? count($final) : 0;
-
-  /*=== OLD Scripts ===*/
-  // $query1 = "SELECT p.*, m.meta_value AS eventstatus
-  //     FROM {$wpdb->posts} p,{$wpdb->postmeta} m
-  //     WHERE p.ID=m.post_id AND p.post_type='".$posttype."' AND p.post_status='publish'
-  //     AND m.meta_key='eventstatus' AND m.meta_value='active' ORDER BY p.ID DESC";
-
-  // $query2 = "SELECT p.*, m.meta_value AS eventstatus
-  //     FROM {$wpdb->posts} p,{$wpdb->postmeta} m
-  //     WHERE p.ID=m.post_id AND p.post_type='".$posttype."' AND p.post_status='publish'
-  //     AND m.meta_key='eventstatus' AND m.meta_value<>'active'";
-
-
-  // $a_query = "SELECT q1.*,date_format(str_to_date(mm.meta_value, '%Y%m%d'),'%Y-%m-%d') AS start_date 
-  // FROM (".$query1.") q1, {$wpdb->postmeta} mm
-  // WHERE q1.ID=mm.post_id AND mm.meta_key='start_date' ORDER BY start_date {$order}";
-
-  // $b_query = "SELECT q2.*,date_format(str_to_date(mc.meta_value, '%Y%m%d'),'%Y-%m-%d') AS c_start_date 
-  // FROM (".$query2.") q2, {$wpdb->postmeta} mc
-  // WHERE q2.ID=mc.post_id AND mc.meta_key='start_date' ORDER BY c_start_date {$order}";
-
-  // $result1 = $wpdb->get_results($a_query);
-  // $result2 = $wpdb->get_results($b_query);
-  // $final = ($result1||$result2) ? array_merge($result1,$result2) : '';
-  // $total = ($final) ? count($final) : 0;
  
   $records = array();
 
