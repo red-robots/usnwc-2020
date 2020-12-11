@@ -18,7 +18,14 @@ while ( have_posts() ) : the_post(); ?>
 	$register_section_icon = get_field("register_section_icon"); 
 	$register_section_title = get_field("register_section_title"); 
 	$race_types = get_field("race_types"); 
-	$registration_note = get_field("registration_note"); 
+	$registration_note = get_field("registration_note");
+
+	$has_race_types = '';
+	if ( isset($race_types[0]['schedule']) && $race_types[0]['schedule'] ) {
+		$rtypes =implode("",$race_types[0]['schedule']);
+		$has_race_types = ($rtypes) ? true : false;
+	}
+
 	if($register_section_title || $race_types) { ?>
 	<section id="section-registration" data-section="Registration" class="section-content">
 		
@@ -34,7 +41,7 @@ while ( have_posts() ) : the_post(); ?>
 		<?php } ?>
 
 
-		<?php if ($race_types) { 
+		<?php if ($has_race_types) { 
 			$count = count($race_types); 
 			$type_class = 'one-col';
 			if($count==2) {
@@ -117,7 +124,7 @@ while ( have_posts() ) : the_post(); ?>
 	$start = get_field("start_date");
 	$end = get_field("end_date");
 	$event_date = get_event_date_range($start,$end,true);
-	if($sched_section_title || $race_types) { ?>
+	if($sched_section_title || $has_race_types) { ?>
 	<section id="section-schedule" data-section="Schedule" class="section-content">
 		<?php if ($sched_section_title) { ?>
 			<div class="title-w-icon">
@@ -133,7 +140,8 @@ while ( have_posts() ) : the_post(); ?>
 			</div>
 		<?php } ?>
 
-		<?php if ($race_types) { ?>
+
+		<?php if ( $has_race_types ) { ?>
 		<div class="filter-section">
 			<div class="wrapper">
 				<div class="filterBy">

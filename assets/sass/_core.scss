@@ -54,7 +54,7 @@ a {
 .cf:after { clear: both; }
 .cf { *zoom: 1; }
 .text-center {text-align:center;}
-.full {width:100%!important;float:left !important}
+.fw,.full {width:100%!important;float:left !important}
 .nomtop {margin-top:0!important;}
 /* Text meant only for screen readers. */
 .sr {
@@ -4098,7 +4098,7 @@ body.subpage.single .content-default .black-section {
 		line-height: 1.8;
 		color: #FFF;
 		padding-top: 30px;
-		padding-bottom: 40px;
+		padding-bottom: 35px;
 		a {
 			color: #FFF;
 			&:hover {
@@ -6790,6 +6790,11 @@ body.pageNoBanner {
 			}
 		}
 	}
+
+	.black-section {
+		p:last-child {margin-bottom:0;}
+	}
+
 }
 
 .camps-payment-options {
@@ -7790,6 +7795,97 @@ body.single-camp {
 	}
 	.subdata:last-child .flexwrap {
 		border-bottom: none;
+	}
+}
+.film-event-status {
+	width: 100%;
+	position: fixed;
+	top: 102px;
+	left: 0;
+	z-index: 100;
+	background: rgba($red,0.85);
+	color: #FFF;
+	text-align: center;
+	font-family: $font-secondary;
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	@include tab {
+		top: 100px;
+	}
+	.wrapper {
+		padding: 8px 20px 8px;
+	}
+}
+body.logged-in.admin-bar {
+	.film-event-status {
+		top: 146px;
+		@include tab {
+			top: 134px;
+		}
+	}
+}
+.content-area-full.film-series-page {
+	.text-centered-section {
+		background: $dark;
+		color: #FFF;
+	}
+	.video-frame {
+		width: 100%;
+		position: relative;
+		margin: 50px 0 10px;
+		img {
+			width: 100%;
+			height: auto;
+		}
+		iframe {
+			width: 100%!important;
+			height: 100%!important;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+		}
+	}
+	.film-disclaimer {
+		background: $red;
+		color: #FFF;
+		font-family: $font-secondary;
+		font-style: italic;
+		font-size: 14px;
+		font-weight: 400;
+		letter-spacing: 1px;
+		.wrapper {
+			padding-top: 25px;
+			padding-bottom: 25px;
+		}
+	}
+	.film-event-details {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		background: $gray;
+		.shead-icon {
+			margin-bottom: 50px;
+		}
+	}
+	.details {
+		font-size: 16px;
+		text-align: center;
+		color: $gray_dark;
+		.info {
+			margin: 30px 0;
+			&.cap {
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+		}
+		.sub {
+			text-transform: uppercase;
+			font-size: 18px;
+    	font-weight: 600;
+    	margin-bottom: 5px;
+    	color: #000;
+		}
 	}
 }
 
