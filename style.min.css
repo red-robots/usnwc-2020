@@ -1895,30 +1895,33 @@ html[xmlns] .flexslider .slides{display:block}
 .ci-board:before{content:'\0043'}
 .ci-building:before{content:'\0044'}
 .ci-bus:before{content:'\0045'}
-.ci-cable:before{content:'\0046'}
-.ci-calendar-alt:before{content:'\0047'}
-.ci-calendar:before{content:'\0048'}
-.ci-camp:before{content:'\0049'}
-.ci-check:before{content:'\004a'}
-.ci-church:before{content:'\004b'}
-.ci-clock:before{content:'\004c'}
-.ci-college:before{content:'\004d'}
-.ci-editor:before{content:'\004e'}
-.ci-give:before{content:'\004f'}
-.ci-help:before{content:'\0050'}
-.ci-map:before{content:'\0051'}
-.ci-menu:before{content:'\0052'}
-.ci-military:before{content:'\0053'}
-.ci-people:before{content:'\0054'}
-.ci-pine-tree:before{content:'\0055'}
-.ci-question:before{content:'\0056'}
-.ci-scout:before{content:'\0057'}
-.ci-silverware:before{content:'\0058'}
-.ci-smiley:before{content:'\0059'}
-.ci-task:before{content:'\005a'}
-.ci-tshirt:before{content:'\0061'}
-.ci-video:before{content:'\0062'}
-.ci-wedding:before{content:'\0063'}
+.ci-calendar-alt:before{content:'\0046'}
+.ci-church:before{content:'\0047'}
+.ci-college:before{content:'\0048'}
+.ci-eat:before{content:'\0049'}
+.ci-editor:before{content:'\004a'}
+.ci-kayak:before{content:'\004b'}
+.ci-menu:before{content:'\004c'}
+.ci-pine-tree:before{content:'\004d'}
+.ci-rafting:before{content:'\004e'}
+.ci-task:before{content:'\004f'}
+.ci-video:before{content:'\0050'}
+.ci-wedding:before{content:'\0051'}
+.ci-cable:before{content:'\0052'}
+.ci-camp:before{content:'\0053'}
+.ci-calendar:before{content:'\0054'}
+.ci-clock:before{content:'\0055'}
+.ci-check:before{content:'\0056'}
+.ci-silverware:before{content:'\0057'}
+.ci-tshirt:before{content:'\0058'}
+.ci-map:before{content:'\0059'}
+.ci-help:before{content:'\005a'}
+.ci-smiley:before{content:'\0061'}
+.ci-question:before{content:'\0062'}
+.ci-people:before{content:'\0063'}
+.ci-scout:before{content:'\0064'}
+.ci-military:before{content:'\0065'}
+.ci-give:before{content:'\0066'}
 /*!
  * iconmonstr iconic font v1.3.0 
  */@font-face{font-family:'iconmonstr-iconic-font';src:url("fonts/iconmonstr-iconic-font.woff2?v=1.3.0") format("woff2"),url("fonts/iconmonstr-iconic-font.woff?v=1.3.0") format("woff"),url("fonts/iconmonstr-iconic-font.ttf?v=1.3.0") format("truetype");font-weight:normal;font-style:normal}
@@ -2698,8 +2701,8 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 .collapsible .option-name span.arrow:before{-webkit-transform:translateX(-7px) rotate(45deg);-ms-transform:translateX(-7px) rotate(45deg);transform:translateX(-7px) rotate(45deg)}
 .collapsible .option-name span.arrow:after{-webkit-transform:translateX(5px) rotate(-45deg);-ms-transform:translateX(5px) rotate(-45deg);transform:translateX(5px) rotate(-45deg)}
 .collapsible .option-text{font-size:14px;padding-top:10px;display:none;-webkit-animation-duration:1s;animation-duration:1s}
-.collapsible.active{border-top-color:#ba0d30}
-.collapsible.active:before{height:100%}
+.collapsible.active{border-top-color:#ba0d30;z-index:10}
+.collapsible.active:before{height:100.5%}
 .collapsible.active .option-name,.collapsible.active .option-text{color:#FFF}
 .collapsible.active .option-name span.arrow,.collapsible.active .option-text span.arrow{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}
 .collapsible.active .option-name span.arrow:before,.collapsible.active .option-name span.arrow:after,.collapsible.active .option-text span.arrow:before,.collapsible.active .option-text span.arrow:after{background:#FFF}
@@ -3632,6 +3635,19 @@ body.logged-in.admin-bar .film-event-status{top:146px}
 .content-area-full.film-series-page .details .info{margin:30px 0}
 .content-area-full.film-series-page .details .info.cap{text-transform:uppercase;letter-spacing:1px}
 .content-area-full.film-series-page .details .sub{text-transform:uppercase;font-size:18px;font-weight:600;margin-bottom:5px;color:#000}
+.main-faqs-icons{background:#f2f2f2}
+.main-faqs-icons .flexwrap{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center}
+.main-faqs-icons .wrapper{padding-top:40px;padding-bottom:40px}
+.main-faqs-icons .faq{display:block;width:50%;text-align:center;padding:30px 20px;color:#191919;text-decoration:none}
+@media(min-width:768px){.main-faqs-icons .faq{width:25%}
+}.main-faqs-icons .faq .icon,.main-faqs-icons .faq .title{display:block;width:100%}
+.main-faqs-icons .faq .icon{font-size:30px;line-height:1}
+.main-faqs-icons .faq .title{font-family:"Lato",sans-serif;font-size:18px;line-height:1.2;text-transform:uppercase;letter-spacing:1px}
+.main-faqs-icons .faq:hover{color:#ba0d30}
+.main-faq-items{width:100%;float:left;padding-top:60px;padding-bottom:60px;position:relative}
+.main-faq-items #loaderDiv{position:absolute !important;background:rgba(255,255,255,0.85)}
+.main-faq-items .loaderInline{position:absolute;top:20%}
+.main-faq-items .sk-chase-dot:before{background-color:#ba0d30}
 .site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}

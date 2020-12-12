@@ -398,6 +398,50 @@ jQuery(document).ready(function($){
     }
 
     /* select custom icons */
+    if( $('div.acf-field[data-name="custom_icon"]').length>0 ) {
+        var customIconDiv = $('div.acf-field[data-name="custom_icon"]');
+        var input = $(this).find('div.acf-field[data-name="custom_icon"] .acf-input-wrap input');
+        var id = input.attr("id");
+        var icon = input.val();
+        var label = (icon) ? 'Edit' : 'Add Icon';
+        var btn = '<span class="cusIcon"><i class="'+icon+'"></i></span><a href="#" data-icon="'+icon+'" class="iconOptBtn">'+label+'</a>';
+        $(btn).insertAfter(input);
+        
+        $(document).on("click",".customIconBtn",function(e){
+            e.preventDefault();
+            $("#customIconsContainer").show();
+        });
+        $(document).on("click","#closeIconList",function(e){
+            e.preventDefault();
+            $("#customIconsContainer").hide();
+            $("#customIconsContainer").attr("data-assign","");
+            $("#customIconsContainer .iconBox").removeClass('selected');
+        });
+        $(document).on("click",".iconBox .w",function(e){
+            e.preventDefault();
+            var icon = $(this).attr("data-icon");
+            var input = customIconDiv.find('.acf-input-wrap input');
+            var inputId = $("#customIconsContainer").attr("data-assign");
+            var parent = customIconDiv;
+           
+            input.val(icon);
+            parent.find("span.cusIcon i").removeAttr("class").addClass(icon);
+            parent.find(".iconOptBtn").attr("data-icon",icon);
+            parent.find(".iconOptBtn").text('Edit');
+            $("#closeIconList").trigger("click");
+        });
+
+        $(document).on("click",".iconOptBtn",function(e){
+            e.preventDefault();
+            var icon = $(this).attr("data-icon");
+            var parent = customIconDiv;
+            var inputId = parent.find(".acf-input-wrap input").attr("id");
+            $("#customIconsContainer").show();
+            $("#customIconsContainer").attr("data-assign",inputId);
+            $('.iconBox .w[data-icon="'+icon+'"]').parent().addClass("selected");
+        });
+    }
+
     if( $('th[data-name="custom_icon"]').length>0 ) {
         // $('th[data-name="custom_icon"]').each(function(){
         //     var iconLink = '<a href="#" class="customIconBtn">Click here to select icons</a>';
@@ -1223,4 +1267,51 @@ function callToActionButtonFunc( $atts ) {
     return $output;
 }
 add_shortcode( 'call-to-action', 'callToActionButtonFunc' );
+
+
+add_action('wp_ajax_nopriv_get_faq_group', 'get_faq_group');
+add_action('wp_ajax_get_faq_group', 'get_faq_group');
+function get_faq_group(){
+    global $wpdb;
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        $post_id = ($_POST['post_id']) ? $_POST['post_id'] : '';
+        $output = getFaqs($post_id);
+        $return['result'] = $output;
+        echo json_encode($return);
+    } else {
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    die();
+}
+
+function getFaqs($post_id) {
+    $output = '';
+    $questions = get_field("faqs",$post_id);
+    ob_start();
+    if($questions) { ?>
+    <div class="faqsItems">
+        <div class="shead-icon text-center">
+            <h2 class="stitle"><?php echo get_the_title($post_id); ?></h2>
+        </div>
+        <div id="faq-<?php echo $faq_id?>" class="faq-group">
+            <?php $n=1; foreach ($questions as $f) { 
+                $question = $f['question'];
+                $answer = $f['answer'];
+                $isFirst = ($n==1) ? ' first':'';
+                if($question && $answer) { ?>
+                <div class="faq-item collapsible<?php echo $isFirst ?>">
+                    <h3 class="option-name"><?php echo $question ?><span class="arrow"></span></h3>
+                    <div class="option-text"><?php echo $answer ?></div>
+                </div>
+                <?php } ?>
+
+            <?php $n++; } ?>
+        </div>
+    </div>
+    <?php }
+    $output = ob_get_contents();
+    ob_end_clean(); 
+    return $output;
+}
+
 

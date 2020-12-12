@@ -2856,8 +2856,9 @@ body.subpage.single {
 	}
 	&.active {
 		border-top-color: $red;
+		z-index: 10;
 		&:before {
-			height: 100%;
+			height: 100.5%;
 		}
 		.option-name, .option-text {
 			color: #FFF;
@@ -7886,6 +7887,66 @@ body.logged-in.admin-bar {
     	margin-bottom: 5px;
     	color: #000;
 		}
+	}
+}
+
+/* Main FAQs */
+.main-faqs-icons {
+	background: $gray;
+	.flexwrap {
+		@include flexbox-align-items(center);
+		@include flexbox-align-content(center);
+	}
+	.wrapper {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+	.faq {
+		display: block;
+		width: 50%;
+		text-align: center;
+		padding: 30px 20px;
+		color: $dark;
+		text-decoration: none;
+		@include tab {
+			width: 25%;
+		}
+		.icon, .title {
+			display: block;
+			width: 100%;
+		}
+		.icon {
+			font-size: 30px;
+			line-height: 1;
+		}
+		.title {
+			font-family: $font-secondary;
+			font-size: 18px;
+			line-height: 1.2;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+		&:hover {
+			color: $red;
+		}
+	}
+}
+.main-faq-items {
+	width: 100%;
+	float: left;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	position: relative;
+	#loaderDiv {
+		position: absolute!important;
+		background: rgba(255,255,255,.85);
+	}
+	.loaderInline {
+		position: absolute;
+		top: 20%;
+	}
+	.sk-chase-dot:before {
+		background-color: $red;
 	}
 }
 

@@ -377,6 +377,17 @@ function set_custom_cpt_columns($columns) {
         $columns['date'] = __( 'Date', 'bellaworks' );
         $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
     }
+
+    if($post_type=='faqs') {
+        unset($columns['expirationdate']);
+        unset($columns['date']);
+        unset($columns['taxonomy-faq_type']);
+        $columns['title'] = __( 'Name', 'bellaworks' );
+        $columns['icon'] = __( 'Icon', 'bellaworks' );
+        $columns['taxonomy-faq_type'] = __( 'FAQ Type', 'bellaworks' );
+        $columns['date'] = __( 'Date', 'bellaworks' );
+        $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
+    }
     
     return $columns;
 }
@@ -431,6 +442,15 @@ function custom_post_column( $column, $post_id ) {
             case 'eventdate' :
                 $dates = get_field('date_range',$post_id);
                 echo ($dates) ? $dates:'';
+                break;
+        }
+    }
+
+    if($post_type=='faqs') {
+        switch ( $column ) {
+            case 'icon' :
+                $icon = get_field('custom_icon',$post_id);
+                echo ($icon) ? '<span class="'.$icon.'" style="font-size:25px;line-height:1"></span>':'';
                 break;
         }
     }

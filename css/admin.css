@@ -256,3 +256,18 @@ tbody td[data-name="custom_icon"] .iconOptBtn {
   top: -8px;
 }
 
+div.acf-field[data-name="custom_icon"] .acf-input-wrap input {
+  visibility: hidden;
+  position: absolute;
+  left: -99em;
+  z-index: -2;
+}
+div.acf-field[data-name="custom_icon"] span.cusIcon {
+  font-size: 30px;
+  line-height: 1;
+  margin-right: 15px;
+}
+div.acf-field[data-name="custom_icon"] .iconOptBtn {
+  position: relative;
+  top: -8px;
+}

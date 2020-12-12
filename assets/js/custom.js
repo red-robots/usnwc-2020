@@ -481,4 +481,60 @@ jQuery(document).ready(function ($) {
 		$(".explore-other-stuff .post-type-entries").addClass('column-list-'+totalEntries);
 	}
 
+	/* Ajax Load More */
+	$('a[href*="#"]:not([href="#"])').click(function() {
+	    var headHeight = $("#masthead").height();
+			var offset = headHeight + 80;
+
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	        var target = $(this.hash);
+	        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	        if (target.length) {
+	          $('html, body').animate({
+	              scrollTop: target.offset().top - offset
+	          }, 1000);
+	          return false;
+	        }
+	    }
+		});
+
+
+	$(document).on("click",".faqGroup",function(e){
+		e.preventDefault();
+		var postid = $(this).attr("data-id");
+		var headHeight = $("#masthead").height();
+		var offset = headHeight + 80
+		var target = $("#faqItems");
+		$('html, body').animate({
+      scrollTop: target.offset().top - offset
+    }, 1000);
+
+		$.ajax({
+			url : frontajax.ajaxurl,
+			type : 'post',
+			dataType : "json",
+			data : {
+				action 	: 'get_faq_group',
+				post_id : postid
+			},
+			beforeSend:function(){
+				$("#loaderDiv").appendTo(".main-faq-items");
+				$("#loaderDiv").show();
+			},
+			success:function( obj ) {
+				if(obj.result) {
+					$("#faqsContainer").html(obj.result);
+					setTimeout(function(){
+						$("#loaderDiv").hide();
+					},500);
+				}
+			},
+			error:function() {
+				$("#loaderDiv").hide();
+			}
+		});
+
+	});
+
+
 });// END #####################################    END
