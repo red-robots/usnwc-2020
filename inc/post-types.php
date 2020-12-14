@@ -144,6 +144,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-groups',
             'supports'  => array('title','editor')
         ),
+        array(
+            'post_type' => 'employeestories',
+            'menu_name' => 'Employee Stories',
+            'plural'    => 'Employee Stories',
+            'single'    => 'Employee Story',
+            'menu_icon' => 'dashicons-format-status',
+            'supports'  => array('title','editor')
+        ),
     );
     
     if($post_types) {
@@ -311,6 +319,51 @@ function build_taxonomies() {
             'show_admin_column' => true,
             'public' => true,
             'rewrite' => array( 'slug' => 'edition' ),
+            '_builtin' => true
+        ) 
+    );
+
+    register_taxonomy( 
+        'jobtype', 
+        array('job'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Job Type', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'jobtype' ),
+            '_builtin' => true
+        ) 
+    );
+
+    register_taxonomy( 
+        'joblocation', 
+        array('job'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Job Locations', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'joblocation' ),
+            '_builtin' => true
+        ) 
+    );
+
+    register_taxonomy( 
+        'department', 
+        array('job'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Department', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'department' ),
             '_builtin' => true
         ) 
     );

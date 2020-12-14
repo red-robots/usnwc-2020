@@ -4704,6 +4704,115 @@ body.subpage.single .content-default .black-section {
 	}
 }
 
+.text-and-gallery {
+	width: 100%;
+	float: left;
+	margin-top: 50px;
+	.mscol {
+		margin-top: 15px;
+		margin-bottom: 15px;
+		@include flexgroup();
+	}
+	.gallerycol {
+		.flexslider,
+		.slides,
+		.slides li.slide-item {
+			width: 100%;
+			float: left;
+			position: relative;
+			background-color: #CCC;
+			border-radius: 0px;
+			@include tab {
+				height: 100%!important;
+			}
+		}
+		.slides li.slide-item {
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		img {
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+		img.actual-image {
+			display: none;
+		}
+		.flex-control-paging {
+			margin: 0 0;
+			padding: 0 0;
+			list-style: none;
+			li {
+				a {
+					box-shadow: none;
+					border: 1px solid $gray;
+					&.flex-active {
+						background: $gray;
+					}
+				}
+			}
+		}
+	}
+	.textcol, .gallerycol {
+		width: 100%;
+		position: relative;
+		background: $gray;
+	}
+	.textcol {
+		font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+		.inside {
+			padding: 5vw;
+			@include tab {
+				height: 100%;
+				@include flexgroup-center();
+			}
+		}
+		.icondiv {
+			text-align: center;
+			span {
+				display: inline-block;
+				width: 60px;
+				height: 60px;
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+		}
+		.mstitle {
+			font-family: $font_secondary;
+			font-size: 30px;
+			font-weight: 500;
+			line-height: 1.2;
+			margin: 0 0 15px;
+			text-transform: uppercase;
+		}
+		.mstime {
+			font-size: 20px;
+			font-weight: 600;
+			line-height: 1.2;
+		}
+		.buttondiv {
+			margin-top: 25px;
+		}
+	}
+	.half {
+		.textcol {
+			@include tab {
+				border-right: 15px solid #FFF;
+				width: 40%;
+			}
+		}
+		.gallerycol {
+			@include tab {
+				width: 60%;
+			}
+		}
+	}
+}
+
 .section-text-and-image {
 	width: 100%;
 	float: left;
@@ -7947,6 +8056,154 @@ body.logged-in.admin-bar {
 	}
 	.sk-chase-dot:before {
 		background-color: $red;
+	}
+}
+
+.employment-page {
+	.section-video {
+		background: #191919;
+		color: #FFF;
+		padding-top: 60px;
+		padding-bottom: 60px;
+		@include tab {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+	}
+	.video-frame {
+		width: 100%;
+		float: left;
+		position: relative;
+		iframe {
+			width: 100%!important;
+			height: 100%!important;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+		}
+		img.video-helper {
+			width: 100%;
+			height: auto;
+			float: left;
+		}	
+	}
+}
+
+.section-jobfair {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	.imagecol, .jobfair {
+		width: 100%;
+	}
+	.jobfair {
+		.inside {
+			background: $gray;
+			height: 100%;
+			padding: 40px 30px;
+			@include flexgroup-center();
+			@include tab {
+				padding: 5vw 3vw;
+			}
+			.wrap {
+				width: 100%;
+			}
+		}
+		.shead-icon {
+			margin-bottom: 45px;
+		}
+	}
+	&.half {
+		.imagecol {
+			width: 100%;
+			@include tab {
+				width: 50%;
+				padding-left: 10px;
+				padding-right: 5px;
+			}
+		}
+		.jobfair {
+			width: 100%;
+			@include tab {
+				width: 50%;
+				padding-left: 5px;
+				padding-right: 10px;
+			}
+		}
+	}
+	.imagecol {
+		.r1 {
+			width: 100%;
+			float: left;
+			img {
+				width: 100%;
+				height: auto;
+				float: left;
+			}
+		}
+		.r2 {
+			width: 100%;
+			float: left;
+			padding-top: 10px;
+    	.text {
+    		background: #DC6B36;
+				padding: 5vw;
+				color: #FFF;
+				font-size: 15px;
+	    	line-height: 1.6;
+    	}
+    	p:last-child {
+    		margin-bottom: 0;
+    	}
+		}
+	}
+
+	.schedule {
+		text-align: center;
+		.info {
+			margin-top: 30px;
+		}
+		.time {
+			span {
+				display: inline-block;
+				position: relative;
+				padding-left: 12px;
+				padding-right: 4px;
+				font-size: 18px;
+				color: $gray_dark;
+				&:before {
+					content: "";
+					display: block;
+					width: 4px;
+					height: 4px;
+					background: $gray_dark;
+					border-radius: 100px;
+					position: absolute;
+					top: 7px;
+					left: 0;
+				}
+			}
+			span:first-child {
+				padding-left: 0;
+				&:before {
+					display: none;
+				}
+			}
+		}
+		.buttondiv {
+			margin-top: 10px;
+		}
+	}
+}
+
+.section-available-jobs {
+	width: 100%;
+	float: left;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	@include tab {
+		padding-top: 80px;
+		padding-bottom: 80px;
 	}
 }
 

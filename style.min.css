@@ -3037,6 +3037,27 @@ body.subpage.single .content-default .black-section .wrapper a:hover{color:#ba0d
 }@media(min-width:768px){.menu-sections .half.odd .textcol{border-right:15px solid #FFF}
 }.menu-sections .half.even{-webkit-flex-direction:row-reverse;-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
 @media(min-width:768px){.menu-sections .half.even .textcol{border-left:15px solid #FFF}
+}.text-and-gallery{width:100%;float:left;margin-top:50px}
+.text-and-gallery .mscol{margin-top:15px;margin-bottom:15px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.text-and-gallery .gallerycol .flexslider,.text-and-gallery .gallerycol .slides,.text-and-gallery .gallerycol .slides li.slide-item{width:100%;float:left;position:relative;background-color:#CCC;border-radius:0}
+@media(min-width:768px){.text-and-gallery .gallerycol .flexslider,.text-and-gallery .gallerycol .slides,.text-and-gallery .gallerycol .slides li.slide-item{height:100% !important}
+}.text-and-gallery .gallerycol .slides li.slide-item{background-size:cover;background-position:center;background-repeat:no-repeat}
+.text-and-gallery .gallerycol img{width:100%;height:auto;float:left}
+.text-and-gallery .gallerycol img.actual-image{display:none}
+.text-and-gallery .gallerycol .flex-control-paging{margin:0;padding:0;list-style:none}
+.text-and-gallery .gallerycol .flex-control-paging li a{box-shadow:none;border:1px solid #f2f2f2}
+.text-and-gallery .gallerycol .flex-control-paging li a.flex-active{background:#f2f2f2}
+.text-and-gallery .textcol,.text-and-gallery .gallerycol{width:100%;position:relative;background:#f2f2f2}
+.text-and-gallery .textcol{font-size:16px;line-height:1.5;text-align:center}
+.text-and-gallery .textcol .inside{padding:5vw}
+@media(min-width:768px){.text-and-gallery .textcol .inside{height:100%;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+}.text-and-gallery .textcol .icondiv{text-align:center}
+.text-and-gallery .textcol .icondiv span{display:inline-block;width:60px;height:60px;background-size:contain;background-position:center;background-repeat:no-repeat}
+.text-and-gallery .textcol .mstitle{font-family:"Lato",sans-serif;font-size:30px;font-weight:500;line-height:1.2;margin:0 0 15px;text-transform:uppercase}
+.text-and-gallery .textcol .mstime{font-size:20px;font-weight:600;line-height:1.2}
+.text-and-gallery .textcol .buttondiv{margin-top:25px}
+@media(min-width:768px){.text-and-gallery .half .textcol{border-right:15px solid #FFF;width:40%}
+}@media(min-width:768px){.text-and-gallery .half .gallerycol{width:60%}
 }.section-text-and-image{width:100%;float:left}
 .section-text-and-image .leftcol,.section-text-and-image .rightcol{width:100%;position:relative}
 .section-text-and-image .leftcol{background:#f2f2f2}
@@ -3653,7 +3674,36 @@ body.logged-in.admin-bar .film-event-status{top:146px}
 .main-faq-items #loaderDiv{position:absolute !important;background:rgba(255,255,255,0.85)}
 .main-faq-items .loaderInline{position:absolute;top:20%}
 .main-faq-items .sk-chase-dot:before{background-color:#ba0d30}
-.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
+.employment-page .section-video{background:#191919;color:#FFF;padding-top:60px;padding-bottom:60px}
+@media(min-width:768px){.employment-page .section-video{padding-top:80px;padding-bottom:80px}
+}.employment-page .video-frame{width:100%;float:left;position:relative}
+.employment-page .video-frame iframe{width:100% !important;height:100% !important;position:absolute;top:0;left:0;z-index:10}
+.employment-page .video-frame img.video-helper{width:100%;height:auto;float:left}
+.section-jobfair{padding-top:10px;padding-bottom:10px}
+.section-jobfair .imagecol,.section-jobfair .jobfair{width:100%}
+.section-jobfair .jobfair .inside{background:#f2f2f2;height:100%;padding:40px 30px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+@media(min-width:768px){.section-jobfair .jobfair .inside{padding:5vw 3vw}
+}.section-jobfair .jobfair .inside .wrap{width:100%}
+.section-jobfair .jobfair .shead-icon{margin-bottom:45px}
+.section-jobfair.half .imagecol{width:100%}
+@media(min-width:768px){.section-jobfair.half .imagecol{width:50%;padding-left:10px;padding-right:5px}
+}.section-jobfair.half .jobfair{width:100%}
+@media(min-width:768px){.section-jobfair.half .jobfair{width:50%;padding-left:5px;padding-right:10px}
+}.section-jobfair .imagecol .r1{width:100%;float:left}
+.section-jobfair .imagecol .r1 img{width:100%;height:auto;float:left}
+.section-jobfair .imagecol .r2{width:100%;float:left;padding-top:10px}
+.section-jobfair .imagecol .r2 .text{background:#dc6b36;padding:5vw;color:#FFF;font-size:15px;line-height:1.6}
+.section-jobfair .imagecol .r2 p:last-child{margin-bottom:0}
+.section-jobfair .schedule{text-align:center}
+.section-jobfair .schedule .info{margin-top:30px}
+.section-jobfair .schedule .time span{display:inline-block;position:relative;padding-left:12px;padding-right:4px;font-size:18px;color:#707070}
+.section-jobfair .schedule .time span:before{content:"";display:block;width:4px;height:4px;background:#707070;border-radius:100px;position:absolute;top:7px;left:0}
+.section-jobfair .schedule .time span:first-child{padding-left:0}
+.section-jobfair .schedule .time span:first-child:before{display:none}
+.section-jobfair .schedule .buttondiv{margin-top:10px}
+.section-available-jobs{width:100%;float:left;padding-top:50px;padding-bottom:50px}
+@media(min-width:768px){.section-available-jobs{padding-top:80px;padding-bottom:80px}
+}.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}
 .site-footer .coltitle{color:#FFF;font-family:"Lato",sans-serif;font-size:15px;font-weight:300;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
