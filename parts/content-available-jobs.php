@@ -75,7 +75,7 @@ if( $posts->have_posts() ) { ?>
 
 			<?php if ($title4) { ?>
 			<div class="shead-icon text-center">
-				<div class="icon"><span class="ci-menu"></span></div>
+				<div class="icon"><span class="ci-nametag"></span></div>
 				<h2 class="stitle"><?php echo $title4 ?></h2>
 			</div>
 			<?php } ?>

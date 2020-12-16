@@ -22,7 +22,7 @@ if( $stories->have_posts() ) { ?>
 	<?php if ($title5) { ?>
 	<div class="shead-icon text-center">
 		<div class="wrapper">
-			<div class="icon"><span class="ci-menu"></span></div>
+			<div class="icon"><span class="ci-book"></span></div>
 			<h2 class="stitle"><?php echo $title5 ?></h2>
 		</div>
 	</div>

@@ -177,7 +177,7 @@ $currentPageLink = get_permalink();
 
 		<?php
 		$customFAQTitle = 'FAQ';
-		$customFAQClass = 'custom-class-faq';
+		$customFAQClass = 'custom-class-faq graybg';
 		include( locate_template('parts/content-faqs.php') );
 		include( locate_template('inc/faqs.php') );
 		?>
