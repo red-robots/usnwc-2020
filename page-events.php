@@ -65,6 +65,7 @@ $currentPageLink = get_permalink();
 								<?php echo do_shortcode('[facetwp facet="event_space_loctype"]'); ?>
 							</div>
 							<?php } ?>
+
 						</div>
 					</div>
 

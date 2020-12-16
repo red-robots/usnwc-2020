@@ -1,33 +1,26 @@
 <?php
-/**
- * Template Name: Employment
- */
-
-get_header(); 
-$blank_image = THEMEURI . "images/rectangle.png";
-$square = THEMEURI . "images/square.png";
+$placeholder = THEMEURI . 'images/rectangle.png';
 $banner = get_field("flexslider_banner");
 $has_banner = ($banner) ? 'hasbanner':'nobanner';
-$currentPageLink = get_permalink();
-?>
+get_header(); ?>
 
-<div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full employment-page <?php echo $has_banner ?>">
-	
+<div id="primary" class="content-area-full employment-page <?php echo $has_banner ?>">
+	<main id="main" class="site-main" role="main">
+
 		<?php while ( have_posts() ) : the_post(); ?>
-			<?php if( get_the_content() ) { ?>
-				<div class="intro-text-wrap">
-					<div class="wrapper">
-						<h1 class="page-title"><span><?php the_title(); ?></span></h1>
-						<div class="intro-text"><?php the_content(); ?></div>
+
+			<section class="text-centered-section">
+				<div class="wrapper text-center">
+					<div class="page-header">
+						<h1 class="page-title"><?php the_title(); ?></h1>
 					</div>
+					<?php the_content(); ?>
 				</div>
-			<?php } ?>
-		<?php endwhile;  ?>
+			</section>
 
-		<?php get_template_part("parts/subpage-tabs"); ?>
+			<?php get_template_part("parts/subpage-tabs"); ?>
 
-
-		<?php
+			<?php
 			$icon1 = get_field("icon1");
 			$title1 = get_field("title1");
 			$text1 = get_field("text1");
@@ -75,7 +68,7 @@ $currentPageLink = get_permalink();
 			</section>
 			<?php } ?>
 
-		<?php
+			<?php
 			$title2 = get_field("title2");
 			$title2 = ($title2) ? $title2 : '';
 			$video_code = get_field("video_code");
@@ -85,12 +78,11 @@ $currentPageLink = get_permalink();
 				<div class="wrapper narrow">
 					<div class="video-frame">
 						<?php echo $video_code ?>
-						<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="video-helper" />		
+						<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" class="video-helper" />		
 					</div>
 				</div>
 			</section>
 			<?php } ?>
-
 
 			<?php
 			$left_image = get_field("left_image");
@@ -169,71 +161,14 @@ $currentPageLink = get_permalink();
 			</section>
 			<?php } ?>
 
+		<?php endwhile; ?>
 
-		
-		<?php get_template_part("parts/content-available-jobs") ?>
-		<?php //get_template_part("parts/content-employee-stories") ?>
+		<?php get_template_part('parts/content-available-jobs'); ?>
 
 
-		<?php
-		$customFAQTitle = 'FAQ';
-		$customFAQClass = 'custom-class-faq';
-		include( locate_template('parts/content-faqs.php') );
-		include( locate_template('inc/faqs.php') );
-		?>
-
+	</main><!-- #main -->
 </div><!-- #primary -->
 
-<script type="text/javascript">
-jQuery(document).ready(function($){
-	var currentURL = window.location.href;
-
-	$(document).on('facetwp-refresh', function() {
-    var query_string = FWP.build_query_string();
-    if ( '' === query_string ) { // no facets are selected
-      $('.filter-message #fm').show();
-      //location.reload();
-    } else {
-    	$('.filter-message #fm').hide();
-    }
-	});
-
-		$(document).on('change', '.facetwp-facet-job_locations', function(e) { // change product_tags to name of dropdown facet
-        // FWP.is_reset = true;
-        // FWP.facets['product_categories'] = []; // set other facet to no selections
-        // delete FWP.facets['paged']; // remove "paged" from URL
-        // FWP.refresh();
-        //FWP.is_reset = true;
-        console.log(e)
-    });
-
-	$(document).on("click","#nextPostsBtn",function(e){
-		e.preventDefault();
-		var button = $(this);
-		var baseURL = $(this).attr("data-baseurl");
-		var currentPageNum = $(this).attr("data-current");
-		var nextPageNum = parseInt(currentPageNum) + 1;
-		var pageEnd = $(this).attr("data-end");
-		var nextURL = baseURL + '?pg=' + nextPageNum;
-		button.attr("data-current",nextPageNum);
-		if(nextPageNum==pageEnd) {
-			$(".loadmorediv").remove();
-		}
-		$(".hidden-entries").load(nextURL+" #data-container",function(){
-			if( $(this).find(".posts-inner .flex-inner").length>0 ) {
-				var entries = $(this).find(".posts-inner .flex-inner").html();
-				$("#loaderDiv").addClass("show");
-				if(entries) {
-					$("#data-container .flex-inner").append(entries);
-					setTimeout(function(){
-						$("#loaderDiv").removeClass("show");
-					},500);
-				}
-			}
-		});
-	});
-});
-</script>
 <?php
 include( locate_template('inc/pagetabs-script.php') );
 get_footer();

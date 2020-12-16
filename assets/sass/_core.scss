@@ -6695,6 +6695,7 @@ body.pageNoBanner {
 	}
 }
 .group-events-activities.section-content,
+.grid-images,
 .camp-activities.section-content {
 	background: #FFF;
 	padding-top: 50px;
@@ -6780,6 +6781,13 @@ body.pageNoBanner {
 				margin: 0 0;
 			}
 		}
+	}
+}
+
+.grid-images {
+	.entryList {
+		margin-left: -8px;
+		margin-right: -8px;
 	}
 }
 
@@ -8204,6 +8212,168 @@ body.logged-in.admin-bar {
 	@include tab {
 		padding-top: 80px;
 		padding-bottom: 80px;
+	}
+}
+
+.filter-wrapper.filterstyle {
+	.flexwrap {
+		@include flexgroup-center();
+	}
+	.fs-label {
+		text-transform: uppercase;
+	}
+	.fs-option-label {
+		text-align: left;
+	}
+	.facetwp-type-fselect, 
+	.facetwp-facet .fs-wrap {
+		width: 100%;
+		float: left;
+	}
+	.filter-label,
+	.select-wrap {
+		padding-left: 6px;
+		padding-right: 6px;
+		height: 37px;
+		text-transform: uppercase;
+	}
+	.filter-label {
+		width: 20%;
+		.inside {
+			background: $gray_dark;
+			color: #FFF;
+			width: 100%;
+			height: 100%;
+			@include flexgroup-center();
+		}
+		span {
+			display: block;
+			width: 100%;
+			text-align: center;
+			padding: 0 20px;
+		}
+	}
+	.select-wrap {
+		width: 26.5%;
+	}
+	@media screen and (max-width: 960px) {
+		.flexwrap {
+			display: block;
+			.filter-label,
+			.select-wrap {
+				float: left;
+			}
+		}
+	}
+	@media screen and (max-width: 820px) {
+		.wrapper {
+			max-width: 500px;
+			width: 100%;
+		}
+		.flexwrap {
+			.filter-label,
+			.select-wrap {
+				width: 100%;
+				float: left;
+			}
+			.select-wrap {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+.employment-page {
+	.filter-wrapper {
+		padding-bottom: 0;
+		margin-bottom: 30px;
+	}
+	.filter-message {
+		width: 100%;
+		float: left;
+		#fm {
+			font-size: 15px;
+    	margin-bottom: 15px;
+		}
+	}
+	.job-department {
+		width: 100%;
+		float: left;
+		text-align: center;
+		text-transform: uppercase;
+		.inner {
+			margin-top: 20px;
+			display: inline-block;
+		}
+		span, i {
+			display: inline-block;
+			font-size: 18px;
+			// float: left;
+		}
+		i {
+			margin-right: 3px;
+			position: relative;
+			top: 5px;
+			font-size: 25px!important;
+			line-height: 1;
+		}
+		span {
+			letter-spacing: 1px;
+			margin: 0 2px;
+			border-bottom: 2px solid $red;
+		}
+	}
+	.flex-inner {
+		width: 100%;
+		float: left;
+		margin-top: 30px;
+		margin-bottom: 20px;
+		.joblist {
+			width: 100%;
+			text-align: center;
+			font-size: 18px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: $red;
+			margin: 10px 0;
+		}
+		.job-group {
+			width: 100%;
+			text-align: center;
+			margin-bottom: 50px;
+			.job-department {
+				margin-bottom: 25px;
+			}
+			.joblist {
+				a {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	#section-faqs {
+		background: $gray;
+	}
+}
+
+.entries-with-filter {
+	width: 100%;
+	float: left;
+	padding-top: 70px;
+}
+
+.employee-stories {
+	width: 100%;
+	float: left;
+	background: #000;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	.shead-icon {
+		color: #FFF;
+		margin-bottom: 60px;
+		.stitle {
+			color: #FFF;
+		}
 	}
 }
 
