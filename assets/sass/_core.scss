@@ -1136,15 +1136,15 @@ body.nav-open {
 		width: 30px;
 		height: 30px;
 	}
-	span.tree {
-		background-image:url("images/icons/bw_tree.svg");
-	}
-	span.calendar {
-		background-image:url("images/icons/bw_calendar.svg");
-	}
-	span.video {
-		background-image:url("images/icons/bw_video_white.svg");
-	}
+	// span.tree {
+	// 	background-image:url("images/icons/bw_tree.svg");
+	// }
+	// span.calendar {
+	// 	background-image:url("images/icons/bw_calendar.svg");
+	// }
+	// span.video {
+	// 	background-image:url("images/icons/bw_video_white.svg");
+	// }
 }
 
 .homerow {
@@ -2821,6 +2821,7 @@ body.subpage.single {
 		letter-spacing: 1px;
 		margin: 0 0;
 		position: relative;
+		padding-right: 40px;
 		span.arrow {
 			display: block;
 			width: 18px;
@@ -3286,6 +3287,9 @@ body.subpage.single {
 		margin-top: 50px;
 		margin-bottom: 50px;
 	}
+	&.fixed-top {
+		z-index: 108!important;
+	}
 	#tabcontent {
 		display: inline-block;
 		position: relative;
@@ -3353,6 +3357,7 @@ body.subpage.single {
 		}
 	}
 }
+
 #pageTabs.pageTabs2 {
 	.mini-nav {
 		padding: 0 25px;
@@ -8376,6 +8381,285 @@ body.logged-in.admin-bar {
 		margin-bottom: 60px;
 		.stitle {
 			color: #FFF;
+		}
+	}
+}
+.twoColSection {
+	.twoColInner {
+		width: 100%;
+		float: left;
+		background: $gray;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	&.half {
+		position: relative;
+		background: transparent;
+		.twoColInner {
+			@include flexgroup();
+			margin-left: -8px;
+			margin-right: -8px;
+			padding-top: 0;
+			padding-bottom: 0;
+			background: transparent;
+		}
+	}
+	.tcol {
+		max-width: 900px;
+		width: 100%;
+		margin: 0 auto;
+		padding-left: 15px;
+		padding-right: 15px;
+		&.nophoto {
+			.inner {
+				@include flexgroup-center();
+			}
+		}
+	}
+	.inner {
+		height: 100%;
+		background: $gray;
+	}
+	&.half {
+		.tcol {
+			max-width: 100%;
+			width: 100%;
+			padding: 8px;
+			margin: 0 0;
+			@include tab {
+				max-width: 50%;
+				width: 50%;
+			}
+		}
+	}
+	.photo {
+		width: 100%;
+		float: left;
+		background-color: $gray;
+		div.img {
+			width: 100%;
+			float: left;
+			@include backgroundImage();
+		}
+		img.helper {
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+	}
+	.info {
+		width: 100%;
+		float: left;
+		padding: 35px 20px 40px;
+		.text {
+			color: $gray_dark;
+			max-width: 80%;
+			width: 100%;
+			margin: 0 auto 30px;
+		}
+	}
+	h2.stitle {
+		font-size: 20px;
+		margin: 0 0 15px;
+	}
+
+}
+
+.page-activity-passes {
+	#pageTabs {
+		top: -20px;
+	}
+	.pass-types {
+		max-width: 100%;
+		width: 100%;
+		margin: 40px 0 0;
+		@include tab {
+			margin: 40px auto 0;
+			@include flexbox();
+		}
+		.type {
+			width: 100%;
+    	margin: 20px 0;
+    	border-top: 1px solid #b9b9b9;
+    	padding: 20px 15px 0 15px;
+    	position: relative;
+			@include tab {
+				margin: 0 0;
+				border-top: none;
+				padding-top: 0;
+			}
+			@include tab {
+				&:before {
+					content:"";
+					display: block;
+					width: 1px;
+					height: 100%;
+					background: #a2a2a2;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+			}
+		}
+		.type:first-child {
+			border-top: none;
+			padding-top: 0;
+			&:before {
+				display: none;
+			}
+		}
+		.pass-name {
+			font-size: 18px;
+			color: $gray_dark;
+			margin-bottom: 12px;
+		}
+		.pr {
+			margin: 4px 0;
+			font-size: 15px;
+		}
+		.buttondiv {
+			margin-top: 30px;
+			.btn-sm:before {
+				left: -40%;
+			}
+		}
+	}
+	.single-activities {
+		width: 100%;
+		float: left;
+		.inner-content {
+			max-width: 100%;
+			width: 100%;
+			margin: 0 auto;
+			@include tab {
+				max-width: 90%;
+			}
+		}
+	}
+	.itemrow {
+		width: 100%;
+		float: left;
+		position: relative;
+		margin: 14px 0;
+		@include tab {
+			margin: 7px 0;
+		}
+		&:after {
+			content:"";
+			display: block;
+			width: 100%;
+			height: 3px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			opacity: 0.35;
+			@include custom_dashed();
+		}
+		.activity-name, 
+		.button-group {
+			display: inline-block;
+			position: relative;
+			z-index: 5;
+    	bottom: -8px;
+		}
+		.button-group .wrap {
+			display: inline-block;
+			background: $gray;
+			float: right;
+			padding-left: 3px;
+		}
+		.activity-name {
+			float: left;
+			line-height: 1.2;
+			padding-right: 5px;
+			max-width: 60%;
+			width: 100%;
+			text-align: left;
+			span {
+				display: inline;
+				background: $gray;
+				padding-right: 5px;
+				position: relative;
+				z-index: 15;
+				bottom: -8px;
+			}
+		}	
+		.button-group{
+			float: right;
+			padding-left: 8px;
+			max-width: 40%;
+			width: 100%;
+			.price, .btn-sm {
+				display: inline-block;
+				float: left;
+			}
+			.btn-sm {
+				position: relative;
+				top: -6px;
+				margin-left: 10px;
+			}
+			.spacer {
+				display: inline-block;
+				position: relative;
+				top: -4px;
+				font-style: italic;
+			}
+		}
+		.btn-sm {
+			@include tab {
+				font-size: 11px;
+				padding: 3px 8px 2px;
+				min-width: 70px;
+			}
+		}
+	}
+	.itemrow.nobutton {
+		.activity-name span {
+			bottom: 3px;
+		}
+	}
+	.camp-activities.section-content {
+		padding-top: 40px;
+	}
+	@media screen and (max-width: 999px) {
+		.pass-types {
+			@include flexgroup();
+			.type {
+				width: 100%;
+				margin: 20px 0;
+				&:before {
+					width: 100%;
+					height: 1px;
+					top: -21px;
+				}
+			}
+			.buttondiv {
+				margin-top: 20px;
+			}
+		}
+	}
+}
+
+#section-activities.section-content {
+	.entryList {
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+}
+
+.activity-blocks {
+	.imagediv {
+		span.img {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%!important;
+			height: 100%!important;
 		}
 	}
 }

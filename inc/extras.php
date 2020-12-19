@@ -300,6 +300,16 @@ function my_custom_admin_js() { ?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
 
+    /* ACF Flexible Content For Other Activities */
+    if( $('[data-name="other_activities"]').length > 0 ) {
+        $('[data-layout="other_activity"]').each(function(){
+            var str = $(this).find('[data-name="title"] .acf-input-wrap input').val();
+            var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
+            $(this).find(".acf-fc-layout-handle").attr("data-title",title);
+        });
+    }
+
+
     /* ACF Flexible Content For Group Events Itineraries */
     if( $('[data-name="accordion_content"]').length > 0 ) {
         $('[data-layout="accordion_entry"]').each(function(){
@@ -600,6 +610,15 @@ function be_acf_options_page() {
     }
 }
 add_action( 'acf/init', 'be_acf_options_page' );
+
+/* Options page under Story custom post type */
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_sub_page(array(
+        'page_title'     => 'Other Activities',
+        'menu_title'    => 'Other Activities',
+        'parent_slug'    => 'edit.php?post_type=activity',
+    ));
+}
 
 function get_vimeo_data($vimeoId) {
     if (empty($vimeoId)) return '';
