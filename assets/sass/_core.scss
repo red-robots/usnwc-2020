@@ -8737,6 +8737,11 @@ body.logged-in.admin-bar {
 			}
 		}
 	}
+	&.page-activity-passes {
+		.itemrow .activity-name span {
+			bottom: -2px;
+		}
+	}
 }
 
 .sectionTwoCol {
