@@ -8664,6 +8664,139 @@ body.logged-in.admin-bar {
 	}
 }
 
+.buy-page#primary {
+	.twoColSection {
+		width: 100%;
+    float: left;
+		margin-bottom: 16px;
+		.twoColInner {
+			background: transparent;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		.tcol {
+			max-width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+			.inner {
+				background: transparent;
+				@include flexgroup();
+			}
+			.photo {
+				width: 100%;
+				@include tab {
+					width: 40%;
+				}
+				div.img {
+					width: 100%;
+					height: 100%;
+				}
+				img.helper {
+					display: block;
+					@include tab {
+						display: none;
+					}
+				}
+			}
+			.info {
+				width: 100%;
+				padding: 0 0;
+				background: transparent;
+				@include tab {
+					width: 60%;
+				}
+				.pad {
+					background: $gray;
+					float: left;
+    			width: 100%;
+					padding: 50px 30px;
+					@include tab {
+						padding: 100px 3vw;
+					}
+				}
+			}
+			&#section1 {
+				margin-bottom: 16px;
+				.info {
+					@include tab {
+						padding-left: 16px;
+					}
+				}
+			}
+			&#section2 {
+				.inner {
+					@include tab {
+						@include flexbox-direction(row-reverse);
+					}
+				}
+				.info {
+					@include tab {
+						padding-right: 16px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.sectionTwoCol {
+	margin-bottom: 16px;
+	.imageCol {
+		width: 100%;
+		@include tab {
+			width: 40%;
+		}
+		div.img {
+			width: 100%;
+			height: 100%;
+			@include backgroundImage(center);
+		}
+		img.helper {
+			display: block;
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+	}
+	.textCol {
+		width: 100%;
+		@include tab {
+			width: 60%;
+			padding-left: 16px;
+		}
+		.inner {
+			background: $gray;
+			float: left;
+			width: 100%;
+			height: 100%;
+			padding: 50px 30px;
+			@include tab {
+				padding: 100px 3vw;
+			}
+		}
+		.text {
+			@include mid {
+				padding-left: 5vw;
+				padding-right: 5vw;
+			}
+			p:last-child {margin-bottom:0;}
+		}
+	}
+}
+.sectionTwoCol:nth-child(odd) {
+	.flexwrap {
+		@include tab {
+			@include flexbox-direction(row-reverse);
+		}
+		.textCol {
+			@include tab {
+				padding-left: 0;
+				padding-right: 16px;
+			}
+		}
+	}
+}
+
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");
