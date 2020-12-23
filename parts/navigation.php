@@ -20,6 +20,14 @@ if($parents) { ?>
 				<?php $i=1; foreach ($parents as $p) { 
 					$parent_name = $p['parent_menu_name'];
 					$parent_link = $p['parent_menu_link'];
+					$parentURL = (isset($parent_link['url']) && $parent_link['url']) ? $parent_link['url']:'#';
+					$link_target = ( isset($parent_link['target']) && $parent_link['target'] ) ? $parent_link['target']:'_self';
+					// $link_target = '_self';
+					// if( $parentURL && (strpos($parentURL, 'http') !== false) ) {
+					// 	$linkparts = parse_external_url($parentURL);
+					// 	$link_target = $linkparts['target'];
+					// }
+
 					$children_menu = $p['children_menu'];
 					$has_children = ($p['has_children_menu']=='yes') ? true : false;
 					$has_children_class = ($has_children) ? ' has-children':'';
@@ -37,7 +45,7 @@ if($parents) { ?>
 						} ?>
 					<li id="<?php echo $parent_id ?>" class="parent-link<?php echo $parent_class ?>">
 						<?php if ($parent_link) { ?>
-						<a href="<?php echo $parent_link['url'] ?>" data-parent=".<?php echo $parent_id ?>" class="parentlink" target="<?php echo ($parent_link['url']) ? $parent_link['url']:'_self' ?>"><span><?php echo $parent_name ?></span></a>
+						<a href="<?php echo $parentURL ?>" data-parent=".<?php echo $parent_id ?>" class="parentlink" target="<?php echo $link_target ?>"><span><?php echo $parent_name ?></span></a>
 						<?php } else { ?>
 						<a href="#" class="parentlink<?php echo $has_children_class ?>" data-parent=".<?php echo $parent_id ?>"><span><?php echo $parent_name ?></span></a>
 						<?php } ?>

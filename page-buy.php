@@ -235,7 +235,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 		 	foreach($blocks as $e) {  
 		 		$title = $e['title'];
 		 		$text = $e['text'];
-				$sectionId = ($title) ? $e['title'] : 'content-row-' . $i; 
+				$sectionId = ($title) ? sanitize_title($e['title']) : 'content-row-' . $i; 
 				$image = $e['image'];
 				$bgsize = ($e['image_bgsize']) ? $e['image_bgsize'] : 'cover';
 				$button = $e['button'];

@@ -30,7 +30,7 @@ jQuery(document).ready(function ($) {
 		$("#site-navigation").removeClass("child-open");
 	});
 
-	$(document).on("click",".navigation a.parentlink", function(e){
+	$(document).on("click",".navigation .has-children a.parentlink", function(e){
 		e.preventDefault();
 		var link = $(this).attr("href");
 		if(link=='#') {
