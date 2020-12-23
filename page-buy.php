@@ -229,7 +229,55 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 		</div>
 	</section>
 	<?php } ?>
-	
+
+
+	<?php if( $blocks = get_field("repeater_blocks") ) { $i=1;
+		 	foreach($blocks as $e) {  
+		 		$title = $e['title'];
+		 		$text = $e['text'];
+				$sectionId = ($title) ? $e['title'] : 'content-row-' . $i; 
+				$image = $e['image'];
+				$bgsize = ($e['image_bgsize']) ? $e['image_bgsize'] : 'cover';
+				$button = $e['button'];
+				$buttonTarget = ( isset($button['target']) && $button['target'] ) ? $button['target'] : '_self';
+				$icon = $e['custom_icon'];
+				$sectionClass = ( ($title || $text) && $image ) ? 'half':'full';
+				?>
+				<section id="<?php echo $sectionId ?>" data-section="<?php echo $title ?>" class="section-content sectionTwoCol <?php echo $sectionClass ?>">
+					<div class="flexwrap">
+						<?php if ($image) { ?>
+						<div class="imageCol">
+							<div class="img" style="background-image:url('<?php echo $image['url'] ?>');background-size:<?php echo $bgsize ?>"><img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="helper"></div>
+						</div>	
+						<?php } ?>
+
+						<?php if ($title || $text) { ?>
+						<div class="textCol">
+							<div class="inner text-center">
+								<?php if ($title) { ?>
+									<div class="shead-icon text-center">
+										<?php if ($icon) { ?>
+										<div class="icon"><span class="<?php echo $icon ?>"></span></div>
+										<?php } ?>
+										<h2 class="stitle"><?php echo $title ?></h2>
+									</div>
+								<?php } ?>
+								<?php if ($text) { ?>
+									<div class="text"><?php echo $text ?></div>
+								<?php } ?>
+								<?php if ($button) { ?>
+									<div class="buttondiv">
+										<a href="<?php echo $button['url'] ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $button['title'] ?></span></a>
+									</div>
+								<?php } ?>
+							</div>
+						</div>	
+						<?php } ?>
+
+					</div>
+				</section>
+		<?php $i++; } ?>
+	<?php } ?>
 
 </div><!-- #primary -->
 
