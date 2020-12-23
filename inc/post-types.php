@@ -81,6 +81,14 @@ function js_custom_init() {
             'supports'  => array('title','editor')
         ),
         array(
+            'post_type' => 'fieldtrips',
+            'menu_name' => 'Field Trips',
+            'plural'    => 'Field Trips',
+            'single'    => 'Field Trip',
+            'menu_icon' => 'dashicons-car',
+            'supports'  => array('title','editor')
+        ),
+        array(
             'post_type' => 'brewery',
             'menu_name' => 'Breweries',
             'plural'    => 'Breweries',

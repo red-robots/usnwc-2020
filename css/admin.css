@@ -105,6 +105,7 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
     height:auto;   
 }
 
+.acf-flexible-content [data-layout="section2"] .acf-fc-layout-handle,
 [data-name="repeater_blocks"] [data-layout="section"] .acf-fc-layout-handle,
 [data-layout="other_activity"] .acf-fc-layout-handle,
 [data-layout="accordion_entry"] .acf-fc-layout-handle,
@@ -115,6 +116,8 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
   font-size: 0;
   color: transparent!important;
 }
+
+.acf-flexible-content [data-layout="section2"] .acf-fc-layout-handle:after,
 [data-name="repeater_blocks"] [data-layout="section"] .acf-fc-layout-handle:after,
 [data-layout="other_activity"] .acf-fc-layout-handle:after,
 [data-layout="accordion_entry"] .acf-fc-layout-handle:after,

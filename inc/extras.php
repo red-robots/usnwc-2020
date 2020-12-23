@@ -318,6 +318,14 @@ jQuery(document).ready(function($){
         });
     }
 
+    if( $('.acf-flexible-content [data-layout="section2"]').length > 0 ) {
+        $('.acf-flexible-content [data-layout="section2"]').each(function(){
+            var str = $(this).find('[data-name="title"] .acf-input-wrap input').val();
+            var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
+            $(this).find(".acf-fc-layout-handle").attr("data-title",title);
+        });
+    }
+
     /* ACF Flexible Content For Group Events Itineraries */
     if( $('[data-name="accordion_content"]').length > 0 ) {
         $('[data-layout="accordion_entry"]').each(function(){
