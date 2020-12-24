@@ -9018,9 +9018,8 @@ body.logged-in.admin-bar {
 	#classes.section-content {
 		padding-top: 50px;
 		padding-bottom: 50px;
-		@include tab {
-			padding-top: 60px;
-			padding-bottom: 60px;
+		.shead-icon {
+			margin-bottom: 50px;
 		}
 		.options {
 			width: 100%;
@@ -9084,6 +9083,15 @@ body.logged-in.admin-bar {
 	.form-content {
 		.gform_wrapper {
 			font-size: 14px;
+		}
+	}
+	#pass-activities {
+		width: 100%;
+		float: left;
+		padding-top: 50px;
+		padding-bottom: 0;
+		.shead-icon {
+			margin-bottom: 50px;
 		}
 	}
 }
