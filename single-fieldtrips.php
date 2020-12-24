@@ -250,7 +250,7 @@ if($banner) { ?>
 		$form_content = get_field("content");
 		$pass_notes = get_field("pass_notes");
 		if($form_content) { ?>
-		<section id="form-section" class="section-content group-form-section full">
+		<section id="form-section" data-section="<?php echo $form_section_title ?>" class="section-content group-form-section full">
 			<?php if ($form_section_title) { ?>
 			<div class="shead-icon text-center">
 				<h2 class="stitle"><?php echo $form_section_title ?></h2>
