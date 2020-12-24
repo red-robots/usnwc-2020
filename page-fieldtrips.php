@@ -118,7 +118,7 @@ $square = THEMEURI . "images/square.png";
 		$form_title = get_field("fieldtrip_form_title");
 		$form = get_field("fieldtrip_form");
 		if($form) { ?>
-		<section id="group-outings-form" data-section="Classes" class="section-content group-form-section">
+		<section id="group-outings-form" data-section="<?php echo $form_title ?>" class="section-content group-form-section">
 			<div class="wrapper narrow">
 				<?php if ($form_title) { ?>
 				<h2 class="stitle text-center"><?php echo $form_title ?></h2>
