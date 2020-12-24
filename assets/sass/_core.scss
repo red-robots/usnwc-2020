@@ -8806,6 +8806,192 @@ body.logged-in.admin-bar {
 	}
 }
 
+.field-trips-page {
+	.short-description {
+		margin-bottom: 40px;
+	}
+	.postbox {
+		position: relative;
+		@include tab {
+			padding-bottom: 70px;
+		}
+		.inside {
+			@include tab {
+				height: 100%;
+			}
+		}
+		.photo {
+			height: auto;
+		}
+	}
+	.option-info {
+		margin: 20px 0;
+		position: relative;
+		.t1, .t2 {
+			margin: 0 0;
+		}
+		.t1 {
+			font-family: $font-secondary;
+			font-size: 16px;
+			color: #484848;
+			margin-bottom: 2px;
+			strong {
+				font-weight: 400;
+			}
+		}
+		&.price {
+			padding: 15px 0;
+			max-width: 80%;
+			width: 100%;
+			margin: 0 auto;
+			&:before, &:after {
+				content:"";
+				display: block;
+				width: 50%;
+				height: 1px;
+				background: #484848;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			&:before {
+				top: 0;
+			}
+			&:after {
+				bottom: 0;
+			}
+		}
+	}
+	div.button {
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
+		position: relative;
+		z-index: 20;
+		@include tab {
+			margin-top: 0;
+			position: absolute;
+			left: 0;
+			bottom: 30px;
+		}
+	}
+	#pageTabs {
+		margin-bottom: 8px;
+	}
+}
+.group-form-section.section-content {
+	background: $gray;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	@include tab {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+	.stitle {
+		margin-bottom: 20px;
+	}
+	.gform_wrapper {
+		max-width: 600px;
+		width: 100%;
+		margin: 0 auto;
+		.gform {
+			max-width: 100%;
+			width: 100%;
+		}
+		input,textarea,select {
+			transition: all ease .3s;
+			outline: none;
+			&:focus {
+				box-shadow: 0 0 6px rgba(255,0,0,0.4);
+			}
+		}
+		ul.gform_fields li.gfield {
+			position: relative;
+			margin: 0 0!important;
+			padding: 0 0;
+			width: 100%;
+			float: left;
+			clear: none;
+			input, textarea { 
+				margin: 0 0 5px!important;
+			}
+			select {
+				height: 31px;
+				border-color: #FFF;
+			}
+			&#field_2_11,
+			&#field_2_12,
+			&#field_2_13,
+			&#field_2_7 {
+				width: 100%;
+				float: left;
+				margin: 5px 0!important;
+				input, textarea {
+					margin: 0 0!important;
+				}
+				.ginput_container {
+					margin: 0 0;
+				}
+				@include tab {
+					width: 49%;
+				}
+			}
+			&#field_2_12,
+			&#field_2_7 {
+				float: right;
+			}
+			&#field_2_15{
+				width: 100%;
+				float: left;
+				padding-top: 15px;
+			}
+			ul.gfield_checkbox {
+				position: relative;
+				top: -10px;
+				margin-bottom: 20px;
+			}
+		}
+	}
+	.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+		width: 100%!important;
+		border: 1px solid #FFF;
+		background-color: #FFF;
+		border-radius: 0px;
+		outline: none;
+	}
+	.gform_wrapper textarea {
+		border: 1px solid #FFF;
+		background-color: #FFF;
+	}
+	.gform_wrapper .gform_footer  {
+		text-align: center;
+		input.gform_button {
+			margin: 0 0;
+			-webkit-appearance: none;
+			border-radius: none;
+			cursor: pointer;
+			display: inline-block;
+			text-decoration: none !important;
+			color: #5a5959;
+			padding: 5px 15px;
+			border: 1px solid #a2a2a2;
+			overflow: hidden;
+			position: relative;
+			font-size: 12px;
+			border-radius: 0px;
+			-webkit-appearance: none;
+			box-shadow: none;
+			min-width: 85px;
+			transition: all ease .3s;
+			&:hover {
+				background: #000;
+				border-color: #000;
+				color: #FFF;
+			}
+		}
+	}
+}
+
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");
