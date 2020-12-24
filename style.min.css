@@ -3843,8 +3843,8 @@ body.logged-in.admin-bar .film-event-status{top:146px}
 .field-trips-page .option-info.price:before,.field-trips-page .option-info.price:after{content:"";display:block;width:50%;height:1px;background:#484848;position:absolute;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}
 .field-trips-page .option-info.price:before{top:0}
 .field-trips-page .option-info.price:after{bottom:0}
-.field-trips-page div.button{width:100%;text-align:center;margin-top:30px;position:relative;z-index:20}
-@media(min-width:768px){.field-trips-page div.button{margin-top:0;position:absolute;left:0;bottom:30px}
+.field-trips-page div.button{width:100%;text-align:center;margin-top:30px;margin-bottom:20px;position:relative;z-index:20}
+@media(min-width:768px){.field-trips-page div.button{margin-top:0;margin-bottom:0;position:absolute;left:0;bottom:30px}
 }.field-trips-page #pageTabs{margin-bottom:8px}
 .group-form-section.section-content{background:#f2f2f2;padding-top:50px;padding-bottom:50px}
 @media(min-width:768px){.group-form-section.section-content{padding-top:80px;padding-bottom:80px}

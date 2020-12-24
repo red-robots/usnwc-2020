@@ -8866,10 +8866,12 @@ body.logged-in.admin-bar {
 		width: 100%;
 		text-align: center;
 		margin-top: 30px;
+		margin-bottom: 20px;
 		position: relative;
 		z-index: 20;
 		@include tab {
 			margin-top: 0;
+			margin-bottom: 0;
 			position: absolute;
 			left: 0;
 			bottom: 30px;
