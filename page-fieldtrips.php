@@ -41,7 +41,6 @@ $square = THEMEURI . "images/square.png";
 						$thumbImage = get_field("fieldtrip_thumbnail_image");
 						$short_description = get_field("fieldtrip_short_description");
 						$opt = get_field("fieldtrip_options");
-						//$obj = get_field_object("fieldtrip_options");
 					?>
 					<div class="postbox animated fadeIn <?php echo ($thumbImage) ? 'has-image':'no-image' ?>">
 						<div class="inside">

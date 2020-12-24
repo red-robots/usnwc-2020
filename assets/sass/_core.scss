@@ -7678,6 +7678,13 @@ body.single-camp {
 			}
 		}
 	}
+	.post-type-entries.column-list-4 {
+		.columns {
+			.entry {
+				width: 100%;
+			}
+		}
+	}
 }
 
 .fancybox-navigation .fancybox-button[disabled] {
@@ -8991,6 +8998,111 @@ body.logged-in.admin-bar {
 				color: #FFF;
 			}
 		}
+	}
+}
+
+.single-fieldtrips#primary {
+	.section-price-ages {
+		.info .label {
+			margin-bottom: 10px;
+		}
+		.wrap {
+			@include flexgroup();
+			@include flexbox-justify(center);
+			@include flexbox-align-items(center);
+			.inner {
+				width: 100%;
+			}
+		}
+	}
+	#classes.section-content {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		@include tab {
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
+		.options {
+			width: 100%;
+			color: #484848;
+			text-align: center;
+			margin-top: 40px;
+			span {	
+				display: inline-block;
+				position: relative;
+				padding: 0 10px;
+				@include tab {
+					&:after {
+						content: "";
+						display: block;
+						width: 1px;
+						height: 100%;
+						background: #484848;
+						position: absolute;
+						top: -1px;
+						right: -3px;
+					}
+				}
+			}
+			span:last-child {
+				&:after {display: none; }
+			}
+		}
+	}
+	.post-type-entries {
+		.postbox.has-custom-width {
+			@media screen and (max-width:$tabwidth) {
+				width: 100%!important;
+			}
+		}
+	}
+	.section-content#pass-activities {
+		.post-type-entries  {
+			.postbox:after {
+				background: $gray_dark;
+				color: #FFF;
+			}
+			.details, .info {
+				background: $gray_dark;
+			}
+			.event-name {
+				color: #FFF;
+			}
+			.short-description {
+				color: #FFF;
+				ul {
+					margin: 0 0;
+					padding: 0 0;
+					list-style: none;
+					li {
+						margin: 2px 0;
+					}
+				}
+			}
+		}
+	}
+	.form-content {
+		.gform_wrapper {
+			font-size: 14px;
+		}
+	}
+}
+
+body.subpage.single .content-default .important-notes-red,
+.important-notes-red {
+	width: 100%;
+	float: left;
+	background: $red;
+	color: #FFF;
+	margin-top: 8px;
+	.wrapper {
+		font-size: 14px;
+		line-height: 1.5;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	p:last-child {
+		margin-bottom: 0;
 	}
 }
 
