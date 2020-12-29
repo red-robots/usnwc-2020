@@ -2842,7 +2842,8 @@ h1.page-title span:after{content:"";display:block;width:30%;height:2px;backgroun
 @media(min-width:600px){.post-type-entries .postbox{width:50%}
 }@media(min-width:768px){.post-type-entries .postbox{width:25%}
 }.post-type-entries .postbox:after{content:"";display:block;width:calc(100% - 16px);height:calc(100% - 16px);position:absolute;top:8px;left:8px;background:#f2f2f2}
-.post-type-entries .inside,.post-type-entries .photo{width:100%;position:relative;float:left}
+@media(min-width:768px){.post-type-entries.threecols .postbox{width:33.33%}
+}.post-type-entries .inside,.post-type-entries .photo{width:100%;position:relative;float:left}
 .post-type-entries .inside{z-index:10}
 .post-type-entries .photo{display:block;text-decoration:none;height:100%;overflow:hidden;background-color:#CCC}
 .post-type-entries .no-image .photo{background:#CCC}
@@ -3181,7 +3182,12 @@ body.subpage.single .content-default .black-section .wrapper a:hover{color:#ba0d
 .filter-wrapper .facetwp-facet .fs-arrow{top:2px;right:10px;border-top:5px solid #707070}
 @media(min-width:768px){.filter-wrapper.optionsnum3 .select-wrap{width:33.33%}
 }.filter-wrapper.optionsnum3 .select-wrap label{font-size:13px;padding:0 10px;margin:0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}
-body.page-template-page-stories .select2-container{width:100% !important}
+.filter-wrapper.filterstyle.optionsnum4{padding-bottom:0}
+.filter-wrapper.filterstyle.optionsnum4 .filter-label{width:100%}
+@media(min-width:768px){.filter-wrapper.filterstyle.optionsnum4 .filter-label{width:15%}
+}.filter-wrapper.filterstyle.optionsnum4 .select-wrap{width:100%}
+@media(min-width:768px){.filter-wrapper.filterstyle.optionsnum4 .select-wrap{width:21%}
+}body.page-template-page-stories .select2-container{width:100% !important}
 body.page-template-page-stories .select2-container .select2-selection--single{height:37px;border-radius:0;border:1px solid #707070;background-color:transparent}
 body.page-template-page-stories .select2-container .select2-selection__rendered{line-height:37px;color:#BBB;padding-left:10px;padding-right:20px}
 body.page-template-page-stories .select2-container .select2-selection__arrow{height:37px;width:30px}
@@ -3520,6 +3526,8 @@ body.single-camp #primary{width:100%;float:left}
 .boxedImagesPage .post-type-entries .price-info span:last-child,.summer-camp-page .post-type-entries .price-info span:last-child{padding-right:0}
 .boxedImagesPage .post-type-entries .dates,.summer-camp-page .post-type-entries .dates{margin:0;padding:0;list-style:none}
 .boxedImagesPage .post-type-entries .dates li,.summer-camp-page .post-type-entries .dates li{margin:8px 0}
+.boxedImagesPage .post-type-entries .dates.compact,.summer-camp-page .post-type-entries .dates.compact{margin-top:15px}
+.boxedImagesPage .post-type-entries .dates.compact li,.summer-camp-page .post-type-entries .dates.compact li{margin:3px 0}
 .boxedImagesPage .post-type-entries .details,.summer-camp-page .post-type-entries .details{padding:30px}
 @media(min-width:768px){.boxedImagesPage .post-type-entries .details,.summer-camp-page .post-type-entries .details{padding:2vw}
 }.boxedImagesPage.catering-wedding .post-type-entries .details,.summer-camp-page.catering-wedding .post-type-entries .details{padding:30px}

@@ -282,6 +282,7 @@ add_action('admin_head', 'my_custom_admin_css');
 function my_custom_admin_css() { ?>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/css/admin.css">
 <style type="text/css">
+#menu-posts-instructions ul.wp-submenu li:last-child{display:none!important}
 <?php 
 $has_expiration_post_types = array('festival','music'); 
 foreach($has_expiration_post_types as $pt) { ?>
@@ -1363,5 +1364,75 @@ function getFaqs($post_id) {
     ob_end_clean(); 
     return $output;
 }
+
+/* Remove ACF Fields on specific post */
+if ( ($pagenow == 'post.php' && get_post_type($_GET['post']) == 'instructions') ||  ($pagenow == 'post-new.php' && $_GET['post_type'] == 'instructions') ) {
+    add_action('admin_head', 'ins_custom_admin_css');
+    function ins_custom_admin_css() { ?>
+    <style type="text/css">
+        #instructions-template-tabs,
+        #instructions-template-add-toggle{display:none!important;}
+        #instructions-template-all.tabs-panel {
+            border: none;
+        }
+    </style>
+    <?php
+    }
+    add_action('admin_footer', 'ins_custom_admin_js');
+    function ins_custom_admin_js() { ?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($){
+
+      /* This will add a category as `Default` */
+      if( $('#instructions-templatechecklist li input[type="checkbox"]').length>0 ) {
+        var hasChecks = [];
+
+        $('#instructions-templatechecklist li input[type="checkbox"]').on("click",function(){
+          if( this.checked ) {
+            var opt = $(this).val();
+            $('#instructions-templatechecklist li input[type="checkbox"]').each(function(){
+              if( $(this).val()==opt ) {
+                $(this).prop("checked",true);
+              } else {
+                $(this).prop("checked",false);
+              }
+            });
+          } else {
+            $('#instructions-templatechecklist label').each(function(){
+              if( $(this).text().trim()=='Default' ) {
+                $(this).find("input").prop("checked",true);
+              }
+            });
+          }
+        });
+
+        $('#instructions-templatechecklist input[type="checkbox"]').each(function(){
+          if(this.checked) {
+            hasChecks.push( $(this).val() );
+          }
+        });
+        if(hasChecks.length>0) {
+
+        } else {
+          $('#instructions-templatechecklist label').each(function(){
+            if( $(this).text().trim()=='Default' ) {
+              $(this).find("input").prop("checked",true);
+            }
+          });
+        }
+      }
+
+    });
+    </script>
+    <?php
+    }
+}
+
+/* Remove Category Meta Box on Instructions Post type */
+// add_action( 'admin_menu' , 'remove_instructions_categories');
+// function remove_instructions_categories(){
+//     remove_meta_box( 'instructions-templatediv' , 'instructions' , 'side' );
+// }
+
 
 

@@ -198,14 +198,14 @@ jQuery(document).ready(function($){
     }
 	});
 
-		$(document).on('change', '.facetwp-facet-job_locations', function(e) { // change product_tags to name of dropdown facet
-        // FWP.is_reset = true;
-        // FWP.facets['product_categories'] = []; // set other facet to no selections
-        // delete FWP.facets['paged']; // remove "paged" from URL
-        // FWP.refresh();
-        //FWP.is_reset = true;
-        console.log(e)
-    });
+		// $(document).on('change', '.facetwp-facet-job_locations', function(e) { // change product_tags to name of dropdown facet
+  //       // FWP.is_reset = true;
+  //       // FWP.facets['product_categories'] = []; // set other facet to no selections
+  //       // delete FWP.facets['paged']; // remove "paged" from URL
+  //       // FWP.refresh();
+  //       //FWP.is_reset = true;
+  //       //console.log(e)
+  //   });
 
 	$(document).on("click","#nextPostsBtn",function(e){
 		e.preventDefault();

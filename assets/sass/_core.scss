@@ -3495,6 +3495,13 @@ h1.page-title {
 			background: $gray;
 		}
 	}
+	&.threecols {
+		.postbox {
+			@include tab {
+				width: 33.33%;
+			}
+		}
+	}
 	.inside, .photo {
 		width: 100%;
 		position: relative;
@@ -5385,6 +5392,22 @@ body.subpage.single .content-default .black-section {
 	}
 }
 
+.filter-wrapper.filterstyle.optionsnum4 {
+	padding-bottom: 0;
+	.filter-label {
+		width: 100%;
+		@include tab {
+			width: 15%;
+		}
+	}
+	.select-wrap {
+		width: 100%;
+		@include tab {
+			width: 21%;
+		}
+	}
+}
+
 body.page-template-page-stories {
 	.select2-container {
 		width: 100%!important;
@@ -7215,6 +7238,10 @@ body.single-camp {
 			li {
 				margin: 8px 0;
 			}
+			&.compact {
+				margin-top: 15px;
+				li{margin: 3px 0;}
+			}
 		}
 		.details {
 			padding: 30px;
@@ -7249,7 +7276,6 @@ body.single-camp {
 			}
 		}
 	}
-	
 }
 
 .post-type-entries.columns3 {

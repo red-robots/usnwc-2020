@@ -376,6 +376,22 @@ function build_taxonomies() {
         ) 
     );
 
+
+    register_taxonomy( 
+        'instructions-template', 
+        array('instructions'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Instructions Template', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'department-template' ),
+            '_builtin' => true
+        ) 
+    );
+
     // register_taxonomy( 
     //     'story-types', 
     //     array('story'),
@@ -448,6 +464,10 @@ function set_custom_cpt_columns($columns) {
         $columns['taxonomy-faq_type'] = __( 'FAQ Type', 'bellaworks' );
         $columns['date'] = __( 'Date', 'bellaworks' );
         $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
+    }
+
+    if($post_type=='instructions') {
+        unset($columns['taxonomy-instructions-template']);
     }
     
     return $columns;

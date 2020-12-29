@@ -97,9 +97,9 @@ if( $posts->have_posts() ) { ?>
 								<div class="inside"><span>Filter By</span></div>
 							</div>
 
-							<?php if ( facetwp_display( 'facet', 'job_locations' ) ) { ?>
+							<?php if ( do_shortcode('[facetwp facet="job_locations"]') ) { ?>
 							<div class="select-wrap">
-								<?php echo facetwp_display( 'facet', 'job_locations' ) ?>
+								<?php echo do_shortcode('[facetwp facet="job_locations"]'); ?>
 							</div>
 							<?php } ?>
 
