@@ -2842,8 +2842,7 @@ h1.page-title span:after{content:"";display:block;width:30%;height:2px;backgroun
 @media(min-width:600px){.post-type-entries .postbox{width:50%}
 }@media(min-width:768px){.post-type-entries .postbox{width:25%}
 }.post-type-entries .postbox:after{content:"";display:block;width:calc(100% - 16px);height:calc(100% - 16px);position:absolute;top:8px;left:8px;background:#f2f2f2}
-@media(min-width:768px){.post-type-entries.threecols .postbox{width:33.33%}
-}.post-type-entries .inside,.post-type-entries .photo{width:100%;position:relative;float:left}
+.post-type-entries .inside,.post-type-entries .photo{width:100%;position:relative;float:left}
 .post-type-entries .inside{z-index:10}
 .post-type-entries .photo{display:block;text-decoration:none;height:100%;overflow:hidden;background-color:#CCC}
 .post-type-entries .no-image .photo{background:#CCC}
@@ -2859,7 +2858,12 @@ h1.page-title span:after{content:"";display:block;width:30%;height:2px;backgroun
 .post-type-entries .postbox.canceled .wave-effect .boxTitle{display:none}
 .post-type-entries span.canceledStat{display:block;width:100%;position:absolute;top:47%;left:0;-webkit-transform:translateY(-47%);-ms-transform:translateY(-47%);transform:translateY(-47%);z-index:60;text-align:center}
 .post-type-entries span.canceledStat img{max-width:230px;width:85%;height:auto}
-.event-completed{width:100%;position:absolute;top:0;left:0;z-index:70;text-align:center;background:#71c943}
+.post-type-entries.threecols .postbox{position:relative}
+@media(min-width:768px){.post-type-entries.threecols .postbox{width:33.33%}
+}@media(min-width:768px){.post-type-entries.threecols .postbox .details{padding-bottom:90px}
+}.post-type-entries.threecols div.button{text-align:center;padding-left:30px;padding-right:30px;z-index:40;position:relative;margin-top:0;margin-bottom:20px;width:100%;float:left}
+@media(min-width:768px){.post-type-entries.threecols div.button{position:absolute;left:0;bottom:40px;margin-bottom:0}
+}.event-completed{width:100%;position:absolute;top:0;left:0;z-index:70;text-align:center;background:#71c943}
 .event-completed span{font-family:"Lato",sans-serif;font-size:25px;font-weight:400;line-height:1.1;text-transform:uppercase;letter-spacing:2px;color:#FFF;padding:10px;display:block}
 .loadmorediv{width:100%;float:left;text-align:center;margin:30px 0}
 .loadmorediv span.end{color:#b7b6b6;font-style:italic;visibility:hidden}

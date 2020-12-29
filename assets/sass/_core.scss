@@ -3495,13 +3495,6 @@ h1.page-title {
 			background: $gray;
 		}
 	}
-	&.threecols {
-		.postbox {
-			@include tab {
-				width: 33.33%;
-			}
-		}
-	}
 	.inside, .photo {
 		width: 100%;
 		position: relative;
@@ -3607,6 +3600,36 @@ h1.page-title {
 			max-width: 230px;
 			width: 85%;
 			height: auto;
+		}
+	}
+	&.threecols {
+		.postbox {
+			position: relative;
+			@include tab {
+				width: 33.33%;
+			}
+			.details {
+				@include tab {
+					padding-bottom: 90px;
+				}
+			}
+		}
+		div.button {
+			text-align: center;
+			padding-left: 30px;
+			padding-right: 30px;
+			z-index: 40;
+			position: relative;
+			margin-top: 0;
+			margin-bottom: 20px;
+			width: 100%;
+			float: left;
+			@include tab {
+				position: absolute;
+				left: 0;
+				bottom: 40px;
+				margin-bottom: 0;
+			}
 		}
 	}
 }

@@ -134,13 +134,11 @@ $currentPageLink = get_permalink();
 												<?php echo $short_description ?>
 											</div>
 											<?php } ?>
-
-											<div class="button">
-												<a href="<?php echo $pagelink ?>" class="btn-sm"><span>See Details</span></a>
-											</div>
-
 										</div>
 									</div>
+								</div>
+								<div class="button">
+									<a href="<?php echo $pagelink ?>" class="btn-sm"><span>See Details</span></a>
 								</div>
 							</div>
 						<?php endwhile; wp_reset_postdata(); ?>
