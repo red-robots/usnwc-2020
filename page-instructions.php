@@ -87,7 +87,8 @@ $currentPageLink = get_permalink();
 							$price = get_field("price");
 							$ages = get_field("ages");
 							$duration = get_field("duration");
-							$schedules = get_field("schedule_items");
+							//$schedules = get_field("schedule_items");
+							$schedules = get_field("schedules_alt");
 							$options1 = array($price,$ages,$duration);
 							$options2 = array("ages"=>$ages,"duration"=>$duration,"price"=>$price);
 							?>
@@ -122,11 +123,9 @@ $currentPageLink = get_permalink();
 											<?php } ?>
 
 											<?php if ($schedules) { ?>
-											<ul class="dates compact">
-												<?php foreach ($schedules as $d) { ?>
-													<li class="date"><?php echo $d['dates'] ?></li>	
-												<?php } ?>
-											</ul>
+											<div class="dates compact">
+												<?php echo $schedules ?>
+											</div>
 											<?php } ?>
 
 											<?php if ($short_description) { ?>

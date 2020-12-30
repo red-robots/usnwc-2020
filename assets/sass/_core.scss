@@ -118,6 +118,10 @@ a {
 	left: 0;
 	width: 100%;
 	z-index: 200;
+	.navbar {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
 }
 .topbar {
 	width: 100%;
@@ -722,6 +726,7 @@ body.scrolled .navbar {
 	box-shadow: none;
 	padding: 10px;
 	position: relative;
+	top: -2px;
 	transition: all ease .3s;
 	span.bar {
 		width: 25px;
@@ -1051,7 +1056,7 @@ body.nav-open {
 	}
 }
 #banner.subpageBanner {
-	margin-top: 102px;
+	margin-top: 86px;
 	@include tab {
 		margin-top: 0;
 	}
@@ -1216,7 +1221,8 @@ body.nav-open {
 	background-color: #FFF;
 }
 
-h2.stitle {
+h2.stitle,
+.stitle {
 	margin: 0 0;
 	text-transform: uppercase;
 	font-family: $font_secondary;
@@ -4292,6 +4298,141 @@ body.subpage.single .content-default .black-section {
 	}
 }
 
+body.single-instructions {
+	#section-schedule {
+		margin-bottom: 16px;
+	}
+	.section-price-ages .flexwrap {
+		padding-bottom: 6px;
+	}
+	#primary #section-schedule.section-schedule {
+		margin-top: 12px;
+		margin-bottom: 12px;
+	}
+	#information-content {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		.text {
+			font-size: 16px;
+			line-height: 1.4;
+			margin-top: 20px;
+		}
+		.text:first-child {
+			margin-top: 0;
+		}
+		.t1 {
+			color: $dark;
+		}
+		.t2 {
+			color: $gray_dark;
+		}
+	}
+	#primary #section-faqs {
+		padding-top: 60px;
+		padding-bottom: 30px;
+	}
+}
+#primary.temp-yoga {
+	#section-schedule {
+		margin-bottom: 0!important;
+	}
+	#schedule-bottomtext {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		@include tab {
+			padding-top: 30px;
+			padding-bottom: 50px;
+		}
+		.wrapper {
+			font-size: 15px;
+			line-height: 1.5;
+			color: $gray_dark;
+		}
+	}
+	#section-schedule {
+		padding-top: 50px;
+		padding-bottom: 40px;
+	}
+	#section-galleries {
+		margin-top: 12px;
+	}
+	#instruction-team {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		.wrapper {
+			font-size: 15px;
+			line-height: 1.5;
+		}
+	}
+}
+
+#about-instructor {
+	background: #000;
+	color: #FFF;
+	font-size: 15px;
+	line-height: 1.5;
+	.photo, .text {
+		width: 100%;
+	}
+	.photo {
+		img {
+			width: 100%;
+			height: auto;
+			float: left;
+			// @include tab {
+			// 	display: none;
+			// }
+		}
+		div.image {
+			width: 100%;
+			float: left;
+			@include backgroundImage(center);
+			@include tab {
+				height: 100%;
+			}
+		}
+	}
+	.text {
+		@include flexgroup-center();
+		.wrap {
+			width: 100%;
+			padding: 30px;
+			@include tab {
+				padding: 20px 6vw;
+			}
+			@include mid {
+				padding: 20px 10vw;
+			}
+		}
+		.info {
+			line-height: 1.6;
+		}
+	}
+	.stitle {
+		color: #FFF;
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+	&.half {
+		.photo {
+			@include tab {
+				width: 30%;
+			}
+			@include mid {
+				width: 25%;
+			}
+		}
+		.text {
+			@include tab {
+				width: 70%;
+			}
+			@include mid {
+				width: 75%;
+			}
+		}
+	}
+}
+
 /* Course */
 #section-coursemap {
 	.course-images {
@@ -4322,6 +4463,11 @@ body.subpage.single .content-default .black-section {
 			// }
 		}	
 	}
+}
+.section-schedule {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-top: 16px;
 }
 
 #section-awards {
@@ -6548,6 +6694,13 @@ body.pageNoBanner {
 		padding: 30px 15px;
 		background: $gray;
 	}
+	.fourCols {
+		.info {
+			@include tab {
+				width: 25%;
+			}
+		}
+	}
 }
 
 #carousel-images {
@@ -6655,7 +6808,7 @@ body.pageNoBanner {
 	}
 }
 
-#primary.summer-camps {
+#primary {
 	#section-schedule {
 		background: $gray;
 		padding-top: 50px;
@@ -6679,8 +6832,9 @@ body.pageNoBanner {
 			@include flexgroup();
 			@include flexbox-justify(space-between);
 			position: relative;
-			padding: 5px 0 30px;
 			font-size: 16px;
+			text-align: center;
+			padding: 10px 0 40px;
 			@include tab {
 				padding: 0 0;
 			}
@@ -6710,7 +6864,7 @@ body.pageNoBanner {
 			.time {
 				color: #000;
 				font-family: $font-secondary;
-				font-size: 18px;
+				font-size: 16px;
 				font-weight: 500;
 				width: 100%;
 				letter-spacing: 2px;
@@ -6733,6 +6887,34 @@ body.pageNoBanner {
 					line-height: 1.2;
 					padding-left: 7px;
 				}
+			}
+			.dates {
+				width: 100%;
+				text-align: center;
+				margin-bottom: 20px;
+   		 	@include tab {
+   		 		margin-top: 40px;
+   		 	}
+				span {
+					font-size: 16px;
+					display: inline-block;
+					color: $gray_dark;
+					text-transform: uppercase;
+					&:after {
+						content:"";
+						display: block;
+						width: 100%;
+						height: 1px;
+						background: $red;
+						position: relative;
+						top: -2px;
+					}
+				}
+			}
+		}
+		ul.items li:first-child {
+			.dates {
+				margin-top: 0;
 			}
 		}
 	}
@@ -9160,6 +9342,118 @@ body.subpage.single .content-default .important-notes-red,
 	}
 	p:last-child {
 		margin-bottom: 0;
+	}
+}
+.section-full-button {
+	text-align: center;
+	a.red-button-full {
+		display: block;
+		cursor: pointer;
+		text-decoration: none;
+		color: #FFF;
+		background: $red;
+		padding: 30px 30px;
+		span {
+			cursor: pointer;
+			display: inline-block;
+			position: relative;
+			transition: all ease .3s;
+			&:before, &:after {
+				content:"";
+				display: block;
+				width: 10px;
+				height: 1px;
+				background: #FFF;
+				position: absolute;
+				top: 16px;
+				right: -18px;
+				margin-right: 0;
+				transition: all ease .3s;
+			}
+			&:before {
+				transform: translateY(-3px) rotate(45deg);
+			}
+			&:after {
+				transform: translateY(4px) rotate(-45deg);
+			}
+		}
+		&:hover {
+			background: tint($red,10%);
+			span {
+				&:before, &:after {
+					margin-right: -8px;
+				}
+			}
+		}
+	}
+}
+
+.outer-banner-wrap {
+	width: 100%;
+	float: left;
+	position: relative;
+	overflow: hidden;
+	.top {
+		display: inline-block;
+		position: absolute;
+		top: 86px;
+		left: 0;
+		z-index: 30;
+	}
+	.button-arrow {
+		display: inline-block;
+		text-decoration: none;
+		cursor: pointer;
+		background: $red;
+		color: #FFF;
+		font-size: 18px;
+		line-height: 1.2;
+		text-transform: uppercase;
+		text-align: center;
+		position: relative;
+		transform: translateX(-10px);
+		padding: 18px 10px 15px 30px;
+    min-width: 180px;
+		@include tab {
+			padding: 20px 10px 20px 30px;
+			min-width: 220px;
+			transform: translateX(-20px);
+		}
+		span {
+			letter-spacing: 1px;
+		}
+		&:before, &:after {
+			content:"";
+			display: block;
+			width: 60px;
+			height: 50%;
+			position: absolute;
+			right: -15px;
+			background: $red;
+		}
+		&:before {
+			top: 0;
+			transform: skew(40deg);
+		}
+		&:after {
+			bottom: 0;
+			height: 49.5%;
+			transform: skew(-40deg);
+		}
+		&:hover {
+			transform: translateX(0);
+		}
+	}
+}
+
+#program-info.section-content {
+	background: $gray_dark;
+	color: #FFF;
+	.wrapper {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		font-size: 15px;
+		line-height: 1.5;
 	}
 }
 
