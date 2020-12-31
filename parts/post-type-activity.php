@@ -67,19 +67,21 @@ while ( have_posts() ) : the_post();
 
 			<?php if ($galleries) { 
 				$count = count($galleries); 
-				$slider_class = ($count>1) ? 'subpage-sliders':'subpage-slider-static';
+				$slider_class = ($count>1) ? 'subpage-sliders flexslider':'subpage-slider-static';
 				?>
-			<div id="subpageSlides" class="rightcol <?php echo $slider_class ?>">
-				<ul class="slides">
-					<?php foreach ($galleries as $g) { ?>
-					<li class="sub-slide-item">
-						<div class="slide-image" style="background-image:url('<?php echo $g['url']?>')">
-							<img src="<?php echo $placeholder ?>" alt="">
-						</div>
-					</li>	
-					<?php } ?>
-				</ul>
-			</div>	
+			<div class="rightcol galleryCol">
+				<div id="subpageSlides" class="rightcol <?php echo $slider_class ?>">
+					<ul class="slides">
+						<?php foreach ($galleries as $g) { ?>
+						<li class="sub-slide-item">
+							<div class="slide-image" style="background-image:url('<?php echo $g['url']?>')">
+								<img src="<?php echo $placeholder ?>" alt="">
+							</div>
+						</li>	
+						<?php } ?>
+					</ul>
+				</div>	
+			</div>
 			<?php } ?>
 		</div>
 	</section>	
@@ -259,7 +261,7 @@ while ( have_posts() ) : the_post();
 					$res_button =  ( isset($reservation['button']) && $reservation['button'] ) ? $reservation['button']:'';
 					$res_target = ( isset($res_button['target']) && $res_button['target'] ) ? ' target="'.$res_button['target'].'"':'';
 					?>
-					<div class="inner redbox reservationDiv">
+					<div class="inner graybox reservationDiv">
 						<div class="wrap">
 							
 							

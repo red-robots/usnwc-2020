@@ -22,6 +22,18 @@ $currentPageLink = get_permalink();
 	<?php endwhile; ?>
 
 	<?php /* Filter Options */ ?>
+	<?php  
+	$filtered = array();
+	$filter_params = array('_instructions_discipline','_instructions_duration','_instructions_skill_level','_instructions_age');
+
+	if( isset($_GET) && $_GET ) {
+		foreach($_GET as $k=>$v) {
+			if( in_array($k,$filter_params) ) {
+				$filtered[$k] = $v;
+			}
+		}
+	}
+	?>
 	<div class="filter-wrapper filterstyle optionsnum4">
 		<div class="wrapper">
 			
