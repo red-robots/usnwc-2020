@@ -405,6 +405,15 @@ jQuery(document).ready(function($){
         });
     }
 
+    /* ACF Flexible Content For Festival Activities */
+    if( $('.acf-field-flexible-content [data-layout="festivalActivities"]').length > 0 ) {
+        $('.acf-field-flexible-content [data-layout="festivalActivities"]').each(function(){
+            var str = $(this).find('[data-name="day"] .acf-input select option:selected').text();
+            var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
+            $(this).find(".acf-fc-layout-handle").attr("data-title",title);
+        });
+    }
+
 
     if( $("body.wp-admin.post-type-activity_schedule").length > 0 ) {
         //$('[data-name="eventDateSchedule"] input.hasDatepicker').focus();

@@ -1,7 +1,7 @@
 /* Gulpfile 4.0 */
 
 var project             = 'USNWC'; // Project Name.
-var projecturl          = 'http://bellaworks/usnwc/'; // Project URL. Could be something like localhost:8888.
+var projecturl          = 'http://usnwc.test/'; // Project URL. Could be something like localhost:8888.
 
 
 var styleSRC            = './assets/sass/style.scss'; // Path to main .scss file.

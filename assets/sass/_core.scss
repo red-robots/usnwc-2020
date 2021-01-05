@@ -997,7 +997,7 @@ body.nav-open {
 		color: #FFF;
 		background: rgba($secondary,0.85);
 		position: absolute;
-		top: 88px;
+		top: 86px;
 		left: 0;
 		z-index: 100;
 		.wrapper {
@@ -6747,6 +6747,22 @@ body.pageNoBanner {
 		height: 100%;
 		padding: 30px 15px;
 		background: $gray;
+	}
+	&.oneCol {
+		.info {
+			width: 100%;
+			@include tab {
+				width: 100%;
+			}
+		}
+	}
+	&.twoCols {
+		.info {
+			width: 100%;
+			@include xs {
+				width: 50%;
+			}
+		}
 	}
 	.fourCols {
 		.info {

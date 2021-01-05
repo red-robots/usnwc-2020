@@ -223,144 +223,191 @@ function js_custom_init() {
  * Add new taxonomy, make it hierarchical (like categories)
  * Custom Taxonomies
 */
-add_action( 'init', 'build_taxonomies', 0 ); 
+add_action( 'init', 'build_taxonomies', 0 );
+ 
 function build_taxonomies() {
+// custom tax
+    register_taxonomy( 
+        'event-location', 
+        array('music'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Location', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'event-location' ),
+            '_builtin' => true
+        ) 
+    );
 
-  $post_types = array(
-    array(
-      'post_type' => array('music'),
-      'menu_name' => 'Location',
-      'plural'    => 'Location',
-      'single'    => 'Location',
-      'taxonomy'  => 'event-location'
-    ),
-    array(
-      'post_type' => array('activity', 'pass'),
-      'menu_name' => 'Pass Type',
-      'plural'    => 'Pass Types',
-      'single'    => 'Pass Type',
-      'taxonomy'  => 'pass_type',
-      'rewrite'   => 'pass-type'
-    ),
-    array(
-      'post_type' => array('film', 'activity','post'),
-      'menu_name' => 'Activity',
-      'plural'    => 'Activities',
-      'single'    => 'Activity',
-      'taxonomy'  => 'activity_type',
-      'rewrite'   => 'activity-type'
-    ),
-    array(
-      'post_type' => array('faqs'),
-      'menu_name' => 'FAQ Type',
-      'plural'    => 'FAQ Types',
-      'single'    => 'FAQ Type',
-      'taxonomy'  => 'faq_type',
-      'rewrite'   => 'faq-type'
-    ),
-    array(
-      'post_type' => array('festival_activity'),
-      'menu_name' => 'Programming',
-      'plural'    => 'Programming',
-      'single'    => 'Programming',
-      'taxonomy'  => 'festival_programming',
-      'rewrite'   => 'festival-programming'
-    ),
-    array(
-      'post_type' => array('festival_activity'),
-      'menu_name' => 'Festival Name',
-      'plural'    => 'Festival Names',
-      'single'    => 'Festival Name',
-      'taxonomy'  => 'festival'
-    ),
-    array(
-      'post_type' => array('festival_activity'),
-      'menu_name' => 'Festival Day',
-      'plural'    => 'Festival Days',
-      'single'    => 'Festival Day',
-      'taxonomy'  => 'festival_day',
-      'rewrite'   => 'festival-day'
-    ),
-    array(
-      'post_type' => array('story'),
-      'menu_name' => 'Editions',
-      'plural'    => 'Editions',
-      'single'    => 'Edition',
-      'taxonomy'  => 'edition'
-    ),
-    array(
-      'post_type' => array('job'),
-      'menu_name' => 'Job Types',
-      'plural'    => 'Job Types',
-      'single'    => 'Job Type',
-      'taxonomy'  => 'jobtype'
-    ),
-    array(
-      'post_type' => array('job'),
-      'menu_name' => 'Job Locations',
-      'plural'    => 'Job Locations',
-      'single'    => 'Job Location',
-      'taxonomy'  => 'joblocation'
-    ),
-    array(
-      'post_type' => array('job'),
-      'menu_name' => 'Departments',
-      'plural'    => 'Departments',
-      'single'    => 'Department',
-      'taxonomy'  => 'department'
-    ),
-    array(
-      'post_type' => array('instructions'),
-      'menu_name' => 'Instructions Template',
-      'plural'    => 'Instructions Templates',
-      'single'    => 'Instructions Template',
-      'taxonomy'  => 'instructions-template',
-      'query_var' => false,
-      'show_admin_column'=>false
-    ),
-  );
+    register_taxonomy( 
+        'pass_type', 
+        array('activity', 'pass'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Pass Type', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'pass-type' ),
+            '_builtin' => true
+        ) 
+    );
 
-  if($post_types) {
-    foreach($post_types as $p) {
-      $p_type = ( isset($p['post_type']) && $p['post_type'] ) ? $p['post_type'] : ""; 
-      $single_name = ( isset($p['single']) && $p['single'] ) ? $p['single'] : "Custom Post"; 
-      $plural_name = ( isset($p['plural']) && $p['plural'] ) ? $p['plural'] : "Custom Post"; 
-      $menu_name = ( isset($p['menu_name']) && $p['menu_name'] ) ? $p['menu_name'] : $p['plural'];
-      $taxonomy = ( isset($p['taxonomy']) && $p['taxonomy'] ) ? $p['taxonomy'] : "";
-      $rewrite = ( isset($p['rewrite']) && $p['rewrite'] ) ? $p['rewrite'] : $taxonomy;
-      $query_var = ( isset($p['query_var']) && $p['query_var'] ) ? $p['query_var'] : true;
-      $show_admin_column = ( isset($p['show_admin_column']) && $p['show_admin_column'] ) ? $p['show_admin_column'] : true;
+    register_taxonomy( 
+        'activity_type', 
+        array('film', 'activity','post'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Activity', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'activity-type' ),
+            '_builtin' => true
+        )
+    );
 
-      $labels = array(
-        'name' => _x( $menu_name, 'taxonomy general name' ),
-        'singular_name' => _x( $single_name, 'taxonomy singular name' ),
-        'search_items' =>  __( 'Search ' . $plural_name ),
-        'popular_items' => __( 'Popular ' . $plural_name ),
-        'all_items' => __( 'All ' . $plural_name ),
-        'parent_item' => __( 'Parent ' .  $single_name),
-        'parent_item_colon' => __( 'Parent ' . $single_name . ':' ),
-        'edit_item' => __( 'Edit ' . $single_name ),
-        'update_item' => __( 'Update ' . $single_name ),
-        'add_new_item' => __( 'Add New ' . $single_name ),
-        'new_item_name' => __( 'New ' . $single_name ),
-      );
+    register_taxonomy( 
+        'faq_type', 
+        array('faqs'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'FAQ Type', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'faq-type' ),
+            '_builtin' => true
+        )
+    );
 
-      register_taxonomy($taxonomy, $p_type, array(
-        'hierarchical' => true,
-        'labels' => $labels,
-        'show_admin_column' => $show_admin_column,
-        'query_var' => $query_var,
-        'show_ui' => true,
-        'show_in_rest' => true,
-        'public' => true,
-        '_builtin' => true,
-        'rewrite' => array( 'slug' => $rewrite ),
-      ));
 
-    }
-  }
+    register_taxonomy( 
+        'festival', 'festival_activity',
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Festival Name', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'festival' ),
+            '_builtin' => true
+        )
+    );
 
-}
+    register_taxonomy( 
+        'festival_day', 'festival_activity',
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Festival Day', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'festival-day' ),
+            '_builtin' => true
+        )
+    );
+
+    register_taxonomy( 
+        'edition', 
+        array('story'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Edition', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'edition' ),
+            '_builtin' => true
+        ) 
+    );
+
+    register_taxonomy( 
+        'jobtype', 
+        array('job'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Job Type', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'jobtype' ),
+            '_builtin' => true
+        ) 
+    );
+
+    register_taxonomy( 
+        'joblocation', 
+        array('job'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Job Locations', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'joblocation' ),
+            '_builtin' => true
+        ) 
+    );
+
+    register_taxonomy( 
+        'department', 
+        array('job'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Department', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'department' ),
+            '_builtin' => true
+        ) 
+    );
+
+
+    register_taxonomy( 
+        'instructions-template', 
+        array('instructions'),
+        array( 
+            'hierarchical' => true, // true = acts like categories false = acts like tags
+            'label' => 'Instructions Template', 
+            'query_var' => true, 
+            'rewrite' => true ,
+            'show_admin_column' => true,
+            'public' => true,
+            'rewrite' => array( 'slug' => 'department-template' ),
+            '_builtin' => true
+        ) 
+    );
+
+    // register_taxonomy( 
+    //     'story-types', 
+    //     array('story'),
+    //     array( 
+    //         'hierarchical' => true, // true = acts like categories false = acts like tags
+    //         'label' => 'Story Types', 
+    //         'query_var' => true, 
+    //         'rewrite' => true ,
+    //         'show_admin_column' => true,
+    //         'public' => true,
+    //         'rewrite' => array( 'slug' => 'story-types' ),
+    //         '_builtin' => true
+    //     ) 
+    // );
+    
+} // End build taxonomies
 
 
 

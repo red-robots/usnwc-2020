@@ -105,6 +105,7 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
     height:auto;   
 }
 
+.acf-field-flexible-content [data-layout="festivalActivities"] .acf-fc-layout-handle,
 .acf-flexible-content [data-layout="section2"] .acf-fc-layout-handle,
 [data-name="repeater_blocks"] [data-layout="section"] .acf-fc-layout-handle,
 [data-layout="other_activity"] .acf-fc-layout-handle,
@@ -116,7 +117,7 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
   font-size: 0;
   color: transparent!important;
 }
-
+.acf-field-flexible-content [data-layout="festivalActivities"] .acf-fc-layout-handle:after,
 .acf-flexible-content [data-layout="section2"] .acf-fc-layout-handle:after,
 [data-name="repeater_blocks"] [data-layout="section"] .acf-fc-layout-handle:after,
 [data-layout="other_activity"] .acf-fc-layout-handle:after,
