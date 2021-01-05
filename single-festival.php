@@ -86,6 +86,12 @@ $post_id = get_the_ID(); ?>
 			<?php endwhile; ?>
 
 
+			<?php  /* FAQ */ 
+				$customFAQTitle = 'FAQ';
+				include( locate_template('parts/content-faqs.php') ); 
+			?>
+
+
 		</main>
 
 	</div>
@@ -115,4 +121,6 @@ jQuery(document).ready(function($){
 });
 </script>
 <?php
+
+include( locate_template('inc/faqs.php') );  
 get_footer();
