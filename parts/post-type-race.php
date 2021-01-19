@@ -22,9 +22,11 @@ while ( have_posts() ) : the_post(); ?>
 
 	$has_race_types = '';
 	if ( isset($race_types[0]['schedule']) && $race_types[0]['schedule'] ) {
-		$rtypes =implode("",$race_types[0]['schedule']);
-		$has_race_types = ($rtypes) ? true : false;
+		//$rtypes =implode("",$race_types[0]['schedule']);
+		//$rtypes = '';
+		$has_race_types = ($race_types[0]['schedule']) ? true : false;
 	}
+
 
 	if($register_section_title || $race_types) { ?>
 	<section id="section-registration" data-section="Registration" class="section-content">

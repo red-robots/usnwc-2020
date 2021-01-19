@@ -124,10 +124,11 @@ $nav_width: 350px;
 @mixin animateThis($duration:1s) {
 	-webkit-animation-duration: $duration;
 	animation-duration: $duration;
-	// -webkit-animation-duration: var(--animate-duration);
-	// animation-duration: var(--animate-duration);
-	// -webkit-animation-fill-mode: both;
-	// animation-fill-mode: both;
+}
+
+@mixin animateEffect($effect:fadeIn) {
+	-webkit-animation-name: $effect;
+  animation-name: $effect;
 }
 
 @mixin fontblock() {

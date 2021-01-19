@@ -9535,6 +9535,79 @@ body.subpage.single .content-default .important-notes-red,
 	}
 }
 
+body.single-festival {
+	#loaderDiv {
+		.loaderInline {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+			visibility: hidden;
+		}
+	}
+	#section-schedule {
+		.eventDates {
+			font-size: 15px;
+			line-height:1.2;
+			text-transform: uppercase;
+			margin: 10px 0 0;
+		}
+	}
+}
+
+#tabSchedules {
+	.schedules-list {
+		display: none;
+		@include animateThis(1s);
+		h3.day {
+			display: none;
+		}
+		&.active {
+			display: block;
+			@include animateEffect(fadeIn);
+		}
+	}
+	.scheduleContent {
+		width: 100%;
+		float: left;
+	}
+	#tabOptions {
+		width: 100%;
+		float: left;
+		text-align: center;
+		@include tab {
+			text-align: right;
+		}
+		ul {
+			max-width: 800px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 0 0;
+			list-style: none;
+			li {
+				display: inline-block;
+				margin: 10px 5px;
+				@include tab {
+					margin: 0 0 0 18px;
+				}
+				a {
+					display: inline-block;
+					text-decoration: none;
+					font-size: 14px;
+					line-height: 1.2;
+					text-transform: uppercase;
+					color: $color_text_main;
+				}
+				&.active a {
+					border-bottom: 2px solid $red;
+				}
+			}
+			
+		}
+	}
+}
+
+
+
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");

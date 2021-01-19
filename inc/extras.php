@@ -1268,6 +1268,29 @@ function posts_load_more(){
     die();
 }
 
+add_action('wp_ajax_nopriv_ajaxGetPageData', 'ajaxGetPageData');
+add_action('wp_ajax_ajaxGetPageData', 'ajaxGetPageData');
+function ajaxGetPageData(){
+    global $wpdb;
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        $postid = ( isset($_REQUEST['ID']) && $_REQUEST['ID'] ) ? $_REQUEST['ID'] : '';
+        $content = array();
+        if($postid) {
+            if( $post = get_post($postid) ) {
+                $thumbnail = get_field("full_image",$postid);
+                $content['featured_image'] = $thumbnail;
+                $content['raw'] = $post;
+                $content['post_title'] = $post->post_title; 
+                $content['post_content'] = ($post->post_content) ? apply_filters('the_content', $post->post_content):''; 
+            }
+        }
+        echo json_encode($content);
+
+    } else {
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    die();
+}
 
 function fwp_archive_per_page( $query ) {
     if ( is_tax( 'category' ) ) {
@@ -1375,7 +1398,8 @@ function getFaqs($post_id) {
 }
 
 /* Remove ACF Fields on specific post */
-if ( ($pagenow == 'post.php' && get_post_type($_GET['post']) == 'instructions') ||  ($pagenow == 'post-new.php' && $_GET['post_type'] == 'instructions') ) {
+$postid = ( isset($_GET['post']) && $_GET['post'] ) ? $_GET['post'] : 0;
+if ( ($pagenow == 'post.php' && get_post_type($postid) == 'instructions') ||  ($pagenow == 'post-new.php' && $_GET['post_type'] == 'instructions') ) {
     add_action('admin_head', 'ins_custom_admin_css');
     function ins_custom_admin_css() { ?>
     <style type="text/css">

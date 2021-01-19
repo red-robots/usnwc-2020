@@ -25,7 +25,7 @@ if($heroImage) {
 get_template_part("parts/subpage-banner");
 $post_id = get_the_ID(); ?>
 	
-<div id="primary" class="content-area-full content-default single-post <?php echo $has_feat_image;?> post-type-<?php echo $post_type;?>">
+<div id="primary" class="content-area-full content-default single-post <?php echo $has_hero;?> post-type-<?php echo $post_type;?>">
 
 		<main id="main" data-postid="post-<?php the_ID(); ?>" class="site-main" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -37,6 +37,8 @@ $post_id = get_the_ID(); ?>
 					<?php the_content(); ?>
 				</div>
 			</section>
+
+			<?php get_template_part("parts/subpage-tabs"); ?>
 				
 			<?php 
 			$start_date = get_field("start_date");
@@ -83,7 +85,106 @@ $post_id = get_the_ID(); ?>
 			</section>
 			<?php } ?>
 
-			<?php endwhile; ?>
+
+		<?php endwhile; ?>
+
+
+			<?php /* SCHEDULE */ ?>
+			<?php
+			$activities = get_field("festival_activities");
+			$schedule_dates = get_field("schedule_dates");
+			if($activities) { ?>
+			<section id="section-schedule" data-section="SCHEDULE" class="section-content">
+				<div class="wrapper">
+					<div class="shead-icon text-center">
+						<div class="icon"><span class="ci-menu"></span></div>
+						<h2 class="stitle">SCHEDULE</h2>
+						<?php if ($schedule_dates) { ?>
+						<p class="eventDates"><?php echo $schedule_dates ?></p>	
+						<?php } ?>
+					</div>
+
+					<?php /* Filter Options */ ?>
+					<div class="filter-wrapper filterstyle optionsnum3" style="display:none;">
+						<div class="wrapper">
+							
+							<div class="filter-inner">
+								<div class="flexwrap">
+
+									<div class="filter-label">
+										<div class="inside"><span>Filter By</span></div>
+									</div>
+
+									<?php if ( do_shortcode('[facetwp facet="job_locations"]') ) { ?>
+									<div class="select-wrap">
+										<?php echo do_shortcode('[facetwp facet="job_locations"]'); ?>
+									</div>
+									<?php } ?>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div id="tabSchedules" class="schedules-list-wrap">
+						<div id="tabOptions"></div>
+						<div class="scheduleContent">
+						<?php $ctr=1; foreach ($activities as $a) { 
+							$day = $a['day'];
+							$daySlug = ($day) ? sanitize_title($day) : '';
+							$schedules = $a['schedule'];
+							$isActive = ($ctr==1) ? ' active':'';
+							if($schedules) { ?>
+							<div id="daygroup<?php echo $ctr?>" class="schedules-list<?php echo $isActive?>">
+								<?php if ($day) { ?>
+								<h3 class="day"><?php echo ucwords($day) ?></h3>
+								<?php } ?>
+								<ul class="items">
+									<?php foreach ($schedules as $s) { 
+										// echo "<pre>";
+										// print_r($s);
+										// "</pre>";
+										$act = ( isset($s['activity']) && $s['activity'] ) ? $s['activity']:'';
+										$activityName = ($act) ? $act->post_title :'';
+										$activityID = ($act) ? $act->ID :'';
+										$is_pop_up = ( isset($s['popup_info'][0]) && $s['popup_info'][0] ) ? true : false;
+										$altText = ( isset($s['alt_text']) && $s['alt_text'] ) ? $s['alt_text']:'';
+										if($activityName && $altText) {
+											$altText = ' ('.$altText.')';
+										}
+										$pageLink = ($activityID) ? get_permalink($activityID) : '#';
+									?>
+									<li class="item">
+										<div class="time"><?php echo $s['time'] ?></div>
+										<div class="event">
+											<?php if ($activityName) { ?>
+												<?php if ($is_pop_up && $activityID) { ?>
+												<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $activityID ?>" class="actname popdata"><?php echo $activityName ?></a>	
+												<?php } else { ?>
+												<span class="actname"><?php echo $activityName ?></span>	
+												<?php } ?>
+											<?php } ?>
+
+											<?php if ($altText) { ?>
+											<span class="alttext"><?php echo $altText ?></span>
+											<?php } ?>
+										</div>
+									</li>
+									<?php } ?>
+								</ul>
+							</div>
+							<?php $ctr++; } ?>
+						<?php } ?>
+						</div>
+					</div>
+
+				</div>
+			</section>
+			<?php } ?>
+
+
+			
 
 
 			<?php  /* FAQ */ 
@@ -97,6 +198,19 @@ $post_id = get_the_ID(); ?>
 	</div>
 
 
+<div id="activityModal" class="modal customModal fade">
+	<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="modalBodyText" class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript">
 jQuery(document).ready(function($){
@@ -118,9 +232,77 @@ jQuery(document).ready(function($){
       }
     }
 	});
+
+	/* Tabs */
+	var tabs = '<ul>';
+	var i = 1;
+	$("#tabSchedules .day").each(function(){
+		if( $(this).text().replace(/\s+/g,'').trim() ) {
+			var active = (i==1) ? ' active':'';
+			tabs += '<li class="tablink'+active+'"><a href="#" data-tab="#daygroup'+i+'">'+$(this).text()+'</a></li>';
+			i++;
+		}
+	});
+	tabs += '<ul>';
+	$("#tabOptions").html(tabs);
+
+	$(document).on("click","#tabOptions a",function(e){
+		e.preventDefault();
+		$("#tabOptions li").removeClass('active');
+		$(this).parent().addClass('active');
+		$(".schedules-list").removeClass('active');
+		var tabContent = $(this).attr("data-tab");
+		$(tabContent).addClass('active');
+	});
+
+	$(".popdata").on("click",function(e){
+		e.preventDefault();
+		var pageURL = $(this).attr('data-url');
+		var actionName = $(this).attr('data-action');
+		var pageID = $(this).attr('data-id');
+
+		$.ajax({
+			url : frontajax.ajaxurl,
+			type : 'post',
+			dataType : "json",
+			data : {
+				'action' : actionName,
+				'ID' : pageID
+			},
+			beforeSend:function(){
+				$("#loaderDiv").show();
+			},
+			success:function( obj ) {
+			
+				var content = '';
+				if(obj) {
+					content += '<div class="modaltitleDiv text-center"><h5 class="modal-title">'+obj.post_title+'</h5></div>';
+					if(obj.featured_image) {
+						var img = obj.featured_image;
+						content += '<div class="modalImage"><img src="'+img.url+'" alt="'+img.title+'p" class="feat-image"></div>';
+					}
+					content += '<div class="modalText"><div class="text">'+obj.post_content+'</div></div>';
+				}
+
+				if(content) {
+					$("#modalBodyText").html(content);
+					$("#activityModal").modal("show");
+				}
+
+				$("#loaderDiv").hide();
+				
+			},
+			error:function() {
+				$("#loaderDiv").hide();
+			}
+		});
+
+
+	});
+
 });
 </script>
 <?php
-
+include( locate_template('inc/pagetabs-script.php') );  
 include( locate_template('inc/faqs.php') );  
 get_footer();
