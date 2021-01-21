@@ -23,7 +23,11 @@ if($heroImage) {
 }
 
 get_template_part("parts/subpage-banner");
-$post_id = get_the_ID(); ?>
+$post_id = get_the_ID(); 
+$currentPostId = $post_id;
+//$currentpageURL = get_permalink();
+$is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['programming'] : '';
+?>
 	
 <div id="primary" class="content-area-full content-default single-post <?php echo $has_hero;?> post-type-<?php echo $post_type;?>">
 
@@ -92,9 +96,10 @@ $post_id = get_the_ID(); ?>
 			<?php /* SCHEDULE */ ?>
 			<?php
 			$activities = get_field("festival_activities");
+			$schedule_image = get_field("schedule_image");
 			$schedule_dates = get_field("schedule_dates");
 			if($activities) { ?>
-			<section id="section-schedule" data-section="SCHEDULE" class="section-content">
+			<section id="section-schedule" data-section="SCHEDULE/MAP" class="section-content">
 				<div class="wrapper">
 					<div class="shead-icon text-center">
 						<div class="icon"><span class="ci-menu"></span></div>
@@ -104,87 +109,265 @@ $post_id = get_the_ID(); ?>
 						<?php } ?>
 					</div>
 
-					<?php /* Filter Options */ ?>
-					<div class="filter-wrapper filterstyle optionsnum3" style="display:none;">
+		
+					<?php
+					$options = get_festival_programming_filter( get_the_ID() );
+					if($options) { ?>
+					<div class="filter-wrapper filterstyle customSelectWrap">
 						<div class="wrapper">
-							
 							<div class="filter-inner">
-								<div class="flexwrap">
+								<form action="" method="get" id="filterForm">
+									<div class="flexwrap">
 
-									<div class="filter-label">
-										<div class="inside"><span>Filter By</span></div>
+										<div class="filter-label">
+											<div class="inside"><span>Filter By</span></div>
+										</div>
+
+										<div class="select-wrap">
+											<select name="programming" id="selectByProgram" class="customSelect">
+												<option></option>
+												<option value="-1">ALL</option>
+												<?php foreach ($options as $opt) { 
+													$term_name = $opt['term_name'];
+													$postArrs = ($opt['term_posts']) ? array_unique($opt['term_posts']) : '';
+													$term_posts = ($postArrs) ? implode("%2C",$postArrs):'';
+													$term_strs = ($postArrs) ? implode(",",$postArrs):'';
+													$selected = ($term_strs==$is_filtered) ? ' selected':'';
+													?>
+													<option value="<?php echo $term_posts?>"<?php echo $selected?>><?php echo $term_name?></option>
+												<?php } ?>
+											</select>
+										</div>
+										
 									</div>
-
-									<?php if ( do_shortcode('[facetwp facet="job_locations"]') ) { ?>
-									<div class="select-wrap">
-										<?php echo do_shortcode('[facetwp facet="job_locations"]'); ?>
-									</div>
-									<?php } ?>
-
-								</div>
+								</form>
 							</div>
-
 						</div>
 					</div>
+					<?php } ?>
 
-					<div id="tabSchedules" class="schedules-list-wrap">
-						<div id="tabOptions"></div>
-						<div class="scheduleContent">
-						<?php $ctr=1; foreach ($activities as $a) { 
+					<?php
+
+					/*=== SCHEDULE ===*/ 
+					if ($is_filtered) { /* FILTERED SCHEDULE */ 
+						$posts_selected = explode(",",$is_filtered);
+						$filter_activites = array();
+						$selected_activities = array();
+						foreach ($activities as $a) { 
+							$schedules = $a['schedule'];
 							$day = $a['day'];
 							$daySlug = ($day) ? sanitize_title($day) : '';
-							$schedules = $a['schedule'];
-							$isActive = ($ctr==1) ? ' active':'';
-							if($schedules) { ?>
-							<div id="daygroup<?php echo $ctr?>" class="schedules-list<?php echo $isActive?>">
-								<?php if ($day) { ?>
-								<h3 class="day"><?php echo ucwords($day) ?></h3>
-								<?php } ?>
-								<ul class="items">
-									<?php foreach ($schedules as $s) { 
-										// echo "<pre>";
-										// print_r($s);
-										// "</pre>";
-										$act = ( isset($s['activity']) && $s['activity'] ) ? $s['activity']:'';
-										$activityName = ($act) ? $act->post_title :'';
-										$activityID = ($act) ? $act->ID :'';
-										$is_pop_up = ( isset($s['popup_info'][0]) && $s['popup_info'][0] ) ? true : false;
-										$altText = ( isset($s['alt_text']) && $s['alt_text'] ) ? $s['alt_text']:'';
-										if($activityName && $altText) {
-											$altText = ' ('.$altText.')';
+							if($schedules) {
+								foreach ($schedules as $s) { 
+									$time = $s['time'];
+									$altText = ( isset($s['alt_text']) && $s['alt_text'] ) ? $s['alt_text']:'';
+									$is_pop_up = ( isset($s['popup_info'][0]) && $s['popup_info'][0] ) ? true : false;
+									$act = ( isset($s['activity']) && $s['activity'] ) ? $s['activity']:'';
+									if($act) {
+										$id = $act->ID;
+										$act->schedule = $time;
+										$act->popup_info = $is_pop_up;
+										$act->alt_text = $altText;
+										if( in_array($id,$posts_selected) ) {
+											$filter_activites[$day][] = $act;
 										}
-										$pageLink = ($activityID) ? get_permalink($activityID) : '#';
-									?>
-									<li class="item">
-										<div class="time"><?php echo $s['time'] ?></div>
-										<div class="event">
-											<?php if ($activityName) { ?>
-												<?php if ($is_pop_up && $activityID) { ?>
-												<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $activityID ?>" class="actname popdata"><?php echo $activityName ?></a>	
-												<?php } else { ?>
-												<span class="actname"><?php echo $activityName ?></span>	
-												<?php } ?>
-											<?php } ?>
+									}
+								}
+							}
+						}
 
-											<?php if ($altText) { ?>
-											<span class="alttext"><?php echo $altText ?></span>
-											<?php } ?>
-										</div>
-									</li>
+						?>
+						
+						<?php if ($filter_activites) { ?>
+						<div id="filterResults" class="full filterResults">
+							<div id="tabSchedules" class="schedules-list-wrap">
+								<div id="tabOptions">
+									<ul>
+									<?php $n=1; foreach ($filter_activites as $day=>$objs) {
+										if($day) {
+											$tabActive = ($n==1) ? ' active':''; ?>
+											<li class="tablink<?php echo $tabActive?>"><a href="#" data-tab="#daygroup<?php echo $n?>"><?php echo ucwords($day)?></a></li>
+										<?php $n++; } ?>
 									<?php } ?>
-								</ul>
-							</div>
-							<?php $ctr++; } ?>
-						<?php } ?>
-						</div>
-					</div>
+									</ul>
+								</div>
+								<div class="scheduleContent">
+								<?php $ctr=1; foreach ($filter_activites as $day=>$items) {
+								$isActive = ($ctr==1) ? ' active':'';  
+								?>
+								<div id="daygroup<?php echo $ctr?>" class="schedules-list<?php echo $isActive?>">
+									<h3 class="day" style="display:none;"><?php echo ucwords($day) ?></h3>
+									<ul class="items">
+										<?php foreach ($items as $m) {
+											$pid = $m->ID; 
+											$pageLink = get_permalink($pid);
+											$activityName = $m->post_title;
+											$is_pop_up = (isset($m->popup_info) && $m->popup_info) ? true : false;
+											$altText = (isset($m->alt_text) && $m->alt_text) ? $m->alt_text : '';
+											?>
+											<li class="item">
+												<div class="time"><?php echo $m->schedule ?></div>
+												<div class="event">
+													<?php if ($is_pop_up) { ?>
+													<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class="actname popdata"><?php echo $activityName ?></a>	
+													<?php } else { ?>
+													<span class="actname"><?php echo $activityName ?></span>	
+													<?php } ?>
 
+													<?php if ($altText) { ?>
+													<span class="alttext">(<?php echo $altText ?>)</span>
+													<?php } ?>
+												</div>
+											</li>
+										<?php } ?>
+									</ul>
+								</div>
+								<?php $ctr++; } ?>
+								</div>
+							</div>
+						</div>
+						<?php } else { ?>
+						<p style="text-align:center;">Nothing found.</p>
+						<?php } ?>
+
+					<?php } else { ?>
+
+						<?php 
+						/* Will not display any data. This is required for the FacetWP dropdown to work. */
+						$args = array(
+							'posts_per_page'=> 1,
+							'post_type'			=> 'festival_activity',
+							'orderby' 			=> 'ID',
+						  'order'    			=> 'DESC',
+							'post_status'		=> 'publish',
+							'facetwp'				=> true
+						);
+						$festivalActivites = new WP_Query($args);
+						if( $festivalActivites->have_posts() ) {
+	 						while ( $festivalActivites->have_posts()) : $festivalActivites->the_post();
+	 						endwhile; wp_reset_postdata();
+						}
+						?>
+
+						<div id="filterResults" class="full filterResults">
+							<div id="tabSchedules" class="schedules-list-wrap">
+								<div id="tabOptions">
+									<ul>
+									<?php $n=1; foreach ($activities as $a) {
+										$day = ($a['day']) ? ucwords($a['day']) : ''; 
+										if($day) {
+											$tabActive = ($n==1) ? ' active':''; ?>
+											<li class="tablink<?php echo $tabActive?>"><a href="#" data-tab="#daygroup<?php echo $n?>"><?php echo $day?></a></li>
+										<?php $n++; } ?>
+									<?php } ?>
+									</ul>
+								</div>
+								<div class="scheduleContent">
+								<?php $ctr=1; foreach ($activities as $a) { 
+									$day = $a['day'];
+									$daySlug = ($day) ? sanitize_title($day) : '';
+									$schedules = $a['schedule'];
+									$isActive = ($ctr==1) ? ' active':'';
+									if($schedules) { ?>
+									<div id="daygroup<?php echo $ctr?>" class="schedules-list<?php echo $isActive?>">
+										<?php if ($day) { ?>
+										<h3 class="day"><?php echo ucwords($day) ?></h3>
+										<?php } ?>
+										<ul class="items">
+											<?php foreach ($schedules as $s) { 
+												$act = ( isset($s['activity']) && $s['activity'] ) ? $s['activity']:'';
+												$activityName = ($act) ? $act->post_title :'';
+												$activityID = ($act) ? $act->ID :'';
+												$is_pop_up = ( isset($s['popup_info'][0]) && $s['popup_info'][0] ) ? true : false;
+												$altText = ( isset($s['alt_text']) && $s['alt_text'] ) ? $s['alt_text']:'';
+												if($activityName && $altText) {
+													$altText = ' ('.$altText.')';
+												}
+												$pageLink = ($activityID) ? get_permalink($activityID) : '#';
+											?>
+											<li class="item">
+												<div class="time"><?php echo $s['time'] ?></div>
+												<div class="event">
+													<?php if ($activityName) { ?>
+														<?php if ($is_pop_up && $activityID) { ?>
+														<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $activityID ?>" class="actname popdata"><?php echo $activityName ?></a>	
+														<?php } else { ?>
+														<span class="actname"><?php echo $activityName ?></span>	
+														<?php } ?>
+													<?php } ?>
+
+													<?php if ($altText) { ?>
+													<span class="alttext"><?php echo $altText ?></span>
+													<?php } ?>
+												</div>
+											</li>
+											<?php } ?>
+										</ul>
+									</div>
+									<?php $ctr++; } ?>
+								<?php } ?>
+								</div>
+							</div>
+						</div>
+
+					<?php } ?>
 				</div>
+
+				<?php if ($schedule_image) { ?>
+				<div class="schedule-image-wrap full">
+					<div class="wrapper">
+						<img src="<?php echo $schedule_image['url'] ?>" alt="<?php echo $schedule_image['title'] ?>" class="feat-img">
+					</div>
+				</div>					
+				<?php } ?>
 			</section>
 			<?php } ?>
 
 
-			
+
+			<?php /* ACTIVITIES */ ?>
+			<?php if( $bottom_activities = get_field("festival_activities_bottom") ) { ?>
+			<section id="section-activities" data-section="Activities" class="section-content camp-activities">
+				<div class="wrapper titlediv">
+					<div class="shead-icon text-center">
+						<div class="icon"><span class="ci-task"></span></div>
+						<h2 class="stitle">Activities</h2>
+					</div>
+				</div>
+
+				<div class="entryList flexwrap">
+					<?php $b=1; foreach ($bottom_activities as $ba) {
+						$pid = $ba->ID;
+						$title = $ba->post_title;
+						$description = ($ba->post_content) ? shortenText($ba->post_content,250," ","..."):'';
+						$thumbnail = get_field("thumbnail_image",$pid);
+						$buttonLink = get_permalink($pid);
+					?>
+					<div id="entryBlock<?php echo $b?>" class="fbox <?php echo ($thumbnail) ? 'hasImage':'noImage'; ?>">
+						<div class="inside text-center">
+							<div class="imagediv <?php echo ($thumbnail) ? 'hasImage':'noImage'?>">
+								<?php if ($thumbnail) { ?>
+									<span class="img" style="background-image:url('<?php echo $thumbnail['url']?>')"></span>
+								<?php } ?>
+								<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" class="placeholder">
+							</div>
+							<div class="titlediv">
+								<p class="name"><?php echo $title ?></p>
+								<?php if ($description) { ?>
+								<div class="excerpt"><?php echo $description; ?></div>	
+								<?php } ?>
+								<div class="buttondiv">
+									<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class="btn-sm ajaxLoadContent popdata"><span>See Details</span></a>	
+								</div>
+							</div>
+						</div>
+					</div>
+					<?php $b++; } ?>
+				</div>
+			</div>
+			</section>
+
+			<?php } ?>
 
 
 			<?php  /* FAQ */ 
@@ -196,6 +379,83 @@ $post_id = get_the_ID(); ?>
 		</main>
 
 	</div>
+
+
+<?php
+$currentPostType = get_post_type();
+$similarPosts = get_field("similar_posts_section","option");
+$bottomSectionTitle = '';
+if($similarPosts) {
+	foreach($similarPosts as $s) {
+		$posttype = $s['posttype'];
+		$sectionTitle = $s['section_title'];
+		if($posttype==$currentPostType) {
+			$bottomSectionTitle = $sectionTitle;
+		}
+	}
+}
+$args = array(
+	'posts_per_page'=> 15,
+	'post_type'			=> $currentPostType,
+	'orderby' 			=> 'rand',
+  'order'    			=> 'ASC',
+	'post_status'		=> 'publish',
+	'post__not_in' 	=> array($currentPostId)
+);
+$posts = new WP_Query($args);
+?>
+<section class="explore-other-stuff">
+	<div class="wrapper">
+		<?php if ($bottomSectionTitle) { ?>
+		<h3 class="sectionTitle"><?php echo $bottomSectionTitle ?></h3>
+		<?php } ?>
+
+		<?php if( $posts->have_posts() ) { ?>
+		<div class="post-type-entries">
+			<div class="columns">
+				<?php $i=1; while ( $posts->have_posts() ) : $posts->the_post(); ?>
+				<div class="entry">
+					<a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
+				</div>
+				<?php $i++; endwhile; wp_reset_postdata(); ?>
+			</div>
+		</div>
+		<?php } ?>
+	</div>
+</section>
+
+
+<?php  
+/* EVENT SPONSORS */ 
+$sponsor_section_title = "Event Sponsors";
+if($sponsors = get_field("sponsors_logo")) { ?>
+<section id="section-sponsors" class="section-content">
+	<div class="wrapper">
+		<?php if ($sponsor_section_title) { ?>
+		<div class="titlediv">
+			<h2 class="sectionTitle text-center"><?php echo $sponsor_section_title ?></h2>
+		</div>
+		<?php } ?>
+		
+		<div class="sponsors-list">
+			<div class="flexwrap">
+				<?php foreach ($sponsors as $s) { 
+				$link = get_field("image_website",$s['ID']);
+				?>
+				<span class="sponsor">
+					<?php if ($link) { ?>
+						<a href="<?php echo $link ?>" target="_blank"><img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>"></a>
+					<?php } else { ?>
+						<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>">
+					<?php } ?>
+				</span>	
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+</section>
+<?php } ?>
+
 
 
 <div id="activityModal" class="modal customModal fade">
@@ -233,18 +493,31 @@ jQuery(document).ready(function($){
     }
 	});
 
-	/* Tabs */
-	var tabs = '<ul>';
-	var i = 1;
-	$("#tabSchedules .day").each(function(){
-		if( $(this).text().replace(/\s+/g,'').trim() ) {
-			var active = (i==1) ? ' active':'';
-			tabs += '<li class="tablink'+active+'"><a href="#" data-tab="#daygroup'+i+'">'+$(this).text()+'</a></li>';
-			i++;
-		}
+	/* Custom Select Style */
+	$("select.customSelect").select2({
+    placeholder: "ALL",
+    allowClear: false
 	});
-	tabs += '<ul>';
-	$("#tabOptions").html(tabs);
+
+	$("#selectByProgram").on("change",function(){
+		//$("#filterForm").trigger("submit");
+		var selected = $(this).val();
+		var newURL = currentURL;
+		
+		if(selected=='-1') {
+			$(".customSelectWrap").addClass("selected-default");
+			window.history.replaceState("",document.title,currentURL);
+		} else {
+			$(".customSelectWrap").removeClass("selected-default");
+			newURL = currentURL + '?programming=' + selected;
+			window.history.replaceState("",document.title,newURL);
+		}
+
+		$("#filterResults").load(newURL + " #tabSchedules",function(){
+			$("#filterResults #tabSchedules").addClass("animated fadeIn");
+		});
+	});
+
 
 	$(document).on("click","#tabOptions a",function(e){
 		e.preventDefault();
@@ -270,7 +543,7 @@ jQuery(document).ready(function($){
 				'ID' : pageID
 			},
 			beforeSend:function(){
-				$("#loaderDiv").show();
+				//$("#loaderDiv").show();
 			},
 			success:function( obj ) {
 			
@@ -289,7 +562,7 @@ jQuery(document).ready(function($){
 					$("#activityModal").modal("show");
 				}
 
-				$("#loaderDiv").hide();
+				//$("#loaderDiv").hide();
 				
 			},
 			error:function() {
@@ -298,6 +571,10 @@ jQuery(document).ready(function($){
 		});
 
 
+	});
+
+	$(".ajaxLoadContent").on("click",function(e){
+		e.preventDefault();
 	});
 
 });

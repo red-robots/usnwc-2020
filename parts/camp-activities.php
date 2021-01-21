@@ -85,7 +85,6 @@ if($camp_activities) { ?>
 					    </div>
 					  </div>
 					</div>
-
 				</div>
 			</div>
 		<?php $i++; } ?>

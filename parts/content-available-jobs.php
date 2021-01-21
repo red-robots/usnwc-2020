@@ -152,9 +152,12 @@ if( $posts->have_posts() ) { ?>
 
 								<?php } ?>
 
-								<?php $i=1; while ( $posts->have_posts()) : $posts->the_post(); ?>
-									<div class="hide" style="display:none;"><?php echo get_the_title(); ?></div>
-								<?php $i++; endwhile; wp_reset_postdata(); ?>
+								<?php 
+								if( $posts->have_posts() ) {
+									$i=1; while ( $posts->have_posts()) : $posts->the_post(); ?>
+										<div class="hide" style="display:none;"><?php echo get_the_title(); ?></div>
+									<?php $i++; endwhile; wp_reset_postdata(); 
+								} ?>
 							</div>
 						</div>
 					</div>

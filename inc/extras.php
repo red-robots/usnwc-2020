@@ -1277,8 +1277,10 @@ function ajaxGetPageData(){
         $content = array();
         if($postid) {
             if( $post = get_post($postid) ) {
-                $thumbnail = get_field("full_image",$postid);
-                $content['featured_image'] = $thumbnail;
+                $full_image = get_field("full_image",$postid);
+                $thumbnail = get_field("thumbnail_image",$postid);
+                $content['featured_image'] = ($full_image) ? $full_image:'';
+                $content['thumbnail_image'] = ($thumbnail) ? $thumbnail:'';
                 $content['raw'] = $post;
                 $content['post_title'] = $post->post_title; 
                 $content['post_content'] = ($post->post_content) ? apply_filters('the_content', $post->post_content):''; 
@@ -1468,4 +1470,160 @@ if ( ($pagenow == 'post.php' && get_post_type($postid) == 'instructions') ||  ($
 // }
 
 
+// /* Custom FacetWP - Festival Activities Programming */
+// add_filter( 'facetwp_facet_types', function( $facet_types ) {
+//     $facet_types['fp_slug'] = new FacetWP_Facet_Festival();
+//     return $facet_types;
+// });
 
+// class FacetWP_Facet_Festival {
+//     function __construct() {
+//         $this->label = __( 'Festival Programming', 'fwp' );
+//     }
+//     /**
+//      * Load the available choices
+//      */
+//     function load_values( $params ) {
+//         global $wpdb,$post;
+//         $id = ( isset($post->ID) && $post->ID ) ? $post->ID:'';
+//         if( empty($id) ) return '';
+
+//         $facet = $params['facet'];
+//         $terms_table = $wpdb->prefix . 'terms cat';
+//         $from_clause = $wpdb->prefix . 'term_relationships rel';
+//         //$where_clause = $params['where_clause'];
+//         $where_clause = "object_id=".$id;
+
+//         $limit = ctype_digit( $facet['count'] ) ? $facet['count'] : 10;
+//         $from_clause = apply_filters( 'facetwp_facet_from', $from_clause, $facet );
+//         $where_clause = apply_filters( 'facetwp_facet_where', $where_clause, $facet );
+
+//         $sql = "SELECT rel.object_id AS post_id, cat.term_id, cat.name, cat.slug FROM $from_clause, $terms_table WHERE rel.term_taxonomy_id=cat.term_id AND $where_clause 
+//                 GROUP BY cat.term_id ORDER BY cat.name ASC LIMIT $limit";
+//         return $wpdb->get_results( $sql, ARRAY_A );
+//     }
+
+//     /**
+//      * Generate the output HTML
+//      */
+//     function render( $params ) {
+
+//         $output = '';
+//         $facet = $params['facet'];
+//         $values = (array) $params['values'];
+//         $selected_values = (array) $params['fp_slug'];
+
+//         $key = 0;
+//         foreach ( $values as $key => $result ) {
+//             $selected = in_array( $result['slug'], $selected_values ) ? ' checked' : '';
+//             $selected .= ( 0 == $result['counter'] && '' == $selected ) ? ' disabled' : '';
+//             $output .= '<div class="facetwp-link' . $selected . '" data-value="' . esc_attr( $result['slug'] ) . '">';
+//             $output .= esc_html( $result['slug'] );
+//             $output .= '</div>';
+//         }
+
+//         return $output;
+//     }
+
+//     /**
+//      * Return array of post IDs matching the selected values
+//      * using the wp_facetwp_index table
+//      */
+//     function filter_posts( $params ) {
+//         global $wpdb;
+//         $id = ( isset($post->ID) && $post->ID ) ? $post->ID:0;
+//         $output = [];
+//         $facet = $params['facet'];
+//         $selected_values = $params['fp_slug'];
+
+//         $sql = $wpdb->prepare( "SELECT DISTINCT term_id,name,slug
+//             FROM {$wpdb->prefix}terms term, {$wpdb->prefix}term_relationships rel';
+//             WHERE term.term_id=rel. term.slug = %s AND ",
+//             $facet['name']
+//         );
+
+//         foreach ( $selected_values as $key => $value ) {
+//             $results = facetwp_sql( $sql . " AND facet_value IN ('$value')", $facet );
+//             $output = ( $key > 0 ) ? array_intersect( $output, $results ) : $results;
+
+//             if ( empty( $output ) ) {
+//                 break;
+//             }
+//         }
+
+//         return $output;
+//     }
+
+// }
+
+
+function get_festival_programming_filter($currentPostId) {
+    global $wpdb;
+    if( empty($currentPostId) ) return false;
+    $selectedIds = array();
+    $taxonomy = 'festival_programming';
+    $programming = array();
+    $options = array();
+    //echo "<pre>";
+
+    $activities = get_field("festival_activities",$currentPostId);
+    $post_items = array();
+    $postIds = array();
+    $selected_activities = array();
+
+    if($activities) {
+        foreach ($activities as $a) { 
+            $schedules = $a['schedule'];
+            $day = $a['day'];
+            $daySlug = ($day) ? sanitize_title($day) : '';
+            if($schedules) {
+                foreach ($schedules as $s) { 
+                    $time = $s['time'];
+                    $altText = ( isset($s['alt_text']) && $s['alt_text'] ) ? $s['alt_text']:'';
+                    $is_pop_up = ( isset($s['popup_info'][0]) && $s['popup_info'][0] ) ? true : false;
+                    $act = ( isset($s['activity']) && $s['activity'] ) ? $s['activity']:'';
+                    if($act) {
+                        $id = $act->ID;
+                        $act->schedule = $time;
+                        $act->popup_info = $is_pop_up;
+                        $act->alt_text = $altText;
+                        $selected_activities[$day][] = $act;
+                        $postIds[] = $id;
+                    }
+                }
+            }
+        }
+    }
+
+    if($postIds) {
+        foreach($postIds as $id) {
+            $query = "SELECT cat.term_id,cat.name,cat.slug,p.ID FROM {$wpdb->prefix}posts p, {$wpdb->prefix}term_relationships rel, {$wpdb->prefix}terms cat, {$wpdb->prefix}term_taxonomy tax
+                      WHERE rel.term_taxonomy_id=cat.term_id AND tax.term_id=cat.term_id AND tax.taxonomy='{$taxonomy}' 
+                      AND rel.object_id=".$id. " AND p.ID=".$id." ORDER BY cat.name ASC";
+            $result = $wpdb->get_row( $query );
+            if($result) {
+                $termId = $result->term_id;
+                $programming[$termId][] = $result;
+            }
+        }
+    }
+
+    if($programming) {
+        foreach($programming as $term_id=>$items) {
+            $catName = $items[0]->name;
+            $posts = array();
+            $arg['term_name'] = $catName;
+            $arg['term_id'] = $term_id;
+            foreach($items as $row) {
+                $posts[] = $row->ID;
+            }
+            $arg['term_posts'] = $posts;
+            $options[] = $arg;
+        }
+    }
+    
+    // echo "<pre>";
+    // print_r($options);
+    // echo "</pre>";
+    return $options;
+}
