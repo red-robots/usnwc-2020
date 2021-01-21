@@ -512,9 +512,15 @@ jQuery(document).ready(function($){
 			window.history.replaceState("",document.title,newURL);
 		}
 
+		$("#loaderDiv").show();
+
 		$("#filterResults").load(newURL + " #tabSchedules",function(){
 			$("#filterResults #tabSchedules").addClass("animated fadeIn");
+			setTimeout(function(){
+				$("#loaderDiv").hide();
+			},600);
 		});
+
 	});
 
 
@@ -527,7 +533,7 @@ jQuery(document).ready(function($){
 		$(tabContent).addClass('active');
 	});
 
-	$(".popdata").on("click",function(e){
+	$(document).on("click",".popdata",function(e){
 		e.preventDefault();
 		var pageURL = $(this).attr('data-url');
 		var actionName = $(this).attr('data-action');

@@ -3673,7 +3673,7 @@ body.subpage.single .content-default .important-notes-red p:last-child,.importan
 .outer-banner-wrap .button-arrow:hover{-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}
 #program-info.section-content{background:#707070;color:#FFF}
 #program-info.section-content .wrapper{padding-top:50px;padding-bottom:50px;font-size:15px;line-height:1.5}
-body.single-festival #loaderDiv .loaderInline{position:relative;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);visibility:hidden}
+body.single-festival #loaderDiv .loaderInline{position:relative;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
 body.single-festival #section-schedule .eventDates{font-size:15px;line-height:1.2;text-transform:uppercase;margin:10px 0 0}
 body.single-festival .select-wrap .facetwp-facet .fs-label-wrap,body.single-festival .filter-wrapper .facetwp-facet .fs-label,body.single-festival .filter-wrapper .facetwp-facet .fs-option-label,body.single-festival .filter-wrapper.filterstyle .filter-label span{font-size:14px}
 body.single-festival .filter-wrapper.filterstyle .filter-label span{padding:3px 20px 1px}
