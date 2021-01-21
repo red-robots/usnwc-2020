@@ -575,11 +575,6 @@ jQuery(document).ready(function($){
 			}
 		});
 
-
-	});
-
-	$(".ajaxLoadContent").on("click",function(e){
-		e.preventDefault();
 	});
 
 });
