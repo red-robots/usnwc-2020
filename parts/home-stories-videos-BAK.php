@@ -51,7 +51,6 @@ $blank_image = THEMEURI . "images/rectangle.png";
 				$youtubeID = '';
 				$vimeoID = '';
 				$is_video_vimeo = '';
-				$pageLink = get_permalink();
 
 				//Youtube
 				if ( (strpos( strtolower($videoURL), 'youtube.com') !== false) || (strpos( strtolower($videoURL), 'youtu.be') !== false) ) {
@@ -123,7 +122,9 @@ $blank_image = THEMEURI . "images/rectangle.png";
 						<span class="wave">
 							<svg class="waveSvg" shape-rendering="auto" preserveAspectRatio="none" viewBox="0 24 150 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="m-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/></defs><g class="waveAnimation"><use x="85" y="5" xlink:href="#a"/></g></svg>
 						</span>
-						<a href="<?php echo $pageLink ?>" class="videoLink"><span>Read More</span></a>
+						<?php if ($videoURL) { ?>
+						<a data-fancybox href="<?php echo $videoURL ?>" class="videoLink"><span>Play Video</span></a>
+						<?php } ?>
 					</div>
 				</div>
 				<div class="colRight small-videos">
@@ -141,7 +142,9 @@ $blank_image = THEMEURI . "images/rectangle.png";
 								<span class="wave">
 									<svg class="waveSvg" shape-rendering="auto" preserveAspectRatio="none" viewBox="0 24 150 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="m-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/></defs><g class="waveAnimation"><use x="85" y="5" xlink:href="#a"/></g></svg>
 								</span>
-								<a href="<?php echo $pageLink ?>" class="videoLink"><span>Read More</span></a>
+								<?php if ($videoURL) { ?>
+								<a data-fancybox href="<?php echo $videoURL ?>" class="videoLink"><span>Play Video</span></a>
+								<?php } ?>
 							</div>
 						</div>
 				<?php } ?>
