@@ -518,7 +518,7 @@ jQuery(document).ready(function($){
 			$("#filterResults #tabSchedules").addClass("animated fadeIn");
 			setTimeout(function(){
 				$("#loaderDiv").hide();
-			},600);
+			},400);
 		});
 
 	});

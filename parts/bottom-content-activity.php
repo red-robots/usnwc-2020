@@ -14,6 +14,12 @@ $count = count($relatedPosts);
 $colClass = ($count>1) ? 'half':'full';
 ?>
 <section id="section-featured-posts" class="section-content <?php echo $colClass ?>">
+	<div class="wrapper">
+		<div class="shead-icon text-center">
+			<div class="icon"><span class="ci-video"></span></div>
+			<h2 class="stitle">Stories</h2>
+		</div>
+	</div>
 	<div class="flexwrap">
 		<?php foreach ($relatedPosts as $rel) { 
 			$r_post_id = $rel->ID;

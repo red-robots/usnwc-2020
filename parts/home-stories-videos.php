@@ -1,6 +1,7 @@
 <?php
 /*===== ROW 4: STORIES =====*/
 $row4_title = get_field('row4_title');  
+$row4_text = get_field('row4_text');  
 $row4_button_name = get_field('row4_button_name');  
 $row4_button_link = get_field('row4_button_link');  
 $sample = THEMEURI . "images/sample.jpg";  
@@ -15,6 +16,10 @@ $blank_image = THEMEURI . "images/rectangle.png";
 			<div class="icon"><span class="ci-video"></span></div>
 			<h2 class="stitle"><?php echo $row4_title ?></h2>
 		</div>
+
+		<?php if ($row4_text) { ?>
+		<div class="wrapper narrow"><div class="title-text"><?php echo $row4_text ?></div></div>
+		<?php } ?>
 
 		<?php if ($row4_button_name && $row4_button_link) { ?>
 		<div class="buttondiv">
@@ -119,11 +124,12 @@ $blank_image = THEMEURI . "images/rectangle.png";
 						</div>
 						<?php } ?>
 
-						<div class="videoName"><span><?php echo $post_title ?></span></div>
 						<span class="wave">
 							<svg class="waveSvg" shape-rendering="auto" preserveAspectRatio="none" viewBox="0 24 150 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="m-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/></defs><g class="waveAnimation"><use x="85" y="5" xlink:href="#a"/></g></svg>
 						</span>
-						<a href="<?php echo $pageLink ?>" class="videoLink"><span>Read More</span></a>
+						<a href="<?php echo $pageLink ?>" class="videoLink">
+							<span class="videoName"><span><?php echo $post_title ?></span></span>
+						</a>
 					</div>
 				</div>
 				<div class="colRight small-videos">
@@ -137,11 +143,13 @@ $blank_image = THEMEURI . "images/rectangle.png";
 									<a href="#" class="play-btn"></a>
 								</div>
 								<?php } ?>
-								<div class="videoName"><span><?php echo $post_title ?></span></div>
+								
 								<span class="wave">
 									<svg class="waveSvg" shape-rendering="auto" preserveAspectRatio="none" viewBox="0 24 150 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="m-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/></defs><g class="waveAnimation"><use x="85" y="5" xlink:href="#a"/></g></svg>
 								</span>
-								<a href="<?php echo $pageLink ?>" class="videoLink"><span>Read More</span></a>
+								<a href="<?php echo $pageLink ?>" class="videoLink">
+									<span class="videoName"><span><?php echo $post_title ?></span></span>
+								</a>
 							</div>
 						</div>
 				<?php } ?>
