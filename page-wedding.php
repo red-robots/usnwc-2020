@@ -65,14 +65,24 @@ $square = THEMEURI . "images/square.png";
 											<div class="info">
 												<h3 class="event-name"><?php echo $title ?></h3>
 												
-												<?php if ($space_features) { ?>
-												<div class="pricewrap">
-													<div class="price-info">
-														<?php foreach ($space_features as $k=>$v) { ?>
-															<span class="<?php echo $k ?>"><?php echo $v ?></span>
-														<?php } ?>
+												<?php if ($space_features && array_filter($space_features)) { 
+													$filter_space_features = array_filter($space_features); 
+													?>
+													<div class="pricewrap">
+														<div class="price-info">
+															<?php foreach ($filter_space_features as $k=>$v) { ?>
+																<?php if ( $v && is_array($v) ) {
+																	$x_value = ( isset($v['value']) && $v['value'] ) ? $v['value'] : '';
+																	$x_label = ( isset($v['label']) && $v['label'] ) ? $v['label'] : '';
+																	if($x_value && $x_label) { ?>
+																	<span class="<?php echo $x_value ?>"><?php echo $x_label ?></span>
+																	<?php } ?>
+																<?php } else { ?>
+																	<span class="<?php echo $k ?>"><?php echo $v ?></span>
+																<?php } ?>
+															<?php } ?>
+														</div>
 													</div>
-												</div>
 												<?php } ?>
 
 												<?php if ($short_description) { ?>
