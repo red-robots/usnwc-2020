@@ -55,6 +55,10 @@ $regiserTarget = ( isset($register['target']) && $register['target'] ) ? $regist
 	</main>
 </div><!-- #primary -->
 
+
+<?php get_template_part("parts/similar-posts"); ?>
+
+
 <script type="text/javascript">
 jQuery(document).ready(function($){
 	if( $('.loop').length>0 ) {
