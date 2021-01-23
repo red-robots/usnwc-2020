@@ -5241,6 +5241,7 @@ body.single-instructions {
 		}
 	}
 	.address, .map {
+		position: relative;
 		@include tab {
 			height: 50%;
 		}
@@ -5249,13 +5250,20 @@ body.single-instructions {
 		width: 100%;
 		float: left;
 		position: relative;
+		margin-bottom: 20px;
+		@include tab {
+			margin-bottom: 0;
+		}
 		iframe {
-			width: 100%!important;
+			width: calc(100% - 30px)!important;
 			height: 100%!important;
 			position: absolute;
 			top: 0;
-			left: 0;
+			left: 15px;
 			z-index: 5;
+			@include tab {
+				left: 15px;
+			}
 		}
 		img.helper {
 			display: block;
