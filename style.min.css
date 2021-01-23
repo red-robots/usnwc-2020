@@ -3354,7 +3354,8 @@ body.single-camp #primary{width:100%;float:left}
 .space-features-wrap .flexwrap .info{width:100%;padding:6px;text-align:center}
 @media(min-width:768px){.space-features-wrap .flexwrap .info{width:25%}
 }.space-features-wrap .flexwrap .wrap{height:100%;padding:30px 15px;background:#f2f2f2}
-.space-features-wrap .flexwrap .val{font-size:20px;line-height:1.2;color:#000;text-transform:uppercase}
+@media(min-width:768px){.space-features-wrap .flexwrap .wrap{padding:30px 2vw}
+}.space-features-wrap .flexwrap .val{font-size:20px;line-height:1.2;color:#000;text-transform:uppercase}
 .floor-plan-section{background:#f2f2f2}
 .floor-plan-section .wrapper{padding-top:30px;padding-bottom:30px}
 .floor-plan-section h2.stitle{font-size:18px;font-weight:600;line-height:1.2;color:#707070;margin:0 0 8px;text-transform:uppercase}
@@ -3385,7 +3386,7 @@ body.single-camp #primary{width:100%;float:left}
 #section-group-types .typebox .typeIcon i{font-size:45px;line-height:1}
 #section-group-types .typebox h3{margin:0;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1.2}
 .summary-block{color:#707070;font-size:13px;line-height:1.5}
-.group-events-activities.section-content{padding-top:20px}
+.group-events-activities.section-content{padding-top:40px}
 .group-events-activities.section-content .summary-block{margin:15px 0}
 .group-services-wrapper{width:100%;float:left;margin-top:0}
 .group-events-services.section-content{margin-top:0;margin-bottom:0}

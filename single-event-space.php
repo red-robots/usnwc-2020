@@ -32,7 +32,8 @@ get_header(); ?>
 			$featuresFields['area_size'] = 'Size';
 			$featuresFields['capacity'] = 'Capacity';
 			$featuresFields['type'] = 'Setting';
-			$featuresFields['ceiling_height'] = 'Ceiling Height';
+			$featuresFields['price'] = 'Price';
+			//$featuresFields['ceiling_height'] = 'Ceiling Height';
 			$feats = ( isset($features['value']) && $features['value'] ) ? $features['value'] : '';
 			?>
 
@@ -68,15 +69,32 @@ get_header(); ?>
 					<div class="floorplans">
 					<?php foreach ($floorplan as $p) { 
 						$fp_title = $p['title'];
-						$fp_image = $p['image'];
-						$fp_image_url = ( isset($fp_image['url']) && $fp_image['url'] ) ? $fp_image['url'] : $imgNotAvailable;
-						if($fp_title) { ?>
-						<span class="plan">
-							<a href="<?php echo $fp_image_url ?>" data-fancybox="gallery" data-caption="<?php echo $fp_title ?>">
-								<span class="plan-name"><?php echo $fp_title ?></span>
-							</a>
-						</span>
+						$attachment =  (isset($p['attachment']) && $p['attachment']) ? $p['attachment'] : '';
+						$fp_image = '';
+						//$fp_image = (isset($p['image']) && $p['image']) ? $p['image'] : '';
+						//$fp_image_url = ( isset($fp_image['url']) && $fp_image['url'] ) ? $fp_image['url'] : $imgNotAvailable;
+						//$fp_image_url = ( isset($fp_image['url']) && $fp_image['url'] ) ? $fp_image['url'] : '';
+
+						if($fp_title && $attachment) { 
+							$type = $attachment['type'];
+							$pageURL = $attachment['url'];
+							
+							if($type=='image') { ?>
+							<span class="plan">
+								<a href="<?php echo $pageURL ?>" data-fancybox="gallery" data-caption="<?php echo $fp_title ?>">
+									<span class="plan-name"><?php echo $fp_title ?></span>
+								</a>
+							</span>
+							<?php } else if( $type=='application' ) { ?>
+							<span class="plan">
+								<a href="<?php echo $attachment['url'] ?>" target="_blank">
+									<span class="plan-name"><?php echo $fp_title ?></span>
+								</a>
+							</span>
+							<?php } ?>
+
 						<?php } ?>
+
 
 					<?php } ?>
 					</div>

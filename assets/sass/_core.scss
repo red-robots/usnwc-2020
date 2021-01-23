@@ -7890,6 +7890,9 @@ body.single-camp {
 			height: 100%;
 			padding: 30px 15px;
 			background: #F2F2F2;
+			@include tab {
+				padding: 30px 2vw;
+			}
 		}
 		.val {
 			font-size: 20px;
@@ -8063,7 +8066,7 @@ body.single-camp {
 }
 
 .group-events-activities.section-content {
-	padding-top: 20px;
+	padding-top: 40px;
 	.summary-block {
 		margin: 15px 0;
 	}
