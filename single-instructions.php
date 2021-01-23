@@ -10,6 +10,12 @@ $register = get_field("registration_link");
 $registerBtn = ( isset($register['title']) && $register['title'] ) ? $register['title'] : 'Register';
 $registerLink = ( isset($register['url']) && $register['url'] ) ? $register['url'] : '';
 $regiserTarget = ( isset($register['target']) && $register['target'] ) ? $register['target'] : '_self';
+if($registerLink) {
+	if($regiserTarget=='_self') {
+		$plink = parse_external_url($registerLink);
+		$regiserTarget = $plink['target'];
+	}
+}
 ?>
 <?php if ($registerLink) { ?>
 <div class="outer-banner-wrap">
