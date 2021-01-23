@@ -3387,9 +3387,10 @@ body.single-camp #primary{width:100%;float:left}
 .summary-block{color:#707070;font-size:13px;line-height:1.5}
 .group-events-activities.section-content{padding-top:20px}
 .group-events-activities.section-content .summary-block{margin:15px 0}
-.group-services-wrapper{width:100%;float:left;margin-top:50px}
+.group-services-wrapper{width:100%;float:left;margin-top:0}
 .group-events-services.section-content{margin-top:0;margin-bottom:0}
 .group-events-services.section-content .mscol{margin-top:8px;margin-bottom:8px}
+body.page-template-page-group-events #pageTabs{margin-bottom:20px}
 .subpage-tabs-wrapper{width:100%;float:left}
 .subpage-tabs-wrapper .wrapper{text-align:center;padding-top:30px;padding-bottom:0}
 @media(min-width:768px){.subpage-tabs-wrapper .wrapper{padding-top:40px}

@@ -8071,7 +8071,8 @@ body.single-camp {
 .group-services-wrapper {
 	width: 100%;
 	float: left;
-	margin-top: 50px;
+	margin-top: 0;
+	// margin-top: 50px;
 }
 .group-events-services.section-content {
 	margin-top: 0;
@@ -8080,6 +8081,9 @@ body.single-camp {
 		margin-top: 8px;
 		margin-bottom: 8px;
 	}
+}
+body.page-template-page-group-events {
+	#pageTabs {margin-bottom:20px;}
 }
 
 .subpage-tabs-wrapper {

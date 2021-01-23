@@ -14,7 +14,7 @@ if($services) { ?>
 		$buttonTarget = ( isset($button['target']) && $button['target'] ) ? $button['target']:'_self'; 
 		$slides = $e['gallery'];
 		$boxClass = ( ($title || $description) && $slides ) ? 'half':'full';
-			if( ($e_title || $e_text) || $slides) {
+			if( ($title || $description) || $slides) {
 				$colClass = ($i % 2) ? ' odd':' even'; ?>
 			<section id="services<?php echo $i?>" data-section="<?php echo $title ?>" class="section-content menu-sections group-events-services">
 				<div class="columns-2">

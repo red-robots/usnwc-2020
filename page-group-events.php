@@ -68,13 +68,13 @@ $currentPageLink = get_permalink();
 		<?php } ?>
 
 		<?php
-			//ACTIVITIES 
-			get_template_part("parts/group-events-activities");
+			//SERVICES 
+			get_template_part("parts/group-events-services");
 		?>
 
 		<?php
-			//SERVICES 
-			get_template_part("parts/group-events-services");
+			//ACTIVITIES 
+			get_template_part("parts/group-events-activities");
 		?>
 
 		<?php

@@ -30,6 +30,9 @@ if($camp_activities) { ?>
 			$buttonLink = ( isset($button['url']) && $button['url'] ) ? $button['url']:''; 
 			$buttonTarget = ( isset($button['target']) && $button['target'] ) ? $button['target']:'_self'; 
 
+			$details_option = ( isset($e['details_display_option']) && $e['details_display_option'] ) ? $e['details_display_option']:''; 
+			$pageLink = ( isset($e['pagelink_button']) && $e['pagelink_button'] ) ? get_permalink($e['pagelink_button']):''; 
+
 			?>
 			<div id="entryBlock<?php echo $i?>" class="fbox <?php echo ($thumbnail) ? 'hasImage':'noImage'; ?><?php echo $isFullWidth ?>">
 				<div class="inside text-center">
@@ -49,11 +52,25 @@ if($camp_activities) { ?>
 						<?php if ($summary) { ?>
 						<div class="summary-block"><?php echo $summary ?></div>	
 						<?php } ?>
+						
+						<?php /* BUTTON */ ?>
+						<?php if ($details_option=='pagelink' && $pageLink) { ?>
 						<div class="buttondiv">
-							<a data-toggle="modal" data-target="#entryBlock<?php echo $i?>Modal" class="btn-sm"><span>See Details</span></a>
+							<a href="<?php echo $pageLink ?>" class="btn-sm"><span>See Details</span></a>
 						</div>
+						<?php } else { ?>
+
+							<?php if ($details_option=='popup' && $description) { ?>
+							<div class="buttondiv">
+								<a data-toggle="modal" data-target="#entryBlock<?php echo $i?>Modal" class="btn-sm"><span>See Details</span></a>
+							</div>
+							<?php } ?>
+
+						<?php } ?>
+						
 					</div>
 
+					<?php if ($details_option=='popup' && $description) { ?>
 					<!-- DETAILS -->
 					<div class="modal customModal fade" id="entryBlock<?php echo $i?>Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					  <div class="modal-dialog modal-lg" role="document">
@@ -89,6 +106,7 @@ if($camp_activities) { ?>
 					    </div>
 					  </div>
 					</div>
+					<?php } ?>
 
 				</div>
 			</div>
