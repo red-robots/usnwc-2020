@@ -1,8 +1,8 @@
 <script type="text/javascript">
 jQuery(document).ready(function ($) {
 	/* FAQS */
-	$(".faqsItems .collapsible").on("click",function(){
-
+	$(document).on("click",".faqsItems .collapsible",function(e){
+		e.preventDefault();
 		if( $(this).hasClass('active') ) {
 			$(this).removeClass("active fadeIn");
 		} else {

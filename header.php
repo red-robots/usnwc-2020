@@ -30,7 +30,10 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
 <?php } ?>
 
 <script defer src="<?php bloginfo( 'template_url' ); ?>/assets/svg-with-js/js/fontawesome-all.js"></script>
-<script>var currentURL = '<?php echo get_permalink();?>';</script>
+<script>
+var currentURL = '<?php echo get_permalink();?>';
+var params={};location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(s,k,v){params[k]=v});
+</script>
 <?php wp_head(); ?>
 </head>
 <?php

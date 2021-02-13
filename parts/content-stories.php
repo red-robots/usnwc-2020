@@ -9,8 +9,6 @@ $perPage = 6;
 $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 $args = array(
 	'posts_per_page'   => $perPage,
-	'orderby'          => 'date',
-	'order'            => 'DESC',
 	'post_type'        => 'post',
 	'post_status'      => 'publish',
 	'facetwp' 				 => true,
@@ -102,14 +100,14 @@ if ( $blogs->have_posts() ) {  ?>
 						<?php if ( do_shortcode('[facetwp facet="categories"]') ) { ?>
 						<div class="select-wrap">
 							<label for="category">Category</label>
-								<?php echo do_shortcode('[facetwp facet="categories"]'); ?>
+								<?php echo do_shortcode('[facetwp facet="categories" pager="true"]'); ?>
 						</div>
 						<?php } ?>
 
 						<?php if ( do_shortcode('[facetwp facet="activity_types"]') ) { ?>
 						<div class="select-wrap">
 							<label for="activity_type">Type</label>
-							<?php echo do_shortcode('[facetwp facet="activity_types"]'); ?>
+							<?php echo do_shortcode('[facetwp facet="activity_types" pager="true"]'); ?>
 						</div>
 						<?php } ?>
 					</div>
@@ -144,12 +142,35 @@ if ( $blogs->have_posts() ) {  ?>
 			</div>
 		</div>
 
+		<div id="tempContainer" style="display:none;"></div>
+		<div id="tempNext" style="display:none;"></div>
+
+		<?php
+      $total_pages = $blogs->max_num_pages;
+      if ($total_pages > 1){ ?>
+          <div id="pagination" style="width:100%;float:left;display:none">
+              <?php
+                  $pagination = array(
+                      'base' => @add_query_arg('pg','%#%'),
+                      'format' => '?paged=%#%',
+                      'current' => $paged,
+                      'total' => $total_pages,
+                      'prev_text' => __( '&laquo;', 'usnwc' ),
+                      'next_text' => __( '&raquo;', 'usnwc' ),
+                      'type' => 'plain'
+                  );
+                  echo paginate_links($pagination);
+              ?>
+          </div>
+          <?php
+      } ?>
+
 		<?php
 		$total_pages = $blogs->max_num_pages;
 		if ($total_pages > 1){ ?>
 			<div class="morebuttondiv">
-				<span class="moreBtnSpan">
-					<a class="moreBtn" id="loadMoreBtn" data-totalpages="<?php echo $total_pages?>" data-perpage="<?php echo $perPage?>" data-posttype="<?php echo $post_type?>" data-page="2" data-baseurl="<?php echo $pageLink?>"><span class="loadtxt">Load More</span></a>
+				<span class="moreBtnSpan"> <?php /* id="loadMoreBtn2" */ ?>
+					<a class="moreBtn" id="loadMoreBtn3" data-totalpages="<?php echo $total_pages?>" data-perpage="<?php echo $perPage?>" data-posttype="<?php echo $post_type?>" data-page="2" data-baseurl="<?php echo $pageLink?>" data-filterby=""><span class="loadtxt">Load More</span></a>
 					<div class="wait"><span class="fas fa-sync-alt rotate"></span></div>
 				</span>
 			</div>

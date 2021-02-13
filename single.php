@@ -34,9 +34,20 @@ $post_id = get_the_ID(); ?>
 
 	<div id="primary" class="content-area-full content-default single-post <?php echo $has_feat_image;?> post-type-<?php echo $post_type;?>">
 
-		<?php if ($featImg) { $hero_alt = get_the_title($thumbId); ?>
+		<?php if ($featImg) { 
+			$hero_alt = get_the_title($thumbId); 
+			$photographer = get_field("photographer",$thumbId);
+			$photolocation = get_field("location",$thumbId);
+		?>
 		<div class="post-hero-image">
 			<img src="<?php echo $featImg[0] ?>" alt="<?php echo $hero_alt ?>" class="featured-image">
+			<?php if ( $photographer||$photolocation ) { ?>
+			<a class="view-photo-credit"><span class="camera-icon"><i class="fas fa-camera"></i></span></a>
+			<span class="photo-credit">
+				<span><strong>Photographer:</strong> <?php echo $photographer ?></span>
+				<span><strong>Location:</strong> <?php echo $photolocation ?></span>
+			</span>
+			<?php } ?>
 		</div>
 		<?php } ?>
 
@@ -45,17 +56,23 @@ $post_id = get_the_ID(); ?>
 				
 				<?php
 				$short_description = get_field("short_description_text");
-				if($short_description) { ?>
+				$custom_post_author = get_field("custom_post_author");
+				?>
 				<section class="text-centered-section dark">
 					<div class="wrapper text-center">
 						<div class="page-header">
 							<h1 class="page-title"><?php the_title(); ?></h1>
-							<p class="author">By <?php echo ucwords(get_the_author_meta('display_name')); ?></p>
+							<?php if ($custom_post_author) { ?>
+								<p class="author">By <?php echo $custom_post_author; ?></p>
+							<?php } ?>
 						</div>
-						<?php echo anti_email_spam($short_description); ?>
+						<?php if ($short_description) { ?>
+						<div class="shortdesc">
+							<?php echo anti_email_spam($short_description); ?>
+						</div>	
+						<?php } ?>
 					</div>
 				</section>
-				<?php } ?>
 
 
 				<?php  
@@ -64,8 +81,11 @@ $post_id = get_the_ID(); ?>
 				$authorId = '';
 				$author_description = get_the_author_meta('description');
 				$main_class = ($main_content && $galleries) ? 'half':'full';
+				$new_count = ($galleries) ? count($galleries) : 0;
+				$img_class = ($new_count%2) ? ' default':' twocol';
+
 				if($main_content || $galleries) { ?>
-				<section class="main-post-text <?php echo $main_class ?>">
+				<section class="main-post-text <?php echo $main_class.$img_class ?>">
 					<div class="flexwrap">
 						<?php if ($main_content) { ?>
 						<div class="textcol">
@@ -82,30 +102,57 @@ $post_id = get_the_ID(); ?>
 						<?php if ($galleries) { ?>
 						<div class="imagescol">
 
+							<?php  
+								$imgMain = $galleries[0];
+								$imgMainID = $imgMain['ID'];
+								$imgClass = get_field("media_custom_class",$imgMainID);
+							?>
+
 							<?php if ( count($galleries)>1 ) { ?>
 								
-								<?php  
-									$imgMain = $galleries[0];
-									$imgMainID = $imgMain['ID'];
-									$imgClass = get_field("media_custom_class",$imgMainID);
-								?>
+								<?php if ($new_count % 2) { ?>
+
+									<div class="masonry top<?php echo ($imgClass) ? ' ' . $imgClass:'' ?>">
+										<div class="block first">
+											<a href="<?php echo $imgMain['url'] ?>" data-fancybox class="popup-image"><img src="<?php echo $imgMain['url'] ?>" alt="<?php echo $imgMain['title'] ?>"></a>
+											
+										</div>
+									</div>
+									
+									<?php unset($galleries[0]); ?>
+
+								<?php } ?>
+								
+								<div class="masonry">
+									<?php 
+									$i=1; foreach ($galleries as $g) { 
+										$g_ID = $g['ID'];
+										$g_class = get_field("media_custom_class",$g_ID);
+										$photographer = get_field("photographer",$g_ID);
+										$photolocation = get_field("location",$g_ID);
+										?>
+										<div class="block photoframe <?php echo ($g_class) ? ' ' . $g_class:'' ?>">
+											<a href="<?php echo $g['url'] ?>" data-fancybox class="popup-image">
+												<img src="<?php echo $g['url'] ?>" alt="<?php echo $g['title'] ?>">
+											</a>
+											<?php if ( $photographer||$photolocation ) { ?>
+											<a class="view-photo-credit"><span class="camera-icon"><i class="fas fa-camera"></i></span></a>
+											<span class="photo-credit">
+												<span><strong>Photographer:</strong> <?php echo $photographer ?></span>
+												<span><strong>Location:</strong> <?php echo $photolocation ?></span>
+											</span>
+											<?php } ?>
+										</div>
+									<?php $i++; } ?>
+								</div>
+
+							<?php } else { ?>
+
 								<div class="masonry top<?php echo ($imgClass) ? ' ' . $imgClass:'' ?>">
 									<div class="block first">
 										<img src="<?php echo $imgMain['url'] ?>" alt="<?php echo $imgMain['title'] ?>">
 									</div>
 								</div>
-								<div class="masonry">
-									<?php foreach ($galleries as $g) { 
-										$g_ID = $g['ID'];
-										$g_class = get_field("media_custom_class",$g_ID);
-										?>
-										<div class="block<?php echo ($g_class) ? ' ' . $g_class:'' ?>">
-											<img src="<?php echo $g['url'] ?>" alt="<?php echo $g['title'] ?>">
-										</div>
-									<?php } ?>
-								</div>
-
-							<?php } else { ?>
 
 							<?php } ?>
 							
@@ -120,6 +167,8 @@ $post_id = get_the_ID(); ?>
 
 	</div>
 
+	<?php /* EXPLORE OTHER ACTIVITIES */ ?>
+	<?php get_template_part("parts/similar-posts"); ?>
 
 <?php } else { ?>
 
@@ -133,6 +182,18 @@ $post_id = get_the_ID(); ?>
 
 
 
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+
+	$(".view-photo-credit").hover(function(){
+	  $(this).next(".photo-credit").addClass("show");
+	  }, function(){
+	  $(this).next(".photo-credit").removeClass("show");
+	});
+
+});
+</script>
 
 <?php
 get_footer();

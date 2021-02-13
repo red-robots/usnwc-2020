@@ -276,7 +276,7 @@ jQuery(document).ready(function ($) {
 
 
 	/* Load More */
-	$("#loadMoreBtn").on("click",function(event){
+	$(document).on("click","#loadMoreBtn",function(event){
 		event.preventDefault();
 		var loadButton = $(this);
 		var pageURL = ( typeof $("a.page-numbers").eq(0)!=undefined ) ? $("a.page-numbers").attr("href") : '';
@@ -358,8 +358,9 @@ jQuery(document).ready(function ($) {
 	});
 
 	/* Ajax Load More */
-	$(document).on("click","#loadMoreBtn",function(e){
+	$(document).on("click","#loadMoreBtn2",function(e){
 		e.preventDefault();
+		var moreButton = $(this);
 		var target = $(this);
 		var perpage = target.attr("data-perpage");
 		var posttype = target.attr("data-posttype");
@@ -367,48 +368,125 @@ jQuery(document).ready(function ($) {
 		var base_url = target.attr("data-baseurl");
 		var next_page = parseInt(paged) + 1;
 		var total_pages = target.attr("data-totalpages");
+		var total = parseInt(total_pages);
 		target.attr("data-page",next_page);
-
-		$.ajax({
-			url : frontajax.ajaxurl,
-			type : 'post',
-			dataType : "json",
-			data : {
-				action 	: 'posts_load_more',
-				perpage : perpage,
-				baseurl : base_url,
-				posttype : posttype,
-				paged: paged
-			},
-			beforeSend:function(){
-				$("#loadMoreBtn").hide();
+		var pageURL = currentURL + '?pg=' + paged;
+		$("#tempContainer").load(pageURL+" #postLists",function(){
+			
+			if( $("#tempContainer #postLists").length>0 ) {
+				var entries = $("#tempContainer #postLists").html();
 				$(".wait").show();
-			},
-			success:function( obj ) {
-				if(obj.result) {
-
-					setTimeout(function(){
-						$("#loadMoreBtn").show();
-						$(".wait").hide();
-						$("#postLists").append(obj.result);
-
-						if(next_page>total_pages) {
-							$(".morebuttondiv").remove();
-						}	 
-
-					},800);
-					
-				} else {
-					$("#loadMoreBtn").hide();
+				setTimeout(function(){
+					$(entries).appendTo(".archive-posts-wrap #postLists");
 					$(".wait").hide();
+				},600);
+				
+				if(next_page>total) {
+					moreButton.hide();
 				}
-			},
-			error:function() {
-				$("#loadMoreBtn").hide();
+			} else {
+				moreButton.hide();
+			}
+			
+		});
+
+		// $.ajax({
+		// 	url : frontajax.ajaxurl,
+		// 	type : 'post',
+		// 	dataType : "json",
+		// 	data : {
+		// 		action 	: 'posts_load_more',
+		// 		perpage : perpage,
+		// 		baseurl : base_url,
+		// 		posttype : posttype,
+		// 		paged: paged
+		// 	},
+		// 	beforeSend:function(){
+		// 		$("#loadMoreBtn2").hide();
+		// 		$(".wait").show();
+		// 	},
+		// 	success:function( obj ) {
+		// 		if(obj.result) {
+
+		// 			setTimeout(function(){
+		// 				$("#loadMoreBtn2").show();
+		// 				$(".wait").hide();
+		// 				$("#postLists").append(obj.result);
+
+		// 				if(next_page>total_pages) {
+		// 					$(".morebuttondiv").remove();
+		// 				}	 
+
+		// 			},800);
+					
+		// 		} else {
+		// 			$("#loadMoreBtn2").hide();
+		// 			$(".wait").hide();
+		// 		}
+		// 	},
+		// 	error:function() {
+		// 		$("#loadMoreBtn2").hide();
+		// 		$(".wait").show();
+		// 	}
+		// });
+
+	});
+
+	/* Ajax Load More */
+	$(document).on("click","#loadMoreBtn3",function(e){
+		e.preventDefault();
+		var moreButton = $(this);
+		var target = $(this);
+		var perpage = target.attr("data-perpage");
+		var posttype = target.attr("data-posttype");
+		var paged = target.attr("data-page");
+		var base_url = target.attr("data-baseurl");
+		var next_page = parseInt(paged) + 1;
+		var total_pages = target.attr("data-totalpages");
+		var total = parseInt(total_pages);
+		target.attr("data-page",next_page);
+		var url = window.location.href;
+		var countparams = url.split("=");
+		var newURL = currentURL + '?pg=' + paged;
+		var nextURL = currentURL + '?pg=' + next_page;
+		if(countparams.length>1) {
+			var str = url.replace(currentURL,'');
+			newURL += str.replace('?','&');
+			nextURL += str.replace('?','&');
+		}
+		$("#tempContainer").load(newURL+" #postLists",function(){
+			
+			if( $("#tempContainer #postLists").length>0 ) {
+				var entries = $("#tempContainer #postLists").html();
 				$(".wait").show();
+				setTimeout(function(){
+					$(entries).appendTo(".archive-posts-wrap #postLists");
+					$(".wait").hide();
+				},500);
+				
+				if(paged>=total) {
+					moreButton.hide();
+				}
+			} 
+			
+		});
+
+		/* Hide More Button if end of records */
+		$("#tempNext").load(nextURL+" #postLists",function(){
+			if( $("#tempNext #postLists").length==0 ) {
+				moreButton.hide();
 			}
 		});
 
+	});
+
+	$(document).on("change","select.facetwp-dropdown",function(){
+		var opt = $(this).val();
+		if( $(".morebuttondiv").length>0 ) {
+			$(".morebuttondiv").load(currentURL+" .moreBtnSpan",function(){
+
+			});
+		}
 	});
 
 	if( $("#filter-form").length>0 ) {
@@ -434,7 +512,7 @@ jQuery(document).ready(function ($) {
 				$('.select-single').select2();
 				setTimeout(function(){
 					$("#loaderDiv").removeClass("show");
-				},500);
+				},600);
 			});
 
 		});

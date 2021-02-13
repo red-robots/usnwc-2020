@@ -5888,6 +5888,7 @@ body.page-template-page-stories {
 	width: 100%;
 	float: left;
 	padding: 10px;
+	position: relative;
 	.moreBtnSpan {
 		display: block;
 		background: $red;
@@ -5901,6 +5902,11 @@ body.page-template-page-stories {
 	.wait {
 		display: none;
 		padding: 10px 30px;
+		position: absolute;
+		top: 10px;
+		left: 0;
+		width: 100%;
+		background: $red;
 		.rotate {
 			animation-duration: .9s;
 		}
@@ -5957,7 +5963,6 @@ body.page-template-page-stories {
 	.text-centered-section {
 		.page-header {
 			position: relative;
-			margin-bottom: 35px;
 			&:after {
 				content: "";
 				display: block;
@@ -5981,6 +5986,9 @@ body.page-template-page-stories {
 				line-height: 1.2;
 				letter-spacing: 1px;
 			}
+		}
+		.shortdesc {
+			margin-top: 35px;
 		}
 	}
 
@@ -6045,24 +6053,46 @@ body.page-template-page-stories {
 	}
 	.imagescol {
 		.masonry {
-			column-count: 1;
-			column-gap: 1em;
+			// column-count: 1;
+			// column-gap: 1em;
+			// &.top {
+			// 	column-count: 1;
+			// 	column-gap: 0;
+			// }
+			// @include xxs {
+			// 	column-count: 2;
+			// }
+			@include flexgroup();
+			.block {
+	    	width: 100%;
+	    	padding: 0.3em;
+	    	position: relative;
+	    	@include xs {
+	    		width: 50%;
+	    	}
+	    	img {
+	    		width: 100%;
+	    		height: auto;
+	    	}
+			}
 			&.top {
-				column-count: 1;
-				column-gap: 0;
+				.block {
+					width: 100%;
+				}
 			}
-			@include xxs {
-				column-count: 2;
+			.photoframe a.popup-image {
+				display: block;
+				width: 100%;
+				float: left;
+				cursor: zoom-in;
+				img {
+					width: 100%;
+					height: auto;
+					float: left;
+				}
 			}
 		}
-		.block {
-    	width: 100%;
-    	padding: 0.3em 0;
-    	img {
-    		width: 100%;
-    		height: auto;
-    	}
-		}
+		
 	}
 	&.half {
 		.textcol {
@@ -6084,6 +6114,60 @@ body.page-template-page-stories {
 		p:last-child {
 			margin-bottom: 0;
 		}
+	}
+}
+
+.view-photo-credit {
+	display: inline-block;
+	cursor: pointer;
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	font-size: 18px;
+	line-height: 1;
+	color: #FFF;
+	z-index: 15;
+	&:hover {
+		opacity: 0.5;
+	}
+}
+.photo-credit {
+	display: block;
+	position: absolute;
+	bottom: 17px;
+	right: 40px;
+	z-index: 5;
+	background: #FFF;
+	font-size: 11px;
+	transition: all ease .3s;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	visibility: hidden;
+	border-radius: 3px;
+	&:after {
+		content: "";
+		width: 0;
+		height: 0;
+		border-left: 6px solid #FFF;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent;
+		position: absolute;
+		right: -5px;
+		bottom: 5px;
+	}
+	span {
+		display: block;
+		width: 100%;
+	}
+	&.show {
+		width: auto;
+		height: auto;
+		padding: 8px;
+		opacity: 1;
+		visibility: visible;
+		overflow: visible;
 	}
 }
 

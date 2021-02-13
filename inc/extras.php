@@ -1219,9 +1219,9 @@ function posts_load_more(){
     global $wpdb;
     if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
         $posttype = ($_POST['posttype']) ? $_POST['posttype'] : '';
-        $perpage = ($_POST['perpage']) ? $_POST['perpage'] : '';
+        $perpage = ($_POST['perpage']) ? $_POST['perpage'] : 6;
         $baseurl = ($_POST['baseurl']) ? $_POST['baseurl'] : '';
-        $paged = ($_POST['paged']) ? $_POST['paged'] : '';
+        $paged = ($_POST['paged']) ? $_POST['paged'] : 1;
         $content = '';
         $placeholder = THEMEURI . 'images/rectangle.png';
         $imageHelper = THEMEURI . 'images/rectangle-narrow.png';
@@ -1232,7 +1232,6 @@ function posts_load_more(){
             'order'            => 'DESC',
             'post_type'        => $posttype,
             'post_status'      => 'publish',
-            'facetwp'          => true,
             'paged'            => $paged
         );
 
@@ -1378,7 +1377,7 @@ function getFaqs($post_id) {
         <div class="shead-icon text-center">
             <h2 class="stitle"><?php echo get_the_title($post_id); ?></h2>
         </div>
-        <div id="faq-<?php echo $faq_id?>" class="faq-group">
+        <div id="faq-<?php echo $post_id?>" class="faq-group">
             <?php $n=1; foreach ($questions as $f) { 
                 $question = $f['question'];
                 $answer = $f['answer'];
