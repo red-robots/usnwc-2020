@@ -5544,6 +5544,8 @@ body.single-instructions {
 	float: left;
 	color: $gray_dark;
 	padding-bottom: 60px;
+	position: relative;
+	z-index: 50;
 	form {
 		width: 100%;
 		float: left;
@@ -5645,6 +5647,8 @@ body.single-instructions {
 	}
 }
 
+
+
 .filter-wrapper.filterstyle.optionsnum4 {
 	padding-bottom: 0;
 	.filter-label {
@@ -5660,8 +5664,18 @@ body.single-instructions {
 		}
 	}
 }
+.filter-wrapper {
+	.select-wrap.align-middle {
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
 
 body.page-template-page-stories {
+	.text-centered-section {
+		padding-bottom: 50px;
+	}
 	.select2-container {
 		width: 100%!important;
 		.select2-selection--single {
