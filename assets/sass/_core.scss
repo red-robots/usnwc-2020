@@ -8403,7 +8403,7 @@ body.page-template-page-group-events {
 .film-event-status {
 	width: 100%;
 	position: fixed;
-	top: 102px;
+	top: 85px;
 	left: 0;
 	z-index: 100;
 	background: rgba($red,0.85);
@@ -8413,18 +8413,15 @@ body.page-template-page-group-events {
 	font-size: 16px;
 	font-weight: 400;
 	letter-spacing: 2px;
-	@include tab {
-		top: 100px;
-	}
 	.wrapper {
 		padding: 8px 20px 8px;
 	}
 }
 body.logged-in.admin-bar {
 	.film-event-status {
-		top: 146px;
+		top: 130px;
 		@include tab {
-			top: 134px;
+			top: 118px;
 		}
 	}
 }
@@ -9883,6 +9880,14 @@ body.single-festival {
 .select2-search--dropdown .select2-search__field {
 	&:focus {
 		outline: none;
+	}
+}
+.film-series-page {
+	.event-date {
+		.time,.note {
+			margin-top: 2px;
+			font-size: 13px;
+		}
 	}
 }
 

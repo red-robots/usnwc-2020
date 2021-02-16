@@ -86,7 +86,7 @@ $square = THEMEURI . "images/square.png";
 
 									<?php if( isset($opt['price']) ) { ?>
 									<div class="option-info price">
-										<p class="t1"><strong>Grades</strong></p>
+										<p class="t1"><strong>Price</strong></p>
 										<p class="t2"><?php echo $opt['price']; ?></p>
 									</div>
 									<?php } ?>

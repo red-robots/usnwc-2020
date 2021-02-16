@@ -57,6 +57,14 @@ get_template_part("parts/subpage-banner");
 			$start_date = ($start_date) ? date('l, F jS Y',strtotime($start_date)) : '';
 			$cost = get_field("cost");
 			$weather = get_field("weather");
+			$event_note = get_field("event_note");
+			if($event_note) {
+				if($event_time) {
+					$event_time = $event_time . ' ' . '<div class="quick-note">'.$event_note.'</div>';
+				} else {
+					$event_time = $event_note;
+				}
+			}
 			?>
 
 
@@ -103,6 +111,9 @@ get_template_part("parts/subpage-banner");
 
 	</main><!-- #main -->
 </div><!-- #primary -->
+
+<?php /* EXPLORE OTHER ACTIVITIES */ ?>
+<?php get_template_part("parts/similar-posts"); ?>
 
 <?php
 get_footer();

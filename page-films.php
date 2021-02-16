@@ -8,7 +8,7 @@ $blank_image = THEMEURI . "images/square.png";
 $square = THEMEURI . "images/square.png";
 ?>
 
-<div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full festival-page">
+<div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full film-series-page festival-page">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php if( get_the_content() ) { ?>
 				<div class="intro-text-wrap">
@@ -42,6 +42,8 @@ $square = THEMEURI . "images/square.png";
 							$start = get_field("start_date",$id);
 							$end = get_field("end_date",$id);
 							$event_date = get_event_date_range($start,$end);
+							$event_time = get_field("event_time",$id);
+							$event_note = get_field("event_note",$id);
 							$short_description = get_field("short_description",$id);
 							$eventStatus = (isset($p->eventstatus) && $p->eventstatus) ? $p->eventstatus:'active';
 							$thumbImage = get_field("thumbnail_image",$id);
@@ -86,8 +88,18 @@ $square = THEMEURI . "images/square.png";
 									<div class="details">
 										<div class="info">
 											<h3 class="event-name"><?php echo $title ?></h3>
-											<?php if ($event_date) { ?>
-											<div class="event-date"><?php echo $event_date ?></div>
+											<?php if ($event_date || $event_time || $event_note) { ?>
+											<div class="event-date">
+												<?php if ($event_date) { ?>
+												<div class="date"><?php echo $event_date ?></div>
+												<?php } ?>
+												<?php if ($event_time) { ?>
+												<div class="time"><?php echo $event_time ?></div>
+												<?php } ?>
+												<?php if ($event_note) { ?>
+												<div class="note"><?php echo $event_note ?></div>
+												<?php } ?>
+											</div>
 											<?php } ?>
 											<?php if ($short_description) { ?>
 											<div class="short-description"><?php echo $short_description; ?></div>	

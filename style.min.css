@@ -3445,11 +3445,10 @@ body.page-template-page-group-events #pageTabs{margin-bottom:20px}
 }.accordion-wrapper .subdata.half .subcol.right{width:100%}
 @media(min-width:768px){.accordion-wrapper .subdata.half .subcol.right{width:35%;margin-top:0}
 }.accordion-wrapper .subdata:last-child .flexwrap{border-bottom:0}
-.film-event-status{width:100%;position:fixed;top:102px;left:0;z-index:100;background:rgba(186,13,48,0.85);color:#FFF;text-align:center;font-family:"Lato",sans-serif;font-size:16px;font-weight:400;letter-spacing:2px}
-@media(min-width:768px){.film-event-status{top:100px}
-}.film-event-status .wrapper{padding:8px 20px 8px}
-body.logged-in.admin-bar .film-event-status{top:146px}
-@media(min-width:768px){body.logged-in.admin-bar .film-event-status{top:134px}
+.film-event-status{width:100%;position:fixed;top:85px;left:0;z-index:100;background:rgba(186,13,48,0.85);color:#FFF;text-align:center;font-family:"Lato",sans-serif;font-size:16px;font-weight:400;letter-spacing:2px}
+.film-event-status .wrapper{padding:8px 20px 8px}
+body.logged-in.admin-bar .film-event-status{top:130px}
+@media(min-width:768px){body.logged-in.admin-bar .film-event-status{top:118px}
 }.content-area-full.film-series-page .text-centered-section{background:#191919;color:#FFF}
 .content-area-full.film-series-page .video-frame{width:100%;position:relative;margin:50px 0 10px}
 .content-area-full.film-series-page .video-frame img{width:100%;height:auto}
@@ -3735,6 +3734,7 @@ body.single-festival .entryList div.excerpt{margin-top:10px}
 .select2-dropdown{border-radius:0 !important;border:1px solid #707070 !important}
 .select2-results__option{text-transform:uppercase;border-top:1px solid #eee}
 .select2-search--dropdown .select2-search__field:focus{outline:0}
+.film-series-page .event-date .time,.film-series-page .event-date .note{margin-top:2px;font-size:13px}
 .site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}
