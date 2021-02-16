@@ -3001,6 +3001,12 @@ to{-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotat
 #primary.single-post .text-centered-section .page-header h1:after{display:none}
 #primary.single-post .text-centered-section .page-header p.author{margin:15px 0 0;font-size:14px;line-height:1.2;letter-spacing:1px}
 #primary.single-post .text-centered-section .shortdesc{margin-top:35px}
+#primary.single-post .video-frame{width:100%;float:left;position:relative;padding:5px}
+#primary.single-post .video-frame .video{width:100%;float:left;position:relative}
+#primary.single-post .video-frame img.helper{width:100%;height:auto;float:left}
+#primary.single-post .video-frame iframe{width:100% !important;height:100% !important;position:absolute;top:0;left:0;z-index:10}
+#primary.single-post .image-galleries{width:100%;float:left}
+#primary.single-post .post-hero-image .video-frame{padding:0;background:#000}
 .post-hero-image{width:100%;float:left;position:relative;z-index:150}
 .post-hero-image img.featured-image{width:100%;height:auto;float:left}
 .main-post-text{width:100%;float:left;background:#f2f2f2;padding-top:50px;padding-bottom:50px}
@@ -3012,7 +3018,8 @@ to{-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotat
 .main-post-text .textcol .inside h2{font-size:22px;font-weight:400;line-height:1.4;letter-spacing:1px;color:#191919;text-transform:uppercase;margin:0 0 30px}
 .main-post-text .textcol .textwrap{position:relative}
 .main-post-text .textcol .textwrap:after{content:"";display:block;width:70px;height:2px;background:#ba0d30;margin:30px 0}
-.main-post-text .imagescol .masonry{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+@media(min-width:768px){.main-post-text .imagescol{padding-right:5px}
+}.main-post-text .imagescol .masonry{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .main-post-text .imagescol .masonry .block{width:100%;padding:.3em;position:relative}
 @media(min-width:600px){.main-post-text .imagescol .masonry .block{width:50%}
 }.main-post-text .imagescol .masonry .block img{width:100%;height:auto}

@@ -6006,6 +6006,40 @@ body.page-template-page-stories {
 		}
 	}
 
+	.video-frame {
+		width: 100%;
+		float: left;
+		position: relative;
+		padding: 5px;
+		.video {
+			width: 100%;
+			float: left;
+			position: relative;
+		}
+		img.helper {
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+		iframe {
+			width: 100%!important;
+			height: 100%!important;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+		}
+	}
+	.image-galleries {
+		width: 100%;
+		float: left;
+	}
+	.post-hero-image {
+		.video-frame {
+			padding: 0 0;
+			background: #000;
+		}
+	}
 }
 .post-hero-image {
 	width: 100%;
@@ -6066,6 +6100,9 @@ body.page-template-page-stories {
 		}
 	}
 	.imagescol {
+		@include tab {
+			padding-right: 5px;
+		}
 		.masonry {
 			// column-count: 1;
 			// column-gap: 1em;
