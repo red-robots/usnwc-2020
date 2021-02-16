@@ -8424,6 +8424,12 @@ body.logged-in.admin-bar {
 			top: 118px;
 		}
 	}
+	.job-info-page .text-centered-section {
+		margin-top: -5px;
+		@include tab {
+			margin-top: 85px;
+		}
+	}
 }
 .content-area-full.film-series-page {
 	.text-centered-section {
@@ -9889,6 +9895,24 @@ body.single-festival {
 			font-size: 13px;
 		}
 	}
+}
+
+.job-info-page {
+	.text-centered-section {
+		background: #191919;
+    color: #FFF;
+    margin-top: -5px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    @include tab {
+    	margin-top: 85px;
+    }
+	}
+}
+
+.main-post-text.job-description {
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
 /* FOOTER */
