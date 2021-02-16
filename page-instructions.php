@@ -34,7 +34,7 @@ $currentPageLink = get_permalink();
 		}
 	}
 	?>
-	<div class="filter-wrapper filterstyle optionsnum4">
+	<div class="filter-wrapper filterstyle optionsnum4" style="display:none;">
 		<div class="wrapper">
 			
 			<div class="filter-inner">
@@ -85,7 +85,7 @@ $currentPageLink = get_permalink();
 
 	$posts = new WP_Query($args);
 	if( $posts->have_posts() ) { ?>
-	<section class="section-content entries-with-filter">
+	<section class="section-content entries-with-filter" style="padding-top:0;">
 		<div class="post-type-entries boxes-element threecols <?php echo $postype ?>">
 			<div id="data-container">
 				<div class="posts-inner">
