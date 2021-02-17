@@ -41,8 +41,10 @@ $options[] = array('Ratio',get_field("ratio"));
 		</div>
 		<div class="schedules-list">
 			<ul class="items">
-				<?php foreach ($schedule_items as $s) { ?>
-					<li class="item">
+				<?php foreach ($schedule_items as $s) { 
+					$has_full_info = ($s['dates'] && $s['time']) ? 'has-dash':'no-dash';
+					?>
+					<li class="item <?php echo $has_full_info ?>">
 						<?php if ($s['dates'] && $s['time']) { ?>
 							<div class="dates"><span><?php echo $s['dates'] ?></span></div>
 							<div class="time"><?php echo $s['time'] ?></div>
@@ -53,7 +55,9 @@ $options[] = array('Ratio',get_field("ratio"));
 							<?php } else if ( empty($s['dates']) && $s['time'] ) { ?>
 							<div class="time"><?php echo $s['time'] ?></div>
 							<?php } ?>
-							<div class="event"><?php echo $s['event'] ?></div>
+							<?php if ($s['event']) { ?>
+								<div class="event"><?php echo $s['event'] ?></div>
+							<?php } ?>
 						<?php } ?>
 					</li>
 				<?php } ?>

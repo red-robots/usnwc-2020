@@ -80,11 +80,13 @@ if( $posts->have_posts() ) { ?>
 			</div>
 			<?php } ?>
 
-			<div class="filter-message">
 			<?php if ($filter_message) { ?>
-				<div id="fm"><?php echo $filter_message ?></div>
-			<?php } ?>
+			<div class="filter-message">
+				<div class="wrapper narrow">
+						<div id="fm"><?php echo $filter_message ?></div>
+				</div>
 			</div>
+			<?php } ?>
 
 			<?php /* Filter Options */ ?>
 			<div class="filter-wrapper filterstyle optionsnum3">

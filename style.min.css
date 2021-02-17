@@ -2239,7 +2239,8 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 @media(min-width:768px){.home-video-gallery.count4 .small-videos{width:75%}
 }.home-video-gallery.count4 .small-videos .sm-video{width:100%}
 @media(min-width:768px){.home-video-gallery.count4 .small-videos .sm-video{width:33.33%}
-}.icon-img span{display:inline-block;width:30px;height:30px;background-size:contain;background-position:center;background-repeat:no-repeat}
+}.home-video-gallery.numblocks2 .colRight .sm-video{width:100%}
+.icon-img span{display:inline-block;width:30px;height:30px;background-size:contain;background-position:center;background-repeat:no-repeat}
 .homerow.row5{background:#FFF;padding-bottom:16px}
 .homerow.row5 .flexwrap{margin-left:-8px;margin-right:-8px}
 .homerow.row5 .infocol{position:relative;width:100%;padding-left:8px;padding-right:8px}
@@ -3203,6 +3204,9 @@ body.pageNoBanner .site-content{min-height:35em}
 @media(min-width:768px){#primary .schedules-list li.item .dates{margin-top:40px}
 }#primary .schedules-list li.item .dates span{font-size:16px;display:inline-block;color:#707070;text-transform:uppercase}
 #primary .schedules-list li.item .dates span:after{content:"";display:block;width:100%;height:1px;background:#ba0d30;position:relative;top:-2px}
+#primary .schedules-list li.item.no-dash{display:block;text-align:center}
+#primary .schedules-list li.item.no-dash:after{display:none}
+#primary .schedules-list li.item.no-dash .time,#primary .schedules-list li.item.no-dash .event{display:block;padding:2px 8px;text-align:center}
 #primary .schedules-list ul.items li:first-child .dates{margin-top:0}
 #primary #section-faqs{padding-top:50px;padding-bottom:50px}
 @media(min-width:768px){#primary #section-faqs{padding-top:80px;padding-bottom:80px}

@@ -32,8 +32,9 @@ $blank_image = THEMEURI . "images/rectangle.png";
 	<?php  
 	//$post_type = 'story';
 	$post_type = 'post';
+	$per_page = 2;
 	$args = array(
-		'posts_per_page'	=> 5,
+		'posts_per_page'	=> $per_page,
 		'post_type'		=> $post_type,
 		'post_status'	=> 'publish',
 		'meta_key'		=> 'show_on_homepage',
@@ -42,7 +43,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 	$posts = new WP_Query($args);
 	if ( $posts->have_posts() ) { 
 	$totalpost = $posts->found_posts;  ?>
-	<div class="home-video-gallery full count<?php echo $totalpost?>">
+	<div class="home-video-gallery full count<?php echo $totalpost?> numblocks<?php echo $per_page?>">
 		<div class="inner-wrap">
 			<div class="flexwrap">
 				<?php $i=1; while ( $posts->have_posts() ) : $posts->the_post(); 

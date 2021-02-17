@@ -1626,3 +1626,39 @@ function get_festival_programming_filter($currentPostId) {
     // echo "</pre>";
     return $options;
 }
+
+function getUpcomingEvents($postTypes,$limit=8) {
+    global $wpdb;
+    $items = array();
+    $output = array();
+    foreach($postTypes as $type) {
+        $query = "SELECT p.ID,p.post_title,p.post_type FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m 
+              WHERE p.ID=m.post_id AND m.meta_key='show_on_homepage' AND m.meta_value='yes' AND p.post_type='".$type."' AND p.post_status='publish' ORDER BY p.post_date DESC";
+        $result = $wpdb->get_results($query);
+        if($result) {
+            foreach($result as $row) {
+                $postid = $row->ID;
+                $start_date = get_field("start_date",$postid);
+                $start = ($start_date) ? strtotime($start_date) : $postid . '_nodates';
+                $arg['ID'] = $postid;
+                $arg['post_title'] = $row->post_title;
+                $arg['post_type'] = $row->post_type;
+                $arg['start_date_unix'] = $start;
+                $arg['start_date'] =($start_date) ? date('m/d/Y',strtotime($start_date)) : '';
+                $items[] = $arg;
+            }
+        }
+    }
+    if($items) {
+        usort($items, function($a, $b) {
+            return $a['start_date_unix'] <=> $b['start_date_unix'];
+        });
+
+        for($i=0; $i<$limit; $i++) {
+            if( isset($items[$i]) && $items[$i] ) {
+                $output[] = $items[$i];
+            }
+        }
+    }
+    return $output;
+}

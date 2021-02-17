@@ -2,7 +2,16 @@
 $row5_columns = get_field("row5_columns");
 $icon_placeholder = THEMEURI . "images/square.png";
 $blank_image = THEMEURI . "images/rectangle.png";
-if($row5_columns) { ?>
+if($row5_columns) { 
+$has_content = array();
+foreach ($row5_columns as $c) { 
+	$title = $c['title'];
+	$description = $c['description'];
+	if($title || $description) {
+		$has_content[] = array($title,$description);
+	}
+}
+if($has_content) { ?>
 <section id="section-seasonal" class="homerow row5">
 	<div class="wrapper-full">
 		<div class="flexwrap">
@@ -13,7 +22,7 @@ if($row5_columns) { ?>
 			$buttonName = $c['button_text'];
 			$buttonLink = $c['button_link'];
 			$featured_image = $c['featured_image'];
-			?>
+			if($title || $description) { ?>
 			<div class="infocol seasonal-event">
 				<div class="inside">
 
@@ -44,8 +53,10 @@ if($row5_columns) { ?>
 					<?php } ?>
 				</div>
 			</div>
+			<?php } ?>
 		<?php } ?>
 		</div>
 	</div>
 </section>
+<?php } ?>
 <?php } ?>

@@ -1839,7 +1839,13 @@ h2.stitle,
 			}
 		}
 	}	
-
+	&.numblocks2 {
+		.colRight {
+			.sm-video {
+				width: 100%;
+			}
+		}
+	}
 }
 
 .icon-img {
@@ -7144,6 +7150,18 @@ body.pageNoBanner {
 						position: relative;
 						top: -2px;
 					}
+				}
+			}
+			&.no-dash {
+				display: block;
+				text-align: center;
+				&:after {
+					display: none;
+				}
+				.time, .event {
+					display: block;
+					padding: 2px 8px;
+					text-align: center;
 				}
 			}
 		}

@@ -32,28 +32,28 @@ $blank_image = THEMEURI . "images/square.png";
 <?php
 $events = array('festival','music','race');
 $results = getUpcomingEvents($events,8);
-// $postype = 'festival';
-// $args = array(
-// 	'posts_per_page'=> 8,
-// 	'post_type'		=> array('festival','music','race'),
-// 	'post_status'	=> 'publish',
-// 	'meta_key'		=> 'show_on_homepage',
-// 	'meta_value'	=> 'yes'
-// );
-// $posts = new WP_Query($args);
-if ( $results ) {  
+$postype = 'festival';
+$args = array(
+	'posts_per_page'=> 8,
+	'post_type'		=> array('festival','music','race'),
+	'post_status'	=> 'publish',
+	'meta_key'		=> 'show_on_homepage',
+	'meta_value'	=> 'yes'
+);
+$posts = new WP_Query($args);
+if ( $posts->have_posts() ) {  
+$count = $posts->found_posts;	
 $dateNow = date('Y-m-d');
 ?>
 <div class="featured-events-section full <?php echo $postype ?>">
 	<div class="wrapper-full">
 		<div class="flexwrap">
-		<?php $i=1; foreach( $results as $row ) {  
-			$pid = $row['ID'];
-			$title = get_the_title($pid);
-			$pagelink = get_permalink($pid);
-			$thumbImage = get_field("thumbnail_image",$pid);
-			$start = get_field("start_date",$pid);
-			$end = get_field("end_date",$pid);
+		<?php $i=1; while ( $posts->have_posts() ) : $posts->the_post();  
+			$title = get_the_title();
+			$pagelink = get_permalink();
+			$thumbImage = get_field("thumbnail_image");
+			$start = get_field("start_date");
+			$end = get_field("end_date");
 			$event_date = get_event_date_range($start,$end);
 			?>
 			<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?>">
@@ -78,7 +78,7 @@ $dateNow = date('Y-m-d');
 					</span>
 				</a>
 			</div>
-		<?php $i++; } wp_reset_postdata(); ?>
+		<?php $i++; endwhile; wp_reset_postdata(); ?>
 		</div>
 	</div>
 </div>
