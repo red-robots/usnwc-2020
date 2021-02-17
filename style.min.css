@@ -2172,7 +2172,7 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 .featured-events-section{background-color:#f2f2f2}
 .featured-events-section .flexwrap{-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .featured-events-section .postbox{width:100%}
-@media(min-width:768px){.featured-events-section .postbox{width:25%}
+@media(min-width:768px){.featured-events-section .postbox{width:33.33%}
 }.featured-events-section .postbox .inside{display:block;width:100%;height:100%;float:left;position:relative;text-decoration:none;color:#FFF}
 .featured-events-section .postbox .imagediv{width:100%;height:100%;position:absolute;top:0;left:0;z-index:10;background-size:cover;background-position:top center;background-repeat:no-repeat}
 .featured-events-section .postbox img.feat-img{width:100%;height:auto;float:left;visibility:hidden}

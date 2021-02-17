@@ -30,8 +30,6 @@ $blank_image = THEMEURI . "images/square.png";
 
 
 <?php
-$events = array('festival','music','race');
-$results = getUpcomingEvents($events,8);
 // $postype = 'festival';
 // $args = array(
 // 	'posts_per_page'=> 8,
@@ -41,10 +39,13 @@ $results = getUpcomingEvents($events,8);
 // 	'meta_value'	=> 'yes'
 // );
 // $posts = new WP_Query($args);
+$rectangle = get_bloginfo('template_url') . '/images/rectangle-narrow.png';
+$events = array('festival','music','race');
+$results = getUpcomingEvents($events,9);
 if ( $results ) {  
 $dateNow = date('Y-m-d');
 ?>
-<div class="featured-events-section full <?php echo $postype ?>">
+<div class="featured-events-section full">
 	<div class="wrapper-full">
 		<div class="flexwrap">
 		<?php $i=1; foreach( $results as $row ) {  
@@ -61,9 +62,9 @@ $dateNow = date('Y-m-d');
 					<?php if ($thumbImage) { ?>
 						<div class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></div>
 						<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none">
-						<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
+						<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder">
 					<?php } else { ?>
-						<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder no-image">
+						<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder no-image">
 					<?php } ?>
 					<div class="details">
 						<div class="info">
