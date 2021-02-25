@@ -7,7 +7,7 @@ get_header();
 $placeholder = THEMEURI . 'images/rectangle.png';
 ?>
 
-<div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full festival-page">
+<div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full activities-parent">
 		<?php while ( have_posts() ) : the_post(); ?>
 				<div class="intro-text-wrap">
 					<div class="wrapper">
