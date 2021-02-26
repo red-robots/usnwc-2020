@@ -2006,7 +2006,9 @@ a:hover{color:#dd8698}
 .topinfo .businessHours .tdlink{display:block;text-decoration:none;padding:0;cursor:pointer}
 .topinfo .businessHours .tdlink *{cursor:pointer}
 .topinfo .businessHours .tdlink:hover .t1,.topinfo .businessHours .tdlink:hover .t2{opacity:.5}
-.topinfo span.today.open .businessHours{height:auto;max-height:100%;opacity:1;overflow:visible;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);z-index:50}
+@media screen and (max-width:768px){.topinfo .businessHours{width:300px;left:-25vw;right:0}
+}@media screen and (max-width:600px){.topinfo .businessHours{left:-37vw}
+}.topinfo span.today.open .businessHours{height:auto;max-height:100%;opacity:1;overflow:visible;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);z-index:50}
 .topinfo span.today.open a i.arrow{-webkit-transform:translateY(3px) rotate(180deg);-ms-transform:translateY(3px) rotate(180deg);transform:translateY(3px) rotate(180deg)}
 .navbar{width:100%;float:left;position:relative;background:rgba(255,255,255,0.85);-webkit-box-shadow:0 3px 8px rgba(0,0,0,0.1);box-shadow:0 3px 8px rgba(0,0,0,0.1)}
 @media(min-width:768px){.navbar{-webkit-box-shadow:none;box-shadow:none}
