@@ -3399,21 +3399,23 @@ body.subpage.single {
 		position: relative;
 		padding-left: 3vw;
     padding-right: 3vw;
-		&:before,
-		&:after {
-			content:"";
-			display: block;
-			width: 30px;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			background-image:url("images/double-arrow.svg");
-			background-position: center;
-			background-size: 70%;
-			background-repeat: no-repeat;
+		@include tab {
+			&:before,
+			&:after {
+				content:"";
+				display: block;
+				width: 30px;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				background-image:url("images/double-arrow.svg");
+				background-position: center;
+				background-size: 70%;
+				background-repeat: no-repeat;
+			}
+			&:before {left: 0; transform: rotate(180deg); }
+			&:after {right: 0;  }
 		}
-		&:before {left: 0; transform: rotate(180deg); }
-		&:after {right: 0;  }
 	}
 	a {
 		font-family: $font_secondary;
