@@ -282,6 +282,8 @@ add_action('admin_head', 'my_custom_admin_css');
 function my_custom_admin_css() { ?>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/css/admin.css">
 <style type="text/css">
+[data-name="child_menu_pagelink"] .acf-label {position:relative;}
+[data-name="child_menu_pagelink_target"],
 #menu-posts-instructions ul.wp-submenu li:last-child{display:none!important}
 <?php 
 $has_expiration_post_types = array('festival','music'); 
@@ -300,6 +302,13 @@ add_action('admin_footer', 'my_custom_admin_js');
 function my_custom_admin_js() { ?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
+
+    /* Move `Child Menu Pagelink Target` */
+    $('[data-name="child_menu_pagelink_target"]').each(function(){
+        var parent = $(this).parents('[data-layout="child_menu_data"]');
+        $(this).find('.acf-input').appendTo( )
+        parent.find('[data-name="child_menu_pagelink_target"] .acf-input').appendTo( parent.find('[data-name="child_menu_pagelink"] .acf-input-wrap') );
+    });
 
     /* ACF Flexible Content For Other Activities */
     if( $('[data-name="other_activities"]').length > 0 ) {

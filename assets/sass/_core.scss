@@ -577,6 +577,14 @@ body.scrolled .navbar {
 		line-height: 1.2;
 		text-transform: uppercase;
 		margin-bottom: 10px;
+		a.cmenu-link {
+			display: inline-block;
+			text-decoration: none;
+			color: $color_text_main;
+			&:hover {
+				color: $red;
+			}
+		}
 	}
 	.submenu {
 		a {

@@ -98,11 +98,20 @@ if($parents) { ?>
 						<div class="children-menu-wrap">
 							<?php foreach ($childrenData as $e) { 
 								$child_menu_name = $e['child_menu_name'];
+								$child_menu_pagelink = $e['child_menu_pagelink'];
+								$child_menu_target = ( isset($e['child_menu_pagelink_target'][0]) ) ? true : false;
 								$child_links = $e['child_menu_links'];
+								$childTarget = ($child_menu_target) ? ' target="_blank"':''
 								?>
 								<div class="children-menu-content">
 									<?php if ($child_menu_name) { ?>
-										<div class="submenu-name"><?php echo $child_menu_name ?></div>
+										<div class="submenu-name">
+											<?php if ($child_menu_pagelink && (strpos($child_menu_pagelink, 'http') !== false)) { ?>
+											<a href="<?php echo $child_menu_pagelink ?>" class="cmenu-link"<?php echo $childTarget ?>><?php echo $child_menu_name ?></a>
+											<?php } else { ?>
+												<?php echo $child_menu_name ?>
+											<?php } ?>
+										</div>
 									<?php } ?>
 									
 									<?php if ($child_links) { ?>
