@@ -10022,6 +10022,16 @@ body.single-festival {
 	}
 }
 
+body.page-template-page-group-events {
+	.noButtonTop {
+		width: 100%;
+		float: left;
+		#pageTabs {
+			top: 5px;
+		}
+	}
+}
+
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");

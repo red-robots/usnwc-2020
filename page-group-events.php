@@ -64,7 +64,7 @@ $currentPageLink = get_permalink();
 				</div>
 			</div>
 		<?php } else { ?>
-			<?php get_template_part("parts/subpage-tabs"); ?>
+			<div class="noButtonTop"><?php get_template_part("parts/subpage-tabs"); ?></div>
 		<?php } ?>
 
 		<?php
