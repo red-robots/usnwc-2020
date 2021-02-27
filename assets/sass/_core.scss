@@ -1419,11 +1419,17 @@ h2.stitle,
 /* UPCOMING EVENTS */
 .featured-events-section {
 	background-color: $gray;
+	padding: 5px 0;
+	.wrapper-full {
+		margin-left: -5px;
+		margin-right: -5px;
+	}
 	.flexwrap {
 		@include flexbox-justify(center);
 	}
 	.postbox {
 		width: 100%;
+		padding: 5px;
 		@include tab {
 			width: 33.33%;
 		}
@@ -9959,6 +9965,58 @@ body.single-festival {
 #section-activities.activities-parent-page.camp-activities {
 	padding-top: 20px;
 	padding-bottom: 5px;
+}
+
+/* Sitemap */
+.sitemappage {
+	.text-centered-section {
+		padding-bottom: 50px;
+	}
+	.site-map {
+		padding-bottom: 50px;
+	}
+}
+#sitemapLinks {
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+	}
+	ul.smap {
+		column-count: 1;
+		@include tab {
+			column-count: 3;
+		}
+	}
+	li.parent-link {
+		-webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+	}
+	a.pagelink, .nolink {
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    width: 100%;
+    float: left;
+	}
+	ul.sublinks {
+		padding:0 0;
+		.submenu {
+			margin: 0 0 20px;
+			padding: 0 10px;
+			li {
+				margin: 5px 0;
+			}
+		}
+	}
+	.submenu-name {
+		font-size: 15px;
+		font-weight: 600;
+		text-transform: uppercase;
+		margin: 0 0 4px;
+	}
 }
 
 /* FOOTER */

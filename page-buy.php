@@ -86,7 +86,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 											<div class="adult-price pr">Adult &ndash; <?php echo $adult ?></div>	
 											<?php } ?>
 											<?php if ($young) { ?>
-											<div class="young-price pr">Young &ndash; <?php echo $young ?></div>	
+											<div class="young-price pr">Youth &ndash; <?php echo $young ?></div>	
 											<?php } ?>
 
 											<?php if ($buttonName && $buttonLink) { ?>
@@ -200,20 +200,21 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 											// $buy_link = ( isset($buy['url']) && $buy['url'] ) ? $buy['url']:'';
 											// $buy_target = ( isset($buy['target']) && $buy['target'] ) ? $buy['target']:'_self';
 											$noButton = ($buy_link) ? '':' nobutton';
-										?>
-										<div class="itemrow singleActivity<?php echo $noButton ?>">
-											<span class="activity-name"><span><?php echo $activityName ?></span></span>
-											<?php if ($price || $buy_btn) { ?>
-												<span class="button-group">
-													<span class="wrap">
-														<span class="price"><?php echo ($price) ? $price:'<span class="spacer">N/A</span>'; ?></span>	
-														<?php if ($buy_btn && $buy_link) { ?>
-														<a href="<?php echo $buy_link ?>" target="_blank" class="btn-sm"><span><?php echo $buy_btn ?></span></a>
-														<?php } ?>
+											if($price) { ?>
+											<div class="itemrow singleActivity<?php echo $noButton ?>">
+												<span class="activity-name"><span><?php echo $activityName ?></span></span>
+												<?php if ($price || $buy_btn) { ?>
+													<span class="button-group">
+														<span class="wrap">
+															<span class="price"><?php echo ($price) ? $price:'<span class="spacer">N/A</span>'; ?></span>	
+															<?php if ($buy_btn && $buy_link) { ?>
+															<a href="<?php echo $buy_link ?>" target="_blank" class="btn-sm"><span><?php echo $buy_btn ?></span></a>
+															<?php } ?>
+														</span>
 													</span>
-												</span>
+												<?php } ?>
+											</div>
 											<?php } ?>
-										</div>
 										<?php } ?>
 									<?php } ?>
 
