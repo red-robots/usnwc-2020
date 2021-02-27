@@ -63,7 +63,7 @@ $square = THEMEURI . "images/square.png";
 									</div>
 									<?php } ?>
 
-									<?php if( isset($opt['educational_programs']) ) { ?>
+									<?php if( isset($opt['educational_programs']) && $opt['educational_programs']>0 ) { ?>
 									<div class="option-info">
 										<p class="t1"><strong>Educational Programs</strong></p>
 										<p class="t2"><?php echo $opt['educational_programs']; ?></p>
