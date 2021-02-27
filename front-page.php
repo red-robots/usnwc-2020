@@ -11,28 +11,30 @@ $rectangle = THEMEURI . "images/rectangle-narrow.png";
 		$row1_text2 = get_field('row1_text2');  
 		$row1_bg_image = get_field('row1_bg_image');  
 		$row1_style = ($row1_bg_image) ? ' style="background-image:url('.$row1_bg_image['url'].')"':'';
-		?>
-		<?php if ($row1_text) { ?>
-		<section class="homerow row1 wow fadeIn"<?php echo $row1_style ?>>
-			<div class="wrapper">
-				<div class="textwrap">
-					<div class="t1"><?php echo $row1_text ?></div>
-					<?php if ($row1_text2) { 
-						$text2 = preg_replace('/\s(?!\s)/', ' ', $row1_text2);
-						$parts = explode("|",$text2);
-						$count = count($parts)
-					?>
-					<div class="t2 <?php echo ( $parts && count($parts)> 1 ) ? 'items':'item'; ?>">
-						<?php if ($parts) { ?>
-							<?php foreach ($parts as $p) { ?>
-							<span class="feat"><?php echo $p; ?></span>
+		$enable = get_field("enable_row_1");
+		if($enable=='on') { ?>
+			<?php if ($row1_text) { ?>
+				<section class="homerow row1 wow fadeIn"<?php echo $row1_style ?>>
+					<div class="wrapper">
+						<div class="textwrap">
+							<div class="t1"><?php echo $row1_text ?></div>
+							<?php if ($row1_text2) { 
+								$text2 = preg_replace('/\s(?!\s)/', ' ', $row1_text2);
+								$parts = explode("|",$text2);
+								$count = count($parts)
+							?>
+							<div class="t2 <?php echo ( $parts && count($parts)> 1 ) ? 'items':'item'; ?>">
+								<?php if ($parts) { ?>
+									<?php foreach ($parts as $p) { ?>
+									<span class="feat"><?php echo $p; ?></span>
+									<?php } ?>
+								<?php } ?>
+							</div>
 							<?php } ?>
-						<?php } ?>
+						</div>
 					</div>
-					<?php } ?>
-				</div>
-			</div>
-		</section>
+				</section>
+			<?php } ?>
 		<?php } ?>
 
 
