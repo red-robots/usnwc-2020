@@ -84,7 +84,7 @@ $rectangle = THEMEURI . "images/rectangle-narrow.png";
 									<span class="title"><?php echo $a_title ?></span>	
 									<?php } ?>
 									<span class="imgwrap">
-										<span class="bg" style="background-image:url('<?php echo $a_image['sizes']['medium_large']; ?>')">
+										<span class="bg" style="background-image:url('<?php echo $a_image['url']; ?>')">
 											<img src="<?php echo $rectangle ?>" alt="" aria-hidden="true">
 										</span>
 									</span>

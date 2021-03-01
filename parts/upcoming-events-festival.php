@@ -60,11 +60,14 @@ $dateNow = date('Y-m-d');
 			<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?>">
 				<a href="<?php echo $pagelink ?>" class="inside boxlink wave-effect">
 					<?php if ($thumbImage) { ?>
-						<div class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></div>
-						<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none">
-						<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder">
+						<div class="imagediv" style="background-image:url('<?php echo $thumbImage['url'] ?>')">
+							<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder">
+						</div>
+						<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img actual-image" style="display:none">
 					<?php } else { ?>
-						<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder no-image">
+						<div class="imagediv noImage">
+							<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder no-image">
+						</div>
 					<?php } ?>
 					<div class="details">
 						<div class="info">

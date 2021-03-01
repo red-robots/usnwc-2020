@@ -1445,7 +1445,8 @@ h2.stitle,
 		.imagediv {
 			width: 100%;
 			height: 100%;
-			position: absolute;
+			// position: absolute;
+			position: relative;
 			top: 0;
 			left: 0;
 			z-index: 10;
@@ -1553,12 +1554,106 @@ h2.stitle,
 			}
 		}
 	}
-	@media screen and (max-width:$tabwidth) {
-		.postbox .wave-svg {
-			width: 200vw;
+	@media screen and (max-device-width:1024px) {
+		background-color:#FFF;
+		.flexwrap {
+			@include flexbox-justify(flex-start);
+		}
+		.postbox {
+			width: 50%;
+			float: left;
+			.wave-effect .wave {
+				display: none!important;
+			}
+			.imagediv {
+				width: 100%;
+				height: auto;
+				float: left;
+			}
+			.imagediv img {
+
+			}
+			.boxlink, .details {
+				display: block;
+				width: 100%;
+				float: left;
+				position: relative;
+			}
+			.details {
+				overflow: visible;
+				background-color: $gray;
+				color: $dark;
+				.info {
+					opacity: 1;
+					padding: 15px;
+					transform: none!important;
+					.event-name {
+						font-weight: 500;
+						margin-bottom: 3px;
+					}
+				}
+			}
+		}
+		
+	}
+	@media screen and (max-width:900px) {
+		background-color:#FFF;
+		.flexwrap {
+			@include flexbox-justify(flex-start);
+		}
+		.postbox {
+			width: 50%;
+			float: left;
+			.wave-effect .wave {
+				display: none!important;
+			}
+			.imagediv {
+				width: 100%;
+				height: auto;
+				float: left;
+			}
+			.imagediv img {
+
+			}
+			.boxlink, .details {
+				display: block;
+				width: 100%;
+				float: left;
+				position: relative;
+			}
+			.details {
+				overflow: visible;
+				background-color: $gray;
+				color: $dark;
+				.info {
+					opacity: 1;
+					padding: 15px;
+					transform: none!important;
+					.event-name {
+						font-weight: 500;
+						margin-bottom: 3px;
+					}
+				}
+			}
+			// img.feat-img.actual-image {
+			// 	display: block!important;
+			// 	width: 100%;
+			// 	float: left;
+			// }
+			// .feat-img.placeholder {
+			// 	display: none!important;
+			// }
+		}
+		
+	}
+	@media screen and (max-width:$portrait) {
+		.postbox {
+			width: 100%;
 		}
 	}
 }
+
+
 
 /* Homepage - Stories */
 .homerow.row4 {
@@ -10029,6 +10124,16 @@ body.page-template-page-group-events {
 		#pageTabs {
 			top: 5px;
 		}
+	}
+}
+#section-group-types.section-content {
+	.wrapper {
+		padding-bottom: 60px;
+	}
+	.event-text-intro {
+		position: relative;
+		top: -10px;
+		margin-bottom: 15px;
 	}
 }
 

@@ -23,6 +23,7 @@ $currentPageLink = get_permalink();
 
 		<?php  
 		$group_type_title = get_field("group_type_title");
+		$group_type_text = get_field("group_type_text");
 		$group_type_ctabutton = get_field("group_type_ctabutton");
 		$group_types = get_field("group_types");
 		if($group_types) { ?>
@@ -34,6 +35,12 @@ $currentPageLink = get_permalink();
 					<h2 class="stitle"><?php echo $group_type_title ?></h2>
 				</div>
 				<?php } ?>
+				<?php if ($group_type_text) { ?>
+				<div class="event-text-intro">
+					<?php echo $group_type_text ?>
+				</div>
+				<?php } ?>
+
 				<div class="group-types">
 					<div class="flexwrap">
 					<?php foreach ($group_types as $g) {
