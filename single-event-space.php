@@ -271,6 +271,7 @@ get_header(); ?>
 		<?php
 		/* GET MORE INFORMATION */
 		$bottom_title = get_field("event_space_bottom_title","option");
+		$event_space_bottom_form = get_field("event_space_bottom_form","option");
 		$bottom_button = get_field("event_space_bottom_button","option");
 		$buttonTarget = ( isset($bottom_button['target']) && $bottom_button['target'] ) ? $bottom_button['target']:'_self';
 		if($bottom_title) { ?>
@@ -281,6 +282,12 @@ get_header(); ?>
 				<div class="buttondiv">
 					<a href="<?php echo $bottom_button['url'] ?>" target="<?php echo $buttonTarget ?>" class="btn-sm btn-cta white"><span><?php echo $bottom_button['title'] ?></span></a>
 				</div>
+				<?php } ?>
+
+				<?php if ($event_space_bottom_form) { ?>
+				<div class="event-form-wrap">
+					<?php echo $event_space_bottom_form ?>
+				</div>	
 				<?php } ?>
 			</div>		
 		</div>

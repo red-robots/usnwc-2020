@@ -3641,7 +3641,7 @@ h1.page-title {
 	float: left;
 	text-align: center;
 	padding-top: 70px;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
   .btn-sm.btn-cta {
   	margin-top: 20px;
   }
@@ -7922,8 +7922,111 @@ body.single-camp {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	padding: 35px 0 15px;
-}
+	.gform_wrapper {
+		max-width: 600px;
+		width: 100%;
+		margin: 30px auto 0;
+		.top_label .gfield_label {
+			margin-bottom: 0;
+		}
+		.ginput_container {
+			margin-top: 0!important;
+		}
+		textarea,
+		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+			border-radius: 0;
+			-webkit-appearance: none;
+			box-shadow: none;
+			border: 1px solid #FFF;
+			padding: 5px;
+			&:focus {
+				outline: none;
+				border-color: $dark;
+			}
+		}
+		.gform_footer {
+			padding: 0 0;
+			margin: 15px 0 0;
+			height: 40px;
+			overflow: hidden;
+			input.gform_button {
+				-webkit-appearance: none;
+				border: 1px solid $dark;
+				padding: 8px 25px 6px;
+				font-size: 13px;
+				line-height: 1.2;
+				background: transparent;
+				&:hover {
+					background-color: #000;
+					color: #FFF;
+				}
+			}
+		}
+	}
 
+}
+.event-form-wrap {
+	.gform_wrapper {
+		max-width: 600px;
+		width: 100%;
+		margin: 30px auto 0;
+		.top_label .gfield_label {
+			margin-bottom: 0;
+		}
+		.ginput_container {
+			margin-top: 0!important;
+		}
+		textarea,
+		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+			border-radius: 0;
+			-webkit-appearance: none;
+			box-shadow: none;
+			border: 1px solid #FFF;
+			padding: 5px;
+			color: #000;
+			&:focus {
+				outline: none;
+				border-color: $dark;
+			}
+		}
+		ul.gform_fields li.gfield {
+			padding: 0 0!important;
+			width: 100%!important;
+			input[type="text"],input[type="email"] {
+				width: 100%!important;
+			}
+		}
+		.gform_footer {
+			padding: 0 0;
+			margin: 15px 0 0;
+			height: 40px;
+			overflow: hidden;
+			input.gform_button {
+				-webkit-appearance: none;
+				border: 1px solid $dark;
+				background-color: $dark;
+				color: #FFF;
+				padding: 8px 25px 6px;
+				font-size: 13px;
+				line-height: 1.2;
+				&:hover {
+					background-color: #FFF;
+					border-color: #FFF;
+					color: #000;
+				}
+			}
+		}
+		.gfield_required {
+			color: #FFF;
+		}
+		.gfield_checkbox li {
+			input[type=checkbox] {
+				position: relative;
+				top: -3px;
+			}
+		}
+	}
+}
 .catering-wedding {
 	#pageTabs {
 		width: 100%;
@@ -10133,7 +10236,14 @@ body.page-template-page-group-events {
 	.event-text-intro {
 		position: relative;
 		top: -10px;
-		margin-bottom: 15px;
+		margin-bottom: 25px;
+		font-size: 16px;
+		line-height: 1.5;
+		text-align: center;
+		ul, ol {
+			display: inline-block;
+			text-align: left;
+		}
 	}
 }
 
