@@ -98,9 +98,17 @@ if ( $blogs->have_posts() ) {  ?>
 					<div class="flexwrap">
 
 						<?php if ( do_shortcode('[facetwp facet="activity_types"]') ) { ?>
-						<div class="select-wrap align-middle">
+						<!-- <div class="select-wrap align-middle"> -->
+						<div class="select-wrap">
 							<label for="activity_type">Activity</label>
 							<?php echo do_shortcode('[facetwp facet="activity_types" pager="true"]'); ?>
+						</div>
+						<?php } ?>
+
+						<?php if ( do_shortcode('[facetwp facet="film_write_up"]') ) { ?>
+						<div class="select-wrap">
+							<label for="film_write_up">Film / Write-up</label>
+							<?php echo do_shortcode('[facetwp facet="film_write_up" pager="true"]'); ?>
 						</div>
 						<?php } ?>
 

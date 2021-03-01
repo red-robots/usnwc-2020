@@ -1671,3 +1671,46 @@ function getUpcomingEvents($postTypes,$limit=8) {
     }
     return $output;
 }
+
+/* CRON JOB => Change event status automatically if completed */
+// function myprefix_custom_cron_schedule( $schedules ) {
+// $schedules['every_tewlve_hours'] = array(
+//         'interval' => 43200, // Every 12 hours
+//         'display'  => __( 'Every 12 hours' ),
+//     );
+//     return $schedules;
+// }
+// add_filter( 'cron_schedules', 'myprefix_custom_cron_schedule' );
+
+// //Schedule an action if it's not already scheduled
+// if ( ! wp_next_scheduled( 'myprefix_cron_hook' ) ) {
+//     wp_schedule_event( time(), 'every_tewlve_hours', 'myprefix_cron_hook' );
+// }
+
+// ///Hook into that action that'll fire every six hours
+// add_action( 'myprefix_cron_hook', 'myprefix_cron_function' );
+
+
+// function myprefix_cron_function() {
+//     global $wpdb;
+//     $query = "SELECT p.ID, p.post_title, m.meta_value FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m WHERE p.ID=m.post_id AND m.meta_key='start_date' AND p.post_status='publish'";
+//     $result = $wpdb->get_results($query);
+//     $datetoday = date('Ymd');
+//     $now = strtotime($datetoday);
+//     $updatedPosts = array();
+//     if($result) {
+//         foreach($result as $row) {
+//             $id = $row->ID;
+//             $start = ($row->meta_value) ? strtotime($row->meta_value) : '';
+//             $status = get_post_meta($id,"eventstatus");
+//             if($status && $start) {
+//                 if($start<$now) {
+//                     $metaVal = 'completed';
+//                     update_post_meta($id,"eventstatus",$metaVal);
+//                     $updatedPosts[] = $id;
+//                 }
+//             }
+//         }
+//     }
+//     return $updatedPosts;
+// }
