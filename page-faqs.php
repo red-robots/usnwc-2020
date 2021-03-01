@@ -11,6 +11,8 @@ get_header(); ?>
 <div id="primary" class="content-area-full content-faqs-page <?php echo $has_banner ?>">
 	<main id="main" class="site-main" role="main">
 
+		<div id="faqs"></div>
+		
 		<?php while ( have_posts() ) : the_post(); ?>
 			<section class="text-centered-section">
 				<div class="wrapper text-center">
@@ -21,6 +23,8 @@ get_header(); ?>
 				</div>
 			</section>
 		<?php endwhile; ?>
+
+
 
 		<?php
 			$args = array(
