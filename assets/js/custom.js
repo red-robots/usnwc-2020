@@ -541,17 +541,26 @@ jQuery(document).ready(function ($) {
 	    }
 		});
 
+	if( typeof params.pid!='undefined' && params.pid!=null ) {
+		if( $(".faqpid-"+params.pid).length>0 ) {
+			view_faqs_info(params.pid);
+		}
+	}
 
 	$(document).on("click",".faqGroup",function(e){
 		e.preventDefault();
 		var postid = $(this).attr("data-id");
+		view_faqs_info(postid);
+	});
+
+	function view_faqs_info(postid) {
 		var headHeight = $("#masthead").height();
 		var offset = headHeight + 80
 		var target = $("#faqItems");
-		$('html, body').animate({
-      scrollTop: target.offset().top - offset
-    }, 1000);
 
+		$('html, body').animate({
+		scrollTop: target.offset().top - offset
+		}, 1000);
 		$.ajax({
 			url : frontajax.ajaxurl,
 			type : 'post',
@@ -570,14 +579,15 @@ jQuery(document).ready(function ($) {
 					setTimeout(function(){
 						$("#loaderDiv").hide();
 					},500);
+					var newURL = currentURL + '?pid=' + postid;
+					history.replaceState('',document.title,newURL);
 				}
 			},
 			error:function() {
 				$("#loaderDiv").hide();
 			}
 		});
-
-	});
+	}
 
 
 	/* More FAQs */

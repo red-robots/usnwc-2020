@@ -12,7 +12,7 @@ get_header(); ?>
 	<main id="main" class="site-main" role="main">
 
 		<div id="faqs"></div>
-		
+
 		<?php while ( have_posts() ) : the_post(); ?>
 			<section class="text-centered-section">
 				<div class="wrapper text-center">
@@ -46,7 +46,7 @@ get_header(); ?>
 									$first_faq = $id;
 								}
 							?>
-							<a href="#" data-id="<?php echo $id ?>" class="faq faqGroup">
+							<a href="#" data-id="<?php echo $id ?>" class="faq faqGroup faqpid-<?php echo $id ?>">
 								<?php if ($icon) { ?>
 								<span class="icon"><i class="<?php echo $icon ?>"></i></span>	
 								<?php } ?>

@@ -57,6 +57,7 @@
 						$faq_pageId = 157;
 						$max = 3;
 						$totalFaqs = count($faqLists);
+						$faq_ids = array();
 						$n=1; foreach ($faqLists as $f) { 
 							$faq_parent_id = $f['parent_id'];
 							$question = $f['question'];
@@ -64,8 +65,8 @@
 							if($question && $answer) { 
 								$isFirst = ($n==1) ? ' first':'';
 								//$faqlimit = ($n>$max) ? ' hide-faq':'';
-								if($n<=$max) { ?>
-								<div class="faq-item collapsible<?php echo $isFirst ?>">
+								if($n<=$max) { $faq_ids[] = $faq_parent_id; ?>
+								<div data-faq-parent="<?php echo $faq_parent_id; ?>" class="faq-item collapsible<?php echo $isFirst ?>">
 									<h3 class="option-name"><?php echo $question ?><span class="arrow"></span></h3>
 									<div class="option-text"><?php echo $answer ?></div>
 								</div>
@@ -73,10 +74,13 @@
 							<?php $n++; } ?>
 						<?php } ?>
 
-						<?php if ($totalFaqs>$max) { ?>
+						<?php if ($totalFaqs>$max) { 
+							$faqparent = ($faq_ids) ? array_unique($faq_ids) : ''; 
+							$fpid = ( isset($faqparent[0]) && $faqparent[0] ) ? '?pid=' . $faqparent[0] : '';
+						?>
 						<div class="morefaqs">
 							<!-- <a href="#" class="btn-sm btn-cta morefaqsBtn"><span>See More</span></a> -->
-							<a href="<?php echo get_permalink($faq_pageId); ?>#faqs" class="btn-sm btn-cta"><span>See More</span></a>
+							<a href="<?php echo get_permalink($faq_pageId); ?><?php echo $fpid?>" class="btn-sm btn-cta"><span>See More</span></a>
 						</div>
 						<?php } ?>
 					</div>	
