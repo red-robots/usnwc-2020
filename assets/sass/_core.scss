@@ -10246,6 +10246,18 @@ body.page-template-page-group-events {
 		}
 	}
 }
+.faq-item.hide-faq {
+	display: none;
+}
+.morefaqs {
+	text-align: center;
+	padding-top: 25px;
+	margin-bottom: 30px;
+	border-top: 1px solid #bdbdbd;
+	a.btn-cta {
+		display: inline-block;
+	}
+}
 
 /* FOOTER */
 .site-footer {

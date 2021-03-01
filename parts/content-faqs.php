@@ -36,28 +36,45 @@
 							<?php } ?>
 
 					<?php } ?>
-					
-					<div class="faqsItems">
-						<?php foreach ($faqs as $q) { 
-							$faq_id = $q['ID'];
-							$faq_title = $q['title'];
-							$faq_items = $q['faqs'];
-							if($faq_items) { ?>
-								<div id="faq-<?php echo $faq_id?>" class="faq-group">
-									<?php $n=1; foreach ($faq_items as $f) { 
-										$question = $f['question'];
-										$answer = $f['answer'];
-										$isFirst = ($n==1) ? ' first':'';
-										if($question && $answer) { ?>
-										<div class="faq-item collapsible<?php echo $isFirst ?>">
-											<h3 class="option-name"><?php echo $question ?><span class="arrow"></span></h3>
-											<div class="option-text"><?php echo $answer ?></div>
-										</div>
-										<?php } ?>
 
-									<?php $n++; } ?>
+					<?php 
+						$faqLists = array();
+						foreach ($faqs as $q) { 
+							$faq_id = $q['ID'];
+							$faq_items = $q['faqs'];
+							if($faq_items) {
+								foreach ($faq_items as $fi) { 
+									$fi['parent_id'] = $faq_id;
+									$faqLists[] = $fi;
+								}
+							}
+						}
+					?>
+
+
+					<div class="faqsItems">
+						<?php 
+						$max = 3;
+						$totalFaqs = count($faqLists);
+						$n=1; foreach ($faqLists as $f) { 
+							$faq_parent_id = $f['parent_id'];
+							$question = $f['question'];
+							$answer = $f['answer'];
+							if($question && $answer) { 
+								$isFirst = ($n==1) ? ' first':'';
+								$faqlimit = ($n>$max) ? ' hide-faq':'';
+								?>
+								<div class="faq-item collapsible<?php echo $isFirst.$faqlimit ?>">
+									<h3 class="option-name"><?php echo $question ?><span class="arrow"></span></h3>
+									<div class="option-text"><?php echo $answer ?></div>
 								</div>
-							<?php } ?>
+							<?php $n++; } ?>
+						<?php } ?>
+
+						<?php if ($totalFaqs>$max) { ?>
+						<div class="morefaqs">
+							<a href="#" class="btn-sm btn-cta morefaqsBtn"><span>See More</span></a>
+						</div>
 						<?php } ?>
 					</div>	
 				</div>

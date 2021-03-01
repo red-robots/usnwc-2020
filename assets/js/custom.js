@@ -580,5 +580,17 @@ jQuery(document).ready(function ($) {
 	});
 
 
+	/* More FAQs */
+	$(document).on("click",".morefaqsBtn",function(e){
+		e.preventDefault();
+		var morefaqs = $(".morefaqs");
+		morefaqs.hide();
+		$(".faq-item").each(function(){
+			if( $(this).hasClass('hide-faq') ) {
+				$(this).removeClass('hide-faq').addClass("animated fadeIn");
+			}
+		});
+	});
+
 
 });// END #####################################    END
