@@ -9,7 +9,7 @@ $square = THEMEURI . "images/square.png";
 $rectangle = THEMEURI . "images/rectangle-lg.png";
 ?>
 
-<div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full festival-page">
+<div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full festival-page race-series-page">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php if( get_the_content() ) { ?>
 				<div class="intro-text-wrap">
@@ -30,9 +30,14 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 		$total = ( isset($result['total']) && $result['total'] ) ? $result['total']:0;
 		$canceledImage = THEMEURI . "images/canceled.svg";
 		$total_pages = ($posts) ? ceil($total / $perpage):0;
+		$has_filter = ( isset($_GET['_event_status']) || isset($_GET['_race_series_discipline']) ) ? true : false;
 
 		if ( $posts ) { ?>
-		<div class="post-type-entries <?php echo $postype ?>">
+
+		<?php get_template_part("parts/race-series-filter"); ?>
+
+		<?php if (!$has_filter) { ?>
+		<div id="defaultList" class="post-type-entries <?php echo $postype ?>">
 			<div id="data-container">
 				<div class="posts-inner animate__animated animate__fadeIn">
 					<div class="flex-inner">
@@ -126,6 +131,7 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 				
 				<?php } ?>
 		</div>
+		<?php } ?>
 
 		<?php if ($total > $perpage) { ?> 
 		<div class="loadmorediv text-center">
@@ -136,6 +142,11 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 		<?php } ?>
 
 </div><!-- #primary -->
+<script type="text/javascript">
+(function($) {
 
+
+})(jQuery);
+</script>
 <?php
 get_footer();

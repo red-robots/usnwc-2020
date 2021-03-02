@@ -144,25 +144,40 @@ while ( have_posts() ) : the_post(); ?>
 
 
 		<?php if ( $has_race_types ) { ?>
-		<div class="filter-section">
+		<div class="filter-section two-options">
 			<div class="wrapper">
-				<div class="filterBy">
-					<div class="filter-input">
-						<span>Filter By</span>
-						<select id="race-type-option" class="filter-select">
-						<?php $i=1; foreach ($race_types as $r) { 
-							$actualName = $r['name']; 
-							$alias = $r['alias'];
-							$name = ($alias) ? $alias : $actualName;
-							$slug = sanitize_title($name);
-							$schedule = $r['schedule'];
-							?>
-							<option value="race-opt<?php echo $i?>"><?php echo $name ?></option>
-						<?php $i++; } ?>
-						</select>
+
+				<div class="filter-wrapper filterstyle customSelectWrap">
+					<div class="wrapper">
+						<div class="filter-inner">
+							<form action="" method="get" id="filterForm">
+								<div class="flexwrap">
+
+									<div class="filter-field-group">
+										<div class="filter-label">
+											<div class="inside"><span>Filter By</span></div>
+										</div>
+
+										<div class="select-wrap">
+											<select id="race-type-option" class="filter-select customSelect">
+											<?php $i=1; foreach ($race_types as $r) { 
+												$actualName = $r['name']; 
+												$alias = $r['alias'];
+												$name = ($alias) ? $alias : $actualName;
+												$slug = sanitize_title($name);
+												$schedule = $r['schedule'];
+												?>
+												<option value="race-opt<?php echo $i?>"><?php echo $name ?></option>
+											<?php $i++; } ?>
+											</select>
+										</div>
+									</div>
+									
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
-
 
 				<div class="schedule-information">
 
@@ -329,19 +344,24 @@ while ( have_posts() ) : the_post(); ?>
 			<?php } ?>
 
 			<?php if ($a_col_title2 && $a_col_content2) { ?>
-				<div class="awards-columns result">
+				<?php $col_count = ($a_col_content2) ? count($a_col_content2) : 0;  ?>
+				<div class="awards-columns result col-count-<?php echo $col_count?>">
 					<div class="inside">
 						<div class="col-title">
 							<?php if ($a_col_icon2) { ?>
 								<div class="icon-img"><span style="background-image:url('<?php echo  $a_col_icon2['url']?>')"></span></div>
 							<?php } ?>
-							<?php if ($a_col_title2) { ?>
-								<h2 class="stitle"><?php echo $a_col_title2 ?></h2>
+
+							<?php if ($col_count==1) { ?>
+								<h2 class="stitle"><?php echo $a_col_content2[0]['title']; ?></h2>
+							<?php } else { ?>
+								<?php if ($a_col_title2) { ?>
+									<h2 class="stitle"><?php echo $a_col_title2 ?></h2>
+								<?php } ?>
 							<?php } ?>
 						</div>
 
-						<?php if ($a_col_content2) { 
-							$col_count = count($a_col_content2); ?>
+						<?php if ($a_col_content2) { ?>
 						<div class="col-content col-count-<?php echo $col_count?>">
 							<div class="wrap">
 								<?php foreach ($a_col_content2 as $col) { 
@@ -349,8 +369,11 @@ while ( have_posts() ) : the_post(); ?>
 									$c_text = $col['text'];
 									if($c_title || $c_text) { ?>
 									<div class="result-data">
-										<?php if ($c_title) { ?>
-										<h3 class="h3"><?php echo $c_title ?></h3>	
+
+										<?php if ($col_count>1) { ?>
+											<?php if ($c_title) { ?>
+											<h3 class="h3"><?php echo $c_title ?></h3>	
+											<?php } ?>
 										<?php } ?>
 
 										<?php if ($c_text) { ?>
@@ -417,6 +440,12 @@ if($sponsors) { ?>
 
 <script>
 jQuery(document).ready(function($){
+
+	$("select.customSelect").select2({
+    placeholder: "ALL",
+    allowClear: false
+	});
+
 	$("#race-type-option").on('change',function(){
 		var opt = $(this).val();
 		$(".schedule-info").removeClass("active");

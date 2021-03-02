@@ -4382,7 +4382,7 @@ body.subpage.single .content-default .black-section {
 			max-width: 500px;
 			width: 100%;
 			margin: 0 auto;
-			span {
+			span.filterTxt {
 				display: inline-block;
 				width: 30%;
 				float: left;
@@ -4803,6 +4803,16 @@ body.single-instructions {
 	.awards-columns.result {
 		.col-title {
 			margin-bottom: 50px;
+		}
+	}
+	.result.col-count-1 .col-title {
+		margin-bottom: 15px;
+	}
+	.col-content.col-count-1 {
+		.wrap, .result-data {
+			display: block;
+			width: 100%;
+			float: left;
 		}
 	}
 }
@@ -10007,6 +10017,8 @@ body.single-festival {
 	}
 }
 
+
+
 #tabSchedules {
 	.schedules-list {
 		display: none;
@@ -10256,6 +10268,54 @@ body.page-template-page-group-events {
 	border-top: 1px solid #bdbdbd;
 	a.btn-cta {
 		display: inline-block;
+	}
+}
+
+.filter-section.two-options {
+	#filterForm .flexwrap {
+		@include flexgroup-center();
+		@include flexbox-justify(center);
+	}
+	.filter-field-group {
+		width: 100%;
+		position: relative;
+		@include flexgroup();
+		@include tab {
+			width: 50%;
+		}
+		.filter-label {
+			width: 25%;
+			padding-left: 5px;
+			padding-right: 5px;
+			font-size: 16px;
+		}
+		.select-wrap {
+			width: 75%;
+			left: -11px;
+		}
+	}
+}
+.select2-container--open {
+	margin-top: 0;
+	.select2-dropdown {
+		border-top: none!important;
+	}
+}
+.select2-search--dropdown {
+	position: relative;
+	top: -3px;
+}
+
+.facetwp-facet-event_status {
+	.fs-option-label {
+		text-transform: capitalize;
+	}
+}
+
+.race-series-page {
+	.filter-wrapper {
+		padding-top: 45px;
+		padding-bottom: 30px;
 	}
 }
 

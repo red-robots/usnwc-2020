@@ -896,7 +896,7 @@ function update_post_status_if_expired() {
             $row->eventstatus = $status;
             if($based_date) {
                if( !in_array($status,$exception) ) {
-                  if($start<$dateNowStr) {
+                  if($based_date<$dateNowStr) {
                      $updated = update_post_meta($post_id,'eventstatus','completed');
                      if($updated) {
                         $is_updated[] = $post_id;
@@ -1673,44 +1673,45 @@ function getUpcomingEvents($postTypes,$limit=8) {
 }
 
 /* CRON JOB => Change event status automatically if completed */
-// function myprefix_custom_cron_schedule( $schedules ) {
-// $schedules['every_tewlve_hours'] = array(
-//         'interval' => 43200, // Every 12 hours
-//         'display'  => __( 'Every 12 hours' ),
-//     );
-//     return $schedules;
-// }
-// add_filter( 'cron_schedules', 'myprefix_custom_cron_schedule' );
+function myprefix_custom_cron_schedule( $schedules ) {
+$schedules['every_twelve_hours'] = array(
+        'interval' => 43200, // Every 12 hours
+        'display'  => __( 'Every 12 hours' ),
+    );
+    return $schedules;
+}
+add_filter( 'cron_schedules', 'myprefix_custom_cron_schedule' );
 
-// //Schedule an action if it's not already scheduled
-// if ( ! wp_next_scheduled( 'myprefix_cron_hook' ) ) {
-//     wp_schedule_event( time(), 'every_tewlve_hours', 'myprefix_cron_hook' );
-// }
+//Schedule an action if it's not already scheduled
+if ( ! wp_next_scheduled( 'myprefix_cron_hook' ) ) {
+    wp_schedule_event( time(), 'every_twelve_hours', 'myprefix_cron_hook' );
+}
 
-// ///Hook into that action that'll fire every six hours
-// add_action( 'myprefix_cron_hook', 'myprefix_cron_function' );
+///Hook into that action that'll fire every six hours
+add_action( 'myprefix_cron_hook', 'myprefix_cron_function' );
 
-
-// function myprefix_cron_function() {
-//     global $wpdb;
-//     $query = "SELECT p.ID, p.post_title, m.meta_value FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m WHERE p.ID=m.post_id AND m.meta_key='start_date' AND p.post_status='publish'";
-//     $result = $wpdb->get_results($query);
-//     $datetoday = date('Ymd');
-//     $now = strtotime($datetoday);
-//     $updatedPosts = array();
-//     if($result) {
-//         foreach($result as $row) {
-//             $id = $row->ID;
-//             $start = ($row->meta_value) ? strtotime($row->meta_value) : '';
-//             $status = get_post_meta($id,"eventstatus");
-//             if($status && $start) {
-//                 if($start<$now) {
-//                     $metaVal = 'completed';
-//                     update_post_meta($id,"eventstatus",$metaVal);
-//                     $updatedPosts[] = $id;
-//                 }
-//             }
-//         }
-//     }
-//     return $updatedPosts;
-// }
+function myprefix_cron_function() {
+    global $wpdb;
+    $query = "SELECT p.ID, p.post_title, m.meta_value FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m WHERE p.ID=m.post_id AND m.meta_key='start_date' AND p.post_status='publish'";
+    $result = $wpdb->get_results($query);
+    $datetoday = date('Ymd');
+    $now = strtotime($datetoday);
+    $updatedPosts = array();
+    if($result) {
+        foreach($result as $row) {
+            $id = $row->ID;
+            $start = ($row->meta_value) ? strtotime($row->meta_value) : '';
+            $status = get_post_meta($id,"eventstatus","meta_value");
+            if($status && $start) {
+                if($status=='active') {
+                    if($start<$now) {
+                        $metaVal = 'completed';
+                        update_post_meta($id,"eventstatus",$metaVal);
+                        $updatedPosts[] = $id;
+                    }
+                }
+            }
+        }
+    }
+    return $updatedPosts;
+}

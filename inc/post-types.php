@@ -317,7 +317,7 @@ function build_taxonomies() {
       'taxonomy'  => 'instructions-template',
       'query_var' => false,
       'show_admin_column'=>false
-    ),
+    )
   );
 
   if($post_types) {

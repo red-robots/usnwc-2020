@@ -1,7 +1,4 @@
-<?php 
-$res = update_post_status_if_expired();
-?>
-
+<?php //$res = update_post_status_if_expired(); ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
