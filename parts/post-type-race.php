@@ -353,7 +353,15 @@ while ( have_posts() ) : the_post(); ?>
 							<?php } ?>
 
 							<?php if ($col_count==1) { ?>
+
+								<?php if ( isset($a_col_content2[0]['title']) && $a_col_content2[0]['title'] ) { ?>
 								<h2 class="stitle"><?php echo $a_col_content2[0]['title']; ?></h2>
+								<?php } else { ?>
+									<?php if ($a_col_title2) { ?>
+										<h2 class="stitle"><?php echo $a_col_title2 ?></h2>
+									<?php } ?>
+								<?php } ?>
+								
 							<?php } else { ?>
 								<?php if ($a_col_title2) { ?>
 									<h2 class="stitle"><?php echo $a_col_title2 ?></h2>
