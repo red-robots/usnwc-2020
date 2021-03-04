@@ -523,19 +523,16 @@ jQuery(document).ready(function($){
 
 					if(content) {
 						$("#modalBodyText").html(content);
-						$("#activityModal").modal("show");
 					}
 
 					$.get(obj.postlink,function(data){
 						var textcontent = '<div class="text">'+data+'</div></div>';
 						$("#modalBodyText .modalText").html(textcontent);
+						$("#activityModal").modal("show");
+						$("#loaderDiv").hide();
 					});
 					
 				}
-
-				
-
-				$("#loaderDiv").hide();
 				
 			},
 			error:function() {
