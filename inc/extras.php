@@ -1291,7 +1291,20 @@ function ajaxGetPageData(){
                 $content['thumbnail_image'] = ($thumbnail) ? $thumbnail:'';
                 $content['raw'] = $post;
                 $content['post_title'] = $post->post_title; 
-                $content['post_content'] = ($post->post_content) ? apply_filters('the_content', $post->post_content):''; 
+                $textcontent = '';
+                $url = get_permalink($postid) . '?show=contentonly';
+                $arrContextOptions=array(
+                      "ssl"=>array(
+                            "verify_peer"=>false,
+                            "verify_peer_name"=>false,
+                        ),
+                    );  
+                $textcontent = file_get_contents($url, false, stream_context_create($arrContextOptions));
+
+                $content['post_content'] = $textcontent;
+                // $content['post_content'] = $text_content;
+
+                //$content['post_content'] = ($post->post_content) ? apply_filters('the_content', $post->post_content):''; 
             }
         }
         echo json_encode($content);
