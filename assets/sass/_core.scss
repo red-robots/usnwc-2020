@@ -1310,6 +1310,7 @@ h2.stitle,
 	-webkit-appearance: none;
 	box-shadow: none;
 	min-width: 85px;
+	&.popdata,
 	&.xs {
 		padding: 5px 15px;
 		font-size: 1em;

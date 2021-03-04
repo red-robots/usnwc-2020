@@ -2158,7 +2158,7 @@ body.single-activity #subpageSlides{width:100% !important;height:100% !important
 h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-serif;font-weight:400;font-size:25px;letter-spacing:2px;color:#000}
 .buttondiv{margin-top:20px}
 .btn-sm{cursor:pointer;display:inline-block;text-decoration:none !important;color:#5a5959;padding:7px 25px;border:1px solid #a2a2a2;overflow:hidden;position:relative;font-size:1.25em;font-weight:600;border-radius:0;-webkit-appearance:none;box-shadow:none;min-width:85px}
-.btn-sm.xs{padding:5px 15px;font-size:1em}
+.btn-sm.popdata,.btn-sm.xs{padding:5px 15px;font-size:1em}
 .btn-sm.wide{padding:7px 35px}
 .btn-sm.white{color:#FFF;border-color:#FFF}
 .btn-sm span{position:relative;z-index:5}
@@ -3832,11 +3832,9 @@ body.page-template-page-group-events .noButtonTop #pageTabs{top:5px}
 .facetwp-facet-race_event_status .fs-label{text-transform:capitalize;position:relative}
 .facetwp-facet-race_event_status.is-active .fs-label{color:transparent;position:relative;left:27px}
 .facetwp-facet-race_event_status.is-active .fs-label span.facetwp-counter{color:#707070}
-.facetwp-facet-race_event_status.is-active .fs-label-wrap:before{content:"Upcoming";display:inline-block;position:absolute;top:9px;left:8px;color:#707070;background-color:#FFF;padding:3px;z-index:3}
 .facetwp-facet-race_event_status [data-value="active"]{position:relative}
 .facetwp-facet-race_event_status [data-value="active"] .facetwp-counter{color:#707070;position:relative;left:27px}
 .facetwp-facet-race_event_status [data-value="active"] .fs-option-label{color:transparent}
-.facetwp-facet-race_event_status [data-value="active"] .fs-option-label:before{content:"Upcoming";display:inline-block;position:absolute;top:7px;left:31px;color:#707070}
 #data-container .posts-inner{margin-bottom:5px}
 body.page-template-page-race #loaderDiv .loaderInline{position:relative;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
 .site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
