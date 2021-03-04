@@ -1300,17 +1300,18 @@ h2.stitle,
 	display: inline-block;
 	text-decoration: none!important;
 	color: #5a5959;
-	padding: 5px 15px;
+	padding: 7px 25px;
 	border: 1px solid #a2a2a2;
 	overflow: hidden;
 	position: relative;
-	font-size: 12px;
+	font-size: 1.25em;
+	font-weight: 600;
 	border-radius: 0px;
 	-webkit-appearance: none;
 	box-shadow: none;
 	min-width: 85px;
 	&.wide {
-		padding: 8px 35px;
+		padding: 7px 35px;
 	}
 	&.white {
 		color: #FFF;
@@ -1325,7 +1326,7 @@ h2.stitle,
 		display: block;
 		width: 150%;
 		height: 100%;
-		background: #000;
+		background: $red;
 		transform: translateX(-100%) skew(-45deg);
 		position: absolute;
 		top: 0;
@@ -1334,7 +1335,7 @@ h2.stitle,
 	}
 	&:hover {
 		color: #FFF;
-		border-color: #000;
+		border-color: $red;
 		text-decoration: none!important;
 		&:before {
 			transform: translateX(0) skew(-45deg);
@@ -1343,6 +1344,10 @@ h2.stitle,
 	&.white {
 		&:hover {
 			color: #FFF;
+			border-color: $red;
+			&:before {
+				border-color: $red;
+			}
 		}
 	}
 }
@@ -1664,10 +1669,10 @@ h2.stitle,
 	}
 	.btn-sm {
 		&:before {
-			background: #FFF;
+			background: $red;
 		}
 		&:hover {
-			color: #000;
+			color: #FFF;
 		}
 	}
 	.title-text {
@@ -3839,6 +3844,11 @@ h1.page-title {
 			}
 		}
 	}
+	div.button .btn-sm {
+		font-size: 1em;
+		font-weight: 400;
+		padding: 5px 20px;
+	}
 }
 
 .event-completed {
@@ -4639,6 +4649,7 @@ body.single-instructions {
 	.course-images {
 		width: 100%;
 		float: left;
+		margin-bottom: 40px;
 		.inner {
 			@include flexgroup();
 			@include flexbox-justify(center);
@@ -4684,6 +4695,7 @@ body.single-instructions {
 	.awards-columns {
 		width: 50%;
 		padding: 0 5px 5px;
+		margin-top: 10px;
 		@include tab {
 			width: 50%;
 		}
@@ -4824,7 +4836,7 @@ body.single-instructions {
 
 #section-sponsors {
 	padding-top: 60px;
-	padding-bottom: 50px;
+	padding-bottom: 40px;
 	.titlediv {
 		margin-bottom: 15px;
 	}
@@ -7304,8 +7316,8 @@ body.pageNoBanner {
 		padding-top: 50px;
 		padding-bottom: 50px;
 		@include tab {
-			padding-top: 80px;
-			padding-bottom: 80px;
+			padding-top: 60px;
+			padding-bottom: 70px;
 		}
 	}
 }
@@ -7911,8 +7923,8 @@ body.single-camp {
 		padding-top: 60px;
 		padding-bottom: 60px;
 		@include tab {
-			padding-top: 80px;
-			padding-bottom: 80px;
+			padding-top: 70px;
+			padding-bottom: 70px;
 		}
 	}
 }
@@ -7920,8 +7932,8 @@ body.single-camp {
 	padding-top: 60px;
 	padding-bottom: 60px;
 	@include tab {
-		padding-top: 80px;
-		padding-bottom: 80px;
+		padding-top: 60px;
+		padding-bottom: 70px;
 	}
 }
 .inquiry-wrapper {
@@ -10317,6 +10329,60 @@ body.page-template-page-group-events {
 		padding-top: 45px;
 		padding-bottom: 30px;
 	}
+}
+
+.facetwp-facet-event_status {
+	.fs-label {
+		text-transform: capitalize;
+		position: relative;
+	}
+	&.is-active {
+		.fs-label {
+			color: transparent;
+			position: relative;
+    	left: 27px;
+			span.facetwp-counter {
+				color: #707070;
+			}
+		}
+		.fs-label-wrap {
+			&:before {
+				content: "Upcoming";
+				display: inline-block;
+				position: absolute;
+				top: 9px;
+				left: 8px;
+				color: #707070;
+				background-color: #FFF;
+				padding: 3px;
+				z-index: 3;
+			}
+		}
+	}
+}
+.facetwp-facet-event_status [data-value="active"] {
+	position: relative;
+	.facetwp-counter {
+		color: #707070;
+		position: relative;
+		left: 27px;
+	}
+
+	.fs-option-label {
+		color: transparent;
+		&:before {
+			content:"Upcoming";
+			display: inline-block;
+			position: absolute;
+			top: 7px;
+			left: 31px;
+			color: #707070;
+		}
+	}
+}
+
+#data-container .posts-inner {
+	margin-bottom: 5px;
 }
 
 /* FOOTER */

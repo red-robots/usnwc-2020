@@ -143,83 +143,83 @@ while ( have_posts() ) : the_post(); ?>
 		<?php } ?>
 
 
-		<?php if ( $has_race_types ) { ?>
-		<div class="filter-section two-options">
-			<div class="wrapper">
+		<?php if ( $has_race_types ) {
+			$total_options = ($race_types) ? count($race_types) : 0; ?>
+			<div class="filter-section two-options">
+				<div class="wrapper">
 
-				<div class="filter-wrapper filterstyle customSelectWrap">
-					<div class="wrapper">
-						<div class="filter-inner">
-							<form action="" method="get" id="filterForm">
-								<div class="flexwrap">
+					<?php if($total_options>1) {  ?>
+					<div class="filter-wrapper filterstyle customSelectWrap">
+						<div class="wrapper">
+							<div class="filter-inner">
+								<form action="" method="get" id="filterForm">
+									<div class="flexwrap">
 
-									<div class="filter-field-group">
-										<div class="filter-label">
-											<div class="inside"><span>Filter By</span></div>
+										<div class="filter-field-group">
+											<div class="filter-label">
+												<div class="inside"><span>Filter By</span></div>
+											</div>
+
+											<div class="select-wrap">
+												<select id="race-type-option" class="filter-select customSelect">
+												<?php $i=1; foreach ($race_types as $r) { 
+													$actualName = $r['name']; 
+													$alias = $r['alias'];
+													$name = ($alias) ? $alias : $actualName;
+													$slug = sanitize_title($name);
+													$schedule = $r['schedule'];
+													?>
+													<option value="race-opt<?php echo $i?>"><?php echo $name ?></option>
+												<?php $i++; } ?>
+												</select>
+											</div>
 										</div>
-
-										<div class="select-wrap">
-											<select id="race-type-option" class="filter-select customSelect">
-											<?php $i=1; foreach ($race_types as $r) { 
-												$actualName = $r['name']; 
-												$alias = $r['alias'];
-												$name = ($alias) ? $alias : $actualName;
-												$slug = sanitize_title($name);
-												$schedule = $r['schedule'];
-												?>
-												<option value="race-opt<?php echo $i?>"><?php echo $name ?></option>
-											<?php $i++; } ?>
-											</select>
-										</div>
+										
 									</div>
-									
-								</div>
-							</form>
+								</form>
+							</div>
 						</div>
 					</div>
-				</div>
+					<?php } ?>
 
-				<div class="schedule-information">
-
-					<?php $i=1; foreach ($race_types as $r) { 
-						$actualName = $r['name']; 
-						$alias = $r['alias'];
-						$name = ($alias) ? $alias : $actualName;
-						$slug = sanitize_title($name);
-						$sched = $r['schedule'];
-						$date = ( isset($sched['date']) && $sched['date'] ) ? $sched['date'] : '';
-						$day = ($date) ? date('l',strtotime($date)) : '';
-						$activities = ( isset($sched['schedule']) && $sched['schedule'] ) ? $sched['schedule'] : '';
-						$is_active = ($i==1) ? ' active':'';
-						?>
-						<div id="race-opt<?php echo $i?>" class="schedule-info schedule <?php echo $is_active ?>">
-							<?php if ($day) { ?>
-							<div class="day"><span><?php echo $day ?></span></div>	
-							<?php } ?>
-
-							<?php if ($activities) { ?>
-							<ul class="activities">
-								<?php foreach ($activities as $a) { 
-									$time = $a['time'];
-									$event = $a['action'];
-									if($time || $action) { ?>
-									<li class="info">
-										<div class="wrap">
-											<span class="time"><span><?php echo $time ?></span></span>
-											<span class="event"><span><?php echo $event ?></span></span>
-										</div>
-									</li>	
-									<?php } ?>
+					<div class="schedule-information">
+						<?php $i=1; foreach ($race_types as $r) { 
+							$actualName = $r['name']; 
+							$alias = $r['alias'];
+							$name = ($alias) ? $alias : $actualName;
+							$slug = sanitize_title($name);
+							$sched = $r['schedule'];
+							$date = ( isset($sched['date']) && $sched['date'] ) ? $sched['date'] : '';
+							$day = ($date) ? date('l',strtotime($date)) : '';
+							$activities = ( isset($sched['schedule']) && $sched['schedule'] ) ? $sched['schedule'] : '';
+							$is_active = ($i==1) ? ' active':'';
+							?>
+							<div id="race-opt<?php echo $i?>" class="schedule-info schedule <?php echo $is_active ?>">
+								<?php if ($day) { ?>
+								<div class="day"><span><?php echo $day ?></span></div>	
 								<?php } ?>
-							</ul>	
-							<?php } ?>
-						</div>
-					<?php $i++; } ?>
 
-					
+								<?php if ($activities) { ?>
+								<ul class="activities">
+									<?php foreach ($activities as $a) { 
+										$time = $a['time'];
+										$event = $a['action'];
+										if($time || $action) { ?>
+										<li class="info">
+											<div class="wrap">
+												<span class="time"><span><?php echo $time ?></span></span>
+												<span class="event"><span><?php echo $event ?></span></span>
+											</div>
+										</li>	
+										<?php } ?>
+									<?php } ?>
+								</ul>	
+								<?php } ?>
+							</div>
+						<?php $i++; } ?>
+					</div>
 				</div>
 			</div>
-		</div>
 		<?php } ?>
 
 	</section>

@@ -602,5 +602,32 @@ jQuery(document).ready(function ($) {
 		});
 	});
 
+	/* Load More Entries:
+		 - Race Series 
+	*/
+
+	$(document).on("click","#loadMoreEntries",function(e){
+		e.preventDefault();
+		var current = $(this).attr('data-current');
+		var next = parseInt(current) + 1;
+		var totalPages = $(this).attr('data-total-pages');
+		$(this).attr('data-current',next);
+		if( $("#pagination a.page-numbers").length>0 ) {
+			var baseURL = $("#pagination a.page-numbers").eq(0).attr("href");
+			var parts = baseURL.split("pg=");
+			var newURL = parts[0] + 'pg=' + next;
+			var nxt = next+1;
+			$(".next-posts").load(newURL+" .result",function(){
+				$('.next-posts .result .postbox').addClass("animated fadeIn").appendTo("#data-container .result");
+			});
+
+			if(next==totalPages) {
+				$(".loadmorediv").hide();
+			}
+		}
+		
+	});
+
+
 
 });// END #####################################    END
