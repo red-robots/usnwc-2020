@@ -43,16 +43,7 @@ $(document).on('facetwp-refresh', function() {
  		$(".facetwp-facet-event_status").removeAttr('data-selected');
  	}
 
-
 });
-	// $(document).on("click",".facetwp-facet-event_status .fs-option",function(){
-	// 	var selected = $(".fs-label").text();
-	// 	if( selected.includes('active') ) {
-	// 		console.log(selected);
-	// 	}
-		
-	// });
-
 })(jQuery);
 </script>
 <?php
