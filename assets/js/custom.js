@@ -608,6 +608,7 @@ jQuery(document).ready(function ($) {
 
 	$(document).on("click","#loadMoreEntries",function(e){
 		e.preventDefault();
+		var d = new Date();
 		var current = $(this).attr('data-current');
 		var next = parseInt(current) + 1;
 		var totalPages = $(this).attr('data-total-pages');
@@ -617,8 +618,13 @@ jQuery(document).ready(function ($) {
 			var parts = baseURL.split("pg=");
 			var newURL = parts[0] + 'pg=' + next;
 			var nxt = next+1;
+			$("#loaderDiv").show();
 			$(".next-posts").load(newURL+" .result",function(){
-				$('.next-posts .result .postbox').addClass("animated fadeIn").appendTo("#data-container .result");
+				var content = $(".next-posts").html();
+				$('.next-posts .postbox').addClass("animated fadeIn").appendTo("#data-container .result");
+				setTimeout(function(){
+					$("#loaderDiv").hide();
+				},500);
 			});
 
 			if(next==totalPages) {
