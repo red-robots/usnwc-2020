@@ -5,7 +5,7 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 $canceledImage = THEMEURI . "images/canceled.svg";
 
 $postype = 'race';
-$perpage = 4;
+$perpage = 16;
 $has_filter = array();
 $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 $metaQueries = array(); 
