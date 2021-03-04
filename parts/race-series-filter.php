@@ -107,7 +107,7 @@ $entries = new WP_Query($args); ?>
 					<?php  $i++; endwhile; wp_reset_postdata(); ?>
 
 					<?php 
-						ksort($groupItems);
+						krsort($groupItems);
 						foreach($groupItems as $k=>$items) {
 							foreach($items as $item) {
 								$finalList[] = $item;

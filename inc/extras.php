@@ -970,7 +970,7 @@ function custom_query_posts($posttype,$perpage,$offset,$order='ASC') {
       $id = $row->ID;
       $status = get_field("eventstatus",$id);
       $row->eventstatus = $status;
-      if($status=='upcoming') {
+      if($status=='active') {
         $active_entries[] = $row;
       } else {
         $non_active[] = $row;
