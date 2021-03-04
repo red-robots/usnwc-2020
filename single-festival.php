@@ -519,13 +519,21 @@ jQuery(document).ready(function($){
 						var img = obj.featured_image;
 						content += '<div class="modalImage"><img src="'+img.url+'" alt="'+img.title+'p" class="feat-image"></div>';
 					}
-					content += '<div class="modalText"><div class="text">'+obj.post_content+'</div></div>';
+					content += '<div class="modalText"></div>';
+
+					if(content) {
+						$("#modalBodyText").html(content);
+						$("#activityModal").modal("show");
+					}
+
+					$.get(obj.postlink,function(data){
+						var textcontent = '<div class="text">'+data+'</div></div>';
+						$("#modalBodyText .modalText").html(textcontent);
+					});
+					
 				}
 
-				if(content) {
-					$("#modalBodyText").html(content);
-					$("#activityModal").modal("show");
-				}
+				
 
 				$("#loaderDiv").hide();
 				
