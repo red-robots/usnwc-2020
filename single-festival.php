@@ -528,10 +528,9 @@ jQuery(document).ready(function($){
 					$.get(obj.postlink,function(data){
 						var textcontent = '<div class="text">'+data+'</div></div>';
 						$("#modalBodyText .modalText").html(textcontent);
+						$("#activityModal").modal("show");
 						$("#loaderDiv").hide();
 					});
-
-					$("#activityModal").modal("show");
 					
 				}
 				
