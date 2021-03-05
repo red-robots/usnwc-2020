@@ -10405,6 +10405,11 @@ body.page-template-page-race {
 		transform: translateY(-50%);
 	}
 }
+.festival-page .filter-wrapper .select-wrap .fs-option-label,
+.festival-page .filter-wrapper .fs-label {
+	text-transform: capitalize;
+}
+
 
 /* FOOTER */
 .site-footer {

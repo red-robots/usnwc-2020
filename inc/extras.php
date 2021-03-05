@@ -303,6 +303,27 @@ function my_custom_admin_js() { ?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
 
+    $('[data-name="call-to-actions"] tr.acf-row').each(function(){
+        $(this).find("td.acf-field-link").append('<a href="#" title="Click to copy" class="txtshortcode">[call-to-action]</a>');
+    });
+
+    $(document).on("click","a.txtshortcode",function(e){
+        e.preventDefault();
+        var parent = $(this).parents("tr.acf-row");
+        var num = parent[0].rowIndex;
+        var code = '[call-to-action id="'+num+'"]';
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val(code).select();
+        document.execCommand("copy");
+        $temp.remove();
+        var msg = '<i class="copied">Copied to clipboard!</i>';
+        $(msg).insertAfter( parent.find('.txtshortcode') );
+        setTimeout(function(){
+            parent.find('.copied').hide();
+        },500);
+    });
+
     /* Move `Child Menu Pagelink Target` */
     $('[data-name="child_menu_pagelink_target"]').each(function(){
         var parent = $(this).parents('[data-layout="child_menu_data"]');

@@ -1,3 +1,4 @@
+[data-name="ctashortcode"] .acf-input-wrap input[type="text"],
 #adminmenu li#toplevel_page_acf-options,
 div.acf-field[data-name="is_event_completed"] h2.hndle,
 div.acf-field[data-name="is_event_completed"] div.acf-label,
@@ -279,3 +280,38 @@ div.acf-field[data-name="custom_icon"] .iconOptBtn {
   position: relative;
   top: -8px;
 }
+[data-name="call-to-actions"] {
+  counter-reset: rowcount;
+}
+[data-name="call-to-actions"] tr.acf-row td.acf-field-link {
+  position: relative;
+}
+[data-name="call-to-actions"] tr.acf-row td.acf-field-link:after {
+  counter-increment: rowcount;
+  content: "[call-to-action id="counter(rowcount) "]";
+  display: inline-block;
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: #f1f1f1;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+[data-name="call-to-actions"] .txtshortcode {
+  position: absolute;
+  top: 19px;
+  right: 18px;
+  z-index: 5;
+  width: 125px;
+  overflow: hidden;
+  text-indent: -999em;
+}
+[data-name="call-to-actions"] tr.acf-row td.acf-field-link .copied {
+  position: absolute;
+  top: 0px;
+  right: 17px;
+  font-size: 11px;
+  color: #2d9c45;
+}
+
+
