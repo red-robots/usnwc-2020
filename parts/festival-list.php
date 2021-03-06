@@ -46,7 +46,7 @@ $entries = new WP_Query($args); ?>
 				</div>
 
 			</div>
-		</div>
+	</div>
 
 	<div class="post-type-entries <?php echo $postype ?>">
 		<div id="data-container">
@@ -174,7 +174,6 @@ $entries = new WP_Query($args); ?>
 		    );
 		    echo paginate_links($pagination); ?>
 		</div>
-
 	<?php } ?>
 
 <?php } ?>

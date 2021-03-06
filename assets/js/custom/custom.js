@@ -618,6 +618,7 @@ jQuery(document).ready(function ($) {
 			var parts = baseURL.split("pg=");
 			var newURL = parts[0] + 'pg=' + next;
 			var nxt = next+1;
+			console.log(newURL);
 			$("#loaderDiv").show();
 			$(".next-posts").load(newURL+" .result",function(){
 				var content = $(".next-posts").html();
