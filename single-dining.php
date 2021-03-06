@@ -81,6 +81,7 @@ $blank_image = THEMEURI . "images/square.png";
 					$buttonLink = $buttonPage['url'];
 					$buttonTarget = ( isset($buttonPage['target']) && $buttonPage['target'] ) ? $buttonPage['target']:'_self';
 				}
+				$cta_buttons = get_field("event_cta_buttons");
 				if($details) { ?>
 				<section id="section-event-details" data-section="<?php echo $event_title ?>" class="section-content dining-event-details">
 					<div class="wrapper">
@@ -106,19 +107,34 @@ $blank_image = THEMEURI . "images/square.png";
 								</div>
 							<?php } ?>
 							
-							<?php if ( $status=="open" && ($registerButton && $registerLink) ) { ?>
+							<?php if ( $status=="open" && ($cta_buttons) ) { ?>
 								<div class="buttondiv">
-								<?php if ( $buttonName && $buttonLink ) { ?>
-										<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $buttonName ?></span></a>
+								<?php foreach ($cta_buttons as $btn) { 
+										$buttonType = $btn['button_type'];
+										if($buttonType) { 
+											$b_type = 'button_' . $buttonType;
+											$b_val = $btn[$b_type];
+											if( $b_val ) {
+												if($buttonType=='pdf') { 
+													$btn_name = $b_val['pdf_button_name'];
+													$btn_link = ( isset($b_val['pdf_button_link']['url']) && $b_val['pdf_button_link']['url'] ) ? $b_val['pdf_button_link']['url']:'';
+													if($btn_name && $btn_link) { ?>
+														<a href="<?php echo $btn_link ?>" target="_blank" class="btn-sm btn-pdf"><span><?php echo $btn_name ?></span></a>
+													<?php } ?>
+
+												<?php } else { 
+													$btn_name = ( isset($b_val['title']) && $b_val['title'] ) ? $b_val['title'] : '';
+													$btn_link = ( isset($b_val['url']) && $b_val['url'] ) ? $b_val['url'] : '';
+													$btn_target = ( isset($b_val['target']) && $b_val['target'] ) ? $b_val['target'] : '_self';
+													?>
+													<a href="<?php echo $btn_link ?>" target="<?php echo $btn_target ?>" class="btn-sm btn-pagelink"><span><?php echo $btn_name ?></span></a>
+												<?php } ?>
+
+											<?php } ?>
+
+										<?php } ?>
 								<?php } ?>
-									<a href="<?php echo $registerLink ?>" target="<?php echo $registerTarget ?>" class="btn-sm"><span><?php echo $registerButton ?></span></a>
 								</div>
-							<?php } else { ?>
-								<?php if ( $buttonName && $buttonLink ) { ?>
-									<div class="buttondiv">
-										<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $buttonName ?></span></a>
-									</div>
-								<?php } ?>
 							<?php } ?>
 
 						</div>
