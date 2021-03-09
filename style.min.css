@@ -3802,6 +3802,7 @@ body.single-festival .entryList div.excerpt{margin-top:10px}
 .select2-results__option{text-transform:uppercase;border-top:1px solid #eee}
 .select2-search--dropdown .select2-search__field:focus{outline:0}
 .film-series-page .event-date .time,.film-series-page .event-date .note{margin-top:2px;font-size:13px}
+.film-series-page .filter-wrapper{margin:40px 0 30px;padding-bottom:0}
 .job-info-page .text-centered-section{background:#191919;color:#FFF;margin-top:-5px;padding-top:50px;padding-bottom:20px}
 @media(min-width:768px){.job-info-page .text-centered-section{margin-top:85px}
 }.main-post-text.job-description{padding-top:50px;padding-bottom:50px}
