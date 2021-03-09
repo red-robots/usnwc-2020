@@ -22,7 +22,7 @@
 									</div>
 								<?php } ?>
 								<div class="buttondiv">
-									<a href="<?php echo $pagelink ?>" class="btn-sm"><span>Read More</span></a>
+									<a href="<?php echo $pagelink ?>" class="btn-sm xs"><span>Read More</span></a>
 								</div>
 							</div>
 						</div>

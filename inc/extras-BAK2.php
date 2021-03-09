@@ -303,23 +303,6 @@ function my_custom_admin_js() { ?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
 
-    /* Go to STORIES TEXT field */
-    <?php if( isset($_GET['fsec']) && $_GET['fsec']=='stories-text' ) { ?>
-        $('ul.acf-hl.acf-tab-group li').each(function(){
-            if( $(this).text()=='Single Post Options' ) {
-                $(this).find('a').trigger('click');
-                $('html, body').animate(
-                    {
-                      scrollTop: $('[data-name="stories_text"] .wp-editor-wrap').offset().top,
-                    },
-                    500,
-                    'linear'
-                );
-
-            } 
-        });
-    <?php } ?>
-
     $('[data-name="call-to-actions"] tr.acf-row').each(function(){
         $(this).find("td.acf-field-link").append('<a href="#" title="Click to copy" class="txtshortcode">[call-to-action]</a>');
     });
@@ -1196,6 +1179,32 @@ add_action('pre_get_posts', 'wpse_hide_special_pages');
 * This is the temporary fix for ACF Options issue when saving the form.
 * Issue: Redirects to 404 when saving
 */
+add_action('admin_footer', 'acfOptionFixJS');
+function acfOptionFixJS() { 
+  $post_id = (isset($_GET['post']) && $_GET['post']) ? $_GET['post'] : 0;
+  $page_option_id = get_site_page_option_id();
+  if( $page_option_id ) { 
+    $post_edit_link = get_admin_url() . "post.php?post=".$page_option_id."&action=edit";
+    $options_page_url = get_admin_url() . "admin.php?page=acf-options";
+    ?>
+    <script type="text/javascript">
+
+    jQuery(document).ready(function($){
+      if( $(".toplevel_page_acf-options-global-options").length>0 ) {
+        $(".toplevel_page_acf-options-global-options").attr("href","<?php echo $post_edit_link ?>");
+
+        <?php if( $page_option_id==$post_id ) { ?>
+        $("li#menu-pages").removeClass("wp-menu-open wp-has-current-submenu");
+        $("li#menu-pages a").removeClass("wp-has-current-submenu wp-menu-open");
+        $("li#toplevel_page_acf-options-global-options").addClass('current');
+        $("li#toplevel_page_acf-options-global-options a").addClass('current');
+        <?php } ?>
+      }
+    });   
+    </script>
+    <?php
+  }
+}
 
 function get_site_page_option_id() {
     global $wpdb;

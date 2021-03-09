@@ -2158,7 +2158,7 @@ body.single-activity #subpageSlides{width:100% !important;height:100% !important
 h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-serif;font-weight:400;font-size:25px;letter-spacing:2px;color:#000}
 .buttondiv{margin-top:20px}
 .btn-sm{cursor:pointer;display:inline-block;text-decoration:none !important;color:#5a5959;padding:7px 25px;border:1px solid #a2a2a2;overflow:hidden;position:relative;font-size:1.25em;font-weight:600;border-radius:0;-webkit-appearance:none;box-shadow:none;min-width:85px}
-.btn-sm.popdata,.btn-sm.xs{padding:5px 15px;font-size:1em}
+.btn-sm.popdata,.btn-sm.xs{padding:7px 15px 6px;font-size:15px;line-height:1.2}
 .btn-sm.wide{padding:7px 35px}
 .btn-sm.white{color:#FFF;border-color:#FFF}
 .btn-sm span{position:relative;z-index:5}
@@ -2520,6 +2520,7 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 @media(min-width:768px){#section-faqs.half .faq-image{width:40%}
 }#section-faqs .shead-icon .icon{margin-bottom:8px}
 #section-featured-posts .flexwrap{margin-left:-5px;margin-right:-5px;padding-bottom:5px}
+#section-featured-posts .subtext{font-size:14px;line-height:1.3;margin-top:12px}
 #section-featured-posts .block{width:100%;padding:5px;text-align:center}
 #section-featured-posts.half .block{width:100%}
 @media(min-width:768px){#section-featured-posts.half .block{width:50%}
@@ -2564,6 +2565,8 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 #pageTabs.pageTabs2 a:after{content:"";display:block;width:100%;height:1px;background:#c3c3c3;margin-top:2px;-webkit-transition:all ease .3s;transition:all ease .3s}
 #pageTabs.pageTabs2 a:hover{color:#ba0d30}
 #pageTabs.pageTabs2 a:hover:after{background:#ba0d30}
+body.single-race #pageTabs{top:0;margin-top:35px}
+body.single-race #primary #section-faqs{padding-top:0}
 @media(min-width:768px){body.scrolled .site-header{box-shadow:0 3px 8px rgba(0,0,0,0.1)}
 body.scrolled .site-header .navbar{background:rgba(255,255,255,0.95)}
 }.squiggly{width:100%;padding:0 50px;opacity:.75}

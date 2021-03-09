@@ -12,12 +12,23 @@ $relatedPosts = get_categories_by_page_id($current_post_id,$taxonomy,$related);
 if($relatedPosts) { 
 $count = count($relatedPosts);  
 $colClass = ($count>1) ? 'half':'full';
+
+$stories_text = get_field("stories_text","option");
+$stories_edit_link = admin_url() . 'admin.php?page=acf-options-global-options&fsec=stories-text';
 ?>
 <section id="section-featured-posts" class="section-content <?php echo $colClass ?>">
 	<div class="wrapper">
 		<div class="shead-icon text-center">
 			<div class="icon"><span class="ci-video"></span></div>
 			<h2 class="stitle">Stories</h2>
+			<?php if ($stories_text) { ?>
+			<div class="subtext">
+				<?php echo $stories_text ?>
+				<?php if( current_user_can( 'administrator' ) ){ ?>
+				<div class="edit-entry"><a href="<?php echo $stories_edit_link ?>" style="text-decoration:underline;">Edit Text</a></div>
+				<?php } ?>
+			</div>	
+			<?php } ?>
 		</div>
 	</div>
 	<div class="flexwrap">
@@ -57,7 +68,7 @@ $colClass = ($count>1) ? 'half':'full';
 							<?php } ?>
 
 							<div class="button">
-								<a href="<?php echo $r_pagelink ?>" class="btn-sm"><span>Read More</span></a>
+								<a href="<?php echo $r_pagelink ?>" class="btn-sm xs"><span>Read More</span></a>
 							</div>
 						</div>
 					</div>

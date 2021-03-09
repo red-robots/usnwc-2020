@@ -410,7 +410,7 @@ while ( have_posts() ) : the_post(); ?>
 
 <?php  
 /* Similar Events */ 
-get_template_part("parts/content-similar-events"); 
+get_template_part("parts/similar-posts"); 
 ?>
 
 

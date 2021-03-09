@@ -80,7 +80,7 @@
 						?>
 						<div class="morefaqs">
 							<!-- <a href="#" class="btn-sm btn-cta morefaqsBtn"><span>See More</span></a> -->
-							<a href="<?php echo get_permalink($faq_pageId); ?><?php echo $fpid?>" class="btn-sm btn-cta"><span>See More</span></a>
+							<a href="<?php echo get_permalink($faq_pageId); ?><?php echo $fpid?>" class="btn-sm xs"><span>See More</span></a>
 						</div>
 						<?php } ?>
 					</div>	
