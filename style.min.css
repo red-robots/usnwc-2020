@@ -2190,6 +2190,8 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 .featured-events-section .postbox .details{width:100%;height:100%;position:absolute;top:0;left:0;z-index:60;overflow:hidden;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-align:center}
 .featured-events-section .postbox .details .info{width:100%;padding:5px;position:relative;z-index:30;opacity:0;-webkit-transition:all ease .5s;transition:all ease .5s;-webkit-transition-delay:.3s;transition-delay:.3s;-webkit-transform:translateY(25%);-ms-transform:translateY(25%);transform:translateY(25%)}
 .featured-events-section .postbox .details .event-name{font-family:"Lato",sans-serif;font-size:18px;font-weight:300;line-height:1.2;letter-spacing:1px;text-transform:uppercase}
+.featured-events-section .postbox .imgwrap .bg{display:block;width:100%;float:left}
+.featured-events-section .postbox .imgwrap .bg img.actual{display:block;width:100%;height:auto;float:left}
 .featured-events-section .postbox .boxlink:hover .details .info{opacity:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
 .featured-events-section .postbox .boxlink:hover .wave-svg{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);background-position:top right}
 .featured-events-section.festival .postbox{width:100%}
@@ -3243,20 +3245,24 @@ body.pageNoBanner .site-content{min-height:35em}
 #primary .schedules-list ul.items li:first-child .dates{margin-top:0}
 #primary #section-faqs{padding-top:50px;padding-bottom:50px}
 @media(min-width:768px){#primary #section-faqs{padding-top:60px;padding-bottom:70px}
-}.group-events-activities.section-content,.grid-images,.camp-activities.section-content{background:#FFF;padding-top:50px;padding-bottom:0}
-@media(min-width:768px){.group-events-activities.section-content,.grid-images,.camp-activities.section-content{padding-top:80px}
-}.group-events-activities.section-content .entries-flexwrap,.grid-images .entries-flexwrap,.camp-activities.section-content .entries-flexwrap{margin-left:-8px;margin-right:-8px;position:relative;bottom:-8px}
-.group-events-activities.section-content .fbox,.grid-images .fbox,.camp-activities.section-content .fbox{width:100%}
-@media(min-width:768px){.group-events-activities.section-content .fbox,.grid-images .fbox,.camp-activities.section-content .fbox{width:33.33%;padding:8px}
-}.group-events-activities.section-content .fbox.fullwidthbox,.grid-images .fbox.fullwidthbox,.camp-activities.section-content .fbox.fullwidthbox{width:100% !important}
-.group-events-activities.section-content .fbox .inside,.grid-images .fbox .inside,.camp-activities.section-content .fbox .inside{text-align:center;background:#f2f2f2;height:100%}
-.group-events-activities.section-content .fbox .imagediv,.grid-images .fbox .imagediv,.camp-activities.section-content .fbox .imagediv{display:block;width:100%;float:left;position:relative;background-color:#dedede;overflow:hidden}
-.group-events-activities.section-content .fbox .imagediv.noImage:before,.grid-images .fbox .imagediv.noImage:before,.camp-activities.section-content .fbox .imagediv.noImage:before{content:"Photo Not Available";font-family:"Lato",sans-serif;font-size:12px;font-weight:500;color:#9e9e9e;display:block;width:100%;text-align:center;text-transform:uppercase;position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
-.group-events-activities.section-content .fbox .imagediv .img,.grid-images .fbox .imagediv .img,.camp-activities.section-content .fbox .imagediv .img{display:block;background-size:cover;background-position:center;background-repeat:no-repeat;width:100%;height:100%;-webkit-transition:all ease .3s;transition:all ease .3s;position:absolute;top:0;left:0}
-.group-events-activities.section-content .fbox img.placeholder,.grid-images .fbox img.placeholder,.camp-activities.section-content .fbox img.placeholder{width:100%;height:auto;float:left}
-.group-events-activities.section-content .fbox .titlediv,.grid-images .fbox .titlediv,.camp-activities.section-content .fbox .titlediv{width:100%;float:left;padding:30px 20px}
-.group-events-activities.section-content .fbox .titlediv .name,.grid-images .fbox .titlediv .name,.camp-activities.section-content .fbox .titlediv .name{font-size:16px;font-weight:400;text-transform:uppercase;margin:0}
-.grid-images .entryList{margin-left:-8px;margin-right:-8px}
+}.group-events-activities.section-content,.grid-images,.section-grid-images.section-content,.camp-activities.section-content{background:#FFF;padding-top:50px;padding-bottom:0}
+@media(min-width:768px){.group-events-activities.section-content,.grid-images,.section-grid-images.section-content,.camp-activities.section-content{padding-top:80px}
+}.group-events-activities.section-content .entries-flexwrap,.grid-images .entries-flexwrap,.section-grid-images.section-content .entries-flexwrap,.camp-activities.section-content .entries-flexwrap{margin-left:-8px;margin-right:-8px;position:relative;bottom:-8px}
+.group-events-activities.section-content .fbox,.grid-images .fbox,.section-grid-images.section-content .fbox,.camp-activities.section-content .fbox{width:100%}
+@media(min-width:768px){.group-events-activities.section-content .fbox,.grid-images .fbox,.section-grid-images.section-content .fbox,.camp-activities.section-content .fbox{width:33.33%;padding:8px}
+}.group-events-activities.section-content .fbox.fullwidthbox,.grid-images .fbox.fullwidthbox,.section-grid-images.section-content .fbox.fullwidthbox,.camp-activities.section-content .fbox.fullwidthbox{width:100% !important}
+.group-events-activities.section-content .fbox .inside,.grid-images .fbox .inside,.section-grid-images.section-content .fbox .inside,.camp-activities.section-content .fbox .inside{text-align:center;background:#f2f2f2;height:100%}
+.group-events-activities.section-content .fbox .imagediv,.grid-images .fbox .imagediv,.section-grid-images.section-content .fbox .imagediv,.camp-activities.section-content .fbox .imagediv{display:block;width:100%;float:left;position:relative;background-color:#dedede;overflow:hidden}
+.group-events-activities.section-content .fbox .imagediv.noImage:before,.grid-images .fbox .imagediv.noImage:before,.section-grid-images.section-content .fbox .imagediv.noImage:before,.camp-activities.section-content .fbox .imagediv.noImage:before{content:"Photo Not Available";font-family:"Lato",sans-serif;font-size:12px;font-weight:500;color:#9e9e9e;display:block;width:100%;text-align:center;text-transform:uppercase;position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+.group-events-activities.section-content .fbox .imagediv .img,.grid-images .fbox .imagediv .img,.section-grid-images.section-content .fbox .imagediv .img,.camp-activities.section-content .fbox .imagediv .img{display:block;background-size:cover;background-position:center;background-repeat:no-repeat;width:100%;height:100%;-webkit-transition:all ease .3s;transition:all ease .3s;position:absolute;top:0;left:0}
+.group-events-activities.section-content .fbox img.placeholder,.grid-images .fbox img.placeholder,.section-grid-images.section-content .fbox img.placeholder,.camp-activities.section-content .fbox img.placeholder{width:100%;height:auto;float:left}
+.group-events-activities.section-content .fbox .titlediv,.grid-images .fbox .titlediv,.section-grid-images.section-content .fbox .titlediv,.camp-activities.section-content .fbox .titlediv{width:100%;float:left;padding:30px 20px}
+.group-events-activities.section-content .fbox .titlediv .name,.grid-images .fbox .titlediv .name,.section-grid-images.section-content .fbox .titlediv .name,.camp-activities.section-content .fbox .titlediv .name{font-size:16px;font-weight:400;text-transform:uppercase;margin:0}
+.group-events-activities.section-content.columns4,.grid-images.columns4,.section-grid-images.section-content.columns4,.camp-activities.section-content.columns4{padding-top:40px;padding-bottom:5px}
+.group-events-activities.section-content.columns4 .fbox,.grid-images.columns4 .fbox,.section-grid-images.section-content.columns4 .fbox,.camp-activities.section-content.columns4 .fbox{width:100%}
+@media(min-width:768px){.group-events-activities.section-content.columns4 .fbox,.grid-images.columns4 .fbox,.section-grid-images.section-content.columns4 .fbox,.camp-activities.section-content.columns4 .fbox{width:50%}
+}@media(min-width:960px){.group-events-activities.section-content.columns4 .fbox,.grid-images.columns4 .fbox,.section-grid-images.section-content.columns4 .fbox,.camp-activities.section-content.columns4 .fbox{width:25%}
+}.grid-images .entryList{margin-left:-8px;margin-right:-8px}
 #section-registration .registerdiv{background:#ba0d30;color:#FFF;padding-top:50px;padding-bottom:50px}
 @media(min-width:768px){#section-registration .registerdiv{padding-top:70px;padding-bottom:70px}
 }#section-registration .registerdiv .shead-icon{margin:0}

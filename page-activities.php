@@ -48,7 +48,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 							<div class="titlediv">
 								<p class="name"><?php echo $title ?></p>
 								<div class="buttondiv">
-									<a href="<?php echo $pagelink; ?>" class="btn-sm"><span>See Details</span></a>
+									<a href="<?php echo $pagelink; ?>" class="btn-sm xs"><span>See Details</span></a>
 								</div>
 							</div>
 						</div>

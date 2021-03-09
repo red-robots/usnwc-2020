@@ -1508,6 +1508,20 @@ h2.stitle,
 			// }
 		}
 
+		.imgwrap {
+			.bg {
+				display: block;
+				width: 100%;
+				float: left;
+				img.actual {
+					display: block;
+					width: 100%;
+					height: auto;
+					float: left;
+				}
+			}
+		}
+
 		// div.wave {
 		// 	position: absolute;
 		// 	top: 0;
@@ -7336,6 +7350,7 @@ body.pageNoBanner {
 }
 .group-events-activities.section-content,
 .grid-images,
+.section-grid-images.section-content,
 .camp-activities.section-content {
 	background: #FFF;
 	padding-top: 50px;
@@ -7419,6 +7434,19 @@ body.pageNoBanner {
 				font-weight: 400;
 				text-transform: uppercase;
 				margin: 0 0;
+			}
+		}
+	}
+	&.columns4 {
+		padding-top: 40px;
+		padding-bottom: 5px;
+		.fbox {
+			width: 100%;
+			@include tab {
+				width: 50%;
+			}
+			@include mid {
+				width: 25%;
 			}
 		}
 	}
