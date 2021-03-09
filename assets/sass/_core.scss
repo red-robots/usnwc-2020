@@ -1667,6 +1667,14 @@ h2.stitle,
 			// .feat-img.placeholder {
 			// 	display: none!important;
 			// }
+			&.view-full {
+				img.feat-img {
+					visibility: visible;
+				}
+				img.placeholder {
+					display: none;
+				}
+			}
 		}
 		
 	}

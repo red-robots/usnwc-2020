@@ -57,7 +57,7 @@ $dateNow = date('Y-m-d');
 			$end = get_field("end_date",$pid);
 			$event_date = get_event_date_range($start,$end);
 			?>
-			<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?>">
+			<div class="postbox view-full <?php echo ($thumbImage) ? 'has-image':'no-image' ?>">
 				<a href="<?php echo $pagelink ?>" class="inside boxlink wave-effect">
 					<?php if ($thumbImage) { ?>
 						<div class="imagediv" style="background-image:url('<?php echo $thumbImage['url'] ?>')">

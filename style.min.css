@@ -2215,6 +2215,8 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 .featured-events-section .postbox .details{overflow:visible;background-color:#f2f2f2;color:#191919}
 .featured-events-section .postbox .details .info{opacity:1;padding:15px;-webkit-transform:none !important;-ms-transform:none !important;transform:none !important}
 .featured-events-section .postbox .details .info .event-name{font-weight:500;margin-bottom:3px}
+.featured-events-section .postbox.view-full img.feat-img{visibility:visible}
+.featured-events-section .postbox.view-full img.placeholder{display:none}
 }@media screen and (max-width:480px){.featured-events-section .postbox{width:100%}
 }.homerow.row4{background:#000;color:#FFF}
 .homerow.row4 h2.stitle{color:#FFF}
