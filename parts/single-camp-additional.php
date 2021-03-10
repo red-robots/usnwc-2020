@@ -50,7 +50,7 @@
 								<?php } ?>
 								<?php if ($rbuttonName && $rbuttonLink) { ?>
 									<div class="buttondiv">
-										<a href="<?php echo $rbuttonLink ?>" target="<?php echo $rbuttonTarget ?>" class="btn-sm"><span><?php echo $rbuttonName ?></span></a>
+										<a href="<?php echo $rbuttonLink ?>" target="<?php echo $rbuttonTarget ?>" class="btn-sm xs"><span><?php echo $rbuttonName ?></span></a>
 									</div>	
 								<?php } ?>
 							</div>

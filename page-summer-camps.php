@@ -10,7 +10,7 @@ $canceledImage = THEMEURI . "images/canceled.svg";
 $currentPageLink = get_permalink();
 $ages = ( isset($_GET['age']) && $_GET['age'] ) ? explode(",",$_GET['age']) : '';
 $postype = 'camp';
-$perpage = 4;
+$perpage = 16;
 ?>
 
 <div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full summer-camp-page">
