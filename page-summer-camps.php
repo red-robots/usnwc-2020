@@ -102,21 +102,20 @@ jQuery(document).ready(function($){
 
 	$(document).on("click","#loadMoreEntries2",function(e){
 		e.preventDefault();
-		var selectedAge = ( typeof params.age!='undefined' && params.age!=null) ? params.age:'';
-		get_next_items(selectedAge);
+		get_next_items();
 	});
 
-	function get_next_items(selectedAge) {
+	function get_next_items() {
 		var loadMoreBtn = $('.loadMoreEntriesBtn');
 		var current = loadMoreBtn.attr('data-current');
 		var next = parseInt(current) + 1;
 		var totalPages = loadMoreBtn.attr('data-total-pages');
 		loadMoreBtn.attr('data-current',next);
 
-		if( selectedAge ) {
-			var opts = $('select#agelist').val();
-			opts = opts.join("%2C");
+		var opts = $('select#agelist').val();
 
+		if( opts ) {
+			opts = opts.join("%2C");
 			var newURL = currentURL + '?age=' + opts + '&pg=' + next;
 		} else {
 			var newURL = currentURL + '?pg=' + next;
