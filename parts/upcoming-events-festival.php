@@ -52,7 +52,7 @@ $dateNow = date('Y-m-d');
 			$pid = $row['ID'];
 			$title = get_the_title($pid);
 			$pagelink = get_permalink($pid);
-			$thumbImage = get_field("thumbnail_image",$pid);
+			$thumbImage = get_field("full_image",$pid);
 			$start = get_field("start_date",$pid);
 			$end = get_field("end_date",$pid);
 			$event_date = get_event_date_range($start,$end);
@@ -63,7 +63,7 @@ $dateNow = date('Y-m-d');
 						<div class="imagediv" style="background-image:url('<?php echo $thumbImage['url'] ?>')">
 							<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder">
 						</div>
-						<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img actual-image">
+						<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img actual-image" style="display:none;">
 					<?php } else { ?>
 						<div class="imagediv noImage">
 							<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder no-image">

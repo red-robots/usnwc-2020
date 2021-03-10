@@ -26,7 +26,7 @@
 					$title = $r['title'];
 					$text = $r['description'];
 					$rbutton = $r['button'];
-					$rbuttonName = ( isset($rbutton['title']) && $rbutton['title'] ) ? $rbutton['title']:''; 
+					$rbuttonName = ( isset($rbutton['title']) && $rbutton['title'] ) ? $rbutton['title']:'See Details'; 
 					$rbuttonLink = ( isset($rbutton['url']) && $rbutton['url'] ) ? $rbutton['url']:''; 
 					$rbuttonTarget = ( isset($rbutton['target']) && $rbutton['target'] ) ? $rbutton['target']:'_self'; 
 					$rhasButton = ($rbuttonName && $rbuttonLink) ? 'hasButton':'noButton';

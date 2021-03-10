@@ -1753,3 +1753,51 @@ function stories_text_shortcode( $atts ){
 }
 add_shortcode( 'stories_text', 'stories_text_shortcode' );
 
+
+function get_ages_from_camp($selectedAges=null) {
+    global $wpdb;
+    $ageList = array();
+    $records = array();
+    $query = "SELECT p.*, m.meta_value AS ages FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m WHERE p.ID=m.post_id AND m.meta_key='ages' AND m.meta_value<>'' AND p.post_status='publish'";
+    $result = $wpdb->get_results($query);
+    if($result) {
+        foreach($result as $row) {
+            $pid = $row->ID;
+            $ages = $row->ages;
+            if( $selectedAges ) {
+                if($ages) {
+                    $nums = preg_replace("/[^0-9]/",' ', $ages);
+                    if($nums) {
+                        $nums = preg_replace('/\s+/', ' ', $nums);
+                        $nums = trim($nums);
+                        $parts = explode(' ',$nums);
+                        
+                        if( count($parts)>1 ) {
+                            $a = $parts[0];
+                            $b = end($parts);
+                            $ranges = range($a,$b);
+                            foreach($selectedAges as $s) {
+                                if( in_array($s,$ranges) ) {
+                                    $records[$pid] = $row;
+                                }
+                            }
+                        } else {
+                            foreach($parts as $a) {
+                                if( in_array($a,$selectedAges) ) {
+                                    $records[$pid] = $row;
+                                }
+                            }
+                        } 
+                        
+                        
+
+                    }       
+                }
+            } 
+        }
+    }
+    return ($records) ? array_values($records) : '';
+}
+
+
+
