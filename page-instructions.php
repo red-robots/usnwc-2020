@@ -182,6 +182,12 @@ jQuery(document).ready(function($){
 
 	}
 
+	$(document).on("click",".select2",function (e) { 
+		var selectdiv = $(".customselectdiv").outerWidth();
+		$(".select2-container--default").css("width",selectdiv+"px");
+	});
+
+	activate_js_select();
 	function activate_js_select() {
 		if( $("select.js-select").length>0 ) {
 			$("select.js-select").each(function(){
@@ -191,8 +197,7 @@ jQuery(document).ready(function($){
 					placeholder : "Select...",
 					allowHtml: true,
 					allowClear: true,
-					tags: true,
-					width: 'resolve'
+					tags: true
 				});
 			});
 		}
