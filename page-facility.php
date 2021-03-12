@@ -22,58 +22,48 @@ get_header(); ?>
 			</div>
 			<?php } ?>
 
-			<?php
-			$mapImage1 = get_field("fm_map_image1");
-			$mapImage1width = get_field("fm_map_image1_width");
-			if($mapImage1width) {
-				$mapw1 = ' style="width:'.$mapImage1width.'%"';
-			}
+			<?php if( $facility_maps = get_field("facility_maps") ) { 
+				$block_title = get_field("block_title");
+				$custom_icon = get_field("custom_icon");
+				$count = count($facility_maps);
+				$mapClass = ($count>1) ? 'half':'full';
+			?>
 
-			$mapImage2 = get_field("fm_map_image2");
-			$mapImage2width = get_field("fm_map_image2_width");
-			if($mapImage2width) {
-				$mapw2 = ' style="width:'.$mapImage2width.'%"';
-			}
-			$mapClass = ($mapImage1 && $mapImage2) ? 'half':'full';
-			if($mapImage1 || $mapImage2) { ?>
+			<?php get_template_part("parts/subpage-tabs"); ?>
+
 			<section class="facility-map-section <?php echo $mapClass ?>">
 				<div class="wrapper">
 					<div class="shead-icon text-center">
-						<div class="icon"><span class="ci-map"></span></div>
-						<h2 class="stitle">MAP</h2>
+						<div class="icon"><span class="<?php echo $custom_icon ?>"></span></div>
+						<h2 class="stitle"><?php echo $block_title ?></h2>
 					</div>
 				</div>
 
 				<div class="columns-wrapper">
-					<?php if ($mapImage1) { ?>
-					<div class="mapcol c1"<?php echo $mapw1 ?>>
-						<div class="inside" style="background-image:url('<?php echo $mapImage1['url'] ?>')">
-							<a href="<?php echo $mapImage1['url'] ?>" data-fancybox>
-								<img src="<?php echo $mapImage1['url'] ?>" alt="<?php echo $mapImage1['title'] ?>" />
-								<span class="zoom-icon"><i class="fas fa-search"></i></span>
-							</a>
-						</div>
-					</div>
-					<?php } ?>
-
-					<?php if ($mapImage2) { ?>
-					<div class="mapcol c2"<?php echo $mapw2 ?>>
-						<div class="inside" style="background-image:url('<?php echo $mapImage2['url'] ?>')">
-							<a href="<?php echo $mapImage2['url'] ?>" data-fancybox>
-								<img src="<?php echo $mapImage2['url'] ?>" alt="<?php echo $mapImage2['title'] ?>" />
-								<span class="zoom-icon"><i class="fas fa-search"></i></span>
-							</a>
-						</div>
-					</div>
+					<?php $n=1; foreach ($facility_maps as $m) {
+						$title = $m['title']; 
+						$image = $m['image'];
+						$width = $m['blockwidth'];
+						$style = ($width) ? ' style="width:'.$width.'%"' : '';
+						if($image) { ?>
+							<div id="mapcol<?php echo $n ?>" class="mapcol c<?php echo $n ?>"<?php echo $style ?> data-section="<?php echo $title ?>">
+								<div class="inside" style="background-image:url('<?php echo $image['url'] ?>')">
+									<a href="<?php echo $image['url'] ?>" data-fancybox>
+										<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['title'] ?>" />
+										<span class="zoom-icon"><i class="fas fa-search"></i></span>
+									</a>
+								</div>
+							</div>
+						<?php $n++; } ?>
 					<?php } ?>
 				</div>
-
 			</section>
 			<?php } ?>
+			
 		<?php endwhile; ?>
 
 	</main><!-- #main -->
 </div><!-- #primary -->
-
+<?php include( locate_template('inc/pagetabs-script.php') ); ?>
 <?php
 get_footer();
