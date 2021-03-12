@@ -29,8 +29,12 @@ $square = THEMEURI . "images/square.png";
 			'post_status'	=> 'publish'
 		);
 		$trips = new WP_Query($args);
-		if ( $trips->have_posts() ) { ?>
-		<section id="classes" data-section="Classes" class="section-content post-type-entries">
+
+		if ( $trips->have_posts() ) { 
+			$count = $trips->found_posts;
+			$wrapClass = ($count==2) ? 'twocol':'default';
+		?>
+		<section id="classes" data-section="Classes" class="section-content section-classes post-type-entries <?php echo $wrapClass ?>">
 			<div id="data-container">
 				<div class="posts-inner">
 					<div class="flex-inner">

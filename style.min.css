@@ -3748,7 +3748,9 @@ body.logged-in.admin-bar .film-event-status{top:130px}
 .single-fieldtrips#primary .form-content .gform_wrapper{font-size:14px}
 .single-fieldtrips#primary #pass-activities{width:100%;float:left;padding-top:50px;padding-bottom:0}
 .single-fieldtrips#primary #pass-activities .shead-icon{margin-bottom:50px}
-body.subpage.single .content-default .important-notes-red,.important-notes-red{width:100%;float:left;background:#ba0d30;color:#FFF;margin-top:8px}
+.section-classes.twocol.post-type-entries .postbox{width:100%}
+@media(min-width:600px){.section-classes.twocol.post-type-entries .postbox{width:50%}
+}body.subpage.single .content-default .important-notes-red,.important-notes-red{width:100%;float:left;background:#ba0d30;color:#FFF;margin-top:8px}
 body.subpage.single .content-default .important-notes-red .wrapper,.important-notes-red .wrapper{font-size:14px;line-height:1.5;padding-top:30px;padding-bottom:30px}
 body.subpage.single .content-default .important-notes-red p:last-child,.important-notes-red p:last-child{margin-bottom:0}
 .section-full-button{text-align:center}

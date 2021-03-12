@@ -9916,6 +9916,13 @@ body.logged-in.admin-bar {
 	}
 }
 
+.section-classes.twocol.post-type-entries .postbox {
+	width: 100%;
+	@include xs {
+		width: 50%;
+	}
+}
+
 body.subpage.single .content-default .important-notes-red,
 .important-notes-red {
 	width: 100%;
