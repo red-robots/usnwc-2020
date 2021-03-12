@@ -10808,6 +10808,10 @@ body.page-template-page-instructions {
 	}
 }
 
+#resultContainer.flex-inner.align-middle {
+	@include flexbox-justify(center);
+}
+
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");

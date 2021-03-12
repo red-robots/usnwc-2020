@@ -29,6 +29,8 @@ $currentPageLink = get_permalink();
 <script type="text/javascript">
 jQuery(document).ready(function($){
 
+	var maxColumns = 3;
+
 	$("#resultContainer .postbox").each(function(k){
 		var n = k+1;
 		$(this).attr("id","postnum"+n);
@@ -85,11 +87,11 @@ jQuery(document).ready(function($){
 			activate_js_select();
 
 			if( $("#data-container").length>0 ) {
-
-			} else {
-				var noRecord = '<div class="wrapper"><h3 class="norecord">No record found.</h3></div>';
-				//$("#filter-data-container .inner-data-content").append(noRecord);
-			}
+				var count = $("#resultContainer .postbox").length;
+				if( count<maxColumns ) {
+					$("#resultContainer").addClass("align-middle");
+				}
+			} 
 		});
 
 

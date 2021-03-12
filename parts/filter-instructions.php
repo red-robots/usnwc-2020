@@ -53,6 +53,7 @@
 		$res = get_instructions_result($params,$paged,$perpage);
 		$records = ( isset($res['record']) && $res['record'] ) ? $res['record'] : '';
 		$total = ( isset($res['total']) && $res['total'] ) ? $res['total'] : '';
+		$flexClass = ($total<3) ? ' align-middle':'';
 		?>
 		<?php /* FILTER OPTIONS */ ?>
 		<div class="filter-wrapper label-small non-facetwp options4">
@@ -141,7 +142,7 @@
 			<div class="post-type-entries boxes-element threecols <?php echo $postype ?>">
 				<div id="data-container">
 					<div class="posts-inner result">
-						<div id="resultContainer" class="flex-inner">
+						<div id="resultContainer" class="flex-inner<?php echo $flexClass ?>">
 							<?php $ctr=1; foreach ($records as $row) {
 								$pid = $row->ID; 
 								$title = $row->post_title;
