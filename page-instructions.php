@@ -63,7 +63,19 @@ jQuery(document).ready(function($){
 
 		$("#loaderDiv").show();
 
-		$("#data-container").load(newURL + " .result",function(){
+		// $("#data-container").load(newURL + " .result",function(){
+		// 	$(".resetdiv").removeClass('hide');
+
+		// 	setTimeout(function(){
+		// 		$("#loaderDiv").hide();
+		// 	},500);
+
+		// 	activate_js_select();
+		// });
+
+
+		$("#filter-data-container").load(newURL + " .inner-data-content",function(){
+			
 			$(".resetdiv").removeClass('hide');
 
 			setTimeout(function(){
@@ -71,7 +83,15 @@ jQuery(document).ready(function($){
 			},500);
 
 			activate_js_select();
+
+			if( $("#data-container").length>0 ) {
+
+			} else {
+				var noRecord = '<div class="wrapper"><h3 class="norecord">No record found.</h3></div>';
+				//$("#filter-data-container .inner-data-content").append(noRecord);
+			}
 		});
+
 
 	});
 

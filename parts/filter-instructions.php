@@ -8,17 +8,17 @@
 		$disciplineList = get_instruction_discipline();
 		$terms_lesson_format = get_terms( array(
 		  'taxonomy' => 'instructions-lesson-format',
-		  'hide_empty' => true
+		  'hide_empty' => false
 		));
 
 		$terms_experience_level = get_terms( array(
 		  'taxonomy' => 'instructions-experience-level',
-		  'hide_empty' => true
+		  'hide_empty' => false
 		));
 
 		$terms_duration = get_terms( array(
 		  'taxonomy' => 'instructions-duration',
-		  'hide_empty' => true
+		  'hide_empty' => false
 		));
 		$currentPage = get_permalink();
 		$sel_discipline = ( isset($_GET['discipline']) && $_GET['discipline'] ) ? $_GET['discipline'] : '';
@@ -237,7 +237,7 @@
 
 		<?php } else { ?>
 			<div class="wrapper">
-				<h3 class="norecord">No record found. <a href="<?php echo get_permalink(); ?>">Reset</a></h3>
+				<h3 class="norecord">Nothing found.</h3>
 			</div>
 		<?php } ?>
 

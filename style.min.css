@@ -3915,7 +3915,7 @@ body.page-template-page-instructions .filter-wrapper.non-facetwp.options4 .selec
 body.page-template-page-instructions .select2-container--default{max-width:230px !important}
 body.page-template-page-instructions .select2-dropdown.select2-dropdown--below{top:44px}
 }@media screen and (max-width:320px){body.page-template-page-instructions .select2-container--default,body.page-template-page-instructions .filter-wrapper.non-facetwp.options4 .select-wrap .customselectdiv{max-width:180px !important;width:180px !important}
-}.norecord{width:100%;float:left;margin:0 0 50px;font-size:18px;color:#d40909;text-align:center}
+}.norecord{width:100%;float:left;margin:0 0 50px;font-size:18px;color:#d40909;text-align:center;position:relative;top:-10px}
 .norecord a{display:inline-block;margin-left:4px;text-decoration:underline}
 .resetdiv.hide{display:none}
 .resetdiv a{text-decoration:underline}
