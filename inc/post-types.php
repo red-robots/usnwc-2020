@@ -311,6 +311,33 @@ function build_taxonomies() {
     ),
     array(
       'post_type' => array('instructions'),
+      'menu_name' => 'Lesson Format',
+      'plural'    => 'Lesson Format',
+      'single'    => 'Lesson Format',
+      'taxonomy'  => 'instructions-lesson-format',
+      'query_var' => false,
+      'show_admin_column'=>false
+    ),
+    array(
+      'post_type' => array('instructions'),
+      'menu_name' => 'Experience Level',
+      'plural'    => 'Experience Level',
+      'single'    => 'Experience Level',
+      'taxonomy'  => 'instructions-experience-level',
+      'query_var' => false,
+      'show_admin_column'=>false
+    ),
+    array(
+      'post_type' => array('instructions'),
+      'menu_name' => 'Duration',
+      'plural'    => 'Duration',
+      'single'    => 'Duration',
+      'taxonomy'  => 'instructions-duration',
+      'query_var' => false,
+      'show_admin_column'=>false
+    ),
+    array(
+      'post_type' => array('instructions'),
       'menu_name' => 'Instructions Template',
       'plural'    => 'Instructions Templates',
       'single'    => 'Instructions Template',
@@ -329,7 +356,7 @@ function build_taxonomies() {
       $taxonomy = ( isset($p['taxonomy']) && $p['taxonomy'] ) ? $p['taxonomy'] : "";
       $rewrite = ( isset($p['rewrite']) && $p['rewrite'] ) ? $p['rewrite'] : $taxonomy;
       $query_var = ( isset($p['query_var']) && $p['query_var'] ) ? $p['query_var'] : true;
-      $show_admin_column = ( isset($p['show_admin_column']) && $p['show_admin_column'] ) ? $p['show_admin_column'] : true;
+      $show_admin_column = ( isset($p['show_admin_column']) ) ? $p['show_admin_column'] : true;
 
       $labels = array(
         'name' => _x( $menu_name, 'taxonomy general name' ),

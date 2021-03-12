@@ -131,11 +131,11 @@ $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 <?php } ?>
 
 <?php 
-	$total = ($result) ? count($result) : 0;
-	$total_pages = ceil($total / $perpage);
-	if ($total > $perpage) { ?> 
-		<div class="loadmorediv text-center">
-			<div class="wrapper"><a href="#" id="loadMoreEntries2" data-current="1" data-count="<?php echo $total?>" data-total-pages="<?php echo $total_pages?>" class="btn-sm wide loadMoreEntriesBtn"><span>Load More</span></a></div>
-		</div>
-	<?php } ?>
+$total = ($result) ? count($result) : 0;
+$total_pages = ceil($total / $perpage);
+if ($total > $perpage) { ?> 
+	<div class="loadmorediv text-center">
+		<div class="wrapper"><a href="#" id="loadMoreEntries2" data-current="1" data-count="<?php echo $total?>" data-total-pages="<?php echo $total_pages?>" class="btn-sm wide loadMoreEntriesBtn"><span>Load More</span></a></div>
+	</div>
+<?php } ?>
 

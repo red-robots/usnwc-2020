@@ -72,9 +72,6 @@ jQuery(document).ready(function($){
 		var newURL = '<?php echo $currentPageLink?>' + '?age=' + opt.join("%2C");
 		$("#loaderDiv").show();
 		$("#primary").load(newURL+" #pageContent",function(){
-			// var content = $(".next-posts").html();
-			// $('#data-container').html(content);
-			// $('.next-posts').html("");
 
 			setTimeout(function(){
 				$("#loaderDiv").hide();
@@ -135,8 +132,6 @@ jQuery(document).ready(function($){
 			$(".loadmorediv").hide();
 		}
 	}
-
-
 });
 </script>
 <?php

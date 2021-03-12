@@ -1800,4 +1800,106 @@ function get_ages_from_camp($selectedAges=null) {
 }
 
 
+function get_instruction_discipline() {
+    global $wpdb;
+    $query = "SELECT m.meta_value AS discipline FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m WHERE p.ID=m.post_id AND m.meta_key='discipline' AND m.meta_value<>'' AND p.post_type='instructions' AND p.post_status='publish' GROUP BY m.meta_value ORDER BY m.meta_value ASC";
+    $result = $wpdb->get_results($query);
+    $list = array();
+    if($result) {
+        foreach($result as $row) {
+            $list[] = $row->discipline;
+        }
+    }
+    return $list;
+}
+function get_instructions_result($params,$paged=1,$perpage=16) {
+    global $wpdb;
+    $result = array();
+    $output['total'] = '';
+    $output['record'] = '';
+    $start = 0;
+    $end = $perpage-1;
+    if($paged>1) {
+        $end = (($paged+1) * $perpage) - $perpage;
+        $start = $end - $perpage;
+        $end = $end - 1;
+    }
 
+    // print_r('START: '.$start.'<BR>');
+    // print_r('END: '.$end.'<BR>');
+
+    if($params) {
+        $merge_result = array();
+        $res = array();
+        if( isset($params['meta_key']['discipline']) && $params['meta_key']['discipline'] ) {
+            $discipline = $params['meta_key']['discipline'];
+            $query1 = "SELECT p.* FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m WHERE p.ID=m.post_id AND m.meta_key='discipline' AND m.meta_value='".$discipline."' AND p.post_type='instructions' AND p.post_status='publish'";
+            if( $wpdb->get_results($query1) ) {
+                $res['discipline'] = $wpdb->get_results($query1);
+            }
+        }
+
+        if( isset($params['taxonomy']) ) {
+            $tax_result = array();
+            foreach( $params['taxonomy'] as $taxonomy=>$val) {
+                if($val) {
+                    $tax_query = "SELECT p.*, term.term_id, term.slug, tax.taxonomy FROM ".$wpdb->prefix."posts p,".$wpdb->prefix."term_taxonomy tax,".$wpdb->prefix."terms term,".$wpdb->prefix."term_relationships rel 
+                                  WHERE tax.taxonomy='".$taxonomy."' AND tax.term_id=term.term_id AND tax.term_id=rel.term_taxonomy_id AND term.slug='".$val."' AND p.ID=rel.object_id AND p.post_type='instructions' AND p.post_status='publish'";
+                    $tax_result = $wpdb->get_results($tax_query);
+                    if($tax_result) {
+                        foreach($tax_result as $row) {
+                            $res['taxonomy'][] = $row;
+                        }
+                    }
+                }
+            }
+        }
+
+        if($res) {
+            foreach($res as $k=>$items) {
+                foreach($items as $item) {
+                    $id = $item->ID;
+                    $merge_result[$id] = $item;
+                }
+            }
+        }
+
+        
+        $list = array_values($merge_result);
+        $total = count($list);
+        for($i=$start; $i<=$end; $i++) {
+            if( isset($list[$i]) && $list[$i] ) {
+                $data = $list[$i];
+                $result[] = $data;
+            }
+        }
+
+        $output['total'] = $total;
+        $output['record'] = $result;
+
+    } else {
+
+        $offset = ($perpage * $paged) - $perpage;
+        $limit = $perpage;
+        //if($paged>1) {
+            // $offset = (($paged+1) * $perpage) - $perpage;
+            // $offset = $offset - 1;
+            //offset = (limit * pageNumber) - limit;
+        //}
+
+        // print_r('START: '.$offset.'<BR>');
+        // print_r('LIMIT: '.$limit.'<BR>');
+
+        $query = "SELECT p.* FROM ".$wpdb->prefix."posts p WHERE p.post_type='instructions' AND p.post_status='publish' ORDER BY p.menu_order ASC LIMIT " . $offset . ', ' . $limit;
+        $result = $wpdb->get_results($query);
+
+        $query_total = "SELECT count(*) AS total FROM ".$wpdb->prefix."posts p WHERE p.post_type='instructions' AND p.post_status='publish'";
+        $result_total = $wpdb->get_row($query_total);
+        $total = ($result_total) ? $result_total->total : 0;
+
+        $output['total'] = $total;
+        $output['record'] = $result;
+    }
+
+    return $output;
+}

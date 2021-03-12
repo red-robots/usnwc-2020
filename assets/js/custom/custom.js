@@ -643,5 +643,19 @@ jQuery(document).ready(function ($) {
 		tags: true 
 	});
 
+	if( $("select.js-select").length>0 ) {
+		$("select.js-select").each(function(){
+			var selectID = $(this).attr("id");
+			$("select#"+selectID).select2({
+				closeOnSelect : false,
+				placeholder : "Select...",
+				allowHtml: true,
+				allowClear: true,
+				tags: true,
+				width: 'resolve'
+			});
+		});
+	}
+
 
 });// END #####################################    END
