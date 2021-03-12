@@ -49,8 +49,14 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 			$start_date = ($start_date) ? date('F j, Y',strtotime($start_date)):'';
 			$price = get_field("price");
 
+			$start = get_field("start_date");
+			$end = get_field("end_date");
+			//$event_date = get_event_date_range($start,$end); /* with leading zero */
+			$event_date = date_range_no_leading_zero($start,$end,true);
+
+
 			$optionsVal = array($start_date,$price);
-			$options[] = array('Date',$start_date);
+			$options[] = array('Date',$event_date);
 			$options[] = array('Price',$price);
 			?>
 

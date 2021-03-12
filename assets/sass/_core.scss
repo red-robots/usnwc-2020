@@ -10816,6 +10816,33 @@ body.page-template-page-instructions {
 	@include flexbox-justify(center);
 }
 
+body.page-template-page-food-beverage {
+	.map-images,
+	.map-images .flexslider {
+		width: 100%;
+		float: left;
+		background-color: #F2F2F2;
+	}
+	.map-images {
+		margin-top: 15px;
+	}
+	#fb-map-section {
+		.full-map-image {
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+		.title-w-icon {
+			margin: 0 0;
+			padding: 0 0;
+		}
+	}
+	.menu-sections {
+		margin-top: 0;
+	}
+}
+
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");

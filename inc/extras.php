@@ -278,6 +278,61 @@ function get_event_date_range($start,$end,$fullMonth=false) {
     return $event_date;
 }
 
+function date_range_no_leading_zero($start,$end,$fullMonth=false) {
+    $event_date = '';
+    $date_range = array($start,$end);
+    if($date_range && array_filter($date_range) ) {
+        $dates = array_filter( array_unique($date_range) );
+        $count = count($dates);
+        if($count>1) {
+            $s_day =  date('j',strtotime($start));
+            $e_day =  date('j',strtotime($end));
+            
+            /* If the same year */
+            if( date("Y",strtotime($start)) == date("Y",strtotime($end)) ) {
+                $year = date('Y',strtotime($start));
+
+                if( date("m",strtotime($start)) == date("m",strtotime($end)) ) {
+                    if($fullMonth) {
+                        $month = date('F',strtotime($start));
+                    } else {
+                        $month = date('M',strtotime($start));
+                    }
+                    $event_date = $month . ' ' . $s_day . '-' . $e_day . ', ' . $year;
+                }
+                if( date("m",strtotime($start)) != date("m",strtotime($end)) ) {
+                    $event_date_start = date('M',strtotime($start)) . ' ' . $s_day;
+                    $event_date_end = date('M',strtotime($end)) . ' ' . $e_day;
+                    $event_date = $event_date_start . ' - ' . $event_date_end . ', ' . $year;
+                }
+
+            } else {
+
+                $year_start = date('Y',strtotime($start));
+                $year_end = date('Y',strtotime($end));
+                $event_date_start = date('M',strtotime($start)) . ' ' . $s_day . ', ' . $year_start;
+                $event_date_end = date('M',strtotime($end)) . ' ' . $e_day . ', ' . $year_end;
+                $event_date = $event_date_start . ' - ' . $event_date_end;
+
+            }
+
+        } else {
+
+            if($start) {
+                if($fullMonth) {
+                    $event_date = date('F j, Y', strtotime($start));
+                } else {
+                    $event_date = date('M j, Y', strtotime($start));
+                }
+                
+            }
+            
+        } 
+
+    }
+    return $event_date;
+}
+
 add_action('admin_head', 'my_custom_admin_css');
 function my_custom_admin_css() { ?>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/css/admin.css">

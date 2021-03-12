@@ -22,6 +22,25 @@ get_header(); ?>
 
 			<?php get_template_part("parts/subpage-tabs"); ?>
 
+			<?php if( $fbmap = get_field("fbmap") ) { 
+				$fbmap_title = get_field("fbmap_title");
+				$custom_icon = get_field("custom_icon");
+			?>
+			<section id="fb-map-section" data-section="<?php echo $fbmap_title ?>" class="section-content">
+				<div class="title-w-icon">
+					<div class="wrapper">
+						<div class="shead-icon text-center">
+							<div class="icon"><span class="<?php echo $custom_icon ?>"></span></div>
+							<h2 class="stitle"><?php echo $fbmap_title ?></h2>
+						</div>
+					</div>
+					<div class="full-map-image">
+						<img src="<?php echo $fbmap['url'] ?>" alt="<?php echo $fbmap['title'] ?>">
+					</div>
+				</div>
+			</section>
+			<?php } ?>
+
 			<?php $map_images = get_field("map_images"); ?>
 			<?php if ($map_images) { ?>
 			<section class="map-images">
@@ -53,7 +72,7 @@ get_header(); ?>
 					$slides = $s['entryslides'];
 					$boxClass = ( ($e_title || $e_text) && $slides ) ? 'half':'full';
 					if( ($e_title || $e_text) || $slides) {  $colClass = ($i % 2) ? ' odd':' even'; ?>
-					<div id="section<?php echo $i?>" class="mscol <?php echo $boxClass.$colClass ?>">
+					<div id="section<?php echo $i?>" data-section="<?php echo $e_title ?>" class="mscol <?php echo $boxClass.$colClass ?>">
 							<?php if ( $e_title || $e_text ) { ?>
 							<div class="textcol">
 								<div class="inside">
@@ -126,6 +145,7 @@ get_header(); ?>
 	</main><!-- #main -->
 </div><!-- #primary -->
 
+<?php include( locate_template('inc/pagetabs-script.php') ); ?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
 	$('#foodSlides').flexslider({
@@ -133,22 +153,22 @@ jQuery(document).ready(function($){
   });
 
   /* Sub-tabs */
-  if( $(".menu-sections .mstitle").length > 0 ) {
-  	$("#pageTabs").show();
+  // if( $(".menu-sections .mstitle").length > 0 ) {
+  // 	$("#pageTabs").show();
 
-  	$(".menu-sections .mstitle").each(function(){
-  		var parent = $(this).parents(".mscol");
-  		var parentId = parent.attr("id");
-  		var text = $(this).text().replace(/\s/g,' ').trim();
-  		var tab = '<span class="mini-nav"><a href="#'+parentId+'">'+text+'</a></span>';
-  		$("#tabcontent").append(tab);
-  	});
+  // 	$(".menu-sections .mstitle").each(function(){
+  // 		var parent = $(this).parents(".mscol");
+  // 		var parentId = parent.attr("id");
+  // 		var text = $(this).text().replace(/\s/g,' ').trim();
+  // 		var tab = '<span class="mini-nav"><a href="#'+parentId+'">'+text+'</a></span>';
+  // 		$("#tabcontent").append(tab);
+  // 	});
 
-  	$(document).on("click","#tabcontent a",function(e) {
-			$("#tabcontent a").removeClass("active");
-			$(this).addClass('active');
-		});
-  }
+  // 	$(document).on("click","#tabcontent a",function(e) {
+		// 	$("#tabcontent a").removeClass("active");
+		// 	$(this).addClass('active');
+		// });
+  // }
 });
 </script>
 <?php

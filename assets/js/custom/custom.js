@@ -660,7 +660,8 @@ jQuery(document).ready(function ($) {
 
 	$(document).on("click",".select2-selection--multiple",function (e) { 
 		var selectdiv = $(".customselectdiv").innerWidth();
-		$(".select2-container--default").css("width",selectdiv+"px");
+		var w = selectdiv+2;
+		$(".select2-container--default").css("width",w+"px");
 	});
 
 
