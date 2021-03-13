@@ -81,6 +81,8 @@ get_header(); ?>
 												<?php if ($e_text) { ?>
 													<div class="mstext"><?php echo $e_text ?></div>
 												<?php } ?>
+
+
 												<?php if ($e_time) { ?>
 													<div class="mstime"><?php echo $e_time ?></div>
 												<?php } ?>

@@ -24,5 +24,32 @@ $square = THEMEURI . "images/square.png";
 
 </div><!-- #primary -->
 
+
+<!-- DETAILS -->
+<div id="modalDetails" class="modal modalFilmSeries customModal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="modalBody" class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	$(".popupinfo").on("click",function(e){
+		e.preventDefault();
+		var link = $(this).attr("data-href");
+		$("#modalBody").load(link+" #content-info",function(){
+			$("#modalDetails").modal('show');
+		});
+	});
+});	
+</script>
 <?php
 get_footer();

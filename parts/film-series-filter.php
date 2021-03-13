@@ -156,7 +156,7 @@ $entries = new WP_Query($args); ?>
 											<div class="short-description"><?php echo $short_description; ?></div>	
 											<?php } ?>
 											<div class="button">
-												<a href="<?php echo $pagelink ?>" class="btn-sm"><span>See Details</span></a>
+												<a href="#" data-href="<?php echo $pagelink ?>?display=ajax" class="btn-sm popupinfo"><span>See Details</span></a>
 											</div>
 										</div>
 									</div>

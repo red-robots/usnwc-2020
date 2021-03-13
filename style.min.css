@@ -3956,7 +3956,18 @@ body.page-template-page-food-beverage .menu-sections{margin-top:0}
 .section-content.program-options .price:before{content:"";display:block;width:20%;height:1px;background:#707070;margin:0 auto 25px}
 .section-content.program-options.columns2 .pblock{width:100%}
 @media(min-width:768px){.section-content.program-options.columns2 .pblock{width:50%}
-}.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
+}.modalFilmSeries.modal .modal-lg{max-width:1000px;width:100%}
+.modalFilmSeries.modal .modal-body{padding:0 3vw 3vw}
+.modalFilmSeries.modal .text-centered-section{padding-top:10px;padding-bottom:10px}
+.modalFilmSeries.modal .stitle{font-size:20px}
+.modalFilmSeries.modal .stitle:before{content:"";display:block;width:20%;height:2px;background:#ba0d30;margin:0 auto 30px}
+.modalFilmSeries.modal .film-event-details,.modalFilmSeries.modal .details{text-align:center}
+.modalFilmSeries.modal .film-event-details{margin-top:50px}
+.modalFilmSeries.modal .details .info{margin-bottom:25px}
+.modalFilmSeries.modal .details .sub{text-transform:uppercase;font-size:15px;font-weight:600;margin-bottom:5px;color:#000}
+.modalFilmSeries.modal .details .val{font-size:16px;text-align:center;color:#707070}
+.modalFilmSeries.modal .film-disclaimer{width:100%;float:left;margin-top:40px;color:#707070;font-family:"Lato",sans-serif;font-style:italic}
+.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}
 .site-footer .coltitle{color:#FFF;font-family:"Lato",sans-serif;font-size:15px;font-weight:300;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
