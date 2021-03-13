@@ -3925,7 +3925,12 @@ body.page-template-page-food-beverage .map-images{margin-top:15px}
 body.page-template-page-food-beverage #fb-map-section .full-map-image img{width:100%;height:auto}
 body.page-template-page-food-beverage #fb-map-section .title-w-icon{margin:0;padding:0}
 body.page-template-page-food-beverage .menu-sections{margin-top:0}
-.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
+.section-flex-columns .flexwrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.section-flex-columns .flexcol{background-color:#f2f2f2;background-size:cover;background-position:contain;background-repeat:no-repeat}
+.section-flex-columns .flexcol img{width:100%;height:auto;float:left;visibility:hidden}
+@media screen and (max-width:600px){.section-flex-columns .flexcol{width:100% !important;background-image:none !important}
+.section-flex-columns .flexcol img{visibility:visible}
+}.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}
 .site-footer .coltitle{color:#FFF;font-family:"Lato",sans-serif;font-size:15px;font-weight:300;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}

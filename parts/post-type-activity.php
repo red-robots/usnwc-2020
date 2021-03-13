@@ -481,6 +481,37 @@ while ( have_posts() ) : the_post();
 	</section>
 	<?php } ?>
 
+	<?php /* MAPS */ ?>
+	<?php if( $maps = get_field("maps") ) { 
+	$map_title = get_field("map_section_title");
+	$map_icon = get_field("custom_icon");
+	$mclass = count($maps); ?>
+	<section id="section-trail-maps" data-section="<?php echo $map_title ?>" class="section-content section-flex-columns blocks<?php echo $mclass;?>">
+		<?php if ($map_title) { ?>
+		<div class="wrapper">
+			<div class="shead-icon text-center">
+				<div class="icon"><span class="<?php echo $map_icon ?>"></span></div>
+				<h2 class="stitle"><?php echo $map_title ?></h2>
+			</div>
+		</div>
+		<?php } ?>
+
+		<div class="columns-wrapper">
+			<div class="flexwrap">
+			<?php foreach ($maps as $img) { 
+				$image = $img['image'];
+				$width = ($img['width']) ? $img['width'] : '100';
+				$width = ($width) ? str_replace('%','',$width) : '';
+				if($image) { ?>
+				<div class="flexcol" style="width:<?php echo $width ?>%;background-image:url('<?php echo $image['url'] ?>')">
+					<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['title'] ?>">
+				</div>
+				<?php } ?>
+			<?php } ?>
+			</div>
+		</div>
+	</section>
+	<?php } ?>
 
 	<?php /* FAQ */ ?>
 	<?php get_template_part("parts/content-faqs"); ?>

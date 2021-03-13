@@ -10850,6 +10850,32 @@ body.page-template-page-food-beverage {
 	}
 }
 
+.section-flex-columns {
+	.flexwrap {
+		@include flexgroup();
+		@include flexbox-justify(center);
+	}
+	.flexcol {
+		background-color: $gray;
+		background-size: cover;
+		background-position: contain;
+		background-repeat: no-repeat;
+		img {
+			width: 100%;
+			height: auto;
+			float: left;
+			visibility: hidden;
+		}
+		@media screen and (max-width: $xswidth) {
+			width: 100%!important;
+			background-image:none!important;
+			img {
+				visibility: visible;
+			}
+		}
+	}
+}
+
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");
