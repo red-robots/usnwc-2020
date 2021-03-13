@@ -2546,7 +2546,7 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 }@media(min-width:768px){.explore-other-stuff .entry{width:33.33%}
 }.explore-other-stuff .entry a{display:inline-block;text-decoration:none;color:#FFF;font-size:14px;line-height:1.2}
 .explore-other-stuff .entry a:hover{opacity:.3}
-#pageTabs{width:100%;float:left;text-align:center;position:relative;top:-30px;margin-top:20px;margin-bottom:35px}
+#pageTabs{width:100%;float:left;text-align:center;position:relative;top:-30px;margin-top:20px;margin-bottom:30px}
 #pageTabs.show-tabs{top:0;margin-top:50px;margin-bottom:50px}
 #pageTabs.fixed-top{z-index:108 !important}
 #pageTabs #tabcontent{display:inline-block;position:relative;padding-left:3vw;padding-right:3vw}
@@ -3934,7 +3934,28 @@ body.page-template-page-food-beverage .menu-sections{margin-top:0}
 @media screen and (max-width:600px){.section-flex-columns .flexcol{width:100% !important;background-image:none !important}
 .section-flex-columns .flexcol img{visibility:visible}
 }.section-content.fb-map-section{padding-top:25px}
-.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
+.section-content.program-options{margin-top:40px}
+.section-content.program-options .flexwrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-left:-8px;margin-right:-8px;padding-top:10px}
+.section-content.program-options .pblock{width:100%;padding:8px}
+@media(min-width:768px){.section-content.program-options .pblock{width:33.33%}
+}.section-content.program-options .pblock .inside{height:100%;background-color:#f2f2f2}
+.section-content.program-options div.image{width:100%;float:left;position:relative}
+.section-content.program-options div.image .feat-image{width:100%;height:100%;position:absolute;top:0;left:0;z-index:5;background-color:#CCC;background-size:cover;background-position:center;background-repeat:no-repeat}
+.section-content.program-options div.image img.helper{width:100%;height:auto;float:left}
+.section-content.program-options .details{width:100%;float:left;position:relative;padding:30px 20px;text-align:center;color:#404040}
+.section-content.program-options .details .head{margin:0 0 20px;font-family:"Lato",sans-serif;font-weight:400;font-size:18px;line-height:1.2;text-transform:uppercase;letter-spacing:1px;color:#404040}
+.section-content.program-options .details .text{color:#707070}
+.section-content.program-options .features{margin-top:40px}
+.section-content.program-options .features ul{margin:0;padding:0;list-style:none}
+.section-content.program-options .features ul p{margin:0}
+.section-content.program-options .features ul li{margin-top:20px}
+.section-content.program-options .features ul li:first-child{margin-top:0}
+.section-content.program-options .features .txt2{color:#707070}
+.section-content.program-options .price{margin-top:25px}
+.section-content.program-options .price:before{content:"";display:block;width:20%;height:1px;background:#707070;margin:0 auto 25px}
+.section-content.program-options.columns2 .pblock{width:100%}
+@media(min-width:768px){.section-content.program-options.columns2 .pblock{width:50%}
+}.site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}
 .site-footer .coltitle{color:#FFF;font-family:"Lato",sans-serif;font-size:15px;font-weight:300;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}

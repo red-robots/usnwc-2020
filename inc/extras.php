@@ -412,6 +412,15 @@ jQuery(document).ready(function($){
         });
     }
 
+    /* ACF Flexible Content For Educational Adventure */
+    if( $('[data-name="prog_repeater_blocks"]').length > 0 ) {
+        $('[data-layout="section"]').each(function(){
+            var str = $(this).find('[data-name="title"] .acf-input-wrap input').val();
+            var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
+            $(this).find(".acf-fc-layout-handle").attr("data-title",title);
+        });
+    }
+
     /* ACF Flexible Content For Buy Page */
     if( $('[data-name="repeater_blocks"]').length > 0 ) {
         $('[data-name="repeater_blocks"] [data-layout="section"]').each(function(){

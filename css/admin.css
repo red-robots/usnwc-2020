@@ -25,6 +25,7 @@ div.acf-field-repeater[data-name="today"] table tr.acf-row td {
 .acf-flexible-content div[data-layout="race_type"] {
     margin-top: 10px!important;
 }
+.acf-field-flexible-content div[data-layout="section"] > .acf-fc-layout-handle,
 div[data-layout="race_type"] > .acf-fc-layout-handle,
 #acf-group_5f1912cfb5ecf [data-layout="menu_group"] > .acf-fc-layout-handle {
     color: transparent;
@@ -33,6 +34,7 @@ div[data-layout="race_type"] > .acf-fc-layout-handle,
 div[data-layout="race_type"] > .acf-fc-layout-handle {
     color: transparent!important;
 }
+.acf-field-flexible-content div[data-layout="section"] > .acf-fc-layout-handle .acf-fc-layout-order,
 div[data-layout="race_type"] > .acf-fc-layout-handle .acf-fc-layout-order {
     color: #000!important;
     background: #FFF!important;
@@ -118,6 +120,8 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
   font-size: 0;
   color: transparent!important;
 }
+
+.acf-field-flexible-content [data-layout="section"] .acf-fc-layout-handle:after,
 .acf-field-flexible-content [data-layout="festivalActivities"] .acf-fc-layout-handle:after,
 .acf-flexible-content [data-layout="section2"] .acf-fc-layout-handle:after,
 [data-name="repeater_blocks"] [data-layout="section"] .acf-fc-layout-handle:after,

@@ -79,6 +79,80 @@ if($banner) { ?>
 		<?php endwhile; ?>
 
 		<?php
+		/* PROGRAM OPTIONS */
+		$prog_section_title = get_field("prog_section_title");
+		$prog_repeater_blocks = get_field("prog_repeater_blocks");
+		if($prog_repeater_blocks) { 
+			$prog_count = count($prog_repeater_blocks);
+		?>
+		<section id="program-options" data-section="<?php echo $prog_section_title ?>" class="section-content program-options columns<?php echo $prog_count?> full">
+			<?php if ($prog_section_title) { ?>
+			<div class="shead-icon text-center">
+				<div class="icon"><span class="ci-sun"></span></div>
+				<h2 class="stitle"><?php echo $prog_section_title ?></h2>
+			</div>
+			<?php } ?>
+
+			<div class="columns-wrapper">
+				<div class="flexwrap">
+					<?php foreach ($prog_repeater_blocks as $p) {
+						$p_image = $p['image']; 
+						$p_title = $p['title']; 
+						$p_text = $p['text']; 
+						$p_features = $p['features']; 
+						$p_price = $p['price']; 
+						$haspic = ($p_image) ? 'haspic':'nopic';
+						?>
+					<div class="pblock <?php echo $haspic ?>">
+						<div class="inside">
+							<div class="image">
+								<?php if ($p_image) { ?>
+								<div class="feat-image" style="background-image:url('<?php echo $p_image['url'] ?>')"></div>
+								<?php } ?>
+								<img src="<?php echo $rectangle ?>" alt="" aria-hidden="true" class="helper">
+							</div>
+							<div class="details">
+								<?php if ($p_title) { ?>
+								<h3 class="head"><?php echo $p_title ?></h3>
+								<?php } ?>
+
+								<?php if ($p_text) { ?>
+								<div class="text"><?php echo $p_text ?></div>
+								<?php } ?>
+
+								<?php if ($p_features) { ?>
+								<div class="features">
+									<ul>
+									<?php foreach ($p_features as $feat) { 
+										$f_title = $feat['heading'];
+										$f_text = $feat['text'];
+										?>
+										<li>
+											<?php if ($f_title) { ?>
+											<p class="txt1"><strong><?php echo $f_title ?></strong></p>
+											<?php } ?>
+											<?php if ($f_text) { ?>
+											<p class="txt2"><?php echo $f_text ?></p>
+											<?php } ?>
+										</li>
+									<?php } ?>
+									</ul>
+								</div>
+								<?php } ?>
+
+								<?php if ($p_price) { ?>
+									<div class="price"><span><?php echo $p_price ?></span></div>
+								<?php } ?>
+							</div>
+						</div>
+					</div>
+					<?php } ?>
+				</div>
+			</div>
+		</section>
+		<?php } ?>
+
+		<?php
 		/* CLASSES */
 		$classes_section_title = get_field("classes_section_title");
 		$repeater_blocks = get_field("repeater_blocks");
