@@ -7055,6 +7055,19 @@ body.scrolled.single-dining {
 			}
 		}
 	}
+	.maps-above-the-other {
+		padding-bottom: 50px;
+		@include flexbox-justify(center);
+		.map-wrap {
+			width: 100%;
+			@include flexgroup();
+			@include flexbox-justify(center);
+			margin-top: 20px;
+			&.mcol1 {
+				margin-top: 0;
+			}
+		}
+	}
 }
 
 body.page-template-page-facility {
@@ -10874,6 +10887,10 @@ body.page-template-page-food-beverage {
 			}
 		}
 	}
+}
+
+.section-content.fb-map-section {
+	padding-top: 25px;
 }
 
 /* FOOTER */

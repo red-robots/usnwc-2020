@@ -39,19 +39,25 @@ get_header(); ?>
 					</div>
 				</div>
 
-				<div class="columns-wrapper">
+				<div class="columns-wrapper maps-above-the-other">
 					<?php $n=1; foreach ($facility_maps as $m) {
 						$title = $m['title']; 
 						$image = $m['image'];
 						$width = $m['blockwidth'];
-						$style = ($width) ? ' style="width:'.$width.'%"' : '';
+						if($width) {
+							$style = ($width) ? ' style="width:'.$width.'%"' : '';
+						} else {
+							$style = ($width) ? ' style="max-width:1200px;width:100%"' : '';
+						}
 						if($image) { ?>
-							<div id="mapcol<?php echo $n ?>" class="mapcol c<?php echo $n ?>"<?php echo $style ?> data-section="<?php echo $title ?>">
-								<div class="inside" style="background-image:url('<?php echo $image['url'] ?>')">
-									<a href="<?php echo $image['url'] ?>" data-fancybox>
-										<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['title'] ?>" />
-										<span class="zoom-icon"><i class="fas fa-search"></i></span>
-									</a>
+							<div class="map-wrap mcol<?php echo $n ?>">
+								<div id="mapcol<?php echo $n ?>" class="mapcol c<?php echo $n ?>"<?php echo $style ?> data-section="<?php echo $title ?>">
+									<div class="inside" style="background-image:url('<?php echo $image['url'] ?>')">
+										<a href="<?php echo $image['url'] ?>" data-fancybox>
+											<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['title'] ?>" />
+											<span class="zoom-icon"><i class="fas fa-search"></i></span>
+										</a>
+									</div>
 								</div>
 							</div>
 						<?php $n++; } ?>

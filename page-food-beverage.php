@@ -22,43 +22,37 @@ get_header(); ?>
 
 			<?php get_template_part("parts/subpage-tabs"); ?>
 
-			<?php if( $fbmap = get_field("fbmap") ) { 
-				$fbmap_title = get_field("fbmap_title");
-				$custom_icon = get_field("custom_icon");
-			?>
-			<section id="fb-map-section" data-section="<?php echo $fbmap_title ?>" class="section-content">
-				<div class="title-w-icon">
-					<div class="wrapper">
-						<div class="shead-icon text-center">
-							<div class="icon"><span class="<?php echo $custom_icon ?>"></span></div>
-							<h2 class="stitle"><?php echo $fbmap_title ?></h2>
-						</div>
-					</div>
-					<div class="full-map-image">
-						<img src="<?php echo $fbmap['url'] ?>" alt="<?php echo $fbmap['title'] ?>">
-					</div>
-				</div>
-			</section>
-			<?php } ?>
+			<?php 
+			/* GALLERIES */
+			$map_images = get_field("map_images"); ?>
+			<?php if ($map_images) { 
+				$imageList = array();
+				foreach($map_images as $m) {
+					if($m['image']) {
+						$imageList[] = $m;
+					}
+				}
 
-			<?php $map_images = get_field("map_images"); ?>
-			<?php if ($map_images) { ?>
-			<section class="map-images">
-				<div id="foodSlides" class="flexslider">
-					<ul class="slides">
-					<?php foreach ($map_images as $m) { 
-						$img = $m['image']; 
-						if($img) { ?>
-						<li><img src="<?php echo $img['url'] ?>" alt="<?php echo $img['title'] ?>" /></li>
-				    <?php } ?>
-					<?php } ?>
-					</ul>
-				</div>
-			</section>	
+				if($imageList) { ?>
+				<section class="map-images">
+					<div id="foodSlides" class="flexslider">
+						<ul class="slides">
+						<?php foreach ($imageList as $m) { 
+							$img = $m['image']; 
+							if($img) { ?>
+							<li><img src="<?php echo $img['url'] ?>" alt="<?php echo $img['title'] ?>" /></li>
+					    <?php } ?>
+						<?php } ?>
+						</ul>
+					</div>
+				</section>	
+				<?php } ?>
 			<?php } ?>
 
 
-			<?php $sections = get_field("section_3"); ?>
+			<?php
+			/* RESTAURANTS */
+			$sections = get_field("section_3"); ?>
 			<?php if ($sections) { ?>
 			<section class="menu-sections">
 				<div class="columns-2">
@@ -139,6 +133,27 @@ get_header(); ?>
 				<?php } ?>
 				</div>
 			</section>	
+			<?php } ?>
+
+			<?php 
+			/* MAP */
+			if( $fbmap = get_field("fbmap") ) { 
+				$fbmap_title = get_field("fbmap_title");
+				$custom_icon = get_field("custom_icon");
+			?>
+			<section id="fb-map-section" data-section="<?php echo $fbmap_title ?>" class="section-content fb-map-section">
+				<div class="title-w-icon">
+					<div class="wrapper">
+						<div class="shead-icon text-center">
+							<div class="icon"><span class="<?php echo $custom_icon ?>"></span></div>
+							<h2 class="stitle"><?php echo $fbmap_title ?></h2>
+						</div>
+					</div>
+					<div class="full-map-image">
+						<img src="<?php echo $fbmap['url'] ?>" alt="<?php echo $fbmap['title'] ?>">
+					</div>
+				</div>
+			</section>
 			<?php } ?>
 
 		<?php endwhile; ?>
