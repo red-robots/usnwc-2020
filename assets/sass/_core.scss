@@ -8936,8 +8936,8 @@ body.logged-in.admin-bar {
 }
 
 .section-jobfair {
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 16px;
+	padding-bottom: 16px;
 	.imagecol, .jobfair {
 		width: 100%;
 	}
@@ -8963,16 +8963,16 @@ body.logged-in.admin-bar {
 			width: 100%;
 			@include tab {
 				width: 50%;
-				padding-left: 10px;
-				padding-right: 5px;
+				padding-left: 16px;
+				padding-right: 8px;
 			}
 		}
 		.jobfair {
 			width: 100%;
 			@include tab {
 				width: 50%;
-				padding-left: 5px;
-				padding-right: 10px;
+				padding-left: 8px;
+				padding-right: 16px;
 			}
 		}
 	}
@@ -8989,7 +8989,7 @@ body.logged-in.admin-bar {
 		.r2 {
 			width: 100%;
 			float: left;
-			padding-top: 10px;
+			padding-top: 16px;
     	.text {
     		background: #DC6B36;
 				padding: 5vw;
@@ -9209,7 +9209,11 @@ body.logged-in.admin-bar {
 	float: left;
 	padding-top: 70px;
 }
-
+.employment-page {
+	.entries-with-filter {
+		padding-top: 10px;
+	}
+}
 .employee-stories {
 	width: 100%;
 	float: left;

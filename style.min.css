@@ -3554,19 +3554,19 @@ body.logged-in.admin-bar .film-event-status{top:130px}
 }.employment-page .video-frame{width:100%;float:left;position:relative}
 .employment-page .video-frame iframe{width:100% !important;height:100% !important;position:absolute;top:0;left:0;z-index:10}
 .employment-page .video-frame img.video-helper{width:100%;height:auto;float:left}
-.section-jobfair{padding-top:10px;padding-bottom:10px}
+.section-jobfair{padding-top:16px;padding-bottom:16px}
 .section-jobfair .imagecol,.section-jobfair .jobfair{width:100%}
 .section-jobfair .jobfair .inside{background:#f2f2f2;height:100%;padding:40px 30px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 @media(min-width:768px){.section-jobfair .jobfair .inside{padding:5vw 3vw}
 }.section-jobfair .jobfair .inside .wrap{width:100%}
 .section-jobfair .jobfair .shead-icon{margin-bottom:45px}
 .section-jobfair.half .imagecol{width:100%}
-@media(min-width:768px){.section-jobfair.half .imagecol{width:50%;padding-left:10px;padding-right:5px}
+@media(min-width:768px){.section-jobfair.half .imagecol{width:50%;padding-left:16px;padding-right:8px}
 }.section-jobfair.half .jobfair{width:100%}
-@media(min-width:768px){.section-jobfair.half .jobfair{width:50%;padding-left:5px;padding-right:10px}
+@media(min-width:768px){.section-jobfair.half .jobfair{width:50%;padding-left:8px;padding-right:16px}
 }.section-jobfair .imagecol .r1{width:100%;float:left}
 .section-jobfair .imagecol .r1 img{width:100%;height:auto;float:left}
-.section-jobfair .imagecol .r2{width:100%;float:left;padding-top:10px}
+.section-jobfair .imagecol .r2{width:100%;float:left;padding-top:16px}
 .section-jobfair .imagecol .r2 .text{background:#dc6b36;padding:5vw;color:#FFF;font-size:15px;line-height:1.6}
 .section-jobfair .imagecol .r2 p:last-child{margin-bottom:0}
 .section-jobfair .schedule{text-align:center}
@@ -3609,6 +3609,7 @@ body.logged-in.admin-bar .film-event-status{top:130px}
 .employment-page #section-faqs.graybg{background:#f2f2f2}
 .employment-page .text-and-gallery{margin-top:0}
 .entries-with-filter{width:100%;float:left;padding-top:70px}
+.employment-page .entries-with-filter{padding-top:10px}
 .employee-stories{width:100%;float:left;background:#000;padding-top:70px;padding-bottom:70px}
 .employee-stories .shead-icon{color:#FFF;margin-bottom:60px}
 .employee-stories .shead-icon .stitle{color:#FFF}

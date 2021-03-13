@@ -26,6 +26,7 @@ $currentPageLink = get_permalink();
 
 		<?php get_template_part("parts/subpage-tabs"); ?>
 
+		<?php get_template_part("parts/content-available-jobs") ?>
 
 		<?php
 			$icon1 = get_field("icon1");
@@ -170,8 +171,6 @@ $currentPageLink = get_permalink();
 			<?php } ?>
 
 
-		
-		<?php get_template_part("parts/content-available-jobs") ?>
 		<?php //get_template_part("parts/content-employee-stories") ?>
 
 
