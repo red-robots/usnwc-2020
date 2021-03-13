@@ -45,8 +45,12 @@ jQuery(document).ready(function($){
 	$(".popupinfo").on("click",function(e){
 		e.preventDefault();
 		var link = $(this).attr("data-href");
+		$("#loaderDiv").show();
 		$("#modalBody").load(link+" #content-info",function(){
 			$("#modalDetails").modal('show');
+			setTimeout(function(){
+				$("#loaderDiv").hide();
+			},1000);
 		});
 	});
 });	
