@@ -1967,3 +1967,101 @@ function get_instructions_result($params,$paged=1,$perpage=16) {
 
     return $output;
 }
+
+function get_upcoming_bands() {
+    global $wpdb;
+    $today = date('Y-m-d', strtotime(date('Y-m-d H:i:s'). '-1 days'));
+    //$today = '2021-03-25';
+    $today_unix = strtotime($today);
+    $daysOfWeek = array('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday');
+    $days_selection = get_field("upcoming_music_events_days","option");
+    $today_day = date('l'); /* Displays the full name of a day */
+    $queryDays = array();
+    $dayArrs = array();
+    $selectedDays = array();
+    $result = array();
+    if($days_selection) {
+        foreach($days_selection as $d) {
+            foreach($daysOfWeek as $k=>$v) {
+                if($d==$v) {
+                    $selectedDays[$k] = $v;
+                }
+            }
+        }
+    }
+
+    $currentYear = date('Y');
+    $currentMonth = date('n');
+    $calendar = array();
+    $query_dates = array();
+    if( $selectedDays ) {
+        $countSelectedDays = count($selectedDays);
+        $weekly = count($daysOfWeek);
+        $totalMonths = 12;
+        for($mo=1; $mo<=$totalMonths; $mo++) {
+            $totalDaysPerMonth = daysInMonth($currentYear, $mo);
+            for($n=1; $n<=$totalDaysPerMonth; $n++) {
+                $z_month = str_pad($mo, 2, '0', STR_PAD_LEFT);
+                $n_date = $currentYear.$z_month.$n;
+                $n_day = date('l',strtotime($n_date));
+                $weekList = array();
+                if( in_array($n_day,$selectedDays) ) {
+                    $finalDate = date('Ymd',strtotime($n_date));
+                    $calendar[$mo][] = $n_date;
+
+                    $now = strtotime($today);
+                    $qdate = strtotime($finalDate);
+
+                    if( $qdate >= $now ) {
+                        $query_dates[] = $n_date;
+                    }
+                }   
+            }
+        }
+
+        if($query_dates) {
+            $v=1; 
+            foreach($query_dates as $date) {
+                $query = "SELECT p.ID,p.post_title, CAST(m.meta_value AS DATE) AS start_date, UNIX_TIMESTAMP(CAST(m.meta_value AS DATE)) AS start_date_unix  FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m WHERE p.ID=m.post_id AND p.post_type='music' AND p.post_status='publish'
+                          AND m.meta_key='start_date' AND m.meta_value<>'' AND UNIX_TIMESTAMP(CAST(m.meta_value AS DATE))>=".$today_unix.' ORDER BY start_date_unix ASC';
+                $res = $wpdb->get_results($query);
+                if($res) {
+                    foreach($res as $row) {
+                        if($v<=$countSelectedDays) {
+                            $result[] = $row;
+                        }
+                        $v++;
+                    }
+                }
+            }
+        }
+    }
+
+    return $result;
+}
+
+function daysInMonth($year, $month) {
+    return date("t", mktime (0,0,0,$month,1,$year));
+}
+
+function upcoming_bands_by_date($offset=0,$limit=12) {
+    global $wpdb;
+    $today = date('Y-m-d');
+    $today_unix = strtotime($today);
+    $query = "SELECT p.ID,p.post_title,p.post_content, CAST(m.meta_value AS DATE) AS start_date, UNIX_TIMESTAMP(CAST(m.meta_value AS DATE)) AS start_date_unix, MONTH(CAST(m.meta_value AS DATE)) AS month 
+              FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m WHERE p.ID=m.post_id AND p.post_type='music' AND p.post_status='publish'
+              AND m.meta_key='start_date' AND m.meta_value<>'' AND UNIX_TIMESTAMP(CAST(m.meta_value AS DATE))>=".$today_unix.' ORDER BY start_date_unix ASC LIMIT '.$offset.','.$limit;
+    $result = $wpdb->get_results($query);
+
+    $total_query = "SELECT count(*) as total FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m WHERE p.ID=m.post_id AND p.post_type='music' AND p.post_status='publish'
+              AND m.meta_key='start_date' AND m.meta_value<>'' AND UNIX_TIMESTAMP(CAST(m.meta_value AS DATE))>=".$today_unix;
+    $result_total = $wpdb->get_row($total_query);
+    $output = array();
+    if($result) {
+        $output['records'] = $result;
+        $output['total'] = $result_total->total;
+    }
+    return ($output) ? $output : '';
+}
+
+

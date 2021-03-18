@@ -46,7 +46,7 @@ if($camp_activities) { ?>
 					<div class="titlediv">
 						<p class="name"><?php echo $title ?></p>
 						<div class="buttondiv">
-							<a data-toggle="modal" data-target="#entryBlock<?php echo $i?>Modal" class="btn-sm"><span>See Details</span></a>
+							<a data-toggle="modal" data-target="#entryBlock<?php echo $i?>Modal" class="btn-sm xs"><span>See Details</span></a>
 						</div>
 					</div>
 

@@ -42,14 +42,15 @@ $square = THEMEURI . "images/square.png";
 
 <script type="text/javascript">
 jQuery(document).ready(function($){
+	$("#modalDetails").insertBefore(".site-footer");
 	$(".popupinfo").on("click",function(e){
 		e.preventDefault();
 		var link = $(this).attr("data-href");
 		$("#loaderDiv").show();
 		$("#modalBody").load(link+" #content-info",function(){
-			$("#modalDetails").modal('show');
 			setTimeout(function(){
 				$("#loaderDiv").hide();
+				$("#modalDetails").modal('show');
 			},1000);
 		});
 	});

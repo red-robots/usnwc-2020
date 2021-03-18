@@ -111,7 +111,7 @@ $entries = new WP_Query($args); ?>
 									<?php if ($eventStatus=='completed') { ?>
 										<div class="event-completed"><span>Event Complete</span></div>
 									<?php } ?>
-									<a href="<?php echo $pagelink ?>" class="photo wave-effect js-blocks">
+									<a href="#" data-href="<?php echo $pagelink ?>?display=ajax" class="photo popupinfo wave-effect js-blocks">
 										<?php if ($thumbImage) { ?>
 											<div class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></div>
 											<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img">
