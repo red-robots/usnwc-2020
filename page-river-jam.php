@@ -45,7 +45,9 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 					$style = ($image) ? ' style="background-image:url('.$image['url'].')"':'';
 					$start_date_format = '';
 					if($start_date) {
-						$start_date_format = date('M',strtotime($start_date)) . '. ' . date('j',strtotime($start_date));
+						$c_month = date('M',strtotime($start_date));
+						$period = ($c_month!='MAY') ? '. ':'';
+						$start_date_format = date('M',strtotime($start_date)) . $period . date('j',strtotime($start_date));
 					}
 					$short_description = get_field("short_description",$pid);
 					$schedule = get_field("schedule_repeater",$pid);
