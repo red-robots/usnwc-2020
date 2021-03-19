@@ -17708,7 +17708,7 @@ body.page-template-page-food-beverage .menu-sections {
     #primary .upcoming-posts .schedule.schedules-list li.item .time {
       font-size: 16px;
       text-transform: uppercase; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 767px) {
     #primary .upcoming-posts .schedule.schedules-list li.item {
       padding: 15px 0; }
       #primary .upcoming-posts .schedule.schedules-list li.item:after {

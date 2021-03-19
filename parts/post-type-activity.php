@@ -45,10 +45,12 @@ while ( have_posts() ) : the_post();
 	$left_text = ( isset($galleryData['g_description']) && $galleryData['g_description'] ) ? $galleryData['g_description']:'';
 	$introClass = ($left_text && $galleries) ? 'half':'full';
 	$placeholder = THEMEURI . 'images/rectangle.png';
+	$gallery_section_title = get_field("gallery_section_title");
+	$section1 = ($gallery_section_title) ? ' data-section="'.$gallery_section_title.'"':'';
 	?>
 
 	<?php if ($left_text || $galleries) { ?>
-	<section id="section-intro" class="section-content intro-galleries <?php echo $introClass ?>">
+	<section id="section-intro" class="section-content intro-galleries <?php echo $introClass ?>"<?php echo $section1 ?>>
 		<div class="flexwrap">
 			<?php if ($left_text) { ?>
 			<div class="leftcol textcol">
@@ -93,8 +95,10 @@ while ( have_posts() ) : the_post();
 	$activities = get_field("activities");
 	$options_class = ($activities && $categories) ? 'half':'full';
 	$legend = get_field("activity_legend","option");
+	$s2_title = get_field("activities_section_title");
+	$section2 = ($s2_title) ? $s2_title : 'Options';
 	if($activities || $categories) { ?>
-	<section id="section-options" data-section="Options" class="section-content <?php echo $options_class ?>">
+	<section id="section-options" data-section="<?php echo $section2 ?>" class="section-content <?php echo $options_class ?>">
 		<div class="wrapper">
 			<?php if ($activities) { ?>
 			<div class="optcol activities">
@@ -300,9 +304,11 @@ while ( have_posts() ) : the_post();
 	$wtw_section_title = get_field("wtw_section_title");  
 	$wtw_default_image = get_field("wtw_default_image");  
 	$wtw_options = get_field("wtw_options");  
+	$s3_title = get_field("whereto_section_title");
+	$section3 = ($s3_title) ? $s3_title : 'What to wear';
 	$wtw_class = ($wtw_default_image && $wtw_options) ? 'half':'full';
 	if ($wtw_options) { ?>
-	<section id="section-whattowear" data-section="What To Wear" class="section-content <?php echo $wtw_class ?>">
+	<section id="section-whattowear" data-section="<?php echo $section3 ?>" class="section-content <?php echo $wtw_class ?>">
 		<div class="wrapper">
 			<div class="flexwrap">
 				<?php if ($wtw_default_image) { ?>
@@ -365,6 +371,8 @@ while ( have_posts() ) : the_post();
 	$square = THEMEURI . "images/square.png";
 	$checkin_images = array();
 	$checkin_rows = array();
+	$s4_title = get_field("whereto_section_title");
+	$section4 = ($s4_title) ? $s4_title : 'Check-In';
 	if( have_rows('checkin_box') ) { 
 		$ctr=0; while ( have_rows('checkin_box') ) : the_row(); 
 			$has_text = get_sub_field('has_text'); 
@@ -385,7 +393,7 @@ while ( have_posts() ) : the_post();
 			$checkin_classes = ' has-two-images';
 		}
 	?>
-	<section id="section-checkin" data-section="Check-In" class="section-content<?php echo $checkin_classes;?>">
+	<section id="section-checkin" data-section="<?php echo $section4 ?>" class="section-content<?php echo $checkin_classes;?>">
 		<div class="wrapper-full">
 			<div class="flexwrap">
 				<?php  $i=1; while ( have_rows('checkin_box') ) : the_row(); 
@@ -514,7 +522,11 @@ while ( have_posts() ) : the_post();
 	<?php } ?>
 
 	<?php /* FAQ */ ?>
-	<?php get_template_part("parts/content-faqs"); ?>
+	<?php 
+		$customFAQTitle = get_field("faq_section_title");
+		//get_template_part("parts/content-faqs"); 
+		include( locate_template('parts/content-faqs.php') ); 
+	?>
 
 	<?php /* Featured Articles */ ?>
 	<?php get_template_part("parts/bottom-content-activity"); ?>

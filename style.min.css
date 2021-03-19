@@ -3989,7 +3989,7 @@ body.page-template-page-food-beverage .menu-sections{margin-top:0}
 #primary .upcoming-posts .schedule.schedules-list li.item{padding:3px 0}
 #primary .upcoming-posts .schedule.schedules-list li.item .event{font-size:14px}
 #primary .upcoming-posts .schedule.schedules-list li.item .time{font-size:16px;text-transform:uppercase}
-@media screen and (max-width:600px){#primary .upcoming-posts .schedule.schedules-list li.item{padding:15px 0}
+@media screen and (max-width:767px){#primary .upcoming-posts .schedule.schedules-list li.item{padding:15px 0}
 #primary .upcoming-posts .schedule.schedules-list li.item:after{position:relative;bottom:-14px}
 #primary .upcoming-posts .schedule.schedules-list li.item:last-child:after{display:none}
 }.content-only .slideOuterWrap,.content-only .slides-wrapper,.content-only ul.slides{width:100%;float:left}

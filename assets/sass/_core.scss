@@ -11179,7 +11179,7 @@ body.page-template-page-food-beverage {
 			.event {font-size: 14px;}
 			.time {font-size: 16px;text-transform:uppercase;}
 		}
-		@media screen and (max-width: $xswidth) {
+		@media screen and (max-width: $tabwidth - 1px) {
 			li.item {
 				padding: 15px 0;
 				&:after  {
