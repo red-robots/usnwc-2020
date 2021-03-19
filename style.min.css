@@ -2466,6 +2466,7 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 .collapsible.active .option-name span.arrow:before,.collapsible.active .option-name span.arrow:after,.collapsible.active .option-text span.arrow:before,.collapsible.active .option-text span.arrow:after{background:#FFF}
 .collapsible.active .option-text{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
 .collapsible.active a{color:#cff998;display:inline-block;text-decoration:underline}
+.collapsible.active a:hover{color:#e5eadd}
 #section-checkin.section-content{margin-bottom:40px}
 #section-checkin.section-content .flexwrap{padding:8px}
 #section-checkin.section-content .col-left,#section-checkin.section-content .col-right{width:100%;position:relative}

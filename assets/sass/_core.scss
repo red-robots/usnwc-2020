@@ -3117,6 +3117,9 @@ body.subpage.single {
 			color: #cff998;
 			display: inline-block;
 			text-decoration: underline;
+			&:hover {
+				color: #e5eadd;
+			}
 		}
 	}
 }
