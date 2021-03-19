@@ -4016,6 +4016,20 @@ body.page-template-page-food-beverage .menu-sections{margin-top:0}
 .filter-wrapper.river-jam .select-wrap .facetwp-facet input{width:50%;float:left;padding:0 5px;height:37px !important;line-height:37px !important;border:1px solid #707070;position:relative;-webkit-transition:all ease .3s;transition:all ease .3s}
 .filter-wrapper.river-jam .select-wrap .facetwp-facet input:focus{outline:0;box-shadow:0 0 14px rgba(0,0,0,0.3)}
 .filter-wrapper.river-jam .select-wrap .facetwp-facet input:last-child{left:5px}
+#main.page404,body.search-no-results #main .no-results{margin-top:12%;text-align:center}
+#main.page404 h1.page-title,body.search-no-results #main .no-results h1.page-title{font-family:"Lato",sans-serif;font-size:2.5em}
+#main.page404 .page-header .small,body.search-no-results #main .no-results .page-header .small{font-family:"Nunito Sans",sans-serif;font-size:1.2em;font-weight:500;color:#8e8e8e;text-transform:uppercase;letter-spacing:5px;margin-bottom:10px}
+#main.page404 .page-content,body.search-no-results #main .no-results .page-content{position:relative;top:-15px}
+#main.page404 .screen-reader-text,body.search-no-results #main .no-results .screen-reader-text{display:none}
+#main.page404 .search-form,#main.page404 .search-form *,body.search-no-results #main .no-results .search-form,body.search-no-results #main .no-results .search-form *{box-sizing:border-box}
+#main.page404 .search-form,body.search-no-results #main .no-results .search-form{max-width:300px;width:100%;position:relative;margin:30px auto}
+#main.page404 .search-form label,body.search-no-results #main .no-results .search-form label{width:100%;position:relative}
+#main.page404 .search-form label:before,#main.page404 .search-form label:after,body.search-no-results #main .no-results .search-form label:before,body.search-no-results #main .no-results .search-form label:after{content:"";display:inline-block;position:absolute;z-index:10}
+#main.page404 .search-form label:before,body.search-no-results #main .no-results .search-form label:before{width:15px;height:15px;border:2px solid #bdbdbd;border-radius:100px;right:16px;top:11px}
+#main.page404 .search-form label:after,body.search-no-results #main .no-results .search-form label:after{width:2px;height:6px;background:#bdbdbd;top:23px;right:16px;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg)}
+#main.page404 .search-form input.search-field,body.search-no-results #main .no-results .search-form input.search-field{width:100%;height:40px;border-radius:100px;padding:5px 40px 5px 20px;font-size:18px;outline:0;border:2px solid #191919}
+#main.page404 .search-form input.search-field:focus,body.search-no-results #main .no-results .search-form input.search-field:focus{box-shadow:0 0 17px rgba(0,0,0,0.2)}
+#main.page404 .search-form .search-submit,body.search-no-results #main .no-results .search-form .search-submit{position:absolute;top:0;right:0;z-index:5;display:none}
 .site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}

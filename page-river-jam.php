@@ -118,101 +118,6 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 	<?php /* UPCOMING BANDS BY DATE */ ?>
 	<?php get_template_part("parts/filter-river-jam"); ?>
 
-	<?php 
-	$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
-	$offset = 0;
-	$perpage = 12;
-	if($paged>1) {
-		$offset = ($paged * $perpage) - $perpage;
-	}
-	if( $result = upcoming_bands_by_date($offset,$perpage) ) { 
-		$bands = $result['records'];
-		$total = $result['total'];
-	?>
-	<section id="upcoming-bands-by-date" data-section="Bands Schedule" class="section-content menu-sections">
-		<div class="post-type-entries music">
-			<div id="data-container">
-				<div class="posts-inner animate__animated animate__fadeIn">
-					<div class="flex-inner result">
-						<?php foreach ($bands as $b) { 
-							$id = $b->ID;
-							$title = $b->post_title;
-							$text = $b->post_content;
-							$status = get_field("eventstatus",$id);
-							$eventStatus = ($status) ? $status:'upcoming';
-							$thumbImage = get_field("thumbnail_image",$id);
-							$pagelink = get_permalink($id);
-							$start = get_field("start_date",$id);
-							$end = get_field("end_date",$id);
-							$event_date = get_event_date_range($start,$end,true);
-							$short_description = ( get_the_content() ) ? shortenText( strip_tags($text),300,' ','...' ) : '';
-							if($event_date) {
-								if(strpos($event_date,'-') !== false){
-									// Has multiple dates...
-								} else {
-									$dayOfWeek = date('l',strtotime($start));
-									$event_date = $dayOfWeek .', ' . date('F j',strtotime($start));
-								}
-							}
-							
-						?>
-						<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?>">
-							<div class="inside">
-								<a href="#" data-url="<?php echo $pagelink ?>" data-action="ajaxGetPageData" data-id="<?php echo $id ?>" class="photo popdata">
-									<?php if ($thumbImage) { ?>
-										<span class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></span>
-										<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder">
-										<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none">
-									<?php } else { ?>
-										<span class="imagediv"></span>
-										<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder">
-									<?php } ?>
-								</a>
-								<div class="details">
-									<div class="info">
-										<h3 class="event-name"><?php echo $title ?></h3>
-										<?php if ($event_date) { ?>
-										<div class="event-date"><?php echo $event_date ?></div>
-										<?php } ?>
-										<div class="button">
-											<a href="#" data-url="<?php echo $pagelink ?>" data-action="ajaxGetPageData" data-id="<?php echo $id ?>" class="btn-sm xs popdata"><span>See Details</span></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>	
-						<?php } ?>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="next-posts" style="display:none;"></div>
-		<?php 
-		$total_pages = ceil($total / $perpage);
-		if ($total > $perpage) { ?> 
-			<div class="loadmorediv text-center">
-				<div class="wrapper"><a href="#" id="loadMoreEntries" data-current="1" data-count="<?php echo $total?>" data-total-pages="<?php echo $total_pages?>" class="btn-sm wide"><span>Load More</span></a></div>
-			</div>
-
-			<div id="pagination" class="pagination-wrapper" style="display:none;">
-			    <?php
-			    $pagination = array(
-						'base' => @add_query_arg('pg','%#%'),
-						'format' => '?pg=%#%',
-						'mid-size' => 1,
-						'current' => $paged,
-						'total' => ceil($total / $perpage),
-						'prev_next' => True,
-						'prev_text' => __( '<span class="fa fa-arrow-left"></span>' ),
-						'next_text' => __( '<span class="fa fa-arrow-right"></span>' )
-			    );
-			    echo paginate_links($pagination); ?>
-			</div>
-
-		<?php } ?>
-	</section>
-	<?php } ?>
 
 	<?php  
 	/* PROGRAMS */
@@ -363,6 +268,31 @@ jQuery(document).ready(function($){
 		});
 
 	});
+
+
+  $(document).on('facetwp-refresh', function() {
+    var start = $('input.flatpickr-alt[placeholder="Start Date"]').val();
+    var end = $('input.flatpickr-alt[placeholder="End Date"]').val();
+    var pageURL = '<?php echo get_permalink();?>?' + FWP.build_query_string();
+    if(start || end) {
+	    $("#upcoming-bands-by-date").load(pageURL + " #entries-result",function(){
+	    	$("#loaderDiv").show();
+	    	setTimeout(function(){
+	    		$("#loaderDiv").hide();
+	    	},500);
+	    });
+	  }
+ 	});
+
+ 	// $(document).on('click','#resetFilter',function(e) {
+  //   e.preventDefault();
+  //   var pageURL = $(this).attr("href");
+  //   $("#upcoming-bands-by-date").load(pageURL + " #entries-result",function(){
+  //   	history.pushState('',document.title,pageURL);
+  //   });
+ 	// });	
+
+
 });
 </script>
 <?php

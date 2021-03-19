@@ -1399,7 +1399,7 @@ add_filter( 'pre_get_posts', 'fwp_archive_per_page' );
 function child_templates($template) {
     global $post;
 
-    if ($post->post_parent) {
+    if ( isset($post->post_parent) && $post->post_parent ) {
         // get top level parent page
         $parent = get_post(
             reset(array_reverse(get_post_ancestors($post->ID)))

@@ -48,7 +48,7 @@ while ( have_posts() ) : the_post();
 	?>
 
 	<?php if ($left_text || $galleries) { ?>
-	<section id="section-intro" data-section="Intro" class="section-content intro-galleries <?php echo $introClass ?>">
+	<section id="section-intro" class="section-content intro-galleries <?php echo $introClass ?>">
 		<div class="flexwrap">
 			<?php if ($left_text) { ?>
 			<div class="leftcol textcol">

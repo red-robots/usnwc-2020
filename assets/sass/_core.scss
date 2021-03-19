@@ -11315,6 +11315,89 @@ body.page-template-page-food-beverage {
 	
 }
 
+#main.page404,
+body.search-no-results #main .no-results  {
+	margin-top: 12%;
+	text-align: center;
+	h1.page-title {
+		font-family: $font_secondary;
+		font-size: 2.5em;
+	}
+	.page-header {
+		.small {
+			font-family: $font_primary;
+			font-size: 1.2em;
+			font-weight: 500;
+			color: #8e8e8e;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			margin-bottom: 10px;
+		}
+	}
+	.page-content {
+		position: relative;
+		top: -15px;
+	}
+	.screen-reader-text {
+		display: none;
+	}
+	.search-form,
+	.search-form * {
+		box-sizing: border-box;
+	}
+	.search-form {
+		max-width: 300px;
+		width: 100%;
+		position: relative;
+		margin: 30px auto;
+		label {
+			width: 100%;
+			position: relative;
+			&:before, &:after {
+				content:"";
+				display: inline-block;
+				position: absolute;
+				z-index: 10;
+			}
+			&:before {
+				width: 15px;
+				height: 15px;
+				border: 2px solid #bdbdbd;
+				border-radius: 100px;
+				right: 16px;
+				top: 11px;
+			}
+			&:after {
+				width: 2px;
+				height: 6px;
+				background: #bdbdbd;
+		    top: 23px;
+    		right: 16px;
+				transform: rotate(-45deg);
+			}
+		}
+		input.search-field {
+			width: 100%;
+			height: 40px;
+			border-radius: 100px;
+			padding: 5px 40px 5px 20px;
+			font-size: 18px;
+			outline: none;
+			border:2px solid $dark;
+			&:focus {
+				box-shadow: 0 0 17px rgba(0,0,0,0.2);
+			}
+		}
+		.search-submit {
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 5;
+			display: none;
+		}
+	}
+}
+
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");
