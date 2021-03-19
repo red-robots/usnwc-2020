@@ -3113,6 +3113,11 @@ body.subpage.single {
 			-webkit-animation-name: fadeIn;
   			animation-name: fadeIn;
 		}
+		a {
+			color: #cff998;
+			display: inline-block;
+			text-decoration: underline;
+		}
 	}
 }
 
