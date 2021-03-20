@@ -24,7 +24,28 @@ get_header(); ?>
 			</section>
 		<?php endwhile; ?>
 
-
+		<?php  
+		$faqTerms = get_terms( array(
+		    'taxonomy' => 'faq_type',
+		    'hide_empty' => true,
+		));
+		if($faqTerms) { ?>
+		<section class="faq-categories">
+			<div class="wrapper">
+				<div id="faqTabs" class="flexwrap2">
+					<div class="faqcat">
+						<a href="#" data-termid="all" class="faqType active">All</a>
+					</div>	
+					<?php foreach ($faqTerms as $t) { ?>
+					<div class="faqcat">
+						<a href="#" id="faqterm-<?php echo $t->term_id?>" data-termid="<?php echo $t->term_id?>" class="faqType"><?php echo $t->name?></a>
+					</div>	
+					<?php } ?>
+				</div>
+				<div id="faqSelect"></div>
+			</div>
+		</section>
+		<?php } ?>
 
 		<?php
 			$args = array(
@@ -45,8 +66,11 @@ get_header(); ?>
 								if($i==1) {
 									$first_faq = $id;
 								}
+								$postTerms = get_the_terms($id,'faq_type');
+								$postTermId = ($postTerms) ? $postTerms[0]->term_id : '';
+								$termClass = ($postTermId) ? ' faqterm-'.$postTermId:'';
 							?>
-							<a href="#" data-id="<?php echo $id ?>" class="faq faqGroup faqpid-<?php echo $id ?>">
+							<a href="#" data-id="<?php echo $id ?>" data-termid="<?php echo $postTermId ?>" class="faq faqGroup faqpid-<?php echo $id.$termClass ?>">
 								<?php if ($icon) { ?>
 								<span class="icon"><i class="<?php echo $icon ?>"></i></span>	
 								<?php } ?>
@@ -60,7 +84,7 @@ get_header(); ?>
 			</section>
 
 
-			<div class="main-faq-items" id="faqItems">
+			<div class="main-faq-items" id="faqItems" style="display:none">
 				<div class="wrapper narrow">
 					<div id="faqsContainer">
 						<?php echo ($first_faq) ? getFaqs($first_faq) : ''; ?>
@@ -72,6 +96,76 @@ get_header(); ?>
 	</main><!-- #main -->
 </div><!-- #primary -->
 
+<?php include( locate_template('inc/faqs.php') ); ?>
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	if( $(".faqType").length>0 ) {
+		var faq_select = '<select class="faq-selection">';
+		faq_select += '<option value="all">All</option>';
+		$(".faqType").each(function(){
+			var cat = $(this).text();
+			var termid = $(this).attr("data-termid");
+			faq_select += '<option value="'+termid+'">'+cat+'</option>';
+		});
+		faq_select += '</select>';
+		$("#faqSelect").html(faq_select);
+	}
+	
+
+	$(document).on("click",".faqType",function(e){
+		e.preventDefault();
+		var id = $(this).attr("data-termid");
+		$(".faqType").removeClass('active');
+		$(".faqGroup").removeClass('active');
+		$(this).addClass("active");
+
+		if(id=='all') {
+			$(".faqGroup").each(function(){
+				$(this).addClass("animated fadeIn").show();
+			});
+		} else {
+			$("#faqItems").hide();
+			$(".faqGroup").removeClass("animated fadeIn");
+			$(".faqGroup").show();
+			$(".faqGroup").each(function(){
+				var termid = $(this).attr("data-termid");
+				if(termid==id) {
+					$(this).addClass("animated fadeIn");
+				} else {
+					$(this).removeClass("animated fadeIn").hide();
+				}
+			});
+		}
+		var pageURL = '<?php echo get_permalink(); ?>';
+		history.replaceState('',document.title,pageURL);
+	});
+
+	$(document).on("change","select.faq-selection",function(e){
+		e.preventDefault();
+		var id = $(this).val();
+		$(".faqGroup").removeClass('active');
+		if(id=='all') {
+			$(".faqGroup").each(function(){
+				$(this).addClass("animated fadeIn").show();
+			});
+		} else {
+			$(".faqType").removeClass('active');
+			$('#faqterm-'+id).addClass("active");
+			$("#faqItems").hide();
+			$(".faqGroup").removeClass("animated fadeIn");
+			$(".faqGroup").show();
+			$(".faqGroup").each(function(){
+				var termid = $(this).attr("data-termid");
+				if(termid==id) {
+					$(this).addClass("animated fadeIn");
+				} else {
+					$(this).removeClass("animated fadeIn").hide();
+				}
+			});
+		}
+		
+	});
+});
+</script>
 <?php
-include( locate_template('inc/faqs.php') );  
 get_footer();

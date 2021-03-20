@@ -549,7 +549,9 @@ jQuery(document).ready(function ($) {
 
 	$(document).on("click",".faqGroup",function(e){
 		e.preventDefault();
+		$(".faqGroup").removeClass('active');
 		var postid = $(this).attr("data-id");
+		$(this).addClass('active');
 		view_faqs_info(postid);
 	});
 
@@ -557,6 +559,7 @@ jQuery(document).ready(function ($) {
 		var headHeight = $("#masthead").height();
 		var offset = headHeight + 80
 		var target = $("#faqItems");
+		target.show();
 
 		$('html, body').animate({
 		scrollTop: target.offset().top - offset

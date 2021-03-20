@@ -3547,6 +3547,7 @@ body.logged-in.admin-bar .film-event-status{top:130px}
 .main-faqs-icons .faq .icon{font-size:30px;line-height:1}
 .main-faqs-icons .faq .title{font-family:"Lato",sans-serif;font-size:18px;line-height:1.2;text-transform:uppercase;letter-spacing:1px}
 .main-faqs-icons .faq:hover{color:#ba0d30}
+.main-faqs-icons .faq.active{color:#ba0d30}
 .main-faq-items{width:100%;float:left;padding-top:60px;padding-bottom:60px;position:relative}
 .main-faq-items #loaderDiv{position:absolute !important;background:rgba(255,255,255,0.85)}
 .main-faq-items .loaderInline{position:absolute;top:20%}
@@ -4032,6 +4033,18 @@ body.page-template-page-food-beverage .menu-sections{margin-top:0}
 #main.page404 .search-form input.search-field,body.search-no-results #main .no-results .search-form input.search-field{width:100%;height:40px;border-radius:100px;padding:5px 40px 5px 20px;font-size:18px;outline:0;border:2px solid #191919}
 #main.page404 .search-form input.search-field:focus,body.search-no-results #main .no-results .search-form input.search-field:focus{box-shadow:0 0 17px rgba(0,0,0,0.2)}
 #main.page404 .search-form .search-submit,body.search-no-results #main .no-results .search-form .search-submit{position:absolute;top:0;right:0;z-index:5;display:none}
+.content-faqs-page .text-centered-section{padding-bottom:50px}
+.faq-categories #faqTabs.flexwrap2{display:none}
+@media(min-width:768px){.faq-categories #faqTabs.flexwrap2{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:relative}
+}.faq-categories .faqcat{text-align:center;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.faq-categories .faqcat a{display:block;text-decoration:none;color:#191919;font-size:18px;font-weight:400;line-height:1.4;text-transform:uppercase;padding:25px 2.4vw;width:100%}
+.faq-categories .faqcat a:hover{background:#f9f9f9;border-color:#f9f9f9;color:#ba0d30}
+.faq-categories .faqcat a.active{background:#f2f2f2;border-color:#f2f2f2;color:#ba0d30}
+.faq-categories .wrapper{max-width:100%;padding-left:0;padding-right:0}
+@media(min-width:768px){.faq-categories .wrapper{max-width:1460px;padding-left:20px;padding-right:20px}
+}.faq-categories #faqSelect{display:block;padding:0 20px;position:relative;top:-20px}
+@media(min-width:768px){.faq-categories #faqSelect{display:none}
+}.faq-categories #faqSelect select{width:100%;height:50px;font-size:18px;padding:0 10px;margin-bottom:20px}
 .site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}
