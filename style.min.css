@@ -3064,12 +3064,14 @@ to{-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotat
 .main-post-text .textcol .textwrap{position:relative}
 .main-post-text .textcol .textwrap:after{content:"";display:block;width:70px;height:2px;background:#ba0d30;margin:30px 0}
 @media(min-width:768px){.main-post-text .imagescol{padding-right:5px}
-}.main-post-text .imagescol .masonry{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
-.main-post-text .imagescol .masonry .block{width:100%;padding:.3em;position:relative}
-@media(min-width:600px){.main-post-text .imagescol .masonry .block{width:50%}
-}.main-post-text .imagescol .masonry .block img{width:100%;height:auto}
-.main-post-text .imagescol .masonry.top .block{width:100%}
-.main-post-text .imagescol .masonry .photoframe a.popup-image{display:block;width:100%;float:left;cursor:-webkit-zoom-in;cursor:zoom-in}
+}.main-post-text .imagescol .masonry{margin-left:-5px;margin-right:-10px;-webkit-column-count:1;-moz-column-count:1;column-count:1;-webkit-column-gap:0;-moz-column-gap:0;column-gap:0}
+@media(min-width:600px){.main-post-text .imagescol .masonry{-webkit-column-count:2;-moz-column-count:2;column-count:2}
+}.main-post-text .imagescol .masonry.top{-webkit-column-count:1;-moz-column-count:1;column-count:1;-webkit-column-gap:0;-moz-column-gap:0;column-gap:0}
+.main-post-text .imagescol .masonry .block{-webkit-box-flex:1;-webkit-flex:auto;-ms-flex:auto;flex:auto;min-width:150px;min-height:160px;width:100%;-webkit-column-break-inside:avoid;page-break-inside:avoid;break-inside:avoid}
+.main-post-text .imagescol .masonry .block img{width:100%;height:auto}
+.main-post-text .imagescol .masonry.top .block{width:100%;padding-bottom:5px}
+.main-post-text .imagescol .masonry.top .first a{padding:5px}
+.main-post-text .imagescol .masonry .photoframe a.popup-image{display:block;width:100%;float:left;cursor:-webkit-zoom-in;cursor:zoom-in;padding:5px}
 .main-post-text .imagescol .masonry .photoframe a.popup-image img{width:100%;height:auto;float:left}
 @media(min-width:768px){.main-post-text.half .textcol{width:50%}
 }@media(min-width:768px){.main-post-text.half .imagescol{width:50%}
