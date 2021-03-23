@@ -22,6 +22,7 @@ $registerTarget = ( isset($registerLink['target']) && $registerLink['target'] ) 
 $registration_status = get_field("registration_status",$post_id); 
 $status = ($registration_status) ? $registration_status : 'open';
 $blank_image = THEMEURI . "images/square.png";
+$status_custom_message = get_field("status_custom_message");
 ?>
 	
 <div id="primary" class="content-area-full content-default single-post <?php echo $has_hero;?> post-type-<?php echo $post_type;?>">
@@ -33,9 +34,14 @@ $blank_image = THEMEURI . "images/square.png";
 				<?php if ($registerButton && $registerLink) { ?>
 					<div class="stats open"><a href="<?php echo $registerLink ?>" target="<?php echo $registerTarget ?>" class="registerBtn"><?php echo $registerButton ?></a></div>
 				<?php } ?>
-			
 			<?php } else if($status=='closed') { ?>
 			<div class="stats closed">SOLD OUT</div>
+			<?php } else if($status=='custom') { ?>
+
+				<?php if ($status_custom_message) { ?>
+				<div class="stats closed"><?php echo $status_custom_message ?></div>
+				<?php } ?>
+			
 			<?php } ?>
 			<img src="<?php echo $heroImage['url'] ?>" alt="<?php echo $heroImage['title'] ?>" class="featured-image">
 		</div>
