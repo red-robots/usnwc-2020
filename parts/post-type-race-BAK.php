@@ -404,11 +404,7 @@ while ( have_posts() ) : the_post(); ?>
 
 	<?php 
 	/* FAQ */ 
-	//get_template_part("parts/content-faqs-race"); 
-	$customFAQTitle = get_field("faq_section_title");
-	include( locate_template('parts/content-faqs.php') ); 
-	/* FAQS JAVASCRIPT */ 
-	include( locate_template('inc/faqs-script.php') ); 
+	get_template_part("parts/content-faqs-race"); 
 	?>
 <?php endwhile; ?>
 
@@ -465,14 +461,14 @@ jQuery(document).ready(function($){
 	});
 
 	/* FAQS */
-	// $(".faqsItems .collapsible").on("click",function(){
-	// 	if( $(this).hasClass('active') ) {
-	// 		$(this).removeClass("active fadeIn");
-	// 	} else {
-	// 		$(".faqsItems .collapsible").removeClass("active fadeIn");
-	// 		$(this).addClass("active fadeIn");
-	// 	}
-	// });
+	$(".faqsItems .collapsible").on("click",function(){
+		if( $(this).hasClass('active') ) {
+			$(this).removeClass("active fadeIn");
+		} else {
+			$(".faqsItems .collapsible").removeClass("active fadeIn");
+			$(this).addClass("active fadeIn");
+		}
+	});
 
 	/* page anchors */
 	if( $('[data-section]').length > 0 ) {
