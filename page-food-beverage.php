@@ -84,7 +84,14 @@ get_header(); ?>
 
 
 												<?php if ($e_time) { ?>
-													<div class="mstime"><?php echo $e_time ?></div>
+													<?php if (strpos($e_time, '[get_hours') !== false) { ?>
+														<?php if ( do_shortcode($e_time) ) { ?>
+															<div class="mstime shcode"><?php echo do_shortcode($e_time); ?></div>
+														<?php } ?>
+													<?php } else { ?>			
+														<div class="mstime"><?php echo $e_time ?></div>
+													<?php } ?>
+
 												<?php } ?>
 											</div>
 										<?php } ?>
