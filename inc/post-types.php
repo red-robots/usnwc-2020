@@ -353,14 +353,14 @@ function build_taxonomies() {
       'query_var' => false,
       'show_admin_column'=>false
     ),
-    array(
-      'post_type' => array('jam-programs'),
-      'menu_name' => 'Programming',
-      'plural'    => 'Programming',
-      'single'    => 'Programming',
-      'taxonomy'  => 'riverjam-programming',
-      'rewrite'   => 'riverjam-programming'
-    ),
+    // array(
+    //   'post_type' => array('jam-programs'),
+    //   'menu_name' => 'Programming',
+    //   'plural'    => 'Programming',
+    //   'single'    => 'Programming',
+    //   'taxonomy'  => 'riverjam-programming',
+    //   'rewrite'   => 'riverjam-programming'
+    // ),
   );
 
   if($post_types) {

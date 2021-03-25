@@ -107,7 +107,23 @@ if($postHeroImage) {
 									<div class="text">
 										<?php echo $link_open; ?>
 											<?php if ($text1) { ?>
-											<div class="n t1"><?php echo $text1 ?></div>
+												<?php if (strpos($text1, 'get_hours') !== false) { 
+													$parts = explode('get_hours',$text1);
+												  $str1 = str_replace('[','',$parts[0]);
+												  $str1 = str_replace(']','',$str1);
+												  $str1 = preg_replace('/\s+/', ' ', $str1);
+												  $str2 = preg_replace('/\s+/', ' ', $parts[1]);
+												  $str2 = '[get_hours' . $str2;
+												?>
+													<div class="n t1">
+														<?php echo $str1 ?>
+														<?php if ( do_shortcode($str2) ) { ?>
+														<?php echo do_shortcode($str2); ?>
+														<?php } ?>
+													</div>
+												<?php } else { ?>
+													<div class="n t1"><?php echo $text1 ?></div>
+												<?php } ?>
 											<?php } ?>
 											<?php if ($text2) { ?>
 											<div class="d t2"><?php echo $text2 ?></div>

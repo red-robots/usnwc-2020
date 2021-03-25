@@ -11610,7 +11610,7 @@ body.search-no-results #main .no-results  {
 			line-height: 30px;
 			border: 1px solid #FFF;
 			position: relative;
-			background-color: transparent;
+			background-color: #FFF;
 			z-index: 10;
 			padding: 5px 45px 5px 10px;
 			color: #000;
@@ -11662,6 +11662,10 @@ body.search-no-results #main .no-results  {
 				font-size: 18px;
     			top: 8px;
 			}
+		}
+		#mce-success-response {
+			margin-top: 10px;
+			color: #FFF;
 		}
 	}
 	.foot-social-media {

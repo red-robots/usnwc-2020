@@ -142,15 +142,13 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 
 	<?php  
 	/* PROGRAMS */
-	// $args = array(
-	// 	'post_type'				=> 'jam-programs',
-	// 	'posts_per_page'	=> -1,
-	// 	'post_status'			=> 'publish'
-	// );
-	// $programs = new WP_Query($args);
-	//if( $programs->have_posts() ) { 
-	$programs = get_field("rj_programming","option");
-	if($programs) { ?>	
+	$args = array(
+		'post_type'				=> 'jam-programs',
+		'posts_per_page'	=> -1,
+		'post_status'			=> 'publish'
+	);
+	$programs = new WP_Query($args);
+	if( $programs->have_posts() ) { ?>	
 	<section id="riverjam-programs" data-section="Programs" class="section-content menu-sections">
 		<div class="wrapper">
 			<div class="shead-icon text-center">
@@ -159,47 +157,45 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 			</div>
 		</div>
 		<div class="columns-2 text-and-images">
-			<?php $i=1; foreach($programs as $p) {
-				$xid = $p->ID;
-				$slides = get_field("featured_images",$xid);
-				$boxClass = ( $slides ) ? 'half':'full'; 
-				$colClass = ($i % 2) ? ' odd':' even';
-				$excerpt = ( get_the_content($xid) ) ? shortenText( strip_tags(get_the_content($xid)),300,' ','...' ) : '';
-				$title = $p->post_title;
-				$pagelink = get_permalink($xid);
-				$helper = THEMEURI . 'images/rectangle-narrow.png';
-				?>
-				<div id="section<?php echo $i?>" class="mscol <?php echo $boxClass.$colClass ?>">
-					<div class="textcol">
-						<div class="inside">
-							<div class="info">
-								<h3 class="mstitle"><?php echo $title; ?></h3>
-								<?php if ( $excerpt ) { ?>
-								<div class="textwrap"><?php echo $excerpt; ?></div>
-								<div class="buttondiv">
-									<a href="#" data-url="<?php echo $pagelink; ?>" data-action="ajaxGetPageData" data-id="<?php echo $xid ?>" class="btn-sm xs popdata"><span>See More</span></a>
-								</div>
-								<?php } ?>
+			<?php $i=1;  while ( $programs->have_posts() ) : $programs->the_post();
+			$slides = get_field("featured_images");
+			$boxClass = ( $slides ) ? 'half':'full'; 
+			$colClass = ($i % 2) ? ' odd':' even';
+			$xid = get_the_ID();
+			$excerpt = ( get_the_content() ) ? shortenText( strip_tags(get_the_content()),300,' ','...' ) : '';
+			?>
+			<div id="section<?php echo $i?>" class="mscol <?php echo $boxClass.$colClass ?>">
+				<div class="textcol">
+					<div class="inside">
+						<div class="info">
+							<h3 class="mstitle"><?php the_title(); ?></h3>
+							<?php if ( $excerpt ) { ?>
+							<div class="textwrap"><?php echo $excerpt; ?></div>
+							<div class="buttondiv">
+								<a href="#" data-url="<?php echo get_permalink(); ?>" data-action="ajaxGetPageData" data-id="<?php echo $xid ?>" class="btn-sm xs popdata"><span>See More</span></a>
 							</div>
+							<?php } ?>
 						</div>
 					</div>
-
-					<?php if ( $slides ) { ?>
-					<div class="gallerycol">
-						<div class="flexslider">
-							<ul class="slides">
-								<?php foreach ($slides as $s) { ?>
-									<li class="slide-item" style="background-image:url('<?php echo $s['url']?>')">
-										<img src="<?php echo $helper ?>" alt="" aria-hidden="true" class="placeholder">
-										<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>" class="actual-image" />
-									</li>
-								<?php } ?>
-							</ul>
-						</div>
-					</div>	
-					<?php } ?>
 				</div>
-			<?php  $i++; } ?>
+
+				<?php if ( $slides ) { ?>
+				<div class="gallerycol">
+					<div class="flexslider">
+						<ul class="slides">
+							<?php $helper = THEMEURI . 'images/rectangle-narrow.png'; ?>
+							<?php foreach ($slides as $s) { ?>
+								<li class="slide-item" style="background-image:url('<?php echo $s['url']?>')">
+									<img src="<?php echo $helper ?>" alt="" aria-hidden="true" class="placeholder">
+									<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>" class="actual-image" />
+								</li>
+							<?php } ?>
+						</ul>
+					</div>
+				</div>	
+				<?php } ?>
+			</div>
+			<?php  $i++; endwhile; wp_reset_postdata(); ?>
 		</div>
 	</section>
 	<?php } ?>

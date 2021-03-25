@@ -403,7 +403,42 @@ jQuery(document).ready(function($){
         parent.find('[data-name="child_menu_pagelink_target"] .acf-input').appendTo( parent.find('[data-name="child_menu_pagelink"] .acf-input-wrap') );
     });
 
-    /* ACF Flexible Content For Other Activities */
+    /* ACF Flexible Content For River Jam Bands */
+    if( $('[data-layout="schedule"]').length > 0 ) {
+        $('[data-layout="schedule"]').each(function(){
+            var str = $(this).find('[data-name="day"] .acf-input select').val();
+            var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
+            $(this).find(".acf-fc-layout-handle").attr("data-title",title);
+        });
+    }
+
+    // River Jam Options - Rename Link
+    if( $("#adminmenu li#menu-posts-music").length>0 ) {
+        $("#adminmenu li#menu-posts-music .wp-submenu a").each(function(){
+            var txt = $(this).text();
+            if(txt=='River Jam Options') {
+                $(this).text('Generic Options');
+            }
+            if(txt=='River Jam Programming') {
+                var tabURL = '<?php echo admin_url('edit.php?post_type=jam-programs') ?>';
+                $(this).attr('href',tabURL);
+                $(this).text('Programming');
+                <?php if( isset($_GET['post_type']) && $_GET['post_type']=='jam-programs') { ?>
+                $(this).parent().addClass('current');
+                $(this).addClass('current');
+                <?php } ?>
+            }
+        });
+
+        <?php if( isset($_GET['post_type']) && $_GET['post_type']=='jam-programs') { ?>
+            $("#adminmenu li#menu-posts-music").removeClass("menu-top").addClass("wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-music");
+            $("#adminmenu li#menu-posts-music a.wp-has-submenu").addClass('wp-has-current-submenu wp-menu-open');
+        <?php } ?>
+    }
+
+
+
+    /* ACF Flexible Content For River Jam Schedules */
     if( $('[data-name="other_activities"]').length > 0 ) {
         $('[data-layout="other_activity"]').each(function(){
             var str = $(this).find('[data-name="title"] .acf-input-wrap input').val();
@@ -768,7 +803,19 @@ if( function_exists('acf_add_options_page') ) {
     acf_add_options_sub_page(array(
         'page_title'     => 'Other Activities',
         'menu_title'    => 'Other Activities',
-        'parent_slug'    => 'edit.php?post_type=activity',
+        'parent_slug'    => 'edit.php?post_type=activity'
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'    => 'River Jam Programming',
+        'menu_title'    => 'River Jam Programming',
+        'parent_slug'   => 'edit.php?post_type=music'
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'    => 'River Jam Options',
+        'menu_title'    => 'River Jam Options',
+        'parent_slug'   => 'edit.php?post_type=music'
     ));
 }
 
@@ -1974,12 +2021,29 @@ function get_upcoming_bands() {
     //$today = '2021-03-25';
     $today_unix = strtotime($today);
     $daysOfWeek = array('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday');
-    $days_selection = get_field("upcoming_music_events_days","option");
+    //$days_selection = get_field("upcoming_music_events_days","option");
+    $result = array();
+    $days_selection = array();
+    $daysList = get_field("rj_schedules","option");
+    if($daysList) {
+        foreach($daysList as $e) {
+            $day = $e['day'];
+            if($day) {
+                $days_selection[] = $day;
+            }
+        }
+    }
+
     $today_day = date('l'); /* Displays the full name of a day */
     $queryDays = array();
     $dayArrs = array();
     $selectedDays = array();
-    $result = array();
+
+    $currentYear = date('Y');
+    $currentMonth = date('n');
+    $calendar = array();
+    $query_dates = array();
+
     if($days_selection) {
         foreach($days_selection as $d) {
             foreach($daysOfWeek as $k=>$v) {
@@ -1990,10 +2054,7 @@ function get_upcoming_bands() {
         }
     }
 
-    $currentYear = date('Y');
-    $currentMonth = date('n');
-    $calendar = array();
-    $query_dates = array();
+    
     if( $selectedDays ) {
         $countSelectedDays = count($selectedDays);
         $weekly = count($daysOfWeek);

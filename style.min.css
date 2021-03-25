@@ -4062,12 +4062,13 @@ body.page-template-page-food-beverage .menu-sections{margin-top:0}
 .site-footer .subscribeForm{width:100%;position:relative;float:left}
 .site-footer .subscribeForm label{display:block;position:absolute;top:11px;left:11px;z-index:5;color:#a0a0a0}
 .site-footer .subscribeForm .form-group{width:100%;float:left;position:relative;background:#FFF}
-.site-footer .subscribeForm input[type="text"],.site-footer .subscribeForm input[type="email"]{width:100%;height:35px;line-height:30px;border:1px solid #FFF;position:relative;background-color:transparent;z-index:10;padding:5px 45px 5px 10px;color:#000;font-size:14px;font-weight:500}
+.site-footer .subscribeForm input[type="text"],.site-footer .subscribeForm input[type="email"]{width:100%;height:35px;line-height:30px;border:1px solid #FFF;position:relative;background-color:#FFF;z-index:10;padding:5px 45px 5px 10px;color:#000;font-size:14px;font-weight:500}
 .site-footer .subscribeForm input[type="text"]:focus,.site-footer .subscribeForm input[type="email"]:focus{background-color:#FFF;border-color:#FFF;outline:0;box-shadow:0 0 0 .2rem #ba0d30}
 .site-footer .subscribeForm .input-focus input[type="text"],.site-footer .subscribeForm .input-focus input[type="email"]{background-color:#FFF}
 .site-footer .subscribeForm input[type="submit"],.site-footer .subscribeForm button{position:absolute;top:0;right:0;width:40px;height:100%;border:0;box-shadow:none;border-radius:0;outline:0;-webkit-appearance:none;background:transparent;text-indent:-999em;overflow:hidden;background-color:transparent}
 .site-footer .subscribeForm #subscribeBtnIcon{display:block;width:40px;height:100%;position:absolute;top:0;right:0;z-index:15;cursor:pointer;text-align:center}
 .site-footer .subscribeForm #subscribeBtnIcon .subicon{position:relative;color:#ba0d30;font-size:18px;top:8px}
+.site-footer .subscribeForm #mce-success-response{margin-top:10px;color:#FFF}
 .site-footer .foot-social-media{width:100%;float:left;position:relative;margin-top:15px}
 @media(min-width:768px){.site-footer .foot-social-media{left:-2px}
 }.site-footer .foot-social-media a{font-size:26px;line-height:1;color:#FFF;margin:2px 3px}

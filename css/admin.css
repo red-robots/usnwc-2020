@@ -25,6 +25,8 @@ div.acf-field-repeater[data-name="today"] table tr.acf-row td {
 .acf-flexible-content div[data-layout="race_type"] {
     margin-top: 10px!important;
 }
+
+.acf-field-flexible-content div[data-layout="schedule"] > .acf-fc-layout-handle,
 .acf-field-flexible-content div[data-layout="section"] > .acf-fc-layout-handle,
 div[data-layout="race_type"] > .acf-fc-layout-handle,
 #acf-group_5f1912cfb5ecf [data-layout="menu_group"] > .acf-fc-layout-handle {
@@ -121,6 +123,7 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
   color: transparent!important;
 }
 
+.acf-field-flexible-content div[data-layout="schedule"] > .acf-fc-layout-handle:after,
 .acf-field-flexible-content [data-layout="section"] .acf-fc-layout-handle:after,
 .acf-field-flexible-content [data-layout="festivalActivities"] .acf-fc-layout-handle:after,
 .acf-flexible-content [data-layout="section2"] .acf-fc-layout-handle:after,
@@ -317,4 +320,8 @@ div.acf-field[data-name="custom_icon"] .iconOptBtn {
   font-size: 11px;
   color: #2d9c45;
 }
+.acf-flexible-content .layout .acf-fc-layout-order {
+  background-color: #FFF;
+}
 
+#adminmenu #menu-posts-jam-programs {display:none!important;}
