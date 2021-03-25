@@ -2822,7 +2822,6 @@ body.subpage.single {
 				text-align: center;
 			}
 			li {
-				padding-left: 28px;
 				position: relative;
 				font-family: $font_secondary;
 				font-size: 16px;
@@ -2830,7 +2829,13 @@ body.subpage.single {
 				text-transform: uppercase;
 				color: $gray_dark;
 				margin-top: 30px;
-				display: inline-block;
+				display: block;
+				width: 100%;
+				@include tab {
+					padding-left: 28px;
+					display: inline-block;
+					width: auto;
+				}
 			}
 			li:first-child {
 				margin-top: 0;
