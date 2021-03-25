@@ -1464,9 +1464,12 @@ h2.stitle,
 			top: 0;
 			left: 0;
 			z-index: 10;
-			background-size: contain;
+			background-size: cover;
 			background-position: top center;
 			background-repeat: no-repeat;
+			&.mobile {
+				display: none;
+			}
 		}
 		img.feat-img {
 			width: 100%;
@@ -1597,9 +1600,13 @@ h2.stitle,
 				width: 100%;
 				height: auto;
 				float: left;
+				&.desktop {
+					display: none;
+				}
 			}
 			.imagediv img {
-
+				visibility: visible;
+				display: block!important;
 			}
 			.boxlink, .details {
 				display: block;
@@ -1640,8 +1647,12 @@ h2.stitle,
 				height: auto;
 				float: left;
 			}
-			.imagediv img {
-
+			.imagediv.mobile {
+				display: block!important;
+				img {
+					visibility: visible;
+					display: block!important;
+				}
 			}
 			.boxlink, .details {
 				display: block;

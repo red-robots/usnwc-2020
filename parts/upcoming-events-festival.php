@@ -40,6 +40,7 @@ $blank_image = THEMEURI . "images/square.png";
 // );
 // $posts = new WP_Query($args);
 $rectangle = get_bloginfo('template_url') . '/images/rectangle-narrow.png';
+$square = get_bloginfo('template_url') . '/images/square.png';
 $events = array('festival','music','race');
 $results = getUpcomingEvents($events,9);
 if ( $results ) {  
@@ -53,6 +54,7 @@ $dateNow = date('Y-m-d');
 			$title = get_the_title($pid);
 			$pagelink = get_permalink($pid);
 			$thumbImage = get_field("full_image",$pid);
+			$mobileBannerImg = get_field("mobile-banner",$pid);
 			$start = get_field("start_date",$pid);
 			$end = get_field("end_date",$pid);
 			$event_date = get_event_date_range($start,$end);
@@ -60,15 +62,34 @@ $dateNow = date('Y-m-d');
 			<div class="postbox view-full <?php echo ($thumbImage) ? 'has-image':'no-image' ?>">
 				<a href="<?php echo $pagelink ?>" class="inside boxlink wave-effect">
 					<?php if ($thumbImage) { ?>
-						<div class="imagediv" style="background-image:url('<?php echo $thumbImage['url'] ?>')">
+						<div class="imagediv desktop" style="background-image:url('<?php echo $thumbImage['url'] ?>')">
 							<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder">
 						</div>
-						<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img actual-image" style="display:none;">
+						<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img actual-image desktop" style="display:none;">
 					<?php } else { ?>
-						<div class="imagediv noImage">
+						<div class="imagediv noImage desktop">
 							<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder no-image">
 						</div>
 					<?php } ?>
+
+					<?php if ($mobileBannerImg) { ?>
+						<div class="imagediv mobile">
+							<img src="<?php echo $mobileBannerImg['url'] ?>" alt="<?php echo $mobileBannerImg['title'] ?>" class="feat-img mobile-view">
+						</div>
+					<?php } else { ?>
+
+						<?php if ($thumbImage) { ?>
+						<div class="imagediv mobile">
+							<img src="<?php echo $thumbImage['url'] ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img mobile-view">
+						</div>
+						<?php } else { ?>
+							<div class="imagediv noImage mobile">
+								<img src="<?php echo $square ?>" alt="" class="feat-img placeholder no-image">
+							</div>
+						<?php } ?>
+
+					<?php } ?>
+
 					<div class="details">
 						<div class="info">
 							<div class="event-name"><?php echo $title ?></div>

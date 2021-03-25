@@ -2185,7 +2185,8 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 .featured-events-section .postbox{width:100%;padding:5px}
 @media(min-width:768px){.featured-events-section .postbox{width:33.33%}
 }.featured-events-section .postbox .inside{display:block;width:100%;height:100%;float:left;position:relative;text-decoration:none;color:#FFF}
-.featured-events-section .postbox .imagediv{display:block;width:100%;height:100%;position:relative;top:0;left:0;z-index:10;background-size:contain;background-position:top center;background-repeat:no-repeat}
+.featured-events-section .postbox .imagediv{display:block;width:100%;height:100%;position:relative;top:0;left:0;z-index:10;background-size:cover;background-position:top center;background-repeat:no-repeat}
+.featured-events-section .postbox .imagediv.mobile{display:none}
 .featured-events-section .postbox img.feat-img{width:100%;height:auto;float:left}
 .featured-events-section .postbox.no-image .inside{background-color:#d8d8d8}
 .featured-events-section .postbox .details{width:100%;height:100%;position:absolute;top:0;left:0;z-index:60;overflow:hidden;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-align:center}
@@ -2203,6 +2204,8 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 .featured-events-section .postbox{width:50%;float:left}
 .featured-events-section .postbox .wave-effect .wave{display:none !important}
 .featured-events-section .postbox .imagediv{width:100%;height:auto;float:left}
+.featured-events-section .postbox .imagediv.desktop{display:none}
+.featured-events-section .postbox .imagediv img{visibility:visible;display:block !important}
 .featured-events-section .postbox .boxlink,.featured-events-section .postbox .details{display:block;width:100%;float:left;position:relative}
 .featured-events-section .postbox .details{overflow:visible;background-color:#f2f2f2;color:#191919}
 .featured-events-section .postbox .details .info{opacity:1;padding:15px;-webkit-transform:none !important;-ms-transform:none !important;transform:none !important}
@@ -2212,6 +2215,8 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 .featured-events-section .postbox{width:50%;float:left}
 .featured-events-section .postbox .wave-effect .wave{display:none !important}
 .featured-events-section .postbox .imagediv{width:100%;height:auto;float:left}
+.featured-events-section .postbox .imagediv.mobile{display:block !important}
+.featured-events-section .postbox .imagediv.mobile img{visibility:visible;display:block !important}
 .featured-events-section .postbox .boxlink,.featured-events-section .postbox .details{display:block;width:100%;float:left;position:relative}
 .featured-events-section .postbox .details{overflow:visible;background-color:#f2f2f2;color:#191919}
 .featured-events-section .postbox .details .info{opacity:1;padding:15px;-webkit-transform:none !important;-ms-transform:none !important;transform:none !important}
