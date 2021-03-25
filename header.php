@@ -101,33 +101,36 @@ if($postHeroImage) {
 										$link_open = '<a href="'.$link['url'].'" target="'.$target.'" class="tdlink">';
 										$link_close = '</a>';
 									}
+									$hours = ( isset($t['hours_shortcode']) && $t['hours_shortcode'] ) ? $t['hours_shortcode'] : '';
+									if($hours) {
+										$hours = trim( preg_replace('/\s+/', ' ', $hours) );
+									}
 								?>
 								<li class="info <?php echo ($t['icon_class']) ? 'hasIcon':'noIcon'; ?>">
 									<div class="icon"><i class="<?php echo $icon_class ?>"></i></div>
 									<div class="text">
 										<?php echo $link_open; ?>
 											<?php if ($text1) { ?>
-												<?php if (strpos($text1, 'get_hours') !== false) { 
-													$parts = explode('get_hours',$text1);
-												  $str1 = str_replace('[','',$parts[0]);
-												  $str1 = str_replace(']','',$str1);
-												  $str1 = preg_replace('/\s+/', ' ', $str1);
-												  $str2 = preg_replace('/\s+/', ' ', $parts[1]);
-												  $str2 = '[get_hours' . $str2;
-												?>
+
+												<?php if ($hours) { ?>
 													<div class="n t1">
-														<?php echo $str1 ?>
-														<?php if ( do_shortcode($str2) ) { ?>
-														<?php echo do_shortcode($str2); ?>
+														<div class="tName"><?php echo $text1 ?></div>
+														<?php if(do_shortcode($hours)) { ?>
+														<div class="hours-scode"><?php echo do_shortcode($hours); ?></div>
 														<?php } ?>
 													</div>
 												<?php } else { ?>
-													<div class="n t1"><?php echo $text1 ?></div>
+													<div class="n t1">
+														<div class="tName"><?php echo $text1 ?></div>
+													</div>
 												<?php } ?>
+
 											<?php } ?>
+
 											<?php if ($text2) { ?>
 											<div class="d t2"><?php echo $text2 ?></div>
 											<?php } ?>
+											
 										<?php echo $link_close; ?>
 									</div>
 								</li>
