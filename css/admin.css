@@ -325,3 +325,6 @@ div.acf-field[data-name="custom_icon"] .iconOptBtn {
 }
 
 #adminmenu #menu-posts-jam-programs {display:none!important;}
+#adminmenu #menu-posts-music ul.wp-submenu {
+  border-left: none!important;
+}
