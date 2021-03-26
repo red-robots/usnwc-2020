@@ -47,6 +47,13 @@ a {
 		color: tint($red,50%);
 	}
 }
+.sr-only {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	text-indent: -99em;
+}
 .cf:before, .cf:after {
     content: " "; 
     display: table; 
@@ -6270,6 +6277,19 @@ body.page-template-page-stories {
 		.video-frame {
 			padding: 0 0;
 			background: #000;
+		}
+		.videoCustomImage {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 50;
+			cursor: pointer;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
 		}
 	}
 }

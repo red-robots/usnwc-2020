@@ -21,7 +21,7 @@ if($heroImage) {
 }
 
 //$customPostTypes = array('activity','festival');
-get_template_part("parts/subpage-banner");
+//get_template_part("parts/subpage-banner");
 $rectangle_placeholder = get_bloginfo("template_url") . '/images/video-helper.png';
 $post_id = get_the_ID(); ?>
 	
@@ -33,6 +33,7 @@ $post_id = get_the_ID(); ?>
 	$has_feat_image = ($featImg) ? 'has-banner':'no-banner';
 	$video = get_field("video");
 	$videoId = '';
+	$vimeo_video_id = '';
 	if($video) {
 		if (strpos($video, '/youtu.be/') !== false) {
 		  $parts = explode("/",$video);
@@ -42,6 +43,9 @@ $post_id = get_the_ID(); ?>
 		  $parts = parse_url($video);
 		  parse_str($parts['query'], $query);
 		  $videoId = (isset($query['v']) && $query['v']) ? $query['v'] : '';
+		}
+		else if (strpos($video, 'vimeo.com') !== false) {
+		  $vimeo_video_id = basename($video);
 		}
 	}
 	?>
@@ -57,6 +61,23 @@ $post_id = get_the_ID(); ?>
 				</div>
 			</div>	
 		</div>
+		<?php } else if($vimeo_video_id) { ?>
+
+			<div class="post-hero-image video-wrap">
+				<div class="video-frame">
+					<div class="video">
+						<iframe id="vimeoVideoFrame" src="https://player.vimeo.com/video/<?php echo $vimeo_video_id?>?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						<script src="https://player.vimeo.com/api/player.js"></script>
+						<?php if ($featImg) {  $hero_alt = get_the_title($thumbId);  ?>
+						<a id="videoCustomImage" style="background-image:url('<?php echo $featImg[0] ?>')" class="videoCustomImage"><span class="sr-only">play video</span></a>
+						<img src="<?php echo $featImg[0] ?>" alt="" aria-hidden="true" class="helper" style="visibility:hidden;">
+						<?php } else { ?>
+						<img src="<?php echo $rectangle_placeholder ?>" alt="" aria-hidden="true" class="helper">
+						<?php } ?>
+					</div>
+				</div>
+			</div>
+
 		<?php } else { ?>
 
 			<?php if ($featImg) { 
@@ -219,6 +240,13 @@ jQuery(document).ready(function($){
 	  $(this).next(".photo-credit").addClass("show");
 	  }, function(){
 	  $(this).next(".photo-credit").removeClass("show");
+	});
+
+	$("#videoCustomImage").on("click",function(){
+		var src = $("#vimeoVideoFrame").attr("src");
+		var newURL = src + '&autoplay=1';
+		$("#vimeoVideoFrame").attr("src",newURL);
+		$(this).hide();
 	});
 
 });
