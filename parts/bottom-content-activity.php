@@ -38,7 +38,7 @@ $stories_edit_link = admin_url() . 'admin.php?page=acf-options-global-options&fs
 			$r_content = $rel->post_content;
 			$r_exceprt = ($r_content) ? shortenText( strip_tags($r_content), 250, " ", "...") : '';
 			$r_thumb_id = get_post_thumbnail_id($r_post_id);
-			$r_img = wp_get_attachment_image_src($r_thumb_id,'large');
+			$r_img = wp_get_attachment_image_src($r_thumb_id,'full');
  			$r_term_id = $rel->term_id;
  			$r_taxonomy = $rel->taxonomy;
  			$r_pagelink = get_permalink($r_post_id);
