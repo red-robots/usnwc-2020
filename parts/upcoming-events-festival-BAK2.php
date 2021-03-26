@@ -61,21 +61,29 @@ $dateNow = date('Y-m-d');
 			?>
 			<div class="postbox view-full <?php echo ($thumbImage) ? 'has-image':'no-image' ?>">
 				<a href="<?php echo $pagelink ?>" class="inside boxlink wave-effect">
-					
-					<?php if ($mobileBannerImg) { ?>
+					<?php if ($thumbImage) { ?>
+						<div class="imagediv desktop" style="background-image:url('<?php echo $thumbImage['url'] ?>')">
+							<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder">
+						</div>
+						<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img actual-image desktop" style="display:none;">
+					<?php } else { ?>
+						<div class="imagediv noImage desktop">
+							<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder no-image">
+						</div>
+					<?php } ?>
 
-						<div class="imagediv">
+					<?php if ($mobileBannerImg) { ?>
+						<div class="imagediv mobile">
 							<img src="<?php echo $mobileBannerImg['url'] ?>" alt="<?php echo $mobileBannerImg['title'] ?>" class="feat-img mobile-view">
 						</div>
-						
 					<?php } else { ?>
 
 						<?php if ($thumbImage) { ?>
-						<div class="imagediv">
+						<div class="imagediv mobile">
 							<img src="<?php echo $thumbImage['url'] ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img mobile-view">
 						</div>
 						<?php } else { ?>
-							<div class="imagediv noImage">
+							<div class="imagediv noImage mobile">
 								<img src="<?php echo $square ?>" alt="" class="feat-img placeholder no-image">
 							</div>
 						<?php } ?>

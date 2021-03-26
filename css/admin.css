@@ -328,3 +328,12 @@ div.acf-field[data-name="custom_icon"] .iconOptBtn {
 #adminmenu #menu-posts-music ul.wp-submenu {
   border-left: none!important;
 }
+.acf-field-checkbox[data-name="registrationLinkTarget"] .acf-label {
+  display: none!important;
+}
+.acf-field-checkbox[data-name="registrationLinkTarget"] {
+  position: relative;
+  top: -29px;
+  border-top: none;
+} 
+

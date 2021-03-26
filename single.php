@@ -21,7 +21,7 @@ if($heroImage) {
 }
 
 //$customPostTypes = array('activity','festival');
-//get_template_part("parts/subpage-banner");
+get_template_part("parts/subpage-banner");
 $rectangle_placeholder = get_bloginfo("template_url") . '/images/video-helper.png';
 $post_id = get_the_ID(); ?>
 	

@@ -3062,6 +3062,7 @@ to{-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotat
 #primary.single-post .post-hero-image .videoCustomImage{display:block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:50;cursor:pointer;background-size:cover;background-position:center;background-repeat:no-repeat}
 .post-hero-image{width:100%;float:left;position:relative;z-index:150}
 .post-hero-image img.featured-image{width:100%;height:auto;float:left}
+.hero-wrapper{position:relative;width:100%;float:left}
 .main-post-text{width:100%;float:left;background:#f2f2f2;padding-top:50px;padding-bottom:50px}
 @media(min-width:820px){.main-post-text{padding-top:100px;padding-bottom:100px}
 }.main-post-text .textcol,.main-post-text .imagescol{width:100%;float:left}
@@ -3106,6 +3107,13 @@ to{-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotat
 .content-area-full.post-type-dining .registerBtn:after{content:"";display:block;width:0;height:0;border-left:28px solid #ba0d30;border-top:26px solid transparent;border-bottom:26px solid transparent;position:absolute;top:0;right:-28px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .content-area-full.post-type-dining .registerBtn:hover{background:#000}
 .content-area-full.post-type-dining .registerBtn:hover:after{border-left-color:#000}
+.hero-register-button .stats{width:100%;position:absolute;top:85px;left:0;z-index:10;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1;letter-spacing:1px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.hero-register-button .stats.closed{text-align:center;padding:11px 20px 10px;background:rgba(186,13,48,0.9)}
+.hero-register-button .stats.open{text-align:left}
+.hero-register-button .registerBtn{display:inline-block;text-decoration:none;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:50px;background:#ba0d30;height:52px;padding:0 35px;position:relative}
+.hero-register-button .registerBtn:after{content:"";display:block;width:0;height:0;border-left:28px solid #ba0d30;border-top:26px solid transparent;border-bottom:26px solid transparent;position:absolute;top:0;right:-28px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.hero-register-button .registerBtn:hover{background:#000}
+.hero-register-button .registerBtn:hover:after{border-left-color:#000}
 body.scrolled.single-dining .post-hero-image .stats{position:fixed;z-index:50}
 body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:135px}
 @media(min-width:820px){body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:120px}
