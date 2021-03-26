@@ -223,4 +223,5 @@ $status_custom_message = get_field("status_custom_message");
 		</main>
 	</div>
 <?php
+include( locate_template('inc/pagetabs-script.php') ); 
 get_footer();
