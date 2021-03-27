@@ -264,6 +264,8 @@ while ( have_posts() ) : the_post();
 					$res_text =  (isset($reservation['text']) && $reservation['text']) ? $reservation['text']:'';
 					$res_button =  ( isset($reservation['button']) && $reservation['button'] ) ? $reservation['button']:'';
 					$res_target = ( isset($res_button['target']) && $res_button['target'] ) ? ' target="'.$res_button['target'].'"':'';
+					$res_link = ( isset($res_button['url']) && $res_button['url'] ) ? $res_button['url']:'';
+					$res_buttonText = ( isset($res_button['title']) && $res_button['title'] ) ? $res_button['title']:'';
 					?>
 					<div class="inner graybox reservationDiv">
 						<div class="wrap">
@@ -278,10 +280,10 @@ while ( have_posts() ) : the_post();
 										<?php if ($res_text) { ?>
 											<div class="text"><?php echo $res_text ?></div>
 										<?php } ?>
-										<?php if ($res_button) { ?>
+										<?php if ($res_link && $res_buttonText) { ?>
 											<div class="button">
-												<a href="<?php echo $res_button['link'] ?>" class="btn-border-white"<?php echo $res_target ?>>
-													<span><?php echo $res_button['title'] ?></span>
+												<a href="<?php echo $res_link ?>" class="btn-border-white"<?php echo $res_target ?>>
+													<span><?php echo $res_buttonText ?></span>
 												</a>
 											</div>
 										<?php } ?>
