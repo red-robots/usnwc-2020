@@ -8,17 +8,28 @@
  */
 
 get_header(); ?>
-<main id="main" class="site-main wrapper page404" role="main">
-	<section class="error-404 not-found">
-		<header class="page-header">
-			<div class="small">404 Error</div>
-			<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'bellaworks' ); ?></h1>
-		</header><!-- .page-header -->
+<?php  
+$t1 = get_field("404_title_small","option");
+$red = get_field("404_title_red","option");
+$text = get_field("404_text","option");
+$bg = get_field("404_bg_image","option");
+$style = ($bg) ? ' style="background-image:url('.$bg['url'].')"':'';
+?>
+<main id="main" class="site-main page404 custom404" role="main"<?php echo $style ?>>
+	<div class="wrapper">
+		<section class="content404">
+			<?php if ($t1) { ?>
+			<p class="t1"><small><?php echo $t1 ?></small></p>	
+			<?php } ?>
+			<?php if ($red) { ?>
+			<h2 class="t2"><span><?php echo $red ?></span></h2>	
+			<?php } ?>
 
-		<div class="entry-content">
-			<?php get_search_form(); ?>
-		</div>
-	</section>
+			<?php if ($text) { ?>
+			<div class="text"><?php echo $text ?></div>
+			<?php } ?>
+		</section>
+	</div>
 </main>
 <?php
 get_footer();
