@@ -337,7 +337,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 				<div class="wrapper titlediv">
 					<div class="shead-icon text-center">
 						<div class="icon"><span class="ci-task"></span></div>
-						<h2 class="stitle">Activities</h2>
+						<h2 class="stitle">Programming</h2>
 					</div>
 				</div>
 
