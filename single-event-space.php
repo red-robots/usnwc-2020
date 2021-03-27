@@ -32,7 +32,7 @@ get_header(); ?>
 			$featuresFields['area_size'] = 'Size';
 			$featuresFields['capacity'] = 'Capacity';
 			$featuresFields['type'] = 'Setting';
-			$featuresFields['price'] = 'Price';
+			$featuresFields['price'] = 'Price (Per Tent)';
 			//$featuresFields['ceiling_height'] = 'Ceiling Height';
 			$feats = ( isset($features['value']) && $features['value'] ) ? $features['value'] : '';
 			?>
