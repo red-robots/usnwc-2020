@@ -34,7 +34,7 @@ $entries = new WP_Query($args); ?>
 
 						<?php if ( do_shortcode('[facetwp facet="festival_status"]') ) { ?>
 						<div class="select-wrap align-middle event-status">
-							<label>Status</label>
+							<label>Filter By</label>
 							<?php echo do_shortcode('[facetwp facet="festival_status"]'); ?>
 						</div>
 						<?php } ?>

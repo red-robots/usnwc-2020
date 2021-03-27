@@ -40,9 +40,19 @@
 						<?php foreach ($footLinks as $e) { 
 							$c_title = $e['title'];
 							$c_links = $e['links'];
+							$link = (isset($e['foot_parent_link']['url']) && $e['foot_parent_link']['url']) ? $e['foot_parent_link']['url'] : '';
+							$linkTarget = (isset($e['foot_parent_link']['target']) && $e['foot_parent_link']['target']) ? $e['foot_parent_link']['target'] : '_self';
+							$link_open = '';
+							$link_close = '';
+							if($link) {
+								$link_open = '<a class="pagelink" href="'.$link.'" target="'.$linkTarget.'">';
+								$link_close = '</a>';
+							}
 						?>
 						<div class="footcol footlinks">
-							<div class="coltitle"><?php echo $c_title; ?></div>
+							<div class="coltitle">
+								<?php echo $link_open.$c_title.$link_close; ?>			
+							</div>
 							<?php if ($c_links) { ?>
 							<ul class="flinks">
 								<?php foreach ($c_links as $a) { 

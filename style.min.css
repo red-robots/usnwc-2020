@@ -4081,6 +4081,7 @@ body.page-template-page-food-beverage .menu-sections{margin-top:0}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}
 .site-footer .coltitle{color:#FFF;font-family:"Lato",sans-serif;font-size:15px;font-weight:300;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.site-footer .coltitle a{display:inline-block;text-decoration:none;color:#FFF}
 .site-footer .columnWrap .footcol{width:100%;float:left;margin-bottom:20px}
 @media(min-width:600px){.site-footer .columnWrap .footcol{width:50%}
 }@media(min-width:820px){.site-footer .columnWrap .footcol{width:25%;margin-bottom:0}

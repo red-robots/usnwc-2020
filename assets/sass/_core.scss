@@ -11706,11 +11706,19 @@ body.search-no-results #main .no-results  {
 	.coltitle {
 		color: #FFF;
 		font-family: $font_secondary;
-	    font-size: 15px;
-	    font-weight: 300;
-	    text-transform: uppercase;
-	    letter-spacing: 1px;
-	    margin-bottom: 20px;
+		font-size: 15px;
+		font-weight: 300;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-bottom: 20px;
+		a {
+			display: inline-block;
+			text-decoration: none;
+			color: #FFF;
+			&:hover {
+				opacity: 0.5;
+			}
+		}
 	}
 	.columnWrap {
 		.footcol {

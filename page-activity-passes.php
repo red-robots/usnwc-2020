@@ -87,7 +87,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 
 										<?php if ($buttonName && $buttonLink) { ?>
 										<div class="buttondiv">
-											<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $buttonName ?></span></a>
+											<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm xs"><span><?php echo $buttonName ?></span></a>
 										</div>
 										<?php } ?>
 									</div>
@@ -160,7 +160,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 													<span class="price"><?php echo $price ?></span>	
 													<?php } ?>
 													<?php if ($buy_btn && $buy_link) { ?>
-													<a href="<?php echo $buy_link ?>" target="<?php echo $buy_target ?>" class="btn-sm"><span><?php echo $buy_btn ?></span></a>
+													<a href="<?php echo $buy_link ?>" target="<?php echo $buy_target ?>" class="btn-sm xs"><span><?php echo $buy_btn ?></span></a>
 													<?php } ?>
 												</span>
 											</span>
@@ -197,7 +197,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 													<span class="wrap">
 														<span class="price"><?php echo ($price) ? $price:''; ?></span>	
 														<?php if ($buy_btn && $buy_link) { ?>
-														<a href="<?php echo $buy_link ?>" target="_blank" class="btn-sm"><span><?php echo $buy_btn ?></span></a>
+														<a href="<?php echo $buy_link ?>" target="_blank" class="btn-sm xs"><span><?php echo $buy_btn ?></span></a>
 														<?php } ?>
 													</span>
 												</span>
@@ -276,7 +276,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 						<div class="titlediv">
 							<p class="name"><?php the_title(); ?></p>
 							<div class="buttondiv">
-								<a href="<?php echo get_permalink(); ?>" class="btn-sm"><span>See Details</span></a>
+								<a href="<?php echo get_permalink(); ?>" class="btn-sm xs"><span>See Details</span></a>
 							</div>
 						</div>
 					</div>
