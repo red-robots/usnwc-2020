@@ -40,6 +40,7 @@ if($banner) { ?>
 			$grades = ( isset($opt['grades']) ) ? $opt['grades'] : '';
 			$activity_options = ( isset($opt['activity_options']) ) ? $opt['activity_options'] : '';
 			$price = ( isset($opt['price']) ) ? $opt['price'] : '';
+			$opt = FALSE;
 			if($opt) { ?>
 			<section class="section-price-ages full">
 				<div class="flexwrap">
@@ -102,6 +103,9 @@ if($banner) { ?>
 						$p_features = $p['features']; 
 						$p_price = $p['price']; 
 						$haspic = ($p_image) ? 'haspic':'nopic';
+						$link = (isset($p['pagelink']['url']) && $p['pagelink']['url']) ? $p['pagelink']['url'] : '';
+						$linkName = (isset($p['pagelink']['title']) && $p['pagelink']['title']) ? $p['pagelink']['title'] : 'Inquire';
+						$linkTarget = (isset($p['pagelink']['target']) && $p['pagelink']['target']) ? $p['pagelink']['target'] : '_self';
 						?>
 					<div class="pblock <?php echo $haspic ?>">
 						<div class="inside">
@@ -143,6 +147,13 @@ if($banner) { ?>
 								<?php if ($p_price) { ?>
 									<div class="price"><span><?php echo $p_price ?></span></div>
 								<?php } ?>
+
+								<?php if ($link) { ?>
+								<div class="button">
+									<a href="<?php echo $link ?>" target="<?php echo $linkTarget ?>" class="btn-sm xs"><span><?php echo $linkName ?></span></a>
+								</div>
+								<?php } ?>
+								
 							</div>
 						</div>
 					</div>
@@ -255,11 +266,20 @@ if($banner) { ?>
 								$blockWidth = ( isset($e['blockWidth']) && $e['blockWidth'] ) ? $e['blockWidth'] : '';
 								$display_option = ($blockWidth) ? ' style="width:'.$blockWidth.'%"':'';
 								$blockClass = ($blockWidth) ? ' has-custom-width block'.$blockWidth:'';
+								$link = (isset($e['pagelink']['url']) && $e['pagelink']['url']) ? $e['pagelink']['url'] : '';
+								$linkTarget = (isset($e['pagelink']['target']) && $e['pagelink']['target']) ? $e['pagelink']['target'] : '_self';
+								$link_open = '';
+								$link_close = '';
+								if($link) {
+									$link_open = '<a class="pagelink" href="'.$link.'" target="'.$linkTarget.'">';
+									$link_close = '</a>';
+								}
 								?>
-								<div class="postbox animated fadeIn <?php echo ($thumbImage) ? 'has-image':'no-image' ?><?php echo $blockClass ?>"<?php echo $display_option ?>>
+								<div class="postbox passActivity animated fadeIn <?php echo ($link) ? 'haslink':'nolink'; ?> <?php echo ($thumbImage) ? 'has-image':'no-image' ?><?php echo $blockClass ?>"<?php echo $display_option ?>>
 									<div class="inside">
 										
 										<div class="photo">
+											<?php echo $link_open; ?>
 											<?php if ($thumbImage) { ?>
 												<span class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></span>
 												<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder">
@@ -267,29 +287,31 @@ if($banner) { ?>
 												<span class="imagediv"></span>
 												<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder">
 											<?php } ?>
+											<?php echo $link_close; ?>
 										</div>
 
-										<div class="details">
+										<div class="details js-blocks">
 											<div class="info">
-												<h3 class="event-name"><?php echo $title ?></h3>
-												<?php if ($description) { ?>
-												<div class="short-description">
-													<?php echo $description ?>
-												</div>
-												<?php } ?>
-
-												<?php if($grades2 || $hours) { ?>
-												<div class="options">
-													<?php if($grades2) { ?>
-													<span>Grades <?php echo $grades2 ?></span>
+												<?php echo $link_open; ?>
+													<h3 class="event-name"><?php echo $title ?></h3>
+													<?php if ($description) { ?>
+													<div class="short-description">
+														<?php echo $description ?>
+													</div>
 													<?php } ?>
 
-													<?php if($hours) { ?>
-													<span><?php echo $hours ?></span>
-													<?php } ?>
-												</div>
-												<?php } ?>
+													<?php if($grades2 || $hours) { ?>
+													<div class="options">
+														<?php if($grades2) { ?>
+														<span>Grades <?php echo $grades2 ?></span>
+														<?php } ?>
 
+														<?php if($hours) { ?>
+														<span><?php echo $hours ?></span>
+														<?php } ?>
+													</div>
+													<?php } ?>
+												<?php echo $link_close; ?>
 											</div>
 										</div>
 
@@ -325,14 +347,16 @@ if($banner) { ?>
 		$pass_notes = get_field("pass_notes");
 		if($form_content) { ?>
 		<section id="form-section" data-section="<?php echo $form_section_title ?>" class="section-content group-form-section full">
-			<?php if ($form_section_title) { ?>
-			<div class="shead-icon text-center">
-				<h2 class="stitle"><?php echo $form_section_title ?></h2>
-			</div>
-			<?php } ?>
+			<div id="inquiry-form">
+				<?php if ($form_section_title) { ?>
+				<div class="shead-icon text-center">
+					<h2 class="stitle"><?php echo $form_section_title ?></h2>
+				</div>
+				<?php } ?>
 
-			<div class="form-content">
-				<div class="wrapper narrow"><?php echo $form_content ?></div>
+				<div class="form-content">
+					<div class="wrapper narrow"><?php echo $form_content ?></div>
+				</div>
 			</div>
 		</section>
 		<?php } ?>

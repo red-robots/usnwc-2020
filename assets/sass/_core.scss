@@ -1314,7 +1314,8 @@ h2.stitle,
 	border: 1px solid #a2a2a2;
 	overflow: hidden;
 	position: relative;
-	font-size: 1.25em;
+	// font-size: 1.25em;
+	font-size: 20px;
 	font-weight: 600;
 	border-radius: 0px;
 	-webkit-appearance: none;
@@ -11132,6 +11133,9 @@ body.page-template-page-food-beverage {
 			}
 		}
 	}
+	div.button {
+		margin-top: 30px;
+	}
 }
 
 .modalFilmSeries.modal {
@@ -11614,6 +11618,69 @@ body.search-no-results #main .no-results  {
 	}
 }
 
+.postbox.passActivity {
+	.photo a.pagelink {
+		display: block;
+		width: 100%;
+		float: left;
+		overflow: hidden;
+		span {
+			transition: all ease .3s;
+		}
+	}
+	&.haslink {
+		.info {
+			width: 100%;
+			float: left;
+			transition: all ease .3s;
+		}
+		.details {
+			padding: 0 0;
+			.event-name {
+				margin: 0 0;
+			}
+			.short-description p:last-child {
+				margin-bottom: 0;
+			}
+			.info {
+				height: 100%;
+				@include flexgroup();
+				@include flexbox-justify(center);
+				@include flexbox-align-content(center);
+			}
+			a.pagelink {
+				display: block;
+				width: 100%;
+				padding: 30px 20px;
+				text-decoration: none;
+				color: #FFF;
+			}
+		}
+	}
+	&.nolink {
+		.details {
+			padding: 30px 20px;
+			@include flexgroup();
+			@include flexbox-justify(center);
+			@include flexbox-align-content(center);
+			.event-name {
+				margin-bottom: 0;
+			}
+			.short-description {
+				margin-top: 10px;
+			}
+		}
+	}
+
+	&.haslink:hover {
+		.details .info {
+			background: $red!important;
+		}
+		.photo .pagelink {
+			transform: scale(1.1);
+		}
+	}
+}
 
 /* FOOTER */
 .site-footer {
