@@ -1869,7 +1869,7 @@ function get_ages_from_camp($selectedAges=null) {
     global $wpdb;
     $ageList = array();
     $records = array();
-    $query = "SELECT p.*, m.meta_value AS ages FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m WHERE p.ID=m.post_id AND m.meta_key='ages' AND m.meta_value<>'' AND p.post_status='publish'";
+    $query = "SELECT p.*, m.meta_value AS ages FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m WHERE p.ID=m.post_id AND m.meta_key='ages' AND m.meta_value<>'' AND p.post_type='camp' AND p.post_status='publish'";
     $result = $wpdb->get_results($query);
     if($result) {
         foreach($result as $row) {
