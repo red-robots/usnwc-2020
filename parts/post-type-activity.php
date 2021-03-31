@@ -133,7 +133,7 @@ while ( have_posts() ) : the_post();
 								<div class="inside">
 									<div class="info">
 										<?php if($f_title) { ?>
-											<h3 class="mstitle">River’s Edge</h3>
+											<h3 class="mstitle"><?php echo $f_title ?></h3>
 										<?php } ?>
 										<?php if($f_text || ($buttonTitle && $buttonLink) ) { ?>
 											<div class="textwrap">
