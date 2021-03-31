@@ -249,6 +249,16 @@ jQuery(document).ready(function($){
 		$(this).hide();
 	});
 
+	if( $("#section-checkin").length>0 ) {
+		var nextEL = $("#section-checkin").next();
+		if( nextEL.length>0 ) {
+			var className = nextEL[0].className;
+			if(className=='explore-other-stuff') {
+				$("#section-checkin").css("margin-bottom","0");
+			}
+		}
+	}
+
 });
 </script>
 

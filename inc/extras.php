@@ -696,6 +696,17 @@ jQuery(document).ready(function($){
         }
     }
 
+    /* Flexible Content that has a 'title' field. Title appears on the collapse handle */
+    if( $('.acf-flexible-content .acf-field-text[data-name="title"]').length > 0 ) {
+        $('.acf-field-text[data-name="title"]').each(function(){
+            var parent = $(this).parents(".layout");
+            parent.addClass('show-title');
+            var str = $(this).find('.acf-input-wrap input').val();
+            var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
+            parent.find(".acf-fc-layout-handle").attr("data-title",title);
+        });
+    }
+
 });
 </script>
 <div id="customIconsContainer">

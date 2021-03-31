@@ -41,6 +41,8 @@ div[data-layout="race_type"] > .acf-fc-layout-handle .acf-fc-layout-order {
     color: #000!important;
     background: #FFF!important;
 }
+
+
 div[data-layout="race_type"]:before,
 #acf-group_5f1912cfb5ecf [data-layout="menu_group"]:before {
     content:attr(data-parenttext);
@@ -110,6 +112,7 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
     height:auto;   
 }
 
+.acf-flexible-content .layout.show-title > .acf-fc-layout-handle,
 .acf-field-flexible-content [data-layout="festivalActivities"] .acf-fc-layout-handle,
 .acf-flexible-content [data-layout="section2"] .acf-fc-layout-handle,
 [data-name="repeater_blocks"] [data-layout="section"] .acf-fc-layout-handle,
@@ -122,7 +125,10 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
   font-size: 0;
   color: transparent!important;
 }
-
+.acf-flexible-content .layout.show-title > .acf-fc-layout-handle {
+  background-color: #f1f1f1;
+}
+.acf-flexible-content .layout.show-title > .acf-fc-layout-handle:after,
 .acf-field-flexible-content div[data-layout="schedule"] > .acf-fc-layout-handle:after,
 .acf-field-flexible-content [data-layout="section"] .acf-fc-layout-handle:after,
 .acf-field-flexible-content [data-layout="festivalActivities"] .acf-fc-layout-handle:after,

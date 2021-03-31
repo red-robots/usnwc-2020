@@ -106,7 +106,7 @@ get_header(); ?>
 											}
 											if($button_name && $button_link) { ?>
 												<div class="buttondiv">
-													<a href="<?php echo $button_link ?>" target="_blank" class="btn-sm pdflink"><span><?php echo $button_name ?></span></a>
+													<a href="<?php echo $button_link ?>" target="_blank" class="btn-sm xs pdflink"><span><?php echo $button_name ?></span></a>
 												</div>
 											<?php } ?>
 										<?php } else if($linktype=='link' && $link_val) { 

@@ -28,7 +28,18 @@ $today = date('Y-m-d', strtotime(date('Y-m-d H:i:s'). '-1 days'));
 	
 // 	$endDate = date('Y-m-d', strtotime($today. '+'.$end.' days'));
 // }
+$section_title = 'Band Schedule';
+$section_id = sanitize_title($section_title);
 ?>
+
+<div id="<?php echo $section_id ?>" data-section="<?php echo $section_title ?>"  class="section-title-div">
+	<div class="wrapper">
+		<div class="shead-icon text-center">
+			<!-- <div class="icon"><span class="ci-calendar"></span></div> -->
+			<h2 class="stitle"><?php echo $section_title ?></h2>
+		</div>
+	</div>
+</div>
 
 <div class="filter-wrapper river-jam">
 	<div class="wrapper">
@@ -83,7 +94,7 @@ $range = array($startDate,$endDate);
 
 $entries = new WP_Query($args);
 if ( $entries->have_posts() ) { ?>
-<section id="upcoming-bands-by-date" data-section="Bands Schedule" class="section-content menu-sections">
+<section id="upcoming-bands-by-date" class="section-content menu-sections">
 	<div id="entries-result">
 		<div class="post-type-entries music">
 			<div id="data-container">

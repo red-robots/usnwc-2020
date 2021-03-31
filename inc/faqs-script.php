@@ -47,9 +47,12 @@ jQuery(document).ready(function ($) {
 	if( $('[data-section]').length > 0 ) {
 		var tabs = '';
 		$('[data-section]').each(function(){
-			var name = $(this).attr('data-section');
+			var name = $(this).attr('data-section').trim();
+			var str = name.replace(/\s/g,'');
 			var id = $(this).attr("id");
-			tabs += '<span class="mini-nav"><a href="#'+id+'">'+name+'</a></span>';
+			if(str) {
+				tabs += '<span class="mini-nav"><a href="#'+id+'">'+name+'</a></span>';
+			}
 		});
 
 		if( $("#pageTabs").length>0 ) {
