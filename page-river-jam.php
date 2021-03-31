@@ -164,7 +164,10 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 				$slides = get_field("featured_images",$xid);
 				$boxClass = ( $slides ) ? 'half':'full'; 
 				$colClass = ($i % 2) ? ' odd':' even';
-				$excerpt = ( get_the_content($xid) ) ? shortenText( strip_tags(get_the_content($xid)),300,' ','...' ) : '';
+				//$excerpt = ( get_the_content($xid) ) ? shortenText( strip_tags(get_the_content($xid)),300,' ','...' ) : '';
+				//$programText = ($p->post_content) ? shortenText( strip_tags($p->post_content),250,' ','...' ) : '';
+				$programText = ($p->post_content) ? strip_shortcodes($p->post_content) : '';
+				$programText = ($programText) ? shortenText( strip_tags($programText),280,' ','...' ) : '';
 				$title = $p->post_title;
 				$pagelink = get_permalink($xid);
 				$helper = THEMEURI . 'images/rectangle-narrow.png';
@@ -174,8 +177,8 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 						<div class="inside">
 							<div class="info">
 								<h3 class="mstitle"><?php echo $title; ?></h3>
-								<?php if ( $excerpt ) { ?>
-								<div class="textwrap"><?php echo $excerpt; ?></div>
+								<?php if ($programText) { ?>
+								<div class="textwrap"><?php echo $programText; ?></div>
 								<div class="buttondiv">
 									<a href="#" data-url="<?php echo $pagelink; ?>" data-action="ajaxGetPageData" data-id="<?php echo $xid ?>" class="btn-sm xs popdata"><span>See More</span></a>
 								</div>
