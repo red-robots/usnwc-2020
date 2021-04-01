@@ -43,7 +43,7 @@ div[data-layout="race_type"] > .acf-fc-layout-handle .acf-fc-layout-order {
 }
 
 
-div[data-layout="race_type"]:before,
+/*div[data-layout="race_type"]:before,
 #acf-group_5f1912cfb5ecf [data-layout="menu_group"]:before {
     content:attr(data-parenttext);
     display: block;
@@ -64,7 +64,8 @@ div[data-layout="race_type"]:before,
     font-weight: bold;
     z-index: 15;
     color: #61a963;
-}
+}*/
+
 #acf-group_5f1912cfb5ecf .acf-flexible-content .layout {
     margin-top: 10px;
 }

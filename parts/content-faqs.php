@@ -18,22 +18,35 @@
 
 				<div class="col faqs">
 
-					<?php if ($show_default_title) { ?>
-						<div class="titlediv">
-							<?php if ($faq_image) { ?>
-							<h2 class="sectionTitle">FAQ</h2>
-							<?php } else { ?>
-							<h2 class="sectionTitle text-center">FAQ</h2>
-							<?php } ?>
+					<?php if ( isset($useDefaultFAQIcon) && $useDefaultFAQIcon ) { ?>
+
+						<?php if ( isset($customFAQTitle) && $customFAQTitle ) { ?>
+						<div class="shead-icon text-center">
+							<div class="icon"><span class="ci-help"></span></div>
+							<h2 class="stitle"><?php echo $customFAQTitle ?></h2>
 						</div>
+						<?php } ?>
+						
 					<?php } else { ?>
 
-							<?php if ( isset($customFAQTitle) && $customFAQTitle ) { ?>
-							<div class="shead-icon text-center">
-								<div class="icon"><span class="ci-help"></span></div>
-								<h2 class="stitle"><?php echo $customFAQTitle ?></h2>
+						<?php if ($show_default_title) { ?>
+							<div class="titlediv">
+								<?php if ($faq_image) { ?>
+								<h2 class="sectionTitle">FAQ</h2>
+								<?php } else { ?>
+								<h2 class="sectionTitle text-center">FAQ</h2>
+								<?php } ?>
 							</div>
-							<?php } ?>
+						<?php } else { ?>
+
+								<?php if ( isset($customFAQTitle) && $customFAQTitle ) { ?>
+								<div class="shead-icon text-center">
+									<div class="icon"><span class="ci-help"></span></div>
+									<h2 class="stitle"><?php echo $customFAQTitle ?></h2>
+								</div>
+								<?php } ?>
+
+						<?php } ?>
 
 					<?php } ?>
 

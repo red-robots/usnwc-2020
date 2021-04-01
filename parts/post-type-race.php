@@ -34,10 +34,10 @@ while ( have_posts() ) : the_post(); ?>
 		<?php if ($register_section_title) { ?>
 		<div class="title-w-icon">
 			<div class="wrapper">
-				<?php if ($register_section_icon) { ?>
-					<div class="title-icon"><span style="background-image:url('<?php echo $register_section_icon['url']?>')"></span></div>
-				<?php } ?>
-					<h2><?php echo $register_section_title ?></h2>
+				<div class="shead-icon text-center">
+					<div class="icon"><span class="ci-editor"></span></div>
+					<h2 class="stitle" style="color:#FFF;"><?php echo $register_section_title ?></h2>
+				</div>
 			</div>
 		</div>
 		<?php } ?>
@@ -123,6 +123,7 @@ while ( have_posts() ) : the_post(); ?>
 	/* SCHEDULE */
 	$sched_section_icon = get_field("sched_section_icon"); 
 	$sched_section_title = get_field("sched_section_title"); 
+	$sched_section_icon = '';
 	$start = get_field("start_date");
 	$end = get_field("end_date");
 	$event_date = get_event_date_range($start,$end,true);
@@ -131,13 +132,13 @@ while ( have_posts() ) : the_post(); ?>
 		<?php if ($sched_section_title) { ?>
 			<div class="title-w-icon">
 				<div class="wrapper">
-					<?php if ($sched_section_icon) { ?>
-						<div class="title-icon"><span style="background-image:url('<?php echo $sched_section_icon['url']?>')"></span></div>
-					<?php } ?>
-						<h2><?php echo $sched_section_title ?></h2>
+					<div class="shead-icon text-center">
+						<div class="icon"><span class="ci-menu"></span></div>
+						<h2 class="stitle"><?php echo $sched_section_title ?></h2>
 						<?php if ($event_date) { ?>
 						<div class="event-date"><?php echo $event_date ?></div>	
 						<?php } ?>
+					</div>
 				</div>
 			</div>
 		<?php } ?>
@@ -227,7 +228,7 @@ while ( have_posts() ) : the_post(); ?>
 
 	<?php 
 	/* COURSE MAP */
-	$course_section_icon = get_field("course_section_icon"); 
+	//$course_section_icon = get_field("course_section_icon"); 
 	$course_section_title = get_field("course_section_title"); 
 	$course_images = get_field("course_images"); 
 	if($course_section_title) { ?>
@@ -235,10 +236,10 @@ while ( have_posts() ) : the_post(); ?>
 		<?php if ($course_section_title) { ?>
 			<div class="title-w-icon">
 				<div class="wrapper">
-					<?php if ($course_section_icon) { ?>
-						<div class="title-icon"><span style="background-image:url('<?php echo $course_section_icon['url']?>')"></span></div>
-					<?php } ?>
+					<div class="shead-icon text-center">
+						<div class="icon"><span class="ci-map"></span></div>
 						<h2><?php echo $course_section_title ?></h2>
+					</div>
 				</div>
 			</div>
 		<?php } ?>
@@ -405,7 +406,8 @@ while ( have_posts() ) : the_post(); ?>
 	<?php 
 	/* FAQ */ 
 	//get_template_part("parts/content-faqs-race"); 
-	$customFAQTitle = get_field("faq_section_title");
+	$useDefaultFAQIcon = true;
+	$customFAQTitle = (get_field("faq_section_title")) ? get_field("faq_section_title") : 'FAQ';
 	include( locate_template('parts/content-faqs.php') ); 
 	/* FAQS JAVASCRIPT */ 
 	include( locate_template('inc/faqs-script.php') ); 

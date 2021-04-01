@@ -510,23 +510,60 @@ jQuery(document).ready(function($){
     }
 
     /* ACF Flexible Content for Menu Options */
-    if( $("#acf-group_5f1912cfb5ecf").length > 0 ) {
-        $('[data-layout="menu_group"]').each(function(){
-            var parent = $(this).find('[data-name="parent_menu_name"] .acf-input-wrap input').val();
-            var parentMenu = ( parent.replace(/\s+/g,'').trim() ) ? parent.replace(/\s+/g,' ').trim() : '(Blank)';
-            var parentMenu_child = ( parent.replace(/\s+/g,'').trim() ) ? parent.replace(/\s+/g,' ').trim() : '';
-            $(this).attr("data-parenttext",parentMenu);
-            $(this).find('[data-layout="child_menu_data"]').attr("data-parenttext","- "+parentMenu_child);
+    // if( $("#acf-group_5f1912cfb5ecf").length > 0 ) {
+    //     $('[data-layout="menu_group"]').each(function(){
+    //         var parent = $(this).find('[data-name="parent_menu_name"] .acf-input-wrap input').val();
+    //         var parentMenu = ( parent.replace(/\s+/g,'').trim() ) ? parent.replace(/\s+/g,' ').trim() : '(Blank)';
+    //         var parentMenu_child = ( parent.replace(/\s+/g,'').trim() ) ? parent.replace(/\s+/g,' ').trim() : '';
+    //         $(this).attr("data-parenttext",parentMenu);
+    //         $(this).find('[data-layout="child_menu_data"]').attr("data-parenttext","- "+parentMenu_child);
+    //     });
+    // }
+
+    if( $('.acf-flexible-content [data-name="parent_menu_name"]').length > 0 ) {
+        $('.acf-flexible-content [data-name="parent_menu_name"]').each(function(){
+            var parent = $(this).parents('.layout');
+            var parentMenu = $(this).find('.acf-input-wrap input').val();
+            var parentStr = parentMenu.replace(/\s+/g,'').trim();
+            if(parentStr) {
+                var parentMenuTxt = parentMenu.replace(/\s+/g,' ').trim();
+                parent.addClass('show-title');
+                parent.find('.acf-fc-layout-handle').attr('data-title',parentMenuTxt);
+            }
+            parent.find('[data-layout="child_menu_data"]').each(function(){
+                var target = $(this);
+                var subparentTxt = $(this).find('[data-name="child_menu_name"] .acf-input-wrap input').val();
+                var subStr = subparentTxt.replace(/\s+/g,'').trim();
+                if(subStr) {
+                    var subMenuTxt = subparentTxt.replace(/\s+/g,' ').trim();
+                    target.find('.acf-fc-layout-handle').attr('data-title',subMenuTxt);
+                    target.addClass('show-title');
+                }
+            });
+            
         });
     }
 
-    if( $('[data-layout="race_type').length > 0 ) {
-        $('[data-layout="race_type').each(function(e){
-            var tab = $(this).find('[data-name="name"] .acf-input-wrap input').val();
-            var tabName = ( tab.replace(/\s+/g,'').trim() ) ? tab.replace(/\s+/g,' ').trim() : '(Untitle)';
-            $(this).attr("data-parenttext",tabName);
+
+    if( $('.post-type-race .acf-flexible-content [data-layout="race_type"]').length > 0 ) {
+        $('.post-type-race .acf-flexible-content [data-layout="race_type"]').each(function(){
+            var parent = $(this);
+            var parentMenu = $(this).find('[data-name="name"] .acf-input-wrap input').val();
+            var parentStr = parentMenu.replace(/\s+/g,'').trim();
+            var parentMenuTxt = (parentStr) ? parentMenu.replace(/\s+/g,' ').trim() : '(Untitled)';
+            parent.find('.acf-fc-layout-handle').attr('data-title',parentMenuTxt);
+            parent.addClass('show-title');
+            
         });
     }
+
+    // if( $('[data-layout="race_type').length > 0 ) {
+    //     $('[data-layout="race_type').each(function(e){
+    //         var tab = $(this).find('[data-name="name"] .acf-input-wrap input').val();
+    //         var tabName = ( tab.replace(/\s+/g,'').trim() ) ? tab.replace(/\s+/g,' ').trim() : '(Untitle)';
+    //         $(this).attr("data-parenttext",tabName);
+    //     });
+    // }
 
 
     if( ($('body.post-php div.acf-field[data-name="is_event_completed"]').length > 0) && ($("#expirationdatediv").length > 0) ) {
@@ -566,17 +603,6 @@ jQuery(document).ready(function($){
         $("#titlewrap").append('<span class="cover"></span>');
         $("#titlewrap input").blur();
         $('[data-name="eventDateSchedule"]').focus();
-        // $(document).on("keyup change blur",'[data-name="eventDateSchedule"] input.hasDatepicker',function(){
-        //     var defaultVal = $("#titlewrap input").val();
-        //     var str = $(this).val().replace(/\s+/g,' ').trim();
-        //     $("#titlewrap input").val(str).addClass("focus-visible");
-        //     $("#title-prompt-text").addClass("screen-reader-text");
-        //     if(defaultVal) {
-        //         $(".button.edit-slug").trigger("click");
-        //         $("#new-post-slug").val("");
-        //         $(".button.save").trigger("click");
-        //     }
-        // });
     }
 
     /* select custom icons */
@@ -697,14 +723,18 @@ jQuery(document).ready(function($){
     }
 
     /* Flexible Content that has a 'title' field. Title appears on the collapse handle */
-    if( $('.acf-flexible-content .acf-field-text[data-name="title"]').length > 0 ) {
-        $('.acf-field-text[data-name="title"]').each(function(){
-            var parent = $(this).parents(".layout");
-            parent.addClass('show-title');
-            var str = $(this).find('.acf-input-wrap input').val();
-            var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
-            parent.find(".acf-fc-layout-handle").attr("data-title",title);
-        });
+    if( $('body').hasClass('post-type-race') ) {
+        // do nothing...
+    } else {
+        if( $('.acf-flexible-content .acf-field-text[data-name="title"]').length > 0 ) {
+            $('.acf-field-text[data-name="title"]').each(function(){
+                var parent = $(this).parents(".layout");
+                parent.addClass('show-title');
+                var str = $(this).find('.acf-input-wrap input').val();
+                var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
+                parent.find(".acf-fc-layout-handle").attr("data-title",title);
+            });
+        }
     }
 
 });
