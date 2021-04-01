@@ -3675,15 +3675,25 @@ body.logged-in.admin-bar .film-event-status{top:130px}
 }.page-activity-passes .itemrow{width:100%;float:left;position:relative;margin:14px 0}
 @media(min-width:820px){.page-activity-passes .itemrow{margin:7px 0}
 }.page-activity-passes .itemrow:after{content:"";display:block;width:100%;height:3px;position:absolute;bottom:0;left:0;opacity:.35;background-image:url("data:image/svg+xml,%3csvg width='100%30' height='100%30' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%30' height='100%30' fill='none' stroke='%23333' stroke-width='3' stroke-dasharray='5%2c10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")}
-.page-activity-passes .itemrow .activity-name,.page-activity-passes .itemrow .button-group{display:inline-block;position:relative;z-index:5;bottom:-8px}
+@media screen and (max-width:320px){.page-activity-passes .itemrow:after{bottom:-28px}
+}.page-activity-passes .itemrow .activity-name,.page-activity-passes .itemrow .button-group{display:inline-block;position:relative;z-index:5;bottom:-8px}
 .page-activity-passes .itemrow .button-group .wrap{display:inline-block;background:#f2f2f2;float:right;padding-left:3px}
 .page-activity-passes .itemrow .activity-name{float:left;line-height:1.2;padding-right:5px;max-width:60%;width:100%;text-align:left}
 .page-activity-passes .itemrow .activity-name span{display:inline;background:#f2f2f2;padding-right:5px;position:relative;z-index:15;bottom:-8px}
-.page-activity-passes .itemrow .button-group{float:right;padding-left:8px;max-width:40%;width:100%}
+@media screen and (max-width:480px){.page-activity-passes .itemrow .activity-name{max-width:40%}
+.page-activity-passes .itemrow .activity-name span{bottom:-10px !important}
+}@media screen and (max-width:320px){.page-activity-passes .itemrow .activity-name{max-width:100%;bottom:0;margin-bottom:10px;text-align:left}
+.page-activity-passes .itemrow .activity-name span{bottom:0 !important}
+}.page-activity-passes .itemrow .button-group{float:right;padding-left:8px;max-width:40%;width:100%}
 .page-activity-passes .itemrow .button-group .price,.page-activity-passes .itemrow .button-group .btn-sm{display:inline-block;float:left}
 .page-activity-passes .itemrow .button-group .btn-sm{position:relative;top:-6px;margin-left:10px}
 .page-activity-passes .itemrow .button-group .spacer{display:inline-block;position:relative;top:-4px;font-style:italic}
-@media(min-width:820px){.page-activity-passes .itemrow .btn-sm{font-size:11px;padding:3px 8px 2px;min-width:70px}
+@media screen and (max-width:480px){.page-activity-passes .itemrow .button-group .btn-sm{padding:6px 5px;font-size:13px;line-height:1.1}
+}@media screen and (max-width:320px){.page-activity-passes .itemrow .button-group{max-width:100%;padding-left:0}
+.page-activity-passes .itemrow .button-group .wrap{max-width:100%;width:100%;float:left}
+.page-activity-passes .itemrow .button-group .wrap .btn-sm{float:right}
+}@media(min-width:820px){.page-activity-passes .itemrow .btn-sm{font-size:11px;padding:3px 8px 2px;min-width:70px}
+}@media screen and (max-width:320px){.page-activity-passes .itemrow{margin:23px 0}
 }.page-activity-passes .itemrow.nobutton .activity-name span{bottom:3px}
 .page-activity-passes .camp-activities.section-content{padding-top:40px}
 @media screen and (max-width:999px){.page-activity-passes .pass-types{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
@@ -3704,7 +3714,7 @@ body.logged-in.admin-bar .film-event-status{top:130px}
 @media(min-width:820px){.buy-page#primary .twoColSection .tcol .photo img.helper{display:none}
 }.buy-page#primary .twoColSection .tcol .info{width:100%;padding:0;background:transparent}
 @media(min-width:820px){.buy-page#primary .twoColSection .tcol .info{width:60%}
-}.buy-page#primary .twoColSection .tcol .info .pad{background:#f2f2f2;float:left;width:100%;padding:50px 30px}
+}.buy-page#primary .twoColSection .tcol .info .pad{background:#f2f2f2;float:left;width:100%;padding:50px 20px}
 @media(min-width:820px){.buy-page#primary .twoColSection .tcol .info .pad{padding:100px 3vw}
 }.buy-page#primary .twoColSection .tcol#section1{margin-bottom:16px}
 @media(min-width:820px){.buy-page#primary .twoColSection .tcol#section1 .info{padding-left:16px}

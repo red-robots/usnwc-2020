@@ -9597,6 +9597,9 @@ body.logged-in.admin-bar {
 			left: 0;
 			opacity: 0.35;
 			@include custom_dashed();
+			@media screen and (max-width: 320px) {
+				bottom: -28px;
+			}
 		}
 		.activity-name, 
 		.button-group {
@@ -9626,6 +9629,21 @@ body.logged-in.admin-bar {
 				z-index: 15;
 				bottom: -8px;
 			}
+			@media screen and (max-width: 480px) {
+				max-width: 40%;
+				span {
+					bottom: -10px!important;
+				}
+			}
+			@media screen and (max-width: 320px) {
+				max-width: 100%;
+				bottom: 0;
+				margin-bottom: 10px;
+				text-align: left;
+				span {
+					bottom: 0!important;
+				}
+			}
 		}	
 		.button-group{
 			float: right;
@@ -9647,6 +9665,25 @@ body.logged-in.admin-bar {
 				top: -4px;
 				font-style: italic;
 			}
+			@media screen and (max-width: 480px) {
+				.btn-sm {
+					padding: 6px 5px;
+			    font-size: 13px;
+			    line-height: 1.1;
+				}
+			}
+			@media screen and (max-width: 320px) {
+				max-width: 100%;
+				padding-left: 0;
+				.wrap {
+					max-width: 100%;
+					width: 100%;
+					float: left;
+					.btn-sm {
+						float: right;
+					}
+				}
+			}
 		}
 		.btn-sm {
 			@include tab {
@@ -9654,6 +9691,9 @@ body.logged-in.admin-bar {
 				padding: 3px 8px 2px;
 				min-width: 70px;
 			}
+		}
+		@media screen and (max-width: 320px) {
+			margin: 23px 0;
 		}
 	}
 	.itemrow.nobutton {
@@ -9752,7 +9792,7 @@ body.logged-in.admin-bar {
 					background: $gray;
 					float: left;
     			width: 100%;
-					padding: 50px 30px;
+					padding: 50px 20px;
 					@include tab {
 						padding: 100px 3vw;
 					}
