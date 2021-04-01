@@ -80,7 +80,7 @@ $dateNow = date('Y-m-d');
 						<div class="imagediv image-square">
 							<div class="img" style="background-image:url('<?php echo $mobileThumbURL ?>')">
 								<img src="<?php echo $square ?>" alt="" class="feat-img placeholder no-image">
-								<img src="<?php echo $mobileThumbURL ?>" alt="<?php echo $mobileThumbALT ?>" class="feat-img image-square" style="display:none;">
+								<img src="<?php echo $mobileThumbURL ?>" alt="<?php echo $mobileThumbALT ?>" class="feat-img image-square" style="display:none!important;">
 							</div>
 						</div>
 					<?php } else { ?>

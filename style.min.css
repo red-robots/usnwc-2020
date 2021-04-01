@@ -2381,7 +2381,7 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 @media(min-width:820px){.section-content#section-options{padding-top:60px;padding-bottom:60px}
 }.section-content#section-options .activities{width:100%;float:left}
 @media(min-width:820px){.section-content#section-options .activities{width:70%;margin-bottom:0;padding-right:40px}
-}.section-content#section-options .legend-for-mobile{display:block;width:100%;float:left}
+}.section-content#section-options .legend-for-mobile{display:none;width:100%;float:left}
 @media(min-width:820px){.section-content#section-options .legend-for-mobile{display:none}
 }.section-content#section-options .legend-for-mobile .levelblock{width:100%;float:left}
 .section-content#section-options .legend-for-mobile span.level{display:block;float:left;width:100%;position:relative;color:#ba0d30;border-bottom:2px dotted #ba0d30}
