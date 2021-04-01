@@ -10529,7 +10529,12 @@ body.single-festival {
 	padding-top: 20px;
 	padding-bottom: 5px;
 }
-
+#section-activities.section-content.countItems1,
+#section-activities.section-content.countItems2 {
+	.entryList.flexwrap {
+		@include flexbox-justify(center);
+	}
+}
 /* Sitemap */
 .sitemappage {
 	&.content-default.hasbanner {

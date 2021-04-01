@@ -332,8 +332,10 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 
 
 			<?php /* ACTIVITIES */ ?>
-			<?php if( $bottom_activities = get_field("festival_activities_bottom") ) { ?>
-			<section id="section-activities" data-section="Activities" class="section-content camp-activities">
+			<?php if( $bottom_activities = get_field("festival_activities_bottom") ) { 
+				$countActivities = count($bottom_activities);
+			?>
+			<section id="section-activities" data-section="Activities" class="section-content camp-activities countItems<?php echo $countActivities?>">
 				<div class="wrapper titlediv">
 					<div class="shead-icon text-center">
 						<div class="icon"><span class="ci-task"></span></div>
