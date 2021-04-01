@@ -55,6 +55,20 @@ $dateNow = date('Y-m-d');
 			$pagelink = get_permalink($pid);
 			$thumbImage = get_field("full_image",$pid);
 			$mobileBannerImg = get_field("mobile-banner",$pid);
+			$mobileImage2 = get_field("mobile_image",$pid);
+
+			$mobileThumbURL = '';
+			$mobileThumbALT = '';
+			if($mobileBannerImg) {
+				$mobileThumbURL = $mobileBannerImg['url'];
+				$mobileThumbALT = $mobileBannerImg['title'];
+			} else {
+				if($mobileImage2) {
+					$mobileThumbURL = $mobileImage2['url'];
+					$mobileThumbALT = $mobileImage2['title'];
+				}
+			}
+
 			$start = get_field("start_date",$pid);
 			$end = get_field("end_date",$pid);
 			$event_date = get_event_date_range($start,$end);
@@ -62,24 +76,17 @@ $dateNow = date('Y-m-d');
 			<div class="postbox view-full <?php echo ($thumbImage) ? 'has-image':'no-image' ?>">
 				<a href="<?php echo $pagelink ?>" class="inside boxlink wave-effect">
 					
-					<?php if ($mobileBannerImg) { ?>
-
-						<div class="imagediv">
-							<img src="<?php echo $mobileBannerImg['url'] ?>" alt="<?php echo $mobileBannerImg['title'] ?>" class="feat-img mobile-view">
-						</div>
-						
-					<?php } else { ?>
-
-						<?php if ($thumbImage) { ?>
-						<div class="imagediv">
-							<img src="<?php echo $thumbImage['url'] ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img mobile-view">
-						</div>
-						<?php } else { ?>
-							<div class="imagediv noImage">
+					<?php if ($mobileThumbURL) { ?>
+						<div class="imagediv image-square">
+							<div class="img" style="background-image:url('<?php echo $mobileThumbURL ?>')">
 								<img src="<?php echo $square ?>" alt="" class="feat-img placeholder no-image">
+								<img src="<?php echo $mobileThumbURL ?>" alt="<?php echo $mobileThumbALT ?>" class="feat-img image-square" style="display:none;">
 							</div>
-						<?php } ?>
-
+						</div>
+					<?php } else { ?>
+						<div class="imagediv noImage">
+							<img src="<?php echo $square ?>" alt="" class="feat-img placeholder no-image">
+						</div>
 					<?php } ?>
 
 					<div class="details">
