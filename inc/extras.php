@@ -2167,25 +2167,25 @@ function upcoming_bands_by_date($offset=0,$limit=12) {
 }
 
 
-function acf_load_gravity_form_choices( $field ) {
-    // reset choices
-    $field['choices'] = array();
-    $choices = get_race_posts();
-    if( $choices && is_array($choices) ) {       
-        foreach( $choices as $choice ) {
-            $post_id = $choice->ID;
-            $post_title = $choice->post_title;
-            $field['choices'][ $post_id ] = '[ID:'.$post_id.'] ' . $post_title;
-        }
-    }
-    return $field;
-}
-add_filter('acf/load_field/name=linkpostto', 'acf_load_gravity_form_choices');
+// function acf_load_gravity_form_choices( $field ) {
+//     // reset choices
+//     $field['choices'] = array();
+//     $choices = get_race_posts();
+//     if( $choices && is_array($choices) ) {       
+//         foreach( $choices as $choice ) {
+//             $post_id = $choice->ID;
+//             $post_title = $choice->post_title;
+//             $field['choices'][ $post_id ] = '[ID:'.$post_id.'] ' . $post_title;
+//         }
+//     }
+//     return $field;
+// }
+// add_filter('acf/load_field/name=linkpostto', 'acf_load_gravity_form_choices');
 
-function get_race_posts() {
-    global $wpdb;
-    $query = "SELECT p.ID,p.post_title FROM " .$wpdb->prefix."posts p WHERE p.post_type='race' AND p.post_status='publish' ORDER BY p.post_title ASC";
-    $result = $wpdb->get_results($query);
-    return ($result) ? $result : '';
-}
+// function get_race_posts() {
+//     global $wpdb;
+//     $query = "SELECT p.ID,p.post_title FROM " .$wpdb->prefix."posts p WHERE p.post_type='race' AND p.post_status='publish' ORDER BY p.post_title ASC";
+//     $result = $wpdb->get_results($query);
+//     return ($result) ? $result : '';
+// }
 

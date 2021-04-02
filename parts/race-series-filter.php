@@ -138,11 +138,10 @@ $entries = new WP_Query($args); ?>
 							$short_description = get_field("short_description",$id);
 							$eventStatus = (isset($p->eventstatus) && $p->eventstatus) ? $p->eventstatus:'upcoming';
 							$thumbImage = get_field("thumbnail_image",$id);
-							$customLink = get_field("linkpostto",$id);
-
-							if($customLink) {
-								$pagelink = get_permalink($customLink);
-							}
+							// $customLink = get_field("linkpostto",$id);
+							// if($customLink) {
+							// 	$pagelink = get_permalink($customLink);
+							// }
 							?>
 							<div id="post-<?php echo $id?>" class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?>">
 								<div class="inside">
