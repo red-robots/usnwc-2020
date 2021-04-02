@@ -102,7 +102,10 @@ $entries = new WP_Query($args); ?>
 						$short_description = get_field("short_description");
 						$eventStatus = ( get_field("eventstatus") ) ? get_field("eventstatus"):'upcoming';
 						$thumbImage = get_field("thumbnail_image");
-						$groupItems[$eventStatus][] = $pid;
+						$hideOnPage = get_field("hidePostfromMainPage",$pid);
+						if(!$hideOnPage) {
+							$groupItems[$eventStatus][] = $pid;
+						}
 						?>
 					<?php  $i++; endwhile; wp_reset_postdata(); ?>
 
@@ -135,8 +138,13 @@ $entries = new WP_Query($args); ?>
 							$short_description = get_field("short_description",$id);
 							$eventStatus = (isset($p->eventstatus) && $p->eventstatus) ? $p->eventstatus:'upcoming';
 							$thumbImage = get_field("thumbnail_image",$id);
+							$customLink = get_field("linkpostto",$id);
+
+							if($customLink) {
+								$pagelink = get_permalink($customLink);
+							}
 							?>
-							<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?>">
+							<div id="post-<?php echo $id?>" class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?>">
 								<div class="inside">
 									<?php if ($eventStatus=='completed') { ?>
 										<div class="event-completed"><span>Event Complete</span></div>
@@ -180,6 +188,11 @@ $entries = new WP_Query($args); ?>
 											</div>
 										</div>
 									</div>
+
+									<?php if( is_user_logged_in() && current_user_can('administrator') ) {
+												$editLink = get_edit_post_link($id); ?>
+									<div class="editpostlink"><a href="<?php echo $editLink ?>">Edit</a></div>
+									<?php } ?>
 								</div>
 							</div>
 						<?php } ?>

@@ -318,7 +318,7 @@ while ( have_posts() ) : the_post(); ?>
 						<?php if ( $a_col_desc1 || $a_col_text1 ||  $a_col_text2 ) { ?>
 							<div class="col-content">
 								<?php if ($a_col_desc1) { ?>
-								<div class="text1"><?php echo $a_col_desc1 ?></div>	
+								<div class="text1<?php echo (empty($a_col_text1)) ? ' nombottom':'' ?>	"><?php echo $a_col_desc1 ?></div>	
 								<?php } ?>
 
 								<?php if ($a_col_text1) { ?>
