@@ -11933,6 +11933,18 @@ body.error404 {
 		text-decoration: underline;
 	}
 }
+
+.film-series-page .post-type-entries {
+	.flex-inner.films-count-1,
+	.flex-inner.films-count-2,
+	.flex-inner.films-count-3 {
+		@include tab {
+			@include flexbox-align-items(center);
+			@include flexbox-justify(center);
+		}
+		
+	}
+}
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");

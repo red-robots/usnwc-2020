@@ -59,7 +59,7 @@ $entries = new WP_Query($args); ?>
 	<div class="post-type-entries <?php echo $postype ?>">
 		<div id="data-container">
 			<div class="posts-inner animate__animated animate__fadeIn">
-				<div class="flex-inner result">
+				
 					<?php $i=1;  while ( $entries->have_posts() ) : $entries->the_post();
 						$pid = get_the_ID(); 
 						$title = get_the_title();
@@ -89,9 +89,12 @@ $entries = new WP_Query($args); ?>
 			        $start = $stop - $perpage;
 			        $stop = $stop - 1;
 			      }
+
+			      $countList = count($finalList);
 			    ?>
 
-		      <?php for($i=$start; $i<=$stop; $i++) {
+			    <div class="flex-inner result films-count-<?php echo $countList?>">
+		      <?php  for($i=$start; $i<=$stop; $i++) {
 		      	if( isset($finalList[$i]) && $finalList[$i] ) {
 		      		$id = $finalList[$i];
 		      		$p = get_post($id);

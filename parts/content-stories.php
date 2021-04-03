@@ -107,7 +107,7 @@ if ( $blogs->have_posts() ) {  ?>
 
 						<?php if ( do_shortcode('[facetwp facet="film_write_up"]') ) { ?>
 						<div class="select-wrap">
-							<label for="film_write_up">Film / Write-up</label>
+							<label for="film_write_up">Format</label>
 							<?php echo do_shortcode('[facetwp facet="film_write_up" pager="true"]'); ?>
 						</div>
 						<?php } ?>
