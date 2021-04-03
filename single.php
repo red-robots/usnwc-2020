@@ -105,6 +105,7 @@ $post_id = get_the_ID(); ?>
 				<?php
 				$short_description = get_field("short_description_text");
 				$custom_post_author = get_field("custom_post_author");
+				$postdate = get_the_date('F j, Y');
 				?>
 				<section class="text-centered-section dark">
 					<div class="wrapper text-center">
@@ -112,6 +113,9 @@ $post_id = get_the_ID(); ?>
 							<h1 class="page-title"><?php the_title(); ?></h1>
 							<?php if ($custom_post_author) { ?>
 								<p class="author">By <?php echo $custom_post_author; ?></p>
+							<?php } ?>
+							<?php if ($postdate) { ?>
+								<p class="postdate">Posted on <?php echo $postdate; ?></p>
 							<?php } ?>
 						</div>
 
