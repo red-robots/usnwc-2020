@@ -13,6 +13,8 @@ if($services) { ?>
 		$buttonLink = ( isset($button['url']) && $button['url'] ) ? $button['url']:''; 
 		$buttonTarget = ( isset($button['target']) && $button['target'] ) ? $button['target']:'_self'; 
 		$slides = $e['gallery'];
+		$buttonList = $e['buttons'];
+
 		$boxClass = ( ($title || $description) && $slides ) ? 'half':'full';
 			if( ($title || $description) || $slides) {
 				$colClass = ($i % 2) ? ' odd':' even'; ?>
@@ -36,11 +38,29 @@ if($services) { ?>
 									<?php } ?>
 
 									<?php /* Button */ ?>
-									<?php if ($buttonName && $buttonLink) { ?>
-									<div class="buttondiv">
-										<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm pagelink"><span><?php echo $buttonName ?></span></a>
-									</div>
+									<?php //if ($buttonName && $buttonLink) { ?>
+									<!-- <div class="buttondiv">
+										<a href="<?php //echo $buttonLink ?>" target="<?php //echo $buttonTarget ?>" class="btn-sm pagelink"><span><?php //echo $buttonName ?></span></a>
+									</div> -->
+									<?php // } ?>
+
+
+									<?php /* Multiple Buttons */ ?>
+									<?php if ($buttonList) { ?>
+										<div class="buttonGroup">
+											<?php foreach ($buttonList as $arr) { 
+												if( $b = $arr['button'] ) {
+													$btnName = ( isset($b['title']) && $b['title'] ) ? $b['title'] : '';
+													$btnLink = ( isset($b['url']) && $b['url'] ) ? $b['url'] : '';
+													$btnTarget = ( isset($b['target']) && $b['target'] ) ? $b['target'] : '_self';
+													if($btnName && $btnLink) { ?>
+													<div class="buttondiv"><a href="<?php echo $btnLink ?>" class="btn-sm pagelink" target="<?php echo $btnTarget ?>"><span><?php echo $btnName ?></span></a></div>
+													<?php } ?>
+												<?php } ?>
+											<?php } ?>
+										</div>
 									<?php } ?>
+
 								</div><!-- .info -->
 
 							</div><!-- .inside -->

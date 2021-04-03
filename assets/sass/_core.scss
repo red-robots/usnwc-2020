@@ -1370,6 +1370,20 @@ h2.stitle,
 	}
 }
 
+.textcol .buttonGroup {
+	margin-top: 35px;
+	.buttondiv {
+		margin: 0 0 15px!important;
+	}
+	.btn-sm {
+		text-align: center;
+		min-width: 155px!important;
+	}
+	.buttondiv:last-child {
+			margin-bottom: 0!important;
+	}
+}
+
 .homerow .activities {
 	.flexwrap {
 		margin-left: -5px;

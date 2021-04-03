@@ -2170,6 +2170,10 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 .btn-sm:hover:before{-webkit-transform:translateX(0) skew(-45deg);-ms-transform:translateX(0) skew(-45deg);transform:translateX(0) skew(-45deg)}
 .btn-sm.white:hover{color:#FFF;border-color:#ba0d30}
 .btn-sm.white:hover:before{border-color:#ba0d30}
+.textcol .buttonGroup{margin-top:35px}
+.textcol .buttonGroup .buttondiv{margin:0 0 15px !important}
+.textcol .buttonGroup .btn-sm{text-align:center;min-width:155px !important}
+.textcol .buttonGroup .buttondiv:last-child{margin-bottom:0 !important}
 .homerow .activities .flexwrap{margin-left:-5px;margin-right:-5px}
 .homerow .activities .imagebox{position:relative;width:100%;padding:5px}
 @media(min-width:600px){.homerow .activities .imagebox{width:50%}
