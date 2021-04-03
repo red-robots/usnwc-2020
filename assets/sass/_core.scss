@@ -11945,6 +11945,13 @@ body.error404 {
 		
 	}
 }
+.store-postdate {
+	color: $gray_dark;
+	position: relative;
+	top: -10px;
+	font-size: 14px;
+	margin-bottom:5px;
+}
 /* FOOTER */
 .site-footer {
 	background-image:url("images/footer_bg.png");
