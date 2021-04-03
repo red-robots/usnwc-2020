@@ -105,7 +105,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 			$schedule_image = get_field("schedule_image");
 			$schedule_dates = get_field("schedule_dates");
 			if($activities) { ?>
-			<section id="section-schedule" data-section="SCHEDULE/MAP" class="section-content">
+			<section id="section-schedule" data-section="SCHEDULE" class="section-content">
 				<div class="wrapper">
 					<div class="shead-icon text-center">
 						<div class="icon"><span class="ci-menu"></span></div>
@@ -320,7 +320,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 				</div>
 
 				<?php if ($schedule_image) { ?>
-				<div class="schedule-image-wrap full">
+				<div id="eventMap" data-section="Event Map" class="schedule-image-wrap full">
 					<div class="wrapper">
 						<img src="<?php echo $schedule_image['url'] ?>" alt="<?php echo $schedule_image['title'] ?>" class="feat-img">
 					</div>
@@ -335,7 +335,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 			<?php if( $bottom_activities = get_field("festival_activities_bottom") ) { 
 				$countActivities = count($bottom_activities);
 			?>
-			<section id="section-activities" data-section="Activities" class="section-content camp-activities countItems<?php echo $countActivities?>">
+			<section id="section-activities" data-section="Programming" class="section-content camp-activities countItems<?php echo $countActivities?>">
 				<div class="wrapper titlediv">
 					<div class="shead-icon text-center">
 						<div class="icon"><span class="ci-task"></span></div>
