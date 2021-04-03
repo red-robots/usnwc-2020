@@ -2,14 +2,15 @@
 $postid = get_the_ID();
 while ( have_posts() ) : the_post(); ?>
 	
-	<?php if ( get_the_content() ) { ?>
 	<section class="main-description">
 		<div class="wrapper text-center">
 			<h1 class="pagetitle"><span><?php echo get_the_title(); ?></span></h1>
+			<?php if ( get_the_content() ) { ?>
 			<div class="main-text"><?php the_content(); ?></div>
+			<?php } ?>
 		</div>
 	</section>
-	<?php } ?>
+	
 
 	<div id="pageTabs"></div>
 
@@ -189,16 +190,27 @@ while ( have_posts() ) : the_post(); ?>
 						<?php } ?>
 
 						<div class="schedule-information">
-							<?php $i=1; foreach ($race_types as $r) { 
+							<?php $i=1; 
+							$totalTypes = count($race_types);
+							foreach ($race_types as $r) { 
 								$actualName = $r['name']; 
 								$alias = $r['alias'];
 								$name = ($alias) ? $alias : $actualName;
 								$slug = sanitize_title($name);
 								$sched = $r['schedule'];
-								$date = ( isset($sched['date']) && $sched['date'] ) ? $sched['date'] : '';
-								$day = ($date) ? date('l',strtotime($date)) : '';
+								$startdate = ( isset($sched['date']) && $sched['date'] ) ? $sched['date'] : '';
+								$enddate = ( isset($sched['enddate']) && $sched['enddate'] ) ? $sched['enddate'] : '';
+								$singleDay = ($startdate) ? date('l, F j, Y',strtotime($startdate)) : '';
+								if($totalTypes==1) {
+									$singleDay = ($startdate) ? date('l',strtotime($startdate)) : '';
+								}
 								$activities = ( isset($sched['schedule']) && $sched['schedule'] ) ? $sched['schedule'] : '';
 								$is_active = ($i==1) ? ' active':'';
+								$dateRange = '';
+								if($startdate && $enddate) {
+									$dateRange = get_event_date_range($startdate,$enddate,true);
+								}
+								$day = ($dateRange) ? $dateRange : $singleDay;
 								?>
 								<div id="race-opt<?php echo $i?>" class="schedule-info schedule <?php echo $is_active ?>">
 									<?php if ($day) { ?>

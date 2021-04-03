@@ -347,3 +347,12 @@ div.acf-field[data-name="custom_icon"] .iconOptBtn {
 [data-name="hidePostfromMainPage"] .acf-label { display: none!important }
 [data-name="hidePostfromMainPage"] .acf-input label {font-weight: bold;}
 
+body.post-type-race .acf-flexible-content [data-name="schedule"] [data-name="date"],
+body.post-type-race .acf-flexible-content [data-name="schedule"] [data-name="enddate"] {
+  width: 50%;
+  float: left;
+  clear: none;
+}
+body.post-type-race .acf-flexible-content [data-name="schedule"] [data-name="enddate"] {
+  border-top: none;
+}

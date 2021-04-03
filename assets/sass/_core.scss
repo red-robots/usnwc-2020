@@ -3736,6 +3736,12 @@ body.single-race {
 	}
 }
 
+body.page-template-page-festivals {
+	.intro-text-wrap {
+		padding-bottom: 30px;
+	}
+}
+
 body.scrolled {
 	.site-header {
 		@include tab {

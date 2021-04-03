@@ -2586,6 +2586,7 @@ body.single-race #pageTabs{top:0;margin-top:35px}
 body.single-race #primary #section-faqs{padding-top:60px;padding-bottom:30px}
 body.single-race .content-default .black-section ul,body.single-race .content-default .black-section ol{display:inline-block;text-align:left}
 body.single-race #primary #section-schedule{padding-top:40px}
+body.page-template-page-festivals .intro-text-wrap{padding-bottom:30px}
 @media(min-width:820px){body.scrolled .site-header{box-shadow:0 3px 8px rgba(0,0,0,0.1)}
 body.scrolled .site-header .navbar{background:rgba(255,255,255,0.95)}
 }.squiggly{width:100%;padding:0 50px;opacity:.75}
