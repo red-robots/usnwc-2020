@@ -3725,6 +3725,15 @@ body.single-race {
 		padding-top: 60px;
 		padding-bottom: 30px;
 	}
+	.content-default .black-section {
+		ul,ol {
+			display: inline-block;
+			text-align: left;
+		}
+	}
+	#primary #section-schedule {
+		padding-top: 40px;
+	}
 }
 
 body.scrolled {
@@ -4493,6 +4502,7 @@ body.subpage.single .content-default .black-section {
 		}
 	}
 }
+
 
 #section-schedule {
 	background: $gray;
