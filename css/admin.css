@@ -356,3 +356,45 @@ body.post-type-race .acf-flexible-content [data-name="schedule"] [data-name="end
 body.post-type-race .acf-flexible-content [data-name="schedule"] [data-name="enddate"] {
   border-top: none;
 }
+
+.post-type-activity_schedule .acf-flexible-content [data-name="activities"] [data-name="types"], 
+.post-type-activity_schedule .acf-flexible-content [data-name="activities"] [data-name="customText"],
+.post-type-activity_schedule .acf-flexible-content [data-name="activities"] [data-name="customLink"] {
+  display: none!important;
+}
+
+.post-type-activity_schedule .acf-flexible-content [data-name="activities"] td[data-name="name"].acf-empty .acf-input-custom,
+.post-type-activity_schedule .acf-flexible-content [data-name="activities"] .acf-empty * {
+  display: block!important;
+}
+.post-type-activity_schedule .acf-flexible-content [data-name="activities"] .acf-empty select,
+.post-type-activity_schedule .acf-flexible-content [data-name="activities"] .acf-empty .select2 {
+  display: none!important;
+}
+.post-type-activity_schedule .acf-flexible-content [data-name="activities"] td[data-name="name"] input.input-custom-text,
+.post-type-activity_schedule .acf-flexible-content [data-name="activities"] td[data-name="name"] .acf-input-custom {
+  display: none;
+}
+.post-type-activity_schedule .acf-flexible-content .show-custom select,
+.post-type-activity_schedule .acf-flexible-content .show-custom .select2 {
+  display: none!important;
+}
+
+.post-type-activity_schedule .acf-flexible-content [data-name="activities"] .show-custom input.input-custom-text,
+.post-type-activity_schedule .acf-flexible-content .show-custom .acf-input-custom {
+  display: block!important;
+}
+.post-type-activity_schedule .acf-flexible-content .acf-radio-list {
+  margin-bottom: 10px;
+}
+.acf-input-custom.customName {margin-bottom:10px}
+.acf-input-custom.customName:before {
+  content:"Custom Name";
+  display: block;
+  width: 100%;
+}
+.acf-input-custom.customLink:before {
+  content:"Custom Link";
+  display: block;
+  width: 100%;
+}

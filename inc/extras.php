@@ -737,6 +737,44 @@ jQuery(document).ready(function($){
         }
     }
 
+    /* Activity Schedule */
+    $('.acf-flexible-content [data-name="activities"] td[data-name="types"]').each(function(){
+        var parent = $(this).parent();
+        var fields = $(this).find('.acf-input');
+        var nameCol = parent.find('[data-name="name"]');
+        $(fields).prependTo(nameCol);
+    });
+
+    $('.acf-flexible-content [data-name="activities"] td[data-name="name"]').each(function(){
+        var parent = $(this).parent();
+        var name = parent.find('[data-name="customText"] .acf-input-wrap').addClass('acf-input-custom customName');
+        //var link = parent.find('[data-name="customLink"] .acf-input-wrap').addClass('acf-input-custom customLink');
+        name.appendTo( $(this) );
+        //link.appendTo( $(this) );
+    });
+
+    $(document).on('click','.acf-flexible-content [data-name="activities"] td[data-name="name"] .acf-radio-list input[type="radio"]',function(){
+        var parent = $(this).parents('tr');
+        if( this.checked ) {
+            if( $(this).val()=='custom' ) {
+                parent.addClass('show-custom');
+            } else {
+                parent.removeClass('show-custom');
+            }
+        }
+    });
+
+    $('.acf-flexible-content [data-name="activities"] td[data-name="name"] .acf-radio-list input[type="radio"]').each(function(){
+        var parent = $(this).parents('tr');
+        if( this.checked ) {
+            if( $(this).val()=='custom' ) {
+                parent.addClass('show-custom');
+            } else {
+                parent.removeClass('show-custom');
+            }
+        }
+    });
+
 });
 </script>
 <div id="customIconsContainer">

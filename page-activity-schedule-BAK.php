@@ -1,7 +1,5 @@
 <?php
-/**
- * Template Name: Activity Schedule
- */
+
 
 get_header(); 
 $blank_image = THEMEURI . "images/square.png";
@@ -82,9 +80,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 										<?php if ($activities) { ?>
 											<ul class="list">
 												<?php foreach ($activities as $e) { 
-												$is_custom = ( isset($e['types']) && $e['types']=='custom' ) ? true : false;
-												$customName = ( isset($e['customText']) && $e['customText'] ) ? $e['customText'] : "";
-												$name = ( isset($e['name']) && $e['name'] ) ? $e['name']->post_title : '';
+												$name = ($e['name']) ? $e['name']->post_title : '';
 												$start = $e['time_start'];
 												$end = $e['time_end'];
 												$status = ( isset($e['status']) && $e['status'] ) ? $e['status'] : 'open';
@@ -92,31 +88,23 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 												if($start && $end) {
 													$delimiter = '<span class="dashed">&ndash;</span>';
 												}
-												if($is_custom) {
-													if(preg_replace("/\s+/", "",$customName)) {
-														$name = preg_replace("/\s+/", " ",$customName);
-													} else {
-														$name = "";
-													}
-												}
-												if($name) { ?>
-													<li class="data" data-status="<?php echo $status?>">
-														<div class="cell name cell-<?php echo $status?>">
-															<span class="cellTxt"><span class="ct <?php echo $status?>"><?php echo $name ?></span></span>
-														</div>
-														<div class="cell time">
-															<span class="cellTxt">
-																<?php if ($start) { ?>
-																<span class="time-start"><?php echo $start ?></span>	
-																<?php } ?>
-																<?php echo $delimiter ?>
-																<?php if ($end) { ?>
-																<span class="time-end"><?php echo $end ?></span>	
-																<?php } ?>
-															</span>
-														</div>
-													</li>
-													<?php } ?>
+												?>
+												<li class="data" data-status="<?php echo $status?>">
+													<div class="cell name cell-<?php echo $status?>">
+														<span class="cellTxt"><span class="ct <?php echo $status?>"><?php echo $name ?></span></span>
+													</div>
+													<div class="cell time">
+														<span class="cellTxt">
+															<?php if ($start) { ?>
+															<span class="time-start"><?php echo $start ?></span>	
+															<?php } ?>
+															<?php echo $delimiter ?>
+															<?php if ($end) { ?>
+															<span class="time-end"><?php echo $end ?></span>	
+															<?php } ?>
+														</span>
+													</div>
+												</li>	
 												<?php } ?>
 											</ul>
 										<?php } ?>
