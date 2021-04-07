@@ -2231,7 +2231,8 @@ function upcoming_bands_by_date($offset=0,$limit=12) {
 add_filter( 'facetwp_preload_url_vars', function( $url_vars ) {
     if ( 'who-we-are/employment' == FWP()->helper->get_uri() ) {
         if ( empty( $url_vars['job_locations'] ) ) {
-            $url_vars['job_locations'] = [ 'charlotte' ];
+            $location = get_default_job_location();
+            $url_vars['job_locations'] = [$location];
         }
     }
     return $url_vars;
