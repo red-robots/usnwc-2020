@@ -2227,3 +2227,17 @@ function upcoming_bands_by_date($offset=0,$limit=12) {
 //     return ($result) ? $result : '';
 // }
 
+/* Pre-select value FACETWP => See Employment Page */
+add_filter( 'facetwp_preload_url_vars', function( $url_vars ) {
+    if ( 'who-we-are/employment' == FWP()->helper->get_uri() ) {
+        if ( empty( $url_vars['job_locations'] ) ) {
+            $url_vars['job_locations'] = [ 'charlotte' ];
+        }
+    }
+    return $url_vars;
+} );
+
+
+function get_default_job_location() {
+    return 'charlotte';
+}

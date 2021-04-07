@@ -9,6 +9,7 @@ $square = THEMEURI . "images/square.png";
 $banner = get_field("flexslider_banner");
 $has_banner = ($banner) ? 'hasbanner':'nobanner';
 $currentPageLink = get_permalink();
+$defaultLocation = get_default_job_location();
 ?>
 
 <div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full employment-page <?php echo $has_banner ?>">
@@ -186,6 +187,7 @@ $currentPageLink = get_permalink();
 <script type="text/javascript">
 jQuery(document).ready(function($){
 	var currentURL = window.location.href;
+	var defaultJobLocation = '<?php echo $defaultLocation ?>';
 
 	$(document).on('facetwp-refresh', function() {
     var query_string = FWP.build_query_string();
@@ -196,15 +198,6 @@ jQuery(document).ready(function($){
     	$('.filter-message #fm').hide();
     }
 	});
-
-		// $(document).on('change', '.facetwp-facet-job_locations', function(e) { // change product_tags to name of dropdown facet
-  //       // FWP.is_reset = true;
-  //       // FWP.facets['product_categories'] = []; // set other facet to no selections
-  //       // delete FWP.facets['paged']; // remove "paged" from URL
-  //       // FWP.refresh();
-  //       //FWP.is_reset = true;
-  //       //console.log(e)
-  //   });
 
 	$(document).on("click","#nextPostsBtn",function(e){
 		e.preventDefault();
@@ -231,6 +224,8 @@ jQuery(document).ready(function($){
 			}
 		});
 	});
+
+	
 });
 </script>
 <?php

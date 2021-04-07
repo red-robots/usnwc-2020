@@ -1,9 +1,10 @@
 <?php
+	$defaultLocation = get_default_job_location();
 	$title4 = get_field("title4");
 	$canceledImage = THEMEURI . "images/canceled.svg";
 	$filter_message = get_field("filter_message");
 	$postype = 'job';
-	$job_location = ( isset($_GET['_job_locations']) && $_GET['_job_locations'] ) ? explode(",",$_GET['_job_locations']):'';
+	$job_location = ( isset($_GET['_job_locations']) && $_GET['_job_locations'] ) ? explode(",",$_GET['_job_locations']) : $defaultLocation;
 	$job_type = ( isset($_GET['_job_types']) && $_GET['_job_types'] ) ? explode(",",$_GET['_job_types']):'';
 	$job_department = ( isset($_GET['_job_department']) && $_GET['_job_department'] ) ? explode(",",$_GET['_job_department']):'';
 	$tax_query = array();
@@ -90,7 +91,7 @@ if( $posts->have_posts() ) { ?>
 
 			<?php /* Filter Options */ ?>
 			<div class="filter-wrapper filterstyle optionsnum3">
-				<div class="wrapper">
+				<div id="filterWap" class="wrapper">
 					
 					<div class="filter-inner">
 						<div class="flexwrap">
@@ -100,19 +101,19 @@ if( $posts->have_posts() ) { ?>
 							</div>
 
 							<?php if ( do_shortcode('[facetwp facet="job_locations"]') ) { ?>
-							<div class="select-wrap">
+							<div class="select-wrap jobLoc">
 								<?php echo do_shortcode('[facetwp facet="job_locations"]'); ?>
 							</div>
 							<?php } ?>
 
 							<?php if ( do_shortcode('[facetwp facet="job_types"]') ) { ?>
-							<div class="select-wrap">
+							<div class="select-wrap jobType">
 								<?php echo do_shortcode('[facetwp facet="job_types"]'); ?>
 							</div>
 							<?php } ?>
 
 							<?php if ( do_shortcode('[facetwp facet="job_department"]') ) { ?>
-							<div class="select-wrap">
+							<div class="select-wrap jobDept">
 								<?php echo do_shortcode('[facetwp facet="job_department"]'); ?>
 							</div>
 							<?php } ?>
