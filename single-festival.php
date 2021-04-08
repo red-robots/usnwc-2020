@@ -347,9 +347,10 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 					<?php $b=1; foreach ($bottom_activities as $ba) {
 						$pid = $ba->ID;
 						$title = $ba->post_title;
-						$description = ($ba->post_content) ? shortenText($ba->post_content,250," ","..."):'';
+						$description = ($ba->post_content) ? shortenText(strip_shortcodes(strip_tags($ba->post_content)),300," ","..."):'';
 						$thumbnail = get_field("thumbnail_image",$pid);
 						$buttonLink = get_permalink($pid);
+
 					?>
 					<div id="entryBlock<?php echo $b?>" class="fbox <?php echo ($thumbnail) ? 'hasImage':'noImage'; ?>">
 						<div class="inside text-center">
