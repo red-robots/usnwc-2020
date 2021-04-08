@@ -158,7 +158,9 @@ if( $posts->have_posts() ) { ?>
 													$i++;
 												}
 											}
-											if($countLocation==1) {
+											if($countLocation>1) {
+												
+											} else {
 												$jobLocation = '';
 											}
 											// if($jobtypes) {

@@ -225,15 +225,15 @@ jQuery(document).ready(function($){
 		});
 	});
 
-	$(document).on("click",".resetBtn",function(e){
-		e.preventDefault();
-		var link = $(this).attr("href");
-		$(".post-type-entries").hide();
-	});
+	// $(document).on("click",".resetBtn",function(e){
+	// 	e.preventDefault();
+	// 	var link = $(this).attr("href");
+	// 	$(".post-type-entries").hide();
+	// });
 
-	$(document).on("change",".facetwp-dropdown",function(e){
-		$(".post-type-entries").show();
-	});
+	// $(document).on("change",".facetwp-dropdown",function(e){
+	// 	$(".post-type-entries").show();
+	// });
 	
 });
 </script>
