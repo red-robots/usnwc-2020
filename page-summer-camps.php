@@ -9,6 +9,7 @@ $square = THEMEURI . "images/square.png";
 $canceledImage = THEMEURI . "images/canceled.svg";
 $currentPageLink = get_permalink();
 $ages = ( isset($_GET['age']) && $_GET['age'] ) ? explode(",",$_GET['age']) : '';
+$hideReset = ($ages) ? '':' hide';
 $postype = 'camp';
 $perpage = 16;
 ?>
@@ -26,7 +27,7 @@ $perpage = 16;
 				<?php } ?>
 			<?php endwhile;  ?>
 
-			<div class="filter-wrapper non-facetwp">
+			<div id="filter" class="filter-wrapper non-facetwp">
 				<div class="wrapper">
 					<div class="filter-inner">
 						<div class="flexwrap">
@@ -46,6 +47,7 @@ $perpage = 16;
 										<?php } ?>
 										</select>
 									</div>
+									<a href="<?php echo get_permalink(); ?>" class="resetBtn summer-camps<?php echo $hideReset?>"><span>Reset</span></a>
 								</div>
 						</div>
 					</div>
@@ -86,6 +88,9 @@ jQuery(document).ready(function($){
 			});
 
 			history.pushState("",document.title,newURL);
+			if( $('.resetBtn').length>0 ) {
+				$('.resetBtn').removeClass('hide');
+			}
 
 		});
 
@@ -132,6 +137,21 @@ jQuery(document).ready(function($){
 			$(".loadmorediv").hide();
 		}
 	}
+
+	$(document).on("click",".resetBtn",function(e){
+		e.preventDefault();
+		var link = $(this).attr("href");
+		$("#primary").load(link+" #pageContent",function(){
+			$(".js-select2").select2({
+				closeOnSelect : false,
+				placeholder : "Select...",
+				allowHtml: true,
+				allowClear: true,
+				tags: true 
+			});
+			history.replaceState('',document.title,link);
+		});
+	});
 });
 </script>
 <?php

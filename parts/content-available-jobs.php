@@ -9,6 +9,8 @@
 	$job_department = ( isset($_GET['_job_department']) && $_GET['_job_department'] ) ? explode(",",$_GET['_job_department']):'';
 	$tax_query = array();
 	$postsByDepartment = array();
+	$countLocation = ($job_location && is_array($job_location)) ? count($job_location) : 0;
+
 
 	if($job_location) {
 		$tax_query[] = array(
@@ -118,9 +120,10 @@ if( $posts->have_posts() ) { ?>
 							</div>
 							<?php } ?>
 
+							<button onclick="FWP.reset()" class="resetBtn jobs"><span>Reset</span></button>
+
 						</div>
 					</div>
-
 				</div>
 			</div>
 
@@ -142,8 +145,45 @@ if( $posts->have_posts() ) { ?>
 											<?php foreach($entries as $e) { 
 											$pid = $e->ID; 
 											$title = $e->post_title;
-											$link = get_permalink($pid); ?>
-											<div class="joblist show"><a href="<?php echo $link ?>"><?php echo $title; ?></a></div>	
+											$link = get_permalink($pid); 
+											$locations = get_the_terms($pid,'joblocation');
+											$jobtypes = get_the_terms($pid,'jobtype');
+											$jobLocation = '';
+											$jobTypesList = '';
+											if($locations) {
+												$i=1;
+												foreach($locations as $loc) {
+													$comma = ($i>1) ? ', ':'';
+													$jobLocation .= $comma . $loc->name;
+													$i++;
+												}
+											}
+											if($countLocation==1) {
+												$jobLocation = '';
+											}
+											// if($jobtypes) {
+											// 	$j=1;
+											// 	foreach($jobtypes as $jt) {
+											// 		$comma = ($j>1) ? ', ':'';
+											// 		$jobTypesList .= $comma . $jt->name;
+											// 		$j++;
+											// 	}
+											// }
+											
+											// if($job_type) {
+											// 	if($jobTypesList) {
+											// 		$jobTypesList = $jobTypesList . ' &ndash; ';
+											// 	}
+											// } else {
+											// 	$jobTypesList = '';
+											// }
+											?>
+											<div class="joblist show">
+												<a href="<?php echo $link ?>"><?php echo $title; ?></a>
+												<?php if ($jobLocation) { ?>
+												<div class="loc">(<?php echo $jobTypesList . $jobLocation ?>)</div>	
+												<?php } ?>
+											</div>	
 											<?php } ?>
 										</div>
 										<?php } ?>

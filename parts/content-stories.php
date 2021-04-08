@@ -55,19 +55,40 @@ if($get_is_all && ($count_get!=count($get_is_all)) ) {
 		$cat_id = ($_GET['_categories'] && $_GET['_categories']!='all') ? $_GET['_categories'] : 0;
 		$activity_type_id = ($_GET['_activity_types'] && $_GET['_activity_types']!='all') ? $_GET['_activity_types'] : 0;
 
-		$args['tax_query'] = array(
-		 'relation' => 'OR',
-		  array(
-		      'taxonomy' => 'category',
-		      'field'    => 'term_id',
-		      'terms'    => $cat_id,
-		  ),
-		  array(
-		      'taxonomy' => 'activity_type',
-		      'field'    => 'term_id',
-		      'terms'    => $activity_type_id,
-		  )
-		);
+		// $args['tax_query'] = array(
+		//  'relation' => 'OR',
+		//   array(
+		//       'taxonomy' => 'category',
+		//       'field'    => 'term_id',
+		//       'terms'    => $cat_id,
+		//   ),
+		//   array(
+		//       'taxonomy' => 'activity_type',
+		//       'field'    => 'term_id',
+		//       'terms'    => $activity_type_id,
+		//   )
+		// );
+
+		$tax_query[] = array(
+			'taxonomy' => 'category',
+			'field' => 'term_id',
+			'terms' => $cat_id,
+			'operator' => 'IN'
+    );
+
+    $tax_query[] = array(
+			'taxonomy' => 'activity_type',
+			'field' => 'term_id',
+			'terms' => $activity_type_id,
+			'operator' => 'IN'
+    );
+
+    $count_query = ($tax_query) ? count($tax_query):0;
+		if($count_query>1) {
+			$tax_query['relation'] = 'OR';
+		}
+
+		$args['tax_query'] = $tax_query;
 	}
 
 }
@@ -86,7 +107,7 @@ $types = get_terms( array(
 	    'hide_empty' => true,
 	) );
 
-if ( $blogs->have_posts() ) {  ?>
+if ( $blogs->have_posts() ) {  $totalFound = $blogs->found_posts; ?>
 
 <div id="load-post-div">
 	<div id="load-data-div">
@@ -112,6 +133,8 @@ if ( $blogs->have_posts() ) {  ?>
 						</div>
 						<?php } ?>
 
+						<button onclick="FWP.reset()" class="resetBtn jobs"><span>Reset</span></button>
+
 					</div>
 				</div>
 				
@@ -123,9 +146,10 @@ if ( $blogs->have_posts() ) {  ?>
 		</div>
 
 		<div class="archive-posts-wrap">
-			<div id="postLists" class="posts-inner">
+			<div id="postLists" class="posts-inner countItems<?php echo $totalFound?>">
 
-				<?php $sec=.1; $i=1; while ( $blogs->have_posts() ) : $blogs->the_post();
+				<?php 
+					$sec=.1; $i=1; while ( $blogs->have_posts() ) : $blogs->the_post();
 					$thumbId = get_post_thumbnail_id(); 
 					$featImg = wp_get_attachment_image_src($thumbId,'large');
 					$featThumb = wp_get_attachment_image_src($thumbId,'thumbnail');
@@ -151,32 +175,29 @@ if ( $blogs->have_posts() ) {  ?>
       $total_pages = $blogs->max_num_pages;
       if ($total_pages > 1){ ?>
           <div id="pagination" style="width:100%;float:left;display:none">
-              <?php
-                  $pagination = array(
-                      'base' => @add_query_arg('pg','%#%'),
-                      'format' => '?paged=%#%',
-                      'current' => $paged,
-                      'total' => $total_pages,
-                      'prev_text' => __( '&laquo;', 'usnwc' ),
-                      'next_text' => __( '&raquo;', 'usnwc' ),
-                      'type' => 'plain'
-                  );
-                  echo paginate_links($pagination);
-              ?>
+            <?php
+            $pagination = array(
+                'base' => @add_query_arg('pg','%#%'),
+                'format' => '?paged=%#%',
+                'current' => $paged,
+                'total' => $total_pages,
+                'prev_text' => __( '&laquo;', 'usnwc' ),
+                'next_text' => __( '&raquo;', 'usnwc' ),
+                'type' => 'plain'
+            );
+            echo paginate_links($pagination); ?>
           </div>
-          <?php
-      } ?>
 
-		<?php
-		$total_pages = $blogs->max_num_pages;
-		if ($total_pages > 1){ ?>
-			<div class="morebuttondiv">
-				<span class="moreBtnSpan"> <?php /* id="loadMoreBtn2" */ ?>
-					<a class="moreBtn" id="loadMoreBtn3" data-totalpages="<?php echo $total_pages?>" data-perpage="<?php echo $perPage?>" data-posttype="<?php echo $post_type?>" data-page="2" data-baseurl="<?php echo $pageLink?>" data-filterby=""><span class="loadtxt">Load More</span></a>
-					<div class="wait"><span class="fas fa-sync-alt rotate"></span></div>
-				</span>
-			</div>
-		<?php } ?>
-		<?php } ?>
+						<div class="morebuttondiv">
+							<span class="moreBtnSpan"> <?php /* id="loadMoreBtn2" */ ?>
+								<a class="moreBtn" id="loadMoreBtn3" data-totalpages="<?php echo $total_pages?>" data-perpage="<?php echo $perPage?>" data-posttype="<?php echo $post_type?>" data-page="2" data-baseurl="<?php echo $pageLink?>" data-filterby=""><span class="loadtxt">Load More</span></a>
+								<div class="wait"><span class="fas fa-sync-alt rotate"></span></div>
+							</span>
+						</div>
+      <?php } ?>
+
+
 	</div>
 </div>
+
+<?php } ?>

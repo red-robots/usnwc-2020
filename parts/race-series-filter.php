@@ -56,7 +56,7 @@ if( isset($_GET['_race_series_discipline']) && $_GET['_race_series_discipline'] 
 $finalList = array();
 $groupItems = array();
 $entries = new WP_Query($args); ?>
-<?php if ( $entries->have_posts() ) {  ?>
+<?php if ( $entries->have_posts() ) {  $totalFound = $entries->found_posts; ?>
 
 	<div class="filter-wrapper">
 			<div class="wrapper">
@@ -79,9 +79,10 @@ $entries = new WP_Query($args); ?>
 						</div>
 						<?php } ?>
 
-						<div id="resetBtn" class="select-reset-wrap <?php echo ($has_filter) ? '':'hide'; ?>">
-							<a href="<?php echo get_permalink(); ?>" class="resetpage">Reset</a>
-						</div>
+						<!-- <div id="resetBtn" class="select-reset-wrap <?php //echo ($has_filter) ? '':'hide'; ?>">
+							<a href="<?php //echo get_permalink(); ?>" class="resetpage">Reset</a>
+						</div> -->
+						<button onclick="FWP.reset()" class="resetBtn jobs"><span>Reset</span></button>
 					</div>
 				</div>
 
@@ -91,7 +92,7 @@ $entries = new WP_Query($args); ?>
 	<div class="post-type-entries <?php echo $postype ?>">
 		<div id="data-container">
 			<div class="posts-inner animate__animated animate__fadeIn">
-				<div class="flex-inner result">
+				<div class="flex-inner result countItems<?php echo $totalFound?>">
 					<?php $i=1;  while ( $entries->have_posts() ) : $entries->the_post();
 						$pid = get_the_ID(); 
 						$title = get_the_title();

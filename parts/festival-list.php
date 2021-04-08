@@ -36,8 +36,11 @@ $entries = new WP_Query($args); ?>
 						<div class="select-wrap align-middle event-status">
 							<label>Filter By</label>
 							<?php echo do_shortcode('[facetwp facet="festival_status"]'); ?>
+							<button onclick="FWP.reset()" class="resetBtn festival"><span>Reset</span></button>
 						</div>
 						<?php } ?>
+
+
 
 						<!-- <div id="resetBtn" class="select-reset-wrap <?php //echo ($has_filter) ? '':'hide'; ?>">
 							<a href="<?php //echo get_permalink(); ?>" class="resetpage">Reset</a>

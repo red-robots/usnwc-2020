@@ -29,7 +29,14 @@ get_header();
 				<div class="wrapper narrow">
 					<div class="flexwrap">
 						<div class="textcol">
-							<div class="inside"><?php the_content(); ?></div>
+							<div class="inside">
+								<?php the_content(); ?>
+								<?php if( $applyLink = get_field("apply_link") ) { ?>
+								<div class="buttondiv" style="margin-top:30px">
+									<a href="<?php echo $applyLink ?>" target="_blank" class="btn-sm red xs"><span>Apply Now</span></a>
+								</div>
+								<?php } ?>
+							</div>
 						</div>
 					</div>
 				</div>
