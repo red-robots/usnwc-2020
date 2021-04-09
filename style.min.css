@@ -2592,6 +2592,7 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 body.single-race #pageTabs{top:0;margin-top:35px}
 body.single-race #primary #section-faqs{padding-top:60px;padding-bottom:30px}
 body.single-race .content-default .black-section ul,body.single-race .content-default .black-section ol{display:inline-block;text-align:left}
+body.single-race .content-default .black-section ul ul,body.single-race .content-default .black-section ul ol,body.single-race .content-default .black-section ol ul,body.single-race .content-default .black-section ol ol{display:inline;position:relative;left:30px}
 body.single-race #primary #section-schedule{padding-top:40px}
 body.page-template-page-festivals .intro-text-wrap{padding-bottom:30px}
 @media(min-width:820px){body.scrolled .site-header{box-shadow:0 3px 8px rgba(0,0,0,0.1)}
@@ -2791,14 +2792,14 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 }#section-awards .col-title{text-align:center;margin-bottom:15px}
 #section-awards .col-content{text-align:center}
 #section-awards .col-content .wrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
-#section-awards .col-content .result-data{width:50%}
-@media(min-width:600px){#section-awards .col-content .result-data{width:50%}
-}@media(min-width:820px){#section-awards .col-content .result-data{width:33.33%}
+#section-awards .col-content .result-data{width:100%}
+@media(min-width:820px){#section-awards .col-content .result-data{width:33.33%}
 }#section-awards .col-content .result-data .h3{font-weight:500;font-size:20px;line-height:1.2;margin:0 0 15px}
 #section-awards .col-content .result-data .rtext{font-size:18px;line-height:1.6}
-#section-awards .col-content.col-count-2 .result-data{width:100%;text-align:center}
-@media(min-width:600px){#section-awards .col-content.col-count-2 .result-data{width:50%}
-}#section-awards .col-content .text1{font-size:15px;line-height:1.6;padding:0 5vw;color:#707070;margin-bottom:35px}
+#section-awards .col-content.col-count-2 .result-data{width:100%;text-align:center;margin-top:20px}
+@media(min-width:1200px){#section-awards .col-content.col-count-2 .result-data{width:50%;margin-top:0}
+}#section-awards .col-content.col-count-2 .result-data:first-child{margin-top:0}
+#section-awards .col-content .text1{font-size:15px;line-height:1.6;padding:0 5vw;color:#707070;margin-bottom:35px}
 #section-awards .col-content .text2{font-size:20px;font-weight:300;line-height:1.7;margin:10px 0}
 #section-awards .col-content .text2 span.red{color:#ba0d30;display:inline-block;margin:0 5px}
 #section-awards .col-content div.ribbon{position:relative;max-width:500px;width:100%;margin:40px auto 0;font-size:15px;line-height:1.6;border-top:1px solid #ba0d30;border-bottom:1px solid #ba0d30;overflow:hidden}
@@ -3914,6 +3915,9 @@ body.page-template-page-group-events .noButtonTop #pageTabs{top:5px}
 .facetwp-facet-race_event_status [data-value="active"] .fs-option-label{color:transparent}
 #data-container .posts-inner{margin-bottom:5px}
 body.page-template-page-race #loaderDiv .loaderInline{position:relative;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+body.page-template-page-race .posts-inner .linkwrap{width:100%;height:auto;float:left;position:relative;background-size:10%;background-position:center;background-repeat:no-repeat;background-color:#f7f6f6}
+body.page-template-page-race .posts-inner .linkwrap img.rectangle-spacer{width:100%;height:auto;float:left}
+body.page-template-page-race .posts-inner .linkwrap a.photo{display:block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:10}
 .festival-page .filter-wrapper .select-wrap .fs-option-label,.festival-page .filter-wrapper .fs-label{text-transform:capitalize}
 .filter-wrapper.non-facetwp .select2-container{min-width:400px}
 .filter-wrapper.non-facetwp .select2-results__option{padding-right:20px;vertical-align:middle}

@@ -340,8 +340,9 @@ div.acf-field[data-name="custom_icon"] .iconOptBtn {
 }
 .acf-field-checkbox[data-name="registrationLinkTarget"] {
   position: relative;
-  top: -29px;
+  top: -13px;
   border-top: none;
+  padding-top: 0;
 } 
 
 [data-name="hidePostfromMainPage"] .acf-label { display: none!important }

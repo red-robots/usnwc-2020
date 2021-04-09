@@ -3,6 +3,7 @@ $blank_image = THEMEURI . "images/square.png";
 $square = THEMEURI . "images/square.png";
 $rectangle = THEMEURI . "images/rectangle-lg.png";
 $canceledImage = THEMEURI . "images/canceled.svg";
+$portrait_spacer = THEMEURI . "images/portrait.png";
 
 $postype = 'race';
 $perpage = 16;
@@ -150,31 +151,34 @@ $entries = new WP_Query($args); ?>
 									<?php if ($eventStatus=='completed') { ?>
 										<div class="event-completed"><span>Event Complete</span></div>
 									<?php } ?>
-									<a href="<?php echo $pagelink ?>" class="photo wave-effect js-blocks">
-										<?php if ($thumbImage) { ?>
-											<div class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></div>
-											<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img">
-										<?php } else { ?>
-											<div class="imagediv"></div>
-											<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
-										<?php } ?>
-										<span class="boxTitle">
-											<span class="twrap">
-												<span class="t1"><?php echo $title ?></span>
-												<?php if ($event_date) { ?>
-												<span class="t2"><?php echo $event_date ?></span>
-												<?php } ?>
+									<div class="linkwrap">
+										<a href="<?php echo $pagelink ?>" class="photo wave-effect js-blocks">
+											<?php if ($thumbImage) { ?>
+												<div class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></div>
+												<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img">
+											<?php } else { ?>
+												<div class="imagediv"></div>
+												<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
+											<?php } ?>
+											<span class="boxTitle">
+												<span class="twrap">
+													<span class="t1"><?php echo $title ?></span>
+													<?php if ($event_date) { ?>
+													<span class="t2"><?php echo $event_date ?></span>
+													<?php } ?>
+												</span>
 											</span>
-										</span>
-										
-										<?php get_template_part('parts/wave-SVG'); ?>
+											
+											<?php get_template_part('parts/wave-SVG'); ?>
 
-										<?php if ($eventStatus=='canceled') { ?>
-										<span class="canceledStat">
-											<img src="<?php echo $canceledImage ?>" alt="" aria-hidden="true">
-										</span>	
-										<?php } ?>
-									</a>
+											<?php if ($eventStatus=='canceled') { ?>
+											<span class="canceledStat">
+												<img src="<?php echo $canceledImage ?>" alt="" aria-hidden="true">
+											</span>	
+											<?php } ?>
+										</a>
+										<img src="<?php echo $portrait_spacer; ?>" alt="" aria-hidden="true" class="rectangle-spacer">
+									</div>
 									<div class="details">
 										<div class="info">
 											<h3 class="event-name"><?php echo $title ?></h3>

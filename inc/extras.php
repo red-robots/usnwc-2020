@@ -724,7 +724,15 @@ jQuery(document).ready(function($){
 
     /* Flexible Content that has a 'title' field. Title appears on the collapse handle */
     if( $('body').hasClass('post-type-race') ) {
-        // do nothing...
+        if( $('.acf-flexible-content [data-layout="text_and_image"] .acf-field-text[data-name="title"]').length > 0 ) {
+            $('.acf-flexible-content [data-layout="text_and_image"] .acf-field-text[data-name="title"]').each(function(){
+                var parent = $(this).parents(".layout");
+                parent.addClass('show-title');
+                var str = $(this).find('.acf-input-wrap input').val();
+                var title = ( str.replace(/\s+/g,'').trim() ) ? str.replace(/\s+/g,' ').trim() : '(Blank)';
+                parent.find(".acf-fc-layout-handle").attr("data-title",title);
+            });
+        }
     } else {
         if( $('.acf-flexible-content .acf-field-text[data-name="title"]').length > 0 ) {
             $('.acf-field-text[data-name="title"]').each(function(){
@@ -2241,4 +2249,9 @@ add_filter( 'facetwp_preload_url_vars', function( $url_vars ) {
 
 function get_default_job_location() {
     return 'charlotte';
+}
+
+function exclude_post_types_banner() {
+    $post_types = array('race');
+    return $post_types;
 }
