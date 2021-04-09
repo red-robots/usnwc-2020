@@ -3765,6 +3765,12 @@ body.single-race {
 	#primary #section-schedule {
 		padding-top: 40px;
 	}
+	#section-coursemap .title-w-icon {
+		padding-bottom: 0;
+	}
+	#section-registration .shead-icon {
+		margin-bottom: 10px;
+	}
 }
 
 body.page-template-page-festivals {
@@ -10350,6 +10356,8 @@ body.subpage.single .content-default .important-notes-red,
 		}
 		span {
 			letter-spacing: 1px;
+			position: relative;
+			z-index: 10;
 		}
 		&:before, &:after {
 			content:"";

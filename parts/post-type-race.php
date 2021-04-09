@@ -489,11 +489,15 @@
 	<?php 
 	/* FAQ */ 
 	//get_template_part("parts/content-faqs-race"); 
-	$useDefaultFAQIcon = true;
-	$customFAQTitle = (get_field("faq_section_title")) ? get_field("faq_section_title") : 'FAQ';
-	include( locate_template('parts/content-faqs.php') ); 
-	/* FAQS JAVASCRIPT */ 
-	include( locate_template('inc/faqs-script.php') ); 
+	$faqVisible = get_field("faqs_visibility");
+	$showFAQs = ( isset($faqVisible[0]) && $faqVisible[0]=='hide' ) ? false : true;
+	if($showFAQs) {
+		$useDefaultFAQIcon = true;
+		$customFAQTitle = (get_field("faq_section_title")) ? get_field("faq_section_title") : 'FAQ';
+		include( locate_template('parts/content-faqs.php') ); 
+		/* FAQS JAVASCRIPT */ 
+		include( locate_template('inc/faqs-script.php') ); 
+	}
 	?>
 <?php endwhile; ?>
 

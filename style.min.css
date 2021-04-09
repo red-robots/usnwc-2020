@@ -2594,6 +2594,8 @@ body.single-race #primary #section-faqs{padding-top:60px;padding-bottom:30px}
 body.single-race .content-default .black-section ul,body.single-race .content-default .black-section ol{display:inline-block;text-align:left}
 body.single-race .content-default .black-section ul ul,body.single-race .content-default .black-section ul ol,body.single-race .content-default .black-section ol ul,body.single-race .content-default .black-section ol ol{display:inline;position:relative;left:30px}
 body.single-race #primary #section-schedule{padding-top:40px}
+body.single-race #section-coursemap .title-w-icon{padding-bottom:0}
+body.single-race #section-registration .shead-icon{margin-bottom:10px}
 body.page-template-page-festivals .intro-text-wrap{padding-bottom:30px}
 @media(min-width:820px){body.scrolled .site-header{box-shadow:0 3px 8px rgba(0,0,0,0.1)}
 body.scrolled .site-header .navbar{background:rgba(255,255,255,0.95)}
@@ -3826,7 +3828,7 @@ body.subpage.single .content-default .important-notes-red p:last-child,.importan
 .outer-banner-wrap .top{display:inline-block;position:absolute;top:86px;left:0;z-index:30}
 .outer-banner-wrap .button-arrow{display:inline-block;text-decoration:none;cursor:pointer;background:#ba0d30;color:#FFF;font-size:18px;line-height:1.2;text-transform:uppercase;text-align:center;position:relative;-webkit-transform:translateX(-10px);-ms-transform:translateX(-10px);transform:translateX(-10px);padding:18px 10px 15px 30px;min-width:180px}
 @media(min-width:820px){.outer-banner-wrap .button-arrow{padding:20px 10px 20px 30px;min-width:220px;-webkit-transform:translateX(-20px);-ms-transform:translateX(-20px);transform:translateX(-20px)}
-}.outer-banner-wrap .button-arrow span{letter-spacing:1px}
+}.outer-banner-wrap .button-arrow span{letter-spacing:1px;position:relative;z-index:10}
 .outer-banner-wrap .button-arrow:before,.outer-banner-wrap .button-arrow:after{content:"";display:block;width:60px;height:50%;position:absolute;right:-15px;background:#ba0d30}
 .outer-banner-wrap .button-arrow:before{top:0;-webkit-transform:skew(40deg);-ms-transform:skew(40deg);transform:skew(40deg)}
 .outer-banner-wrap .button-arrow:after{bottom:0;height:49.5%;-webkit-transform:skew(-40deg);-ms-transform:skew(-40deg);transform:skew(-40deg)}
