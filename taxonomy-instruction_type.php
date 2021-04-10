@@ -35,7 +35,6 @@ $child_terms = get_term_children($current_term_id,$taxonomy);
 		include( locate_template('instructions/instruction-posts.php') );
 	} 
 	?>
-
 </div><!-- #primary -->
 <?php
 get_footer();

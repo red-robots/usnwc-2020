@@ -113,7 +113,7 @@ $status_custom_message = get_field("status_custom_message");
 								</div>
 							<?php } ?>
 							
-							<?php if ( $status=="open" && ($cta_buttons) ) { ?>
+							<?php if ( $status!='closed' && $cta_buttons ) { ?>
 								<div class="buttondiv">
 								<?php foreach ($cta_buttons as $btn) { 
 										$buttonType = $btn['button_type'];
