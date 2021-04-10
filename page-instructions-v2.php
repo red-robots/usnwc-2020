@@ -26,21 +26,22 @@ $parent_page_id = get_the_ID();
 	<?php /* GET PARENT CATEGORIES */ ?>
 	<?php  
 	$taxonomy = 'instruction_type';
-	$parent_terms = get_terms( array( 'taxonomy' => $taxonomy, 'parent' => 0, 'hide_empty'=>false ) );
+	$hide_empty = true;
+	$parent_terms = get_terms( array( 'taxonomy' => $taxonomy, 'parent' => 0, 'hide_empty'=>$hide_empty ) );
 	if($parent_terms) { ?>
 	<section class="section-content entries-with-filter" style="padding-top:0;">
 		<div class="post-type-entries boxes-element threecols instructions">
 			<div id="data-container">
 				<div class="posts-inner result">
 					<div id="resultContainer" class="flex-inner align-middle">
-						<?php foreach ($parent_terms as $term) { 
+						<?php $i=1; foreach ($parent_terms as $term) { 
 							$term_id = $term->term_id;
 							$term_name = $term->name;
 							$thumbImage = get_field("category_image",$taxonomy.'_'.$term_id);
 							$pagelink = get_term_link($term,$taxonomy);
-							$child_terms = get_term_children($term_id,$taxonomy);
+							//$child_terms = get_term_children($term_id,$taxonomy);
 							?>
-							<div class="postbox animated fadeIn has-image" id="postnum1">
+							<div id="postbox<?php echo $i?>" class="postbox animated fadeIn <?php echo ($thumbImage) ? 'has-image':'no-image';?>">
 								<div class="inside">
 
 									<div class="photo">
@@ -66,7 +67,7 @@ $parent_page_id = get_the_ID();
 
 								</div>
 							</div>
-						<?php } ?>
+						<?php $i++; } ?>
 
 					</div>
 				</div>
