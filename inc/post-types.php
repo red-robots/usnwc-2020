@@ -319,6 +319,16 @@ function build_taxonomies() {
     ),
     array(
       'post_type' => array('instructions'),
+      'menu_name' => 'Instruction Types',
+      'plural'    => 'Instruction Types',
+      'single'    => 'Instruction Type',
+      'taxonomy'  => 'instruction_type',
+      'rewrite'   => 'instruction-type',
+      'query_var' => true,
+      'show_admin_column'=>true
+    ),
+    array(
+      'post_type' => array('instructions'),
       'menu_name' => 'Lesson Format',
       'plural'    => 'Lesson Format',
       'single'    => 'Lesson Format',

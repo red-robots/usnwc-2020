@@ -3875,6 +3875,9 @@ h1.page-title {
 		&.entriesCount3 {
 			@include flexbox-justify(center);
 		}
+		&.align-middle {
+			@include flexbox-justify(center);
+		}
 	}
 	.postbox {
 		width: 100%;
@@ -12081,6 +12084,12 @@ body.page-template-page-race {
 			@include flexbox-justify(center);
 		}
 	}
+}
+
+.no-banner-spacer {
+	width: 100%;
+	float: left;
+	margin-bottom: 70px;
 }
 
 /* FOOTER */

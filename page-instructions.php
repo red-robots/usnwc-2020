@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Instruction
+ * Template Name: Instruction Version 1
  */
 
 get_header(); 
