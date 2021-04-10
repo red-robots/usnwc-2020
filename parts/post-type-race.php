@@ -353,9 +353,11 @@
 						$percent = ( isset($course_images[$img_width]) && $course_images[$img_width] ) ? $course_images[$img_width]:'50';
 						if($img) { ?>
 							<div class="img" style="width:<?php echo $percent?>%">
-								<div class="wrap" style="background-image:url('<?php echo $img['url'] ?>')">
-									<img src="<?php echo $img['url'] ?>" alt="<?php echo $img['title'] ?>" style="visibility:hidden"/>
-								</div>
+								<a href="<?php echo $img['url'] ?>" class="zoomPic zoom-image">
+									<div class="wrap" style="background-image:url('<?php echo $img['url'] ?>')">
+										<img src="<?php echo $img['url'] ?>" alt="<?php echo $img['title'] ?>" style="visibility:hidden"/>
+									</div>
+								</a>
 							</div>
 						<?php } ?>
 					<?php } ?>

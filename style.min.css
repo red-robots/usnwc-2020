@@ -2787,6 +2787,7 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 #section-coursemap .course-images .img{padding:5px}
 #section-coursemap .course-images .img .wrap{width:100%;height:100%;background-size:cover;background-position:top center;background-repeat:no-repeat}
 #section-coursemap .course-images .img img{width:100%;height:auto}
+#section-coursemap .course-images a.zoomPic{display:block}
 .section-schedule{padding-top:50px;padding-bottom:50px;margin-top:16px}
 #section-awards .flexwrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-left:-5px;margin-right:-5px}
 #section-awards .icon-img{margin-bottom:15px}
