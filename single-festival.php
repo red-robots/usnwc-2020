@@ -350,7 +350,17 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 						$description = ($ba->post_content) ? shortenText(strip_shortcodes(strip_tags($ba->post_content)),300," ","..."):'';
 						$thumbnail = get_field("thumbnail_image",$pid);
 						$buttonLink = get_permalink($pid);
-
+						$contentType = get_field("content_display_type",$pid);
+						$is_popup = ($contentType=='pagelink') ? false : true;
+						$url = get_field("pagelink",$pid);
+						$btnURL = ( isset($url['url']) && $url['url'] ) ? $url['url'] : '';
+						$btnText = ( isset($url['title']) && $url['title'] ) ? $url['title'] : '';
+						$btnTarget = ( isset($url['target']) && $url['target'] ) ? $url['target'] : '_self';
+						if($contentType=='nobutton') {
+							$is_popup = false;
+							$btnURL = '';
+							$btnText = '';
+						}
 					?>
 					<div id="entryBlock<?php echo $b?>" class="fbox <?php echo ($thumbnail) ? 'hasImage':'noImage'; ?>">
 						<div class="inside text-center">
@@ -365,9 +375,18 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 								<?php if ($description) { ?>
 								<div class="excerpt"><?php echo $description; ?></div>	
 								<?php } ?>
-								<div class="buttondiv">
-									<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class="btn-sm ajaxLoadContent popdata"><span>See Details</span></a>	
-								</div>
+
+								<?php if ($is_popup) { ?>
+									<div class="buttondiv">
+										<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class="btn-sm ajaxLoadContent popdata"><span>See Details</span></a>	
+									</div>
+								<?php } else { ?>
+									<?php if ( ($btnURL && $btnText) && $contentType=='pagelink' ) { ?>
+									<div class="buttondiv">
+										<a href="<?php echo $btnURL ?>" target="<?php echo $btnTarget ?>" class="btn-sm xs btn-link"><span><?php echo $btnText ?></span></a>	
+									</div>
+									<?php } ?>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
