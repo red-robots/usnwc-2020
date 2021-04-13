@@ -171,14 +171,21 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 				$title = $p->post_title;
 				$pagelink = get_permalink($xid);
 				$helper = THEMEURI . 'images/rectangle-narrow.png';
+				$excerpt = get_field("short_description",$xid);
+				$program_description = '';
+				if($excerpt) {
+					$program_description = $excerpt;
+				} else {
+					$program_description = $programText;
+				}
 				?>
 				<div id="section<?php echo $i?>" class="mscol <?php echo $boxClass.$colClass ?>">
 					<div class="textcol">
 						<div class="inside">
 							<div class="info">
 								<h3 class="mstitle"><?php echo $title; ?></h3>
-								<?php if ($programText) { ?>
-								<div class="textwrap"><?php echo $programText; ?></div>
+								<?php if ($program_description) { ?>
+								<div class="textwrap"><?php echo $program_description; ?></div>
 								<div class="buttondiv">
 									<a href="#" data-url="<?php echo $pagelink; ?>" data-action="ajaxGetPageData" data-id="<?php echo $xid ?>" class="btn-sm xs popdata"><span>See More</span></a>
 								</div>
