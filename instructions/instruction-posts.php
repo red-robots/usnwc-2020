@@ -22,7 +22,7 @@ $total = $entries->found_posts;
 $flexClass = ($total<3) ? ' align-middle':'';
 ?>
 <section class="section-content entries-with-filter" style="padding-top:0;">
-	<div class="post-type-entries boxes-element threecols <?php echo $postype ?>">
+	<div class="post-type-entries boxes-element threecols <?php echo $posttype ?>">
 		<div id="data-container">
 			<div class="posts-inner result">
 				<div id="resultContainer" class="flex-inner<?php echo $flexClass ?>">
@@ -38,6 +38,11 @@ $flexClass = ($total<3) ? ' align-middle':'';
 						$schedules = get_field("schedules_alt");
 						$options1 = array($price,$ages,$duration);
 						$options2 = array("ages"=>$ages,"duration"=>$duration,"price"=>$price);
+						$register = get_field("registration_link");
+						$registerLink = ( isset($register['url']) && $register['url'] ) ? $register['url'] : '';
+						$registerText = ( isset($register['title']) && $register['title'] ) ? $register['title'] : '';
+						$registerTarget = ( isset($register['target']) && $register['target'] ) ? $register['target'] : '_self';
+						$information = get_field("information_content");
 						?>
 						<div class="postbox animated fadeIn <?php echo ($thumbImage) ? 'has-image':'no-image';?>">
 							<div class="inside">
@@ -77,15 +82,33 @@ $flexClass = ($total<3) ? ' align-middle':'';
 
 										<?php if ($short_description) { ?>
 										<div class="short-description">
-											<?php echo $short_description ?>
+											<?php echo $short_description; ?>
 										</div>
 										<?php } ?>
+
+										<?php if ($information) { ?>
+										<div class="other-info">
+											<?php foreach ($information as $e) { ?>
+											<div class="text">
+												<?php if ($e['title']) { ?>
+													<div class="t1"><strong><?php echo $e['title'] ?></strong></div>
+												<?php } ?>
+												<?php if ($e['text']) { ?>
+													<div class="t2"><?php echo emailize($e['text']) ?></div>
+												<?php } ?>
+											</div>	
+											<?php } ?>
+										</div>
+										<?php } ?>
+
 									</div>
 								</div>
 							</div>
+							<?php if ($registerLink && $registerText) { ?>
 							<div class="button">
-								<a href="<?php echo $pagelink ?>" class="btn-sm"><span>See Details</span></a>
+								<a href="<?php echo $registerLink ?>" class="btn-sm xs"><span><?php echo $registerText ?></span></a>
 							</div>
+							<?php } ?>
 						</div>
 					<?php $ctr++; endwhile; wp_reset_postdata(); ?>
 				</div>

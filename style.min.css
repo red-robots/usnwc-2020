@@ -2128,6 +2128,13 @@ body.nav-open .menu-toggle{opacity:0}
 }#banner.subpageBanner{margin-top:86px}
 @media(min-width:820px){#banner.subpageBanner{margin-top:0}
 }#banner.subpageBanner .slideItem img{display:block !important;width:100%;height:auto;float:left}
+#banner.taxonomy-banner{margin-top:16px}
+#banner.taxonomy-banner .static-banner{background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#707070}
+@media(min-width:820px){#banner.taxonomy-banner .static-banner{height:600px}
+}@media(min-width:960px){#banner.taxonomy-banner .static-banner{height:650px}
+}#banner.taxonomy-banner .static-banner img.actual-image{display:block;width:100%;height:auto;float:left}
+@media(min-width:820px){#banner.taxonomy-banner .static-banner img.actual-image{display:none}
+}#banner.taxonomy-banner .static-banner img.helper{display:none;width:100%;height:auto;float:left}
 #subpageSlides{position:relative}
 #subpageSlides .sub-slide-item{width:100%;float:left}
 #subpageSlides .sub-slide-item .slide-image{width:100%;float:left;min-height:200px;background-size:cover;background-position:center}
@@ -4153,6 +4160,10 @@ body.error404 #content{height:95vh}
 }body.page-template-page-stories .filter-wrapper .facetwp-facet .fs-label-wrap{width:100%}
 body.page-template-page-race .post-type-entries .flex-inner.countItems1,body.page-template-page-race .post-type-entries .flex-inner.countItems2,body.page-template-page-race .post-type-entries .flex-inner.countItems3{-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .no-banner-spacer{width:100%;float:left;margin-bottom:70px}
+.instruction-taxonomy-page .postbox .other-info{margin-top:5px;margin-bottom:5px}
+.instruction-taxonomy-page .postbox .other-info .text{margin-top:15px}
+.instruction-taxonomy-page .postbox .other-info .text a{color:#707070;text-decoration:none}
+.instruction-taxonomy-page .postbox .other-info .text a:hover{color:#ba0d30}
 .site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}

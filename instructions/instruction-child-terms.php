@@ -45,7 +45,7 @@ $total = count($child_terms);
 									</div>
 								</div>
 								<div class="button">
-									<a href="<?php echo $pagelink ?>?pp=<?php echo $parent_page_id?>" class="btn-sm"><span>See Details</span></a>
+									<a href="<?php echo $pagelink ?>" class="btn-sm"><span>See Details</span></a>
 								</div>
 							</div>
 							<?php $ctr++; } ?>

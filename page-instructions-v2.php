@@ -61,7 +61,7 @@ $parent_page_id = get_the_ID();
 										</div>
 
 										<div class="button">
-											<a href="<?php echo $pagelink ?>?pp=<?php echo $parent_page_id?>" class="btn-sm"><span>See Details</span></a>
+											<a href="<?php echo $pagelink ?>" class="btn-sm"><span>See Details</span></a>
 										</div>
 									</div>
 

@@ -63,4 +63,10 @@ function email_obfuscator($string) {
   return $string;
 }
 
+function emailize($text) {
+  $regex = '/(\S+@\S+\.\S+)/';
+  $replace = '<a href="mailto:$1">$1</a>';
+  return preg_replace($regex, $replace, $text);
+}
+
 ?>

@@ -1096,6 +1096,39 @@ body.nav-open {
 		}
 	}
 }
+#banner.taxonomy-banner {
+	margin-top: 16px;
+	.static-banner {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-color: $gray_dark;
+		@include tab {
+			height: 600px;
+		}
+		@include mid {
+			height: 650px;
+		}
+		img.actual-image {
+			display: block;
+			width: 100%;
+			height: auto;
+			float: left;
+			@include tab {
+				display: none;
+			}
+		}
+		img.helper {
+			display: none;
+			width: 100%;
+			height: auto;
+			float: left;
+			// @include tab {
+			// 	display: block;
+			// }
+		}
+	}
+}
 
 #subpageSlides {
 	position: relative;
@@ -12141,6 +12174,25 @@ body.page-template-page-race {
 	width: 100%;
 	float: left;
 	margin-bottom: 70px;
+}
+
+.instruction-taxonomy-page {
+	.postbox {
+		.other-info {
+			margin-top: 5px;
+			margin-bottom: 5px;
+			.text {
+				margin-top: 15px;
+				a {
+					color: $gray_dark;
+					text-decoration: none;
+					&:hover {
+						color: $red;
+					}
+				}
+			}
+		}
+	}
 }
 
 /* FOOTER */
