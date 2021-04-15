@@ -43,6 +43,21 @@ $flexClass = ($total<3) ? ' align-middle':'';
 						$registerText = ( isset($register['title']) && $register['title'] ) ? $register['title'] : '';
 						$registerTarget = ( isset($register['target']) && $register['target'] ) ? $register['target'] : '_self';
 						$information = get_field("information_content");
+						$categories = get_the_terms($pid,'instruction_type');
+
+						/* For Yoga only */
+						$is_yoga = false;
+						$instructor_photo = get_field("instructor_photo",$pid);
+						$instructor_title = get_field("instructor_title",$pid);
+						$instructor_text = get_field("instructor_text",$pid);
+						if($categories) {
+							foreach($categories as $cat) {
+								$slug = $cat->slug;
+								if($slug=='yoga') {
+									$is_yoga = true;
+								}
+							}
+						}
 						?>
 						<div class="postbox animated fadeIn <?php echo ($thumbImage) ? 'has-image':'no-image';?>">
 							<div class="inside">
@@ -101,6 +116,13 @@ $flexClass = ($total<3) ? ' align-middle':'';
 										</div>
 										<?php } ?>
 
+										<?php if($is_yoga) {  ?>
+										<div class="about-instructor-btn">
+											<a data-toggle="modal" data-target="#entryBlock-<?php echo $pid?>-modal" class="btn-link">
+												<span>Learn more about the instructor</span>
+											</a>
+										</div>	
+										<?php } ?>
 									</div>
 								</div>
 							</div>
@@ -109,6 +131,42 @@ $flexClass = ($total<3) ? ' align-middle':'';
 								<a href="<?php echo $registerLink ?>" class="btn-sm xs"><span><?php echo $registerText ?></span></a>
 							</div>
 							<?php } ?>
+
+							<?php 
+							/* About Instructor Modal */ 
+							if($is_yoga) { 
+								if( $instructor_text ) { ?>
+								<div class="modal customModal fade about-instructor-modal" id="entryBlock-<?php echo $pid?>-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								  <div class="modal-dialog modal-lg" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								      	<div class="modaltitleDiv text-center">
+								      		<p>About the Instructor</p>
+									      	<?php if ($instructor_title) { ?>
+									      		<h5 class="modal-title"><?php echo $instructor_title ?></h5>
+									      	<?php } ?>
+								      	</div>
+								      
+								      	<?php if ($instructor_photo) { ?>
+								      	<div class="modalImage">
+								      		<img src="<?php echo $instructor_photo['url'] ?>" alt="<?php echo $instructor_photo['title'] ?>" class="feat-image">
+								      	</div>
+												<?php } ?>
+
+								      	<div class="modalText">
+								      		<div class="text"><?php echo $instructor_text ?></div>
+								      	</div>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+								<?php } ?>
+							<?php } ?>
 						</div>
 					<?php $ctr++; endwhile; wp_reset_postdata(); ?>
 				</div>
@@ -116,5 +174,16 @@ $flexClass = ($total<3) ? ' align-middle':'';
 		</div>
 	</div>
 </section>
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	if( $(".customModal").length>0 ) {
+		$(".customModal").each(function(){
+			$(this).insertAfter('#page');
+		});
+	}
+});
+</script>
+
 <?php }
 }  ?>

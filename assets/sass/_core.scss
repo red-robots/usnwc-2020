@@ -1414,7 +1414,11 @@ h2.stitle,
 		}
 	}
 }
-
+.btn-link {
+	color: $red;
+	display: inline-block;
+	text-decoration: none;
+}
 .textcol .buttonGroup {
 	margin-top: 35px;
 	.buttondiv {
@@ -4897,6 +4901,39 @@ body.single-instructions {
 			@include mid {
 				width: 75%;
 			}
+		}
+	}
+}
+
+.about-instructor-btn {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	a {
+		cursor: pointer;
+		border-bottom: 1px solid $red;
+		text-decoration: none;
+		font-size: 15px;
+		&:hover {
+			color: $color_text_main;
+			border-bottom-color: $color_text_main;
+			text-decoration: none!important;
+		}
+	}
+}
+
+.about-instructor-modal {
+	.modaltitleDiv {
+		p {
+			margin: 0 0;
+			font-size: 15px;
+			font-weight: 600;
+			line-height: 1.2;
+			color: $red;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+		.modal-title {
+			margin-top: 5px!important;
 		}
 	}
 }

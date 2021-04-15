@@ -2180,6 +2180,7 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 .btn-sm.red{background-color:#ba0d30;border-color:#ba0d30;color:#FFF}
 .btn-sm.red:hover{border-color:#000}
 .btn-sm.red:hover:before{background:#000}
+.btn-link{color:#ba0d30;display:inline-block;text-decoration:none}
 .textcol .buttonGroup{margin-top:35px}
 .textcol .buttonGroup .buttondiv{margin:0 0 15px !important}
 .textcol .buttonGroup .btn-sm{text-align:center;min-width:155px !important}
@@ -2789,7 +2790,12 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 }@media(min-width:960px){#about-instructor.half .photo{width:25%}
 }@media(min-width:820px){#about-instructor.half .text{width:70%}
 }@media(min-width:960px){#about-instructor.half .text{width:75%}
-}#section-coursemap .course-images{width:100%;float:left;margin-bottom:40px}
+}.about-instructor-btn{margin-top:20px;margin-bottom:10px}
+.about-instructor-btn a{cursor:pointer;border-bottom:1px solid #ba0d30;text-decoration:none;font-size:15px}
+.about-instructor-btn a:hover{color:#404040;border-bottom-color:#404040;text-decoration:none !important}
+.about-instructor-modal .modaltitleDiv p{margin:0;font-size:15px;font-weight:600;line-height:1.2;color:#ba0d30;text-transform:uppercase;letter-spacing:1px}
+.about-instructor-modal .modaltitleDiv .modal-title{margin-top:5px !important}
+#section-coursemap .course-images{width:100%;float:left;margin-bottom:40px}
 #section-coursemap .course-images .inner{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:5px}
 #section-coursemap .course-images .img{padding:5px}
 #section-coursemap .course-images .img .wrap{width:100%;height:100%;background-size:cover;background-position:top center;background-repeat:no-repeat}
