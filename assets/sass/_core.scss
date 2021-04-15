@@ -804,9 +804,9 @@ body.nav-open {
 	&.video-playing {
 		z-index: 300;
 	}
-	margin-top: 90px;
+	margin-top: 85px;
 	@include tab {
-		margin-top: 0;
+		margin-top: 90px;;
 	}
 	.static-banner,
 	.flexslider {
