@@ -3027,6 +3027,7 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 .filter-wrapper .select-reset-wrap{position:relative;left:6px;top:-3px}
 .filter-wrapper .select-reset-wrap.hide{display:none !important}
 .filter-wrapper.label-small .select-wrap label{font-size:14px}
+.filter-wrapper .fs-wrap .fs-label-wrap{width:100% !important}
 .filter-wrapper.filterstyle.optionsnum4{padding-bottom:0}
 .filter-wrapper.filterstyle.optionsnum4 .filter-label{width:100%}
 @media(min-width:820px){.filter-wrapper.filterstyle.optionsnum4 .filter-label{width:15%}
