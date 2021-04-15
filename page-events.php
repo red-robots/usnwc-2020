@@ -39,7 +39,7 @@ $currentPageLink = get_permalink();
 
 			<?php /* Filter Options */ ?>
 
-			<?php if ( do_shortcode('[facetwp facet="number_of_guests"]') ||  do_shortcode('[facetwp facet="venu_size"]') ) { ?>
+			<?php if ( do_shortcode('[facetwp facet="number_of_guests"]') ||  do_shortcode('[facetwp facet="venue_size"]') ) { ?>
 				<div class="filter-wrapper with-reset-btn optionsnum2">
 					<div class="wrapper">
 						
@@ -54,10 +54,10 @@ $currentPageLink = get_permalink();
 								</div>
 								<?php } ?>
 
-								<?php if ( do_shortcode('[facetwp facet="venu_size"]') ) { ?>
+								<?php if ( do_shortcode('[facetwp facet="venue_size"]') ) { ?>
 								<div class="select-wrap">
 									<label>Venue Size</label>
-										<?php echo do_shortcode('[facetwp facet="venu_size"]'); ?>
+										<?php echo do_shortcode('[facetwp facet="venue_size"]'); ?>
 								</div>
 								<?php } ?>
 
