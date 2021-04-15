@@ -363,6 +363,24 @@ function build_taxonomies() {
       'query_var' => false,
       'show_admin_column'=>false
     ),
+    array(
+      'post_type' => array('event-space'),
+      'menu_name' => 'Number of Guests',
+      'plural'    => 'Number of Guest',
+      'single'    => 'Number of Guest',
+      'taxonomy'  => 'number-guest',
+      'query_var' => false,
+      'show_admin_column'=>1
+    ),
+    array(
+      'post_type' => array('event-space'),
+      'menu_name' => 'Venue Size',
+      'plural'    => 'Venue Size',
+      'single'    => 'Venue Size',
+      'taxonomy'  => 'venue-size',
+      'query_var' => false,
+      'show_admin_column'=>1
+    ),
     // array(
     //   'post_type' => array('jam-programs'),
     //   'menu_name' => 'Programming',

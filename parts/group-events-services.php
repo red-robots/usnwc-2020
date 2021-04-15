@@ -8,7 +8,7 @@ if($services) { ?>
 	<?php $i=1; foreach ($services as $e) { 
 		$title = $e['title'];
 		$description = $e['description'];
-		$button = $e['button'];
+		$button = ( isset($e['button']) && $e['button'] ) ? $e['button'] : "";
 		$buttonName = ( isset($button['title']) && $button['title'] ) ? $button['title']:''; 
 		$buttonLink = ( isset($button['url']) && $button['url'] ) ? $button['url']:''; 
 		$buttonTarget = ( isset($button['target']) && $button['target'] ) ? $button['target']:'_self'; 

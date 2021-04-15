@@ -1,8 +1,4 @@
 <?php
-/**
- * Template Name: Events Space
- */
-
 get_header(); 
 $blank_image = THEMEURI . "images/rectangle.png";
 $square = THEMEURI . "images/square.png";
@@ -38,37 +34,39 @@ $currentPageLink = get_permalink();
 		if( $posts->have_posts() ) { ?>
 
 			<?php /* Filter Options */ ?>
+			<div class="filter-wrapper optionsnum3">
+				<div class="wrapper">
+					
+					<div class="filter-inner">
+						<div class="filterbytxt">Filter By:</div>
+						<div class="flexwrap">
 
-			<?php if ( do_shortcode('[facetwp facet="number_of_guests"]') ||  do_shortcode('[facetwp facet="venu_size"]') ) { ?>
-				<div class="filter-wrapper with-reset-btn optionsnum2">
-					<div class="wrapper">
-						
-						<div class="filter-inner">
-							<div class="filterbytxt">Filter By:</div>
-							<div class="flexwrap">
-
-								<?php if ( do_shortcode('[facetwp facet="number_of_guests"]') ) { ?>
-								<div class="select-wrap">
-									<label>Number of Guests</label>
-										<?php echo do_shortcode('[facetwp facet="number_of_guests"]'); ?>
-								</div>
-								<?php } ?>
-
-								<?php if ( do_shortcode('[facetwp facet="venu_size"]') ) { ?>
-								<div class="select-wrap">
-									<label>Venue Size</label>
-										<?php echo do_shortcode('[facetwp facet="venu_size"]'); ?>
-								</div>
-								<?php } ?>
-
-								<button onclick="FWP.reset()" class="resetBtn festival"><span>Reset</span></button>
-
+							<?php if ( do_shortcode('[facetwp facet="event_space_num_guests"]') ) { ?>
+							<div class="select-wrap">
+								<label>Number of Guests</label>
+									<?php echo do_shortcode('[facetwp facet="event_space_num_guests"]'); ?>
 							</div>
-						</div>
+							<?php } ?>
 
+							<?php if ( do_shortcode('[facetwp facet="event_space_venue"]') ) { ?>
+							<div class="select-wrap">
+								<label>Venue Size</label>
+								<?php echo do_shortcode('[facetwp facet="event_space_venue"]'); ?>
+							</div>
+							<?php } ?>
+
+							<?php if ( do_shortcode('[facetwp facet="event_space_loctype"]') ) { ?>
+							<div class="select-wrap">
+								<label>Indoor / Outdoor</label>
+								<?php echo do_shortcode('[facetwp facet="event_space_loctype"]'); ?>
+							</div>
+							<?php } ?>
+
+						</div>
 					</div>
+
 				</div>
-			<?php } ?>
+			</div>
 
 			<?php /* Entries */ ?>
 			<div class="post-type-entries columns3 <?php echo $postype ?>">
