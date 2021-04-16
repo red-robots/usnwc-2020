@@ -1,8 +1,4 @@
 <?php
-/**
- * Template Name: Activity Passes
- */
-
 get_header(); 
 $blank_image = THEMEURI . "images/rectangle.png";
 $square = THEMEURI . "images/square.png";
@@ -112,53 +108,107 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 					<?php } ?>
 
 					<?php
-					$single_activities = get_single_activity_passes_list(); /* see inc/func-activity-passes.php */
+					$single_pass_args = array(
+						'posts_per_page'	=> -1,
+						'post_type'				=> 'activity',
+						'post_status'			=> 'publish',
+						'tax_query'				=> array(
+															array(
+																'taxonomy' => 'pass_type',
+																'field' => 'slug',
+																'terms' => 'single-activity-pass',
+																'operator' => 'IN'
+														  )
+														)
+					);
+					$single_activities = get_posts($single_pass_args);
+					$other_activities = get_field("other_activities","option");
 					?>
+
 					<div class="info text-center">
-						
 						<?php if ($single_access_title) { ?>
 							<h2 class="stitle"><?php echo $single_access_title ?></h2>
 						<?php } ?>
 						<?php if ($single_access_text) { ?>
 							<div class="text"><?php echo $single_access_text ?></div>
 						<?php } ?>
-
-						<?php if ($single_activities) { ?>
+						<?php if ($single_activities || $other_activities) { ?>
 						<div class="single-activities">
-							<?php foreach ($single_activities as $e) { 
-								$s_custom = ( isset($e['custom']) && $e['custom'] ) ? $e['custom'] : '';
-								$s_price = ( isset($e['price']) && $e['price'] ) ? $e['price'] : '';
-								$s_name = ( isset($e['name']) && $e['name'] ) ? $e['name'] : '';
-								$s_id = ( isset($e['id']) && $e['id'] ) ? $e['id'] : '';
-								$buy = ( isset($e['button']) && $e['button'] ) ? $e['button'] : '';
-								$buy_btn = ( isset($buy['title']) && $buy['title'] ) ? $buy['title']:'Purchase';
-								$buy_link = ( isset($buy['url']) && $buy['url'] ) ? $buy['url']:'';
-								$buy_target = ( isset($buy['target']) && $buy['target'] ) ? $buy['target']:'_self';
-								$title_slug = sanitize_title($s_name);
-								$item_class = ($s_custom) ? 'other-activity':'singleActivity';
-								$item_id = ($s_custom) ? "custom-" . $title_slug : 'post-activity-' . $s_id;
-								?>
-								<div id="<?php echo $item_id?>" class="itemrow <?php echo $item_class?>">
-									<span class="activity-name"><span><?php echo $s_name ?></span></span>
-									<?php if ($s_price || $buy_btn) { ?>
-										<span class="button-group">
-											<span class="wrap">
-												<?php if ($s_price) { ?>
-												<span class="price"><?php echo $s_price ?></span>	
+
+							<div class="inner-content">
+								<?php /* OTHER ACTIVITIES */ ?>
+								<?php if ($other_activities) { ?>
+									<?php foreach ($other_activities as $e) { 
+										$otherName = $e['title'];
+										$buy = $e['purchase_button'];
+										$price = $e['price'];
+										$buy_btn = ( isset($buy['title']) && $buy['title'] ) ? $buy['title']:'Purchase';
+										$buy_link = ( isset($buy['url']) && $buy['url'] ) ? $buy['url']:'';
+										$buy_target = ( isset($buy['target']) && $buy['target'] ) ? $buy['target']:'_self';
+										if($otherName) {  $title_slug = sanitize_title($otherName); ?>
+										<div id="custom-<?php echo $title_slug?>" class="itemrow other-activity">
+											<?php if ($e['title']) { ?>
+												<span class="activity-name"><span><?php echo $e['title'] ?></span></span>
+
+												<?php if ($price || $buy_btn) { ?>
+												<span class="button-group">
+													<span class="wrap">
+														<?php if ($price) { ?>
+														<span class="price"><?php echo $price ?></span>	
+														<?php } ?>
+														<?php if ($buy_btn && $buy_link) { ?>
+														<a href="<?php echo $buy_link ?>" target="<?php echo $buy_target ?>" class="btn-sm xs"><span><?php echo $buy_btn ?></span></a>
+														<?php } ?>
+													</span>
+												</span>
 												<?php } ?>
-												<?php if ($buy_btn && $buy_link) { ?>
-												<a href="<?php echo $buy_link ?>" target="<?php echo $buy_target ?>" class="btn-sm xs"><span><?php echo $buy_btn ?></span></a>
-												<?php } ?>
-											</span>
-										</span>
+											<?php } ?>
+										</div>
+										<?php } ?>
 									<?php } ?>
-								</div>
-							<?php } ?>
+
+								<?php } ?>
+
+
+								<?php /* SINGLE ACTIVITIES */ ?>
+								<?php if ($single_activities) { ?>
+									<?php foreach ($single_activities as $s) { 
+										$id = $s->ID;
+										$price = get_field("single_access_price",$id);
+										if( $price ) {
+											if (strpos($price, '$') !== false) {
+												$price = $price;
+											} else {
+												$price = '$' . $price;
+											}
+										}
+										$buy_link = get_field("single_buy_link",$id);
+										$buy_btn = 'Purchase';
+										$alt_title = get_field("page_alternative_title",$id);
+										$activityName = ($alt_title) ? $alt_title : $s->post_title;
+										$noButton = ($buy_link) ? '':' nobutton';
+										if($price || ($buy_btn && $buy_link)) { ?>
+										<div id="item_activity_<?php echo $id ?>" class="itemrow singleActivity<?php echo $noButton ?>">
+											<span class="activity-name"><span><?php echo $activityName ?></span></span>
+											<?php if ($price || $buy_btn) { ?>
+												<span class="button-group">
+													<span class="wrap">
+														<span class="price"><?php echo ($price) ? $price:''; ?></span>	
+														<?php if ($buy_btn && $buy_link) { ?>
+														<a href="<?php echo $buy_link ?>" target="_blank" class="btn-sm xs"><span><?php echo $buy_btn ?></span></a>
+														<?php } ?>
+													</span>
+												</span>
+											<?php } ?>
+										</div>
+										<?php } ?>
+									<?php } ?>
+								<?php } ?>
+
+							</div>
 						</div>
 						<?php } ?>
-
 					</div>
-					
 				</div>
 			</div>
 			<?php } ?>

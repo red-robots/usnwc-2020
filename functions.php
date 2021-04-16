@@ -72,4 +72,4 @@ require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/visual-biography-editor/visual-editor-biography.php';
 
 
-
+require get_template_directory() . '/inc/func-activity-passes.php';

@@ -9403,6 +9403,39 @@ body.logged-in.admin-bar {
 		}
 	}
 
+	.jobfair-type {
+		margin-top: 30px;
+		position: relative;
+		&:before {
+			content:"";
+			display: block;
+			width: 15%;
+			height: 2px;
+			background: #b3b3b3;
+			margin: 0 auto;
+		}
+		.job-event {
+			margin: 30px 0 8px;
+			font-size: 16px;
+			font-weight: 700;
+			text-align: center;
+			color: $red;
+		}
+		.schedule-list {
+			.info.first {
+				margin-top: 0;
+			}
+		}
+		&.first {
+			&:before {
+				display: none;
+			}
+			.job-event {
+				margin-top: 0;
+			}
+		}
+	}
+
 	.schedule {
 		text-align: center;
 		.info {
@@ -9831,10 +9864,10 @@ body.logged-in.admin-bar {
 			span {
 				display: inline;
 				background: $gray;
-				padding-right: 5px;
+				padding-right: 0;
 				position: relative;
 				z-index: 15;
-				bottom: -8px;
+				bottom: 0;
 			}
 			@media screen and (max-width: 480px) {
 				max-width: 40%;

@@ -3637,6 +3637,12 @@ body.logged-in.admin-bar .film-event-status{top:130px}
 .section-jobfair .imagecol .r2{width:100%;float:left;padding-top:16px}
 .section-jobfair .imagecol .r2 .text{background:#dc6b36;padding:5vw;color:#FFF;font-size:15px;line-height:1.6}
 .section-jobfair .imagecol .r2 p:last-child{margin-bottom:0}
+.section-jobfair .jobfair-type{margin-top:30px;position:relative}
+.section-jobfair .jobfair-type:before{content:"";display:block;width:15%;height:2px;background:#b3b3b3;margin:0 auto}
+.section-jobfair .jobfair-type .job-event{margin:30px 0 8px;font-size:16px;font-weight:700;text-align:center;color:#ba0d30}
+.section-jobfair .jobfair-type .schedule-list .info.first{margin-top:0}
+.section-jobfair .jobfair-type.first:before{display:none}
+.section-jobfair .jobfair-type.first .job-event{margin-top:0}
 .section-jobfair .schedule{text-align:center}
 .section-jobfair .schedule .info{margin-top:30px}
 .section-jobfair .schedule .time span{display:inline-block;position:relative;padding-left:12px;padding-right:4px;font-size:18px;color:#707070}
@@ -3718,7 +3724,7 @@ body.logged-in.admin-bar .film-event-status{top:130px}
 }.page-activity-passes .itemrow .activity-name,.page-activity-passes .itemrow .button-group{display:inline-block;position:relative;z-index:5;bottom:-8px}
 .page-activity-passes .itemrow .button-group .wrap{display:inline-block;background:#f2f2f2;float:right;padding-left:3px}
 .page-activity-passes .itemrow .activity-name{float:left;line-height:1.2;padding-right:5px;max-width:60%;width:100%;text-align:left}
-.page-activity-passes .itemrow .activity-name span{display:inline;background:#f2f2f2;padding-right:5px;position:relative;z-index:15;bottom:-8px}
+.page-activity-passes .itemrow .activity-name span{display:inline;background:#f2f2f2;padding-right:0;position:relative;z-index:15;bottom:0}
 @media screen and (max-width:480px){.page-activity-passes .itemrow .activity-name{max-width:40%}
 .page-activity-passes .itemrow .activity-name span{bottom:-10px !important}
 }@media screen and (max-width:320px){.page-activity-passes .itemrow .activity-name{max-width:100%;bottom:0;margin-bottom:10px;text-align:left}

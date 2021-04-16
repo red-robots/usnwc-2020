@@ -2267,5 +2267,3 @@ add_filter( 'get_terms_args', function( $args, $taxonomies ) {
 add_filter( 'get_terms_orderby', function( $orderby, $query_vars ) {
     return 'term_order' === $query_vars['orderby'] ? 'term_order' : $orderby;
 }, 10, 2 );
-
-

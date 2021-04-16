@@ -1,8 +1,4 @@
 <?php
-/**
- * Template Name: Employment
- */
-
 get_header(); 
 $blank_image = THEMEURI . "images/rectangle.png";
 $square = THEMEURI . "images/square.png";
@@ -93,16 +89,17 @@ $defaultLocation = get_default_job_location();
 			</section>
 			<?php } ?>
 
+
 			<?php
 			$left_image = get_field("left_image");
 			$left_text = get_field("left_text");
-			$jobfairTypes = get_field("jobfair_types");
-			$jobfairTitle = get_field("jobfair_types_title");
-			$s3 = ( ($left_image || $left_text) &&  $jobfairTypes ) ? 'half':'full';
-			if( ($jobfairTitle || $jobfairTypes) || ($left_image || $left_text) ) { ?>
-			<section id="section3" data-section="<?php echo $jobfairTitle ?>" class="section-content section-jobfair <?php echo $s3 ?>">
+			$jobfair = get_field("jobfair");
+			$title3 = ( isset($jobfair['title']) && $jobfair['title'] ) ? $jobfair['title']:'';
+			$schedule = ( isset($jobfair['schedule']) && $jobfair['schedule'] ) ? $jobfair['schedule']:'';
+			$s3 = ( ($left_image || $left_text) &&  $jobfair ) ? 'half':'full';
+			if( $title3 ) { ?>
+			<section id="section3" data-section="<?php echo $title3 ?>" class="section-content section-jobfair <?php echo $s3 ?>">
 				<div class="flexwrap">
-
 					<?php if ($left_image || $left_text) { ?>
 					<div class="imagecol">
 						<?php if ($left_image) { ?>
@@ -116,72 +113,56 @@ $defaultLocation = get_default_job_location();
 					</div>
 					<?php } ?>
 
-					
-					<div class="jobfair jobfairTypes">
+					<?php if ($jobfair) { ?>
+					<div class="jobfair">
 						<div class="inside">
+							
 							<div class="wrap">
-								<?php if ($jobfairTitle) { ?>
+								<?php if ($title3) { ?>
 								<div class="shead-icon text-center">
 									<div class="icon"><span class="ci-menu"></span></div>
-									<h2 class="stitle"><?php echo $jobfairTitle ?></h2>
+									<h2 class="stitle"><?php echo $title3 ?></h2>
 								</div>
 								<?php } ?>
 
-								<?php if ($jobfairTypes) { ?>
+								<?php if ($schedule) { ?>
 								<div class="schedule">
-									<?php $t=1; foreach ($jobfairTypes as $j) { 
-										$j_title = $j['title'];
-										$schedule = $j['schedule'];
-										$first_type = ($t==1) ? ' first':'';
-										?>
-										<div class="jobfair-type<?php echo $first_type ?>">
-											<?php if ($j_title) { ?>
-											<p class="job-event"><?php echo $j_title ?></p>	
+									<?php foreach ($schedule as $s) { 
+									$day = $s['day'];
+									$date = $s['date'];
+									$time = $s['time'];
+									$button = $s['button'];
+									$target = ( isset($button['target']) && $button['target'] ) ? $button['target'] : '_self';
+									?>
+									<div class="info">
+										<div class="time">
+											<?php if ($day) { ?>
+											<span class="day"><?php echo $day ?></span>	
 											<?php } ?>
 
-											<?php if ($schedule) { ?>
-												<div class="schedule-list">
-													<?php $c=1; foreach ($schedule as $s) { 
-														$day = $s['day'];
-														$date = $s['date'];
-														$time = $s['time'];
-														$button = $s['button'];
-														$target = ( isset($button['target']) && $button['target'] ) ? $button['target'] : '_self';
-														$is_first = ($c==1) ? ' first':'';
-														?>
-														<div class="info<?php echo $is_first ?>">
-															<div class="time">
-																<?php if ($day) { ?>
-																<span class="day"><?php echo $day ?></span>	
-																<?php } ?>
-
-																<?php if ($date) { ?>
-																<span class="date"><?php echo $date ?></span>	
-																<?php } ?>
-
-																<?php if ($time) { ?>
-																<span class="time"><?php echo $time ?></span>	
-																<?php } ?>
-															</div>
-
-															<?php if ($button) { ?>
-																<div class="buttondiv">
-																	<a href="<?php echo $button['url'] ?>" target="<?php echo $target ?>" class="btn-sm xs"><span><?php echo $button['title'] ?></span></a>
-																</div>	
-															<?php } ?>
-														</div>
-														<?php $c++; } ?>
-												</div>		
+											<?php if ($date) { ?>
+											<span class="date"><?php echo $date ?></span>	
 											<?php } ?>
-										</div>	
-									<?php $t++; } ?>
-								</div>
+
+											<?php if ($time) { ?>
+											<span class="time"><?php echo $time ?></span>	
+											<?php } ?>
+										</div>
+
+										<?php if ($button) { ?>
+											<div class="buttondiv">
+												<a href="<?php echo $button['url'] ?>" target="<?php echo $target ?>" class="btn-sm xs"><span><?php echo $button['title'] ?></span></a>
+											</div>	
+										<?php } ?>
+									</div>
+									<?php } ?>
+								</div>	
 								<?php } ?>
 							</div>
+
 						</div>
 					</div>
-					
-
+					<?php } ?>
 				</div>
 			</section>
 			<?php } ?>
