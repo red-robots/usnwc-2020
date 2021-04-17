@@ -21,9 +21,21 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 		$postype = 'activity';
 		$perpage = -1;
 		$args = array(
-			'posts_per_page'   => -1,
-			'post_type'        => $postype,
-			'post_status'      => 'publish'
+			'posts_per_page'	=> -1,
+			'post_type'				=> $postype,
+			'post_status'			=> 'publish',
+			'meta_query'			=> array(
+													'relation' => 'OR',
+													array(
+														'key' => 'doNotShow',
+														'compare' => 'NOT EXISTS',
+													),
+													array(
+														'key' => 'doNotShow',
+														'value'		=> '',
+														'compare' => '='
+													),
+												)
 			);
 		$posts = new WP_Query($args);
 		if ( $posts->have_posts() ) { ?>

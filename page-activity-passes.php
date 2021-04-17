@@ -112,7 +112,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 					<?php } ?>
 
 					<?php
-					$single_activities = get_single_activity_passes_list(); /* see inc/func-activity-passes.php */
+					$single_activities = get_single_activity_passes_list('default'); /* see inc/func-activity-passes.php */
 					?>
 					<div class="info text-center">
 						

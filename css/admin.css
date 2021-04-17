@@ -399,3 +399,26 @@ body.post-type-race .acf-flexible-content [data-name="schedule"] [data-name="end
   display: block;
   width: 100%;
 }
+.postbox [data-name="doNotShow"] {
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.postbox [data-name="doNotShow"] .acf-input {
+  position: absolute;
+  top: -6px;
+  left: 12px;
+}
+.postbox [data-name="doNotShow"] .acf-input label {
+  color: transparent;
+}
+.postbox [data-name="doNotShow"] .acf-label {
+  padding-left: 25px;
+  color: #af0707;
+}
+.postbox [data-name="page_alternative_title"] {
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
