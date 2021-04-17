@@ -783,6 +783,31 @@ jQuery(document).ready(function($){
         }
     });
 
+    /* Page with flexible content fields */
+    if( $('[data-name="flexible_content_page"]').length>0 ) {
+        $('[data-name="flexible_content_page"] [data-layout="text_and_image_block"]').each(function(){
+            var parentDIV = $(this);
+            var columnType = parentDIV.find('[data-name="column_style"]');
+            var columnTypeOptions = columnType.find('.acf-radio-list input[type="radio"]');
+            var label = '';
+            columnTypeOptions.each(function(){
+                if( this.checked ) {
+                    var opt = $(this).val();
+                    label = $(this).parent().text();
+                    parentDIV.addClass("type-"+opt);
+                }
+            });
+
+            parentDIV.find('.acf-fc-layout-handle').eq(0).addClass('parent-handle');
+            parentDIV.find('.acf-fc-layout-handle').eq(0).attr("data-title",label+" Section");
+            parentDIV.find('[data-layout="flex_content_block"]').each(function(){
+                var block_title = $(this).find('[data-name="title"] .acf-input-wrap input').val();
+                $(this).find('.acf-fc-layout-handle').attr("data-title",block_title);
+            }); 
+
+        });
+    }
+
 });
 </script>
 <div id="customIconsContainer">

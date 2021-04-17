@@ -421,4 +421,18 @@ body.post-type-race .acf-flexible-content [data-name="schedule"] [data-name="end
   padding-top: 0;
   padding-bottom: 0;
 }
-
+.acf-field-flexible-content[data-name="flexible_content_page"] > .acf-label {
+  display: none;
+}
+.acf-field-flexible-content .acf-fc-layout-handle.parent-handle {
+  background: #307ead!important;
+}
+.acf-field-flexible-content .acf-fc-layout-handle.parent-handle:after {
+  color: #FFF!important;
+}
+.acf-field-flexible-content[data-name="content_columns"] [data-name="content_display_type"] .acf-label {
+  display: none;
+}
+.acf-field-flexible-content[data-name="content_columns"] [data-name="content_display_type"] .acf-checkbox-list {
+  font-weight: bold;
+}
