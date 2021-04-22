@@ -1,4 +1,5 @@
 <?php
+$canceledImage = THEMEURI . "images/canceled.svg";
 $blank_image = THEMEURI . "images/square.png";
 $square = THEMEURI . "images/square.png";
 $rectangle = THEMEURI . "images/rectangle-lg.png";
@@ -131,6 +132,11 @@ if ( $entries->have_posts() ) { ?>
 									<?php } else { ?>
 										<span class="imagediv"></span>
 										<img src="<?php echo $rectangle ?>" alt="" class="feat-img placeholder">
+									<?php } ?>
+									<?php if ($eventStatus=='canceled') { ?>
+									<span class="canceledStat">
+										<img src="<?php echo $canceledImage ?>" alt="" aria-hidden="true">
+									</span>	
 									<?php } ?>
 								</a>
 								<div class="details">

@@ -174,6 +174,20 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 		'post_type'				=> 'activity',
 		'post_status'			=> 'publish'
 	);
+	$activities_args['meta_query'] = array(
+																		'relation' => 'OR',
+																	array(
+																		'key' => 'doNotShow',
+																		'compare' => 'NOT EXISTS',
+																	),
+																	array(
+																		'key' => 'doNotShow',
+																		'value'		=> '',
+																		'compare' => '='
+																	)
+																);		
+
+
 	$activities = new WP_Query($activities_args);
 	$activities_section_title = get_field("activities_section_title");
 	$sectionTitle = ($activities_section_title) ? $activities_section_title : '';

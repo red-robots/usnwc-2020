@@ -1527,14 +1527,9 @@ function ajaxGetPageData(){
                 $content['post_title'] = $post->post_title; 
                 $textcontent = '';
                 $postlink = get_permalink($postid) . '?show=contentonly';
-                // $arrContextOptions=array(
-                //       "ssl"=>array(
-                //             "verify_peer"=>false,
-                //             "verify_peer_name"=>false,
-                //         ),
-                //     );  
-                // $textcontent = file_get_contents($postlink, false, stream_context_create($arrContextOptions));
-                //$content['post_content'] = $textcontent;
+                $status = get_field("eventstatus",$postid);
+                $eventStatus = ($status) ? $status:'upcoming';
+                $content['eventstatus'] = $eventStatus;
                 $content['postlink'] = $postlink;
                 $content['post_content'] = ($post->post_content) ? apply_filters('the_content', $post->post_content):''; 
             }
@@ -2277,7 +2272,7 @@ function get_default_job_location() {
 }
 
 function exclude_post_types_banner() {
-    $post_types = array('race');
+    $post_types = array('race','dining');
     return $post_types;
 }
 

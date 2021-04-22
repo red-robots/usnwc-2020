@@ -173,15 +173,6 @@ if($postHeroImage) {
 		</div>
 	</header><!-- #masthead -->
 
-	<?php 
-	$show_slide = true;
-	$excludePostTypes = exclude_post_types_banner();
-	if ( is_singular( get_post_type() ) && in_array(get_post_type(),$excludePostTypes) ) {
-		$show_slide = false;
-	}
-	if($show_slide) {
-		get_template_part("parts/slideshow"); 
-	}
-	?>
+	<?php get_template_part("parts/slideshow"); ?>
 
 	<div id="content" class="site-content">

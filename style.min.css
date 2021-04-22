@@ -3154,17 +3154,19 @@ to{-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotat
 .content-area-full.post-type-dining .registerBtn:after{content:"";display:block;width:0;height:0;border-left:28px solid #ba0d30;border-top:26px solid transparent;border-bottom:26px solid transparent;position:absolute;top:0;right:-28px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .content-area-full.post-type-dining .registerBtn:hover{background:#000}
 .content-area-full.post-type-dining .registerBtn:hover:after{border-left-color:#000}
-.hero-register-button .stats{width:100%;position:absolute;top:85px;left:0;z-index:10;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1;letter-spacing:1px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.hero-register-button .stats{width:100%;position:absolute;top:85px;left:0;z-index:110;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1;letter-spacing:1px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .hero-register-button .stats.closed{text-align:center;padding:11px 20px 10px;background:rgba(186,13,48,0.9)}
 .hero-register-button .stats.open{text-align:left}
-.hero-register-button .registerBtn{display:inline-block;text-decoration:none;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:50px;background:#ba0d30;height:52px;padding:0 35px;position:relative}
+.hero-register-button .registerBtn{display:inline-block;text-decoration:none;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:50px;background:#ba0d30;height:52px;padding:0 35px;position:relative;box-shadow:-12px 8px 17px rgba(0,0,0,0.3)}
 .hero-register-button .registerBtn:after{content:"";display:block;width:0;height:0;border-left:28px solid #ba0d30;border-top:26px solid transparent;border-bottom:26px solid transparent;position:absolute;top:0;right:-28px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .hero-register-button .registerBtn:hover{background:#000}
 .hero-register-button .registerBtn:hover:after{border-left-color:#000}
+.hero-register-button.has-event-status #banner .static-banner .slideCaption .text{margin-top:3%}
 body.scrolled.single-dining .post-hero-image .stats{position:fixed;z-index:50}
 body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:135px}
 @media(min-width:820px){body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:120px}
-}.shead-icon{margin-bottom:35px}
+}body.scrolled .hero-register-button .registerBtn{position:fixed}
+.shead-icon{margin-bottom:35px}
 .shead-icon div.icon span{font-size:35px;line-height:1}
 .dining-event-details{background:#f2f2f2;padding-top:50px;padding-bottom:40px}
 @media(min-width:820px){.dining-event-details{padding-top:80px;padding-bottom:70px}
@@ -3330,6 +3332,7 @@ body.pageNoBanner .site-content{min-height:35em}
 }.group-events-activities.section-content .fbox.fullwidthbox,.grid-images .fbox.fullwidthbox,.section-grid-images.section-content .fbox.fullwidthbox,.camp-activities.section-content .fbox.fullwidthbox{width:100% !important}
 .group-events-activities.section-content .fbox .inside,.grid-images .fbox .inside,.section-grid-images.section-content .fbox .inside,.camp-activities.section-content .fbox .inside{text-align:center;background:#f2f2f2;height:100%}
 .group-events-activities.section-content .fbox .imagediv,.grid-images .fbox .imagediv,.section-grid-images.section-content .fbox .imagediv,.camp-activities.section-content .fbox .imagediv{display:block;width:100%;float:left;position:relative;background-color:#dedede;overflow:hidden}
+.group-events-activities.section-content .fbox .imagediv a.link,.grid-images .fbox .imagediv a.link,.section-grid-images.section-content .fbox .imagediv a.link,.camp-activities.section-content .fbox .imagediv a.link{display:block;width:100%}
 .group-events-activities.section-content .fbox .imagediv.noImage:before,.grid-images .fbox .imagediv.noImage:before,.section-grid-images.section-content .fbox .imagediv.noImage:before,.camp-activities.section-content .fbox .imagediv.noImage:before{content:"Photo Not Available";font-family:"Lato",sans-serif;font-size:12px;font-weight:500;color:#9e9e9e;display:block;width:100%;text-align:center;text-transform:uppercase;position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
 .group-events-activities.section-content .fbox .imagediv .img,.grid-images .fbox .imagediv .img,.section-grid-images.section-content .fbox .imagediv .img,.camp-activities.section-content .fbox .imagediv .img{display:block;background-size:cover;background-position:center;background-repeat:no-repeat;width:100%;height:100%;-webkit-transition:all ease .3s;transition:all ease .3s;position:absolute;top:0;left:0}
 .group-events-activities.section-content .fbox img.placeholder,.grid-images .fbox img.placeholder,.section-grid-images.section-content .fbox img.placeholder,.camp-activities.section-content .fbox img.placeholder{width:100%;height:auto;float:left}
@@ -3440,6 +3443,7 @@ body.single-camp #primary{width:100%;float:left}
 .post-type-entries.columns3 .space-features span.sf{display:inline-block;position:relative;padding:2px 10px;font-size:16px}
 .post-type-entries.columns3 .space-features span.sf:before{content:"";display:block;width:1px;height:80%;background:#707070;position:absolute;top:38%;left:-2px;-webkit-transform:translateY(-38%);-ms-transform:translateY(-38%);transform:translateY(-38%)}
 .post-type-entries.columns3 .space-features span.sf:first-child:before{display:none}
+#upcoming-bands-by-date .post-type-entries span.canceledStat img{max-width:175px;width:100%;height:auto}
 .catering-page .intro-text-wrap .btn-sm{margin:10px 15px}
 .catering-page #section-faqs{padding-top:60px;padding-bottom:60px}
 @media(min-width:820px){.catering-page #section-faqs{padding-top:70px;padding-bottom:70px}
@@ -4195,7 +4199,11 @@ body.page-template-page-race .post-type-entries .flex-inner.countItems1,body.pag
 .flexibleContentWrap .column-style.first .shead-icon{margin-top:0 !important;margin-bottom:20px !important}
 .flexibleContentWrap .column-style.next .shead-icon{margin-top:65px !important;margin-bottom:50px !important}
 .modal.customModal .cta-buttons a{margin:0 8px}
+.modal.customModal .modal-header{position:relative}
+.modal.customModal .modal-header #eventStatusTxt{display:inline-block;position:absolute;top:0;left:0}
+.modal.customModal .modal-header #eventStatusTxt span{display:inline-block;background:#ba0d30;color:#FFF;padding:8px 10px;font-family:"Lato",sans-serif;font-size:15px;text-transform:uppercase;letter-spacing:1px;position:relative;top:15px}
 .accomodations{width:100%;float:left;margin-top:30px;margin-bottom:30px}
+.accomodations.nopadtop{margin-top:-20px}
 .accomodations .info{width:100%;float:left;border-top:2px solid #f2f2f2;padding-top:15px;padding-bottom:15px}
 .accomodations .flexwrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .accomodations .flexwrap .leftcol{width:100%;padding:35px 30px;text-align:center}
@@ -4215,6 +4223,9 @@ body.page-template-page-race .post-type-entries .flex-inner.countItems1,body.pag
 .accomodations .flexwrap .t1 a:hover{color:#dd8698}
 .accomodations .flexwrap .t2{font-size:18px;font-weight:600}
 .accomodations .flexwrap .text{font-size:16px}
+.custom-message-banner{background:transparent !important}
+.custom-message-banner .innerTxt{display:inline-block;width:auto;padding:.5em 1em .4em;background:rgba(0,0,0,0.85);color:#FFF;font-size:2em;font-weight:300;text-transform:uppercase;letter-spacing:2px;float:none;margin:0 auto;position:relative;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+.custom-message-banner.stats.closed{background:transparent !important;position:absolute !important;top:0 !important;left:0;width:100%;height:100%;padding:0}
 .site-footer{background-image:url("images/footer_bg.png");background-position:center;background-size:cover;background-color:#000;color:#b3b3b3;font-size:12px;line-height:1.3;width:100%;float:left;padding-top:50px;padding-bottom:20px}
 .site-footer a{display:inline-block;text-decoration:none;color:#b3b3b3}
 .site-footer a:hover{color:#FFF}

@@ -6883,7 +6883,7 @@ body.page-template-page-stories {
 		position: absolute;
 		top: 85px;
 		left: 0;
-		z-index: 10;
+		z-index: 110;
 		color: #FFF;
 		text-transform: uppercase;
 		font-family: $font_secondary;
@@ -6914,6 +6914,7 @@ body.page-template-page-stories {
 		height: 52px;
 		padding: 0 35px;
 		position: relative;
+		box-shadow: -12px 8px 17px rgba(0,0,0,.3);
 		&:after {
 			content:"";
 			display: block;
@@ -6934,6 +6935,11 @@ body.page-template-page-stories {
 			}
 		}
 	}
+	&.has-event-status {
+		#banner .static-banner .slideCaption .text {
+			margin-top: 3%;
+		}
+	}
 }
 body.scrolled.single-dining {
 	.post-hero-image .stats {
@@ -6946,6 +6952,14 @@ body.scrolled.single-dining {
 			@include tab {
 				top: 120px;
 			}
+		}
+	}
+}
+
+body.scrolled {
+	.hero-register-button .registerBtn {
+		position: fixed;
+		@include tab {
 		}
 	}
 }
@@ -7828,6 +7842,10 @@ body.pageNoBanner {
 			position: relative;
 			background-color: #dedede;
 			overflow: hidden;
+			a.link {
+				display: block;
+				width: 100%;
+			}
 			&.noImage {
 				&:before {
 					content:"Photo Not Available";
@@ -8395,6 +8413,12 @@ body.single-camp {
 			}
 		}
 	}
+}
+
+#upcoming-bands-by-date .post-type-entries span.canceledStat img {
+	max-width: 175px;
+	width: 100%;
+	height: auto;
 }
 
 .catering-page {
@@ -12369,6 +12393,27 @@ body.page-template-page-race {
 			margin: 0 8px;
 		}
 	}
+	.modal-header {
+		position: relative;
+		#eventStatusTxt {
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			span {
+				display: inline-block;
+				background: $red;
+				color: #FFF;
+				padding: 8px 10px;
+				font-family: $font_secondary;
+				font-size: 15px;
+				text-transform: uppercase;
+    		letter-spacing: 1px;
+				position: relative;
+				top: 15px;
+			}
+		}
+	}
 }
 
 .accomodations {
@@ -12376,6 +12421,9 @@ body.page-template-page-race {
 	float: left;
 	margin-top: 30px;
 	margin-bottom: 30px;
+	&.nopadtop {
+		margin-top: -20px;
+	}
 	.info {
 		width: 100%;
 		float: left;
@@ -12463,6 +12511,35 @@ body.page-template-page-race {
 		.text {
 			font-size: 16px;
 		}
+	}
+}
+
+.custom-message-banner {
+	background: transparent!important;
+	.innerTxt {
+		display: inline-block;
+		width: auto;
+		padding: 0.5em 1em 0.4em;
+		background: rgba(0, 0, 0, 0.85);
+		color: #FFF;
+		font-size: 2em;
+		font-weight: 300;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		float: none;
+		margin: 0 auto;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	&.stats.closed {
+		background: transparent!important;
+		position: absolute !important;
+		top: 0!important;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		padding: 0 0;
 	}
 }
 

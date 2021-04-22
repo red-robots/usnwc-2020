@@ -18,6 +18,12 @@ $is_default_slide = ($is_single_post && $banner) ? false : true;
 if($use_parent_page) {
 	$is_default_slide = true;
 }
+
+$excludePostTypes = exclude_post_types_banner();
+if ( is_singular( get_post_type() ) && in_array(get_post_type(),$excludePostTypes) ) {
+	$is_default_slide = false;
+}
+
 if($is_default_slide) { ?>
 	<?php 
 	$flexslider = get_field( "flexslider_banner",$post_id);

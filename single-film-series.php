@@ -2,6 +2,7 @@
 	$placeholder = THEMEURI . 'images/rectangle.png';
 	$post_type = get_post_type();
 	$heroImage = get_field("full_image");
+	$heroImageText = get_field("full_image_text");
 	$flexbanner = get_field("flexslider_banner");
 	$has_hero = 'no-banner';
 	if($heroImage) {
@@ -99,9 +100,6 @@ if ( isset($_GET['display']) && $_GET['display']=='ajax' ) { ?>
 
 	<?php
 	get_header(); 
-	if ($eventStatus) {
-		echo '<div class="film-event-status"><div class="wrapper">'.$eventStatus.'</div></div>';
-	}
 	get_template_part("parts/subpage-banner");
 	?>
 

@@ -228,6 +228,7 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 	<div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
+      	<span id="eventStatusTxt"></span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -267,6 +268,11 @@ jQuery(document).ready(function($){
 			
 				var content = '';
 				if(obj) {
+					var event_status = obj.eventstatus;
+					var eventStatusTxt = '';
+					if(event_status && event_status!='upcoming') {
+						eventStatusTxt = '<span>'+event_status+'</span>';
+					}
 					content += '<div class="modaltitleDiv text-center"><h5 class="modal-title">'+obj.post_title+'</h5></div>';
 					if(obj.featured_image) {
 						var img = obj.featured_image;
@@ -280,6 +286,11 @@ jQuery(document).ready(function($){
 
 					$.get(obj.postlink,function(data){
 						var textcontent = '<div class="text">'+data+'</div></div>';
+						if(eventStatusTxt) {
+							$("#eventStatusTxt").html(eventStatusTxt);
+						} else {
+							$("#eventStatusTxt").html("");
+						}
 						$("#modalBodyText .modalText").html(textcontent);
 						$("#activityModal").modal("show");
 						$("#loaderDiv").hide();
@@ -292,6 +303,8 @@ jQuery(document).ready(function($){
 								}
 							});
 						}
+						
+
 					});
 					
 				}

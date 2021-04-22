@@ -26,7 +26,7 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 
 		<?php if($accomodations = get_field("accomodations")) { ?>
 
-		<div class="accomodations">
+		<div class="accomodations <?php echo ( get_the_content() ) ? 'padtop':'nopadtop'?>">
 			<div class="wrapper">
 			<?php foreach ($accomodations as $a) { 
 				$logo = $a['logo'];

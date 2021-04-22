@@ -39,7 +39,7 @@ $status_custom_message = get_field("status_custom_message");
 			<?php } else if($status=='custom') { ?>
 
 				<?php if ($status_custom_message) { ?>
-				<div class="stats closed"><?php echo $status_custom_message ?></div>
+				<div class="stats closed custom-message-banner"><div class="innerTxt"><?php echo $status_custom_message ?></div></div>
 				<?php } ?>
 			
 			<?php } ?>

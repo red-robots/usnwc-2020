@@ -15,7 +15,24 @@ if ( is_singular( get_post_type() ) && in_array(get_post_type(),$excludePostType
 	}
 }
 
+$eventstatus = get_field("eventstatus");
+$eventStatus = ($eventstatus) ? strtoupper($eventstatus) : '';
+$heroImageText = get_field("full_image_text");
 $single_post_hero = '';
+
+$fieldtrip_banner = get_field("fieldtrip_featured_image");
+if($fieldtrip_banner) {
+	$heroImage = $fieldtrip_banner;
+}
+
+// if (empty($heroImageText)) {
+// 	if ($eventStatus) {
+// 		echo '<div class="film-event-status"><div class="wrapper">'.$eventStatus.'</div></div>';
+// 	}
+// }
+if ($eventStatus && $eventstatus!='upcoming') {
+	echo '<div class="film-event-status"><div class="wrapper">'.$eventStatus.'</div></div>';
+}
 ob_start(); 
 if($heroImage) { ?>
 <div id="banner" class="subpageBanner">
@@ -25,6 +42,9 @@ if($heroImage) { ?>
 				<div class="image-wrapper yes-mobile" style="background-image: url('<?php echo $heroImage['url']?>');">
 					<img class="desktop " src="<?php echo $heroImage['url']?>" alt="<?php echo $heroImage['title']?>">
 				</div>
+				<?php if ($heroImageText) { ?>
+				<div class="slideCaption"><div class="text"><?php echo $heroImageText ?></div></div>
+				<?php } ?>
 			</li>
 		</ul>
 	</div>
@@ -37,8 +57,9 @@ ob_end_clean();
 <?php
 
 if($has_red_tag) { ?>
-<div class="hero-wrapper hero-register-button">
+<div class="hero-wrapper hero-register-button<?php echo ($eventStatus) ? ' has-event-status':''; ?>">
 <?php if($status){ ?>
+
 	<?php echo $single_post_hero; ?>
 
 	<?php if ($status=='open') { ?>

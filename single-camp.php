@@ -24,7 +24,7 @@ get_header(); ?>
 <?php } else if($status=='custom') { ?>
 
 	<?php if ($status_custom_message) { ?>
-	<div class="stats closed"><?php echo $status_custom_message ?></div>
+	<div class="stats closed custom-message-banner"><div class="innerTxt"><?php echo $status_custom_message ?></div></div>
 	<?php } ?>
 
 <?php } ?>

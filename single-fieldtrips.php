@@ -4,19 +4,8 @@ $rectangle = THEMEURI . "images/rectangle.png";
 $square = THEMEURI . "images/square.png";
 $banner = get_field("fieldtrip_featured_image");
 $has_banner = ($banner) ? 'hasbanner':'nobanner';
-if($banner) { ?>
-<div id="banner" class="subpageBanner">
-	<div class="slides-wrapper static-banner">
-		<ul class="slides">
-			<li class="slideItem type-image">
-				<div class="image-wrapper yes-mobile" style="background-image: url('<?php echo $banner['url']?>');">
-					<img class="desktop " src="<?php echo $banner['url']?>" alt="<?php echo $banner['title']?>">
-				</div>
-			</li>
-		</ul>
-	</div>
-</div>
-<?php } ?>
+get_template_part("parts/subpage-banner");
+?>
 
 <div id="primary" class="content-area-full content-default page-default-template single-fieldtrips <?php echo $has_banner ?>">
 	<main id="main" class="site-main" role="main">
