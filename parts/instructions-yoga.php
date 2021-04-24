@@ -3,13 +3,14 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 $portrait = THEMEURI . 'images/portrait.png';
 $square = THEMEURI . 'images/square.png';
 $options[] = array('Price',get_field("price"));
-$options[] = array('Ages',get_field("ages"));
+//$options[] = array('Ages',get_field("ages"));
 $options[] = array('Duration',get_field("duration"));
-$options[] = array('Ratio',get_field("ratio"));
+//$options[] = array('Ratio',get_field("ratio"));
+$count_options = count($options);
 ?>
 
 <section class="section-price-ages full">
-	<div class="flexwrap fourCols">
+	<div class="flexwrap fourCols count-options-<?php echo $count_options?>">
 		<?php foreach ($options as $opt) { 
 		$class = sanitize_title($opt[0]); ?>
 		<div class="info <?php echo $class ?>">

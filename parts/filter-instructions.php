@@ -160,6 +160,7 @@
 								<div class="postbox animated fadeIn <?php echo ($thumbImage) ? 'has-image':'no-image';?>">
 									<div class="inside">
 										<div class="photo">
+											<a href="<?php echo $pagelink ?>" class="link">
 											<?php if ($thumbImage) { ?>
 												<span class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></span>
 												<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none;">
@@ -168,6 +169,7 @@
 												<span class="imagediv"></span>
 												<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
 											<?php } ?>
+											</a>
 										</div>
 										<div class="details">
 											<div class="info">

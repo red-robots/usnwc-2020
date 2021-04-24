@@ -2631,6 +2631,7 @@ h1.page-title span:after{content:"";display:block;width:30%;height:2px;backgroun
 .post-type-entries .inside,.post-type-entries .photo{width:100%;position:relative;float:left}
 .post-type-entries .inside{z-index:10}
 .post-type-entries .photo{display:block;text-decoration:none;height:100%;overflow:hidden;background-color:#CCC}
+.post-type-entries .photo a.link{display:block;width:100%;float:left;position:relative}
 .post-type-entries .no-image .photo{background:#e0e0e0}
 .post-type-entries .no-image .photo:before{content:"";display:block;text-transform:uppercase;position:absolute;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);-ms-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);background-image:url("images/photo-coming-soon.png");background-size:100%;background-repeat:no-repeat;background-position:center;width:10vw;height:10vw;opacity:.25}
 @media screen and (max-width:600px){.post-type-entries .no-image .photo:before{width:30vw;height:30vw}
@@ -3279,8 +3280,10 @@ body.pageNoBanner .site-content{min-height:35em}
 @media(min-width:820px){.section-price-ages.oneCol .info{width:100%}
 }.section-price-ages.twoCols .info{width:100%}
 @media(min-width:600px){.section-price-ages.twoCols .info{width:50%}
-}@media(min-width:820px){.section-price-ages .fourCols .info{width:25%}
-}#carousel-images{position:relative}
+}.section-price-ages .fourCols .info{width:50%}
+@media(min-width:820px){.section-price-ages .fourCols .info{width:25%}
+}.section-price-ages .fourCols.count-options-2 .info{width:50%}
+#carousel-images{position:relative}
 #carousel-images .owl-carousel{position:relative}
 #carousel-images div.image{width:100%;height:auto;float:left;background-size:cover;background-position:50% 50%;background-repeat:no-repeat}
 #carousel-images .owl-nav{width:100%;position:static;top:0;left:0;z-index:200}
