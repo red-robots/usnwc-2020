@@ -10572,6 +10572,13 @@ body.subpage.single .content-default .important-notes-red,
 		padding-bottom: 50px;
 		font-size: 15px;
 		line-height: 1.5;
+		a {
+			color: #56d0ff;
+			text-decoration: underline;
+			&:hover {
+				color: #9ae0fb;
+			}
+		}
 	}
 }
 
@@ -12547,19 +12554,44 @@ body.page-template-page-race {
 	.team-info {
 		@include flexgroup();
 		border-top: 2px solid $gray;
-		padding: 60px 0;
+		padding: 60px 0 40px;
+		@include tab {
+			padding: 60px 0;
+		}
 	}
 	.photo {
 		width: 100%;
 		position: relative;
-		background: #eaeaea;
+		// background: #eaeaea;
+		margin-bottom: 30px;
 		@include tab {
 			width: 30%;
+			margin-bottom: 0;
 		}
-		@include mid {
+		@include desk {
 			width: 25%;
 		}
 		&.nophoto {
+			
+		}
+		.pic {
+			width: 100%;
+			// height: 100%;
+			float: left;
+			position: relative;
+			top: 0;
+			left: 0;
+			z-index: 10;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-color: #eaeaea;
+		}
+		.nopic {
+			width: 100%;
+			float: left;
+			position: relative;
+			background: #eaeaea;
 			&:before {
 				content:"Photo Coming Soon";
 				display: block;
@@ -12576,17 +12608,6 @@ body.page-template-page-race {
 				letter-spacing: 1px;
 			}
 		}
-		.pic {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: 10;
-			background-size: cover;
-			background-position: center;
-			background-repeat: no-repeat;
-		}
 		img.resizer {
 			width: 100%;
 			height: auto;
@@ -12601,7 +12622,7 @@ body.page-template-page-race {
 			width: 70%;
 			padding-left: 3vw;
 		}
-		@include mid {
+		@include desk {
 			width: 75%;
 		}
 	}

@@ -18,6 +18,7 @@ $taxonomy = $obj->taxonomy;
 $child_terms = get_term_children($current_term_id,$taxonomy);
 $blank_image = THEMEURI . "images/rectangle-narrow.png";
 
+
 $category_image = get_field("category_image",$taxonomy.'_'.$current_term_id);
 if($category_image) { ?>
 <div id="banner" class="taxonomy-banner">
@@ -37,6 +38,39 @@ if($category_image) { ?>
 
 	<?php /* If has children terms */ ?>
 	<?php 
+	$has_items = array();
+	if($child_terms) {
+		// foreach($child_terms as $c_term_id) {
+		// 	$args = array(
+		// 		'post_type' => 'instructions',
+		// 		'posts_per_page' =>  -1,
+		// 		'post_status'    => 'publish',
+		// 		'tax_query' => array(
+		// 		    array(
+		// 		    'taxonomy' => 'recipe_tx',
+		// 		    'field' => 'term_id',
+		// 		    'terms' => $c_term_id
+		// 		     )
+		// 		  )
+		// 	);
+		// 	$posts = get_posts($args);
+		// 	if($posts) {
+		// 		$has_items[] = $posts;
+		// 	}
+		// }		
+
+		foreach ( $child_terms as $child ) {
+	    $term = get_term_by( 'id', $child, $taxonomy );
+	    if($term->count > 0){
+	       $has_items[] = $term;
+	    }
+		}
+
+	}
+	if(!$has_items) {
+		$child_terms = false;
+	}
+
 	if ($child_terms) { 
 		include( locate_template('instructions/instruction-child-terms.php') );
 	} else {  

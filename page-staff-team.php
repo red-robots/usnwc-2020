@@ -2,7 +2,8 @@
 /**
  * Template Name: Team 
  */
-$photo_helper = THEMEURI . 'images/square.png';
+//$photo_helper = THEMEURI . 'images/square.png';
+$photo_helper = THEMEURI . 'images/rectangle-lg.png';
 $banner = get_field("flexslider_banner");
 $has_banner = ($banner) ? 'hasbanner':'nobanner';
 get_header(); ?>
@@ -37,9 +38,10 @@ get_header(); ?>
 					<div class="team-info">
 						<div class="photo <?php echo $hasphoto ?>">
 							<?php if ($photo) { ?>
-							<div class="pic" style="background-image:url('<?php echo $photo['url']?>')"></div>
+							<div class="pic" style="background-image:url('<?php echo $photo['url']?>')"><img src="<?php echo $photo_helper ?>" alt="" aria-hidden="true" class="resizer"></div>
+							<?php } else { ?>
+								<div class="nopic"><img src="<?php echo $photo_helper ?>" alt="" aria-hidden="true" class="resizer"></div>
 							<?php } ?>
-							<img src="<?php echo $photo_helper ?>" alt="" aria-hidden="true" class="resizer">
 						</div>
 
 						<div class="bio">

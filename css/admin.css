@@ -436,3 +436,9 @@ body.post-type-race .acf-flexible-content [data-name="schedule"] [data-name="end
 .acf-field-flexible-content[data-name="content_columns"] [data-name="content_display_type"] .acf-checkbox-list {
   font-weight: bold;
 }
+body.post-type-instructions [data-name="gotopage"] .acf-label {
+  display: none!important;
+}
+body.post-type-instructions [data-name="gotopage"] .acf-checkbox-list {
+  font-weight: bold!important;
+}
