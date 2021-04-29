@@ -1399,6 +1399,9 @@ h2.stitle,
 			&:before {
 				border-color: $red;
 			}
+			span {
+				color: #FFF!important;
+			}
 		}
 	}
 	&.red {
@@ -3815,6 +3818,9 @@ body.single-race {
 				position: relative;
 				left: 30px;
 			}
+		}
+		.buttondiv {
+			margin-top: 30px;
 		}
 	}
 	#primary #section-schedule {
@@ -12431,6 +12437,15 @@ body.page-template-page-race {
 				position: relative;
 				top: 15px;
 			}
+		}
+	}
+	&#additionEventInfo {
+		.modalText {
+			h1 {font-size: 27px;}
+			h2 {font-size: 22px;}
+			h3 {font-size: 18px;}
+			h4 {font-size: 16px;}
+			h5 {font-size: 14px;}
 		}
 	}
 }

@@ -2177,6 +2177,7 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 .btn-sm:hover:before{-webkit-transform:translateX(0) skew(-45deg);-ms-transform:translateX(0) skew(-45deg);transform:translateX(0) skew(-45deg)}
 .btn-sm.white:hover{color:#FFF;border-color:#ba0d30}
 .btn-sm.white:hover:before{border-color:#ba0d30}
+.btn-sm.white:hover span{color:#FFF !important}
 .btn-sm.red{background-color:#ba0d30;border-color:#ba0d30;color:#FFF}
 .btn-sm.red:hover{border-color:#000}
 .btn-sm.red:hover:before{background:#000}
@@ -2602,6 +2603,7 @@ body.single-race #pageTabs{top:0;margin-top:35px}
 body.single-race #primary #section-faqs{padding-top:60px;padding-bottom:30px}
 body.single-race .content-default .black-section ul,body.single-race .content-default .black-section ol{display:inline-block;text-align:left}
 body.single-race .content-default .black-section ul ul,body.single-race .content-default .black-section ul ol,body.single-race .content-default .black-section ol ul,body.single-race .content-default .black-section ol ol{display:inline;position:relative;left:30px}
+body.single-race .content-default .black-section .buttondiv{margin-top:30px}
 body.single-race #primary #section-schedule{padding-top:40px}
 body.single-race #section-coursemap .title-w-icon{padding-bottom:0}
 body.single-race #section-registration .shead-icon{margin-bottom:10px}
@@ -4207,6 +4209,11 @@ body.page-template-page-race .post-type-entries .flex-inner.countItems1,body.pag
 .modal.customModal .modal-header{position:relative}
 .modal.customModal .modal-header #eventStatusTxt{display:inline-block;position:absolute;top:0;left:0}
 .modal.customModal .modal-header #eventStatusTxt span{display:inline-block;background:#ba0d30;color:#FFF;padding:8px 10px;font-family:"Lato",sans-serif;font-size:15px;text-transform:uppercase;letter-spacing:1px;position:relative;top:15px}
+.modal.customModal#additionEventInfo .modalText h1{font-size:27px}
+.modal.customModal#additionEventInfo .modalText h2{font-size:22px}
+.modal.customModal#additionEventInfo .modalText h3{font-size:18px}
+.modal.customModal#additionEventInfo .modalText h4{font-size:16px}
+.modal.customModal#additionEventInfo .modalText h5{font-size:14px}
 .accomodations{width:100%;float:left;margin-top:30px;margin-bottom:30px}
 .accomodations.nopadtop{margin-top:-20px}
 .accomodations .info{width:100%;float:left;border-top:2px solid #f2f2f2;padding-top:15px;padding-bottom:15px}

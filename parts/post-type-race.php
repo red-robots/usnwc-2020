@@ -1,4 +1,6 @@
-<?php while ( have_posts() ) : the_post(); ?>
+<?php 
+$page_title = get_the_title();
+while ( have_posts() ) : the_post(); ?>
 	
 	<section class="main-description">
 		<div class="wrapper text-center">
@@ -107,10 +109,20 @@
 		</div>
 		<?php } ?>
 
-
-		<?php if ($registration_note) { ?>
+		<?php 
+		$eventInfo = get_field("additional_event_info"); 
+		$event_info_btn = get_field("event_info_button_name"); 
+		?>
+		<?php if ($registration_note || $eventInfo) { ?>
 		<div class="black-section">
-			<div class="wrapper text-center"><?php echo $registration_note; ?></div>
+			<div class="wrapper text-center">
+				<?php echo $registration_note; ?>
+				<?php if ($eventInfo && $event_info_btn) { ?>
+					<div class="buttondiv">
+						<a data-toggle="modal" data-target="#additionEventInfo" class="btn-sm xs white popup-event-info"><span><?php echo $event_info_btn ?></span></a>
+					</div>			
+				<?php } ?>		
+			</div>
 		</div>	
 		<?php } ?>
 		
@@ -541,8 +553,35 @@ if($sponsors) { ?>
 </section>
 <?php } ?>
 
+<?php /* ADDITIONAL EVENT INFO MODAL */ ?>
+<?php if ($eventInfo) { ?>
+<div class="modal customModal fade" id="additionEventInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<!-- <div class="modaltitleDiv text-center">
+      		<h5 class="modal-title"><?php //echo $page_title ?></h5>
+      	</div> -->
+      	<div class="modalText">
+      		<div class="text"><?php echo $eventInfo ?></div>
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>
+<?php } ?>
+
 <script>
 jQuery(document).ready(function($){
+
+	if( $(".customModal").length>0 ) {
+		$(".customModal").insertAfter("#page");
+	}
 
 	$("select.customSelect").select2({
     placeholder: "ALL",

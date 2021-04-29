@@ -442,3 +442,16 @@ body.post-type-instructions [data-name="gotopage"] .acf-label {
 body.post-type-instructions [data-name="gotopage"] .acf-checkbox-list {
   font-weight: bold!important;
 }
+[data-name="popup_event_info"] {
+  position: relative;
+}
+[data-name="popup_event_info"] .acf-label {
+  padding-left: 23px;
+}
+[data-name="popup_event_info"] .acf-checkbox-list {
+  position: absolute;
+  top: -33px;
+  left: 0;
+  margin: 0 0;
+  color: transparent;
+}
