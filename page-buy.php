@@ -127,7 +127,19 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 																'terms' => 'single-activity-pass',
 																'operator' => 'IN'
 														  )
-														)
+														),
+						'meta_query'			=> array(
+													'relation' => 'OR',
+													array(
+														'key' => 'doNotShow',
+														'compare' => 'NOT EXISTS',
+													),
+													array(
+														'key' => 'doNotShow',
+														'value'		=> '',
+														'compare' => '='
+													),
+												)
 					);
 					$single_activities = get_posts($single_pass_args);
 					$other_activities = get_field("other_activities","option");
