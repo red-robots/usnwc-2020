@@ -10938,6 +10938,9 @@ body.page-template-page-group-events {
 		@include tab {
 			width: 50%;
 		}
+		&.align-center {
+			margin: 0 auto;
+		}
 		.filter-label {
 			width: 25%;
 			padding-left: 5px;
@@ -10945,8 +10948,48 @@ body.page-template-page-group-events {
 			font-size: 16px;
 		}
 		.select-wrap {
+			// width: 100%;
 			width: 75%;
 			left: -11px;
+		}
+	}
+}
+.custom-select-wrap2 {
+	.select-wrap {
+		.select2-container.select2-container--default,
+		.select2-dropdown.select2-dropdown--below {
+			max-width: 100% !important;
+			width: calc(100% - 10px) !important;
+		}
+		.select2-results li {
+			font-size: 14px;
+		}
+		&.custom-select-wrap {
+			@media screen and (max-width: $tabwidth) {
+				float: left !important;
+				max-width: 80% !important;
+				width: 80% !important;
+				left: 0 !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				.select2-container.select2-container--default,
+				.select2-dropdown.select2-dropdown--below {
+					width: 100% !important;
+				}
+			}
+		}
+	}
+	.filter-label {
+		@media screen and (max-width: $tabwidth) {
+			width: 20% !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			float: left !important;
+			span {
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				font-size: 3.2vw;
+			}
 		}
 	}
 }
@@ -11146,17 +11189,18 @@ body.page-template-page-race {
 		}
 	}
 }
+
 .select2-container--open .select2-dropdown--above {
-	top: 32px!important;
+	top: 0!important;
 	margin-left: -1px;
-	max-width: 300px!important;
+	max-width: 100%!important;
 	width: 100%!important;
 }
 .select2-dropdown.select2-dropdown--below {
 	position: relative;
-	top: 20px;
+	top: 0;
 	left: -1px;
-	max-width: 300px!important;
+	max-width: 100%!important;
 	width: 100%!important;
 }
 .select2-container--default.select2-container--open {
@@ -11164,6 +11208,7 @@ body.page-template-page-race {
 	// width: 100%!important;
 	// transition: all ease .3s;
 }
+
 ul.select2-results__options {
 	li.select2-results__option {
 		position: relative;
@@ -11626,6 +11671,7 @@ body.page-template-page-food-beverage {
     font-style: italic;
 	}
 }
+
 
 .redDiv {
 	background-color: $red;

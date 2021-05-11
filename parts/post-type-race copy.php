@@ -232,28 +232,34 @@ while ( have_posts() ) : the_post(); ?>
 
 						<?php if ($show_filter) { ?>
 							<?php if($total_options>1) {  ?>
-							<div class="filter-wrapper filterstyle customSelectWrap custom-select-wrap2">
+							<div class="filter-wrapper filterstyle customSelectWrap">
 								<div class="wrapper">
-									<div class="flexwrap">
-										<div class="filter-field-group align-center">
-											<div class="filter-label">
-												<div class="inside"><span>Filter By</span></div>
-											</div>
+									<div class="filter-inner">
+										<form action="" method="get" id="filterForm">
+											<div class="flexwrap">
 
-											<div class="select-wrap custom-select-wrap">
-												<select id="race-type-option" class="filter-select customSelect">
-												<?php $i=1; foreach ($race_types as $r) { 
-													$actualName = $r['name']; 
-													$alias = $r['alias'];
-													$name = ($alias) ? $alias : $actualName;
-													$slug = sanitize_title($name);
-													$schedule = $r['schedule'];
-													?>
-													<option value="race-opt<?php echo $i?>"><?php echo $name ?></option>
-												<?php $i++; } ?>
-												</select>
+												<div class="filter-field-group">
+													<div class="filter-label">
+														<div class="inside"><span>Filter By</span></div>
+													</div>
+
+													<div class="select-wrap">
+														<select id="race-type-option" class="filter-select customSelect">
+														<?php $i=1; foreach ($race_types as $r) { 
+															$actualName = $r['name']; 
+															$alias = $r['alias'];
+															$name = ($alias) ? $alias : $actualName;
+															$slug = sanitize_title($name);
+															$schedule = $r['schedule'];
+															?>
+															<option value="race-opt<?php echo $i?>"><?php echo $name ?></option>
+														<?php $i++; } ?>
+														</select>
+													</div>
+												</div>
+												
 											</div>
-										</div>
+										</form>
 									</div>
 								</div>
 							</div>
@@ -579,15 +585,8 @@ jQuery(document).ready(function($){
 
 	$("select.customSelect").select2({
     placeholder: "ALL",
-    allowClear: false,
-    dropdownParent: $('.custom-select-wrap')
+    allowClear: false
 	});
-
-	// $("select.jsselect2").select2({
- //    placeholder: "ALL",
- //    allowClear: false,
- //    dropdownParent: $('.custom-select-wrap')
-	// });
 
 	$("#race-type-option").on('change',function(){
 		var opt = $(this).val();
