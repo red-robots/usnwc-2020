@@ -2287,3 +2287,9 @@ add_filter( 'get_terms_args', function( $args, $taxonomies ) {
 add_filter( 'get_terms_orderby', function( $orderby, $query_vars ) {
     return 'term_order' === $query_vars['orderby'] ? 'term_order' : $orderby;
 }, 10, 2 );
+
+
+function is_faqs_visible($postid=null) {
+    $faqVisible = ($postid) ? get_field("faqs_visibility",$postid) : get_field("faqs_visibility");
+    return ( isset($faqVisible[0]) && $faqVisible[0]=='hide' ) ? false : true;
+}

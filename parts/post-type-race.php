@@ -497,16 +497,14 @@ while ( have_posts() ) : the_post(); ?>
 	<?php 
 	/* FAQ */ 
 	//get_template_part("parts/content-faqs-race"); 
-	$faqVisible = get_field("faqs_visibility");
-	$showFAQs = ( isset($faqVisible[0]) && $faqVisible[0]=='hide' ) ? false : true;
-	if($showFAQs) {
+	//$faqVisible = get_field("faqs_visibility");
+	//$showFAQs = ( isset($faqVisible[0]) && $faqVisible[0]=='hide' ) ? false : true;
+	if( is_faqs_visible() ) {
 		$useDefaultFAQIcon = true;
 		$customFAQTitle = (get_field("faq_section_title")) ? get_field("faq_section_title") : 'FAQ';
 		include( locate_template('parts/content-faqs.php') ); 
-		/* FAQS JAVASCRIPT */ 
-		include( locate_template('inc/faqs-script.php') ); 
-	}
-	?>
+		include( locate_template('inc/faqs-script.php') );  /* FAQS JAVASCRIPT */
+	} ?>
 <?php endwhile; ?>
 
 <?php  

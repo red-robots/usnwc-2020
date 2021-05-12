@@ -1,9 +1,11 @@
 <?php 
+if( is_faqs_visible() ) {
+	
 	$postid = get_the_ID();
 	$faq_image = get_field("faq_image"); 
 	//$faqsIds = get_faqs_by_single_post($postid);
 	//$faqs = get_faqs_by_assigned_page_id($faqsIds);
-	
+
 	$faqs = get_faq_listings($postid);
 	$faq_class = ($faqs && $faq_image) ? 'half':'full';
 	$has_faq_image = ($faq_image) ? ' has-image':' no-image';
@@ -108,3 +110,5 @@
 		</div>
 	</section>
 	<?php } ?>
+
+<?php } ?>
