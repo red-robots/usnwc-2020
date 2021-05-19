@@ -171,6 +171,7 @@ if($use_global_options=='no') {
 								</div>
 								<?php } ?>
 							<?php } ?>
+							<?php echo do_shortcode('[camp_forms]'); ?>
 							</div>
 						</div>
 					<?php } ?>
