@@ -33,14 +33,23 @@ get_header(); ?>
 		<section class="faq-categories">
 			<div class="wrapper">
 				<div id="faqTabs" class="flexwrap2">
-					<div class="faqcat">
+					<!-- <div class="faqcat">
 						<a href="#" data-termid="all" class="faqType active">All</a>
-					</div>	
-					<?php foreach ($faqTerms as $t) { ?>
+					</div>	 -->
+					<?php 
+					$a = 1;
+					foreach ($faqTerms as $t) { 
+						if($a==1) {
+							$first_faq_group = strval('faqterm-'.$t->term_id);
+							$class = 'active';
+						} else {
+							$class = '';
+						}
+						?>
 					<div class="faqcat">
-						<a href="#" id="faqterm-<?php echo $t->term_id?>" data-termid="<?php echo $t->term_id?>" class="faqType"><?php echo $t->name?></a>
+						<a href="#" id="faqterm-<?php echo $t->term_id?>" data-termid="<?php echo $t->term_id?>" class="faqType <?php echo $class; ?> <?php echo $first_faq_group; ?>"><?php echo $t->name?></a>
 					</div>	
-					<?php } ?>
+					<?php $a++; }  ?>
 				</div>
 				<div id="faqSelect"></div>
 			</div>
@@ -65,12 +74,21 @@ get_header(); ?>
 								$title = get_the_title();
 								if($i==1) {
 									$first_faq = $id;
-								}
+								} 
 								$postTerms = get_the_terms($id,'faq_type');
 								$postTermId = ($postTerms) ? $postTerms[0]->term_id : '';
 								$termClass = ($postTermId) ? ' faqterm-'.$postTermId:'';
+
+								$faqNum = 'faqterm-'.$postTermId;
+								if( $first_faq_group == $faqNum ) {
+									$styleIt = 'style=""';
+								} else {
+									$styleIt = 'style="display: none;"';
+								}
+								// var_dump($first_faq_group);
+								// var_dump($faqNum);
 							?>
-							<a href="#" data-id="<?php echo $id ?>" data-termid="<?php echo $postTermId ?>" class="faq faqGroup faqpid-<?php echo $id.$termClass ?>">
+							<a href="#" data-id="<?php echo $id ?>" data-termid="<?php echo $postTermId ?>" class="faq faqGroup faqpid-<?php echo $id.$termClass ?> " <?php echo $styleIt; ?>>
 								<?php if ($icon) { ?>
 								<span class="icon"><i class="<?php echo $icon ?>"></i></span>	
 								<?php } ?>
