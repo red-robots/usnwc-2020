@@ -7,6 +7,12 @@ get_header();
 $blank_image = THEMEURI . "images/rectangle.png";
 $square = THEMEURI . "images/square.png";
 ?>
+<style type="text/css">
+	.post-type-entries .details {
+		position: relative;
+		z-index: 1000;
+	}
+</style>
 <div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full catering-wedding boxedImagesPage">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php if( get_the_content() ) { ?>
@@ -39,11 +45,16 @@ $square = THEMEURI . "images/square.png";
 								$short_description = get_field("short_description",$id);
 								$thumbImage = get_field("featured_image",$id);
 								$space_features = get_field("space_features",$id);
+								$showDetails = get_field('show_details', $id);
 								?>
 								<div class="postbox animated fadeIn <?php echo ($thumbImage) ? 'has-image':'no-image' ?>">
 									<div class="inside">
 										
-										<a href="<?php echo $pagelink ?>" class="photo wave-effect js-blocks">
+										<?php if($showDetails != 'no'){ ?>
+											<a href="<?php echo $pagelink ?>" class="photo wave-effect js-blocks">
+										<?php } else { ?>
+											<div class="js-blocks">
+										<?php } ?>
 											<?php if ($thumbImage) { ?>
 												<span class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></span>
 												<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none;">
@@ -59,7 +70,11 @@ $square = THEMEURI . "images/square.png";
 											</span>
 
 											<?php include( locate_template('images/wave-svg.php') ); ?>
-										</a>
+										<?php if($showDetails != 'no'){ ?>
+											</a>
+										<?php } else { ?>
+											</div>
+										<?php } ?>
 
 										<div class="details">
 											<div class="info">
@@ -91,9 +106,11 @@ $square = THEMEURI . "images/square.png";
 												</div>
 												<?php } ?>
 
-												<div class="button">
-													<a href="<?php echo $pagelink ?>" class="btn-sm"><span>See Details</span></a>
-												</div>
+												<?php if($showDetails != 'no'){ ?>
+													<div class="button">
+														<a href="<?php echo $pagelink ?>" class="btn-sm"><span>See Details</span></a>
+													</div>
+												<?php } ?>
 												
 											</div>
 										</div>

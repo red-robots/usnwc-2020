@@ -98,6 +98,7 @@ $defaultLocation = get_default_job_location();
 			$left_text = get_field("left_text");
 			$jobfairTypes = get_field("jobfair_types");
 			$jobfairTitle = get_field("jobfair_types_title");
+			$showFaqs = get_field("faqs_visibility");
 			$s3 = ( ($left_image || $left_text) &&  $jobfairTypes ) ? 'half':'full';
 			if( ($jobfairTitle || $jobfairTypes) || ($left_image || $left_text) ) { ?>
 			<section id="section3" data-section="<?php echo $jobfairTitle ?>" class="section-content section-jobfair <?php echo $s3 ?>">
@@ -194,7 +195,7 @@ $defaultLocation = get_default_job_location();
 		$customFAQTitle = 'FAQ';
 		$customFAQClass = 'custom-class-faq graybg';
 		include( locate_template('parts/content-faqs.php') );
-		include( locate_template('inc/faqs.php') );
+		if( $showFaqs != 'hide' ) {include( locate_template('inc/faqs.php') );}
 		?>
 
 </div><!-- #primary -->

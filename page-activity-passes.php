@@ -223,18 +223,20 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 				?>
 				<div id="entryBlock<?php echo $i?>" class="fbox activity-blocks <?php echo $entryClass; ?>">
 					<div class="inside text-center">
-						<div class="imagediv <?php echo ($entryClass) ? 'hasImage':'noImage'?>">
-							<?php if ($featuredType=='image') { ?>
-								<?php if ($thumbnail) { ?>
-									<span class="img" style="background-image:url('<?php echo $thumbnail?>')"></span>
+						<a href="<?php the_permalink(); ?>" class="photo wave-effect js-blocks">
+							<div class="imagediv <?php echo ($entryClass) ? 'hasImage':'noImage'?>">
+								<?php if ($featuredType=='image') { ?>
+									<?php if ($thumbnail) { ?>
+										<span class="img" style="background-image:url('<?php echo $thumbnail?>')"></span>
+									<?php } ?>
+								<?php } else if($featuredType=='video') { ?>
+									<?php if ($video_iframe) { ?>
+										<?php echo $video_iframe ?>
+									<?php } ?>
 								<?php } ?>
-							<?php } else if($featuredType=='video') { ?>
-								<?php if ($video_iframe) { ?>
-									<?php echo $video_iframe ?>
-								<?php } ?>
-							<?php } ?>
-							<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="placeholder">
-						</div>
+								<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="placeholder">
+							</div>
+						</a>
 						<div class="titlediv">
 							<p class="name"><?php the_title(); ?></p>
 							<div class="buttondiv">
