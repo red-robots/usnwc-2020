@@ -15,9 +15,19 @@ $obj = get_queried_object();
 $current_term_id = $obj->term_id;
 $current_term_name = $obj->name;
 $taxonomy = $obj->taxonomy;
-$child_terms = get_term_children($current_term_id,$taxonomy);
+// Tweak #1 to get term order. See below for tweak #2
+// $child_terms = get_term_children($current_term_id,$taxonomy); 
+$child_terms = get_terms( array(
+	'child_of' => $current_term_id, 
+	'orderby' => 'term_order',
+    'order' => 'ASC',
+    'taxonomy' => $taxonomy
+));
 $blank_image = THEMEURI . "images/rectangle-narrow.png";
 
+// echo '<pre>';
+// print_r($child_terms);
+// echo '</pre>';
 
 $category_image = get_field("category_image",$taxonomy.'_'.$current_term_id);
 if($category_image) { ?>
@@ -60,7 +70,10 @@ if($category_image) { ?>
 		// }		
 
 		foreach ( $child_terms as $child ) {
-	    $term = get_term_by( 'id', $child, $taxonomy );
+			$termID = $child->term_id;
+			// Tweak #2 to get term order
+	    	// $term = get_term_by( 'id', $child, $taxonomy ); . 
+			$term = get_term_by( 'id', $termID, $taxonomy );
 	    if($term->count > 0){
 	       $has_items[] = $term;
 	    }

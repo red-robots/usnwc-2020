@@ -6,6 +6,10 @@ $square = THEMEURI . "images/square.png";
 $perpage = -1;
 $posttype = 'instructions';
 $total = count($child_terms);
+// echo '<pre>';
+// print_r($child_terms);
+// echo '</pre>';
+// echo $total;
 ?>
 <section class="section-content entries-with-filter" style="padding-top:0;">
 	<div class="post-type-entries boxes-element threecols">
