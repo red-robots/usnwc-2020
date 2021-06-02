@@ -65,7 +65,8 @@ $args = array(
     'meta_key'       	=> 'start_date',
     'orderby'        	=> 'meta_value',
     'order'          	=> 'ASC',
-    'paged'			   		=> $paged
+    'paged'			   	=> $paged,
+    'post__not_in'      => $noInclude // look in page-river-jam.php for variable. Don't show upcoming
   );
 
 if($date_range) {

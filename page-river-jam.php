@@ -35,11 +35,14 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 		<div class="upcoming-posts">
 			<div class="flexwrap">
 				<?php 
+				$noInclude = array();
 				foreach ($upcoming as $row) { 
 					$pid = $row->ID;
+					$noInclude[] = $pid;
+					// echo $pid;
 					$title = $row->post_title;
 					$start_date = ( isset($row->start_date) && $row->start_date ) ? $row->start_date : '';
-					$start_day = ($start_date) ? date('l',strtotime($start_date)) : '';
+					// $start_day = ($start_date) ? date('l',strtotime($start_date)) : '';
 					$image = get_field("thumbnail_image",$pid);
 					$helper = THEMEURI . "images/rectangle-lg.png";
 					$has_image = ($image) ? 'has-image':'no-image';
@@ -137,7 +140,11 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 	<?php } ?>
 
 	<?php /* UPCOMING BANDS BY DATE */ ?>
-	<?php get_template_part("parts/filter-river-jam"); ?>
+	<?php 
+	// get_template_part("parts/filter-river-jam"); 
+	// include this way to pass variables. sending post id's from above to not include on the next query
+	include(locate_template('parts/filter-river-jam.php'));
+	?>
 
 
 	<?php  
