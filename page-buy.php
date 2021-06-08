@@ -28,6 +28,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 	$all_access_feat_image = get_field("all_access_feat_image");
 	$all_access_text = get_field("all_access_text");
 
+	$single_access_hide = get_field("hide_section");
 	$single_access_title = get_field("single_access_title");
 	$single_access_feat_image = get_field("single_access_feat_image");
 	$single_access_text = get_field("single_access_text");
@@ -106,7 +107,9 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 			<?php } ?>
 
 			<?php /* SINGLE ACTIVITY PASSES */ ?>
-			<?php if ($single_access_title || $single_access_text) { ?>
+			<?php 
+			if( $single_access_hide != 'hide' ):
+			if ($single_access_title || $single_access_text) { ?>
 			<div id="section2" class="tcol <?php echo ($single_access_feat_image) ? 'hasphoto':'nophoto' ?>">
 				<div class="inner">
 					<?php if ($single_access_feat_image) { ?>
@@ -237,7 +240,8 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 					</div>
 				</div>
 			</div>
-			<?php } ?>
+			<?php }
+			 endif;  ?>
 
 		</div>
 	</section>
