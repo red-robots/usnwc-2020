@@ -58,37 +58,41 @@ $section_id = sanitize_title($section_title);
 </div>
 
 <?php 
+$today = date("Ymd");
 $args = array(
     'post_type'      	=> 'music',
     'posts_per_page' 	=> $perpage,
-    'facetwp'					=> true,
+    'facetwp'			=> true,
     'meta_key'       	=> 'start_date',
+    'meta_value' => $thedate,
+    'meta_compare' => '>',
     'orderby'        	=> 'meta_value',
     'order'          	=> 'ASC',
     'paged'			   	=> $paged,
     'post__not_in'      => $noInclude // look in page-river-jam.php for variable. Don't show upcoming
   );
 
-if($date_range) {
-$range = array($startDate,$endDate);
-	$args['meta_query'] = array(
-    array(
-      'key'     => 'start_date',
-      'value'   => $range,
-      'compare' => 'BETWEEN',
-      'type'    => 'date',
-    )
-  );
-} else {
-	$args['meta_query'] = array(
-    array(
-      'key'     => 'start_date',
-      'value'   => $today,
-      'compare' => '>=',
-      'type'    => 'date',
-    )
-  );
-}
+
+// if($date_range) {
+// $range = array($startDate,$endDate);
+// 	$args['meta_query'] = array(
+//     array(
+//       'key'     => 'start_date',
+//       'value'   => $range,
+//       'compare' => 'BETWEEN',
+//       'type'    => 'date',
+//     )
+//   );
+// } else {
+// 	$args['meta_query'] = array(
+//     array(
+//       'key'     => 'start_date',
+//       'value'   => $today,
+//       'compare' => '>=',
+//       'type'    => 'date',
+//     )
+//   );
+// }
 //$posts = get_posts($args);
 // echo "<pre>";
 // print_r($posts);
@@ -122,6 +126,7 @@ if ( $entries->have_posts() ) { ?>
 									$event_date = $dayOfWeek .', ' . date('F j',strtotime($start));
 								}
 							}
+
 						?>
 						<div class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?>">
 							<div class="inside">
