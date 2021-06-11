@@ -2136,6 +2136,23 @@ h2.stitle,
 			}
 		}
 	}
+	.mobile-name {
+		width: 100%;
+		padding: 20px 0;
+		background-color: #000;
+		color: #fff;
+		text-align: center;
+		font-family: $font_secondary;
+		font-size: 20px;
+		font-weight: 300;
+		line-height: 1.2;
+		letter-spacing: 1px;
+		float: left;
+		text-transform: uppercase;
+		@include tab {
+			display: none;
+		}
+	}
 }
 
 .icon-img {
@@ -6891,6 +6908,7 @@ body.page-template-page-stories {
 }
 .hero-register-button {
 	.stats {
+		display: none;
 		width: 100%;
 		position: absolute;
 		top: 85px;
@@ -6904,6 +6922,9 @@ body.page-template-page-stories {
 		line-height: 1;
 		letter-spacing: 1px;
 		transition: all ease .3s;
+		@include tab {
+			display: block;
+		}
 		&.closed {
 			text-align: center;
 			padding: 11px 20px 10px;

@@ -131,7 +131,9 @@ $blank_image = THEMEURI . "images/rectangle.png";
 						<a href="<?php echo $pageLink ?>" class="videoLink">
 							<span class="videoName"><span><?php echo $post_title ?></span></span>
 						</a>
+						<div class="mobile-name"><?php echo $post_title ?></div>
 					</div>
+					
 				</div>
 				<div class="colRight small-videos">
 					<div class="wrap">
@@ -151,7 +153,9 @@ $blank_image = THEMEURI . "images/rectangle.png";
 								<a href="<?php echo $pageLink ?>" class="videoLink">
 									<span class="videoName"><span><?php echo $post_title ?></span></span>
 								</a>
+								<div class="mobile-name"><?php echo $post_title ?></div>
 							</div>
+							
 						</div>
 				<?php } ?>
 				<?php $i++; endwhile; wp_reset_postdata(); ?>
