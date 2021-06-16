@@ -75,10 +75,14 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 									$pid = $p->ID;
 									$adult = get_field("adult_price",$pid);
 									$young = get_field("young_price",$pid);
+									// need ability to hide and showd
+									$show = get_field("show_on_buy_page",$pid);
 									$buyButton = get_field("purchase_button",$pid);
 									$buttonName = (isset($buyButton['title']) && $buyButton['title']) ? $buyButton['title']:'Purchase Pass';
 									$buttonLink = (isset($buyButton['url']) && $buyButton['url']) ? $buyButton['url']:'';
 									$buttonTarget = (isset($buyButton['target']) && $buyButton['target']) ? $buyButton['target']:'_self';
+
+									if( $show == 'show' ) {
 									?>
 									<div class="type">
 										<div class="pass-name"><?php echo $p->post_title ?></div>
@@ -97,6 +101,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 											<?php } ?>
 										</div>
 									</div>
+									<?php } ?>
 								<?php } ?>
 							</div>	
 							<?php } ?>
