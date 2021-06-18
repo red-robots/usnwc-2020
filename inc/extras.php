@@ -883,9 +883,9 @@ function displayCustomIcons() {
 }
 
 /* ACF CUSTOM OPTIONS TABS */
-// if( function_exists('acf_add_options_page') ) {
-//     acf_add_options_page();
-// }
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page();
+}
 function be_acf_options_page() {
     if ( ! function_exists( 'acf_add_options_page' ) ) return;
     

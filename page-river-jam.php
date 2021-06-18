@@ -42,7 +42,8 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 					// echo $pid;
 					$title = $row->post_title;
 					$start_date = ( isset($row->start_date) && $row->start_date ) ? $row->start_date : '';
-					// $start_day = ($start_date) ? date('l',strtotime($start_date)) : '';
+					// comment out the line below to hide schedule
+					$start_day = ($start_date) ? date('l',strtotime($start_date)) : '';
 					$image = get_field("thumbnail_image",$pid);
 					$helper = THEMEURI . "images/rectangle-lg.png";
 					$has_image = ($image) ? 'has-image':'no-image';
@@ -88,7 +89,12 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 						</div>
 						<?php } ?>
 
-						<?php /* SCHEDULE */ ?>
+						<?php /* SCHEDULE */ 
+								// echo '<pre>';
+								// print_r($xstartDay);
+								// echo '</pre>';
+
+						?>
 						<?php if ($schedules) { ?>
 						<div class="schedule schedules-list">
 							<h3 class="t1"><?php echo ($schedule_title) ? $schedule_title : 'Schedule' ?></h3>
@@ -157,6 +163,9 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 	// $programs = new WP_Query($args);
 	//if( $programs->have_posts() ) { 
 	$programs = get_field("rj_programming","option");
+	// echo '<pre>';
+	// print_r($programs);
+	// echo '</pre>';
 	if($programs) { ?>	
 	<section id="riverjam-programs" data-section="Programs" class="section-content menu-sections">
 		<div class="wrapper">
