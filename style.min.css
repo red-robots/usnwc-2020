@@ -2008,6 +2008,7 @@ body.single-race .content-default .black-section .buttondiv{margin-top:30px}
 body.single-race #primary #section-schedule{padding-top:40px}
 body.single-race #section-coursemap .title-w-icon{padding-bottom:0}
 body.single-race #section-registration .shead-icon{margin-bottom:10px}
+body.single-race .optional-text{width:60%;margin:20px auto;font-size:15px}
 body.page-template-page-festivals .intro-text-wrap{padding-bottom:30px}
 .squiggly{width:100%;padding:0 50px;opacity:.75}
 .squiggly .line{width:100%;height:7px;background-image:url("images/squiggly.svg");background-position:right center;background-repeat:repeat-x}
@@ -2094,7 +2095,7 @@ h1.page-title span:after{content:"";display:block;width:30%;height:2px;backgroun
 .schedule-activities-info.new-layout .status-legend span:before{content:"";display:block;width:10px;height:10px;border-radius:100%;background:#CCC;position:absolute;top:3px;left:0}
 .schedule-activities-info.new-layout .status-legend span.open:before{background:#71c943}
 .schedule-activities-info.new-layout .status-legend span.closed:before{background:#ba0d30}
-.post-type-race #section-registration .title-w-icon{background:#ba0d30;color:#FFF}
+.post-type-race #section-registration .title-w-icon{background-color:#000;color:#FFF}
 .post-type-race .race-types{background:#000}
 .post-type-race .race-types .inner-wrap{padding:5px}
 .post-type-race .race-types .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}

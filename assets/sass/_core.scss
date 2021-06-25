@@ -3849,6 +3849,11 @@ body.single-race {
 	#section-registration .shead-icon {
 		margin-bottom: 10px;
 	}
+	.optional-text {
+		width: 60%;
+		margin: 20px auto;
+		font-size: 15px;
+	}
 }
 
 body.page-template-page-festivals {
@@ -4526,7 +4531,8 @@ h1.page-title {
 .post-type-race {
 	#section-registration {
 		.title-w-icon {
-			background: $red;
+			// background: $red;
+			background-color: #000;
 			color: #FFF;
 		}
 	}

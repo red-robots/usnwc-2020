@@ -201,6 +201,7 @@ while ( have_posts() ) : the_post(); ?>
 	/* SCHEDULE */
 	$sched_section_icon = get_field("sched_section_icon"); 
 	$sched_section_title = get_field("sched_section_title"); 
+	$optional_text = get_field("optional_text"); 
 	$sched_section_icon = '';
 	$start = get_field("start_date");
 	$end = get_field("end_date");
@@ -217,6 +218,11 @@ while ( have_posts() ) : the_post(); ?>
 						<div class="event-date"><?php echo $event_date ?></div>	
 						<?php } ?>
 					</div>
+					<?php if( $optional_text ) { ?>
+						<div class="optional-text">
+							<?php echo $optional_text; ?>
+						</div>
+					<?php } ?>
 				</div>
 			</div>
 		<?php } ?>
