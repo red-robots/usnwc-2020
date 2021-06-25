@@ -2067,7 +2067,7 @@ h1.page-title span:after{content:"";display:block;width:30%;height:2px;backgroun
 .schedule-activities-info .activities ul.list li.data:nth-child(odd){background-color:#f1f1f1}
 .schedule-activities-info .activities ul.list .cell.name{width:60%}
 .schedule-activities-info .activities ul.list .cell.time{width:40%;text-align:right}
-.title-w-icon{text-align:center;padding-top:50px;padding-bottom:50px}
+.title-w-icon{text-align:center;padding-top:30px;padding-bottom:35px}
 .title-w-icon h2{font-family:"Lato",sans-serif;font-weight:400;font-size:25px;line-height:1.2;text-transform:uppercase;letter-spacing:2px;margin:0}
 .title-w-icon .title-icon span{display:inline-block;width:30px;height:30px;background-size:100%;background-position:center;background-repeat:no-repeat}
 .schedule-activities-info.new-layout .subhead .date-hours{background:#ba0d30;color:#FFF;padding:20px;margin-top:40px}
