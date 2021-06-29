@@ -7,7 +7,7 @@
 	}
 	#primary.activity-schedule-onsite .wrapper {
 		max-width: 100%;
-		font-size: 26px;
+		font-size: 36px;
 		font-weight: bold;
 	}
 	#primary.activity-schedule-onsite .wrapper h3 {
@@ -24,14 +24,15 @@
 		margin-top: 0;
 	}
 	#primary.activity-schedule-onsite .activities {
-		display: flex;
+		/*display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: space-around;
+		justify-content: space-around;*/
 	}
 	#primary.activity-schedule-onsite .activity-info {
-		flex-basis: 45%;
-		margin-bottom: 10px;
+		/*flex-basis: 45%;*/
+		margin-bottom: 50px;
+		max-width: 96%;
 	}
 	#primary.activity-schedule-onsite span.redclosed {
 		width: auto;
@@ -45,7 +46,7 @@
 	}
 	.daily-container {
 		/*padding: 5px;*/
-		height: 1800px;
+		height: 4000px;
 	}
 	.schedule-activities-info.new-layout .activities .activity-info ul.list .cell.cell-open:before, .schedule-activities-info.new-layout .activities .activity-info ul.list .cell.cell-closed:before {
 		width: 20px;
@@ -53,7 +54,9 @@
 		left: -10px;
 		top: 15px;
 	}
-
+	.schedule-activities-info.new-layout .activities .activity-info h3.type {
+		font-size: 42px;
+	}
 </style>
 <?php
 /**
@@ -189,6 +192,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 						</div>
 					<?php } ?>
 					</div>
+					<span id="timer"></span> s
 				</div>
 
 			<?php } else { ?>
@@ -217,12 +221,32 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 		},4000);
 		setInterval(function(){
 		     // 4000 - it will take 4 secound in total from the top of the page to the bottom
-		$("html, body").animate({ scrollTop: $(document).height() }, 40000);
-		setTimeout(function() {
-		   $('html, body').animate({scrollTop:0}, 4000); 
-		},4000);
+			$("html, body").animate({ scrollTop: $(document).height() }, 60000);
+			setTimeout(function() {
+			   $('html, body').animate({scrollTop:0}, 4000); 
+			},4000);
 		    
 		},8000);
+
+
+// setInterval(() => {
+//   alert("Hello"); 
+// }, 3000);
+		// console.log();
+
+
+
+
+		// var startTime = Date.now();
+
+		// var interval = setInterval(function() {
+		//     var elapsedTime = Date.now() - startTime;
+		//     document.getElementById("timer").innerHTML = (elapsedTime / 1000).toFixed(3);
+		// }, 100);
+
+
+
+		
 		 
 		//  $("html, body").animate({ scrollTop: $(document).height() }, 20000);
 		
