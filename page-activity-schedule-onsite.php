@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<head>
+
 <link rel='stylesheet' id='bellaworks-style-css'  href='<?php bloginfo('template_url'); ?>/style.css' type='text/css' media='all' />
 <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js?ver=3.5.1' id='jquery-js'></script>
 <style type="text/css">
@@ -58,6 +62,10 @@
 		font-size: 42px;
 	}
 </style>
+</head>
+<body>
+
+
 <?php
 /**
  * Template Name: Activity Schedule On Site
@@ -215,20 +223,76 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 <script type="text/javascript">
 	jQuery(document).ready(function ($) {
 
-		$("html, body").animate({ scrollTop: $(document).height() }, 4000);
-		setTimeout(function() {
-		   $('html, body').animate({scrollTop:0}, 4000); 
-		},4000);
-		setInterval(function(){
-		     // 4000 - it will take 4 secound in total from the top of the page to the bottom
-			$("html, body").animate({ scrollTop: $(document).height() }, 60000);
-			setTimeout(function() {
-			   $('html, body').animate({scrollTop:0}, 4000); 
-			},4000);
+
+
+
+		// $("html, body").animate({ scrollTop: $(document).height() }, 4000);
+		// setTimeout(function() {
+		//    $('html, body').animate({scrollTop:0}, 4000); 
+		// },4000);
+		// setInterval(function(){
+		//      // 4000 - it will take 4 secound in total from the top of the page to the bottom
+		// 	$("html, body").animate({ scrollTop: $(document).height() }, 60000);
+		// 	setTimeout(function() {
+		// 	   $('html, body').animate({scrollTop:0}, 4000); 
+		// 	},4000);
 		    
-		},8000);
+		// },8000);
 
+function scroll_to_bottom_looped(duration,page_height){
+	$('html, body').animate({ 
+	   scrollTop: page_height},
+	   duration,
+	   "swing"
+	).promise().then(function(){
+	  scroll_to_top_looped(duration,page_height);
+	});
+}
+function scroll_to_top_looped(duration,page_height){
+	$('html, body').animate({ 
+	   scrollTop: 0},
+	   duration,
+	   "swing"
+	).promise().then(function(){
+	  scroll_to_bottom_looped(duration,page_height);
+	});
+}
+function repeat_scroller(duration,page_height,repeats,i){
+	if( i < repeats ){
+		$('html, body').animate({ 
+		   scrollTop: page_height},
+		   duration,
+		   "swing"
+		).promise().then(function(){
+			$('html, body').animate({ 
+			   scrollTop: 0},
+			   duration,
+			   "swing"
+			).promise().then(function(){
+			  i++;			 
+			  repeat_scroller(duration,page_height,repeats,i);
+			});
+		});
+	}else{
+		return false;
+	}
+}
 
+jQuery(document).ready(function ($) {	
+	// force window to top of page
+	$(this).scrollTop(0);
+	// define vars
+	let page_height = $(document).height()-$(window).height();
+	let duration = 60000;
+
+	// begin the neverending scrollage festival
+	scroll_to_bottom_looped(duration,page_height);
+
+	// or, use a set number of repeats
+	let repeats = 3;
+	let i = 0;
+	// repeat_scroller(duration,page_height,repeats,i);
+});
 // setInterval(() => {
 //   alert("Hello"); 
 // }, 3000);
@@ -348,6 +412,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 // },2);//call every 2000 miliseconds
 // });// END
 </script>
-
+</body>
+</html>
 <?php
 //get_footer();
