@@ -128,7 +128,7 @@
 			<div class="wrapper">
 				<div class="copyright-inner">
 					<div class="col-left">
-						<span class="copyright-info">&copy; <?php echo date('Y') . ' ' . get_bloginfo('name') ?>. All rights reserved.</span>
+						<span class="copyright-info">&copy; <?php echo date('Y') . ' ' . get_field('copyright', 'option') ?></span>
 					</div>
 					<div class="col-right">
 						<?php if ( has_nav_menu('footer') ) { ?>
