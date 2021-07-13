@@ -1504,7 +1504,57 @@ h2.stitle,
 		}
 	}
 }
-
+.videoBtn {
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.45);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 15;
+	text-align: center;
+	@include flexgroup-center();
+	@include flexbox-justify(center);
+	.play-btn {
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		border-radius: 100%;
+		border: 3px solid #FFF;
+		position: relative;
+		transition: all ease .3s;
+		background: rgba(255,255,255,.15);
+		opacity: 0.65;
+		&:before {
+			content:"";
+			display: inline-block;
+			width: 0;
+			height: 0;
+			border-left: 10px solid #FFF;
+			border-top: 7px solid transparent;
+			border-bottom: 7px solid transparent;
+			position: absolute;
+			top: 50%;
+			left: 60%;
+			transform: translate(-60%, -50%);
+			transition: all ease .3s;
+		}
+		&.large {
+			width: 70px;
+			height: 70px;
+			border: 5px solid #FFF;
+			&:before {
+				border-left: 25px solid #FFF;
+				border-top: 15px solid transparent;
+				border-bottom: 15px solid transparent;
+			}
+		}
+		&:hover {
+			opacity: 1;
+			background: rgba(0,0,0,.65);
+		}
+	}
+}
 /* UPCOMING EVENTS */
 .featured-events-section {
 	background-color: $gray;
@@ -1933,57 +1983,7 @@ h2.stitle,
 		height: auto;
 		float: left;
 	}
-	.videoBtn {
-		width: 100%;
-		height: 100%;
-		background: rgba(0,0,0,.45);
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 15;
-		text-align: center;
-		@include flexgroup-center();
-		@include flexbox-justify(center);
-		.play-btn {
-			display: inline-block;
-			width: 35px;
-			height: 35px;
-			border-radius: 100%;
-			border: 3px solid #FFF;
-			position: relative;
-			transition: all ease .3s;
-			background: rgba(255,255,255,.15);
-			opacity: 0.65;
-			&:before {
-				content:"";
-				display: inline-block;
-				width: 0;
-				height: 0;
-				border-left: 10px solid #FFF;
-				border-top: 7px solid transparent;
-				border-bottom: 7px solid transparent;
-				position: absolute;
-				top: 50%;
-				left: 60%;
-				transform: translate(-60%, -50%);
-				transition: all ease .3s;
-			}
-			&.large {
-				width: 70px;
-				height: 70px;
-				border: 5px solid #FFF;
-				&:before {
-					border-left: 25px solid #FFF;
-					border-top: 15px solid transparent;
-					border-bottom: 15px solid transparent;
-				}
-			}
-			&:hover {
-				opacity: 1;
-				background: rgba(0,0,0,.65);
-			}
-		}
-	}
+	
 	.videoName {
 		width: 100%;
 		height: 100%;

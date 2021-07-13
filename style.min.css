@@ -1681,6 +1681,12 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 .homerow .activities .imagebox .wrap *{-webkit-transition:all ease .3s;transition:all ease .3s}
 .homerow .activities .imagebox .title{display:block;width:100%;float:left;font-family:"Lato",sans-serif;font-size:16px;font-weight:400;line-height:1.2;text-transform:uppercase;text-align:center;letter-spacing:1px;padding:6px 15px;position:relative;z-index:5}
 .homerow .activities .imagebox .wrap:hover .bg{-webkit-transform:scale(1.2);transform:scale(1.2)}
+.videoBtn{width:100%;height:100%;background:rgba(0,0,0,0.45);position:absolute;top:0;left:0;z-index:15;text-align:center;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.videoBtn .play-btn{display:inline-block;width:35px;height:35px;border-radius:100%;border:3px solid #FFF;position:relative;-webkit-transition:all ease .3s;transition:all ease .3s;background:rgba(255,255,255,0.15);opacity:.65}
+.videoBtn .play-btn:before{content:"";display:inline-block;width:0;height:0;border-left:10px solid #FFF;border-top:7px solid transparent;border-bottom:7px solid transparent;position:absolute;top:50%;left:60%;-webkit-transform:translate(-60%,-50%);transform:translate(-60%,-50%);-webkit-transition:all ease .3s;transition:all ease .3s}
+.videoBtn .play-btn.large{width:70px;height:70px;border:5px solid #FFF}
+.videoBtn .play-btn.large:before{border-left:25px solid #FFF;border-top:15px solid transparent;border-bottom:15px solid transparent}
+.videoBtn .play-btn:hover{opacity:1;background:rgba(0,0,0,0.65)}
 .featured-events-section{background-color:#f2f2f2;padding:5px 0}
 .featured-events-section .wrapper-full{margin-left:-5px;margin-right:-5px}
 .featured-events-section .flexwrap{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
@@ -1720,12 +1726,6 @@ h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-seri
 .home-video-gallery .sm-video{width:50%;padding:8px;position:relative;overflow:hidden}
 .home-video-gallery .sm-video div.thumb{width:100%;float:left;position:relative;background-position:center;background-size:cover;background-repeat:no-repeat}
 .home-video-gallery img.blankImg{width:100%;height:auto;float:left}
-.home-video-gallery .videoBtn{width:100%;height:100%;background:rgba(0,0,0,0.45);position:absolute;top:0;left:0;z-index:15;text-align:center;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
-.home-video-gallery .videoBtn .play-btn{display:inline-block;width:35px;height:35px;border-radius:100%;border:3px solid #FFF;position:relative;-webkit-transition:all ease .3s;transition:all ease .3s;background:rgba(255,255,255,0.15);opacity:.65}
-.home-video-gallery .videoBtn .play-btn:before{content:"";display:inline-block;width:0;height:0;border-left:10px solid #FFF;border-top:7px solid transparent;border-bottom:7px solid transparent;position:absolute;top:50%;left:60%;-webkit-transform:translate(-60%,-50%);transform:translate(-60%,-50%);-webkit-transition:all ease .3s;transition:all ease .3s}
-.home-video-gallery .videoBtn .play-btn.large{width:70px;height:70px;border:5px solid #FFF}
-.home-video-gallery .videoBtn .play-btn.large:before{border-left:25px solid #FFF;border-top:15px solid transparent;border-bottom:15px solid transparent}
-.home-video-gallery .videoBtn .play-btn:hover{opacity:1;background:rgba(0,0,0,0.65)}
 .home-video-gallery .videoName{width:100%;height:100%;position:absolute;top:0;left:0;z-index:40;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .home-video-gallery .videoName span{font-family:"Lato",sans-serif;font-size:20px;font-weight:300;line-height:1.2;letter-spacing:1px;text-transform:uppercase;display:block;padding-left:3vw;padding-right:3vw;width:100%;text-align:center;-webkit-transition:all ease .5s;transition:all ease .5s;-webkit-transform:translateY(35%);transform:translateY(35%);opacity:0;color:#FFF}
 .home-video-gallery .videoLink:hover .videoName span{-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition-delay:.35s;transition-delay:.35s;opacity:1}

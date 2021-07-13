@@ -42,7 +42,9 @@ $blank_image = THEMEURI . "images/rectangle.png";
 	);
 	$posts = new WP_Query($args);
 	if ( $posts->have_posts() ) { 
-	$totalpost = $posts->found_posts;  ?>
+	$totalpost = $posts->found_posts;  
+	
+	?>
 	<div class="home-video-gallery full count<?php echo $totalpost?> numblocks<?php echo $per_page?>">
 		<div class="inner-wrap">
 			<div class="flexwrap">
@@ -58,6 +60,21 @@ $blank_image = THEMEURI . "images/rectangle.png";
 				$vimeoID = '';
 				$is_video_vimeo = '';
 				$pageLink = get_permalink();
+				$catObj = get_the_terms( get_the_ID(), 'category' );
+				$catNameArray = array();
+				$filmCat = '';
+				
+				foreach ( $catObj as $slug ) {
+					$catNameArray[] = $slug->slug;
+				}
+				// echo '<pre>';
+				// print_r($catNameArray);
+				// echo '</pre>';
+				if( in_array('films', $catNameArray) ) {
+					$filmCat = 'yes';
+				}
+
+				
 
 				//Youtube
 				if ( (strpos( strtolower($videoURL), 'youtube.com') !== false) || (strpos( strtolower($videoURL), 'youtu.be') !== false) ) {
@@ -119,7 +136,11 @@ $blank_image = THEMEURI . "images/rectangle.png";
 					<div class="imagediv storyVideo wave-effect<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
 						<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
 						
-						<?php if ($thumbnail_type=='default_image') { ?>
+						<?php 
+						// if ($thumbnail_type=='default_image') { 
+						// instead of seeing if it was the default image, let's check to see if it is categorized as film
+						if( $filmCat == 'yes' ) {
+						?>
 						<div class="videoBtn">
 							<a href="#" class="play-btn large"></a>
 						</div>
@@ -141,9 +162,13 @@ $blank_image = THEMEURI . "images/rectangle.png";
 						<div class="sm-video">
 							<div class="thumb storyVideo wave-effect<?php echo $is_video_vimeo ?>"<?php echo $imageBg ?> data-url="<?php echo $video_link ?>">
 								<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="blankImg">
-								<?php if ($thumbnail_type=='default_image') { ?>
+								<?php 
+								// if ($thumbnail_type=='default_image') { 
+								// instead of seeing if it was the default image, let's check to see if it is categorized as film
+								if( $filmCat == 'yes' ) {
+									?>
 								<div class="videoBtn">
-									<a href="#" class="play-btn"></a>
+									<a href="#" class="play-btn large"></a>
 								</div>
 								<?php } ?>
 								
