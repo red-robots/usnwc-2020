@@ -66,14 +66,16 @@ $flexClass = ($total<3) ? ' align-middle':'';
 								<?php if ($gotopage) { ?>
 									
 									<div class="photo">
-										<?php if ($thumbImage) { ?>
-											<span class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></span>
-											<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none;">
-											<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
-										<?php } else { ?>
-											<span class="imagediv"></span>
-											<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
-										<?php } ?>
+										<a href="<?php echo $pagelink ?>" class=" ">
+											<?php if ($thumbImage) { ?>
+												<span class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></span>
+												<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none;">
+												<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
+											<?php } else { ?>
+												<span class="imagediv"></span>
+												<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
+											<?php } ?>
+										</a>
 									</div>
 									<div class="details">
 										<div class="info">

@@ -365,8 +365,14 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 					<div id="entryBlock<?php echo $b?>" class="fbox <?php echo ($thumbnail) ? 'hasImage':'noImage'; ?>">
 						<div class="inside text-center">
 							<div class="imagediv <?php echo ($thumbnail) ? 'hasImage':'noImage'?>">
-								<?php if ($thumbnail) { ?>
-									<span class="img" style="background-image:url('<?php echo $thumbnail['url']?>')"></span>
+								<?php if ($thumbnail) { 
+										if ($is_popup) { ?>
+											<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class=" ajaxLoadContent popdata">
+										<?php } else { ?>
+											<a href="<?php echo $btnURL ?>" target="<?php echo $btnTarget ?>" class=" ">
+										<?php } ?>
+											<span class="img" style="background-image:url('<?php echo $thumbnail['url']?>')"></span>
+										</a>
 								<?php } ?>
 								<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" class="placeholder">
 							</div>
