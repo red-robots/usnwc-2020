@@ -33,6 +33,9 @@
 		flex-wrap: wrap;
 		justify-content: space-around;*/
 	}
+	#primary.activity-schedule-onsite {
+
+	}
 	#primary.activity-schedule-onsite .activity-info {
 		/*flex-basis: 45%;*/
 		margin-bottom: 50px;
@@ -47,6 +50,7 @@
 	.daily-content, .daily-container {
 		width: 100%;
 		float: left;
+		background-color: #fff;
 	}
 	.daily-container {
 		/*padding: 5px;*/
