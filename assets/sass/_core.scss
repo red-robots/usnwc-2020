@@ -9923,7 +9923,7 @@ body.logged-in.admin-bar {
 			display: inline-block;
 			position: relative;
 			z-index: 5;
-    	bottom: -8px;
+    		bottom: -8px;
 		}
 		.button-group .wrap {
 			display: inline-block;
@@ -9947,9 +9947,10 @@ body.logged-in.admin-bar {
 				bottom: 0;
 			}
 			@media screen and (max-width: 480px) {
-				max-width: 40%;
+				max-width: 60%;
+				// max-width: 40%;
 				span {
-					bottom: -10px!important;
+					// bottom: -10px!important;
 				}
 			}
 			@media screen and (max-width: 320px) {

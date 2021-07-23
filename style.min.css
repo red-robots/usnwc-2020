@@ -3850,8 +3850,7 @@ body.logged-in.admin-bar #site-navigation .nav-inner{padding-top:15vh}
 #pageTabs #tabcontent{padding-left:50px;padding-right:50px}
 .section-links-icons .block{width:100% !important}
 .facility-map-section.half .mapcol{width:100% !important}
-.page-activity-passes .itemrow .activity-name{max-width:40%}
-.page-activity-passes .itemrow .activity-name span{bottom:-10px !important}
+.page-activity-passes .itemrow .activity-name{max-width:60%}
 .page-activity-passes .itemrow .button-group .btn-sm{padding:6px 5px;font-size:13px;line-height:1.1}
 .filter-wrapper.non-facetwp.options4 .select-wrap{max-width:100%;margin-bottom:5px}
 .filter-wrapper.non-facetwp.options4 .select-wrap .customselectdiv .select2-container{min-width:100%}
