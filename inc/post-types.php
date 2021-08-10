@@ -290,6 +290,14 @@ function build_taxonomies() {
       'rewrite'   => 'festival-day'
     ),
     array(
+      'post_type' => array('festival_activity'),
+      'menu_name' => 'Difficulty',
+      'plural'    => 'Difficulty',
+      'single'    => 'Difficulty',
+      'taxonomy'  => 'difficulty',
+      'rewrite'   => 'difficulty'
+    ),
+    array(
       'post_type' => array('story'),
       'menu_name' => 'Editions',
       'plural'    => 'Editions',
