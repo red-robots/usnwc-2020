@@ -13268,4 +13268,21 @@ body.logged-in.admin-bar {
   } 
 }
 
-
+.double-filter-wrapper {
+	width: 100%;
+	.inside {
+		width: 100%;
+		@media screen and (min-width: $tabwidth) {
+			width: 45%;
+			float: left;
+			padding: 2.5%;
+		}
+	}
+	.filter-wrapper .select, .filter-wrapper .select-wrap.align-middle {
+		width: 100%;
+		@media screen and (min-width: $tabwidth) {
+			width: 100%;
+		}
+	}
+	
+}

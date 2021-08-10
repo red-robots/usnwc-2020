@@ -3439,6 +3439,9 @@ body.logged-in.admin-bar .closeNav{top:45px}
 .sk-chase-dot:nth-child(4):before{-webkit-animation-delay:-0.8s;animation-delay:-0.8s}
 .sk-chase-dot:nth-child(5):before{-webkit-animation-delay:-0.7s;animation-delay:-0.7s}
 .sk-chase-dot:nth-child(6):before{-webkit-animation-delay:-0.6s;animation-delay:-0.6s}
+.double-filter-wrapper{width:100%}
+.double-filter-wrapper .inside{width:100%}
+.double-filter-wrapper .filter-wrapper .select,.double-filter-wrapper .filter-wrapper .select-wrap.align-middle{width:100%}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}
@@ -3733,6 +3736,8 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 .site-footer #copyright .col-left{width:40%}
 .site-footer #copyright .col-right{width:60%}
 .modal.customModal .modal-body{padding:0 5vw 3vw}
+}@media screen and (min-width:820px){.double-filter-wrapper .inside{width:45%;float:left;padding:2.5%}
+.double-filter-wrapper .filter-wrapper .select,.double-filter-wrapper .filter-wrapper .select-wrap.align-middle{width:100%}
 }@media(min-width:960px){.topinfo span.el{font-size:12px}
 #banner.taxonomy-banner .static-banner{height:650px}
 .home-video-gallery.count1 .video-big{height:600px}
