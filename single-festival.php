@@ -116,7 +116,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 					</div>
 
 		
-					<!-- <?php
+					<?php
 					$options = get_festival_programming_filter( get_the_ID() );
 					if($options) { ?>
 					<div class="filter-wrapper filterstyle customSelectWrap">
@@ -150,49 +150,8 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 							</div>
 						</div>
 					</div>
-					<?php } ?> -->
-				<div class="double-filter-wrapper">
-					<div class="inside">
-					<?php if ( do_shortcode('[facetwp facet="programming"]') ) { ?>
-						<div class="filter-wrapper">
-							<div class="wrapper">
-								<div class="filter-inner">
-									<div class="flexwrap">
-										<div class="select-wrap align-middle">
-											<label>Programming</label>
-											<?php echo do_shortcode('[facetwp facet="programming"]'); ?>
-											<button onclick="FWP.reset()" class="resetBtn festival"><span>Reset</span></button>
-										</div>
-										<!-- <div id="resetBtn" class="select-reset-wrap <?php //echo ($has_filter) ? '':'hide'; ?>">
-											<a href="<?php //echo get_permalink(); ?>" class="resetpage">Reset</a>
-										</div> -->
-									</div>
-								</div>
-							</div>
-						</div>
-						<?php } ?>
-					</div>
-					<div class="inside">
-					<?php if ( do_shortcode('[facetwp facet="difficulty"]') ) { ?>
-						<div class="filter-wrapper">
-							<div class="wrapper">
-								<div class="filter-inner">
-									<div class="flexwrap">
-										<div class="select-wrap align-middle">
-											<label>Difficulty</label>
-											<?php echo do_shortcode('[facetwp facet="difficulty"]'); ?>
-											<button onclick="FWP.reset()" class="resetBtn festival"><span>Reset</span></button>
-										</div>
-										<!-- <div id="resetBtn" class="select-reset-wrap <?php //echo ($has_filter) ? '':'hide'; ?>">
-											<a href="<?php //echo get_permalink(); ?>" class="resetpage">Reset</a>
-										</div> -->
-									</div>
-								</div>
-							</div>
-						</div>
-						<?php } ?>
-					</div>
-				</div>
+					<?php } ?>
+
 					<?php
 
 					/*=== SCHEDULE ===*/ 
