@@ -56,6 +56,24 @@ $entries = new WP_Query($args); ?>
 		</div>
 	</div>
 	<?php } ?>
+	<?php if ( do_shortcode('[facetwp facet="difficulty"]') ) { ?>
+	<div class="filter-wrapper">
+		<div class="wrapper">
+			<div class="filter-inner">
+				<div class="flexwrap">
+					<div class="select-wrap align-middle">
+						<label>Status</label>
+						<?php echo do_shortcode('[facetwp facet="difficulty"]'); ?>
+						<button onclick="FWP.reset()" class="resetBtn festival"><span>Reset</span></button>
+					</div>
+					<!-- <div id="resetBtn" class="select-reset-wrap <?php //echo ($has_filter) ? '':'hide'; ?>">
+						<a href="<?php //echo get_permalink(); ?>" class="resetpage">Reset</a>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php } ?>
 
 	<div class="post-type-entries <?php echo $postype ?>">
 		<div id="data-container">
