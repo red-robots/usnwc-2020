@@ -115,10 +115,12 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 						<?php } ?>
 					</div>
 
-		
 					<?php
 					$options = get_festival_programming_filter( get_the_ID() );
 					if($options) { ?>
+					<div class="double-filter-wrapper">
+						<div class="inside">
+					
 					<div class="filter-wrapper filterstyle customSelectWrap">
 						<div class="wrapper">
 							<div class="filter-inner">
@@ -126,7 +128,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 									<div class="flexwrap">
 
 										<div class="filter-label">
-											<div class="inside"><span>Filter By</span></div>
+											<div class="inside"><span>Filter</span></div>
 										</div>
 
 										<div class="select-wrap">
@@ -149,6 +151,43 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 								</form>
 							</div>
 						</div>
+					</div>
+					
+					</div>
+					<div class="inside">
+						<div class="filter-wrapper filterstyle customSelectWrap">
+						<div class="wrapper">
+							<div class="filter-inner">
+								
+									<div class="flexwrap">
+
+										<div class="filter-label">
+											<div class="inside"><span>Level</span></div>
+										</div>
+										<?php 
+											$diff = get_terms('difficulty', array('hide_empty' => true ));
+											// echo '<pre>';
+											// print_r($diff);
+											// echo '</pre>';
+										 ?>
+										<div id="fi" class="select-wrap ">
+											<div class="types">
+										<!-- <select name="programming" id="selectByProgram" class="customSelect"> -->
+												<select id="diff" class="option-set clearfix customSelect"  data-filter-group="type"  onchange="val()">
+												<option value=".all" data-filter-value=".all" class="selected">ALL</option>
+												<?php foreach( $diff as $v ) { ?>
+													<option value=".<?php echo $v->slug; ?>" data-filter-value=".<?php echo $v->slug; ?>"><?php echo $v->name; ?></option>
+												<?php } ?>
+												</select>
+											</div>
+										</div>
+										
+									</div>
+								
+							</div>
+						</div>
+					</div>
+					</div>
 					</div>
 					<?php } ?>
 
@@ -258,7 +297,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 	 						endwhile; wp_reset_postdata();
 						}
 						?>
-
+						<?php $diff = ''; ?>
 						<div id="filterResults" class="full filterResults">
 							<div id="tabSchedules" class="schedules-list-wrap">
 								<div id="tabOptions">
@@ -274,6 +313,9 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 								</div>
 								<div class="scheduleContent">
 								<?php $ctr=1; foreach ($activities as $a) { 
+									
+									// echo $a->activity->ID;
+									
 									$day = $a['day'];
 									$daySlug = ($day) ? sanitize_title($day) : '';
 									$schedules = $a['schedule'];
@@ -294,9 +336,14 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 													$altText = ' ('.$altText.')';
 												}
 												$pageLink = ($activityID) ? get_permalink($activityID) : '#';
+												$dPiD = $s['activity']->ID;
+												$diff = get_the_terms($dPiD, 'difficulty' );
+												// echo $diff[0]->slug;
+												// echo '<pre>';
+												// print_r($diff);
 											?>
 											<!-- non filtered results -->
-											<li class="item">
+											<li class="item <?php if($diff[0]->slug){echo $diff[0]->slug;} ?>">
 												<div class="time"><?php echo $s['time'] ?></div>
 												<div class="event">
 													<?php if ($activityName) { ?>
@@ -353,6 +400,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 						$pid = $ba->ID;
 						$title = $ba->post_title;
 						$description = ($ba->post_content) ? shortenText(strip_shortcodes(strip_tags($ba->post_content)),300," ","..."):'';
+						$excerpt = $ba->post_excerpt;
 						$thumbnail = get_field("thumbnail_image",$pid);
 						$buttonLink = get_permalink($pid);
 						$contentType = get_field("content_display_type",$pid);
@@ -383,8 +431,8 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 							</div>
 							<div class="titlediv">
 								<p class="name"><?php echo $title ?></p>
-								<?php if ($description) { ?>
-								<div class="excerpt"><?php echo $description; ?></div>	
+								<?php if ($excerpt) { ?>
+								<div class="excerpt"><?php echo $excerpt; ?></div>	
 								<?php } ?>
 
 								<?php if ($is_popup) { ?>

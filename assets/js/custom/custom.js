@@ -6,6 +6,130 @@
 
 jQuery(document).ready(function ($) {
 
+
+
+
+
+	/*
+    *
+    *   Select Dropdowns
+    *
+    ------------------------------------*/
+    // Iterate over each select element
+$('select#diff').change(function(){
+    // alert($(this).val());
+    var diffResult = $(this).val();
+    $('ul.items').find( 'li.show' ).removeClass('show');
+    $('ul.items').find( 'li' ).addClass('hide');
+    if( diffResult == '.advanced' ) {
+    	$('ul.items').find( diffResult ).removeClass('hide');
+    	$('ul.items').find( diffResult ).addClass('show');
+    }
+    if( diffResult == '.intermediate' ) {
+    	$('ul.items').find( diffResult ).removeClass('hide');
+    	$('ul.items').find( diffResult ).addClass('show');
+    }
+    if( diffResult == '.beginner' ) {
+    	$('ul.items').find( diffResult ).removeClass('hide');
+    	$('ul.items').find( diffResult ).addClass('show');
+    }
+    if( diffResult == '.all' ) {
+    	$('ul.items').find( 'li.hide' ).removeClass('hide');
+    	$('ul.items').find( 'li' ).addClass('show');
+    }
+})
+/*
+Reference: http://jsfiddle.net/BB3JK/47/
+*/
+
+// $('#filters select').each(function(){
+//     var $this = $(this), numberOfOptions = $(this).children('option').length;
+  
+//     $this.addClass('select-hidden'); 
+//     $this.wrap('<div class="select"></div>');
+//     $this.after('<div class="select-styled"></div>');
+
+//     var $styledSelect = $this.next('div.select-styled');
+//     $styledSelect.text($this.children('option').eq(0).text());
+  
+//     var $list = $('<ul />', {
+//         'class': 'select-options'
+//     }).insertAfter($styledSelect);
+  
+//     for (var i = 0; i < numberOfOptions; i++) {
+//         $('<li />', {
+//             text: $this.children('option').eq(i).text(),
+//             rel: $this.children('option').eq(i).val()
+//         }).appendTo($list);
+//     }
+  
+//     var $listItems = $list.children('li');
+  
+//     // $styledSelect.click(function(e) {
+//     //     alert($styledSelect);
+//     //     e.stopPropagation();
+//     //     $('div.select-styled.active').not(this).each(function(){
+//     //         $(this).removeClass('active').next('ul.select-options').hide();
+//     //     });
+//     //     $(this).toggleClass('active').next('ul.select-options').toggle();
+//     // });
+//     // console.log('$styledSelect');
+//     $styledSelect.click(function(e) {
+//         //alert($styledSelect);
+//         e.stopPropagation();
+//         $('div.select-styled.active').not(this).each(function(){
+//             $(this).removeClass('active').next('ul.select-options').hide();
+//         });
+//         $(this).toggleClass('active').next('ul.select-options').toggle();
+//     });
+
+//     $('.days .select .select-styled').click(function(e) {
+//         // alert($styledSelect);
+//         e.stopPropagation();
+//         $('div.select-styled.active').not(this).each(function(){
+//             $(this).removeClass('active').next('ul.select-options').hide();
+//         });
+//         $(this).toggleClass('active').next('ul.select-options').toggle();
+//     });
+//   	$('.types .select .select-options li').click(function(e) {
+//         e.stopPropagation();
+//         $styledSelect.text($(this).text()).removeClass('active');
+//         $this.val($(this).attr('rel'));
+//         $list.hide();
+//         //console.log($this.val());
+//         alert($this.val());
+//         $( ".sched-act" ).css( "display", "none" );
+//         var val = $(this).val();
+//         $($this.val()).css('display', 'block');
+//     });
+//     $('.days .select .select-options li').click(function(e) {
+//         e.stopPropagation();
+//         $('.select-styled .dayz').text($(this).text()).removeClass('active');
+//         // $this.val($(this).attr('rel'));
+//         $('.days .select-options').hide();
+//         //console.log($this.val());
+//         // alert($this.val());
+//         var rel = $(this).attr('rel');
+//         $( ".js-day" ).css( "display", "none" );
+//         // var val = $(this).val();
+//         //alert(rel);
+//         $(rel).css('display', 'block');
+//     });
+  
+//     $(document).click(function() {
+//         $styledSelect.removeClass('active');
+//         $list.hide();
+//     });
+
+// });
+
+
+
+
+
+
+
+
 	/* NAVIGATION */
 	$(".menu-toggle").on("click",function(e){
 		e.preventDefault();

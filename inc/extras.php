@@ -1875,7 +1875,6 @@ function get_festival_programming_filter($currentPostId) {
     // echo "</pre>";
     return $options;
 }
-
 function getUpcomingEvents($postTypes,$limit=8) {
     global $wpdb;
     $items = array();

@@ -2356,6 +2356,7 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 .filter-wrapper.filterstyle.optionsnum4 .filter-label{width:100%}
 .filter-wrapper.filterstyle.optionsnum4 .select-wrap{width:100%}
 .filter-wrapper .select-wrap.align-middle{position:relative;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}
+select#diff{height:37px;border-radius:0;border:1px solid #707070;background-color:transparent;line-height:37px;color:#BBB;padding-left:10px;padding-right:20px}
 body.page-template-page-stories .text-centered-section{padding-bottom:50px}
 body.page-template-page-stories .select2-container{width:100% !important}
 body.page-template-page-stories .select2-container .select2-selection--single{height:37px;border-radius:0;border:1px solid #707070;background-color:transparent}
@@ -3442,6 +3443,8 @@ body.logged-in.admin-bar .closeNav{top:45px}
 .double-filter-wrapper{width:100%}
 .double-filter-wrapper .inside{width:100%}
 .double-filter-wrapper .filter-wrapper .select,.double-filter-wrapper .filter-wrapper .select-wrap.align-middle{width:100%}
+ul.items .hide{display:none}
+ul.items .show{display:block}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}

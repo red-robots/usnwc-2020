@@ -6203,7 +6203,16 @@ body.single-instructions {
 		transform: translateX(-50%);
 	}
 }
-
+select#diff {
+	height: 37px;
+	border-radius: 0px;
+	border: 1px solid $gray_dark;
+	background-color: transparent;
+	line-height: 37px;
+			color: #BBB;
+			padding-left: 10px;
+  			padding-right: 20px;
+}
 body.page-template-page-stories {
 	.text-centered-section {
 		padding-bottom: 50px;
@@ -6220,7 +6229,7 @@ body.page-template-page-stories {
 			line-height: 37px;
 			color: #BBB;
 			padding-left: 10px;
-  		padding-right: 20px;
+  			padding-right: 20px;
 		}
 		.select2-selection__arrow {
 			height: 37px;
@@ -13285,4 +13294,12 @@ body.logged-in.admin-bar {
 		}
 	}
 	
+}
+ul.items {
+	.hide {
+		display: none;
+	}
+	.show {
+		display: block;
+	}
 }

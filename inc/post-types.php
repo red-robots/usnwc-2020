@@ -78,7 +78,7 @@ function js_custom_init() {
             'plural'    => 'Festival Activities',
             'single'    => 'Festival Activity',
             'menu_icon' => 'dashicons-megaphone',
-            'supports'  => array('title','editor')
+            'supports'  => array('title','editor','excerpt')
         ),
         array(
             'post_type' => 'camp',
