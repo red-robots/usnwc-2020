@@ -223,7 +223,10 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 
 						?>
 						
-						<?php if ($filter_activites) { ?>
+						<?php 
+							if ($filter_activites) { 
+							$diff = '';?>
+
 						<div id="filterResults" class="full filterResults">
 							<div id="tabSchedules" class="schedules-list-wrap">
 								<div id="tabOptions">
@@ -253,8 +256,15 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 											$activityName = $m->post_title;
 											$is_pop_up = (isset($m->popup_info) && $m->popup_info) ? true : false;
 											$altText = (isset($m->alt_text) && $m->alt_text) ? $m->alt_text : '';
+											
+											
+											$diff = get_the_terms($m->ID, 'difficulty' );
+											$dSlug = $diff[0]->slug;
+											// echo '<pre>';
+											// print_r($diff);
+											// echo '</pre>';
 											?>
-											<li class="item">
+											<li class="item <?php if($dSlug !=''){echo $dSlug;} ?>">
 												<div class="time"><?php echo $m->schedule ?></div>
 												<div class="event">
 													<?php if ($is_pop_up) { ?>
