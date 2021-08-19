@@ -173,7 +173,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 										<div id="fi" class="select-wrap ">
 											<div class="types">
 										<!-- <select name="programming" id="selectByProgram" class="customSelect"> -->
-												<select id="diff" class="option-set clearfix customSelect"  data-filter-group="type"  onchange="val()">
+												<select id="diff" class="option-set clearfix customSelect"  data-filter-group="type" >
 												<option value=".all" data-filter-value=".all" class="selected">ALL</option>
 												<?php foreach( $diff as $v ) { ?>
 													<option value=".<?php echo $v->slug; ?>" data-filter-value=".<?php echo $v->slug; ?>"><?php echo $v->name; ?></option>

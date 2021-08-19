@@ -13,33 +13,37 @@ jQuery(document).ready(function ($) {
      *   Select Dropdowns
      *
      ------------------------------------*/
-  // Iterate over each select element
-  $('select#diff').change(function () {
-    // alert($(this).val());
-    var diffResult = $(this).val();
-    $('ul.items').find('li.show').removeClass('show');
-    $('ul.items').find('li').addClass('hide');
+  function vali() {
+    // Iterate over each select element
+    $('select#diff').change(function () {
+      // alert($(this).val());
+      var diffResult = $(this).val();
+      $('ul.items').find('li.show').removeClass('show');
+      $('ul.items').find('li').addClass('hide');
 
-    if (diffResult == '.advanced') {
-      $('ul.items').find(diffResult).removeClass('hide');
-      $('ul.items').find(diffResult).addClass('show');
-    }
+      if (diffResult == '.advanced') {
+        $('ul.items').find(diffResult).removeClass('hide');
+        $('ul.items').find(diffResult).addClass('show');
+      }
 
-    if (diffResult == '.intermediate') {
-      $('ul.items').find(diffResult).removeClass('hide');
-      $('ul.items').find(diffResult).addClass('show');
-    }
+      if (diffResult == '.intermediate') {
+        $('ul.items').find(diffResult).removeClass('hide');
+        $('ul.items').find(diffResult).addClass('show');
+      }
 
-    if (diffResult == '.beginner') {
-      $('ul.items').find(diffResult).removeClass('hide');
-      $('ul.items').find(diffResult).addClass('show');
-    }
+      if (diffResult == '.beginner') {
+        $('ul.items').find(diffResult).removeClass('hide');
+        $('ul.items').find(diffResult).addClass('show');
+      }
 
-    if (diffResult == '.all') {
-      $('ul.items').find('li.hide').removeClass('hide');
-      $('ul.items').find('li').addClass('show');
-    }
-  });
+      if (diffResult == '.all') {
+        $('ul.items').find('li.hide').removeClass('hide');
+        $('ul.items').find('li').addClass('show');
+      }
+    });
+  }
+
+  $("select#diff").on("change", vali);
   /*
   Reference: http://jsfiddle.net/BB3JK/47/
   */
