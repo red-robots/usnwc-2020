@@ -384,13 +384,19 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 				<?php if ($schedule_image) { ?>
 				<div id="eventMap" data-section="Event Map" class="schedule-image-wrap full">
 					<div class="wrapper">
-						<img src="<?php echo $schedule_image['url'] ?>" alt="<?php echo $schedule_image['title'] ?>" class="feat-img">
+						<a href="<?php echo $schedule_image['url']; ?>" target="_blank">
+							<img src="<?php echo $schedule_image['url'] ?>" alt="<?php echo $schedule_image['title'] ?>" class="feat-img">
+						</a>
 					</div>
 				</div>					
 				<?php } ?>
 			</section>
 			<?php } ?>
-
+			<?php 
+				// echo '<pre>';
+				// print_r($schedule_image);
+				// echo '</pre>';
+			 ?>
 
 
 			<?php /* ACTIVITIES */ ?>
