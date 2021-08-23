@@ -3445,6 +3445,13 @@ body.logged-in.admin-bar .closeNav{top:45px}
 .double-filter-wrapper .filter-wrapper .select,.double-filter-wrapper .filter-wrapper .select-wrap.align-middle{width:100%}
 ul.items .hide{display:none}
 ul.items .show{display:block}
+.sch-prompt{width:70%;clear:both;background-color:rgba(112,112,112,0.8);color:#fff;text-align:center;border:1px solid #000;margin:0 auto 30px auto;padding:20px}
+.sch-prompt.hide{display:none}
+.hide-on-load.hide{display:none}
+.hide-on-load.show{display:block}
+.diff-filter-wrap.hide{max-width:0}
+.diff-filter-wrap.show{max-width:1000px}
+#fi .select2-container.show{width:100% !important}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}

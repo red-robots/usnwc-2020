@@ -13303,3 +13303,37 @@ ul.items {
 		display: block;
 	}
 }
+.sch-prompt {
+	width: 70%;
+	clear: both;
+	background-color: rgba($gray_dark,.8);
+	color: #fff;
+	text-align: center;
+	border: 1px solid #000;
+	margin: 0 auto 30px auto;
+	padding: 20px;
+	&.hide {
+		display: none;
+	}
+}
+.hide-on-load {
+	&.hide {
+		display: none;
+	}
+	&.show {
+		display: block;
+	}
+}
+.diff-filter-wrap {
+	&.hide {
+		max-width: 0;
+	}
+	&.show {
+		max-width: 1000px;
+	}
+}
+#fi .select2-container {
+	&.show {
+		width: 100% !important;
+	}
+}

@@ -152,6 +152,13 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 					</div>
 					<?php } ?>
 
+					<?php 
+						$schPrompt = get_field('schedule_prompt'); 
+						if( $schPrompt != '' ) {
+							echo '<div class="sch-prompt">'.$schPrompt.'</div>';
+						}
+					?>
+
 					<?php
 
 					/*=== SCHEDULE ===*/ 

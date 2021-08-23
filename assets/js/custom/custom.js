@@ -15,32 +15,74 @@ jQuery(document).ready(function ($) {
     *   Select Dropdowns
     *
     ------------------------------------*/
-function vali() {
-    // Iterate over each select element
-	$('select#diff').change(function(){
-	    // alert($(this).val());
-	    var diffResult = $(this).val();
-	    $('ul.items').find( 'li.show' ).removeClass('show');
-	    $('ul.items').find( 'li' ).addClass('hide');
-	    if( diffResult == '.advanced' ) {
-	    	$('ul.items').find( diffResult ).removeClass('hide');
-	    	$('ul.items').find( diffResult ).addClass('show');
-	    }
-	    if( diffResult == '.intermediate' ) {
-	    	$('ul.items').find( diffResult ).removeClass('hide');
-	    	$('ul.items').find( diffResult ).addClass('show');
-	    }
-	    if( diffResult == '.beginner' ) {
-	    	$('ul.items').find( diffResult ).removeClass('hide');
-	    	$('ul.items').find( diffResult ).addClass('show');
-	    }
-	    if( diffResult == '.all' ) {
-	    	$('ul.items').find( 'li.hide' ).removeClass('hide');
-	    	$('ul.items').find( 'li' ).addClass('show');
-	    }
-	});
-}
-$("select#diff").on("change", vali);
+// function vali() {
+//     // Iterate over each select element
+// 	$('select#diff').change(function(){
+// 	    // alert($(this).val());
+// 	    var diffResult = $(this).val();
+// 	    $('.hide-on-load').removeClass('hide');
+// 		$('.hide-on-load').addClass('show');
+// 	    $('ul.items').find( 'li.show' ).removeClass('show');
+// 	    $('ul.items').find( 'li' ).addClass('hide');
+// 	    if( diffResult == '.advanced' ) {
+// 	    	$('ul.items').find( diffResult ).removeClass('hide');
+// 	    	$('ul.items').find( diffResult ).addClass('show');
+// 	    }
+// 	    if( diffResult == '.intermediate' ) {
+// 	    	$('ul.items').find( diffResult ).removeClass('hide');
+// 	    	$('ul.items').find( diffResult ).addClass('show');
+// 	    }
+// 	    if( diffResult == '.beginner' ) {
+// 	    	$('ul.items').find( diffResult ).removeClass('hide');
+// 	    	$('ul.items').find( diffResult ).addClass('show');
+// 	    }
+// 	    if( diffResult == '.all' ) {
+// 	    	$('ul.items').find( 'li.hide' ).removeClass('hide');
+// 	    	$('ul.items').find( 'li' ).addClass('show');
+// 	    }
+// 	});
+// }
+
+// $("select#diff").on("change", vali);
+
+$("select#diff").change(function() {
+	var diffResult = $(this).val();
+
+    $('ul.items').find( 'li.show' ).removeClass('show');
+    $('ul.items').find( 'li' ).addClass('hide');
+    if( diffResult == '.advanced' ) {
+    	$('ul.items').find( diffResult ).removeClass('hide');
+    	$('ul.items').find( diffResult ).addClass('show');
+    }
+    if( diffResult == '.intermediate' ) {
+    	$('ul.items').find( diffResult ).removeClass('hide');
+    	$('ul.items').find( diffResult ).addClass('show');
+    }
+    if( diffResult == '.beginner' ) {
+    	$('ul.items').find( diffResult ).removeClass('hide');
+    	$('ul.items').find( diffResult ).addClass('show');
+    }
+    if( diffResult == '.all' ) {
+    	$('ul.items').find( 'li.hide' ).removeClass('hide');
+    	$('ul.items').find( 'li' ).addClass('show');
+    }
+	if ($(".hide-on-load").hasClass("hide")) {
+		$('.hide-on-load').removeClass('hide');
+		$('.hide-on-load').addClass('show');
+	}
+	
+});
+$("#selectByProgram").change(function() {
+	if ($(".hide-on-load").hasClass("hide")) {
+		$('.sch-prompt').addClass('hide');
+		$('.hide-on-load').removeClass('hide');
+		$('.hide-on-load').addClass('show');
+		$(".diff-filter-wrap").removeClass('hide');
+		$(".diff-filter-wrap").addClass('show');
+		$("#fi").find('.select2-container--default').removeAttr("style");
+		$("#fi").find('.select2-container--default').addClass("show");
+	}
+});
 /*
 Reference: http://jsfiddle.net/BB3JK/47/
 */

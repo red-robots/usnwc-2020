@@ -155,7 +155,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 					
 					</div>
 					<div class="inside">
-						<div class="filter-wrapper filterstyle customSelectWrap">
+						<div class="filter-wrapper filterstyle customSelectWrap diff-filter-wrap hide">
 						<div class="wrapper">
 							<div class="filter-inner">
 								
@@ -190,7 +190,12 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 					</div>
 					</div>
 					<?php } ?>
-
+					<?php 
+						$schPrompt = get_field('schedule_prompt'); 
+						if( $schPrompt != '' ) {
+							echo '<div class="sch-prompt">'.$schPrompt.'</div>';
+						}
+					?>
 					<?php
 
 					/*=== SCHEDULE ===*/ 
@@ -226,158 +231,159 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 						<?php 
 							if ($filter_activites) { 
 							$diff = '';?>
-
-						<div id="filterResults" class="full filterResults">
-							<div id="tabSchedules" class="schedules-list-wrap">
-								<div id="tabOptions">
-									<ul>
-									<?php $n=1; foreach ($filter_activites as $day=>$objs) {
-										if($day) {
-											$tabActive = ($n==1) ? ' active':''; ?>
-											<li class="tablink<?php echo $tabActive?>"><a href="#" data-tab="#daygroup<?php echo $n?>"><?php echo ucwords($day)?></a></li>
-										<?php $n++; } ?>
-									<?php } ?>
-									</ul>
-								</div>
-								<div class="scheduleContent">
-								<?php 
-								$ctr=1; 
-								// echo '<pre>';
-								// print_r($filter_activites);
-								foreach ($filter_activites as $day=>$items) {
-								$isActive = ($ctr==1) ? ' active':'';  
-								?>
-								<div id="daygroup<?php echo $ctr?>" class="schedules-list<?php echo $isActive?>">
-									<h3 class="day" style="display:none;"><?php echo ucwords($day) ?></h3>
-									<ul class="items">
-										<?php foreach ($items as $m) {
-											$pid = $m->ID; 
-											$pageLink = get_permalink($pid);
-											$activityName = $m->post_title;
-											$is_pop_up = (isset($m->popup_info) && $m->popup_info) ? true : false;
-											$altText = (isset($m->alt_text) && $m->alt_text) ? $m->alt_text : '';
-											
-											
-											$diff = get_the_terms($m->ID, 'difficulty' );
-											$dSlug = $diff[0]->slug;
-											// echo '<pre>';
-											// print_r($diff);
-											// echo '</pre>';
-											?>
-											<li class="item <?php if($dSlug !=''){echo $dSlug;} ?>">
-												<div class="time"><?php echo $m->schedule ?></div>
-												<div class="event">
-													<?php if ($is_pop_up) { ?>
-													<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class="actname popdata"><?php echo $activityName ?></a>	
-													<?php } else { ?>
-													<span class="actname"><?php echo $activityName ?></span>	
-													<?php } ?>
-
-													<?php if ($altText) { ?>
-													<span class="alttext">(<?php echo $altText ?>)</span>
-													<?php } ?>
-												</div>
-											</li>
+						<div class="hide-on-load hide">
+							<div id="filterResults" class="full filterResults ">
+								<div id="tabSchedules" class="schedules-list-wrap">
+									<div id="tabOptions">
+										<ul>
+										<?php $n=1; foreach ($filter_activites as $day=>$objs) {
+											if($day) {
+												$tabActive = ($n==1) ? ' active':''; ?>
+												<li class="tablink<?php echo $tabActive?>"><a href="#" data-tab="#daygroup<?php echo $n?>"><?php echo ucwords($day)?></a></li>
+											<?php $n++; } ?>
 										<?php } ?>
-									</ul>
-								</div>
-								<?php $ctr++; } ?>
-								</div>
-							</div>
-						</div>
-						<?php } else { ?>
-						<p style="text-align:center;">Nothing found.</p>
-						<?php } ?>
-
-					<?php } else { ?>
-
-						<?php 
-						/* Will not display any data. This is required for the FacetWP dropdown to work. */
-						$args = array(
-							'posts_per_page'=> 1,
-							'post_type'			=> 'festival_activity',
-							'orderby' 			=> 'ID',
-						  	'order'    			=> 'DESC',
-							'post_status'		=> 'publish',
-							'facetwp'				=> true
-						);
-						$festivalActivites = new WP_Query($args);
-						if( $festivalActivites->have_posts() ) {
-	 						while ( $festivalActivites->have_posts()) : $festivalActivites->the_post();
-	 						endwhile; wp_reset_postdata();
-						}
-						?>
-						<?php $diff = ''; ?>
-						<div id="filterResults" class="full filterResults">
-							<div id="tabSchedules" class="schedules-list-wrap">
-								<div id="tabOptions">
-									<ul>
-									<?php $n=1; foreach ($activities as $a) {
-										$day = ($a['day']) ? ucwords($a['day']) : ''; 
-										if($day) {
-											$tabActive = ($n==1) ? ' active':''; ?>
-											<li class="tablink<?php echo $tabActive?>"><a href="#" data-tab="#daygroup<?php echo $n?>"><?php echo $day?></a></li>
-										<?php $n++; } ?>
-									<?php } ?>
-									</ul>
-								</div>
-								<div class="scheduleContent">
-								<?php $ctr=1; foreach ($activities as $a) { 
-									
-									// echo $a->activity->ID;
-									
-									$day = $a['day'];
-									$daySlug = ($day) ? sanitize_title($day) : '';
-									$schedules = $a['schedule'];
-									$isActive = ($ctr==1) ? ' active':'';
-									if($schedules) { ?>
+										</ul>
+									</div>
+									<div class="scheduleContent">
+									<?php 
+									$ctr=1; 
+									// echo '<pre>';
+									// print_r($filter_activites);
+									foreach ($filter_activites as $day=>$items) {
+									$isActive = ($ctr==1) ? ' active':'';  
+									?>
 									<div id="daygroup<?php echo $ctr?>" class="schedules-list<?php echo $isActive?>">
-										<?php if ($day) { ?>
-										<h3 class="day"><?php echo ucwords($day) ?></h3>
-										<?php } ?>
+										<h3 class="day" style="display:none;"><?php echo ucwords($day) ?></h3>
 										<ul class="items">
-											<?php foreach ($schedules as $s) { 
-												$act = ( isset($s['activity']) && $s['activity'] ) ? $s['activity']:'';
-												$activityName = ($act) ? $act->post_title :'';
-												$activityID = ($act) ? $act->ID :'';
-												$is_pop_up = ( isset($s['popup_info'][0]) && $s['popup_info'][0] ) ? true : false;
-												$altText = ( isset($s['alt_text']) && $s['alt_text'] ) ? $s['alt_text']:'';
-												if($activityName && $altText) {
-													$altText = ' ('.$altText.')';
-												}
-												$pageLink = ($activityID) ? get_permalink($activityID) : '#';
-												$dPiD = $s['activity']->ID;
-												$diff = get_the_terms($dPiD, 'difficulty' );
-												// echo $diff[0]->slug;
+											<?php foreach ($items as $m) {
+												$pid = $m->ID; 
+												$pageLink = get_permalink($pid);
+												$activityName = $m->post_title;
+												$is_pop_up = (isset($m->popup_info) && $m->popup_info) ? true : false;
+												$altText = (isset($m->alt_text) && $m->alt_text) ? $m->alt_text : '';
+												
+												
+												$diff = get_the_terms($m->ID, 'difficulty' );
+												$dSlug = $diff[0]->slug;
 												// echo '<pre>';
-												// print_r($diff);
-											?>
-											<!-- non filtered results -->
-											<li class="item <?php if($diff[0]->slug){echo $diff[0]->slug;} ?>">
-												<div class="time"><?php echo $s['time'] ?></div>
-												<div class="event">
-													<?php if ($activityName) { ?>
-														<?php if ($is_pop_up && $activityID) { ?>
-														<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $activityID ?>" class="actname popdata"><?php echo $activityName ?></a>	
+												// print_r($dSlug);
+												// echo '</pre>';
+												?>
+												<!-- filtered results -->
+												<li class="item <?php if($dSlug !=''){echo $dSlug;} ?>">
+													<div class="time"><?php echo $m->schedule ?></div>
+													<div class="event">
+														<?php if ($is_pop_up) { ?>
+														<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class="actname popdata"><?php echo $activityName ?></a>	
 														<?php } else { ?>
 														<span class="actname"><?php echo $activityName ?></span>	
 														<?php } ?>
-													<?php } ?>
 
-													<?php if ($altText) { ?>
-													<span class="alttext"><?php echo $altText ?></span>
-													<?php } ?>
-												</div>
-											</li>
+														<?php if ($altText) { ?>
+														<span class="alttext">(<?php echo $altText ?>)</span>
+														<?php } ?>
+													</div>
+												</li>
 											<?php } ?>
 										</ul>
 									</div>
 									<?php $ctr++; } ?>
-								<?php } ?>
+									</div>
+								</div>
+						</div>
+							<?php } else { ?>
+							<p style="text-align:center;">Nothing found.</p>
+							<?php } ?>
+							</div>
+						<?php } else { ?>
+						<div class="hide-on-load hide">
+							<?php 
+							/* Will not display any data. This is required for the FacetWP dropdown to work. */
+							$args = array(
+								'posts_per_page'=> 1,
+								'post_type'			=> 'festival_activity',
+								'orderby' 			=> 'ID',
+							  	'order'    			=> 'DESC',
+								'post_status'		=> 'publish',
+								'facetwp'				=> true
+							);
+							$festivalActivites = new WP_Query($args);
+							if( $festivalActivites->have_posts() ) {
+		 						while ( $festivalActivites->have_posts()) : $festivalActivites->the_post();
+		 						endwhile; wp_reset_postdata();
+							}
+							?>
+							<?php $diff = ''; ?>
+							<div id="filterResults" class="full filterResults">
+								<div id="tabSchedules" class="schedules-list-wrap">
+									<div id="tabOptions">
+										<ul>
+										<?php $n=1; foreach ($activities as $a) {
+											$day = ($a['day']) ? ucwords($a['day']) : ''; 
+											if($day) {
+												$tabActive = ($n==1) ? ' active':''; ?>
+												<li class="tablink<?php echo $tabActive?>"><a href="#" data-tab="#daygroup<?php echo $n?>"><?php echo $day?></a></li>
+											<?php $n++; } ?>
+										<?php } ?>
+										</ul>
+									</div>
+									<div class="scheduleContent">
+									<?php $ctr=1; foreach ($activities as $a) { 
+										
+										// echo $a->activity->ID;
+										
+										$day = $a['day'];
+										$daySlug = ($day) ? sanitize_title($day) : '';
+										$schedules = $a['schedule'];
+										$isActive = ($ctr==1) ? ' active':'';
+										if($schedules) { ?>
+										<div id="daygroup<?php echo $ctr?>" class="schedules-list<?php echo $isActive?>">
+											<?php if ($day) { ?>
+											<h3 class="day"><?php echo ucwords($day) ?></h3>
+											<?php } ?>
+											<ul class="items">
+												<?php foreach ($schedules as $s) { 
+													$act = ( isset($s['activity']) && $s['activity'] ) ? $s['activity']:'';
+													$activityName = ($act) ? $act->post_title :'';
+													$activityID = ($act) ? $act->ID :'';
+													$is_pop_up = ( isset($s['popup_info'][0]) && $s['popup_info'][0] ) ? true : false;
+													$altText = ( isset($s['alt_text']) && $s['alt_text'] ) ? $s['alt_text']:'';
+													if($activityName && $altText) {
+														$altText = ' ('.$altText.')';
+													}
+													$pageLink = ($activityID) ? get_permalink($activityID) : '#';
+													$dPiD = $s['activity']->ID;
+													$diff = get_the_terms($dPiD, 'difficulty' );
+													// echo $diff[0]->slug;
+													// echo '<pre>';
+													// print_r($diff);
+												?>
+												<!-- non filtered results -->
+												<li class="item <?php if($diff[0]->slug){echo $diff[0]->slug;} ?>">
+													<div class="time"><?php echo $s['time'] ?></div>
+													<div class="event">
+														<?php if ($activityName) { ?>
+															<?php if ($is_pop_up && $activityID) { ?>
+															<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $activityID ?>" class="actname popdata"><?php echo $activityName ?></a>	
+															<?php } else { ?>
+															<span class="actname"><?php echo $activityName ?></span>	
+															<?php } ?>
+														<?php } ?>
+
+														<?php if ($altText) { ?>
+														<span class="alttext"><?php echo $altText ?></span>
+														<?php } ?>
+													</div>
+												</li>
+												<?php } ?>
+											</ul>
+										</div>
+										<?php $ctr++; } ?>
+									<?php } ?>
+									</div>
 								</div>
 							</div>
 						</div>
-
 					<?php } ?>
 				</div>
 
