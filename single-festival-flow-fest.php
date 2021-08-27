@@ -265,13 +265,19 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 												
 												$diff = get_the_terms($m->ID, 'difficulty' );
 												$dSlug = $diff[0]->slug;
+												$tTime = $m->schedule;
+												if( $tTime == $aTime ) {
+													$tTime = '';
+												}
 												// echo '<pre>';
 												// print_r($dSlug);
 												// echo '</pre>';
 												?>
 												<!-- filtered results -->
 												<li class="item <?php if($dSlug !=''){echo $dSlug;} ?>">
-													<div class="time"><?php echo $m->schedule ?></div>
+													<div class="time">
+														<?php echo $tTime ?>
+													</div>
 													<div class="event">
 														<?php if ($is_pop_up) { ?>
 														<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class="actname popdata"><?php echo $activityName ?></a>	
@@ -284,6 +290,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 														<?php } ?>
 													</div>
 												</li>
+												<?php $aTime = $m->schedule; ?>
 											<?php } ?>
 										</ul>
 									</div>
