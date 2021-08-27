@@ -129,11 +129,11 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 						'post_type'				=> 'activity',
 						'post_status'			=> 'publish',
 						'tax_query'				=> array(
-															array(
-																'taxonomy' => 'pass_type',
-																'field' => 'slug',
-																'terms' => 'single-activity-pass',
-																'operator' => 'IN'
+														array(
+															'taxonomy' => 'pass_type',
+															'field' => 'slug',
+															'terms' => 'single-activity-pass',
+															'operator' => 'IN'
 														  )
 														),
 						'meta_query'			=> array(
