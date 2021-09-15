@@ -20,6 +20,9 @@ $args = array(
 		'meta_value_num' 	=> 'ASC',
 		'post_date'      	=> 'ASC',
 	),
+	// 'meta_key'			=> 'start_date',
+	// 'orderby'			=> 'meta_value',
+	// 'order'				=> 'ASC'
 );
 
 if( isset($_GET['_race_event_status']) && $_GET['_race_event_status'] ) {
@@ -181,7 +184,7 @@ $entries = new WP_Query($args); ?>
 									</div>
 									<div class="details">
 										<div class="info">
-											<h3 class="event-name"><?php echo $title ?></h3>
+											<h3 class="event-name js-title"><?php echo $title ?></h3>
 											<?php if ($event_date) { ?>
 											<div class="event-date"><?php echo $event_date ?></div>
 											<?php } ?>

@@ -168,6 +168,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-format-status',
             'supports'  => array('title','editor')
         ),
+        array(
+            'post_type' => 'route',
+            'menu_name' => 'Routes',
+            'plural'    => 'Routes',
+            'single'    => 'Route',
+            'menu_icon' => 'dashicons-location-alt',
+            'supports'  => array('title','editor')
+        ),
     );
     
     if($post_types) {
@@ -386,6 +394,15 @@ function build_taxonomies() {
       'plural'    => 'Venue Size',
       'single'    => 'Venue Size',
       'taxonomy'  => 'venue-size',
+      'query_var' => false,
+      'show_admin_column'=>1
+    ),
+    array(
+      'post_type' => array('route'),
+      'menu_name' => 'Route Type',
+      'plural'    => 'Route Type',
+      'single'    => 'Route Type',
+      'taxonomy'  => 'route-type',
       'query_var' => false,
       'show_admin_column'=>1
     ),

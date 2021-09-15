@@ -488,6 +488,7 @@ Reference: http://jsfiddle.net/BB3JK/47/
 	new WOW().init();
 
 	$('.js-blocks').matchHeight();
+	$('.js-title').matchHeight();
 
 
 	$(document).on("click","#toggleMenu",function(){

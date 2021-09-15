@@ -452,6 +452,7 @@ jQuery(document).ready(function ($) {
 
   new WOW().init();
   $('.js-blocks').matchHeight();
+  $('.js-title').matchHeight();
   $(document).on("click", "#toggleMenu", function () {
     $(this).toggleClass('open');
     $('body').toggleClass('open-mobile-menu');
