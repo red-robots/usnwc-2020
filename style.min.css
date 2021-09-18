@@ -1486,11 +1486,12 @@ section.route-gallery #carousel-images .owl-dots .owl-dot{display:inline-block;-
 section.route-gallery #carousel-images .owl-dots .owl-dot span{position:absolute;top:0;left:0}
 section.route-gallery #carousel-images .owl-dots .owl-dot.active{background:#707070}
 section.route-map{margin-top:60px;margin-bottom:20px}
+section.route-map .shead-icon{margin-bottom:45px}
 section.route-map .map-container{position:relative}
 section.route-map .map-frame{width:100%;height:350px;position:absolute;top:0;left:0;z-index:10;background:#b7d1df}
 section.route-map .map-frame .wpgmza_map,section.route-map .map-frame iframe{width:100% !important;height:100% !important}
-section.route-information{margin-top:80px;margin-bottom:20px}
-section.route-information .shead-icon{margin-bottom:40px}
+section.route-information{margin-top:60px;margin-bottom:20px}
+section.route-information .shead-icon{margin-bottom:50px}
 .information-tabs-wrap,.information-tabs-wrap .tabs-info,.information-tabs-wrap .tabs-content{width:100%;float:left}
 .information-tabs-wrap .tabs-info{text-align:center;position:relative;z-index:10;display:none}
 .information-tabs-wrap .tabs-info ul{margin:0;padding:0;list-style:none;position:relative;display:-webkit-box;display:-ms-flexbox;display:flex}
@@ -1518,6 +1519,8 @@ section.route-information .shead-icon{margin-bottom:40px}
 .information-tabs-wrap .info-panel .info ul li ul{margin-left:2.2em;list-style:circle}
 .information-tabs-wrap .info-panel .info ul li ul li{padding-left:0;margin-bottom:0}
 .information-tabs-wrap .info-panel .info ul li ul li:before{display:none}
+section.route-long-form{background:#f2f2f2;margin-top:40px;margin-bottom:0}
+section.route-long-form .wrapper{padding-top:60px;padding-bottom:60px;line-height:1.4}
 div,h1,h2,h3,h4,h5,h6,p,li,a,span,strong{overflow-wrap:normal;word-wrap:normal;-ms-word-break:normal;word-break:normal;word-break:normal;-ms-hyphens:none;-webkit-hyphens:none;hyphens:none;page-break-inside:avoid}
 *{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
 pre{font-family:"Courier 10 Pitch",Courier,monospace;font-size:13px;line-height:1.3;color:#000;display:block;position:relative;z-index:1000;border:1px solid #FFF;margin:5vw;padding:20px}

@@ -190,6 +190,9 @@ section.route-gallery {
 section.route-map {
   margin-top: 60px;
   margin-bottom: 20px;
+  .shead-icon {
+    margin-bottom: 45px;
+  }
   .map-container {
     position: relative;
 
@@ -218,10 +221,10 @@ section.route-map {
 }
 
 section.route-information {
-  margin-top: 80px;
+  margin-top: 60px;
   margin-bottom: 20px;
   .shead-icon {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
   }
 }
 .information-tabs-wrap,
@@ -424,4 +427,13 @@ section.route-information {
   }
 }
 
-
+section.route-long-form {
+  background: #F2F2F2;
+  margin-top: 40px;
+  margin-bottom: 0;
+  .wrapper {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    line-height: 1.4;
+  }
+}

@@ -143,6 +143,15 @@ while ( have_posts() ) : the_post(); ?>
         </section>
         <?php } ?>
       <?php } ?>
+    <?php } 
+
+    //Case: Long Form Stroy
+    elseif( get_row_layout() == 'long_form_story' ) { ?> 
+      <?php if ( $story = get_sub_field('story') ) { ?>
+      <section class="route-long-form fw-left">
+        <div class="wrapper"><?php echo $story; ?></div>
+      </section>
+      <?php } ?>
     <?php } ?>
 
 
