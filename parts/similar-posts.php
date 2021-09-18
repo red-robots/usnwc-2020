@@ -25,14 +25,14 @@ $args = array(
 	'post__not_in' 	=> array($currentPostId)
 );
 $posts = new WP_Query($args);
-?>
+if( $posts->have_posts() ) { ?>
 <section class="explore-other-stuff">
 	<div class="wrapper">
 		<?php if ($bottomSectionTitle) { ?>
 		<h3 class="sectionTitle"><?php echo $bottomSectionTitle ?></h3>
 		<?php } ?>
 
-		<?php if( $posts->have_posts() ) { ?>
+		
 		<div class="post-type-entries">
 			<div class="columns">
 				<?php $i=1; while ( $posts->have_posts() ) : $posts->the_post(); ?>
@@ -42,6 +42,7 @@ $posts = new WP_Query($args);
 				<?php $i++; endwhile; wp_reset_postdata(); ?>
 			</div>
 		</div>
-		<?php } ?>
+		
 	</div>
 </section>
+<?php } ?>

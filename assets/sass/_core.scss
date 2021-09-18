@@ -10648,7 +10648,8 @@ body.subpage.single .content-default .important-notes-red,
 body.single-festival {
 	#loaderDiv {
 		.loaderInline {
-			position: relative;
+			// position: relative;
+      position: absolute;
 			top: 50%;
 			transform: translateY(-50%);
 			// visibility: hidden;
