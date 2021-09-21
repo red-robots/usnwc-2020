@@ -4147,9 +4147,11 @@ h1.page-title {
 
 .event-completed {
 	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
+	// position: absolute;
+	// top: 0;
+	// left: 0;
+	position: relative;
+	float: left;
 	z-index: 70;
 	text-align: center;
 	background: $limegreen;
@@ -7770,12 +7772,18 @@ body.pageNoBanner {
 				content:"";
 				display: block;
 				position: absolute;
-				left: 0;
 				bottom: 13px;
-				width: 100%;
 				height: 1px;
 				opacity: 0.4;
 				@include custom_dashed();
+			}
+			&.sametime:after {
+				right: 0;
+				width: 89%;
+			}
+			&.diff:after {
+				left: 0;
+				width: 100%;
 			}
 			.time, .event {
 				display: block;

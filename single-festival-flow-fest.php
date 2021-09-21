@@ -276,7 +276,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 												<!-- filtered results -->
 												<li class="item <?php if($dSlug !=''){echo $dSlug;} ?>">
 													<div class="time">
-														<?php echo $tTime ?>
+														<?php echo $tTime; ?>
 													</div>
 													<div class="event">
 														<?php if ($is_pop_up) { ?>
@@ -340,6 +340,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 										// echo $a->activity->ID;
 										
 										$day = $a['day'];
+										$aTime = '';
 										$daySlug = ($day) ? sanitize_title($day) : '';
 										$schedules = $a['schedule'];
 										$isActive = ($ctr==1) ? ' active':'';
@@ -364,10 +365,14 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 													// echo $diff[0]->slug;
 													// echo '<pre>';
 													// print_r($diff);
+													$tTime = $s['time'];
+													if( $tTime == $aTime ) {
+														$tTime = '';
+													}
 												?>
 												<!-- non filtered results -->
-												<li class="item <?php if($diff[0]->slug){echo $diff[0]->slug;} ?>">
-													<div class="time"><?php echo $s['time'] ?></div>
+												<li class="item <?php if($diff[0]->slug){echo $diff[0]->slug;} if($tTime==''){echo ' sametime';}else{echo ' diff';}?>">
+													<div class="time"><?php echo $tTime//$s['time'] ?></div>
 													<div class="event">
 														<?php if ($activityName) { ?>
 															<?php if ($is_pop_up && $activityID) { ?>
@@ -382,6 +387,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 														<?php } ?>
 													</div>
 												</li>
+												<?php $aTime = $s['time']; ?>
 												<?php } ?>
 											</ul>
 										</div>
