@@ -221,8 +221,8 @@ section.route-map {
 }
 
 section.route-information {
-  margin-top: 60px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 8px;
   .shead-icon {
     margin-bottom: 50px;
   }
@@ -378,6 +378,7 @@ section.route-information {
     }
     .flexwrap {
       min-height: 250px;
+      @include flexbox-justify(center);
       @include flexbox-align-content(center);
       .wrap {
         width: 100%;
@@ -425,15 +426,121 @@ section.route-information {
       }
     }
   }
+
+  // @media screen and (max-width: $tabwidth - 1px) {
+  //   .info-panel.last-open .info-inner {
+  //     display: block!important;
+  //   }
+  // }
 }
 
 section.route-long-form {
   background: #F2F2F2;
   margin-top: 40px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   .wrapper {
     padding-top: 60px;
     padding-bottom: 60px;
     line-height: 1.4;
+  }
+}
+
+section.route-stories {
+  margin-top: 0;
+  .flexwrap {
+    margin-left: -7px;
+    margin-right: -7px;
+    padding-bottom: 7px;
+  }
+  .subtext {
+    font-size: 14px;
+    line-height:1.3;
+    margin-top: 12px;
+  }
+  .block {
+    width: 100%;
+    padding: 7px;
+    text-align: center;
+  }
+  &.half {
+    .block {
+      width: 100%;
+      @include tab {
+        width: 50%;
+      }
+    }
+  }
+  .block {
+    .inside {
+      background: $gray;
+    }
+    .icon {
+      margin-bottom: 10px;
+      span {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+    .textwrap {
+      padding: 40px 6vw;
+      color: $gray_dark;
+      font-size: 14px;
+        line-height: 1.5;
+        @include flexgroup-center();
+        .inner-wrap {
+        width: 100%;
+        }
+    }
+    .wrap {
+      background: $gray;
+    }
+    div.button {
+      margin-top: 20px;
+    }
+    .sectionTitle {
+      margin-bottom: 10px;
+    }
+    .feat-image {
+      .bg {
+        width: 100%;
+        float: left;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #dedede;
+        position: relative;
+        img {
+          width: 100%;
+          height: auto;
+          float: left;
+        }
+      }
+      &.no-image {
+        .bg:before {
+          content:"";
+          display: block;
+          text-transform: uppercase;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          background-image:url('images/photo-coming-soon.png');
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 10vw;
+          height: 10vw;
+          opacity: 0.25;
+          @media screen and (max-width: $xswidth) {
+            width: 30vw;
+            height: 30vw;
+          }
+        }
+      }
+    }
   }
 }

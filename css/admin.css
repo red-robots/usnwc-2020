@@ -455,3 +455,21 @@ body.post-type-instructions [data-name="gotopage"] .acf-checkbox-list {
   margin: 0 0;
   color: transparent;
 }
+.acf-field-flexible-content[data-name="route"] [data-name="show_story_blocks"] {
+  position: relative;
+}
+.acf-field-flexible-content[data-name="route"] [data-name="show_story_blocks"] div.acf-input {
+  display: inline-block;
+  width: auto;
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+}
+.acf-field-flexible-content[data-name="route"] [data-name="show_story_blocks"] div.acf-input  label {
+  display: inline-block;
+  font-weight: bold;
+}
+.acf-field-flexible-content[data-name="route"] [data-name="show_story_blocks"] div.acf-label {
+  display: none!important;
+}
+

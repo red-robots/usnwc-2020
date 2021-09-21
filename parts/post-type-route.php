@@ -1,6 +1,7 @@
 <?php 
 $blank_image = THEMEURI . "images/square.png";
 $placeholder = THEMEURI . 'images/rectangle.png';
+$rectangle_lg = THEMEURI . 'images/rectangle-lg.png';
 $page_title = get_the_title();
 while ( have_posts() ) : the_post(); ?>
 	
@@ -16,146 +17,204 @@ while ( have_posts() ) : the_post(); ?>
 	<div id="pageTabs"></div>
 
 
-  <?php  
-  if( have_rows('route') ) { ?>  
-  <?php while ( have_rows('route') ) : the_row(); ?>
+  <?php if( have_rows('route') ) { ?>  
+    <?php while ( have_rows('route') ) : the_row(); ?>
 
-    <?php //Case: Details with icons ?>
-    <?php if ( get_row_layout() == 'detail' ) { 
-      
-      $detail = get_sub_field('detail');
-      if( have_rows('detail') ) { ?>
-      <section class="route-details fw-left">
-        <div class="wrapper">
-          <div class="flexwrap">
-          <?php while( have_rows('detail') ): the_row(); 
-            $icon = get_sub_field('icon');
-            $dTitle = get_sub_field('detail_title');
-            $dDesc  = get_sub_field('detail');
-            ?>
-            <div class="flexcol">
-              <?php if ($icon) { ?>
-              <div class="icon">
-                <img src="<?php echo $icon['url'] ?>" alt="<?php echo $icon['title'] ?>" />
-              </div> 
-              <?php } ?>
+      <?php //Case: Details with icons ?>
+      <?php if ( get_row_layout() == 'detail' ) { 
+        
+        $detail = get_sub_field('detail');
+        if( have_rows('detail') ) { ?>
+        <section class="route-details fw-left">
+          <div class="wrapper">
+            <div class="flexwrap">
+            <?php while( have_rows('detail') ): the_row(); 
+              $icon = get_sub_field('icon');
+              $dTitle = get_sub_field('detail_title');
+              $dDesc  = get_sub_field('detail');
+              ?>
+              <div class="flexcol">
+                <?php if ($icon) { ?>
+                <div class="icon">
+                  <img src="<?php echo $icon['url'] ?>" alt="<?php echo $icon['title'] ?>" />
+                </div> 
+                <?php } ?>
 
-              <?php if ($dTitle) { ?>
-              <div class="title"><?php echo $dTitle ?></div> 
-              <?php } ?>
+                <?php if ($dTitle) { ?>
+                <div class="title"><?php echo $dTitle ?></div> 
+                <?php } ?>
 
-              <?php if ($dDesc) { ?>
-              <div class="desc"><?php echo $dDesc ?></div> 
-              <?php } ?>
+                <?php if ($dDesc) { ?>
+                <div class="desc"><?php echo $dDesc ?></div> 
+                <?php } ?>
+              </div>
+              <?php endwhile; ?>
             </div>
-            <?php endwhile; ?>
-          </div>
-        </div>
-      </section>
-      <?php } ?>
-    <?php } 
-
-    //Case: Display Map 
-    elseif( get_row_layout() == 'map' ) { ?>
-      <?php if( $map = get_sub_field('map_shortcode') ) { 
-        if( do_shortcode( $map ) ) { ?>
-        <section id="route-map" class="route-map fw-left section-content" data-section="Map">
-          <div class="shead-icon text-center fw-left">
-            <div class="wrapper">
-              <div class="icon"><span class="ci-map"></span></div>
-              <h2 class="stitle">Map</h2>
-            </div>
-          </div>
-          <div class="map-container fw-left">
-            <div class="map-frame"><?php echo do_shortcode( $map ); ?></div>
           </div>
         </section>
         <?php } ?>
-      <?php } ?>
-    <?php }  
+      <?php } 
 
-    //Case: Display Gallery 
-    elseif( get_row_layout() == 'gallery' ) { ?>
-      <?php if( $imgs = get_sub_field('gallery') ) { ?>
-      <section id="route-gallery" class="route-gallery fw-left">
-        <div class="carousel-wrapper-section full">
-          <div id="carousel-images">
-            <div class="loop owl-carousel owl-theme">
-            <?php foreach( $imgs as $img ) { ?>
-              <div class="item">
-                <div class="image">
-                  <div class="bg" style="background-image:url('<?php echo $img['url']?>')"></div>
-                  <img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" />
+      //Case: Display Map 
+      elseif( get_row_layout() == 'map' ) { ?>
+        <?php if( $map = get_sub_field('map_shortcode') ) { 
+          if( do_shortcode( $map ) ) { ?>
+          <section id="route-map" class="route-map fw-left section-content" data-section="Map">
+            <div class="shead-icon text-center fw-left">
+              <div class="wrapper">
+                <div class="icon"><span class="ci-map"></span></div>
+                <h2 class="stitle">Map</h2>
+              </div>
+            </div>
+            <div class="map-container fw-left">
+              <div class="map-frame"><?php echo do_shortcode( $map ); ?></div>
+            </div>
+          </section>
+          <?php } ?>
+        <?php } ?>
+      <?php }  
+
+      //Case: Display Gallery 
+      elseif( get_row_layout() == 'gallery' ) { ?>
+        <?php if( $imgs = get_sub_field('gallery') ) { ?>
+        <section id="route-gallery" class="route-gallery fw-left">
+          <div class="carousel-wrapper-section full">
+            <div id="carousel-images">
+              <div class="loop owl-carousel owl-theme">
+              <?php foreach( $imgs as $img ) { ?>
+                <div class="item">
+                  <div class="image">
+                    <div class="bg" style="background-image:url('<?php echo $img['url']?>')"></div>
+                    <img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" />
+                  </div>
+                </div>
+              <?php } ?>
+              </div>
+            </div>
+          </div>
+        </section>
+        <?php } ?>
+      <?php } 
+
+      //Case: Download layout / information section
+      elseif( get_row_layout() == 'information' ) { ?>
+        <?php if ( $info = get_sub_field('information') ) { ?>
+          <?php if( have_rows('information') ) { ?>
+          <section id="route-information" class="route-information fw-left section-content" data-section="Information">
+            <div class="shead-icon text-center fw-left">
+              <div class="wrapper">
+                <div class="icon"><span class="ci-info"></span></div>
+                <h2 class="stitle">Information</h2>
+              </div>
+            </div>
+            <div class="information-tabs-wrap">
+              <div id="tabs-info" class="tabs-info">
+                <div class="wrapper">
+                  <ul id="tabs">
+                  <?php $j=1; while( have_rows('information') ): the_row(); 
+                    $tabTitle = get_sub_field('tab_title');
+                    $panel = get_sub_field('tab_info');
+                    if( $tabTitle && $panel ) { ?>
+                      <li class="tab<?php echo ($j==1) ? ' active':'';?>"><a href="#" data-rel="#info-panel-<?php echo $j?>" class="tablink"><span class="link"><span><?php echo $tabTitle ?></span></span><span class="arrow"></span></a></li>
+                    <?php $j++; } ?>
+                   <?php  endwhile; ?>
+                  </ul>
                 </div>
               </div>
-            <?php } ?>
-            </div>
-          </div>
-        </div>
-      </section>
-      <?php } ?>
-    <?php } 
-
-    //Case: Download layout / information section
-    elseif( get_row_layout() == 'information' ) { ?>
-      <?php if ( $info = get_sub_field('information') ) { ?>
-        <?php if( have_rows('information') ) { ?>
-        <section id="route-information" class="route-information fw-left section-content" data-section="Information">
-          <div class="shead-icon text-center fw-left">
-            <div class="wrapper">
-              <div class="icon"><span class="ci-info"></span></div>
-              <h2 class="stitle">Information</h2>
-            </div>
-          </div>
-          <div class="information-tabs-wrap">
-            <div id="tabs-info" class="tabs-info">
-              <div class="wrapper">
-                <ul id="tabs">
-                <?php $j=1; while( have_rows('information') ): the_row(); 
+              <div class="tabs-content">
+                <?php $i=1; while( have_rows('information') ): the_row(); 
                   $tabTitle = get_sub_field('tab_title');
                   $panel = get_sub_field('tab_info');
                   if( $tabTitle && $panel ) { ?>
-                    <li class="tab<?php echo ($j==1) ? ' active':'';?>"><a href="#" data-rel="#info-panel-<?php echo $j?>" class="tablink"><span class="link"><span><?php echo $tabTitle ?></span></span><span class="arrow"></span></a></li>
-                  <?php $j++; } ?>
-                 <?php  endwhile; ?>
-                </ul>
-              </div>
-            </div>
-            <div class="tabs-content">
-              <?php $i=1; while( have_rows('information') ): the_row(); 
-                $tabTitle = get_sub_field('tab_title');
-                $panel = get_sub_field('tab_info');
-                if( $tabTitle && $panel ) { ?>
-                  <div id="info-panel-<?php echo $i?>" class="info-panel<?php echo ($i==1) ? ' active':'';?>">
-                    <h3 class="info-title"><?php echo $tabTitle ?></h3>
-                    <div class="wrapper info-inner animated<?php echo ($i==1) ? ' fadeIn':'';?>"<?php echo ($i==1) ? ' style="display:block"':'';?>>
-                      <div class="flexwrap">
-                        <div class="wrap">
-                          <div class="info"><?php echo $panel ?></div>
+                    <div id="info-panel-<?php echo $i?>" class="info-panel<?php echo ($i==1) ? ' active last-open':'';?>">
+                      <h3 class="info-title"><?php echo $tabTitle ?></h3>
+                      <div class="wrapper info-inner animated<?php echo ($i==1) ? ' fadeIn':'';?>"<?php echo ($i==1) ? ' style="display:block"':'';?>>
+                        <div class="flexwrap">
+                          <div class="wrap">
+                            <div class="info"><?php echo $panel ?></div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                <?php $i++; } ?>
-              <?php  endwhile; ?>
+                  <?php $i++; } ?>
+                <?php  endwhile; ?>
+              </div>
             </div>
-          </div>
+          </section>
+          <?php } ?>
+        <?php } ?>
+      <?php } 
+
+      //Case: Long Form Stroy
+      elseif( get_row_layout() == 'long_form_story' ) { ?> 
+        <?php if ( $story = get_sub_field('story') ) { ?>
+        <section class="route-long-form fw-left">
+          <div class="wrapper"><?php echo $story; ?></div>
         </section>
         <?php } ?>
+      <?php } 
+
+      //Case: Stories
+      elseif( get_row_layout() == 'story_blocks' ) { 
+        $route_stories = get_sub_field('route_stories'); 
+        $show_story_blocks = get_sub_field('show_story_blocks');
+        $show_story = ( isset($show_story_blocks[0]) && $show_story_blocks[0]=='yes' ) ? true : false;
+        if($show_story) { ?>
+          <?php if( have_rows('route_stories') ) { 
+            $rs_count = count($route_stories);
+            $rs_class = ($rs_count>1) ? 'half':'full';
+            ?>
+            <section id="route-stories" class="route-stories fw-left section-content <?php echo $rs_class ?>" data-section="Stories">
+              <div class="flexwrap">
+                <?php 
+
+                //
+                while ( have_rows('route_stories') ) : the_row(); 
+                  $p_id = get_sub_field('post');
+                  if( $p_id ) { 
+                    $p_desc = get_sub_field('excerpt');
+                    $r_content = get_the_content($p_id );
+                    $r_exceprt = ($r_content) ? shortenText( strip_tags($r_content), 250, " ", "...") : '';
+                    $r_text = ( $p_desc ) ? $p_desc : $r_exceprt;
+                    $r_thumb_id = get_post_thumbnail_id($p_id);
+                    $r_img = wp_get_attachment_image_src($r_thumb_id,'full');
+                    $r_term_id = $rel->term_id;
+                    $r_taxonomy = $rel->taxonomy;
+                    $r_pagelink = get_permalink($r_post_id);
+                    $r_image_bg = ($r_img) ? ' style="background-image:url('.$r_img[0].')"':'';
+                    $r_img_class = ($r_img) ? 'has-image':'no-image';
+                    ?>
+                    <div class="block">
+                      <div class="inside">
+                        <div class="textwrap js-blocks">
+                          <div class="inner-wrap">
+                            <h3 class="sectionTitle"><span><?php echo get_the_title($p_id) ?></span></h3>
+                            <?php if ($r_text) { ?>
+                            <div class="text"><?php echo $r_text ?></div>
+                            <?php } ?>
+                            <div class="button">
+                              <a href="<?php echo get_permalink($p_id) ?>" class="btn-sm xs"><span>Read More</span></a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="feat-image <?php echo $r_img_class ?>">
+                          <div class="bg"<?php echo $r_image_bg ?>>
+                            <img src="<?php echo $placeholder ?>" alt="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <?php } ?>
+                <?php endwhile; ?>
+              </div>
+            </section>
+          <?php } ?>
+        <?php } ?>
       <?php } ?>
-    <?php } 
-
-    //Case: Long Form Stroy
-    elseif( get_row_layout() == 'long_form_story' ) { ?> 
-      <?php if ( $story = get_sub_field('story') ) { ?>
-      <section class="route-long-form fw-left">
-        <div class="wrapper"><?php echo $story; ?></div>
-      </section>
-      <?php } ?>
-    <?php } ?>
 
 
-  <?php endwhile; ?>
+    <?php endwhile; ?>
   <?php } ?>
 
 
@@ -163,7 +222,7 @@ while ( have_posts() ) : the_post(); ?>
 
 <?php  
 /* Similar Events */ 
-get_template_part("parts/similar-posts"); 
+// get_template_part("parts/similar-posts"); 
 ?>
 
 
@@ -224,13 +283,12 @@ jQuery(document).ready(function($){
     parent.find('.info-inner').toggleClass('fadeIn').slideToggle();
     if( parent.hasClass('active') ) {
       parent.removeClass('active');
-      
       $('#tabs a[data-rel="#'+parent_id+'"]').parents('li').removeClass('active');
     } else {
       parent.addClass('active');
-      //parent.find('.info-inner').addClass('fadeIn').slideToggle();
       $('#tabs a[data-rel="#'+parent_id+'"]').parents('li').addClass('active');
     }
+    
   });
 
 });	
