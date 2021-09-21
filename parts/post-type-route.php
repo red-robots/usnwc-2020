@@ -158,7 +158,8 @@ while ( have_posts() ) : the_post(); ?>
       elseif( get_row_layout() == 'story_blocks' ) { 
         $route_stories = get_sub_field('route_stories'); 
         $show_story_blocks = get_sub_field('show_story_blocks');
-        $show_story = ( isset($show_story_blocks[0]) && $show_story_blocks[0]=='yes' ) ? true : false;
+        //$show_story = ( isset($show_story_blocks[0]) && $show_story_blocks[0]=='yes' ) ? true : false;
+        $show_story = true;
         if($show_story) { ?>
           <?php if( have_rows('route_stories') ) { 
             $rs_count = count($route_stories);
