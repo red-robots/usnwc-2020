@@ -77,7 +77,7 @@ while ( have_posts() ) : the_post(); ?>
       //Case: Display Gallery 
       elseif( get_row_layout() == 'gallery' ) { ?>
         <?php if( $imgs = get_sub_field('gallery') ) { ?>
-        <section id="route-gallery" class="route-gallery fw-left">
+        <section id="route-gallery" class="route-gallery fw-left" data-section="Gallery">
           <div class="carousel-wrapper-section full">
             <div id="carousel-images">
               <div class="loop owl-carousel owl-theme">
