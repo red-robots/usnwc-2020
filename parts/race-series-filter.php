@@ -6,7 +6,7 @@ $canceledImage = THEMEURI . "images/canceled.svg";
 $portrait_spacer = THEMEURI . "images/portrait.png";
 
 $postype = 'race';
-$perpage = 16;
+$perpage = 40;
 $has_filter = array();
 $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 $metaQueries = array(); 
