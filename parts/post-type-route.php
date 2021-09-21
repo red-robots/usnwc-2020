@@ -178,8 +178,6 @@ while ( have_posts() ) : the_post(); ?>
                     $r_text = ( $p_desc ) ? $p_desc : $r_exceprt;
                     $r_thumb_id = get_post_thumbnail_id($p_id);
                     $r_img = wp_get_attachment_image_src($r_thumb_id,'full');
-                    $r_term_id = $rel->term_id;
-                    $r_taxonomy = $rel->taxonomy;
                     $r_pagelink = get_permalink($r_post_id);
                     $r_image_bg = ($r_img) ? ' style="background-image:url('.$r_img[0].')"':'';
                     $r_img_class = ($r_img) ? 'has-image':'no-image';
@@ -288,7 +286,7 @@ jQuery(document).ready(function($){
       parent.addClass('active');
       $('#tabs a[data-rel="#'+parent_id+'"]').parents('li').addClass('active');
     }
-    
+
   });
 
 });	
