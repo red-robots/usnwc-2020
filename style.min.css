@@ -3195,7 +3195,7 @@ body.page-template-page-group-events .noButtonTop #pageTabs{top:5px}
 body.page-template-page-race #loaderDiv .loaderInline{position:relative;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}
 body.page-template-page-race .posts-inner .linkwrap{width:100%;height:auto;float:left;position:relative;background-size:10%;background-position:center;background-repeat:no-repeat;background-color:#f7f6f6;overflow:hidden}
 body.page-template-page-race .posts-inner .linkwrap img.rectangle-spacer{width:100%;height:auto;float:left}
-body.page-template-page-race .posts-inner .linkwrap a.photo{display:block;width:100%;position:absolute;top:0;left:0;z-index:10}
+body.page-template-page-race .posts-inner .linkwrap a.photo{display:block;width:100%;z-index:10;float:left}
 .festival-page .filter-wrapper .select-wrap .fs-option-label,.festival-page .filter-wrapper .fs-label{text-transform:capitalize}
 .filter-wrapper.non-facetwp .select2-container{min-width:400px}
 .filter-wrapper.non-facetwp .select2-results__option{padding-right:20px;vertical-align:middle}
