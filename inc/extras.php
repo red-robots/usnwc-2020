@@ -15,6 +15,20 @@
  */
 define('THEMEURI',get_template_directory_uri() . '/');
 
+function custom_mime_types( $mimes ) { 
+    // Add new MIME types here
+    $mimes['kml'] = 'application/vnd.google-earth.kml+xml';
+    $mimes['gpx'] = 'application/gpx+xml';
+    $mimes['gpx'] = 'application/xml';
+    $mimes['gpx'] = 'text/xml';
+    $mimes['gpx'] = 'text/gpx';
+    $mimes['gpx'] = 'text/gpsxml';
+    $mimes['gpx'] = 'application/gpsxml';
+
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'custom_mime_types' );
+
 function bellaworks_body_classes( $classes ) {
     // Adds a class of group-blog to blogs with more than 1 published author.
     if ( is_multi_author() ) {

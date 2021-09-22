@@ -4,8 +4,8 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 $rectangle_lg = THEMEURI . 'images/rectangle-lg.png';
 $page_title = get_the_title();
 while ( have_posts() ) : the_post(); ?>
-	
-	<section class="main-description">
+  
+  <section class="main-description">
     <div class="wrapper text-center">
       <h1 class="pagetitle"><span><?php echo get_the_title(); ?></span></h1>
       <?php if ( $short_description = get_field("short_description") ) { ?>
@@ -13,8 +13,8 @@ while ( have_posts() ) : the_post(); ?>
       <?php } ?>
     </div>
   </section>
-	
-	<div id="pageTabs"></div>
+  
+  <div id="pageTabs"></div>
 
 
   <?php if( have_rows('route') ) { ?>  
@@ -58,7 +58,9 @@ while ( have_posts() ) : the_post(); ?>
       //Case: Display Map 
       elseif( get_row_layout() == 'map' ) { ?>
         <?php if( $map = get_sub_field('map_shortcode') ) { 
-          if( do_shortcode( $map ) ) { ?>
+          if( do_shortcode( $map ) ) { 
+            $gpx = get_sub_field('gpx_file');
+            ?>
           <section id="route-map" class="route-map fw-left section-content" data-section="Map">
             <div class="shead-icon text-center fw-left">
               <div class="wrapper">
@@ -69,6 +71,13 @@ while ( have_posts() ) : the_post(); ?>
             <div class="map-container fw-left">
               <div class="map-frame"><?php echo do_shortcode( $map ); ?></div>
             </div>
+              <?php if( $gpx ){ ?>
+                <div class="center-text">
+                  <div class="gpx-download">
+                    <a href="<?php $gpx; ?>">Download Route <i class="far fa-cloud-download-alt"></i></a>
+                  </div>
+                </div>
+              <?php } ?>
           </section>
           <?php } ?>
         <?php } ?>
@@ -156,6 +165,8 @@ while ( have_posts() ) : the_post(); ?>
 
       //Case: Stories
       elseif( get_row_layout() == 'story_blocks' ) { 
+        $stories_text = get_field("stories_text","option");
+        $stories_edit_link = admin_url() . 'admin.php?page=acf-options-global-options&fsec=stories-text';
         $route_stories = get_sub_field('route_stories'); 
         $show_story_blocks = get_sub_field('show_story_blocks');
         //$show_story = ( isset($show_story_blocks[0]) && $show_story_blocks[0]=='yes' ) ? true : false;
@@ -166,6 +177,18 @@ while ( have_posts() ) : the_post(); ?>
             $rs_class = ($rs_count>1) ? 'half':'full';
             ?>
             <section id="route-stories" class="route-stories fw-left section-content <?php echo $rs_class ?>" data-section="Stories">
+              <div class="shead-icon text-center"><br><br>
+                <div class="icon"><span class="ci-video"></span></div>
+                <h2 class="stitle">Stories</h2>
+                <?php if ($stories_text) { ?>
+                <div class="subtext">
+                  <?php echo $stories_text ?>
+                  <?php if( current_user_can( 'administrator' ) ){ ?>
+                  <div class="edit-entry"><a href="<?php echo $stories_edit_link ?>" style="text-decoration:underline;">Edit Text</a></div>
+                  <?php } ?>
+                </div>  
+                <?php } ?>
+              </div>
               <div class="flexwrap">
                 <?php 
 
@@ -247,16 +270,16 @@ jQuery(document).ready(function($){
     }
   });
 
-	/* page anchors */
-	if( $('[data-section]').length > 0 ) {
-		var tabs = '';
-		$('[data-section]').each(function(){
-			var name = $(this).attr('data-section');
-			var id = $(this).attr("id");
-			tabs += '<span class="mini-nav"><a href="#'+id+'">'+name+'</a></span>';
-		});
-		$("#pageTabs").html('<div class="wrapper"><div id="tabcontent">'+tabs+'</div></div>');
-	}
+  /* page anchors */
+  if( $('[data-section]').length > 0 ) {
+    var tabs = '';
+    $('[data-section]').each(function(){
+      var name = $(this).attr('data-section');
+      var id = $(this).attr("id");
+      tabs += '<span class="mini-nav"><a href="#'+id+'">'+name+'</a></span>';
+    });
+    $("#pageTabs").html('<div class="wrapper"><div id="tabcontent">'+tabs+'</div></div>');
+  }
 
   $("#tabs a").on("click",function(e){
     e.preventDefault();
@@ -289,5 +312,5 @@ jQuery(document).ready(function($){
 
   });
 
-});	
+}); 
 </script>

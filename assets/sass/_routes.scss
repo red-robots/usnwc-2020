@@ -544,3 +544,24 @@ section.route-stories {
     }
   }
 }
+.center-text {
+  text-align: center;
+}
+.gpx-download {
+  width: auto;
+  display: inline-block;
+  margin: 20px auto;
+  a {
+    padding: 10px 20px;
+    
+    border: 1px solid $secondary;
+      color: $secondary;
+      background-color: #fff;
+      text-decoration: none;
+    &:hover {
+      border: 1px solid #fff;
+      background-color: $secondary;
+      color: #fff;
+    }
+  }
+}
