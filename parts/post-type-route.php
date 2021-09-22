@@ -74,7 +74,7 @@ while ( have_posts() ) : the_post(); ?>
               <?php if( $gpx ){ ?>
                 <div class="center-text">
                   <div class="gpx-download">
-                    <a href="<?php $gpx; ?>">Download Route <i class="far fa-cloud-download-alt"></i></a>
+                    <a href="<?php echo $gpx; ?>">Download Route <i class="far fa-cloud-download-alt"></i></a>
                   </div>
                 </div>
               <?php } ?>
