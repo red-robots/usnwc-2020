@@ -16,7 +16,7 @@ $colClass = ($count>1) ? 'half':'full';
 $stories_text = get_field("stories_text","option");
 $stories_edit_link = admin_url() . 'admin.php?page=acf-options-global-options&fsec=stories-text';
 ?>
-<section id="section-featured-posts" class="section-content <?php echo $colClass ?>">
+<section id="section-featured-posts" class="section-content <?php echo $colClass ?> clear">
 	<div class="wrapper">
 		<div class="shead-icon text-center">
 			<div class="icon"><span class="ci-video"></span></div>
