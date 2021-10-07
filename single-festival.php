@@ -359,9 +359,16 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 
 				<div class="entryList flexwrap">
 					<?php $b=1; foreach ($bottom_activities as $ba) {
+						// echo '<pre>';
+						// print_r($ba);
+						// echo '</pre>';
 						$pid = $ba->ID;
 						$title = $ba->post_title;
+						$pExcerpt = $ba->post_excerpt;
 						$description = ($ba->post_content) ? shortenText(strip_shortcodes(strip_tags($ba->post_content)),300," ","..."):'';
+						if( $pExcerpt ) {
+							$description = $pExcerpt;
+						}
 						$thumbnail = get_field("thumbnail_image",$pid);
 						$buttonLink = get_permalink($pid);
 						$contentType = get_field("content_display_type",$pid);
