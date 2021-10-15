@@ -29,10 +29,15 @@ get_header(); ?>
 
 			<?php  
 			$features = get_field_object("space_features");
+			// echo '<pre>';
+			// print_r($features);
+			// echo '</pre>';
 			$featuresFields['area_size'] = 'Size';
 			$featuresFields['capacity'] = 'Capacity';
 			$featuresFields['type'] = 'Setting';
-			$featuresFields['price'] = 'Price (Per Tent)';
+			$featuresFields['price'] = $features['value']['price_title'];
+			// $featuresFields['price'] = 'Price (Per Tent)';
+
 			//$featuresFields['ceiling_height'] = 'Ceiling Height';
 			$feats = ( isset($features['value']) && $features['value'] ) ? $features['value'] : '';
 			?>

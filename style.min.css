@@ -2734,7 +2734,7 @@ body.pageNoBanner .site-content{min-height:35em}
 .camp-form-types .ftitle h2{font-family:"Lato",sans-serif;font-size:20px;font-weight:500;line-height:1.4;text-transform:uppercase;letter-spacing:1px;margin:0 0 20px;color:#000}
 .camp-form-types .ftext{font-size:16px;line-height:1.5;color:#707070}
 .camp-requirements{position:relative;top:-8px}
-.camp-requirements .flexwrap{margin-left:-8px;margin-right:-8px}
+.camp-requirements .flexwrap{margin-left:-8px;margin-right:-8px;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding-top:20px}
 .camp-requirements .req-block{width:100%;padding:8px}
 .camp-requirements .req-block .inside{font-size:16px;line-height:1.5;background:#707070;color:#FFF;height:100%;position:relative}
 .camp-requirements .reqImage{width:100%;float:left;overflow:hidden;position:relative}
@@ -3758,6 +3758,7 @@ body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:120p
 .camp-form-types .form-types.columns2 .block{width:50%}
 .camp-form-types .form-types.columns3 .block{width:33.33%}
 .camp-requirements .reqText{padding:3vw}
+.camp-requirements.columns1 .req-block{width:33%}
 .camp-requirements.columns2 .req-block{width:50%}
 .camp-requirements.columns3 .req-block{width:33.33%}
 .boxedImagesPage .post-type-entries .details,.summer-camp-page .post-type-entries .details{padding:2vw}

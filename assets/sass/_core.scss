@@ -8275,6 +8275,8 @@ body.pageNoBanner {
 	.flexwrap {
 		margin-left: -8px;
 		margin-right: -8px;
+		justify-content: center;
+		padding-top: 20px;
 	}
 	.req-block {
 		width: 100%;
@@ -8322,6 +8324,13 @@ body.pageNoBanner {
 		@include fontblock();
 		p:last-child {
 			margin-bottom: 0;
+		}
+	}
+	&.columns1 {
+		.req-block {
+			@include tab {
+				width: 33%;
+			}
 		}
 	}
 	&.columns2 {
