@@ -302,16 +302,28 @@ while ( have_posts() ) : the_post();
 			<?php 
 			$purchase_link = get_field("purchase_link");
 			$reservation = get_field("reservation_data");
+			$singleAccPass = get_field('single_access_price');
+			$passOptionLink = get_field('pass_options_link');
+			$passOptionLabel = get_field('pass_options_btn');
+			// echo '<pre>';
+			// print_r($categories);
+			// echo '</pre>';
 			?>
 			<?php if ($categories || $reservation) { ?>
 			<div class="optcol categories passOptions">
+				
 				<?php if ($categories) { ?>
 					<div class="inner graybox">
+						<?php if( $passOptionLink ){ ?>
+
+							<a href="<?php echo $passOptionLink; ?>" class="linkbox"></a>
+							<?php } ?>
 						<h2 class="box-title">Pass Options</h2>
 						<div class="box-content">
 							<ul class="cats">
 							<?php foreach ($categories as $cat) {
 								$cat_id = $cat->term_id;
+								$cat_slug = $cat->slug;
 								$pass_types = get_pass_type_category($cat_id); 
 								$pass_types_list = '';
 								if($pass_types) {
@@ -329,6 +341,14 @@ while ( have_posts() ) : the_post();
 										<small>(<?php echo $pass_types_list ?>)</small>	
 										<?php } ?>
 									</span>
+									<?php if( $cat_slug == 'single-activity-pass' ) { ?>
+										<div class="sap-price"><?php echo '$'.$singleAccPass; ?></div>
+										<?php if( $passOptionLink ){ ?>
+											<div class="buttondiv tothetop">
+												<a href="<?php echo $passOptionLink; ?>" class="btn-sm xs"><?php echo $passOptionLabel; ?></a>
+											</div>
+										<?php } ?>
+									<?php } ?>
 								</li>
 							<?php } ?>
 							</ul>
@@ -346,7 +366,9 @@ while ( have_posts() ) : the_post();
 							</div>	
 							<?php } ?>
 						</div>
+
 					</div>
+
 				<?php } ?>
 
 				<?php if ($reservation) {
@@ -357,7 +379,7 @@ while ( have_posts() ) : the_post();
 					$res_link = ( isset($res_button['url']) && $res_button['url'] ) ? $res_button['url']:'';
 					$res_buttonText = ( isset($res_button['title']) && $res_button['title'] ) ? $res_button['title']:'';
 					?>
-					<div class="inner graybox reservationDiv">
+					<!-- <div class="inner graybox reservationDiv">
 						<div class="wrap">
 							
 							
@@ -382,8 +404,9 @@ while ( have_posts() ) : the_post();
 							<?php } ?>
 
 						</div>
-					</div>	
+					</div> -->	
 				<?php } ?>
+				
 			</div>	
 			<?php } ?>
 		</div>

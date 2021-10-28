@@ -1963,6 +1963,10 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 .section-content#section-options .categories .box-content .catName small{display:block;width:100%;text-transform:none;font-family:"Nunito Sans",sans-serif;font-size:11px;font-weight:400;line-height:1.2;margin-top:1px}
 .section-content#section-options .categories .box-content div.button{margin-top:25px}
 .section-content#section-options .categories.passOptions .graybox .box-title{padding:40px 20px 15px;color:#707070;margin:0}
+.section-content#section-options .categories.passOptions .graybox a.linkbox{display:block;color:#707070;text-decoration:none;position:absolute;top:0;left:0;height:100%;width:100%;z-index:10}
+.section-content#section-options .categories.passOptions .tothetop{width:auto;position:relative;z-index:1000}
+.section-content#section-options .categories.passOptions .tothetop a.btn-sm:before{z-index:-2}
+.section-content#section-options .categories.passOptions .tothetop a:hover{color:#fff}
 .section-content#section-options .categories .btn-border-white:hover,.section-content#section-options .categories .btn-border:hover{text-decoration:none !important}
 .section-content#section-options .reservationDiv{color:#FFF;background:#707070}
 .section-content#section-options .reservationDiv.redbox{background:#ba0d30}

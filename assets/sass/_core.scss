@@ -3024,6 +3024,31 @@ body.subpage.single {
 					color: $gray_dark;
 					margin: 0 0;
 				}
+				a.linkbox {
+					display: block;
+					color: $gray_dark;
+					text-decoration: none;
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					z-index: 10;
+					&:hover {
+						// padding-bottom: 20px;
+					}
+				}
+			}
+			.tothetop {
+				width: auto;
+				position: relative;
+				z-index: 1000;
+				a.btn-sm:before {
+					z-index: -2;
+				}
+				a:hover {
+					color: #fff;
+				}
 			}
 		}
 
