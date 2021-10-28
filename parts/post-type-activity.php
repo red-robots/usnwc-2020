@@ -305,7 +305,7 @@ while ( have_posts() ) : the_post();
 			$singleAccPass = get_field('single_access_price');
 			$passOptionLink = get_field('pass_options_link');
 			$passOptionLabel = get_field('pass_options_btn');
-			if( $passOptionLabel == '' ) { $passOptionLabel = 'View all Pass Pricing'}
+			if( $passOptionLabel == '' ) { $passOptionLabel = 'View all Pass Pricing';}
 			// echo '<pre>';
 			// print_r($categories);
 			// echo '</pre>';
