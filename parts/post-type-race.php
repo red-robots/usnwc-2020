@@ -282,7 +282,8 @@ while ( have_posts() ) : the_post(); ?>
 									$singleDay = ($startdate) ? date('l',strtotime($startdate)) : '';
 								}
 								$activities = ( isset($sched['schedule']) && $sched['schedule'] ) ? $sched['schedule'] : '';
-								$is_active = ($i==1) ? ' active':'';
+								// $is_active = ($i==1) ? ' active':'';
+								$is_active = 'active';
 								$dateRange = '';
 								if($startdate && $enddate) {
 									$dateRange = get_event_date_range($startdate,$enddate,true);
