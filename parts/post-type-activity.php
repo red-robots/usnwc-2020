@@ -380,7 +380,7 @@ while ( have_posts() ) : the_post();
 					$res_link = ( isset($res_button['url']) && $res_button['url'] ) ? $res_button['url']:'';
 					$res_buttonText = ( isset($res_button['title']) && $res_button['title'] ) ? $res_button['title']:'';
 					?>
-					<!-- <div class="inner graybox reservationDiv">
+					<div class="inner graybox reservationDiv">
 						<div class="wrap">
 							
 							
@@ -405,7 +405,7 @@ while ( have_posts() ) : the_post();
 							<?php } ?>
 
 						</div>
-					</div> -->	
+					</div> 
 				<?php } ?>
 				
 			</div>	
