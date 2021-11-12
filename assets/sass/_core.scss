@@ -805,6 +805,7 @@ body.nav-open {
 		z-index: 300;
 	}
 	margin-top: 85px;
+	margin-bottom: 5px;
 	@include tab {
 		margin-top: 90px;;
 	}

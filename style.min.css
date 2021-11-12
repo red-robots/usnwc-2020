@@ -1667,7 +1667,7 @@ body.scrolled .navbar{background:rgba(255,255,255,0.95)}
 body.nav-open{overflow:hidden}
 body.nav-open #overlay{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
 body.nav-open .menu-toggle{opacity:0}
-#banner{width:100%;float:left;position:relative;background-color:#000;margin-top:85px}
+#banner{width:100%;float:left;position:relative;background-color:#000;margin-top:85px;margin-bottom:5px}
 #banner.video-playing{z-index:300}
 #banner .static-banner,#banner .flexslider{border-radius:0}
 #banner .static-banner .slides .iframe-wrapper,#banner .flexslider .slides .iframe-wrapper{padding:0;position:relative}
