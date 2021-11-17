@@ -264,7 +264,8 @@ function build_taxonomies() {
       'plural'    => 'Activities',
       'single'    => 'Activity',
       'taxonomy'  => 'activity_type',
-      'rewrite'   => 'activity-type'
+      'rewrite'   => 'activity-type',
+      'query_var' => true
     ),
     array(
       'post_type' => array('faqs'),
@@ -310,28 +311,32 @@ function build_taxonomies() {
       'menu_name' => 'Editions',
       'plural'    => 'Editions',
       'single'    => 'Edition',
-      'taxonomy'  => 'edition'
+      'taxonomy'  => 'edition',
+      'query_var' => true
     ),
     array(
       'post_type' => array('job'),
       'menu_name' => 'Job Types',
       'plural'    => 'Job Types',
       'single'    => 'Job Type',
-      'taxonomy'  => 'jobtype'
+      'taxonomy'  => 'jobtype',
+      'query_var' => true
     ),
     array(
       'post_type' => array('job'),
       'menu_name' => 'Job Locations',
       'plural'    => 'Job Locations',
       'single'    => 'Job Location',
-      'taxonomy'  => 'joblocation'
+      'taxonomy'  => 'joblocation',
+      'query_var' => true
     ),
     array(
       'post_type' => array('job'),
       'menu_name' => 'Departments',
       'plural'    => 'Departments',
       'single'    => 'Department',
-      'taxonomy'  => 'department'
+      'taxonomy'  => 'department',
+      'query_var' => true
     ),
     array(
       'post_type' => array('instructions'),
