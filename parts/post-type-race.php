@@ -279,7 +279,7 @@ while ( have_posts() ) : the_post(); ?>
 										$origEndDate = $enddate;
 										$newEndDate = date("l, F j, Y", strtotime($origEndDate));
 										// echo '<pre>';
-										// print_r($rDate);
+										// print_r($enddate);
 										// echo '</pre>';
 										?>
 										<div class="type">
@@ -314,8 +314,8 @@ while ( have_posts() ) : the_post(); ?>
 	
 													-->
 													<?php 
-													//echo '<h1>'.$useDate. ' - '.$startdate.'</h1>';
-													if( $newStartDate !== $newEndDate ): ?>
+													//echo '<h1>'.$newStartDate. ' - '.$newEndDate.'</h1>';
+													if( $newStartDate !== $newEndDate && $enddate !=''): ?>
 														<?php 
 														$iii = 0;
 														foreach ($activities as $a) { 
