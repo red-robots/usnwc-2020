@@ -44,6 +44,8 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 				$pass_hours = get_field("pass_hours",$postID);
 				$note = get_field("note",$postID);
 				$scheduled_activities = get_field("scheduled_activities",$postID);
+				$dateTest = date('h:i:s A');
+				echo '<!-- '.$dateTest.' -->';
 				?>
 				
 				<div class="subhead">
