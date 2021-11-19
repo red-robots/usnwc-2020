@@ -45,13 +45,18 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 				$note = get_field("note",$postID);
 				$scheduled_activities = get_field("scheduled_activities",$postID);
 				
+				$dateTestT = date('Y-m-d h:i:s A', strtotime($dateToday) + 60 * 60 * 17);
+				$sanizT = sanitize_title($dateTestT);
+				echo '<!-- '.$dateTestT.' - '.$sanizT.' todays modified time -->';
 				// Server time testing below
 				$dateTest = date('Y-m-d h:i:s A');
 				$saniz = sanitize_title($dateTest);
 				echo '<!-- '.$dateTest.' - '.$saniz.' greenwhich time -->';
 				$dateTestTwo = date('Y-m-d h:i:s A', strtotime($dateTest) - 60 * 60 * 3);
 				$sanizTwo = sanitize_title($dateTestTwo);
-				echo '<!-- '.$dateTestTwo.' - '.$sanizTwo.' modified time -->';
+				echo '<!-- '.$dateTestTwo.' - '.$sanizTwo.' - '.$postID.' modified time -->';
+
+				// $dateToday = date('l, F j', strtotime($dateTest) - 60 * 60 * 3);
 				?>
 				
 				<div class="subhead">

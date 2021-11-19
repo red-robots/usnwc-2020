@@ -1159,9 +1159,9 @@ function get_current_activity_schedule($postype) {
     ///$today = date('l, F jS, Y');
     //$today_slug = sanitize_title($today);
     // need to get off Greenwhich meantime
-    $dateNowMod = date('Y-m-d', strtotime($dateNow) - 60 * 60 * 3);
+    $dateNowMod = date('Y-m-d', strtotime($dateNow) + 60 * 60 * 17);
 
-    $today_slug = sanitize_title($dateNow);
+    $today_slug = sanitize_title($dateNowMod);
 
     $query = "SELECT * FROM {$wpdb->posts} p WHERE p.post_type='".$postype."' AND p.post_status='publish' AND p.post_name='".$today_slug."'";
     $result = $wpdb->get_row($query);
