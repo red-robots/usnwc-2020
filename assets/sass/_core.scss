@@ -7030,11 +7030,9 @@ body.page-template-page-stories {
 }
 .hero-register-button {
 	.stats {
-		display: none;
+		// display: none;
 		width: 100%;
-		position: absolute;
-		top: 85px;
-		left: 0;
+		
 		z-index: 110;
 		color: #FFF;
 		text-transform: uppercase;
@@ -7044,6 +7042,11 @@ body.page-template-page-stories {
 		line-height: 1;
 		letter-spacing: 1px;
 		transition: all ease .3s;
+		@media screen and (min-width: $tabwidth) {
+			position: absolute;
+			top: 85px;
+			left: 0;
+		}
 		@include tab {
 			display: block;
 		}

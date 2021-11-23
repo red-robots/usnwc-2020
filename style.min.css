@@ -2562,7 +2562,7 @@ body.page-template-page-stories .select2-container--default .select2-results__op
 .content-area-full.post-type-dining .registerBtn:after{content:"";display:block;width:0;height:0;border-left:28px solid #ba0d30;border-top:26px solid transparent;border-bottom:26px solid transparent;position:absolute;top:0;right:-28px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .content-area-full.post-type-dining .registerBtn:hover{background:#000}
 .content-area-full.post-type-dining .registerBtn:hover:after{border-left-color:#000}
-.hero-register-button .stats{display:none;width:100%;position:absolute;top:85px;left:0;z-index:110;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1;letter-spacing:1px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.hero-register-button .stats{width:100%;z-index:110;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1;letter-spacing:1px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .hero-register-button .stats.closed{text-align:center;padding:11px 20px 10px;background:rgba(186,13,48,0.9)}
 .hero-register-button .stats.open{text-align:left}
 .hero-register-button .registerBtn{display:inline-block;text-decoration:none;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:50px;background:#ba0d30;height:52px;padding:0 35px;position:relative;-webkit-box-shadow:-12px 8px 17px rgba(0,0,0,0.3);box-shadow:-12px 8px 17px rgba(0,0,0,0.3)}
@@ -3862,7 +3862,8 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 .site-footer #copyright .col-left{width:40%}
 .site-footer #copyright .col-right{width:60%}
 .modal.customModal .modal-body{padding:0 5vw 3vw}
-}@media screen and (min-width:820px){.double-filter-wrapper .inside{width:45%;float:left;padding:2.5%}
+}@media screen and (min-width:820px){.hero-register-button .stats{position:absolute;top:85px;left:0}
+.double-filter-wrapper .inside{width:45%;float:left;padding:2.5%}
 .double-filter-wrapper .filter-wrapper .select,.double-filter-wrapper .filter-wrapper .select-wrap.align-middle{width:100%}
 }@media(min-width:960px){.topinfo span.el{font-size:12px}
 #banner.taxonomy-banner .static-banner{height:650px}
