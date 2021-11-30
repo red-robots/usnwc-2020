@@ -1155,11 +1155,11 @@ function get_categories_by_page_id($post_id,$taxonomy,$related=null) {
 
 function get_current_activity_schedule($postype) {
     global $wpdb;
-    $dateNow = date('Y-m-d');
+    $dateNow = date('Y-m-d  h:i:s A');
     ///$today = date('l, F jS, Y');
     //$today_slug = sanitize_title($today);
     // need to get off Greenwhich meantime
-    $dateNowMod = date('Y-m-d', strtotime($dateNow) + 60 * 60 * 17);
+    $dateNowMod = date('Y-m-d', strtotime($dateNow) - 60 * 60 * 5);
 
     $today_slug = sanitize_title($dateNowMod);
 

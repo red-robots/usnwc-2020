@@ -35,7 +35,14 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 		<div class="schedule-activities-info new-layout full">
 			<?php
 			//$dateToday = date('l, F jS, Y'); /* example result: SATURDAY, OCTOBER 17TH, 2020 */
-			$dateToday = date('l, F j'); /* example resul: SATURDAY, OCTOBER 17 */
+			//$dateToday = date('l, F j'); /* example resul: SATURDAY, OCTOBER 17 */
+			$dateNow = date('Y-m-d');
+			//$dateToday = date('l, F j', strtotime($dateNow) + 60 * 60 * 22);
+
+			// $dateNow = date('Y-m-d');
+			// $exactTime = date('Y-m-d', strtotime($dateNow) + 60 * 60 * 17);
+			// $exactTime_slug = sanitize_title($exactTime);
+
 			$postype = 'activity_schedule';
 			$post = get_current_activity_schedule($postype);
 			if($post) { 
@@ -45,18 +52,19 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 				$note = get_field("note",$postID);
 				$scheduled_activities = get_field("scheduled_activities",$postID);
 				
-				$dateTestT = date('Y-m-d h:i:s A', strtotime($dateToday) + 60 * 60 * 17);
+				$dateTestT = date('Y-m-d h:i:s A', strtotime($dateNow) - 60 * 60 * 4);
 				$sanizT = sanitize_title($dateTestT);
 				echo '<!-- '.$dateTestT.' - '.$sanizT.' todays modified time -->';
 				// Server time testing below
 				$dateTest = date('Y-m-d h:i:s A');
 				$saniz = sanitize_title($dateTest);
 				echo '<!-- '.$dateTest.' - '.$saniz.' greenwhich time -->';
-				$dateTestTwo = date('Y-m-d h:i:s A', strtotime($dateTest) - 60 * 60 * 3);
+				$dateTestTwo = date('Y-m-d h:i:s A', strtotime($dateTest) - 60 * 60 * 5);
 				$sanizTwo = sanitize_title($dateTestTwo);
 				echo '<!-- '.$dateTestTwo.' - '.$sanizTwo.' - '.$postID.' modified time -->';
 
 				// $dateToday = date('l, F j', strtotime($dateTest) - 60 * 60 * 3);
+				$dateToday = date('l, F j <!-- h:i:s  -->', strtotime($dateTestTwo));
 				?>
 				
 				<div class="subhead">
