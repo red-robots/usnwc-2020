@@ -115,14 +115,7 @@ $entries = new WP_Query($args); ?>
 					<?php  $i++; endwhile; wp_reset_postdata(); ?>
 
 					<?php 
-						// echo '<pre>';
-						// print_r($groupItems);
-						// echo '</pre>';
 						krsort($groupItems);
-						krsort($groupItems['completed']);
-						// echo '<pre>';
-						// print_r($groupItems);
-						// echo '</pre>';
 						foreach($groupItems as $k=>$items) {
 							foreach($items as $item) {
 								$finalList[] = $item;
