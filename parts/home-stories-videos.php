@@ -42,7 +42,13 @@ $blank_image = THEMEURI . "images/rectangle.png";
 	);
 	$posts = new WP_Query($args);
 	if ( $posts->have_posts() ) { 
-	$totalpost = $posts->found_posts;  
+		$totalpost = $posts->posts_per_page;
+		//$totalpost = $posts->found_posts; 
+
+
+	// echo '<pre style="background-color: #fff;">';
+	// print_r($posts);
+	// echo '</pre>';
 	
 	?>
 	<div class="home-video-gallery full count<?php echo $totalpost?> numblocks<?php echo $per_page?>">
