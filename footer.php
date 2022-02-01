@@ -57,8 +57,12 @@
 							<ul class="flinks">
 								<?php foreach ($c_links as $a) { 
 								$link = $a['link'];
-								$target =  ($link) ? ' target="'.$link['target'].'"':'';  ?>
-								<li><a href="<?php echo $link['url'] ?>"<?php echo $target ?>><?php echo $link['title'] ?></a></li>
+                $pageTitle = ( isset($link['title']) && $link['title'] ) ? $link['title'] : '';
+                $pageLink = ( isset($link['url']) && $link['url'] ) ? $link['url'] : '';
+                $target = ( isset($link['target']) && $link['target'] ) ? $link['target'] : '_self';  ?>
+                <?php if ($pageTitle && $pageLink) { ?>
+                <li><a href="<?php echo $pageLink ?>" target="<?php echo $target ?>"><?php echo $pageTitle ?></a></li>
+                <?php } ?>
 								<?php } ?>
 							</ul>
 							<?php } ?>

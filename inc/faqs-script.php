@@ -27,16 +27,29 @@ jQuery(document).ready(function ($) {
 	}); 
 
 	/* FAQS */
-	$(".faqsItems .collapsible").on("click",function(){
+	// $(".faqsItems .collapsible").on("click",function(){
 
-		if( $(this).hasClass('active') ) {
-			$(this).removeClass("active fadeIn");
-		} else {
-			$(".faqsItems .collapsible").removeClass("active fadeIn");
-			$(this).addClass("active fadeIn");
-		}
+	// 	if( $(this).hasClass('active') ) {
+	// 		$(this).removeClass("active fadeIn");
+	// 	} else {
+	// 		$(".faqsItems .collapsible").removeClass("active fadeIn");
+	// 		$(this).addClass("active fadeIn");
+	// 	}
 		
-	}); 
+	// }); 
+
+
+  $(document).on("click",".collapsible h3.option-name",function(e){
+   e.preventDefault();
+   var parent = $(this).parent();
+   if( parent.hasClass('active') ) {
+     parent.removeClass("active fadeIn");
+   } else {
+     $(".faqsItems .collapsible").removeClass("active fadeIn");
+     parent.addClass("active fadeIn");
+   }
+  }); 
+  
 
 	if( $(".col.options").length>0 && $("#defaultModel").length>0 ) {
 		var optionsHeight = $(".col.options").height();
