@@ -38,7 +38,6 @@ jQuery(document).ready(function ($) {
 		
 	// }); 
 
-
   $(document).on("click",".collapsible h3.option-name",function(e){
    e.preventDefault();
    var parent = $(this).parent();
@@ -49,7 +48,7 @@ jQuery(document).ready(function ($) {
      parent.addClass("active fadeIn");
    }
   }); 
-  
+
 
 	if( $(".col.options").length>0 && $("#defaultModel").length>0 ) {
 		var optionsHeight = $(".col.options").height();
