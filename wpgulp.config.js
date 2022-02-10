@@ -12,7 +12,7 @@
 // Local project URL of your already running WordPress site.
 // > Could be something like "wpgulp.local" or "localhost"
 // > depending upon your local WordPress setup.
-const projectURL = 'usnwc.test';
+const projectURL = 'wpgulp.local';
 
 // Theme/Plugin URL. Leave it like it is; since our gulpfile.js lives in the root folder.
 const productURL = './';
@@ -98,8 +98,8 @@ const zipIgnoreGlob = [
 	'!./vscode',
 	'!./package.json',
 	'!./package-lock.json',
-	'!./assets/sass/**/*',
-	'!./assets/sass',
+	'!./assets/css/**/*',
+	'!./assets/css',
 	'!./assets/img/raw/**/*',
 	'!./assets/img/raw',
 	`!${imgSRC}`,

@@ -47,6 +47,13 @@ a {
 		color: tint($red,50%);
 	}
 }
+.waiver {
+	width: 100%;
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}
 .sr-only {
 	display: inline-block;
 	width: 0;
