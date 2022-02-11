@@ -7,6 +7,7 @@ get_header();
 $blank_image = THEMEURI . "images/square.png";
 $square = THEMEURI . "images/square.png";
 $rectangle = THEMEURI . "images/rectangle-lg.png";
+
 ?>
 
 
@@ -36,6 +37,8 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 			<div class="flexwrap">
 				<?php 
 				$noInclude = array();
+				
+				
 				foreach ($upcoming as $row) { 
 					$pid = $row->ID;
 					$noInclude[] = $pid;
@@ -60,15 +63,21 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 
 					$schedules = array();
 					$schedule_title = get_field("rj_heading","option");	
+					$showRelated = get_field("show_related","option");
 					$scheduleItems = get_field("rj_schedules","option");
 					$xstartDay = ($start_day) ? strtolower( preg_replace('/\s+/', '', $start_day) ) : '';
 					if($scheduleItems) {
 						foreach($scheduleItems as $e) {
-							$e_day = $e['day'];
-							$e_schedule = $e['schedule'];
-							$e_day = ($e_day) ? strtolower( preg_replace('/\s+/', '', $e_day) ) : '';
-							if($e_day && ($e_day==$xstartDay) ) {
-								$schedules = $e_schedule;
+							// echo '<pre>';
+							// print_r($e);
+							// echo '</pre>';
+							if( $e['show_related'] == 'show' ) {
+								$e_day = $e['day'];
+								$e_schedule = $e['schedule'];
+								$e_day = ($e_day) ? strtolower( preg_replace('/\s+/', '', $e_day) ) : '';
+								if($e_day && ($e_day==$xstartDay) ) {
+									$schedules = $e_schedule;
+								}
 							}
 						}
 					}
@@ -91,7 +100,7 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 
 						<?php /* SCHEDULE */ 
 								// echo '<pre>';
-								// print_r($xstartDay);
+								// print_r($showRelated);
 								// echo '</pre>';
 
 						?>

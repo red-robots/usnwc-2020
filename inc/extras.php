@@ -2171,6 +2171,7 @@ function get_upcoming_bands() {
     $result = array();
     $days_selection = array();
     $daysList = get_field("rj_schedules","option");
+    
     if($daysList) {
         foreach($daysList as $e) {
             $day = $e['day'];
