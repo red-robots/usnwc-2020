@@ -6728,6 +6728,9 @@ body.page-template-page-stories {
 		height: auto;
 		float: left;
 	}
+	@include tab() {
+		margin-top: 90px;
+	}
 }
 .hero-wrapper {
 	position: relative;
@@ -6977,10 +6980,14 @@ body.page-template-page-stories {
 
 .content-area-full.post-type-dining {
 	.post-hero-image {
+		margin-top: 90px;
+		&.closed {
+			padding-top: 38px;
+		}
 		.stats {
 			width: 100%;
 			position: absolute;
-			top: 85px;
+			top: 0px;
 			left: 0;
 			z-index: 10;
 			color: #FFF;
@@ -7121,7 +7128,7 @@ body.scrolled.single-dining {
 		.post-hero-image .stats {
 			top: 135px;
 			@include tab {
-				top: 120px;
+				top: 118px;
 			}
 		}
 	}

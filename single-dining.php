@@ -28,7 +28,7 @@ $status_custom_message = get_field("status_custom_message");
 <div id="primary" class="content-area-full content-default single-post <?php echo $has_hero;?> post-type-<?php echo $post_type;?>">
 
 		<?php if ($heroImage) { ?>
-		<div class="post-hero-image">
+		<div class="post-hero-image <?php echo $status; ?>">
 			<?php if ($status=='open') { ?>
 
 				<?php if ($registerButton && $registerLink) { ?>
