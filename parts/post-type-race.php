@@ -15,12 +15,21 @@ while ( have_posts() ) : the_post(); ?>
 	<div id="pageTabs"></div>
 
 	<?php 
-	/* REGISTRATION */
-	$register_section_icon = get_field("register_section_icon"); 
-	$register_section_title = get_field("register_section_title"); 
-	$race_types = get_field("race_types"); 
-	$registration_note = get_field("registration_note");
+	$eventInfoBoxes = get_field('use_event_info_boxes');
 
+	if( $eventInfoBoxes == 'use' ) {
+	/* REGISTRATION */
+		include(locate_template('parts/post-type-race-top-boxes.php')); 
+
+	} else {
+		$register_section_icon = get_field("register_section_icon"); 
+		$register_section_title = get_field("register_section_title"); 
+		$race_types = get_field("race_types"); 
+		$registration_note = get_field("registration_note");
+	 
+
+
+	
 	$has_race_types = '';
 	if ( isset($race_types[0]['schedule']) && $race_types[0]['schedule'] ) {
 		//$rtypes =implode("",$race_types[0]['schedule']);
@@ -107,27 +116,29 @@ while ( have_posts() ) : the_post(); ?>
 				</div>
 			</div>
 		</div>
-		<?php } ?>
+		<?php } 
+			$eventInfo = get_field("additional_event_info"); 
+			$event_info_btn = get_field("event_info_button_name"); 
+			?>
+			<?php if ($registration_note || $eventInfo) { ?>
+			<div class="black-section">
+				<div class="wrapper text-center">
+					<?php echo $registration_note; ?>
+					<?php if ($eventInfo && $event_info_btn) { ?>
+						<div class="buttondiv">
+							<a data-toggle="modal" data-target="#additionEventInfo" class="btn-sm xs white popup-event-info"><span><?php echo $event_info_btn ?></span></a>
+						</div>			
+					<?php } ?>		
+				</div>
+			</div>	
+			<?php } ?>
+			
+		</section>
+	<?php } 
+	}
 
-		<?php 
-		$eventInfo = get_field("additional_event_info"); 
-		$event_info_btn = get_field("event_info_button_name"); 
-		?>
-		<?php if ($registration_note || $eventInfo) { ?>
-		<div class="black-section">
-			<div class="wrapper text-center">
-				<?php echo $registration_note; ?>
-				<?php if ($eventInfo && $event_info_btn) { ?>
-					<div class="buttondiv">
-						<a data-toggle="modal" data-target="#additionEventInfo" class="btn-sm xs white popup-event-info"><span><?php echo $event_info_btn ?></span></a>
-					</div>			
-				<?php } ?>		
-			</div>
-		</div>	
-		<?php } ?>
-		
-	</section>
-	<?php } ?>
+	?>
+
 
 
 	<?php
