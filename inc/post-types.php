@@ -480,7 +480,7 @@ function set_custom_cpt_columns($columns) {
         $columns['show_on_homepage'] = __( 'Show on<br>Homepage', 'bellaworks' );
         $columns['featimage'] = __( 'Image', 'bellaworks' );
         $columns['taxonomy-event-location'] = __( 'Location', 'bellaworks' );
-        $columns['date'] = __( 'Date', 'bellaworks' );
+        $columns['start_date'] = __( 'Start Date', 'bellaworks' );
         $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
     }
 
@@ -555,6 +555,14 @@ function custom_post_column( $column, $post_id ) {
                 }
                 $the_photo .= '</span>';
                 echo $the_photo;
+                break;
+
+            case 'start_date' :
+                $date_string = get_field('start_date',$post_id);
+                if($date_string !=='') {
+                    $sdate = DateTime::createFromFormat('Y-m-d', $date_string);
+                    echo $sdate->format('M j, Y');
+                } 
                 break;
         }
     }
