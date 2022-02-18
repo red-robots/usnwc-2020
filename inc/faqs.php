@@ -21,5 +21,20 @@ jQuery(document).ready(function ($) {
      parent.addClass("active fadeIn");
    }
   }); 
+
+
+  $(document).on("click",".collapsiblewtw",function(e){
+   e.preventDefault();
+   var parent = $(this).parent();
+   if( parent.hasClass('active') ) {
+     parent.removeClass("active fadeIn");
+   } else {
+     $(".faqsItems .collapsiblewtw").removeClass("active fadeIn");
+     parent.addClass("active fadeIn");
+   }
+  });
+
+
+
 });
 </script>

@@ -1965,7 +1965,7 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 .section-content#section-options .categories .box-content .catName small{display:block;width:100%;text-transform:none;font-family:"Nunito Sans",sans-serif;font-size:11px;font-weight:400;line-height:1.2;margin-top:1px}
 .section-content#section-options .categories .box-content div.button{margin-top:25px}
 .section-content#section-options .categories.passOptions .graybox .box-title{padding:40px 20px 15px;color:#707070;margin:0}
-.section-content#section-options .categories.passOptions .graybox a.linkbox{display:block;color:#707070;text-decoration:none;position:absolute;top:0;left:0;height:100%;width:100%;z-index:10}
+.section-content#section-options .categories.passOptions .graybox a.linkbox{display:block;color:#707070;text-decoration:none;position:absolute;top:0;left:0;width:100%;z-index:10}
 .section-content#section-options .categories.passOptions .tothetop{width:auto;position:relative;z-index:1000}
 .section-content#section-options .categories.passOptions .tothetop a.btn-sm:before{z-index:-2}
 .section-content#section-options .categories.passOptions .tothetop a:hover{color:#fff}
@@ -1991,25 +1991,25 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 #section-whattowear .model .part{position:absolute;top:0;left:0;z-index:2;display:none;-webkit-animation-duration:1s;animation-duration:1s}
 #section-whattowear .model .part.fadeIn{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
 #section-whattowear .options .titlediv{margin-bottom:20px}
-.collapsible{padding:30px 20px;border-top:1px solid #bdbdbd;-webkit-transition:all ease .3s;transition:all ease .3s;cursor:pointer;position:relative;-webkit-animation-duration:1s;animation-duration:1s}
-.collapsible.first{border-top:0}
-.collapsible:before{content:"";display:block;width:100%;height:0;position:absolute;top:0;left:0;background:#ba0d30;-webkit-transition:all ease .3s;transition:all ease .3s}
-.collapsible *{-webkit-transition:all ease .3s;transition:all ease .3s}
-.collapsible .option-name,.collapsible .option-text{position:relative;z-index:100}
-.collapsible .option-name{display:block;width:100%;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1.3;text-transform:uppercase;letter-spacing:1px;margin:0;position:relative;padding-right:40px}
-.collapsible .option-name span.arrow{display:block;width:18px;height:18px;position:absolute;top:0;right:5px;-webkit-transition:all ease .3s;transition:all ease .3s}
-.collapsible .option-name span.arrow:before,.collapsible .option-name span.arrow:after{content:"";display:block;width:100%;height:1px;background:#191919;position:absolute;top:10px;left:0;-webkit-transition:all ease .3s;transition:all ease .3s}
-.collapsible .option-name span.arrow:before{-webkit-transform:translateX(-7px) rotate(45deg);transform:translateX(-7px) rotate(45deg)}
-.collapsible .option-name span.arrow:after{-webkit-transform:translateX(5px) rotate(-45deg);transform:translateX(5px) rotate(-45deg)}
-.collapsible .option-text{font-size:14px;padding-top:10px;display:none;-webkit-animation-duration:1s;animation-duration:1s}
-.collapsible.active{border-top-color:#ba0d30;z-index:10}
-.collapsible.active:before{height:100.5%}
-.collapsible.active .option-name,.collapsible.active .option-text{color:#FFF}
-.collapsible.active .option-name span.arrow,.collapsible.active .option-text span.arrow{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
-.collapsible.active .option-name span.arrow:before,.collapsible.active .option-name span.arrow:after,.collapsible.active .option-text span.arrow:before,.collapsible.active .option-text span.arrow:after{background:#FFF}
-.collapsible.active .option-text{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
-.collapsible.active a{color:#cff998;display:inline-block;text-decoration:underline}
-.collapsible.active a:hover{color:#e5eadd}
+.collapsible,.collapsiblewtw{padding:30px 20px;border-top:1px solid #bdbdbd;-webkit-transition:all ease .3s;transition:all ease .3s;cursor:pointer;position:relative;-webkit-animation-duration:1s;animation-duration:1s}
+.collapsible.first,.collapsiblewtw.first{border-top:0}
+.collapsible:before,.collapsiblewtw:before{content:"";display:block;width:100%;height:0;position:absolute;top:0;left:0;background:#ba0d30;-webkit-transition:all ease .3s;transition:all ease .3s}
+.collapsible *,.collapsiblewtw *{-webkit-transition:all ease .3s;transition:all ease .3s}
+.collapsible .option-name,.collapsible .option-text,.collapsiblewtw .option-name,.collapsiblewtw .option-text{position:relative;z-index:100}
+.collapsible .option-name,.collapsiblewtw .option-name{display:block;width:100%;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1.3;text-transform:uppercase;letter-spacing:1px;margin:0;position:relative;padding-right:40px}
+.collapsible .option-name span.arrow,.collapsiblewtw .option-name span.arrow{display:block;width:18px;height:18px;position:absolute;top:0;right:5px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.collapsible .option-name span.arrow:before,.collapsible .option-name span.arrow:after,.collapsiblewtw .option-name span.arrow:before,.collapsiblewtw .option-name span.arrow:after{content:"";display:block;width:100%;height:1px;background:#191919;position:absolute;top:10px;left:0;-webkit-transition:all ease .3s;transition:all ease .3s}
+.collapsible .option-name span.arrow:before,.collapsiblewtw .option-name span.arrow:before{-webkit-transform:translateX(-7px) rotate(45deg);transform:translateX(-7px) rotate(45deg)}
+.collapsible .option-name span.arrow:after,.collapsiblewtw .option-name span.arrow:after{-webkit-transform:translateX(5px) rotate(-45deg);transform:translateX(5px) rotate(-45deg)}
+.collapsible .option-text,.collapsiblewtw .option-text{font-size:14px;padding-top:10px;display:none;-webkit-animation-duration:1s;animation-duration:1s}
+.collapsible.active,.collapsiblewtw.active{border-top-color:#ba0d30;z-index:10}
+.collapsible.active:before,.collapsiblewtw.active:before{height:100.5%}
+.collapsible.active .option-name,.collapsible.active .option-text,.collapsiblewtw.active .option-name,.collapsiblewtw.active .option-text{color:#FFF}
+.collapsible.active .option-name span.arrow,.collapsible.active .option-text span.arrow,.collapsiblewtw.active .option-name span.arrow,.collapsiblewtw.active .option-text span.arrow{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
+.collapsible.active .option-name span.arrow:before,.collapsible.active .option-name span.arrow:after,.collapsible.active .option-text span.arrow:before,.collapsible.active .option-text span.arrow:after,.collapsiblewtw.active .option-name span.arrow:before,.collapsiblewtw.active .option-name span.arrow:after,.collapsiblewtw.active .option-text span.arrow:before,.collapsiblewtw.active .option-text span.arrow:after{background:#FFF}
+.collapsible.active .option-text,.collapsiblewtw.active .option-text{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
+.collapsible.active a,.collapsiblewtw.active a{color:#cff998;display:inline-block;text-decoration:underline}
+.collapsible.active a:hover,.collapsiblewtw.active a:hover{color:#e5eadd}
 #section-checkin.section-content{margin-bottom:40px}
 #section-checkin.section-content .flexwrap{padding:8px}
 #section-checkin.section-content .col-left,#section-checkin.section-content .col-right{width:100%;position:relative}

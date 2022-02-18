@@ -373,6 +373,7 @@ while ( have_posts() ) : the_post();
 				<?php } ?>
 
 				<?php if ($reservation) {
+
 					$res_title =  ( isset($reservation['title']) && $reservation['title'] ) ? $reservation['title']:'';
 					$res_text =  (isset($reservation['text']) && $reservation['text']) ? $reservation['text']:'';
 					$res_button =  ( isset($reservation['button']) && $reservation['button'] ) ? $reservation['button']:'';
@@ -456,7 +457,7 @@ while ( have_posts() ) : the_post();
 							$image_part = $m['w_image']; 
 							$hasMapImage = ($image_part) ? 'has-map-image':'no-map-image';
 							if($title) { ?>
-							<div id="wtw<?php echo $n?>" data-part="#partImg<?php echo $n?>" class="wtw-row collapsible <?php echo $hasMapImage ?><?php echo ($n==1) ? ' first':''; ?>">
+							<div id="wtw<?php echo $n?>" data-part="#partImg<?php echo $n?>" class="wtw-row collapsiblewtw <?php echo $hasMapImage ?><?php echo ($n==1) ? ' first':''; ?>">
 								<?php if ($title) { ?>
 									<h3 class="option-name"><?php echo $title ?> <span class="arrow"></span></h3>
 								<?php } ?>
