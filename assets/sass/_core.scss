@@ -5300,8 +5300,13 @@ body.single-instructions {
 		}
 		.sponsor {
 			display: inline-block;
-			width: 105px;
-			margin: 1.3vw;
+			flex-basis: 30%;
+			margin: 1.3vw 10%;
+			@include tab {
+				width: 120px;
+				flex-basis: auto;
+				margin: 1.3vw;
+			}
 			a {
 				display: block;
 				width: 100%;

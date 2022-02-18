@@ -2310,7 +2310,7 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 #section-sponsors{padding-top:60px;padding-bottom:40px}
 #section-sponsors .titlediv{margin-bottom:15px}
 #section-sponsors .sponsors-list .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-#section-sponsors .sponsors-list .sponsor{display:inline-block;width:105px;margin:1.3vw}
+#section-sponsors .sponsors-list .sponsor{display:inline-block;-ms-flex-preferred-size:30%;flex-basis:30%;margin:1.3vw 10%}
 #section-sponsors .sponsors-list .sponsor a{display:block;width:100%}
 #section-sponsors .sponsors-list .sponsor img{width:100%;height:auto}
 .wave-effect{position:relative;overflow:hidden}
@@ -3679,6 +3679,7 @@ body.scrolled .site-header .navbar{background:rgba(255,255,255,0.95)}
 #section-awards .awards-columns{padding-top:0;width:50%}
 #section-awards .awards-columns .inside{padding:4vw 6vw}
 #section-awards .col-content .result-data{width:33.33%}
+#section-sponsors .sponsors-list .sponsor{width:120px;-ms-flex-preferred-size:auto;flex-basis:auto;margin:1.3vw}
 .text-and-image-blocks .gallerycol .flexslider,.text-and-image-blocks .gallerycol .slides,.text-and-image-blocks .gallerycol .slides li.slide-item,.menu-sections .gallerycol .flexslider,.menu-sections .gallerycol .slides,.menu-sections .gallerycol .slides li.slide-item{height:100% !important}
 .text-and-image-blocks .textcol .inside,.menu-sections .textcol .inside{height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .text-and-image-blocks .half .textcol,.menu-sections .half .textcol{width:40%}
