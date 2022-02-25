@@ -41,7 +41,6 @@ get_header(); ?>
 					<div class="rightcol videoCol">
 						<div class="inside">
 							<div class="iframe-wrap"><?php echo $video; ?></div>
-							<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" class="placeholder">
 						</div>
 					</div>	
 					<?php } ?>

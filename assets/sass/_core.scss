@@ -5736,16 +5736,16 @@ body.single-instructions {
 			position: relative;
 			background: #000;
 			.inside {
-				max-width: 1200px;
+				// max-width: 1200px;
 				width: 100%;
 				margin: 0 auto;
 			}
 			.iframe-wrap {
 				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
+				// height: 100%;
+				// position: absolute;
+				// top: 0;
+				// left: 0;
 				z-index: 5;
 				iframe {
 					width: 100%!important;
@@ -5804,9 +5804,9 @@ body.single-instructions {
 			&.videoCol {
 				background: transparent;
 				@include mid {
-					position: absolute;
-					top: 0;
-					right: 0;
+					// position: absolute;
+					// top: 0;
+					// right: 0;
 				}
 				.inside {
 					width: 100%;
@@ -5817,11 +5817,39 @@ body.single-instructions {
 						height: 100%;
 					}
 				}
+				.iframe-wrap {
+					width: 100%;
+					iframe {
+						border: 0;
+	   					width: 100%;
+					}
+				}
 			}
 		}
 	}
 }
-
+[style*="--aspect-ratio"] > :first-child {
+  width: 100%;
+}
+[style*="--aspect-ratio"] > img {  
+  height: auto;
+} 
+@supports (--custom:property) {
+  [style*="--aspect-ratio"] {
+    position: relative;
+  }
+  [style*="--aspect-ratio"]::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio)));
+  }  
+  [style*="--aspect-ratio"] > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }  
+}
 .about-page {
 	.section-text-and-image {
 		// margin-bottom: 50px;
@@ -10198,7 +10226,15 @@ body.logged-in.admin-bar {
 		margin-right: -10px;
 	}
 }
-
+#section-activities.homerow,
+.featured-events-section {
+	padding-right: 10px;
+	padding-left: 10px;
+	@include tab() {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
 .activity-blocks {
 	.imagediv {
 		span.img {

@@ -2377,8 +2377,8 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 .section-text-and-image .leftcol .icon-col span{display:inline-block;width:40px;height:40px;background-size:100%;background-position:center;background-repeat:no-repeat}
 .section-text-and-image .flexwrap{position:relative}
 .section-text-and-image .rightcol.videoCol{width:100%;height:100%;float:left;overflow:hidden;position:relative;background:#000}
-.section-text-and-image .rightcol.videoCol .inside{max-width:1200px;width:100%;margin:0 auto}
-.section-text-and-image .rightcol.videoCol .iframe-wrap{width:100%;height:100%;position:absolute;top:0;left:0;z-index:5}
+.section-text-and-image .rightcol.videoCol .inside{width:100%;margin:0 auto}
+.section-text-and-image .rightcol.videoCol .iframe-wrap{width:100%;z-index:5}
 .section-text-and-image .rightcol.videoCol .iframe-wrap iframe{width:100% !important;height:100% !important}
 .section-text-and-image .rightcol.videoCol img.placeholder{width:100%;height:auto;float:left}
 .section-text-and-image.half .leftcol{width:100%;float:left}
@@ -2387,6 +2387,10 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 .section-text-and-image.half .rightcol{width:100%;float:left}
 .section-text-and-image.half .rightcol.videoCol{background:transparent}
 .section-text-and-image.half .rightcol.videoCol .inside{width:100%;float:left;position:relative;background:#000}
+.section-text-and-image.half .rightcol.videoCol .iframe-wrap{width:100%}
+.section-text-and-image.half .rightcol.videoCol .iframe-wrap iframe{border:0;width:100%}
+[style*="--aspect-ratio"]>:first-child{width:100%}
+[style*="--aspect-ratio"]>img{height:auto}
 .section-contact-details .inner-wrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .section-contact-details .address{color:#FFF;font-size:15px;text-align:center}
 .section-contact-details .address .inside{width:100%;height:100%;background:#000}
@@ -3045,6 +3049,7 @@ body.logged-in.admin-bar .job-info-page .text-centered-section{margin-top:-5px}
 .page-activity-passes .itemrow.nobutton .activity-name span{bottom:3px}
 .page-activity-passes .camp-activities.section-content{padding-top:40px}
 #section-activities.section-content .entryList{margin-left:-10px;margin-right:-10px}
+#section-activities.homerow,.featured-events-section{padding-right:10px;padding-left:10px}
 .activity-blocks .imagediv span.img{position:absolute;top:0;left:0}
 .activity-blocks .imagediv iframe{position:absolute;top:0;left:0;width:100% !important;height:100% !important}
 .buy-page#primary .twoColSection{width:100%;float:left;margin-bottom:16px}
@@ -3821,6 +3826,7 @@ body.logged-in.admin-bar .job-info-page .text-centered-section{margin-top:85px}
 .page-activity-passes .single-activities .inner-content{max-width:90%}
 .page-activity-passes .itemrow{margin:7px 0}
 .page-activity-passes .itemrow .btn-sm{font-size:11px;padding:3px 8px 2px;min-width:70px}
+#section-activities.homerow,.featured-events-section{padding-right:0;padding-left:0}
 .buy-page#primary .twoColSection .tcol .photo{width:40%}
 .buy-page#primary .twoColSection .tcol .photo img.helper{display:none}
 .buy-page#primary .twoColSection .tcol .info{width:60%}
@@ -3883,7 +3889,6 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 #about-instructor.half .text{width:75%}
 .section-text-and-image.half .leftcol{width:35%}
 .section-text-and-image.half .rightcol{width:65%;padding-left:15px}
-.section-text-and-image.half .rightcol.videoCol{position:absolute;top:0;right:0}
 .section-text-and-image.half .rightcol.videoCol .inside{height:100%}
 .archive-posts-wrap .entry{width:50%}
 .store-listings .product-brands .brand{width:33.33%;height:80px}
