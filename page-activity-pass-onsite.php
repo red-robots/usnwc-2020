@@ -101,16 +101,16 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 		</div>
 	<?php endwhile;  ?>
 
-	<?php get_template_part("parts/subpage-tabs"); ?>
+	<?php //get_template_part("parts/subpage-tabs"); ?>
 
 	<?php
-	$all_access_title = get_field("all_access_title");
-	$all_access_feat_image = get_field("all_access_feat_image");
-	$all_access_text = get_field("all_access_text");
+	$all_access_title = get_field("all_access_title", $id);
+	$all_access_feat_image = get_field("all_access_feat_image", $id);
+	$all_access_text = get_field("all_access_text", $id);
 
-	$single_access_title = get_field("single_access_title");
-	$single_access_feat_image = get_field("single_access_feat_image");
-	$single_access_text = get_field("single_access_text");
+	$single_access_title = get_field("single_access_title", $id);
+	$single_access_feat_image = get_field("single_access_feat_image", $id);
+	$single_access_text = get_field("single_access_text", $id);
 	$class1 = ( ($all_access_title || $all_access_text) && ($single_access_title || $single_access_text) ) ? 'half':'full';
 	?>
 
