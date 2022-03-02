@@ -615,6 +615,7 @@ function custom_post_column( $column, $post_id ) {
         switch ( $column ) {
             case 'bandname' :
                 $bName = get_post_field( 'post_name', get_the_ID() );
+                $bName = preg_replace("/[^a-zA-Z]+/", " ", $bName);
                 if($bName !=='') {
                     echo $bName;
                 } 
