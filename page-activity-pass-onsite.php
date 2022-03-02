@@ -65,9 +65,20 @@
 	.schedule-activities-info.new-layout .activities .activity-info h3.type {
 		font-size: 42px;
 	}
+	body.onite {
+		font-size: 24px;
+	}
+	body.onite .singleActivity,
+	body.onite .pass-name,
+	body.onite .price .pr {
+		font-size: 30px !important;
+	}
+	body.onite h2.stitle {
+		font-size: 40px;
+	}
 </style>
 </head>
-<body>
+<body class="onite">
 
 
 <?php
@@ -76,6 +87,7 @@
  */
 
 //get_header(); 
+
 $blank_image = THEMEURI . "images/square.png";
 $square = THEMEURI . "images/square.png";
 $flexslider = get_field( "flexslider_banner" );
@@ -104,6 +116,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 	<?php //get_template_part("parts/subpage-tabs"); ?>
 
 	<?php
+	$id='324';
 	$all_access_title = get_field("all_access_title", $id);
 	$all_access_feat_image = get_field("all_access_feat_image", $id);
 	$all_access_text = get_field("all_access_text", $id);
@@ -115,18 +128,14 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 	?>
 
 	<?php if ( ($all_access_title || $all_access_text) || ($single_access_title || $single_access_text) ) { ?>
-	<section class="twoColSection <?php echo $class1 ?>">
+	<section class="twoColSection full <?php //echo $class1 ?>">
 		<div class="twoColInner">
 				
 			<?php /* ALL ACCESS PASSES */ ?>
 			<?php if ($all_access_title || $all_access_text) { ?>
 			<div id="section1" data-section="<?php echo $all_access_title ?>" class="tcol <?php echo ($all_access_feat_image) ? 'hasphoto':'nophoto' ?>">
 				<div class="inner">
-					<?php if ($all_access_feat_image) { ?>
-						<div class="photo">
-							<div class="img" style="background-image:url('<?php echo $all_access_feat_image['url'] ?>');"><img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="helper"></div>
-						</div>
-					<?php } ?>
+					
 
 					<?php
 					$pass_args = array(
@@ -172,11 +181,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 										<div class="young-price pr">Youth &ndash; <?php echo $young ?></div>	
 										<?php } ?>
 
-										<?php if ($buttonName && $buttonLink) { ?>
-										<div class="buttondiv">
-											<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm xs"><span><?php echo $buttonName ?></span></a>
-										</div>
-										<?php } ?>
+										
 									</div>
 								</div>
 								<?php } ?>
@@ -193,11 +198,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 			<?php if ($single_access_title || $single_access_text) { ?>
 			<div id="section2" data-section="<?php echo $single_access_title ?>" class="tcol <?php echo ($single_access_feat_image) ? 'hasphoto':'nophoto' ?>">
 				<div class="inner">
-					<?php if ($single_access_feat_image) { ?>
-						<div class="photo">
-							<div class="img" style="background-image:url('<?php echo $single_access_feat_image['url'] ?>');"><img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="helper"></div>
-						</div>
-					<?php } ?>
+					
 
 					<?php
 					$single_activities = get_single_activity_passes_list('default'); /* see inc/func-activity-passes.php */
