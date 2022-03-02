@@ -472,6 +472,19 @@ function set_custom_cpt_columns($columns) {
     $query = isset($wp_query->query) ? $wp_query->query : '';
     $post_type = ( isset($query['post_type']) ) ? $query['post_type'] : '';
     
+    if($post_type=='tribe_events') {
+        unset($columns['taxonomy-event-location']);
+        unset($columns['expirationdate']);
+        unset($columns['date']);
+        $columns['title'] = __( 'Name', 'bellaworks' );
+        // $columns['show_on_homepage'] = __( 'Show on<br>Homepage', 'bellaworks' );
+        // $columns['featimage'] = __( 'Image', 'bellaworks' );
+        // $columns['taxonomy-event-location'] = __( 'Location', 'bellaworks' );
+        $columns['start_date'] = __( 'Start Date', 'bellaworks' );
+        // $columns['expirationdate'] = __( 'Expires', 'bellaworks' );
+        $columns['bandname'] = __( 'Band', 'bellaworks' );
+    }
+
     if($post_type=='music') {
         unset($columns['taxonomy-event-location']);
         unset($columns['expirationdate']);
@@ -594,6 +607,17 @@ function custom_post_column( $column, $post_id ) {
             case 'icon' :
                 $icon = get_field('custom_icon',$post_id);
                 echo ($icon) ? '<span class="'.$icon.'" style="font-size:25px;line-height:1"></span>':'';
+                break;
+        }
+    }
+
+    if($post_type=='tribe_events') {
+        switch ( $column ) {
+            case 'bandname' :
+                $bName = get_post_field( 'post_name', get_the_ID() );
+                if($bName !=='') {
+                    echo $bName;
+                } 
                 break;
         }
     }
