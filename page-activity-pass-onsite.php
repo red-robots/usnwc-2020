@@ -263,196 +263,65 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 
 
 <script type="text/javascript">
-	jQuery(document).ready(function ($) {
-
-
-
-
-		// $("html, body").animate({ scrollTop: $(document).height() }, 4000);
-		// setTimeout(function() {
-		//    $('html, body').animate({scrollTop:0}, 4000); 
-		// },4000);
-		// setInterval(function(){
-		//      // 4000 - it will take 4 secound in total from the top of the page to the bottom
-		// 	$("html, body").animate({ scrollTop: $(document).height() }, 60000);
-		// 	setTimeout(function() {
-		// 	   $('html, body').animate({scrollTop:0}, 4000); 
-		// 	},4000);
-		    
-		// },8000);
-
-function scroll_to_bottom_looped(duration,page_height){
-	$('html, body').animate({ 
-	   scrollTop: page_height},
-	   duration,
-	   "swing"
-	).promise().then(function(){
-	  scroll_to_top_looped(duration,page_height);
-	});
-}
-function scroll_to_top_looped(duration,page_height){
-	$('html, body').animate({ 
-	   scrollTop: 0},
-	   duration,
-	   "swing"
-	).promise().then(function(){
-	  scroll_to_bottom_looped(duration,page_height);
-	});
-}
-function repeat_scroller(duration,page_height,repeats,i){
-	if( i < repeats ){
-		$('html, body').animate({ 
-		   scrollTop: page_height},
-		   duration,
-		   "swing"
-		).promise().then(function(){
-			$('html, body').animate({ 
-			   scrollTop: 0},
-			   duration,
-			   "swing"
-			).promise().then(function(){
-			  i++;			 
-			  repeat_scroller(duration,page_height,repeats,i);
-			});
-		});
-	}else{
-		return false;
-	}
-}
-
-jQuery(document).ready(function ($) {	
-	// force window to top of page
-	$(this).scrollTop(0);
-	// define vars
-	let page_height = $(document).height()-$(window).height();
-	let duration = 60000;
-
-	// begin the neverending scrollage festival
-	scroll_to_bottom_looped(duration,page_height);
-
-	// or, use a set number of repeats
-	let repeats = 3;
-	let i = 0;
-	// repeat_scroller(duration,page_height,repeats,i);
-});
-// setInterval(() => {
-//   alert("Hello"); 
-// }, 3000);
-		// console.log();
-
-
-
-
-		// var startTime = Date.now();
-
-		// var interval = setInterval(function() {
-		//     var elapsedTime = Date.now() - startTime;
-		//     document.getElementById("timer").innerHTML = (elapsedTime / 1000).toFixed(3);
-		// }, 100);
-
-
-
-		
-		 
-		//  $("html, body").animate({ scrollTop: $(document).height() }, 20000);
-		
-		// setTimeout(function() {
-		//    $('html, body').animate({scrollTop:0}, 4000); 
-		// },400);
-
-		// setInterval(function(){
-		//      // 4000 - it will take 4 secound in total from the top of the page to the bottom
-		// 	$("html, body").animate({ scrollTop: $(document).height() }, 24000);
-			
-		// 	setTimeout(function() {
-		// 	   $('html, body').animate({scrollTop:0}, 24000); 
-		// 	},400);
-		    
-		// },8000);
-
-
-// 		var Height = document.documentElement.scrollHeight;
-// var currentHeight = 0;
-// var bool = true;
-// var step = 1;
-// var speed = 10;
-// var interval = setInterval(scrollpage, speed)
-
-// function scrollpage() {
-//     if (currentHeight < 0 || currentHeight > Height) 
-//         bool = !bool;
-//     if (bool) {
-//         window.scrollTo(0, currentHeight += step);
-//     } else {
-//         // if you don't want to continue scroll 
-//         // clearInterval(interval) use clearInterval
-//         window.scrollTo(0, currentHeight -= step);
-//     }
-// }
-
-
-
-  });// END
-
-// $(document).ready(function() {
-
-//     if ($('.daily-container').height() > $('.daily-content').height()) {
-//         setInterval(function () {
-
-//             start();
-//        }, 3000); 
-   
-//     }
-//     console.log( $('.daily-container').height() );
-//     console.log( $('.daily-content').height() );
-// });
-
-// function animateContent(direction) {  
-//     // var animationOffset = $('.daily-container').height() - $('.daily-content').height();
-//     var animationOffset = $(document).height();
-//     if (direction == 'up') {
-//         animationOffset = 0;
-//     }
-
-//     console.log("animationOffset:"+animationOffset);
-//     // $('.daily-content').animate({ "marginTop": (animationOffset)+ "px" }, 5000);
-//     $("html, body").animate({ scrollTop: $(document).height() }, 5000);
-// }
-
-// function up(){
-//     animateContent("up")
-// }
-// function down(){
-//     animateContent("down")
-// }
-
-// function start(){
-//  setTimeout(function () {
-//  	console.log("down...");
-//     down();
-// }, 2000);
-//  setTimeout(function () {
-//  	console.log("up...");
-//     up();
-// }, 2000);
-//    setTimeout(function () {
-//     console.log("wait...");
-// }, 5000);
-// }  
 // jQuery(document).ready(function ($) {
-// //scroll to bottom
-// setInterval(function(){
+// 	function scroll_to_bottom_looped(duration,page_height){
+// 		$('html, body').animate({ 
+// 		   scrollTop: page_height},
+// 		   duration,
+// 		   "swing"
+// 		).promise().then(function(){
+// 		  scroll_to_top_looped(duration,page_height);
+// 		});
+// 	}
+// 	function scroll_to_top_looped(duration,page_height){
+// 		$('html, body').animate({ 
+// 		   scrollTop: 0},
+// 		   duration,
+// 		   "swing"
+// 		).promise().then(function(){
+// 		  scroll_to_bottom_looped(duration,page_height);
+// 		});
+// 	}
+// 	function repeat_scroller(duration,page_height,repeats,i){
+// 		if( i < repeats ){
+// 			$('html, body').animate({ 
+// 			   scrollTop: page_height},
+// 			   duration,
+// 			   "swing"
+// 			).promise().then(function(){
+// 				$('html, body').animate({ 
+// 				   scrollTop: 0},
+// 				   duration,
+// 				   "swing"
+// 				).promise().then(function(){
+// 				  i++;			 
+// 				  repeat_scroller(duration,page_height,repeats,i);
+// 				});
+// 			});
+// 		}else{
+// 			return false;
+// 		}
+// 	}
 
-//     //time to scroll to bottom
-//     $("html, body").animate({ scrollTop: $(document).height() }, 2000, 'linear');
-//     // console.log( $(document).height() );
-//     //scroll to top
-//     setTimeout(function() {
-//        $('html, body').animate({scrollTop:0}, 11000);
-//     },2);//call every 2000 miliseconds
+// 	jQuery(document).ready(function ($) {	
+// 		// force window to top of page
+// 		$(this).scrollTop(0);
+// 		// define vars
+// 		let page_height = $(document).height()-$(window).height();
+// 		let duration = 60000;
 
-// },2);//call every 2000 miliseconds
-// });// END
+// 		// begin the neverending scrollage festival
+// 		scroll_to_bottom_looped(duration,page_height);
+
+// 		// or, use a set number of repeats
+// 		let repeats = 3;
+// 		let i = 0;
+// 		// repeat_scroller(duration,page_height,repeats,i);
+// 	});
+
+
+//   });// END
+
 </script>
 </body>
 </html>
