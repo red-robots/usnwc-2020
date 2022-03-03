@@ -4,6 +4,7 @@
 
 <link rel='stylesheet' id='bellaworks-style-css'  href='<?php bloginfo('template_url'); ?>/style.css' type='text/css' media='all' />
 <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js?ver=3.5.1' id='jquery-js'></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <style type="text/css">
 	#primary.activity-schedule-onsite {
 		margin-top: 0;
@@ -67,6 +68,7 @@
 	}
 	body.onite {
 		font-size: 24px;
+		font-family: "Nunito Sans", sans-serif;
 	}
 	body.onite .singleActivity,
 	body.onite .pass-name,
@@ -75,6 +77,7 @@
 	}
 	body.onite h2.stitle {
 		font-size: 40px;
+		font-family: "Lato", sans-serif;
 	}
 </style>
 </head>

@@ -18,6 +18,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 		<?php endwhile;  ?>
 
 		<?php
+		$exclude = array(51369, 318, 47407);
 		$postype = 'page';
 		$perpage = -1;
 		$pId = get_the_ID();
@@ -28,6 +29,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 			'post_parent' => $pId,
 			'order_by' => 'menu_order',
 			'order' => 'ASC',
+			'post__not_in' => $exclude,
 			);
 		$posts = new WP_Query($args);
 		if ( $posts->have_posts() ) { ?>
