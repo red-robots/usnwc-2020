@@ -60,10 +60,15 @@
 				$terms = get_the_terms($e,'department');
 				if($terms) {
 					foreach($terms as $term) {
+						// echo '<pre>';
+						// print_r($term);
+						// echo '</pre>';
 						$term_id = $term->term_id;
 						$term_name = $term->name;
+						$desc = $term->description;
 						$postsByDepartment[$term_id]['department'] = $term_name;
 						$postsByDepartment[$term_id]['entries'][] = $e;
+						$postsByDepartment[$term_id]['description'] = $desc;
 					}
 				}
 			}
@@ -137,11 +142,19 @@ if( $posts->have_posts() ) { ?>
 								<?php if ($postsByDepartment) { ?>
 									
 									<?php foreach ($postsByDepartment as $p) {
+										
 										$department = $p['department'];
+										$desc = $p['description'];
 										$entries = $p['entries'];
+										// echo '<pre>';
+										// print_r($postsByDepartment);
+										// echo '</pre>';
 										if($entries) { ?>
 										<div class="job-group">
 											<div class="job-department"><span><?php echo $department ?></span></div>
+											<?php if($desc){ ?>
+												<div class="depart-desc"><?php echo $desc; ?></div>
+											<?php } ?>
 											<?php foreach($entries as $e) { 
 											$pid = $e->ID; 
 											$title = $e->post_title;
