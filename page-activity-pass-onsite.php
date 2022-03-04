@@ -79,6 +79,11 @@
 		font-size: 40px;
 		font-family: "Lato", sans-serif;
 	}
+	.page-activity-passes .itemrow .activity-name span,
+	.page-activity-passes .itemrow .button-group .price,
+	.page-activity-passes .itemrow .button-group .wrap {
+		background: #fff !important;
+	}
 </style>
 </head>
 <body class="onite">
@@ -108,12 +113,12 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 <div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full page-activity-passes <?php echo $has_banner ?>">
 
 	<?php while ( have_posts() ) : the_post(); ?>
-		<div class="intro-text-wrap">
+		<!-- <div class="intro-text-wrap">
 			<div class="wrapper">
 				<h1 class="page-title"><span><?php the_title(); ?></span></h1>
 				<div class="intro-text"><?php the_content(); ?></div>
 			</div>
-		</div>
+		</div> -->
 	<?php endwhile;  ?>
 
 	<?php //get_template_part("parts/subpage-tabs"); ?>
@@ -132,7 +137,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 
 	<?php if ( ($all_access_title || $all_access_text) || ($single_access_title || $single_access_text) ) { ?>
 	<section class="twoColSection full <?php //echo $class1 ?>">
-		<div class="twoColInner">
+		<div class="twoColInnerzz">
 				
 			<?php /* ALL ACCESS PASSES */ ?>
 			<?php if ($all_access_title || $all_access_text) { ?>
