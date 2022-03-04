@@ -159,7 +159,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 							<h2 class="stitle"><?php echo $all_access_title ?></h2>
 						<?php } ?>
 						<?php if ($all_access_text) { ?>
-							<div class="text"><?php echo $all_access_text ?></div>
+							<!-- <div class="text"><?php //echo $all_access_text ?></div> -->
 						<?php } ?>
 						<?php if ($all_passes) { ?>
 						<div class="pass-types">
@@ -217,7 +217,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 							<h2 class="stitle"><?php echo $single_access_title ?></h2>
 						<?php } ?>
 						<?php if ($single_access_text) { ?>
-							<div class="text"><?php echo $single_access_text ?></div>
+							<!-- <div class="text"><?php echo $single_access_text ?></div> -->
 						<?php } ?>
 
 						<?php if ($single_activities) { ?>
