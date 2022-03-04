@@ -69,6 +69,7 @@
 	body.onite {
 		font-size: 24px;
 		font-family: "Nunito Sans", sans-serif;
+		background: #fff;
 	}
 	body.onite .singleActivity,
 	body.onite .pass-name,
