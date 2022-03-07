@@ -3015,7 +3015,7 @@ body.logged-in.admin-bar .job-info-page .text-centered-section{margin-top:-5px}
 .employee-stories .shead-icon .stitle{color:#FFF}
 .twoColSection .twoColInner{width:100%;float:left;background:#f2f2f2;padding-top:50px;padding-bottom:50px}
 .twoColSection.half{position:relative;background:transparent}
-.twoColSection.half .twoColInner{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;margin-left:-8px;margin-right:-8px;padding-top:0;padding-bottom:0;background:transparent}
+.twoColSection.half .twoColInner{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding-top:0;padding-bottom:0;background:transparent}
 .twoColSection .tcol{max-width:900px;width:100%;margin:0 auto;padding-left:15px;padding-right:15px}
 .twoColSection .tcol.nophoto .inner{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .twoColSection .inner{height:100%;background:#f2f2f2}

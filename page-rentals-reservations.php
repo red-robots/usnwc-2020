@@ -48,7 +48,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 			 ?>
 			<?php /* SINGLE ACTIVITY PASSES */ ?>
 			<?php //if ($single_access_title || $single_access_text) { ?>
-			<div id="section2" data-section="<?php echo $single_access_title ?>" class="tcol <?php echo ($single_access_feat_image) ? 'hasphoto':'nophoto' ?>">
+			<div id="section2" data-section="<?php echo $single_access_title ?>" class="tcol <?php echo ($fImage) ? 'hasphoto':'nophoto' ?>">
 				<div class="inner">
 					<?php if ($fImage) { ?>
 						<div class="photo">
