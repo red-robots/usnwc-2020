@@ -85,6 +85,9 @@
 	.page-activity-passes .itemrow .button-group .wrap {
 		background: #fff !important;
 	}
+	.inner.osap {
+		margin-top: 50px;
+	}
 </style>
 </head>
 <body class="onite">
@@ -143,7 +146,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 			<?php /* ALL ACCESS PASSES */ ?>
 			<?php if ($all_access_title || $all_access_text) { ?>
 			<div id="section1" data-section="<?php echo $all_access_title ?>" class="tcol <?php echo ($all_access_feat_image) ? 'hasphoto':'nophoto' ?>">
-				<div class="inner">
+				<div class="inner osap">
 					
 
 					<?php
@@ -157,7 +160,7 @@ $has_banner = ($slideImages) ? 'has-banner':'no-banner';
 					
 					<div class="info text-center">
 						<?php if ($all_access_title) { ?>
-							<h2 class="stitle"><?php echo $all_access_title ?></h2>
+							<h2 class="stitle "><?php echo $all_access_title ?></h2>
 						<?php } ?>
 						<?php if ($all_access_text) { ?>
 							<!-- <div class="text"><?php //echo $all_access_text ?></div> -->
