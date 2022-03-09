@@ -74,10 +74,10 @@
 	body.onite .singleActivity,
 	body.onite .pass-name,
 	body.onite .price .pr {
-		font-size: 30px !important;
+		font-size: 34px !important;
 	}
 	body.onite h2.stitle {
-		font-size: 40px;
+		font-size: 44px;
 		font-family: "Lato", sans-serif;
 	}
 	.page-activity-passes .itemrow .activity-name span,
