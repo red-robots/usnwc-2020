@@ -41,7 +41,7 @@ $blank_image = THEMEURI . "images/square.png";
 // $posts = new WP_Query($args);
 $rectangle = get_bloginfo('template_url') . '/images/rectangle-narrow.png';
 $square = get_bloginfo('template_url') . '/images/square.png';
-$events = array('festival','music','race');
+$events = array('festival','music','race','dining', 'film-series');
 $results = getUpcomingEvents($events,9);
 if ( $results ) {  
 $dateNow = date('Y-m-d');
