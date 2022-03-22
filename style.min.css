@@ -3050,7 +3050,7 @@ body.logged-in.admin-bar .job-info-page .text-centered-section{margin-top:-5px}
 .page-activity-passes .itemrow.nobutton .activity-name span{bottom:3px}
 .page-activity-passes .camp-activities.section-content{padding-top:40px}
 #section-activities.section-content .entryList{margin-left:-10px;margin-right:-10px}
-#section-activities.homerow,.featured-events-section{padding-right:10px;padding-left:10px}
+#section-activities.homerow,.featured-events-section{padding-top:5px;padding-right:10px;padding-left:10px}
 .activity-blocks .imagediv span.img{position:absolute;top:0;left:0}
 .activity-blocks .imagediv iframe{position:absolute;top:0;left:0;width:100% !important;height:100% !important}
 .buy-page#primary .twoColSection{width:100%;float:left;margin-bottom:16px}
