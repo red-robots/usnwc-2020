@@ -73,7 +73,18 @@ get_header(); ?>
 
 				<?php 
 				if( $galleries = get_field("gallery") ) { ?>
-				<div id="carousel-images">
+
+					<div class="flexslider">
+						<ul class="slides">
+							<?php foreach ($galleries as $g) { ?>
+								<li>
+									<img src="<?php echo $g['url']; ?>" alt="" aria-hidden="true" />
+								</li>
+							<?php } ?>
+						</ul>
+					</div>
+
+				<!-- <div id="carousel-images">
 					<div class="loop owl-carousel owl-theme">
 					<?php foreach ($galleries as $g) { ?>
 						<div class="item">
@@ -83,7 +94,9 @@ get_header(); ?>
 						</div>
 					<?php } ?>
 					</div>
-				</div>
+				</div> -->
+
+
 				<?php } ?>
 			</section>
 
