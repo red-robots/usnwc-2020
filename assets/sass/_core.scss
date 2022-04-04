@@ -13522,3 +13522,14 @@ ul.items {
 		width: 100% !important;
 	}
 }
+.camp-caro.swap {
+	display: none;
+	@media screen and (min-width: $tabwidth) {
+		display: block;
+	}
+}
+.flexslider.swap {
+	@media screen and (min-width: $tabwidth) {
+		display: none;
+	}
+}

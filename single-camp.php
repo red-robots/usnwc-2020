@@ -74,7 +74,7 @@ get_header(); ?>
 				<?php 
 				if( $galleries = get_field("gallery") ) { ?>
 
-					<div class="flexslider">
+					<div class="flexslider swap">
 						<ul class="slides">
 							<?php foreach ($galleries as $g) { ?>
 								<li>
@@ -84,7 +84,7 @@ get_header(); ?>
 						</ul>
 					</div>
 
-				<!-- <div id="carousel-images">
+				<div id="carousel-images" class="camp-caro swap">
 					<div class="loop owl-carousel owl-theme">
 					<?php foreach ($galleries as $g) { ?>
 						<div class="item">
@@ -94,7 +94,7 @@ get_header(); ?>
 						</div>
 					<?php } ?>
 					</div>
-				</div> -->
+				</div>
 
 
 				<?php } ?>

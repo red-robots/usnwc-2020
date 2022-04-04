@@ -3568,6 +3568,7 @@ ul.items .show{display:block}
 .diff-filter-wrap.hide{max-width:0}
 .diff-filter-wrap.show{max-width:1000px}
 #fi .select2-container.show{width:100% !important}
+.camp-caro.swap{display:none}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}
@@ -3877,6 +3878,8 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 }@media screen and (min-width:820px){.hero-register-button .stats{position:absolute;top:85px;left:0}
 .double-filter-wrapper .inside{width:45%;float:left;padding:2.5%}
 .double-filter-wrapper .filter-wrapper .select,.double-filter-wrapper .filter-wrapper .select-wrap.align-middle{width:100%}
+.camp-caro.swap{display:block}
+.flexslider.swap{display:none}
 }@media(min-width:960px){.topinfo span.el{font-size:12px}
 #banner.taxonomy-banner .static-banner{height:650px}
 .home-video-gallery.count1 .video-big{height:600px}
