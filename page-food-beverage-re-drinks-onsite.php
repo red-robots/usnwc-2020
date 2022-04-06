@@ -75,7 +75,7 @@
 
 .drink-wrapper .introtext { width: 100%; font-size: 14px; margin: 0 0 20px 0; }
 
-.drink-wrapper h2.m-item { border-bottom: dotted 1px #333; text-transform: uppercase;text-align: center; font-size: 50px; padding: 50px 0 20px 0; width: 100%; margin-bottom: 20px; }
+.drink-wrapper h2.m-item { border-bottom: dotted 1px #333; text-transform: uppercase;text-align: center; font-size: 50px; padding: 10px 0 20px 0; width: 100%; margin-bottom: 20px; margin-top: 0; }
 
 .drink-wrapper .bottom-section { width: 100%; float: left; margin: 40px auto; }
 
@@ -117,11 +117,14 @@
 
 .drink-wrapper .fnb-item h3 { font-size: 28px; display: inline-block; width: auto; text-transform: capitalize; }
 
-.drink-wrapper .fnb-item .price { font-size: 18px; font-weight: bold; display: inline-block; width: auto; }
+.drink-wrapper .fnb-item .price { font-size: 28px; font-weight: bold; display: inline-block; width: auto;opacity: .5; }
 
 .drink-wrapper .fnb-item .fdesc { font-size: 20px; line-height: 1.3;}
 .drink-wrapper {
 	padding: 50px;
+}
+.drink-col {
+	padding-left: 120px;
 }
 	.fnb-item {
 		display: flex;
@@ -196,7 +199,7 @@ $square = THEMEURI . "images/square.png";
 						<div class="clear"></div>
 					<?php } ?>
 				    <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $i++;  ?>
-				    	<div class="drink-col">
+				    	
 				    		<?php // Do they want this live check
 							$published = get_field('publish');
 							if( $published != 'No' ):
@@ -227,6 +230,7 @@ $square = THEMEURI . "images/square.png";
 								//if( function_exists( get_field )) :
 								 
 									if( have_rows('menu_item') ) : ?>
+										<div class="drink-col">
 										<div class="fnb-item">
 											<?php while( have_rows('menu_item') ) : the_row();
 												$name = get_sub_field('name');
@@ -250,7 +254,7 @@ $square = THEMEURI . "images/square.png";
 														<div class="vegetarian ficon">Vegetarian</div>
 													</div>
 												<?php } ?>
-												<h3><?php echo $name; ?></h3>
+												<h3><?php echo $name; ?></h3>&nbsp;&nbsp;
 												<?php if( $price ) { ?><div class="price"><?php echo $price; ?></div><?php } ?>
 												<?php if( $description ) { ?><div class="fdesc"><?php echo $description; ?></div><?php } ?>
 											</div>
