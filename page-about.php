@@ -5,7 +5,18 @@
 $placeholder = THEMEURI . 'images/rectangle.png';
 $banner = get_field("flexslider_banner");
 $has_banner = ($banner) ? 'hasbanner':'nobanner';
-get_header(); ?>
+$timeline_data = get_field("timeline_data");
+?>
+<style type="text/css">
+<?php
+$n=1; foreach ($timeline_data as $k=>$d) { 
+$move = ( isset($d['moveup']) && $d['moveup'] ) ? $d['moveup'] : '';
+if ($move) { ?>
+  @media screen and (min-width:820px) { #history-info-<?php echo $n ?>{transform: translateY(<?php echo $move ?>%)!important; } }
+<?php }
+$n++; } ?>
+</style>
+<?php get_header(); ?>
 
 <div id="primary" class="content-area-full about-page <?php echo $has_banner ?>">
 	<main id="main" class="site-main" role="main">

@@ -2294,7 +2294,13 @@ function upcoming_bands_by_date($offset=0,$limit=12) {
 //     $result = $wpdb->get_results($query);
 //     return ($result) ? $result : '';
 // }
+add_action('wp_head', 'show_top_admin_menu_bar', 100);
 
+function show_top_admin_menu_bar() {
+  if (current_user_can('scheduler')) {
+      show_admin_bar(true);
+  }
+}
 /* Pre-select value FACETWP => See Employment Page */
 add_filter( 'facetwp_preload_url_vars', function( $url_vars ) {
     if ( 'who-we-are/employment' == FWP()->helper->get_uri() ) {
@@ -2306,7 +2312,9 @@ add_filter( 'facetwp_preload_url_vars', function( $url_vars ) {
     return $url_vars;
 } );
 
-
+function get_images_dir($fileName=null) {
+    return get_bloginfo('template_url') . '/images/' . $fileName;
+}
 function get_default_job_location() {
     return 'charlotte';
 }
