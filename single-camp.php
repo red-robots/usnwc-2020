@@ -149,6 +149,38 @@ get_header(); ?>
 
 <?php get_template_part("parts/similar-posts"); ?>
 
+<?php
+/* EVENT SPONSORS */
+$sponsor_section_title = get_field("sponsor_section_title");  
+$sponsors = get_field("sponsors");  
+if($sponsors) { ?>
+<section id="section-sponsors" class="section-content">
+	<div class="wrapper">
+		<?php if ($sponsor_section_title) { ?>
+		<div class="titlediv">
+			<h2 class="sectionTitle text-center"><?php echo $sponsor_section_title ?></h2>
+		</div>
+		<?php } ?>
+		
+		<div class="sponsors-list">
+			<div class="flexwrap">
+				<?php foreach ($sponsors as $s) { 
+				$link = get_field("image_website",$s['ID']);
+				?>
+				<span class="sponsor">
+					<?php if ($link) { ?>
+						<a href="<?php echo $link ?>" target="_blank"><img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>"></a>
+					<?php } else { ?>
+						<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>">
+					<?php } ?>
+				</span>	
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+</section>
+<?php } ?>
+
 <?php 
 include( locate_template('inc/pagetabs-script.php') );  
 include( locate_template('inc/faqs.php') );  
