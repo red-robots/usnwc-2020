@@ -78,22 +78,35 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 			<?php } ?>
 
 
+			
+
 			<?php 
-			if( $galleries = get_field("gallery") ) { ?>
-			<section class="gallery-section full">
-				<div id="carousel-images">
-					<div class="loop owl-carousel owl-theme">
-					<?php foreach ($galleries as $g) { ?>
-						<div class="item">
-							<div class="image" style="background-image:url('<?php echo $g['url']?>')">
-								<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" />
-							</div>
+				if( $galleries = get_field("gallery") ) { ?>
+					<section class="gallery-section full">
+						<div class="flexslider swap">
+							<ul class="slides">
+								<?php foreach ($galleries as $g) { ?>
+									<li>
+										<img src="<?php echo $g['url']; ?>" alt="" aria-hidden="true" />
+									</li>
+								<?php } ?>
+							</ul>
 						</div>
-					<?php } ?>
+
+					<div id="carousel-images" class="camp-caro swap">
+						<div class="loop owl-carousel owl-theme">
+						<?php foreach ($galleries as $g) { ?>
+							<div class="item">
+								<div class="image" style="background-image:url('<?php echo $g['url']?>')">
+									<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" />
+								</div>
+							</div>
+						<?php } ?>
+						</div>
 					</div>
-				</div>
-			</section>
-			<?php } ?>
+				</section>
+
+				<?php } ?>
 
 
 		<?php endwhile; ?>
