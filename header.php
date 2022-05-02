@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="<?php bloginfo("template_url") ?>/css/jquery.fancybox.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php bloginfo("template_url") ?>/css/select2.min.css">
+<meta name="facebook-domain-verification" content="vcbl42j06vfl4vocp07qka3fcdtyir" />
 <?php if ( is_singular(array('post')) ) { 
 global $post;
 $post_id = $post->ID;
@@ -17,7 +18,7 @@ $thumbId = get_post_thumbnail_id($post_id);
 $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
 <!-- SOCIAL MEDIA META TAGS -->
 
-<meta name="facebook-domain-verification" content="vcbl42j06vfl4vocp07qka3fcdtyir" />
+
 <meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
 <meta property="og:url"		content="<?php echo get_permalink(); ?>" />
 <meta property="og:type"	content="article" />
