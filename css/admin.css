@@ -1,9 +1,10 @@
 [data-name="ctashortcode"] .acf-input-wrap input[type="text"],
 #adminmenu li#toplevel_page_acf-options,
-div.acf-field[data-name="is_event_completed"] h2.hndle,
+/*div.acf-field[data-name="is_event_completed"] h2.hndle,
 div.acf-field[data-name="is_event_completed"] div.acf-label,
 div.acf-field[data-name="is_event_completed"] div.acf-input,
-body.post-type-acf-field-group #expirationdatediv.postbox  {
+body.post-type-acf-field-group #expirationdatediv.postbox*/  
+{
     display: none!important;
 }
 
