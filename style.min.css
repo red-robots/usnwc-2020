@@ -2027,13 +2027,12 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 #section-checkin.section-content .flex-content.has-text .caption{font-size:14px;font-weight:400;line-height:1.4;padding:30px 30px;margin:0 auto}
 #section-checkin.section-content .flex-content.has-text .caption p:last-child{margin-bottom:0}
 #section-checkin.section-content .inside.has-image{width:100%;float:left}
-#section-checkin.section-content .image-only{width:100%;float:left;background-size:cover;background-position:center;background-repeat:no-repeat}
+#section-checkin.section-content .image-only{width:100%;float:left;background-size:contain;background-position:center;background-repeat:no-repeat}
 #section-checkin.section-content .image-only img{width:100%;height:auto;float:left}
 #section-checkin.section-content .col-left .flex-content .inside{height:100%}
 #section-checkin.section-content .col-left .flex-content.has-text .inside{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 #section-checkin.section-content .col-left .image-only{height:100%}
 #section-checkin.section-content .col-left .image-only img{display:block}
-#section-checkin.section-content .col-right{min-height:600px}
 #section-checkin.section-content .col-right img.placeholder{display:none}
 #section-checkin.section-content .col-right .flex-content,#section-checkin.section-content .col-right .inside,#section-checkin.section-content .col-right .image-only{height:100%}
 #section-checkin.section-content .col-right .image-only img{visibility:hidden}
@@ -3724,8 +3723,10 @@ body.subpage.single .intro-galleries.half .rightcol{width:70%;padding-left:15px}
 #section-whattowear.half .model{width:35%;padding-right:10vw}
 #section-whattowear.half .options{width:65%}
 #section-checkin.section-content .col-left,#section-checkin.section-content .col-right{width:50%}
+#section-checkin.section-content .image-only{background-size:cover}
 #section-checkin.section-content .col-left .flex-content{height:50%}
 #section-checkin.section-content .col-left .image-only img{display:none}
+#section-checkin.section-content .col-right{min-height:600px}
 #section-faqs.half .faqs{width:60%;padding-right:4vw}
 #section-faqs.half .faq-image{width:40%}
 #section-featured-posts.half .block{width:50%}

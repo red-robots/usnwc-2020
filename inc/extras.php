@@ -2300,9 +2300,6 @@ function show_top_admin_menu_bar() {
   if ( current_user_can('editor') || current_user_can('scheduler') ) {
       show_admin_bar(true);
   }
-  // if (current_user_can('editor')) {
-  //     show_admin_bar(true);
-  // }
 }
 /* Pre-select value FACETWP => See Employment Page */
 add_filter( 'facetwp_preload_url_vars', function( $url_vars ) {
