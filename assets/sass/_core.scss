@@ -135,7 +135,7 @@ a {
 	top: 30px;
 	left: 0;
 	width: 100%;
-	z-index: 200;
+	z-index: 1000;
 	.navbar {
 		padding-top: 0;
 		padding-bottom: 0;
@@ -808,13 +808,27 @@ body.nav-open {
 	float: left;
 	position: relative;
 	background-color: #000;
+	a {
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 998;
+	}
 	&.video-playing {
 		z-index: 300;
 	}
-	margin-top: 85px;
-	// margin-bottom: 5px;
+	iframe {
+		width: 100%;
+
+	}
+	margin-top: 86px;
+	// margin-top: 55px;
 	@include tab {
-		margin-top: 90px;;
+		// margin-top: 60px;
+		margin-top: 86px;
 	}
 	.logo-overlay {
 		position: absolute;
@@ -836,6 +850,26 @@ body.nav-open {
 			.iframe-wrapper {
 				padding: 0 0;
 				position: relative;
+				width: 100%;
+				video {
+					width: 100%;
+				}
+				&.yes-mobile {
+					
+					.desktop {
+						display: none;
+						@include tab {
+							display: block;
+						}
+					}
+					.mobile {
+						display: block;
+						@include tab {
+							display: none;
+						}
+					}
+					
+				}
 			}
 			img.image-size-ref {
 				visibility: hidden;
