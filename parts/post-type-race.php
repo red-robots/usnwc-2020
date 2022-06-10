@@ -14,6 +14,8 @@ while ( have_posts() ) : the_post(); ?>
 
 	<div id="pageTabs"></div>
 
+	<?php include(locate_template('parts/details.php')); ?>
+
 	<?php 
 	$eventInfoBoxes = get_field('use_event_info_boxes');
 
