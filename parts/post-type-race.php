@@ -6,7 +6,7 @@ while ( have_posts() ) : the_post(); ?>
 		<div class="wrapper text-center">
 			<h1 class="pagetitle"><span><?php echo get_the_title(); ?></span></h1>
 			<?php if ( get_the_content() ) { ?>
-			<div class="main-text"><?php the_content(); ?></div>
+			<?php the_content(); ?>
 			<?php } ?>
 		</div>
 	</section>

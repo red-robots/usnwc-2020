@@ -2100,7 +2100,7 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 #pageTabs.pageTabs2 a:after{content:"";display:block;width:100%;height:1px;background:#c3c3c3;margin-top:2px;-webkit-transition:all ease .3s;transition:all ease .3s}
 #pageTabs.pageTabs2 a:hover{color:#ba0d30}
 #pageTabs.pageTabs2 a:hover:after{background:#ba0d30}
-body.single-race #pageTabs{top:0;margin-top:35px}
+body.single-race #pageTabs{top:0;margin-top:0}
 body.single-race #primary #section-faqs{padding-top:60px;padding-bottom:30px}
 body.single-race .content-default .black-section ul,body.single-race .content-default .black-section ol{display:inline-block;text-align:left}
 body.single-race .content-default .black-section ul ul,body.single-race .content-default .black-section ul ol,body.single-race .content-default .black-section ol ul,body.single-race .content-default .black-section ol ol{display:inline;position:relative;left:30px}
