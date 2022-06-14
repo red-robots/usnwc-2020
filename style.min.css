@@ -1712,7 +1712,8 @@ body.nav-open .menu-toggle{opacity:0}
 #banner ul.slides.single-slide .type-video .videoIframeDiv.play_video .videoIframe{z-index:100}
 #banner ul.slides.single-slide .outer-video-wrap{position:absolute;top:0;left:0;width:100%;height:100%;z-index:30}
 #banner.subpageBanner{margin-top:86px}
-#banner.subpageBanner .slideItem img{display:block !important;width:100%;height:auto;float:left}
+#banner.subpageBanner .slideItem img{width:100%;height:auto;float:left}
+#banner.subpageBanner .slideItem img.desktop{display:none}
 #banner.taxonomy-banner{margin-top:16px}
 #banner.taxonomy-banner .static-banner{background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#707070}
 #banner.taxonomy-banner .static-banner img.actual-image{display:block;width:100%;height:auto;float:left}
@@ -2586,7 +2587,6 @@ body.page-template-page-stories .select2-container--default .select2-results__op
 .hero-register-button.has-event-status #banner .static-banner .slideCaption .text{margin-top:3%}
 body.scrolled.single-dining .post-hero-image .stats{position:fixed;z-index:50}
 body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:135px}
-body.scrolled .hero-register-button .registerBtn{position:fixed}
 .shead-icon{margin-bottom:35px}
 .shead-icon div.icon span{font-size:35px;line-height:1}
 .dining-event-details{background:#f2f2f2;padding-top:50px;padding-bottom:40px}
@@ -3693,6 +3693,8 @@ section.route-stories.half .block{width:50%}
 #banner .static-banner .image-wrapper.yes-mobile img.desktop{display:block}
 #banner .static-banner .image-wrapper.yes-mobile img.mobile{display:none}
 #banner ul.slides.single-slide .type-video{margin-top:0}
+#banner.subpageBanner .slideItem img.desktop{display:block}
+#banner.subpageBanner .slideItem img.mobile{display:none}
 #banner.taxonomy-banner .static-banner{height:600px}
 #banner.taxonomy-banner .static-banner img.actual-image{display:none}
 body.single-activity #subpageSlides ul.slides,body.single-activity #subpageSlides li.sub-slide-item,body.single-activity #subpageSlides .slide-image{height:100% !important}
@@ -3802,6 +3804,7 @@ body.scrolled .site-header .navbar{background:rgba(255,255,255,0.95)}
 .main-post-text.half .imagescol{width:50%}
 .hero-register-button .stats{display:block}
 body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:118px}
+body.scrolled .hero-register-button .registerBtn{position:fixed}
 .dining-event-details{padding-top:80px;padding-bottom:70px}
 .dining-section-map .shead-icon{padding-top:70px;padding-bottom:10px}
 .dining-section-map.half .imageBlock{width:50%}

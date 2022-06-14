@@ -1133,10 +1133,21 @@ body.nav-open {
 	}
 	.slideItem {
 		img {
-			display: block!important;
+			// display: block!important;
 			width: 100%;
 			height: auto;
 			float: left;
+			&.desktop {
+				display: none;
+				@include tab() {
+					display: block;
+				}
+			}
+			&.mobile {
+				@include tab() {
+					display: none;
+				}
+			}
 		}
 	}
 }
@@ -7221,8 +7232,9 @@ body.scrolled.single-dining {
 
 body.scrolled {
 	.hero-register-button .registerBtn {
-		position: fixed;
+		
 		@include tab {
+			position: fixed;
 		}
 	}
 }

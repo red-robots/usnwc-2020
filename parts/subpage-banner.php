@@ -1,5 +1,6 @@
 <?php
 $heroImage = get_field("full_image");
+$mobile_image = get_field('mobile_image');
 $status = get_field('registration_status');
 $registerLink = get_field('registrationLink');
 $regTarget = get_field('registrationLinkTarget');
@@ -41,6 +42,9 @@ if($heroImage) { ?>
 			<li class="slideItem type-image">
 				<div class="image-wrapper yes-mobile" style="background-image: url('<?php echo $heroImage['url']?>');">
 					<img class="desktop " src="<?php echo $heroImage['url']?>" alt="<?php echo $heroImage['title']?>">
+					<?php if( $mobile_image ){ ?>
+						<img class="mobile " src="<?php echo $mobile_image['url']?>" alt="<?php echo $mobile_image['title']?>">
+					<?php } ?>
 				</div>
 				<?php if ($heroImageText) { ?>
 				<div class="slideCaption"><div class="text"><?php echo $heroImageText ?></div></div>
