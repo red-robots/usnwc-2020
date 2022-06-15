@@ -122,6 +122,10 @@ while ( have_posts() ) : the_post(); ?>
 			$eventInfo = get_field("additional_event_info"); 
 			$event_info_btn = get_field("event_info_button_name"); 
 			?>
+
+			
+
+
 			<?php if ($registration_note || $eventInfo) { ?>
 			<div class="black-section">
 				<div class="wrapper text-center">
@@ -141,7 +145,7 @@ while ( have_posts() ) : the_post(); ?>
 
 	?>
 
-
+	<?php include(locate_template('parts/additional-info-race.php')); ?>
 
 	<?php
 	/* TEXT AND IMAGE BLOCKS */
@@ -664,6 +668,37 @@ jQuery(document).ready(function($){
 		});
 		$("#pageTabs").html('<div class="wrapper"><div id="tabcontent">'+tabs+'</div></div>');
 	}
+
+	 $("#tabs a").on("click",function(e){
+    e.preventDefault();
+    var panel = $(this).attr('data-rel');
+    $("#tabs li").not(this).removeClass('active');
+    $(this).parents("li").addClass('active');
+    if( $(panel).length ) {
+      $(".info-panel").not(panel).removeClass('active');
+      $(".info-panel").not(panel).find('.info-inner').removeClass('fadeIn');
+      $(panel).addClass('active');
+      //$(panel).find('.info-inner').addClass('fadeIn').slideToggle();
+      $(panel).find('.info-inner').toggleClass('fadeIn');
+    }
+  });
+
+  $(".info-title").on("click",function(e){
+    var parent = $(this).parents('.info-panel');
+    var parent_id = parent.attr("id");
+    $("#tabs li").removeClass('active');
+    $('.info-panel').not(parent).find('.info-inner').hide();
+    $('.info-panel').not(parent).removeClass('active');
+    parent.find('.info-inner').toggleClass('fadeIn').slideToggle();
+    if( parent.hasClass('active') ) {
+      parent.removeClass('active');
+      $('#tabs a[data-rel="#'+parent_id+'"]').parents('li').removeClass('active');
+    } else {
+      parent.addClass('active');
+      $('#tabs a[data-rel="#'+parent_id+'"]').parents('li').addClass('active');
+    }
+
+  });
 
 });	
 </script>
