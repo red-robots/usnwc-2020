@@ -4,7 +4,7 @@
     <div class="shead-icon text-center fw-left">
       <div class="wrapper">
         <div class="icon"><span class="ci-info"></span></div>
-        <h2 class="stitle">Information</h2>
+        <h2 class="stitle">Additional Information</h2>
       </div>
     </div>
     <div class="information-tabs-wrap">
