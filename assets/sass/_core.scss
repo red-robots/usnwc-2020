@@ -13598,6 +13598,28 @@ ul.items {
 		display: none;
 	}
 }
+.gform_body {
+	p {
+		width: 100%;
+		float: left;
+	}
+	ul.gfield_checkbox {
+
+		li.gchoice {
+			display: flex;
+			flex-direction: row;
+			justify-items: center;
+			align-items: center;
+			br {
+				display: none;
+			}
+			input.gfield-choice-input, input[type=checkbox] {
+				margin-top: 0 !important;
+				margin-right: 10px;
+			}
+		}
+	}
+}
 #timeline-area {
 	// background-color: $red;
 	color: #FFF;
