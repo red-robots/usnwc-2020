@@ -23,12 +23,11 @@ get_header(); ?>
 						<h1 class="page-title"><?php the_title(); ?></h1>
 					</div>
 					<?php the_content(); ?>
-					
+
 				</div>
 			</section>
 
 		<?php endwhile; ?>
-<?php echo do_shortcode('[gravityform id="34" title="false" description="false"]'); ?>
 	</main><!-- #main -->
 </div><!-- #primary -->
 
