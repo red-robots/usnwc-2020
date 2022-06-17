@@ -7,119 +7,98 @@ $post_type = 'post';
 $taxonomy = 'category'; 
 $perPage = 6;
 $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
-$args = array(
-	'posts_per_page'   => $perPage,
-	'post_type'        => 'post',
-	'post_status'      => 'publish',
-	'facetwp' 				 => true,
-	'paged'			   		 => $paged
-);
+// $args = array(
+// 	'posts_per_page'   => $perPage,
+// 	'post_type'        => 'post',
+// 	'post_status'      => 'publish',
+// 	'facetwp' 				 => true,
+// 	'paged'			   		 => $paged
+// );
 
-$get_is_all = array();
-$count_get = 0;
-if( isset($_GET) ) {
-	$n=1; foreach($_GET as $k=>$v) {
-		$delimited = ($n==1) ? '?':'&';
-		$baseURL .= $delimited . $k."=".$v;
+// $get_is_all = array();
+// $count_get = 0;
+// if( isset($_GET) ) {
+// 	$n=1; foreach($_GET as $k=>$v) {
+// 		$delimited = ($n==1) ? '?':'&';
+// 		$baseURL .= $delimited . $k."=".$v;
 
-		if($v=='all') {
-			$get_is_all[$k] = $v;
-		}
-		$n++;
-	}
-	$count_get = count($_GET);
-}
+// 		if($v=='all') {
+// 			$get_is_all[$k] = $v;
+// 		}
+// 		$n++;
+// 	}
+// 	$count_get = count($_GET);
+// }
 
-if($get_is_all && ($count_get!=count($get_is_all)) ) {
+// if($get_is_all && ($count_get!=count($get_is_all)) ) {
 
-	// if( isset($_GET['category']) || $_GET['activity_types'] ) {
-	// 	$cat_id = ($_GET['category'] && $_GET['category']!='all') ? $_GET['category'] : 0;
-	// 	$activity_type_id = ($_GET['activity_type'] && $_GET['activity_type']!='all') ? $_GET['activity_type'] : 0;
+	
 
-	// 	$args['tax_query'] = array(
-	// 	 'relation' => 'OR',
-	// 	  array(
-	// 	      'taxonomy' => 'category',
-	// 	      'field'    => 'term_id',
-	// 	      'terms'    => $cat_id,
-	// 	  ),
-	// 	  array(
-	// 	      'taxonomy' => 'activity_type',
-	// 	      'field'    => 'term_id',
-	// 	      'terms'    => $activity_type_id,
-	// 	  )
-	// 	);
-	// }
-
-	if( isset($_GET['_categories']) || $_GET['_activity_types'] ) {
-		$cat_id = ($_GET['_categories'] && $_GET['_categories']!='all') ? $_GET['_categories'] : 0;
-		$activity_type_id = ($_GET['_activity_types'] && $_GET['_activity_types']!='all') ? $_GET['_activity_types'] : 0;
-
-		// $args['tax_query'] = array(
-		//  'relation' => 'OR',
-		//   array(
-		//       'taxonomy' => 'category',
-		//       'field'    => 'term_id',
-		//       'terms'    => $cat_id,
-		//   ),
-		//   array(
-		//       'taxonomy' => 'activity_type',
-		//       'field'    => 'term_id',
-		//       'terms'    => $activity_type_id,
-		//   )
-		// );
-
-		$tax_query[] = array(
-			'taxonomy' => 'category',
-			'field' => 'term_id',
-			'terms' => $cat_id,
-			'operator' => 'IN'
-    );
-
-    $tax_query[] = array(
-			'taxonomy' => 'activity_type',
-			'field' => 'term_id',
-			'terms' => $activity_type_id,
-			'operator' => 'IN'
-    );
-
-    $count_query = ($tax_query) ? count($tax_query):0;
-		if($count_query>1) {
-			$tax_query['relation'] = 'OR';
-		}
-
-		$args['tax_query'] = $tax_query;
-	}
-
-}
+// 	if( isset($_GET['_categories']) || $_GET['_activity_types'] ) {
+// 		$cat_id = ($_GET['_categories'] && $_GET['_categories']!='all') ? $_GET['_categories'] : 0;
+// 		$activity_type_id = ($_GET['_activity_types'] && $_GET['_activity_types']!='all') ? $_GET['_activity_types'] : 0;
 
 
-$blogs = new WP_Query($args);
-$terms = get_terms( array(
-	    'taxonomy' => $taxonomy,
-	    'post_types'=> array($post_type),
-	    'hide_empty' => true,
-	) );
+// 		$tax_query[] = array(
+// 			'taxonomy' => 'category',
+// 			'field' => 'term_id',
+// 			'terms' => $cat_id,
+// 			'operator' => 'IN'
+//     );
 
-$types = get_terms( array(
-	    'taxonomy' => 'activity_type',
-	    'post_types'=> array($post_type),
-	    'hide_empty' => true,
-	) );
+//     $tax_query[] = array(
+// 			'taxonomy' => 'activity_type',
+// 			'field' => 'term_id',
+// 			'terms' => $activity_type_id,
+// 			'operator' => 'IN'
+//     );
 
-if ( $blogs->have_posts() ) {  $totalFound = $blogs->found_posts; ?>
+//     $count_query = ($tax_query) ? count($tax_query):0;
+// 		if($count_query>1) {
+// 			$tax_query['relation'] = 'OR';
+// 		}
+
+// 		$args['tax_query'] = $tax_query;
+// 	}
+
+// }
+
+
+// $blogs = new WP_Query($args);
+// $terms = get_terms( array(
+// 	    'taxonomy' => $taxonomy,
+// 	    'post_types'=> array($post_type),
+// 	    'hide_empty' => true,
+// 	) );
+
+// $types = get_terms( array(
+// 	    'taxonomy' => 'activity_type',
+// 	    'post_types'=> array($post_type),
+// 	    'hide_empty' => true,
+// 	) );
+
+// if ( $blogs->have_posts() ) {  $totalFound = $blogs->found_posts; 
+$response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=9' );
+// $response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=9&page=2' );
+// echo '<pre style="background-color: #fff;">';
+// print_r($response);
+// echo '<?pre>';
+        if( is_array($response) ) :
+            $code = wp_remote_retrieve_response_code( $response );
+            if(!empty($code) && intval(substr($code,0,1))===2): 
+                $body = json_decode(wp_remote_retrieve_body( $response),true);
+
+                ?>
 
 <div id="load-post-div">
 	<div id="load-data-div">
-		<div class="filter-wrapper">
+		<!-- <div class="filter-wrapper">
 			<div class="wrapper">
 				
 				<div class="filter-inner">
-					<!-- <div class="filterbytxt" align="center">Filter By:</div> -->
 					<div class="flexwrap">
 
 						<?php if ( do_shortcode('[facetwp facet="activity_types"]') ) { ?>
-						<!-- <div class="select-wrap align-middle"> -->
 						<div class="select-wrap">
 							<label for="activity_type">Activity</label>
 							<?php echo do_shortcode('[facetwp facet="activity_types" pager="true"]'); ?>
@@ -143,27 +122,39 @@ if ( $blogs->have_posts() ) {  $totalFound = $blogs->found_posts; ?>
 					/* Custom Filtering by Lisa */ 
 					//include( get_stylesheet_directory() . '/parts/filter-stories.php' ); ?>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="archive-posts-wrap">
 			<div id="postLists" class="posts-inner countItems<?php echo $totalFound?>">
 
 				<?php 
-					$sec=.1; $i=1; while ( $blogs->have_posts() ) : $blogs->the_post();
-					$thumbId = get_post_thumbnail_id(); 
-					$featImg = wp_get_attachment_image_src($thumbId,'large');
-					$featThumb = wp_get_attachment_image_src($thumbId,'thumbnail');
-					$content = get_the_content();
-					$title = get_the_title();
+					$sec=.1; $i=1; 
+
+					// while ( $blogs->have_posts() ) : $blogs->the_post();
+					foreach ($body as $post) :
+					// $thumbId = get_post_thumbnail_id(); 
+					// $featImg = wp_get_attachment_image_src($thumbId,'large');
+					$featImg = $post['fimg_url'];
+					// $featThumb = wp_get_attachment_image_src($thumbId,'thumbnail');
+					$featThumb = $post['acf']['image']['url'];
+
+					$content = $post['content'];
+					$title = $post['title']['rendered'];
 					$divclass = (($content || $title) && $featImg) ? 'half':'full';
-					$pagelink = get_permalink();
+					$pagelink = $post['link'];
 					$divclass .= ($i % 2) ? ' odd':' even';
 					$divclass .= ($i==1) ? ' first':'';
-					include( get_stylesheet_directory() . '/parts/content-post.php' );
+					$catId = $post['category']['0'];
+					$pDate = $post['date'];
+					$excerpt = $post['excerpt']['rendered'];
+					// echo '<pre style="background-color: #fff;">';
+					// print_r($post);
+					// echo '<?pre>';
+					include( get_stylesheet_directory() . '/parts/content-post-rest.php' );
 					?>
 				<?php
 				$sec =  $sec + .1;
-				$i++; endwhile; wp_reset_postdata(); ?>
+				$i++; endforeach; //wp_reset_postdata(); ?>
 
 			</div>
 		</div>
@@ -200,4 +191,8 @@ if ( $blogs->have_posts() ) {  $totalFound = $blogs->found_posts; ?>
 	</div>
 </div>
 
-<?php } ?>
+<?php 
+ 
+endif; 
+endif; 
+?>
