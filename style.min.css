@@ -1455,7 +1455,7 @@ html[xmlns] .flexslider .slides{display:block}
 .ci-zipline:before{content:'\0031'}
 .fw-left{width:100%;float:left}
 section.route-details{background:#f2f2f2}
-section.route-details .flexwrap{padding-top:50px;padding-bottom:70px;margin-left:-30px;margin-right:-30px}
+section.route-details .flexwrap{padding-top:50px;padding-bottom:70px;margin-left:-30px;margin-right:-30px;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 section.route-details .flexcol{width:50%;text-align:center;padding:30px;margin:10px 0}
 section.route-details .icon{margin-bottom:10px}
 section.route-details .icon img{width:auto;height:50px}
