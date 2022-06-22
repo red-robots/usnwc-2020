@@ -375,6 +375,8 @@ while ( have_posts() ) : the_post(); ?>
 	//$course_section_icon = get_field("course_section_icon"); 
 	$course_section_title = get_field("course_section_title"); 
 	$course_images = get_field("course_images"); 
+	$imgFrame = get_field('img_iframe');
+	$iframe = get_field('iframe');
 	if($course_section_title) { ?>
 	<section id="section-coursemap" data-section="Course Map" class="section-content">
 		<?php if ($course_section_title) { ?>
@@ -388,7 +390,9 @@ while ( have_posts() ) : the_post(); ?>
 			</div>
 		<?php } ?>
 
-		<?php if ($course_images) { 
+		<?php 
+			if( $imgFrame !== 'iframe' || $imgFrame == '' ) {
+			if ($course_images) { 
 			$ci_images[] = array('img1','img1_width');
 			$ci_images[] = array('img2','img2_width');
 			$countImages = 0;
@@ -425,6 +429,13 @@ while ( have_posts() ) : the_post(); ?>
 				</div>
 			</div>
 			<?php } ?>
+		<?php }} ?>
+		<?php if( $imgFrame == 'iframe' ) { ?>
+			<div class="course-images">
+				<div class="inner">
+					<?php echo $iframe; ?>
+				</div>
+			</div>
 		<?php } ?>
 	</section>
 	<?php } ?>
