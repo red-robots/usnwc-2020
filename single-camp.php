@@ -12,12 +12,28 @@ $status_custom_message = get_field('status_custom_message');
 $registerButton = 'Register';
 $registerTarget = ( isset($regTarget[0]) && $regTarget[0]=='yes' ) ? '_blank':'_self';
 
+$passport = get_field('passport_btn');
+$passLabel = get_field('passport_label');
+if( $passport == 'all' ) {
+	$pp = 'data-accesso-launch';
+} else {
+	$pp = 'data-accesso-keyword="'.$passport.'"';
+}
+
 get_header(); ?>
 <div class="hero-wrapper hero-register-button">
 <?php get_template_part("parts/single-banner"); ?>
 <?php if ($status=='open') { ?>
-	<?php if ($registerButton && $registerLink) { ?>
-		<div class="stats open"><a href="<?php echo $registerLink ?>" target="<?php echo $registerTarget ?>" class="registerBtn"><?php echo $registerButton ?></a></div>
+	<?php if($passport) { ?>
+		<div class="stats open">
+			<a <?php if($passport){echo $pp;} ?> href="#" class="registerBtn">
+				<?php if($passLabel){echo $passLabel;}else{echo 'REGISTER';} ?>
+			</a>
+		</div>
+	<?php } else { ?>
+		<?php if ($registerButton && $registerLink) { ?>
+			<div class="stats open"><a href="<?php echo $registerLink ?>" target="<?php echo $registerTarget ?>" class="registerBtn"><?php echo $registerButton ?></a></div>
+		<?php } ?>
 	<?php } ?>
 <?php } else if($status=='closed') { ?>
 	<div class="stats closed">SOLD OUT</div>

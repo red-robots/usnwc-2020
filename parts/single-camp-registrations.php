@@ -5,9 +5,15 @@ $registration_title = "Registration";
 $form_title = "FORMS";
 
 $use_global_options = get_field("use_global_options");
+
+$passport = ''; // reset variable
+
+
+
 if($use_global_options=='no') {
 		$formtypes = get_field("formtypes");
 		$payment_options = get_field("payment_options");
+		// $passport_payment_options = get_field('passport_options');
 		$steps = get_field("steps");
 		$sectionContent = array($steps,$payment_options);
 		if( $sectionContent && array_filter($sectionContent) ) { ?>
@@ -77,16 +83,31 @@ if($use_global_options=='no') {
 						$buttonName = ( isset($button['title']) && $button['title'] ) ? $button['title']:''; 
 						$buttonLink = ( isset($button['url']) && $button['url'] ) ? $button['url']:''; 
 						$buttonTarget = ( isset($button['target']) && $button['target'] ) ? $button['target']:'_self'; 
+						$passport = $p['passport_btn'];
+						$passLabel = $p['passport_label'];
+						if( $passport == 'all' ) {
+							$pp = 'data-accesso-launch';
+						} else {
+							$pp = 'data-accesso-keyword="'.$passport.'"';
+						}
 						if($type) { ?>
 						<div class="fcol">
 							<div class="inside">
 								<div class="titlediv js-blocks"><h2 class="type"><?php echo $type ?></h2></div>
 								<div class="textwrap">
 									<div class="text"><?php echo $description ?></div>
-									<?php if ($buttonName && $buttonLink) { ?>
-									<div class="buttondiv">
-										<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $buttonName ?></span></a>
-									</div>	
+									<?php if($passport) { ?>
+											<div class="buttondiv">
+												<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="btn-sm">
+													<span><?php if($passLabel){echo $passLabel;}else{echo 'Buy';} ?></span>
+												</a>
+											</div>
+										<?php } else { ?>
+											<?php if ($buttonName && $buttonLink) { ?>
+												<div class="buttondiv">
+													<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $buttonName ?></span></a>
+												</div>	
+											<?php } ?>
 									<?php } ?>
 								</div>
 							</div>
@@ -96,6 +117,14 @@ if($use_global_options=='no') {
 				</div>
 			</div>
 			<?php } ?>
+
+
+
+
+
+
+
+
 		</section>
 		<?php } ?>
 
