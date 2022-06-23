@@ -92,7 +92,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 									if( $show == 'show' ) {
 									?>
 									<div class="type">
-										<div class="pass-name"><?php echo $p->post_title ?> <?php echo $passport; ?></div>
+										<div class="pass-name"><?php echo $p->post_title ?></div>
 										<div class="price">
 											<?php if ($adult) { ?>
 											<div class="adult-price pr">Adult &ndash; <?php echo $adult ?></div>	
