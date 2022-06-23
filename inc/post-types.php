@@ -268,6 +268,15 @@ function build_taxonomies() {
       'query_var' => true
     ),
     array(
+      'post_type' => array('activity'),
+      'menu_name' => 'Activity Medium',
+      'plural'    => 'Activities',
+      'single'    => 'Activity',
+      'taxonomy'  => 'activity_medium',
+      'rewrite'   => 'activity-medium',
+      'query_var' => true
+    ),
+    array(
       'post_type' => array('faqs'),
       'menu_name' => 'FAQ Type',
       'plural'    => 'FAQ Types',

@@ -10295,6 +10295,22 @@ body.logged-in.admin-bar {
 			}
 		}
 	}
+	.flex-btns {
+		padding: 30px 0;
+		width: 100%;
+		clear: both;
+		@include tab() {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		.buttondiv {
+			@include tab() {
+				margin: 0 5px ;
+			}
+		}
+	}
 }
 
 #section-activities.section-content {

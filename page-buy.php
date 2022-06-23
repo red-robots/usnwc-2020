@@ -81,11 +81,18 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 									$buttonName = (isset($buyButton['title']) && $buyButton['title']) ? $buyButton['title']:'Purchase Pass';
 									$buttonLink = (isset($buyButton['url']) && $buyButton['url']) ? $buyButton['url']:'';
 									$buttonTarget = (isset($buyButton['target']) && $buyButton['target']) ? $buyButton['target']:'_self';
+									$passport = get_field('passport_btn',$pid);
+									$passLabel = get_field('passport_label',$pid);
+									if( $passport == 'all' ) {
+										$pp = 'data-accesso-launch';
+									} else {
+										$pp = 'data-accesso-keyword="'.$passport.'"';
+									}
 
 									if( $show == 'show' ) {
 									?>
 									<div class="type">
-										<div class="pass-name"><?php echo $p->post_title ?></div>
+										<div class="pass-name"><?php echo $p->post_title ?> <?php echo $passport; ?></div>
 										<div class="price">
 											<?php if ($adult) { ?>
 											<div class="adult-price pr">Adult &ndash; <?php echo $adult ?></div>	
@@ -94,10 +101,18 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 											<div class="young-price pr">Youth &ndash; <?php echo $young ?></div>	
 											<?php } ?>
 
-											<?php if ($buttonName && $buttonLink) { ?>
-											<div class="buttondiv">
-												<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $buttonName ?></span></a>
-											</div>
+											<?php if( $passport ) { ?>
+												<div class="buttondiv">
+													<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="btn-sm">
+														<span><?php if($passLabel){echo $passLabel;}else{echo 'Buy';} ?></span>
+													</a>
+												</div>
+											<?php } else { ?>
+												<?php if ($buttonName && $buttonLink) { ?>
+												<div class="buttondiv">
+													<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $buttonName ?></span></a>
+												</div>
+												<?php } ?>
 											<?php } ?>
 										</div>
 									</div>
@@ -126,28 +141,28 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 					<?php
 					$single_pass_args = array(
 						'posts_per_page'	=> -1,
-						'post_type'				=> 'activity',
-						'post_status'			=> 'publish',
-						'tax_query'				=> array(
-														array(
-															'taxonomy' => 'pass_type',
-															'field' => 'slug',
-															'terms' => 'single-activity-pass',
-															'operator' => 'IN'
-														  )
-														),
-						'meta_query'			=> array(
-													'relation' => 'OR',
-													array(
-														'key' => 'doNotShow',
-														'compare' => 'NOT EXISTS',
-													),
-													array(
-														'key' => 'doNotShow',
-														'value'		=> '',
-														'compare' => '='
-													),
-												)
+						'post_type'		=> 'activity',
+						'post_status'	=> 'publish',
+						'tax_query'		=> array(
+												array(
+													'taxonomy' => 'pass_type',
+													'field' => 'slug',
+													'terms' => 'single-activity-pass',
+													'operator' => 'IN'
+												  )
+												),
+						'meta_query'	=> array(
+											'relation' => 'OR',
+											array(
+												'key' => 'doNotShow',
+												'compare' => 'NOT EXISTS',
+											),
+											array(
+												'key' => 'doNotShow',
+												'value'		=> '',
+												'compare' => '='
+											),
+										)
 					);
 					$single_activities = get_posts($single_pass_args);
 					$other_activities = get_field("other_activities","option");
@@ -241,6 +256,29 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 								</div>
 							</div>
 							<?php } ?>
+							<?php 
+							$passport = ''; // reset the variable
+							$passLabel = ''; // reset the variable
+							 ?>
+							 <div class="flex-btns">
+							 	<?php 
+							 	if(have_rows('passport_links')): while(have_rows('passport_links')): the_row();
+								$passport = get_sub_field('passport_btn');
+								$passLabel = get_sub_field('passport_label');
+								if( $passport == 'all' ) {
+									$pp = 'data-accesso-launch';
+								} else {
+									$pp = 'data-accesso-keyword="'.$passport.'"';
+								} ?>
+							 	<?php if( $passport ) { ?>
+									<div class="buttondiv">
+										<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="btn-sm">
+											<span><?php if($passLabel){echo $passLabel;}else{echo 'Buy';} ?></span>
+										</a>
+									</div>
+								<?php } ?>
+								<?php endwhile; endif; ?>
+							 </div>
 						</div>
 					</div>
 				</div>
@@ -253,7 +291,10 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 	<?php } ?>
 
 
-	<?php if( $blocks = get_field("repeater_blocks") ) { $i=1;
+	<?php 
+		$passport = ''; // reset the variable
+		$passLabel = ''; // reset the variable
+		if( $blocks = get_field("repeater_blocks") ) { $i=1;
 		 	foreach($blocks as $e) {  
 		 		$title = $e['title'];
 		 		$text = $e['text'];
@@ -264,7 +305,13 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 				$buttonTarget = ( isset($button['target']) && $button['target'] ) ? $button['target'] : '_self';
 				$icon = $e['custom_icon'];
 				$sectionClass = ( ($title || $text) && $image ) ? 'half':'full';
-				?>
+				$passport =  $e['passport_btn'];
+				$passLabel = $e['passport_label'];
+				if( $passport == 'all' ) {
+					$pp = 'data-accesso-launch';
+				} else {
+					$pp = 'data-accesso-keyword="'.$passport.'"';
+				} ?>
 				<section id="<?php echo $sectionId ?>" data-section="<?php echo $title ?>" class="section-content sectionTwoCol <?php echo $sectionClass ?>">
 					<div class="flexwrap">
 						<?php if ($image) { ?>
@@ -287,10 +334,18 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 								<?php if ($text) { ?>
 									<div class="text"><?php echo $text ?></div>
 								<?php } ?>
-								<?php if ($button) { ?>
+								<?php if( $passport ) { ?>
 									<div class="buttondiv">
-										<a href="<?php echo $button['url'] ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $button['title'] ?></span></a>
+										<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="btn-sm">
+											<span><?php if($passLabel){echo $passLabel;}else{echo 'Buy';} ?></span>
+										</a>
 									</div>
+								<?php } else { ?>
+									<?php if ($button) { ?>
+										<div class="buttondiv">
+											<a href="<?php echo $button['url'] ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $button['title'] ?></span></a>
+										</div>
+									<?php } ?>
 								<?php } ?>
 							</div>
 						</div>	
