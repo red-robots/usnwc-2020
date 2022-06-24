@@ -87,6 +87,8 @@ if($use_global_options=='no') {
 						$passLabel = $p['passport_label'];
 						if( $passport == 'all' ) {
 							$pp = 'data-accesso-launch';
+						} elseif($passport == '31'||'32'||'33'||'34'||'35'||'36'||'37'){
+							$pp = 'data-accesso-package="'.$passport.'"';
 						} else {
 							$pp = 'data-accesso-keyword="'.$passport.'"';
 						}

@@ -12,10 +12,13 @@ $status_custom_message = get_field('status_custom_message');
 $registerButton = 'Register';
 $registerTarget = ( isset($regTarget[0]) && $regTarget[0]=='yes' ) ? '_blank':'_self';
 
+
 $passport = get_field('passport_btn');
 $passLabel = get_field('passport_label');
 if( $passport == 'all' ) {
 	$pp = 'data-accesso-launch';
+} elseif($passport == '31'||'32'||'33'||'34'||'35'||'36'||'37'){
+	$pp = 'data-accesso-package="'.$passport.'"';
 } else {
 	$pp = 'data-accesso-keyword="'.$passport.'"';
 }
