@@ -5199,8 +5199,8 @@ body.single-instructions {
 	.frame-left {
 		width: 100%;
 		@include tab() {
-			width: 80%;
-			float: left;
+			// width: 80%;
+			// float: left;
 		}
 		iframe {
 			width: 100%;
@@ -5209,19 +5209,24 @@ body.single-instructions {
 	.frame-right {
 		width: 100%;
 		@include tab() {
-			width: 18%;
-			float: right;
+			// width: 18%;
+			// float: right;
 		}
 	}
 	.key {
 		width: 100%;
 		padding: 20px;
 		border: 1px solid #eee;
+		@include tab() {
+			max-width: 300px;
+			margin: 30px auto;
+		}
 		h3 {
 			padding-bottom: 10px;
 			border-bottom: 2px solid #ccc;
 			width: 100%;
 			margin-bottom: 20px;
+			text-align: center;
 		}
 		.map-detail {
 			width: 100%;
