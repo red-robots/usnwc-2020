@@ -2286,15 +2286,15 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 #section-coursemap .course-images .img .wrap{width:100%;height:100%;background-size:cover;background-position:top center;background-repeat:no-repeat}
 #section-coursemap .course-images .img img{width:100%;height:auto}
 #section-coursemap .course-images a.zoomPic{display:block}
-#section-coursemap .map-wrap{width:100%}
-#section-coursemap .frame-left{width:100%}
-#section-coursemap .frame-left iframe{width:100%}
-#section-coursemap .frame-right{width:100%}
-#section-coursemap .key{width:100%;padding:20px;border:1px solid #eee}
-#section-coursemap .key h3{padding-bottom:10px;border-bottom:2px solid #ccc;width:100%;margin-bottom:20px;text-align:center}
-#section-coursemap .key .map-detail{width:100%;margin:0 0 5px 0;clear:both;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-#section-coursemap .key .map-detail .line{width:30%;float:left;height:3px}
-#section-coursemap .key .map-detail .key-label{width:60%;margin:0 0 0 10%;text-align:left;float:left}
+.map-wrap{width:100%}
+.map-wrap .frame-left{width:100%}
+.map-wrap .frame-left iframe{width:100%}
+.map-wrap .frame-right{width:100%}
+.map-wrap .key{width:100%;padding:20px;border:1px solid #eee}
+.map-wrap .key h3{padding-bottom:10px;border-bottom:2px solid #ccc;width:100%;margin-bottom:20px;text-align:center}
+.map-wrap .key .map-detail{width:100%;margin:0 0 5px 0;clear:both;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.map-wrap .key .map-detail .line{width:30%;float:left;height:3px}
+.map-wrap .key .map-detail .key-label{width:60%;margin:0 0 0 10%;text-align:left;float:left}
 .section-schedule{padding-top:50px;padding-bottom:50px;margin-top:16px}
 #section-awards .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-left:-5px;margin-right:-5px}
 #section-awards .icon-img{margin-bottom:15px}
@@ -3775,7 +3775,7 @@ body.scrolled .site-header .navbar{background:rgba(255,255,255,0.95)}
 #about-instructor .text .wrap{padding:20px 6vw}
 #about-instructor.half .photo{width:30%}
 #about-instructor.half .text{width:70%}
-#section-coursemap .key{max-width:300px;margin:30px auto}
+.map-wrap .key{max-width:300px;margin:30px auto}
 #section-awards .awards-columns{padding-top:0;width:50%}
 #section-awards .awards-columns .inside{padding:4vw 6vw}
 #section-awards .col-content .result-data{width:33.33%}

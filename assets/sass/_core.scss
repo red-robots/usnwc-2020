@@ -5193,9 +5193,11 @@ body.single-instructions {
 			display: block;
 		}
 	}
-	.map-wrap {
-		width: 100%;
-	}
+	
+	
+}
+.map-wrap {
+	width: 100%;
 	.frame-left {
 		width: 100%;
 		@include tab() {
