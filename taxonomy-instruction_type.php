@@ -10,7 +10,7 @@
 get_header(); 
 //$parent_page_id = ( isset($_GET['pp']) && $_GET['pp'] ) ? $_GET['pp'] : '';
 
-
+$passport = ''; // reset variable
 $obj = get_queried_object();
 $current_term_id = $obj->term_id;
 $current_term_name = $obj->name;

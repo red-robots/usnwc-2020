@@ -85,13 +85,18 @@ if($use_global_options=='no') {
 						$buttonTarget = ( isset($button['target']) && $button['target'] ) ? $button['target']:'_self'; 
 						$passport = $p['passport_btn'];
 						$passLabel = $p['passport_label'];
+						$idArray = array('31','32','33','34','35','36','37');
 						if( $passport == 'all' ) {
 							$pp = 'data-accesso-launch';
-						} elseif($passport == '31'||'32'||'33'||'34'||'35'||'36'||'37'){
+						} elseif(in_array($passport, $idArray )) {
 							$pp = 'data-accesso-package="'.$passport.'"';
 						} else {
 							$pp = 'data-accesso-keyword="'.$passport.'"';
 						}
+
+						
+
+
 						if($type) { ?>
 						<div class="fcol">
 							<div class="inside">

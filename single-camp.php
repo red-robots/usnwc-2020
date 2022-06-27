@@ -15,9 +15,10 @@ $registerTarget = ( isset($regTarget[0]) && $regTarget[0]=='yes' ) ? '_blank':'_
 
 $passport = get_field('passport_btn');
 $passLabel = get_field('passport_label');
+$idArray = array('31','32','33','34','35','36','37');
 if( $passport == 'all' ) {
 	$pp = 'data-accesso-launch';
-} elseif($passport == '31'||'32'||'33'||'34'||'35'||'36'||'37'){
+} elseif(in_array($passport, $idArray )) {
 	$pp = 'data-accesso-package="'.$passport.'"';
 } else {
 	$pp = 'data-accesso-keyword="'.$passport.'"';

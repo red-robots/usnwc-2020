@@ -27,6 +27,7 @@ $flexClass = ($total<3) ? ' align-middle':'';
 			<div class="posts-inner result">
 				<div id="resultContainer" class="flex-inner<?php echo $flexClass ?>">
 					<?php $ctr=1; while ( $entries->have_posts() ) : $entries->the_post(); 
+						$passport = ''; // reset variable
 						$pid = get_the_ID();
 						$title = get_the_title();
 						$pagelink  = get_permalink();
@@ -42,6 +43,19 @@ $flexClass = ($total<3) ? ' align-middle':'';
 						$registerLink = ( isset($register['url']) && $register['url'] ) ? $register['url'] : '';
 						$registerText = ( isset($register['title']) && $register['title'] ) ? $register['title'] : '';
 						$registerTarget = ( isset($register['target']) && $register['target'] ) ? $register['target'] : '_self';
+
+						$passport = get_field('passport_btn');
+						$passLabel = get_field('passport_label');
+						$idArray = array('40','41','42','43','53','54','55','56','57','58');
+						if( $passport == 'all' ) {
+							$pp = 'data-accesso-launch';
+						} elseif(in_array($passport, $idArray )) {
+							$pp = 'data-accesso-package="'.$passport.'"';
+						} else {
+							$pp = 'data-accesso-keyword="'.$passport.'"';
+						}
+
+
 						$information = get_field("information_content");
 						$categories = get_the_terms($pid,'instruction_type');
 
@@ -152,10 +166,18 @@ $flexClass = ($total<3) ? ' align-middle':'';
 										</div>
 									</div>
 
-									<?php if ($registerLink && $registerText) { ?>
-									<div class="button">
-										<a href="<?php echo $registerLink ?>" class="btn-sm xs"><span><?php echo $registerText ?></span></a>
-									</div>
+									<?php if($passport) { ?>
+										<div class="button <?php echo $passport; ?>">
+											<a <?php if($passport){echo $pp;} ?> href="#" class="btn-sm xs">
+												<span><?php if($passLabel){echo $passLabel;}else{echo 'REGISTER';} ?></span>
+											</a>
+										</div>
+									<?php } else { ?>
+										<?php if ($registerLink && $registerText) { ?>
+										<div class="button">
+											<a href="<?php echo $registerLink ?>" class="btn-sm xs"><span><?php echo $registerText ?></span></a>
+										</div>
+										<?php } ?>
 									<?php } ?>
 							
 								<?php } ?>

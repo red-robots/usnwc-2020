@@ -24,11 +24,25 @@ $options[] = array('Ratio',get_field("ratio"));
 	$registerBtn = ( isset($register['title']) && $register['title'] ) ? $register['title'] : 'Register';
 	$registerLink = ( isset($register['url']) && $register['url'] ) ? $register['url'] : '';
 	$regiserTarget = ( isset($register['target']) && $register['target'] ) ? $register['target'] : '_self';
+
+	$passport = get_field('passport_btn');
+	$passLabel = get_field('passport_label');
+	$idArray = array('40','41','42','43','53','54','55','56','57','58');
+	if( $passport == 'all' ) {
+		$pp = 'data-accesso-launch';
+	} elseif(in_array($passport, $idArray )) {
+		$pp = 'data-accesso-package="'.$passport.'"';
+	} else {
+		$pp = 'data-accesso-keyword="'.$passport.'"';
+	}
 ?>
-<?php if ($registerLink) { ?>
-<section id="section-registration" class="section-content section-full-button">
-	<a href="<?php echo $registerLink ?>" target="<?php echo $regiserTarget ?>" class="red-button-full stitle"><span><?php echo $registerBtn ?></span></a>
-</section>
+<?php if($passport) { ?>
+<?php } else { ?>
+	<?php if ($registerLink) { ?>
+	<section id="section-registration" class="section-content section-full-button">
+		<a href="<?php echo $registerLink ?>" target="<?php echo $regiserTarget ?>" class="red-button-full stitle"><span><?php echo $registerBtn ?></span></a>
+	</section>
+	<?php } ?>
 <?php } ?>
 
 <?php $schedule_items = get_field("schedule_items"); ?>
