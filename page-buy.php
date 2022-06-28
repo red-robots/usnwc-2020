@@ -83,8 +83,11 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 									$buttonTarget = (isset($buyButton['target']) && $buyButton['target']) ? $buyButton['target']:'_self';
 									$passport = get_field('passport_btn',$pid);
 									$passLabel = get_field('passport_label',$pid);
+									$idArray = array('5','51');
 									if( $passport == 'all' ) {
 										$pp = 'data-accesso-launch';
+									} elseif(in_array($passport, $idArray )) {
+										$pp = 'data-accesso-package="'.$passport.'"';
 									} else {
 										$pp = 'data-accesso-keyword="'.$passport.'"';
 									}
@@ -265,11 +268,14 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 							 	if(have_rows('passport_links')): while(have_rows('passport_links')): the_row();
 								$passport = get_sub_field('passport_btn');
 								$passLabel = get_sub_field('passport_label');
-								if( $passport == 'all' ) {
-									$pp = 'data-accesso-launch';
-								} else {
-									$pp = 'data-accesso-keyword="'.$passport.'"';
-								} ?>
+								$idArray = array('5','51');
+									if( $passport == 'all' ) {
+										$pp = 'data-accesso-launch';
+									} elseif(in_array($passport, $idArray )) {
+										$pp = 'data-accesso-package="'.$passport.'"';
+									} else {
+										$pp = 'data-accesso-keyword="'.$passport.'"';
+									} ?>
 							 	<?php if( $passport ) { ?>
 									<div class="buttondiv">
 										<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="btn-sm">
