@@ -264,6 +264,9 @@ while ( have_posts() ) : the_post(); ?>
 									<?php $i=1; 
 									$totalTypes = count($race_types);
 									foreach ($race_types as $r) { 
+										// echo '<pre style="background: #fff;">';
+										// print_r($r);
+										// echo '</pre>';
 										$actualName = $r['name']; 
 										$alias = $r['alias'];
 										$name = ($alias) ? $alias : $actualName;
@@ -276,6 +279,7 @@ while ( have_posts() ) : the_post(); ?>
 											$singleDay = ($startdate) ? date('l',strtotime($startdate)) : '';
 										}
 										$activities = ( isset($sched['schedule']) && $sched['schedule'] ) ? $sched['schedule'] : '';
+										$custom_date = $sched['custom_date'];
 										// $is_active = ($i==1) ? ' active':'';
 										$is_active = 'active';
 										$dateRange = '';
@@ -315,7 +319,15 @@ while ( have_posts() ) : the_post(); ?>
 														$event = $a['action'];
 														if($time || $action) { ?>
 														<?php if( $ii == 0 ){ ?>
-															<li class="rdate"><?php echo $newStartDate; ?></li>
+															<li class="rdate">
+																<?php 
+																if($custom_date) {
+																	echo $custom_date;
+																} else {
+																	echo $newStartDate; 
+																}
+																?>
+															</li>
 														<?php } ?>
 														<li class="info">
 															<div class="wrap">
