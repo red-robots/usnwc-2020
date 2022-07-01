@@ -143,13 +143,17 @@ $flexClass = ($total<3) ? ' align-middle':'';
 
 											<?php if ($information) { ?>
 											<div class="other-info">
-												<?php foreach ($information as $e) { ?>
+												<?php foreach ($information as $e) { 
+													// echo '<pre>';
+													// print_r($e);
+													// echo '</pre>';
+													?>
 												<div class="text">
 													<?php if ($e['title']) { ?>
 														<div class="t1"><strong><?php echo $e['title'] ?></strong></div>
 													<?php } ?>
 													<?php if ($e['text']) { ?>
-														<div class="t2"><?php echo emailize($e['text']) ?></div>
+														<div class="t2"><?php echo $e['text'] ?></div>
 													<?php } ?>
 												</div>	
 												<?php } ?>
