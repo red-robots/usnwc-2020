@@ -5243,12 +5243,11 @@ body.single-instructions {
 				width: 30%;
 				float: left;
 				height: 3px;
-				// &:after {
-				// 	content: '';
-				// 	position: absolute;
-
-				// }
+				&.two {
+					width: 15%;
+				}
 			}
+			
 			.key-label {
 				width: 60%;
 				margin: 0 0 0 10%;

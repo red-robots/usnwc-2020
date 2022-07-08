@@ -456,12 +456,23 @@ while ( have_posts() ) : the_post(); ?>
 								<div class="key">
 									<h3>Map Key</h3>
 									<?php if(have_rows('map_key')): while(have_rows('map_key')): the_row(); 
+											$lClass = '';
 											$mapColor = get_sub_field('route_color');
 											$mapName = get_sub_field('route_name');
 											$mapLine = get_sub_field('route_type');
+											$mapColorT = get_sub_field('route_2_color');
+											$mapLineT = get_sub_field('route_2_type');
+											if( $mapColorT ) {
+												$lClass = 'two';
+											}
 										?>
 										<div class="map-detail">
-											<div class="line" style="border-bottom: 3px <?php echo $mapColor. ' '.$mapLine ?>; ">&nbsp;</div>
+											<div class="line <?php echo $lClass; ?>" 
+											style="border-bottom: 3px <?php echo $mapColor. ' '.$mapLine ?>; ">&nbsp;</div>
+											<?php if( $mapColorT ){ ?>
+												<div class="line <?php echo $lClass; ?>" 
+												style="border-bottom: 3px <?php echo $mapColorT. ' '.$mapLineT ?>; ">&nbsp;</div>
+											<?php } ?>
 											<div class="key-label"><?php echo $mapName; ?></div>
 										</div>
 									<?php endwhile; endif; ?>
