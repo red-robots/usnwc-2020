@@ -7148,15 +7148,13 @@ body.page-template-page-stories {
 
 .content-area-full.post-type-dining {
 	.post-hero-image {
-		margin-top: 90px;
+		margin-top: 85px;
 		&.closed {
 			padding-top: 38px;
 		}
 		.stats {
 			width: 100%;
-			position: absolute;
-			top: 0px;
-			left: 0;
+			
 			z-index: 10;
 			color: #FFF;
 			text-transform: uppercase;
@@ -7174,6 +7172,11 @@ body.page-template-page-stories {
 			&.open {
 				text-align: left;
 			}
+			@include tab() {
+				position: absolute;
+				top: 0px;
+				left: 0;
+			}
 		}
 	}
 	.registerBtn {
@@ -7189,23 +7192,29 @@ body.page-template-page-stories {
 		height: 52px;
 		padding: 0 35px;
 		position: relative;
-		&:after {
-			content:"";
-			display: block;
-			width: 0;
-			height: 0;
-			border-left: 28px solid $red;
-			border-top: 26px solid transparent;
-			border-bottom: 26px solid transparent;
-			position: absolute;
-			top: 0;
-			right: -28px;
-			transition: all ease .3s;
-		}
+		width: 100%;
+		text-align: center;
+		
 		&:hover {
 			background: #000;
 			&:after {
 				border-left-color: #000;
+			}
+		}
+		@include tab() {
+			width: auto;
+			&:after {
+				content:"";
+				display: block;
+				width: 0;
+				height: 0;
+				border-left: 28px solid $red;
+				border-top: 26px solid transparent;
+				border-bottom: 26px solid transparent;
+				position: absolute;
+				top: 0;
+				right: -28px;
+				transition: all ease .3s;
 			}
 		}
 	}
@@ -7255,29 +7264,34 @@ body.page-template-page-stories {
 		padding: 0 35px;
 		position: relative;
 		box-shadow: -12px 8px 17px rgba(0,0,0,.3);
-		&:before,&:after {
-			content:"";
-			display: block;
-			transition: all ease .3s;
-			position: absolute;
-			right: -12px;
-			width: 50px;
-    	height: 50%;
-    	background-color: $red;
-		}
-		&:before {
-			top: 0;
-			transform: skew(40deg);
-		}
-		&:after {
-			height: 51%;
-			bottom: 0;
-			transform: skew(-40deg);
-		}
-		&:hover {
-			background: #000;
+		width: 100%;
+		text-align: center;
+		@include tab() {
+			width: auto;
 			&:before,&:after {
-				background-color: #000;
+				content:"";
+				display: block;
+				transition: all ease .3s;
+				position: absolute;
+				right: -12px;
+				width: 50px;
+	    		height: 50%;
+	    		background-color: $red;
+			}
+			&:before {
+				top: 0;
+				transform: skew(40deg);
+			}
+			&:after {
+				height: 51%;
+				bottom: 0;
+				transform: skew(-40deg);
+			}
+			&:hover {
+				background: #000;
+				&:before,&:after {
+					background-color: #000;
+				}
 			}
 		}
 	}
@@ -7290,18 +7304,31 @@ body.page-template-page-stories {
 body.scrolled.single-dining {
 	.post-hero-image .stats {
 		position: fixed;
-		z-index: 50;
+		z-index: 5000;
 	}
 	&.logged-in.admin-bar {
 		.post-hero-image .stats {
-			top: 135px;
+			top: 130px;
 			@include tab {
 				top: 118px;
 			}
 		}
 	}
 }
-
+body.scrolled {
+	.stats {
+		position: fixed;
+		z-index: 500000;
+	}
+	&.logged-in.admin-bar {
+		.stats {
+			top: 130px;
+			@include tab {
+				top: 118px;
+			}
+		}
+	}
+}
 body.scrolled {
 	.hero-register-button .registerBtn {
 		

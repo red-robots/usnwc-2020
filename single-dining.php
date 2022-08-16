@@ -40,6 +40,7 @@ if( $passport == 'all' ) {
 
 		<?php if ($heroImage) { ?>
 		<div class="post-hero-image <?php echo $status; ?>">
+			<img src="<?php echo $heroImage['url'] ?>" alt="<?php echo $heroImage['title'] ?>" class="featured-image">
 			<?php if ($status=='open') { ?>
 
 				<?php if($passport){ ?>
@@ -62,7 +63,7 @@ if( $passport == 'all' ) {
 				<?php } ?>
 			
 			<?php } ?>
-			<img src="<?php echo $heroImage['url'] ?>" alt="<?php echo $heroImage['title'] ?>" class="featured-image">
+			
 		</div>
 		<?php } ?>
 
