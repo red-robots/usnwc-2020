@@ -80,6 +80,17 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 								$buttonLink = (isset($buyButton['url']) && $buyButton['url']) ? $buyButton['url']:'';
 								$buttonTarget = (isset($buyButton['target']) && $buyButton['target']) ? $buyButton['target']:'_self';
 
+								$passport = get_field('passport_btn',$pid);
+								$passLabel = get_field('passport_label',$pid);
+								$idArray = array('5','51');
+								if( $passport == 'all' ) {
+									$pp = 'data-accesso-launch';
+								} elseif(in_array($passport, $idArray )) {
+									$pp = 'data-accesso-package="'.$passport.'"';
+								} else {
+									$pp = 'data-accesso-keyword="'.$passport.'"';
+								}
+
 								if( $show == 'show' ) {
 								?>
 								<div class="type">
@@ -92,10 +103,18 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 										<div class="young-price pr">Youth &ndash; <?php echo $young ?></div>	
 										<?php } ?>
 
-										<?php if ($buttonName && $buttonLink) { ?>
-										<div class="buttondiv">
-											<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm xs"><span><?php echo $buttonName ?></span></a>
-										</div>
+										<?php if( $passport ) { ?>
+											<div class="buttondiv">
+												<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="btn-sm">
+													<span><?php if($passLabel){echo $passLabel;}else{echo 'Buy';} ?></span>
+												</a>
+											</div>
+										<?php } else { ?>
+											<?php if ($buttonName && $buttonLink) { ?>
+											<div class="buttondiv">
+												<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm xs"><span><?php echo $buttonName ?></span></a>
+											</div>
+											<?php } ?>
 										<?php } ?>
 									</div>
 								</div>
@@ -134,6 +153,11 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 						<?php if ($single_activities) { ?>
 						<div class="single-activities">
 							<?php foreach ($single_activities as $e) { 
+								// echo '<pre>';
+								// print_r($e);
+								// echo '</pre>';
+								$passport = ''; // reset the variable
+								$passLabel = ''; // reset the variable
 								$s_custom = ( isset($e['custom']) && $e['custom'] ) ? $e['custom'] : '';
 								$s_price = ( isset($e['price']) && $e['price'] ) ? $e['price'] : '';
 								$s_name = ( isset($e['name']) && $e['name'] ) ? $e['name'] : '';
@@ -154,14 +178,41 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 												<?php if ($s_price) { ?>
 												<span class="price"><?php echo $s_price ?></span>	
 												<?php } ?>
+												
 												<?php if ($buy_btn && $buy_link) { ?>
-												<a href="<?php echo $buy_link ?>" target="<?php echo $buy_target ?>" class="btn-sm xs"><span><?php echo $buy_btn ?></span></a>
+													<a href="<?php echo $buy_link ?>" target="<?php echo $buy_target ?>" class="btn-sm xs"><span><?php echo $buy_btn ?></span></a>
 												<?php } ?>
 											</span>
 										</span>
 									<?php } ?>
 								</div>
 							<?php } ?>
+							<?php 
+							$passport = ''; // reset the variable
+							$passLabel = ''; // reset the variable
+							 ?>
+							 <div class="flex-btns">
+							 	<?php 
+							 	if(have_rows('passport_links')): while(have_rows('passport_links')): the_row();
+								$passport = get_sub_field('passport_btn');
+								$passLabel = get_sub_field('passport_label');
+								$idArray = array('5','51');
+									if( $passport == 'all' ) {
+										$pp = 'data-accesso-launch';
+									} elseif(in_array($passport, $idArray )) {
+										$pp = 'data-accesso-package="'.$passport.'"';
+									} else {
+										$pp = 'data-accesso-keyword="'.$passport.'"';
+									} ?>
+							 	<?php if( $passport ) { ?>
+									<div class="buttondiv">
+										<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="btn-sm">
+											<span><?php if($passLabel){echo $passLabel;}else{echo 'Buy';} ?></span>
+										</a>
+									</div>
+								<?php } ?>
+								<?php endwhile; endif; ?>
+							 </div>
 						</div>
 						<?php } ?>
 
