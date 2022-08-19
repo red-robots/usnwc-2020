@@ -6896,8 +6896,17 @@ body.page-template-page-stories {
 		height: auto;
 		float: left;
 	}
+	img.desktop {
+		display: none;
+	}
 	@include tab() {
 		margin-top: 90px;
+		img.desktop {
+			display: block;
+		}
+		img.mobile {
+			display: none;
+		}
 	}
 }
 .hero-wrapper {

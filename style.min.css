@@ -2546,6 +2546,7 @@ body.page-template-page-stories .select2-container--default .select2-results__op
 #primary.single-post .post-hero-image .videoCustomImage{display:block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:50;cursor:pointer;background-size:cover;background-position:center;background-repeat:no-repeat}
 .post-hero-image{width:100%;float:left;position:relative;z-index:150}
 .post-hero-image img.featured-image{width:100%;height:auto;float:left}
+.post-hero-image img.desktop{display:none}
 .hero-wrapper{position:relative;width:100%;float:left}
 .main-post-text{width:100%;float:left;background:#f5f5f5;padding-top:50px;padding-bottom:50px}
 .main-post-text .textcol,.main-post-text .imagescol{width:100%;float:left}
@@ -3818,6 +3819,8 @@ body.scrolled .site-header .navbar{background:rgba(255,255,255,0.95)}
 .alternate-posts .half.even .flexwrap{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
 #primary.single-post .text-centered-section .page-header:after{width:2.5vw}
 .post-hero-image{margin-top:90px}
+.post-hero-image img.desktop{display:block}
+.post-hero-image img.mobile{display:none}
 .main-post-text{padding-top:100px;padding-bottom:100px}
 .main-post-text .textcol{margin-bottom:0}
 .main-post-text .imagescol{padding-right:5px}

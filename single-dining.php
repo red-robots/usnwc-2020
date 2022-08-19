@@ -9,7 +9,14 @@
 
 get_header(); 
 $post_type = get_post_type();
+$dClass = '';
+$mClass = '';
 $heroImage = get_field("post_image_full");
+$mobileBanner = get_field('mobile-banner');
+if( $mobileBanner ) {
+	$dClass = 'desktop';
+	$mClass = 'mobile';
+}
 $has_hero = ($heroImage) ? 'has-banner':'no-banner';
 //$customPostTypes = array('activity','festival');
 //get_template_part("parts/subpage-banner");
@@ -40,7 +47,9 @@ if( $passport == 'all' ) {
 
 		<?php if ($heroImage) { ?>
 		<div class="post-hero-image <?php echo $status; ?>">
-			<img src="<?php echo $heroImage['url'] ?>" alt="<?php echo $heroImage['title'] ?>" class="featured-image">
+			<img src="<?php echo $heroImage['url'] ?>" alt="<?php echo $heroImage['title'] ?>" class="featured-image <?php echo $dClass; ?>">
+
+			<img src="<?php echo $mobileBanner['url'] ?>" alt="<?php echo $mobileBanner['title'] ?>" class="featured-image <?php echo $mClass; ?>">
 			<?php if ($status=='open') { ?>
 
 				<?php if($passport){ ?>
