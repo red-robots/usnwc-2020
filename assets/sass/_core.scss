@@ -7315,6 +7315,7 @@ body.scrolled.single-dining {
 		position: fixed;
 		z-index: 5000;
 	}
+	
 	&.logged-in.admin-bar {
 		.post-hero-image .stats {
 			top: 130px;
@@ -7327,7 +7328,11 @@ body.scrolled.single-dining {
 body.scrolled {
 	.stats {
 		position: fixed;
-		z-index: 500000;
+		z-index: 5000;
+		top: 85px;
+		@include tab {
+			// top: 118px;
+		}
 	}
 	&.logged-in.admin-bar {
 		.stats {

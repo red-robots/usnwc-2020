@@ -2594,7 +2594,7 @@ body.page-template-page-stories .select2-container--default .select2-results__op
 .hero-register-button.has-event-status #banner .static-banner .slideCaption .text{margin-top:3%}
 body.scrolled.single-dining .post-hero-image .stats{position:fixed;z-index:5000}
 body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:130px}
-body.scrolled .stats{position:fixed;z-index:500000}
+body.scrolled .stats{position:fixed;z-index:5000;top:85px}
 body.scrolled.logged-in.admin-bar .stats{top:130px}
 .shead-icon{margin-bottom:35px}
 .shead-icon div.icon span{font-size:35px;line-height:1}
