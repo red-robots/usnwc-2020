@@ -100,6 +100,9 @@ $defaultLocation = get_default_job_location();
 			$jobfairTypes = get_field("jobfair_types");
 			$jobfairTitle = get_field("jobfair_types_title");
 			$showFaqs = get_field("faqs_visibility");
+			echo '<pre>';
+			print_r($showHide);
+			echo '</pre>';
 
 			if( $showHide == 'show' ) :
 			$s3 = ( ($left_image || $left_text) &&  $jobfairTypes ) ? 'half':'full';
