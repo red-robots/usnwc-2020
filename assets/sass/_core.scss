@@ -14328,3 +14328,24 @@ ul.items {
 		float: left;
 	}
 }
+#race-pop {
+	padding: 20px;
+	background-color: #fff;
+	text-align: center;
+	overflow: hidden;
+	img {
+		max-width: 100%;
+	}
+	.race-pop-img {
+		width: 100%;
+		float: left;
+	}
+	.race-pop-txt {
+		float: left;
+		margin: 20px auto 20px auto;
+		width: 100%;
+	}
+	a {
+		color: #000;
+	}
+}

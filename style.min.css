@@ -1199,14 +1199,13 @@ button:focus{outline:0}
 #cboxLoadingGraphic{background:url(images/loading.gif) no-repeat center center}
 #cboxTitle{position:absolute;bottom:-25px;left:0;text-align:left;width:60%;font-weight:bold;color:#fff;padding:4% 20% 8% 20%;line-height:1.3;font-size:20px}
 #cboxCurrent{position:absolute;bottom:-25px;left:58px;font-weight:bold;color:#7c7c7c}
-#cboxPrevious,#cboxNext,#cboxSlideshow,#cboxClose{border:0;padding:0;margin:0;overflow:visible;position:absolute;top:10px;background:url(images/controls-new.png);background-size:150px 100px;background-repeat:no-repeat;width:50px;height:50px;text-indent:-9999px;-webkit-box-shadow:none;box-shadow:none}
+#cboxPrevious,#cboxNext,#cboxSlideshow,#cboxClose{border:0;padding:0;margin:0;overflow:visible;position:absolute;top:-15px;background:url(images/controls-new.png);background-size:150px 100px;background-repeat:no-repeat;width:50px;height:50px;text-indent:-9999px;-webkit-box-shadow:none;box-shadow:none}
 #cboxPrevious:active,#cboxNext:active,#cboxSlideshow:active,#cboxClose:active{outline:0}
 #cboxPrevious{left:20px;background-position:-0 -0}
 #cboxPrevious:hover{background-position:-0 -50px}
 #cboxNext{left:90px;background-position:-50px -0}
 #cboxNext:hover{background-position:-50px -50px}
-#cboxClose{right:20px;background-position:-100px -0}
-#cboxClose:hover{background-position:-100px -50px}
+#cboxClose{right:-15px;background-position:-100px -0}
 .cboxSlideshow_on #cboxSlideshow{background-position:-125px 0;right:27px}
 .cboxSlideshow_on #cboxSlideshow:hover{background-position:-150px 0}
 .cboxSlideshow_off #cboxSlideshow{background-position:-150px -25px;right:27px}
@@ -3655,6 +3654,11 @@ ul.items .show{display:block}
 #comments time{font-size:12px}
 #comments .reply a{padding:10px 25px;border:1px solid #ba0d30;font-size:14px}
 #comments #respond{margin-top:30px;border-top:2px solid #f2f2f2;padding:30px 0;width:100%;float:left}
+#race-pop{padding:20px;background-color:#fff;text-align:center;overflow:hidden}
+#race-pop img{max-width:100%}
+#race-pop .race-pop-img{width:100%;float:left}
+#race-pop .race-pop-txt{float:left;margin:20px auto 20px auto;width:100%}
+#race-pop a{color:#000}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}
