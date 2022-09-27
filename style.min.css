@@ -3659,6 +3659,7 @@ ul.items .show{display:block}
 #race-pop .race-pop-img{width:100%;float:left}
 #race-pop .race-pop-txt{float:left;margin:20px auto 20px auto;width:100%}
 #race-pop a{color:#000}
+#race-pop .popbtn a:hover{color:#fff}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}
