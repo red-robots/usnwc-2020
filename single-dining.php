@@ -216,6 +216,8 @@ if( $passport == 'all' ) {
 				</section>
 				<?php } ?>
 
+				<?php include(locate_template('parts/text-image-blocks.php')); ?>
+
 
 				<?php  
 				/* WHAT TO BRING */
