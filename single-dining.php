@@ -216,6 +216,8 @@ if( $passport == 'all' ) {
 				</section>
 				<?php } ?>
 
+				<?php include(locate_template('parts/adventure-dining-map-v-two.php')); ?>
+
 				<?php include(locate_template('parts/text-image-blocks.php')); ?>
 
 
