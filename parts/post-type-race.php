@@ -541,7 +541,6 @@ $popup_link = get_field('popup_link');
 		<?php if($popup_link) {?></a><?php } ?>
 	</div>
 </div>
-
 <?php if( $popup_on == 'yes' ){ ?>
 	<?php if (!isset($_COOKIE['racepup'])): ?>
 
@@ -557,7 +556,9 @@ $popup_link = get_field('popup_link');
 	    </script>
 
 	    <?php
-	    setcookie('racepup', true,  time()+2592000); // 30 days
+	    $Month = 2592000 + time();
+	    setcookie('racepup',date("F jS - g:i a"), $Month); // 30 days
+	    //echo $_COOKIE['racepup'];
 	    ?>
 
 	<?php endif; ?>

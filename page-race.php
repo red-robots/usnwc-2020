@@ -61,7 +61,7 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 		</div>
 
 		<?php if( $popup_on == 'yes' ){ ?>
-			<?php //if (!isset($_COOKIE['racepup'])): ?>
+			<?php if (!isset($_COOKIE['racepup'])): ?>
 
 			    <!-- replace this whatever you want to show -->
 			    <script>
@@ -75,10 +75,10 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 			    </script>
 
 			    <?php
-			    //setcookie('racepup', true,  time()+2592000); // 30 days
+			    setcookie('racepup', true,  time()+2592000); // 30 days
 			    ?>
 
-			<?php //endif; ?>
+			<?php endif; ?>
 		<?php } ?>
 		
 
