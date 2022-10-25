@@ -3705,6 +3705,7 @@ section.route-map .map-frame{position:relative;height:50vh}
 .information-tabs-wrap .info-panel{display:none}
 .information-tabs-wrap .info-panel .info-inner{display:block !important;padding-top:80px;padding-bottom:60px}
 .information-tabs-wrap .info-panel .info ul{-webkit-column-count:2;-moz-column-count:2;column-count:2}
+.information-tabs-wrap .info-panel .info ul li ul{-webkit-column-count:1;-moz-column-count:1;column-count:1}
 section.route-stories.half .block{width:50%}
 .topinfo{display:inline-block;float:right;width:auto}
 .topinfo span.daily-schedule{display:inline-block}
