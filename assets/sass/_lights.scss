@@ -45,13 +45,13 @@ section.lights-info {
       z-index: 1000;
       color: #fff;
       margin: 0 auto;
-      font-size: 32px;
+      font-size: 36px;
       position: relative;
-      @include tab() {
+      @include desk() {
       	max-width: 70%;
       }
       h1 {
-      	font-size: 48px;
+      	font-size: 58px;
       }
       h2 {
         margin: 0px;
@@ -240,7 +240,7 @@ a {
   	position: absolute;
   	bottom: 0;
   	left: 0;
-  	font-size: 28px;
+  	font-size: 32px;
   	color: #fff;
   	background-color: rgba(#000, .5);
   	padding: 10px;
