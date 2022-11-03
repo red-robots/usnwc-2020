@@ -39,15 +39,20 @@ section.lights-info {
       flex-wrap: nowrap;
       height: 100%;
       width: 100%;
-      max-width: 70%;
+      max-width: 90%;
       justify-content: center;
       text-align: center;
       z-index: 1000;
       color: #fff;
       margin: 0 auto;
-      font-size: 22px;
+      font-size: 32px;
       position: relative;
-
+      @include tab() {
+      	max-width: 70%;
+      }
+      h1 {
+      	font-size: 48px;
+      }
       h2 {
         margin: 0px;
       }
@@ -225,6 +230,21 @@ a {
   justify-content: center;
   align-items: center;
   // border: 1px solid #000;
+  width: 100%;
+  position: relative;
+  img {
+  	width: 100%;
+  }
+  .img-desc {
+  	width: 100%;
+  	position: absolute;
+  	bottom: 0;
+  	left: 0;
+  	font-size: 28px;
+  	color: #fff;
+  	background-color: rgba(#000, .5);
+  	padding: 10px;
+  }
 }
 .image-gallery__arrows {
 	width: 100%;
@@ -237,6 +257,12 @@ a {
 		text-transform: uppercase;
 		color: #fff;
 		padding: 5px;
-		font-size: 14px;
+		font-size: 34px;
+	}
+	.swiper-button-next {
+		float: right;
+	}
+	.swiper-button-prev {
+		float: left;
 	}
 }

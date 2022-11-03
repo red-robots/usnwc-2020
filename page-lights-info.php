@@ -56,6 +56,11 @@ $hDesc = get_field('header_description');
 									      <div class="swiper-slide">
 									        <div class="image-gallery__picture">
 									        	<img class="image-gallery__img" src="<?php echo $g['sizes']['medium']; ?>"/>
+									        	<?php if( $g['description'] ){ ?>
+									        		<div class="img-desc">
+									        			<?php echo $g['description']; ?>
+									        		</div>
+									        	<?php } ?>
 									        </div>
 									      </div>
 									  <?php } ?>
