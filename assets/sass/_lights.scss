@@ -47,9 +47,11 @@ section.lights-info {
       margin: 0 auto;
       font-size: 36px;
       position: relative;
-      @include desk() {
-      	max-width: 70%;
-      }
+      @media only screen 
+	    and (orientation: landscape) {
+	      	max-width: 70%;
+	      	font-size: 20px;
+	  }
       h1 {
       	font-size: 58px;
       }
@@ -244,6 +246,10 @@ a {
   	color: #fff;
   	background-color: rgba(#000, .5);
   	padding: 10px;
+  	@media only screen 
+	    and (orientation: landscape) {
+	    	font-size: 18px;
+	}
   }
 }
 .image-gallery__arrows {
@@ -258,6 +264,10 @@ a {
 		color: #fff;
 		padding: 5px;
 		font-size: 34px;
+		@media only screen 
+	    and (orientation: landscape) {
+	    	font-size: 20px;
+	    }
 	}
 	.swiper-button-next {
 		float: right;

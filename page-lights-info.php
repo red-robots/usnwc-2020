@@ -5,6 +5,7 @@
 
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.6/swiper-bundle.min.js' id='jquery-swiper'></script>
 
+
 <?php 
 /*
 *
@@ -82,18 +83,6 @@ $hDesc = get_field('header_description');
 			    		<?php $gallery == ''; ?>
 			    	</div>
 			  </section>
-
-			<!-- <section>
-			    <div class="parallax" style="background-image: url(<?php echo $bg['url']; ?>);">
-			      <h2><?php echo $title; ?></h2>
-			    </div>
-			</section>
-
-			<section>
-			  <div class="block">
-			    <?php echo $desc; ?>
-			  </div>
-			</section> -->
 
 		<?php endwhile; endif; ?>
 	

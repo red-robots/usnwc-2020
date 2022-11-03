@@ -3703,7 +3703,10 @@ ul.items .show{display:block}
 #race-pop .race-pop-txt{float:left;margin:20px auto 20px auto;width:100%}
 #race-pop a{color:#000}
 #race-pop .popbtn a:hover{color:#fff}
-@media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
+@media only screen and (orientation:landscape){section.lights-info .container section .stuff{max-width:70%;font-size:20px}
+.image-gallery__picture .img-desc{font-size:18px}
+.image-gallery__arrows .swiper-button-prev,.image-gallery__arrows .swiper-button-next{font-size:20px}
+}@media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}
 .featured-events-section .postbox .wave-effect .wave{display:none !important}
@@ -4090,7 +4093,6 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 }@media(min-width:1200px){section.route-details .flexcol{width:25%}
 section.route-map .map-frame{height:60vh}
 .information-tabs-wrap .tabs-info ul a span.arrow:before,.information-tabs-wrap .tabs-info ul a span.arrow:after{top:14px}
-section.lights-info .container section .stuff{max-width:70%}
 #banner .static-banner .slides .videoIframeDiv .playVidBtn,#banner .flexslider .slides .videoIframeDiv .playVidBtn{width:130px;height:130px}
 #section-awards .col-content.col-count-2 .result-data{width:50%;margin-top:0}
 .team-staff-section .photo{width:25%}
