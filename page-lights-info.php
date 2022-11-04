@@ -36,6 +36,8 @@ wp_head();
 $hImg = get_field('header_image');
 $hTitle = get_field('header_title');
 $hDesc = get_field('header_description');
+$num = count(get_field('section'));
+
 ?>
 </head>
 <body>
@@ -47,25 +49,30 @@ $hDesc = get_field('header_description');
         <div class="swiper-slide swiper-slide-nocfl ">
 	        <div class="slide-guts">
 	        	<img src="<?php echo $hImg['url']; ?>">
-	        	<div class="cont">
-		        	<h1><?php echo $hTitle; ?></h1>
+	        	<div class="cont first">
+		        	<h1><?php echo $hTitle; ?><?php //echo $num ?></h1>
 				    <?php if( $hDesc ){ echo '<p>'.$hDesc.'</p>'; } ?>
 			    </div>
 	        </div>   
+	        <div class="more delay-2s flash animated slower">
+	        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 429.3l22.6-22.6 192-192L493.3 192 448 146.7l-22.6 22.6L256 338.7 86.6 169.4 64 146.7 18.7 192l22.6 22.6 192 192L256 429.3z"/></svg>
+	        </div>
 	    </div>
         
-	    <?php if( have_rows('section') ):?>
-	    	<?php while( have_rows('section') ): the_row(); 
+	    <?php $i=0; if( have_rows('section') ):?>
+	    	<?php while( have_rows('section') ): the_row(); $i++;
 				$bg = get_sub_field('background_image');
 				$title = get_sub_field('title');
 				$desc = get_sub_field('description');
 				$gallery = get_sub_field('gallery');
 			?>
 		        <div class="swiper-slide swiper-slide-nocfl">
-		        	<?php if( $gallery ){ ?>
+		        	<?php if( $gallery ){ 
+		        		$gNum = count( $gallery );
+		        		?>
 		        		<div class="swiper mySwiperTwo swiper-nocfl">
 		      				<div class="swiper-wrapper">
-				        	<?php foreach( $gallery as $g ) { ?>
+				        	<?php $j=0; foreach( $gallery as $g ) { $j++; ?>
 				        		<div class="swiper-slide swiper-slide-nocfl">
 				        			<div class="slide-guts">
 					        			<img src="<?php echo $g['url']; ?>">
@@ -73,11 +80,21 @@ $hDesc = get_field('header_description');
 									        <div class="text"><?php echo $g['description']; ?></div>   
 									    </div>
 								    </div>
+								    <?php if( $gNum !== $j ){ ?>
+							        	<div class="more right delay-2s flash animated slower">
+								        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+								        </div>
+								    <?php } ?>
 							    </div>
 				        	<?php } ?>
 					        </div>
 					    </div>
 			        <?php } ?>
+			        <?php if( $num !== $i ){ ?>
+			        	<div class="more delay-2s flash animated slower">
+				        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 429.3l22.6-22.6 192-192L493.3 192 448 146.7l-22.6 22.6L256 338.7 86.6 169.4 64 146.7 18.7 192l22.6 22.6 192 192L256 429.3z"/></svg>
+				        </div>
+				    <?php } ?>
 		        </div>
 		    <?php endwhile ?>
       </div>
@@ -103,6 +120,11 @@ $hDesc = get_field('header_description');
           el: ".swiper-pagination",
           clickable: true,
         },
+        on: {
+		    fromEdge: function () {
+		      console.log('swiper edged');
+		    },
+	    },
     });
 
     var swiper = new Swiper(".mySwiperTwo", {
@@ -112,100 +134,6 @@ $hDesc = get_field('header_description');
         //   clickable: true,
         // },
     });
-
-
-
-
-
-
-
-
-// const slider = () => {
-// 		  return new Swiper(".swiper-container", {
-// 		    slidesPerView: 1,
-// 		    spaceBetween: 24,
-// 		    centeredSlides: false,
-// 		    loop: true,
-// 		    navigation: {
-// 		      nextEl: ".swiper-button-next",
-// 		      prevEl: ".swiper-button-prev"
-// 		    },
-// 		    breakpoints: {
-// 		      768: {
-// 		        slidesPerView: 1
-// 		      },
-// 		      1024: {
-// 		        slidesPerView: 3
-// 		      },
-// 		      1440: {
-// 		        slidesPerView: 4
-// 		      },
-// 		      1920: {
-// 		        slidesPerView: 5
-// 		      }
-// 		    }
-// 		  });
-// 		};
-
-// 		slider();
-
-
-
-
-
-
-
-//  	// makes the parallax elements
-// 	function parallaxIt() {
-// 	  // create variables
-// 	  var $fwindow = $(window);
-// 	  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-// 	  var $contents = [];
-// 	  var $backgrounds = [];
-
-// 	  // for each of content parallax element
-// 	  $('[data-type="content"]').each(function(index, e) {
-// 	    var $contentObj = $(this);
-
-// 	    $contentObj.__speed = ($contentObj.data('speed') || 1);
-// 	    $contentObj.__fgOffset = $contentObj.offset().top;
-// 	    $contents.push($contentObj);
-// 	  });
-
-// 	  // for each of background parallax element
-// 	  $('[data-type="background"]').each(function() {
-// 	    var $backgroundObj = $(this);
-
-// 	    $backgroundObj.__speed = ($backgroundObj.data('speed') || 1);
-// 	    $backgroundObj.__fgOffset = $backgroundObj.offset().top;
-// 	    $backgrounds.push($backgroundObj);
-// 	  });
-
-// 	  // update positions
-// 	  $fwindow.on('scroll resize', function() {
-// 	    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-// 	    $contents.forEach(function($contentObj) {
-// 	      var yPos = $contentObj.__fgOffset - scrollTop / $contentObj.__speed;
-
-// 	      $contentObj.css('top', yPos);
-// 	    })
-
-// 	    $backgrounds.forEach(function($backgroundObj) {
-// 	      var yPos = -((scrollTop - $backgroundObj.__fgOffset) / $backgroundObj.__speed);
-
-// 	      $backgroundObj.css({
-// 	        backgroundPosition: '50% ' + yPos + 'px'
-// 	      });
-// 	    });
-// 	  });
-
-// 	  // triggers winodw scroll for refresh
-// 	  $fwindow.trigger('scroll');
-// 	};
-
-// 	parallaxIt();
 
 
 	
