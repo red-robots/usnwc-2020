@@ -46,7 +46,7 @@ $num = count(get_field('section'));
       <div class="swiper-wrapper">
 
 
-        <div class="swiper-slide swiper-slide-nocfl ">
+        <div class="swiper-slide swiper-slide-nocfl " data-swiper-parallax="-300" data-swiper-parallax-duration="600">
 	        <div class="slide-guts">
 	        	<img src="<?php echo $hImg['url']; ?>">
 	        	<div class="cont first">
@@ -65,18 +65,21 @@ $num = count(get_field('section'));
 				$title = get_sub_field('title');
 				$desc = get_sub_field('description');
 				$gallery = get_sub_field('gallery');
+				// echo '<pre>';
+				// print_r($gallery);
+				// echo '</pre>';
 			?>
-		        <div class="swiper-slide swiper-slide-nocfl">
+		        <div class="swiper-slide swiper-slide-nocfl"data-swiper-parallax="-300" data-swiper-parallax-duration="600" >
 		        	<?php if( $gallery ){ 
 		        		$gNum = count( $gallery );
 		        		?>
-		        		<div class="swiper mySwiperTwo swiper-nocfl">
+		        		<div class="swiper mySwiperTwo swiper-nocfl" data-swiper-parallax-scale="0.15">
 		      				<div class="swiper-wrapper">
 				        	<?php $j=0; foreach( $gallery as $g ) { $j++; ?>
-				        		<div class="swiper-slide swiper-slide-nocfl">
-				        			<div class="slide-guts">
-					        			<img src="<?php echo $g['url']; ?>">
-					        			<div class="cont">
+				        		<div class="swiper-slide swiper-slide-nocfl" data-swiper-parallax-y="-23%">
+				        			<div class="slide-guts" >
+					        			<img src="<?php echo $g['url']; ?>" >
+					        			<div class="cont" data-swiper-parallax-opacity="0" data-swiper-parallax-duration="600">
 									        <div class="text"><?php echo $g['description']; ?></div>   
 									    </div>
 								    </div>
@@ -116,6 +119,7 @@ $num = count(get_field('section'));
 
 	var swiper = new Swiper(".mySwiper", {
         direction: "vertical",
+        parallax: true,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -129,6 +133,7 @@ $num = count(get_field('section'));
 
     var swiper = new Swiper(".mySwiperTwo", {
         direction: "horizontal",
+        parallax: true,
         // pagination: {
         //   el: ".swiper-pagination",
         //   clickable: true,
