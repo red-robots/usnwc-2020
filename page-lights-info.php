@@ -49,7 +49,7 @@ $num = count(get_field('section'));
         <div class="swiper-slide swiper-slide-nocfl " data-swiper-parallax="-300" data-swiper-parallax-duration="600">
 	        <div class="slide-guts">
 	        	<img src="<?php echo $hImg['url']; ?>">
-	        	<div class="cont-wrap">
+	        	<div class="cont-wrap first">
 		        	<div class="cont first">
 			        	<h1><?php echo $hTitle; ?><?php //echo $num ?></h1>
 					    <?php if( $hDesc ){ echo '<p>'.$hDesc.'</p>'; } ?>
@@ -81,11 +81,11 @@ $num = count(get_field('section'));
 				        		<div class="swiper-slide swiper-slide-nocfl" data-swiper-parallax-y="-23%">
 				        			<div class="slide-guts" >
 					        			<img src="<?php echo $g['url']; ?>" >
-					        			<div class="cont-wrap toggle">
-						        			<div class="cont toggle" data-swiper-parallax-opacity="0" data-swiper-parallax-duration="600">
-										        <div class="text"><?php echo $g['description']; ?></div>   
+					        			<div class="cont-wrap ">
+						        			<div class="cont " data-swiper-parallax-opacity="0" data-swiper-parallax-duration="600">
+										        <div class="text toggle"><?php echo $g['description']; ?></div>   
 										    </div>
-										    <div class="expand">Read More</div>
+										    <div class="expand">&#8230;</div>
 									    </div>
 								    </div>
 								    <?php if( $gNum !== $j ){ ?>
@@ -149,8 +149,8 @@ $num = count(get_field('section'));
 
 
     $( ".expand" ).click(function(e) {
-	  $(this).parent('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
-	  $(this).siblings('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
+	  // $(this).parent('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
+	  $(this).siblings().find('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
       e.preventDefault();
 	});
 
