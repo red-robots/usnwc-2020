@@ -49,10 +49,12 @@ $num = count(get_field('section'));
         <div class="swiper-slide swiper-slide-nocfl " data-swiper-parallax="-300" data-swiper-parallax-duration="600">
 	        <div class="slide-guts">
 	        	<img src="<?php echo $hImg['url']; ?>">
-	        	<div class="cont first">
-		        	<h1><?php echo $hTitle; ?><?php //echo $num ?></h1>
-				    <?php if( $hDesc ){ echo '<p>'.$hDesc.'</p>'; } ?>
-			    </div>
+	        	<div class="cont-wrap">
+		        	<div class="cont first">
+			        	<h1><?php echo $hTitle; ?><?php //echo $num ?></h1>
+					    <?php if( $hDesc ){ echo '<p>'.$hDesc.'</p>'; } ?>
+				    </div>
+				</div>
 	        </div>   
 	        <div class="more delay-2s flash animated slower">
 	        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 429.3l22.6-22.6 192-192L493.3 192 448 146.7l-22.6 22.6L256 338.7 86.6 169.4 64 146.7 18.7 192l22.6 22.6 192 192L256 429.3z"/></svg>
@@ -79,8 +81,11 @@ $num = count(get_field('section'));
 				        		<div class="swiper-slide swiper-slide-nocfl" data-swiper-parallax-y="-23%">
 				        			<div class="slide-guts" >
 					        			<img src="<?php echo $g['url']; ?>" >
-					        			<div class="cont" data-swiper-parallax-opacity="0" data-swiper-parallax-duration="600">
-									        <div class="text"><?php echo $g['description']; ?></div>   
+					        			<div class="cont-wrap toggle">
+						        			<div class="cont toggle" data-swiper-parallax-opacity="0" data-swiper-parallax-duration="600">
+										        <div class="text"><?php echo $g['description']; ?></div>   
+										    </div>
+										    <div class="expand">Read More</div>
 									    </div>
 								    </div>
 								    <?php if( $gNum !== $j ){ ?>
@@ -139,6 +144,20 @@ $num = count(get_field('section'));
         //   clickable: true,
         // },
     });
+
+    jQuery(document).ready(function ($) {
+
+
+    $( ".expand" ).click(function(e) {
+	  $(this).parent('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
+	  $(this).siblings('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
+      e.preventDefault();
+	});
+
+
+	
+
+});// END
 
 
 	

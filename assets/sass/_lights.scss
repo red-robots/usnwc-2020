@@ -11,10 +11,10 @@
   width: 100%;
   position: relative;
   .more {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     position: absolute;
-    bottom: 30px;
+    bottom: 70px;
     left: 0; 
     right: 0; 
     margin-left: auto; 
@@ -25,10 +25,11 @@
     color: #fff;
     z-index: 1000000;
     padding: 7px;
+    animation-iteration-count: infinite;
     svg {filter: invert(100%)}
     &.right {
       right: 30px;
-      top: 50%;
+      top: 45%;
       margin-right: 0;
       padding: 7px 7px 10px 7px;
       line-height: 0;
@@ -53,26 +54,73 @@
     position: relative;
     z-index: 100;
   }
+  .cont-wrap {
+    width: 100%;
+    position: absolute;
+    bottom: 200px;
+    overflow: hidden;
+    max-height: 24vh;
+    min-height: 24vh;
+    transition: all ease .3s;
+    &.up {
+      height: 85vh;
+      max-height: 100vh;
+      transition: all ease .3s;
+    }
+    
+    // padding-bottom: 80px;
+    .expand {
+      width: 200px;
+      padding: 10px;
+      color: #fff;
+      background-color: rgba(#000, .7);
+      position: absolute;
+      bottom: 0;
+      left: 0; 
+      right: 0; 
+      margin-left: auto; 
+      margin-right: auto;
+      z-index: 100;
+      height: 56px;
+      text-transform: uppercase;
+      font-size: 26px;
+    }
+  }
   .cont {
     width: 100%;
     position: absolute;
-    bottom: 100px;
+    top: 0px;
     left: 0;
     padding: 20px;
     background-color: rgba(#000, .5);
     color: #fff;
     z-index: 1000;
     font-size: 34px;
+    height: 89%;
+    overflow: hidden;
+    transition: all ease .3s;
+    &.up {
+      height: 97%;
+      transition: all ease .3s;
+    }
+    .text {
+      width: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0;
+      padding: 30px;
+    }
     h1 {
       font-size: 48px;
     }
     h2 {
       font-size: 40px;
     }
-    &.first {
-      background-color: rgba(#000, .1);
-      top: 20%;
-      bottom: auto;
-    }
+    
+    // &.first {
+    //   background-color: rgba(#000, .1);
+    //   top: 20%;
+    //   bottom: auto;
+    // }
   }
 }
