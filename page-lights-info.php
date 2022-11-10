@@ -36,7 +36,7 @@ wp_head();
 $hImg = get_field('header_image');
 $hTitle = get_field('header_title');
 $hDesc = get_field('header_description');
-$num = count(get_field('section'));
+$num = count(get_field('sections'));
 
 ?>
 </head>
@@ -61,13 +61,13 @@ $num = count(get_field('section'));
 	        </div>
 	    </div>
         
-	    <?php $i=0; if( have_rows('section') ):?>
-	    	<?php while( have_rows('section') ): the_row(); $i++;
-				$bg = get_sub_field('background_image');
-				$title = get_sub_field('title');
-				$desc = get_sub_field('description');
-				$gallery = get_sub_field('gallery');
-				// echo '<pre>';
+	    <?php $i=0; if( have_rows('sections') ):?>
+	    	<?php while( have_rows('sections') ): the_row(); $i++;
+				// $bg = get_sub_field('background_image');
+				// $title = get_sub_field('title');
+				// $desc = get_sub_field('description');
+				$gallery = get_sub_field('section');
+				// echo '<pre style="background-color: #fff;">';
 				// print_r($gallery);
 				// echo '</pre>';
 			?>
@@ -80,7 +80,10 @@ $num = count(get_field('section'));
 				        	<?php $j=0; foreach( $gallery as $g ) { $j++; ?>
 				        		<div class="swiper-slide swiper-slide-nocfl" data-swiper-parallax-y="-23%">
 				        			<div class="slide-guts" >
-					        			<img src="<?php echo $g['url']; ?>" >
+					        			<img src="<?php echo $g['card']['url']; ?>" >
+					        			<?php if($g['title']) { ?>
+					        				<div class="dis-title animated delay-1s"><?php echo $g['title'] ?></div>
+					        			<?php } ?>
 					        			<div class="cont-wrap ">
 						        			<div class="cont " data-swiper-parallax-opacity="0" data-swiper-parallax-duration="600">
 										        <div class="text toggle"><?php echo $g['description']; ?></div>   
@@ -134,15 +137,33 @@ $num = count(get_field('section'));
 		      console.log('swiper edged');
 		    },
 	    },
+	    on: {
+	    	slideChange: function(){
+	    		$('.dis-title').removeClass('none');
+	    		$('.dis-title').addClass('bounceOut');
+	    		setTimeout(
+				  function() {
+				    $('.dis-title').removeClass('bounceOut');
+				    $('.dis-title').addClass('none');
+				  }, 2000);
+	    	}
+	    }
     });
 
     var swiper = new Swiper(".mySwiperTwo", {
         direction: "horizontal",
         parallax: true,
-        // pagination: {
-        //   el: ".swiper-pagination",
-        //   clickable: true,
-        // },
+        on: {
+	    	slideChange: function(){
+	    		$('.dis-title').removeClass('none');
+	    		$('.dis-title').addClass('bounceOut');
+	    		setTimeout(
+				  function() {
+				    $('.dis-title').removeClass('bounceOut');
+				    $('.dis-title').addClass('none');
+				  }, 2000);
+	    	}
+	    }
     });
 
     jQuery(document).ready(function ($) {
