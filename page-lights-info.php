@@ -85,10 +85,10 @@ $num = count(get_field('sections'));
 					        				<div class="dis-title animated delay-1s"><?php echo $g['title'] ?></div>
 					        			<?php } ?>
 					        			<div class="cont-wrap ">
-						        			<div class="cont " data-swiper-parallax-opacity="0" data-swiper-parallax-duration="600">
+						        			<div class="cont toggle">
 										        <div class="text toggle"><?php echo $g['description']; ?></div>   
 										    </div>
-										    <div class="expand">&#8230;</div>
+										    <div class="expand delay-2s flash animated slower">i</div>
 									    </div>
 								    </div>
 								    <?php if( $gNum !== $j ){ ?>
@@ -170,7 +170,7 @@ $num = count(get_field('sections'));
 
 
     $( ".expand" ).click(function(e) {
-	  // $(this).parent('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
+	  $(this).siblings('.cont').toggleClass("up", 1000, 'easeOutSine'); 
 	  $(this).siblings().find('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
       e.preventDefault();
 	});
