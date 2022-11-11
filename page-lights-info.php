@@ -82,7 +82,7 @@ $num = count(get_field('sections'));
 				        			<div class="slide-guts" >
 					        			<img src="<?php echo $g['card']['url']; ?>" >
 					        			<?php if($g['title']) { ?>
-					        				<div class="dis-title animated delay-1s"><?php echo $g['title'] ?></div>
+					        				<div id="status" class="dis-title animated delay-1s"><?php echo $g['title'] ?></div>
 					        			<?php } ?>
 					        			<div class="cont-wrap ">
 						        			<div class="cont toggle">
@@ -138,13 +138,14 @@ $num = count(get_field('sections'));
 		    },
 	    },
 	    on: {
-	    	slideChange: function(){
-	    		$('.dis-title').removeClass('none');
-	    		$('.dis-title').addClass('bounceOut');
+	    	slideChangeTransitionEnd: function(){
+	    		console.log(swiper.realIndex)
+	    		$('.swiper-slide-active').find('.dis-title').removeClass('none');
+	    		$('.swiper-slide-active').find('.dis-title').addClass('bounceOut');
 	    		setTimeout(
 				  function() {
-				    $('.dis-title').removeClass('bounceOut');
-				    $('.dis-title').addClass('none');
+				    $('.swiper-slide-active').find('.dis-title').removeClass('bounceOut');
+				    $('.swiper-slide-active').find('.dis-title').addClass('none');
 				  }, 2000);
 	    	}
 	    }
@@ -154,13 +155,14 @@ $num = count(get_field('sections'));
         direction: "horizontal",
         parallax: true,
         on: {
-	    	slideChange: function(){
-	    		$('.dis-title').removeClass('none');
-	    		$('.dis-title').addClass('bounceOut');
+	    	slideChangeTransitionEnd: function(){
+	    		console.log(swiper.realIndex)
+	    		$('.swiper-slide-active').find('.dis-title').removeClass('none');
+	    		$('.swiper-slide-active').find('.dis-title').addClass('bounceOut');
 	    		setTimeout(
 				  function() {
-				    $('.dis-title').removeClass('bounceOut');
-				    $('.dis-title').addClass('none');
+				    $('.swiper-slide-active').find('.dis-title').removeClass('bounceOut');
+				    $('.swiper-slide-active').find('.dis-title').addClass('none');
 				  }, 2000);
 	    	}
 	    }
