@@ -142,11 +142,11 @@ $num = count(get_field('sections'));
 		      console.log('swiper edged');
 		    },
 	    },
-	    effect: 'coverflow',
-		  coverflowEffect: {
-		    rotate: 30,
-		    slideShadows: false,
-		  },
+	   //  effect: 'coverflow',
+		  // coverflowEffect: {
+		  //   rotate: 30,
+		  //   slideShadows: false,
+		  // },
 	    on: {
 	    	slideChangeTransitionEnd: function(){
 	    		// console.log('Event: ', this.activeIndexChange);
