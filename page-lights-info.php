@@ -82,11 +82,14 @@ $num = count(get_field('sections'));
 				        			<div class="slide-guts" >
 					        			<img src="<?php echo $g['card']['url']; ?>" >
 					        			<?php if($g['title']) { ?>
-					        				<div id="status" class="dis-title animated delay-1s"><?php echo $g['title'] ?></div>
+					        				<div id="status" class="dis-title animated delay-1s">
+					        					<?php echo $g['title'] ?>
+					        						<div class="caption"></div>
+					        					</div>
 					        			<?php } ?>
 					        			<div class="cont-wrap ">
-						        			<div class="cont toggle">
-										        <div class="text toggle"><?php echo $g['description']; ?></div>   
+						        			<div class="cont toggle  ">
+										        <div class="text toggle  "><?php echo $g['description']; ?></div>   
 										    </div>
 										    <div class="expand delay-2s flash animated slower">i</div>
 									    </div>
@@ -117,12 +120,14 @@ $num = count(get_field('sections'));
 
 	
  <?php wp_footer(); ?>
+ <!-- <script src="<?php get_bloginfo('template_url'); ?>/assets/js/custom/viewport.js"></script> -->
  <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
  <script type="text/javascript">
 
 // jQuery(document).ready(function ($) {
+
 
 
 	var swiper = new Swiper(".mySwiper", {
@@ -137,6 +142,11 @@ $num = count(get_field('sections'));
 		      console.log('swiper edged');
 		    },
 	    },
+	    effect: 'coverflow',
+		  coverflowEffect: {
+		    rotate: 30,
+		    slideShadows: false,
+		  },
 	    // on: {
 	    // 	slideChangeTransitionEnd: function(){
 	    // 		// console.log(swiper.realIndex)
@@ -151,14 +161,31 @@ $num = count(get_field('sections'));
 	    // }
 	    on: {
 	    	slideChangeTransitionEnd: function(){
-	    		// console.log(swiper.realIndex)
+	    		// console.log('Event: ', this.activeIndexChange);
 	    		
 	    		$('.swiper-slide-active').find('.dis-title').removeClass('fadeOutUp');
+	    		
 	    		setTimeout(
 	    			function() {
-	    		// $('.swiper-slide-active').find('.dis-title').removeClass('fadeOutUp');
 	    		$('.swiper-slide-active').find('.dis-title').addClass('fadeOutUp');
+
+	   //  		$('.swiper-slide-next').find('.cont').css('opacity', '0');
+				// $('.swiper-slide-next').find('.toggle').css('opacity', '0');
+				// $('.swiper-slide-prev').find('.cont').css('opacity', '0');
+				// $('.swiper-slide-prev').find('.toggle').css('opacity', '0');
+
+				// $('.swiper-slide-active .swiper-slide-next').find('.cont').css('opacity', '0');
+				// $('.swiper-slide-active .swiper-slide-next').find('.toggle').css('opacity', '0');
+				// $('.swiper-slide-active .swiper-slide-prev').find('.cont').css('opacity', '0');
+				// $('.swiper-slide-active .swiper-slide-prev').find('.toggle').css('opacity', '0');
+				// $('.swiper-slide-next').find('.toggle').addClass('booooob');
+	    		
 	    		}, 1000);
+	    		setTimeout(
+	    			function() {
+	    				// $('.swiper-slide-active').find('.cont').css('opacity', '1');
+	    				// $('.swiper-slide-active').find('.toggle').css('opacity', '1');
+	    		}, 4000);
 	    		// ('.dis-title').toggleClass("up", 1000, 'easeOutSine'); 
 	    	// 	setTimeout(
 				  // function() {
@@ -172,20 +199,38 @@ $num = count(get_field('sections'));
     var swiper = new Swiper(".mySwiperTwo", {
         direction: "horizontal",
         parallax: true,
+        effect: 'coverflow',
+		  coverflowEffect: {
+		    rotate: 30,
+		    slideShadows: false,
+		  },
         on: {
 	    	slideChangeTransitionEnd: function(){
-	    		// console.log(swiper.realIndex)
 	    		$('.swiper-slide-active').find('.dis-title').removeClass('fadeOutUp');
+	    		// $('.swiper-slide-next').find('.toggle').addClass('booooob');
 	    		setTimeout(
 	    			function() {
-	    		// $('.swiper-slide-active').find('.dis-title').removeClass('fadeOutUp');
 	    		$('.swiper-slide-active').find('.dis-title').addClass('fadeOutUp');
+
+	   //  		$('.swiper-slide-next').find('.cont').css('opacity', '0');
+				// $('.swiper-slide-next').find('.toggle').css('opacity', '0');
+				// $('.swiper-slide-prev').find('.cont').css('opacity', '0');
+				// $('.swiper-slide-prev').find('.toggle').css('opacity', '0');
+				
+				// $('.swiper-slide-active .swiper-slide-next').find('.cont').css('opacity', '0');
+				// $('.swiper-slide-active .swiper-slide-next').find('.toggle').css('opacity', '0');
+				// $('.swiper-slide-active .swiper-slide-prev').find('.cont').css('opacity', '0');
+				// $('.swiper-slide-active .swiper-slide-prev').find('.toggle').css('opacity', '0');
+	    		
 	    		}, 1000);
-	    	// 	setTimeout(
-				  // function() {
-				  //   $('.swiper-slide-active').find('.dis-title').removeClass('fadeOutUp');
-				  //   $('.swiper-slide-active').find('.dis-title').addClass('none');
-				  // }, 2000);
+	    		setTimeout(
+	    			function() {
+	    				// $('.swiper-slide-active').find('.cont').css('opacity', '1');
+	    				// $('.swiper-slide-active').find('.toggle').css('opacity', '1');
+	    				// $('.swiper-slide-next').find('.toggle').removeClass('booooob');
+	    		}, 4000);
+
+	    	
 	    	}
 	    }
      //    on: {
@@ -201,11 +246,31 @@ $num = count(get_field('sections'));
 	    // 	}
 	    // }
     });
+ //    if ($('.cont').visible(true)) {
+ //    // The element is visible, do something
+ //    	$('.cont').addClass('booooob');
+	// } else {
+	//     // The element is NOT visible, do something else
+	//     $('.cont').removeClass('booooob');
+	// }
+
 
     jQuery(document).ready(function ($) {
 
+    	
+ //    $( ".expand" ).click(function(e) {
+	//   $(this).siblings('.cont').toggleClass("up", 1000, 'easeOutSine'); 
+	//   $(this).siblings().find('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
+	//   $.fn.extend({
+	// 	    toggleText: function(a, b){
+	// 	        return this.text(this.text() == b ? a : b);
+	// 	    }
+	// 	});
+	//   $(this).toggleText('i', 'X');
+ //      e.preventDefault();
+	// });
 
-    $( ".expand" ).click(function(e) {
+$( ".expand" ).click(function(e) {
 	  $(this).siblings('.cont').toggleClass("up", 1000, 'easeOutSine'); 
 	  $(this).siblings().find('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
 	  $.fn.extend({
@@ -216,7 +281,6 @@ $num = count(get_field('sections'));
 	  $(this).toggleText('i', 'X');
       e.preventDefault();
 	});
-
 
 	
 

@@ -104,6 +104,9 @@ $resnick-extrude: 'resnick-extrude', sans-serif;
       max-height: 100vh;
       transition: all ease .3s;
     }
+    &.down {
+      opacity: 0;
+    }
     
     // padding-bottom: 80px;
     .expand {
@@ -142,13 +145,22 @@ $resnick-extrude: 'resnick-extrude', sans-serif;
     font-size: 34px;
     // height: 80%;
     overflow: hidden;
-    opacity: 0;
+    
     transition: all ease .3s;
     margin-bottom: 200px;
+    // changes
+    max-height: 0;
+    opacity: 0;
+    // opacity: 1;
     &.up {
       max-height: 97%;
       transition: all ease .3s;
       opacity: 1;
+    }
+    &.down {
+      max-height: 97%;
+      transition: all ease .3s;
+      opacity: 0;
     }
     .text {
       width: 100%;
@@ -156,12 +168,16 @@ $resnick-extrude: 'resnick-extrude', sans-serif;
       // max-height: 10vh;
       padding:  0 30px;
       opacity: 0;
+      // opacity: 1;
       transition: all ease .3s;
       &.up {
         max-height: 100vh;
         transition: all ease .3s;
         padding: 30px;
         opacity: 1;
+      }
+      &.down {
+        max-height: 0;
       }
     }
     h1 {
