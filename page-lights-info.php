@@ -25,6 +25,9 @@
 		padding: 0 !important;
 		opacity: 0 !important;
       }
+      .swiper-slide {
+      	-webkit-transform: translate3d(0, 0, 0);
+      }
 </style>
 
 
