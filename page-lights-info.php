@@ -88,14 +88,14 @@ $num = count(get_field('sections'));
 				        			<div class="slide-guts" >
 					        			<img src="<?php echo $g['card']['url']; ?>" >
 					        			<?php if($g['title']) { ?>
-					        				<div id="status" class="dis-title animated delay-1s">
+					        				<div id="status" class="dis-title animated delay-.5s">
 					        					<?php echo $g['title'] ?>
 					        						<div class="caption"></div>
 					        				</div>
 					        			<?php } ?>
 					        			<div class="cont-wrap ">
-						        			<div class="cont toggle animated delay-2s">
-										        <div class="text toggle animated delay-2s"><?php echo $g['description']; ?></div>   
+						        			<div class="cont toggle animated delay-1s">
+										        <div class="text toggle animated delay-1s"><?php echo $g['description']; ?></div>   
 										    </div>
 									    	<div class="expand delay-2s animated flash slower">X</div>
 									    </div>
