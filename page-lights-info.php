@@ -186,11 +186,11 @@ $num = count(get_field('sections'));
     var swiper2 = new Swiper(".mySwiperTwo", {
         direction: "horizontal",
         // parallax: true,
-    //     effect: 'coverflow',
-		  // coverflowEffect: {
-		  //   rotate: 30,
-		  //   slideShadows: false,
-		  // },
+        effect: 'coverflow',
+		  coverflowEffect: {
+		    rotate: 30,
+		    slideShadows: false,
+		  },
         on: {
 	    	// slideChangeTransitionStart: function(){
     		slideChange: function(){
