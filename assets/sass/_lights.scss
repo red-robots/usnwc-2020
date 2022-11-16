@@ -149,9 +149,9 @@ $resnick-extrude: 'resnick-extrude', sans-serif;
     transition: all ease .3s;
     margin-bottom: 200px;
     // changes
-    max-height: 0;
-    opacity: 0;
-    // opacity: 1;
+    // max-height: 0;
+    // opacity: 0;
+    opacity: 1;
     &.up {
       max-height: 97%;
       transition: all ease .3s;
@@ -164,11 +164,11 @@ $resnick-extrude: 'resnick-extrude', sans-serif;
     }
     .text {
       width: 100%;
-      max-height: 0;
+      // max-height: 0;
       // max-height: 10vh;
       padding:  0 30px;
-      opacity: 0;
-      // opacity: 1;
+      // opacity: 0;
+      opacity: 1;
       transition: all ease .3s;
       &.up {
         max-height: 100vh;

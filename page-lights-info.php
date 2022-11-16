@@ -19,6 +19,12 @@
         margin: 0;
         padding: 0;
       }
+      .collapse-cont{
+		height: 0;
+		margin: 0;
+		padding: 0 !important;
+		opacity: 0 !important;
+      }
 </style>
 
 
@@ -85,13 +91,13 @@ $num = count(get_field('sections'));
 					        				<div id="status" class="dis-title animated delay-1s">
 					        					<?php echo $g['title'] ?>
 					        						<div class="caption"></div>
-					        					</div>
+					        				</div>
 					        			<?php } ?>
 					        			<div class="cont-wrap ">
-						        			<div class="cont toggle  ">
-										        <div class="text toggle  "><?php echo $g['description']; ?></div>   
+						        			<div class="cont toggle animated delay-2s">
+										        <div class="text toggle animated delay-2s"><?php echo $g['description']; ?></div>   
 										    </div>
-										    <div class="expand delay-2s flash animated slower">i</div>
+									    	<div class="expand delay-2s animated flash slower">X</div>
 									    </div>
 								    </div>
 								    <?php if( $gNum !== $j ){ ?>
@@ -148,45 +154,84 @@ $num = count(get_field('sections'));
 		  //   slideShadows: false,
 		  // },
 	    on: {
-	    	slideChangeTransitionEnd: function(){
+	    	// slideChangeTransitionStart: function(){
+	    	slideChange: function(){
 	    		// console.log('Event: ', this.activeIndexChange);
 	    		
+	    		// active slide
+	    		// make title visible, resetting it from previous animation
 	    		$('.swiper-slide-active').find('.dis-title').removeClass('fadeOutUp');
+	    		// caption set to fade in after its delay
+	    		$('.swiper-slide-active').find('.toggle').addClass('fadeInUp');
 	    		
 	    		setTimeout(
 	    			function() {
-	    		$('.swiper-slide-active').find('.dis-title').addClass('fadeOutUp');
-
-	    		
+    				// fade the title out
+		    		$('.swiper-slide-active').find('.dis-title').addClass('fadeOutUp');
+		    		// remove captions on next and prev slides
+		    		$('.swiper-slide-next').find('.toggle').removeClass('fadeInUp');
+		    		$('.swiper-slide-prev').find('.toggle').removeClass('fadeInUp');	     		
 	    		}, 1000);
+	    		
 	    		// setTimeout(
-	    		// 	function() {
-	    		// 		// $('.swiper-slide-active').find('.cont').css('opacity', '1');
-	    		// 		// $('.swiper-slide-active').find('.toggle').css('opacity', '1');
+	    			// function() {
+	    				// $('.swiper-slide-active').find('.cont').css('opacity', '1');
+	    				// $('.swiper-slide-active').find('.toggle').css('opacity', '1');
 	    		// }, 4000);
 	    		
 	    	}
 	    }
     });
 
-    var swiper = new Swiper(".mySwiperTwo", {
+    var swiper2 = new Swiper(".mySwiperTwo", {
         direction: "horizontal",
         // parallax: true,
-        effect: 'coverflow',
-		  coverflowEffect: {
-		    rotate: 30,
-		    slideShadows: false,
-		  },
+    //     effect: 'coverflow',
+		  // coverflowEffect: {
+		  //   rotate: 30,
+		  //   slideShadows: false,
+		  // },
         on: {
-	    	slideChangeTransitionEnd: function(){
+	    	// slideChangeTransitionStart: function(){
+    		slideChange: function(){
+	    		// active slide
+	    		// make title visible, resetting it from previous animation
 	    		$('.swiper-slide-active').find('.dis-title').removeClass('fadeOutUp');
+	    		// caption set to fade in after its delay
+	    		$('.swiper-slide-active').find('.toggle').addClass('fadeInUp');
+	    		
 	    		setTimeout(
 	    			function() {
-	    		$('.swiper-slide-active').find('.dis-title').addClass('fadeOutUp');
+    				// fade the title out
+		    		$('.swiper-slide-active').find('.dis-title').addClass('fadeOutUp');
+		    		// remove captions on next and prev slides
+		    		$('.swiper-slide-next').find('.toggle').removeClass('fadeInUp');
+		    		$('.swiper-slide-prev').find('.toggle').removeClass('fadeInUp');	    		
+	    		}, 1000);
 
 
+	    		// old stuff below
+	    		/*
+	    		$(".mySwiperTwo .dis-title").each(function() {
+       				$(this).removeClass('fadeOutUp');
+     			});
+     			$(".mySwiperTwo .toggle").each(function() {
+       				$(this).addClass('fadeInUp');
+     			});
+	    			// $('.mySwiperTwo .swiper-wrapper .swiper-slide-active').find('.dis-title').removeClass('fadeOutUp');
+	    			// $('.mySwiperTwo .swiper-wrapper .swiper-slide-active').find('.toggle').addClass('fadeInUp');
+	    		
+	    		setTimeout(
+	    			function() {
+	    				$(".mySwiperTwo  .swiper-wrapper .swiper-slide-active .dis-title").each(function() {
+		       				$(this).addClass('fadeOutUp');
+		     			});
+		    		$('.mySwiperTwo .swiper-wrapper .swiper-slide-active').find('.dis-title').addClass('fadeOutUp');
+		    		$('.mySwiperTwo .swiper-wrapper .swiper-slide-next').find('.toggle').removeClass('fadeInUp');
+		    		$('.mySwiperTwo .swiper-wrapper .swiper-slide-prev').find('.toggle').removeClass('fadeInUp');
 	    		
 	    		}, 1000);
+	    		*/
 	    		// setTimeout(
 	    		// 	function() {
 	    		// 		// $('.swiper-slide-active').find('.cont').css('opacity', '1');
@@ -198,25 +243,32 @@ $num = count(get_field('sections'));
 	    }
     });
 
+
+
+
+
+
     jQuery(document).ready(function ($) {
+    	// expand/collapse the info section
+		$( ".expand" ).click(function(e) {
+		  
 
-    	
+		  // $(this).siblings('.cont').toggleClass("up", 1000, 'easeOutSine'); 
+		  // $(this).siblings().find('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
 
-	$( ".expand" ).click(function(e) {
-	  $(this).siblings('.cont').toggleClass("up", 1000, 'easeOutSine'); 
-	  $(this).siblings().find('.toggle').toggleClass("up", 1000, 'easeOutSine'); 
-	  $.fn.extend({
-		    toggleText: function(a, b){
-		        return this.text(this.text() == b ? a : b);
-		    }
+
+		  $(this).siblings('.cont').toggleClass("collapse-cont", 1000, 'easeOutSine'); 
+
+
+		  $.fn.extend({
+			    toggleText: function(a, b){
+			        return this.text(this.text() == b ? a : b);
+			    }
+			});
+		  $(this).toggleText('X', 'i');
+	      e.preventDefault();
 		});
-	  $(this).toggleText('i', 'X');
-      e.preventDefault();
-	});
-
-	
-
-});// END
+	});// END
 
 
 	
