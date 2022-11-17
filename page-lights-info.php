@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LIGHTS GUIDE</title>
+	<title><?php the_title(); ?></title>
 
 <!-- <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.6/swiper-bundle.min.js' id='jquery-swiper'></script> -->
 <link
