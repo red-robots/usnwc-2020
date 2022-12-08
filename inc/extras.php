@@ -2329,5 +2329,5 @@ function is_faqs_visible($postid=null) {
     return ( isset($faqVisible[0]) && $faqVisible[0]=='hide' ) ? false : true;
 }
 
-remove_filter( 'the_content', 'wpautop' );
-remove_filter( 'the_excerpt', 'wpautop');
+// remove_filter( 'the_content', 'wpautop' );
+// remove_filter( 'the_excerpt', 'wpautop');
