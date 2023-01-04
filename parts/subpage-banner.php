@@ -1,6 +1,7 @@
 <?php
 $heroImage = get_field("full_image");
 $mobile_image = get_field('mobile_image');
+$mobile_image_fest = get_field('mobile-banner');
 $status = get_field('registration_status');
 $registerLink = get_field('registrationLink');
 $regTarget = get_field('registrationLinkTarget');
@@ -15,7 +16,9 @@ if ( is_singular( get_post_type() ) && in_array(get_post_type(),$excludePostType
 		$has_red_tag = true;
 	}
 }
-
+// echo '<pre>';
+// print_r($mobile_image);
+// echo '</pre>';
 $eventstatus = get_field("eventstatus");
 $eventStatus = ($eventstatus) ? strtoupper($eventstatus) : '';
 $heroImageText = get_field("full_image_text");
@@ -44,6 +47,9 @@ if($heroImage) { ?>
 					<img class="desktop " src="<?php echo $heroImage['url']?>" alt="<?php echo $heroImage['title']?>">
 					<?php if( $mobile_image ){ ?>
 						<img class="mobile " src="<?php echo $mobile_image['url']?>" alt="<?php echo $mobile_image['title']?>">
+					<?php } ?>
+					<?php if( $mobile_image_fest ){ ?>
+						<img class="mobile " src="<?php echo $mobile_image_fest['url']?>" alt="<?php echo $mobile_image_fest['title']?>">
 					<?php } ?>
 				</div>
 				<?php if ($heroImageText) { ?>
