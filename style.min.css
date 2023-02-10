@@ -2133,7 +2133,7 @@ body.single-race #primary #section-faqs{padding-top:60px;padding-bottom:30px}
 body.single-race .content-default .black-section ul,body.single-race .content-default .black-section ol{display:inline-block;text-align:left}
 body.single-race .content-default .black-section ul ul,body.single-race .content-default .black-section ul ol,body.single-race .content-default .black-section ol ul,body.single-race .content-default .black-section ol ol{display:inline;position:relative;left:30px}
 body.single-race .content-default .black-section .buttondiv{margin-top:30px}
-body.single-race #primary #section-schedule{padding-top:40px}
+body.single-race #primary #section-schedule,body.single-race #primary .section-schedule{padding-top:40px}
 body.single-race #section-coursemap .title-w-icon{padding-bottom:0}
 body.single-race #section-registration .shead-icon{margin-bottom:10px}
 body.single-race .optional-text{width:60%;margin:20px auto;font-size:15px}
@@ -2224,7 +2224,7 @@ h1.page-title span:after{content:"";display:block;width:30%;height:2px;backgroun
 .schedule-activities-info.new-layout .status-legend span.open:before{background:#71c943}
 .schedule-activities-info.new-layout .status-legend span.closed:before{background:#ba0d30}
 li.rdate{width:100%;padding:5px;background-color:#f2f2f2;margin:8px 0;font-weight:bold}
-.post-type-race #section-registration .title-w-icon,.post-type-race #section-schedule .title-w-icon{background-color:#000;color:#FFF}
+.post-type-race #section-registration .title-w-icon,.post-type-race #section-schedule .title-w-icon,.post-type-race .section-schedule .title-w-icon{background-color:#000;color:#FFF}
 .post-type-race .race-types{background:#000}
 .post-type-race .race-types .inner-wrap{padding:5px}
 .post-type-race .race-types .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
@@ -2246,27 +2246,27 @@ body.subpage.single .content-default .black-section{background:#000;width:100%;f
 body.subpage.single .content-default .black-section .wrapper{font-size:14px;line-height:1.8;color:#FFF;padding-top:30px;padding-bottom:35px}
 body.subpage.single .content-default .black-section .wrapper a{color:#FFF}
 body.subpage.single .content-default .black-section .wrapper a:hover{color:#ba0d30}
-#section-schedule{background:#f2f2f2;padding-bottom:60px}
-#section-schedule .event-date{font-family:"Lato",sans-serif;font-weight:400;font-size:15px;line-height:1.2;text-transform:uppercase;letter-spacing:2px;color:#707070;margin-top:10px}
-#section-schedule .schedule{display:none;-webkit-animation-duration:1s;animation-duration:1s}
-#section-schedule .schedule.active{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
-#section-schedule .filterBy{width:100%;float:left;position:relative;margin-bottom:50px}
-#section-schedule .filterBy .filter-input{max-width:500px;width:100%;margin:0 auto}
-#section-schedule .filterBy .filter-input span.filterTxt{display:inline-block;width:30%;float:left;background:#707070;color:#FFF;font-family:"Lato",sans-serif;font-weight:400;font-size:15px;line-height:35px;letter-spacing:1px;text-transform:uppercase;padding:0 10px;text-align:center;position:relative;right:-2px;z-index:5}
-#section-schedule .filterBy .filter-select{width:70%;height:35px;line-height:35px;float:left;font-family:"Lato",sans-serif;font-weight:400;font-size:15px;letter-spacing:1px;text-transform:uppercase;padding:0 10px}
-#section-schedule .schedule-information{width:100%;float:left}
-#section-schedule .schedule-information .schedule .day{width:100%;text-align:center;font-family:"Lato",sans-serif;font-weight:400;font-size:20px;line-height:1.2;letter-spacing:1px;text-transform:uppercase;margin-bottom:40px}
-#section-schedule .schedule-information .schedule .day span{display:inline-block;border-bottom:2px solid #ba0d30}
-#section-schedule .schedule-information .activities{max-width:900px;width:100%;margin:0 auto;padding:0;list-style:none}
-#section-schedule .schedule-information .activities .info{padding:5px 0;font-size:14px;overflow:hidden}
-#section-schedule .schedule-information .activities .info .wrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative}
-#section-schedule .schedule-information .activities .info span.time,#section-schedule .schedule-information .activities .info span.event{position:relative}
-#section-schedule .schedule-information .activities .info span.time span,#section-schedule .schedule-information .activities .info span.event span{display:inline-block;background:#f2f2f2;position:relative;z-index:3}
-#section-schedule .schedule-information .activities .info span.time{font-size:16px;font-weight:500;line-height:1.3;text-transform:uppercase;width:30%;top:-13px}
-#section-schedule .schedule-information .activities .info span.time span{padding-right:5px;padding-top:5px;padding-bottom:5px;top:3px}
-#section-schedule .schedule-information .activities .info span.time:after{content:"";display:block;width:100vw;height:1px;background-image:url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");position:absolute;left:0;bottom:8px;opacity:.4}
-#section-schedule .schedule-information .activities .info span.event{width:70%;text-align:right;line-height:1.2;color:#707070}
-#section-schedule .schedule-information .activities .info span.event span{display:inline;padding-left:7px}
+#section-schedule,.section-schedule{background:#f2f2f2;padding-bottom:60px}
+#section-schedule .event-date,.section-schedule .event-date{font-family:"Lato",sans-serif;font-weight:400;font-size:15px;line-height:1.2;text-transform:uppercase;letter-spacing:2px;color:#707070;margin-top:10px}
+#section-schedule .schedule,.section-schedule .schedule{display:none;-webkit-animation-duration:1s;animation-duration:1s}
+#section-schedule .schedule.active,.section-schedule .schedule.active{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
+#section-schedule .filterBy,.section-schedule .filterBy{width:100%;float:left;position:relative;margin-bottom:50px}
+#section-schedule .filterBy .filter-input,.section-schedule .filterBy .filter-input{max-width:500px;width:100%;margin:0 auto}
+#section-schedule .filterBy .filter-input span.filterTxt,.section-schedule .filterBy .filter-input span.filterTxt{display:inline-block;width:30%;float:left;background:#707070;color:#FFF;font-family:"Lato",sans-serif;font-weight:400;font-size:15px;line-height:35px;letter-spacing:1px;text-transform:uppercase;padding:0 10px;text-align:center;position:relative;right:-2px;z-index:5}
+#section-schedule .filterBy .filter-select,.section-schedule .filterBy .filter-select{width:70%;height:35px;line-height:35px;float:left;font-family:"Lato",sans-serif;font-weight:400;font-size:15px;letter-spacing:1px;text-transform:uppercase;padding:0 10px}
+#section-schedule .schedule-information,.section-schedule .schedule-information{width:100%;float:left}
+#section-schedule .schedule-information .schedule .day,.section-schedule .schedule-information .schedule .day{width:100%;text-align:center;font-family:"Lato",sans-serif;font-weight:400;font-size:20px;line-height:1.2;letter-spacing:1px;text-transform:uppercase;margin-bottom:40px}
+#section-schedule .schedule-information .schedule .day span,.section-schedule .schedule-information .schedule .day span{display:inline-block;border-bottom:2px solid #ba0d30}
+#section-schedule .schedule-information .activities,.section-schedule .schedule-information .activities{max-width:900px;width:100%;margin:0 auto;padding:0;list-style:none}
+#section-schedule .schedule-information .activities .info,.section-schedule .schedule-information .activities .info{padding:5px 0;font-size:14px;overflow:hidden}
+#section-schedule .schedule-information .activities .info .wrap,.section-schedule .schedule-information .activities .info .wrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative}
+#section-schedule .schedule-information .activities .info span.time,#section-schedule .schedule-information .activities .info span.event,.section-schedule .schedule-information .activities .info span.time,.section-schedule .schedule-information .activities .info span.event{position:relative}
+#section-schedule .schedule-information .activities .info span.time span,#section-schedule .schedule-information .activities .info span.event span,.section-schedule .schedule-information .activities .info span.time span,.section-schedule .schedule-information .activities .info span.event span{display:inline-block;background:#f2f2f2;position:relative;z-index:3}
+#section-schedule .schedule-information .activities .info span.time,.section-schedule .schedule-information .activities .info span.time{font-size:16px;font-weight:500;line-height:1.3;text-transform:uppercase;width:30%;top:-13px}
+#section-schedule .schedule-information .activities .info span.time span,.section-schedule .schedule-information .activities .info span.time span{padding-right:5px;padding-top:5px;padding-bottom:5px;top:3px}
+#section-schedule .schedule-information .activities .info span.time:after,.section-schedule .schedule-information .activities .info span.time:after{content:"";display:block;width:100vw;height:1px;background-image:url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");position:absolute;left:0;bottom:8px;opacity:.4}
+#section-schedule .schedule-information .activities .info span.event,.section-schedule .schedule-information .activities .info span.event{width:70%;text-align:right;line-height:1.2;color:#707070}
+#section-schedule .schedule-information .activities .info span.event span,.section-schedule .schedule-information .activities .info span.event span{display:inline;padding-left:7px}
 .sched-inside-new{padding:15px 15px 25px 15px}
 .sched-inside-new .activities{max-width:900px;width:100%;margin:0 auto;padding:0;list-style:none}
 .sched-inside-new .activities .info{padding:8px 0 0 0;font-size:14px;overflow:hidden;border-bottom:1px dotted #707070;margin-bottom:5px}
@@ -2277,22 +2277,23 @@ body.subpage.single .content-default .black-section .wrapper a:hover{color:#ba0d
 .sched-inside-new .activities .info span.time span{padding-right:5px;padding-top:5px;padding-bottom:5px;top:3px}
 .sched-inside-new .activities .info span.event{width:80%;text-align:right;line-height:1.2;color:#707070}
 .sched-inside-new .activities .info span.event span{display:inline;padding-left:7px}
-body.single-instructions #section-schedule{margin-bottom:16px}
+body.single-instructions #section-schedule,body.single-instructions .section-schedule{margin-bottom:16px}
 body.single-instructions .section-price-ages .flexwrap{padding-bottom:6px}
-body.single-instructions #primary #section-schedule.section-schedule{margin-top:12px;margin-bottom:12px}
-body.single-instructions #information-content{padding-top:50px;padding-bottom:50px}
-body.single-instructions #information-content .text{font-size:16px;line-height:1.4;margin-top:20px}
-body.single-instructions #information-content .text:first-child{margin-top:0}
-body.single-instructions #information-content .t1{color:#191919}
-body.single-instructions #information-content .t2{color:#707070}
+body.single-instructions #primary #section-schedule.section-schedule,body.single-instructions #primary .section-schedule{margin-top:12px;margin-bottom:12px}
+body.single-instructions #information-content,body.single-instructions .information-content{padding-top:50px;padding-bottom:50px}
+body.single-instructions #information-content .text,body.single-instructions .information-content .text{font-size:16px;line-height:1.4;margin-top:20px}
+body.single-instructions #information-content .text:first-child,body.single-instructions .information-content .text:first-child{margin-top:0}
+body.single-instructions #information-content .t1,body.single-instructions .information-content .t1{color:#191919}
+body.single-instructions #information-content .t2,body.single-instructions .information-content .t2{color:#707070}
 body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:30px}
-#primary.temp-yoga #section-schedule{margin-bottom:0 !important}
+#primary.temp-yoga #section-schedule,#primary.temp-yoga .section-schedule{margin-bottom:0 !important}
 #primary.temp-yoga #schedule-bottomtext{padding-top:30px;padding-bottom:30px}
 #primary.temp-yoga #schedule-bottomtext .wrapper{font-size:15px;line-height:1.5;color:#707070}
-#primary.temp-yoga #section-schedule{padding-top:50px;padding-bottom:40px}
+#primary.temp-yoga #section-schedule,#primary.temp-yoga .section-schedule{padding-top:50px;padding-bottom:40px}
 #primary.temp-yoga #section-galleries{margin-top:12px}
-#primary.temp-yoga #instruction-team{padding-top:50px;padding-bottom:50px}
-#primary.temp-yoga #instruction-team .wrapper{font-size:15px;line-height:1.5}
+#primary.temp-yoga #instruction-team,#primary.temp-yoga .instruction-team{padding-top:50px;padding-bottom:50px}
+#primary.temp-yoga #instruction-team .wrapper,#primary.temp-yoga .instruction-team .wrapper{font-size:15px;line-height:1.5}
+.extrapad{padding:30px 0}
 #about-instructor{background:#000;color:#FFF;font-size:15px;line-height:1.5}
 #about-instructor .photo,#about-instructor .text{width:100%}
 #about-instructor .photo img{width:100%;height:auto;float:left}
@@ -2729,7 +2730,7 @@ body.pageNoBanner .site-content{min-height:35em}
 #carousel-images .owl-dots{text-align:center;margin:10px 0 8px}
 #carousel-images .owl-dots .owl-dot{display:inline-block;-webkit-appearance:none;border-radius:100px;border:1px solid #707070;-webkit-box-shadow:none;box-shadow:none;text-shadow:none;width:10px;height:10px;margin:6px}
 #carousel-images .owl-dots .owl-dot.active{background:#707070}
-#primary #section-schedule{background:#f2f2f2;padding-top:50px;padding-bottom:30px}
+#primary #section-schedule,#primary .section-schedule{background:#f2f2f2;padding-top:50px;padding-bottom:30px}
 #primary .schedules-list{padding:20px 0;max-width:800px;width:100%;margin:0 auto}
 #primary .schedules-list ul.items{margin:0;padding:0;list-style:none}
 #primary .schedules-list li.item{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative;font-size:16px;text-align:center;padding:10px 0 40px}
@@ -2742,7 +2743,7 @@ body.pageNoBanner .site-content{min-height:35em}
 #primary .schedules-list li.item .dates{width:100%;text-align:center;margin-bottom:20px}
 #primary .schedules-list li.item .dates span{font-size:16px;display:inline-block;color:#707070;text-transform:uppercase}
 #primary .schedules-list li.item .dates span:after{content:"";display:block;width:100%;height:1px;background:#ba0d30;position:relative;top:-2px}
-#primary .schedules-list li.item.no-dash{display:block;text-align:center}
+#primary .schedules-list li.item.no-dash{display:block;text-align:center;margin-bottom:25px}
 #primary .schedules-list li.item.no-dash:after{display:none}
 #primary .schedules-list li.item.no-dash .time,#primary .schedules-list li.item.no-dash .event{display:block;padding:2px 8px;text-align:center}
 #primary .schedules-list ul.items li:first-child .dates{margin-top:0}
@@ -3179,7 +3180,7 @@ body.subpage.single .content-default .important-notes-red p:last-child,.importan
 .outer-banner-wrap .button-arrow{display:inline-block;text-decoration:none;cursor:pointer;background:#ba0d30;color:#FFF;font-size:18px;line-height:1.2;text-transform:uppercase;text-align:center;position:relative;-webkit-transform:translateX(-10px);transform:translateX(-10px);padding:18px 10px 15px 30px;min-width:180px}
 .outer-banner-wrap .button-arrow span{letter-spacing:1px;position:relative;z-index:10}
 .outer-banner-wrap .button-arrow:before,.outer-banner-wrap .button-arrow:after{content:"";display:block;width:60px;height:50%;position:absolute;right:-15px;background:#ba0d30}
-.outer-banner-wrap .button-arrow:before{top:0;-webkit-transform:skew(40deg);transform:skew(40deg)}
+.outer-banner-wrap .button-arrow:before{top:1px;-webkit-transform:skew(40deg);transform:skew(40deg)}
 .outer-banner-wrap .button-arrow:after{bottom:0;height:49.5%;-webkit-transform:skew(-40deg);transform:skew(-40deg)}
 .outer-banner-wrap .button-arrow:hover{-webkit-transform:translateX(0);transform:translateX(0)}
 #program-info.section-content{background:#707070;color:#FFF}
@@ -3187,7 +3188,7 @@ body.subpage.single .content-default .important-notes-red p:last-child,.importan
 #program-info.section-content .wrapper a{color:#56d0ff;text-decoration:underline}
 #program-info.section-content .wrapper a:hover{color:#9ae0fb}
 body.single-festival #loaderDiv .loaderInline{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}
-body.single-festival #section-schedule .eventDates{font-size:15px;line-height:1.2;text-transform:uppercase;margin:10px 0 0}
+body.single-festival #section-schedule .eventDates,body.single-festival .section-schedule .eventDates{font-size:15px;line-height:1.2;text-transform:uppercase;margin:10px 0 0}
 body.single-festival .select-wrap .facetwp-facet .fs-label-wrap,body.single-festival .filter-wrapper .facetwp-facet .fs-label,body.single-festival .filter-wrapper .facetwp-facet .fs-option-label,body.single-festival .filter-wrapper.filterstyle .filter-label span{font-size:14px}
 body.single-festival .filter-wrapper.filterstyle .filter-label span{padding:3px 20px 1px}
 body.single-festival .filter-wrapper.filterstyle .flexwrap{-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
@@ -3899,7 +3900,7 @@ body.scrolled .hero-register-button .registerBtn{position:fixed}
 .section-price-ages.oneCol .info{width:100%}
 .section-price-ages .fourCols .info{width:25%}
 #carousel-images .owl-prev,#carousel-images .owl-next{top:46%;-webkit-transform:translateY(-46%);transform:translateY(-46%)}
-#primary #section-schedule{padding-top:80px;padding-bottom:70px}
+#primary #section-schedule,#primary .section-schedule{padding-top:80px;padding-bottom:70px}
 #primary .schedules-list li.item{padding:0}
 #primary .schedules-list li.item .time,#primary .schedules-list li.item .event{display:inline;padding:8px 8px;background:#f2f2f2;text-align:right}
 #primary .schedules-list li.item .time{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end;width:auto;padding-right:5px}

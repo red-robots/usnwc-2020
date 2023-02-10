@@ -3948,7 +3948,8 @@ body.single-race {
 			margin-top: 30px;
 		}
 	}
-	#primary #section-schedule {
+	#primary #section-schedule,
+	#primary .section-schedule {
 		padding-top: 40px;
 	}
 	#section-coursemap .title-w-icon {
@@ -4648,7 +4649,7 @@ li.rdate {
 }
 /* Race Single */
 .post-type-race {
-	#section-registration, #section-schedule {
+	#section-registration, #section-schedule, .section-schedule {
 		.title-w-icon {
 			// background: $red;
 			background-color: #000;
@@ -4776,7 +4777,8 @@ body.subpage.single .content-default .black-section {
 }
 
 
-#section-schedule {
+#section-schedule,
+.section-schedule {
 	background: $gray;
 	padding-bottom: 60px;
 	.event-date {
@@ -4992,17 +4994,19 @@ body.subpage.single .content-default .black-section {
 	}
 }
 body.single-instructions {
-	#section-schedule {
+	#section-schedule, .section-schedule {
 		margin-bottom: 16px;
 	}
 	.section-price-ages .flexwrap {
 		padding-bottom: 6px;
 	}
-	#primary #section-schedule.section-schedule {
+	#primary #section-schedule.section-schedule,
+	#primary .section-schedule {
 		margin-top: 12px;
 		margin-bottom: 12px;
 	}
-	#information-content {
+	#information-content,
+	.information-content {
 		padding-top: 50px;
 		padding-bottom: 50px;
 		.text {
@@ -5026,7 +5030,7 @@ body.single-instructions {
 	}
 }
 #primary.temp-yoga {
-	#section-schedule {
+	#section-schedule, .section-schedule {
 		margin-bottom: 0!important;
 	}
 	#schedule-bottomtext {
@@ -5042,14 +5046,15 @@ body.single-instructions {
 			color: $gray_dark;
 		}
 	}
-	#section-schedule {
+	#section-schedule, .section-schedule {
 		padding-top: 50px;
 		padding-bottom: 40px;
 	}
 	#section-galleries {
 		margin-top: 12px;
 	}
-	#instruction-team {
+	#instruction-team,
+	.instruction-team {
 		padding-top: 50px;
 		padding-bottom: 50px;
 		.wrapper {
@@ -5058,7 +5063,12 @@ body.single-instructions {
 		}
 	}
 }
-
+.extrapad {
+	padding: 30px 0;
+}
+// .ci-info {
+// 	padding: 10px;
+// }
 #about-instructor {
 	background: #000;
 	color: #FFF;
@@ -8069,7 +8079,7 @@ body.pageNoBanner {
 }
 
 #primary {
-	#section-schedule {
+	#section-schedule, .section-schedule {
 		background: $gray;
 		padding-top: 50px;
 		padding-bottom: 30px;
@@ -8180,6 +8190,7 @@ body.pageNoBanner {
 			&.no-dash {
 				display: block;
 				text-align: center;
+				margin-bottom: 25px;
 				&:after {
 					display: none;
 				}
@@ -10989,7 +11000,7 @@ body.subpage.single .content-default .important-notes-red,
 			background: $red;
 		}
 		&:before {
-			top: 0;
+			top: 1px;
 			transform: skew(40deg);
 		}
 		&:after {
@@ -11031,7 +11042,7 @@ body.single-festival {
 			// visibility: hidden;
 		}
 	}
-	#section-schedule {
+	#section-schedule, .section-schedule {
 		.eventDates {
 			font-size: 15px;
 			line-height:1.2;

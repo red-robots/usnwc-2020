@@ -48,9 +48,11 @@ $count_options = count($options);
 <?php 
 $important_note = get_field("important_note"); 
 $schedule_items = get_field("schedule_items"); 
+$sch_anchor = get_field("schedule_anchor");
+$sch_anchor_sani = sanitize_title_with_dashes($sch_anchor);
 ?>
 <?php if ($schedule_items) { ?>
-<section id="section-schedule" data-section="SCHEDULE" class="section-schedule section-content">
+<section id="section-<?php echo strtolower($sch_anchor_sani); ?>" data-section="<?php echo $sch_anchor; ?>" class="section-schedule section-content">
 	<div class="wrapper">
 		<div class="shead-icon text-center">
 			<div class="icon"><span class="ci-menu"></span></div>
@@ -87,8 +89,10 @@ $schedule_items = get_field("schedule_items");
 <?php } ?>
 
 
-<?php if( $galleries = get_field("gallery") ) { ?>
-<section id="section-galleries" data-section="Activities" class="section-content">
+<?php $gal_anchor = get_field("gallery_anchor");
+$gal_anchor_sani = sanitize_title_with_dashes($gal_anchor);
+if( $galleries = get_field("gallery") ) { ?>
+<section id="section-<?php echo strtolower($gal_anchor_sani); ?>" data-section="<?php echo $gal_anchor; ?>" class="section-content">
 	<div id="carousel-images">
 		<div class="loop owl-carousel owl-theme">
 		<?php foreach ($galleries as $g) { ?>
@@ -106,8 +110,10 @@ $schedule_items = get_field("schedule_items");
 <?php 
 $instruction_title = get_field("instruction_title");
 $instruction_text = get_field("instruction_text");
+$instruction_anchor = get_field("instruction_anchor");
+$instruction_anchor_sani = sanitize_title_with_dashes($instruction_anchor);
 if( $instruction_text ) { ?>
-<section id="instruction-team"  data-section="<?php echo $instruction_title ?>" class="section-content">
+<section id="instruction-<?php echo strtolower($instruction_anchor_sani); ?>"  data-section="<?php echo $instruction_anchor ?>" class="section-content instruction-team">
 	<div class="wrapper narrow text-center">
 		<div class="shead-icon text-center">
 			<div class="icon"><span class="ci-team-hat"></span></div>
