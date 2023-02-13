@@ -50,13 +50,14 @@ $important_note = get_field("important_note");
 $schedule_items = get_field("schedule_items"); 
 $sch_anchor = get_field("schedule_anchor");
 $sch_anchor_sani = sanitize_title_with_dashes($sch_anchor);
+$schedule_title = get_field("schedule_title");
 ?>
 <?php if ($schedule_items) { ?>
 <section id="section-<?php echo strtolower($sch_anchor_sani); ?>" data-section="<?php echo $sch_anchor; ?>" class="section-schedule section-content">
 	<div class="wrapper">
 		<div class="shead-icon text-center">
 			<div class="icon"><span class="ci-menu"></span></div>
-			<h2 class="stitle">SCHEDULE</h2>
+			<h2 class="stitle"><?php if($schedule_title){ echo $schedule_title; }else{echo 'SCHEDULE';} ?></h2>
 		</div>
 		<div class="schedules-list">
 			<ul class="items">

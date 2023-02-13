@@ -37,6 +37,9 @@ $options[] = array('Ratio',get_field("ratio"));
 	}
 ?>
 <?php if($passport) { ?>
+	<section id="section-registration" class="section-content section-full-button">
+		<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="red-button-full stitle"><span><?php echo $registerBtn ?></span></a>
+	</section>
 <?php } else { ?>
 	<?php if ($registerLink) { ?>
 	<section id="section-registration" class="section-content section-full-button">
@@ -48,12 +51,15 @@ $options[] = array('Ratio',get_field("ratio"));
 <?php $schedule_items = get_field("schedule_items"); 
 		$sch_anchor = get_field("schedule_anchor");
 		$sch_anchor_sani = sanitize_title_with_dashes($sch_anchor);
+		$schedule_title = get_field("schedule_title");
  if ($schedule_items) { ?>
 <section id="section-<?php echo strtolower($sch_anchor_sani); ?>" data-section="<?php echo $sch_anchor; ?>" class="section-schedule section-content">
 	<div class="wrapper">
 		<div class="shead-icon text-center">
 			<div class="icon"><span class="ci-menu"></span></div>
-			<h2 class="stitle">SCHEDULE</h2>
+			<h2 class="stitle">
+				<?php if($schedule_title){ echo $schedule_title; }else{echo 'SCHEDULE';} ?>
+			</h2>
 		</div>
 		<div class="schedules-list">
 			<ul class="items">
