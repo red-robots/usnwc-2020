@@ -46,7 +46,7 @@ $flexClass = ($total<3) ? ' align-middle':'';
 
 						$passport = get_field('passport_btn');
 						$passLabel = get_field('passport_label');
-						$idArray = array('40','41','42','43','53','54','55','56','57','58','59','254','152','153');
+						$idArray = array('40','41','42','43','53','54','55','56','57','58','59','154','152','153');
 						if( $passport == 'all' ) {
 							$pp = 'data-accesso-launch';
 						} elseif(in_array($passport, $idArray )) {
