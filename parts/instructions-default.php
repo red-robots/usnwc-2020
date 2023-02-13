@@ -27,7 +27,7 @@ $options[] = array('Ratio',get_field("ratio"));
 
 	$passport = get_field('passport_btn');
 	$passLabel = get_field('passport_label');
-	$idArray = array('40','41','42','43','53','54','55','56','57','58','254','152','153');
+	$idArray = array('40','41','42','43','53','54','55','56','57','58','154','152','153');
 	if( $passport == 'all' ) {
 		$pp = 'data-accesso-launch';
 	} elseif(in_array($passport, $idArray )) {
@@ -37,9 +37,9 @@ $options[] = array('Ratio',get_field("ratio"));
 	}
 ?>
 <?php if($passport) { ?>
-	<section id="section-registration" class="section-content section-full-button">
+	<!-- <section id="section-registration" class="section-content section-full-button">
 		<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="red-button-full stitle"><span><?php echo $registerBtn ?></span></a>
-	</section>
+	</section> -->
 <?php } else { ?>
 	<?php if ($registerLink) { ?>
 	<section id="section-registration" class="section-content section-full-button">
