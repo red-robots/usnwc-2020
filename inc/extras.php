@@ -15,6 +15,11 @@
  */
 define('THEMEURI',get_template_directory_uri() . '/');
 
+function add_author_support_to_posts() {
+   add_post_type_support( 'activity_schedule', 'author' ); 
+}
+add_action( 'init', 'add_author_support_to_posts' );
+
 
 
 // Add featured image to REST API

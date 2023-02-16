@@ -22,7 +22,7 @@ function js_custom_init() {
             'plural'    => 'Activity Schedules',
             'single'    => 'Activity Schedule',
             'menu_icon' => 'dashicons-calendar-alt',
-            'supports'  => array('title')
+            'supports'  => array('title', 'revisions')
         ),
         array(
             'post_type' => 'pass',
