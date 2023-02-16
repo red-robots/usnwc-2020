@@ -259,7 +259,7 @@ function build_taxonomies() {
       'rewrite'   => 'pass-type'
     ),
     array(
-      'post_type' => array('film', 'activity','post'),
+      'post_type' => array('film', 'activity','post','race'),
       'menu_name' => 'Activity',
       'plural'    => 'Activities',
       'single'    => 'Activity',
