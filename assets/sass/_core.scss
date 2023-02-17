@@ -4156,6 +4156,17 @@ h1.page-title {
 		background-position: top center;
 		background-repeat: no-repeat;
 		z-index: 10;
+		&.mobile {
+			@media screen and (min-width: $tabwidth) {
+				display: none;
+			}
+		}
+		&.desktop {
+			display: none;
+			@media screen and (min-width: $tabwidth) {
+				display: block;
+			}
+		}
 	}
 	img.feat-img {
 		width: 100%;

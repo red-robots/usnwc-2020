@@ -38,6 +38,7 @@ $parent_page_id = get_the_ID();
 							$term_id = $term->term_id;
 							$term_name = $term->name;
 							$thumbImage = get_field("category_image",$taxonomy.'_'.$term_id);
+							$thumbImageMobile = get_field("category_image_mobile",$taxonomy.'_'.$term_id);
 							$pagelink = get_term_link($term,$taxonomy);
 							//$child_terms = get_term_children($term_id,$taxonomy);
 							?>
@@ -47,7 +48,8 @@ $parent_page_id = get_the_ID();
 									<div class="photo">
 										<a href="<?php echo $pagelink ?>" class="link">
 											<?php if ($thumbImage) { ?>
-												<span class="imagediv" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></span>
+												<span class="imagediv mobile" style="background-image:url('<?php echo $thumbImageMobile['sizes']['medium_large'] ?>')"></span>
+												<span class="imagediv desktop" style="background-image:url('<?php echo $thumbImage['sizes']['medium_large'] ?>')"></span>
 												<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="display:none;">
 												<img src="<?php echo $blank_image ?>" alt="" class="feat-img placeholder">
 											<?php } else { ?>
