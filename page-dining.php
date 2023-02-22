@@ -169,6 +169,9 @@ $canceledImage = THEMEURI . "images/canceled.svg";
 
 			<?php 
 			$total = $entries->found_posts;
+			// echo '<pre>';
+			// print_r($total);
+			// echo '</pre>';
 			$total_pages = ceil($total / $perpage);
 			if ($total > $perpage) { ?> 
 				<div class="loadmorediv text-center">
