@@ -161,3 +161,37 @@ if( $photo ||  $instructor_text ) { ?>
 <?php } ?>
 
 
+<?php 
+/*
+	Second Instructor
+
+*/
+$photo_two = get_field("instructor_photo_two");
+$instructor_title_two = get_field("instructor_title_two");
+$instructor_text_two = get_field("instructor_text_two");
+$sclass = ($photo_two && $instructor_text_two) ? 'half':'full';
+if( $photo_two ||  $instructor_text_two ) { ?>
+<section id="about-instructor" class="section-content <?php echo $sclass ?>">
+	<div class="flexwrap">
+		<?php if ($instructor_text_two) { ?>
+		<div class="text">
+			<div class="wrap">
+				<?php if ($instructor_title) { ?>
+					<h2 class="stitle"><?php echo $instructor_title_two ?></h2>
+				<?php } ?>
+				<div class="info"><?php echo $instructor_text_two ?></div>
+			</div>
+		</div>	
+		<?php } ?>
+		<?php if ($photo_two) { ?>
+		<div class="photo">
+			<div class="image" style="background-image:url('<?php echo $photo_two['url'] ?>')">
+				<img src="<?php echo $square ?>" alt="" aria-hidden="true" class="helper">
+			</div>
+		</div>	
+		<?php } ?>
+	</div>
+</section>
+<?php } ?>
+
+
