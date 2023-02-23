@@ -402,7 +402,7 @@ Reference: http://jsfiddle.net/BB3JK/47/
  	// 	function(){
  	// 		$(".topinfo .today").addClass("open");
  	// 	}, function(){
- 	// 		//$(".topinfo .today").removeClass("open");
+ 	// 		$(".topinfo .today").removeClass("open");
  	// 	}
  	// );
 
