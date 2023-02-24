@@ -177,9 +177,9 @@ if( $photo_two ||  $instructor_text_two ) { ?>
 		<div class="text">
 			<div class="wrap">
 				<?php if ($instructor_title) { ?>
-					<h2 class="stitle"><?php echo $instructor_title_two ?></h2>
+					<h2 class="stitle textalign-right"><?php echo $instructor_title_two ?></h2>
 				<?php } ?>
-				<div class="info"><?php echo $instructor_text_two ?></div>
+				<div class="info textalign-right"><?php echo $instructor_text_two ?></div>
 			</div>
 		</div>	
 		<?php } ?>

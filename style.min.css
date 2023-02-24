@@ -1575,6 +1575,7 @@ section:focus,div:focus{outline:0}
 a,input,button,select,textarea{-webkit-transition:all ease .3s;transition:all ease .3s}
 a{color:#ba0d30}
 a:hover{color:#dd8698}
+.textalign-right{text-align:right}
 .waiver{width:100%}
 .waiver img{max-width:100%;height:auto}
 .sr-only{display:inline-block;width:0;height:0;overflow:hidden;text-indent:-99em}
