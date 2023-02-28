@@ -30,10 +30,18 @@ $blank_image = THEMEURI . "images/rectangle-narrow.png";
 // echo '</pre>';
 
 $category_image = get_field("category_image",$taxonomy.'_'.$current_term_id);
+$category_image_mobile = get_field("category_image_mobile",$taxonomy.'_'.$current_term_id);
+if( $category_image_mobile ) {
+	$mMlass = 'mobile';
+	$dMlass = 'desktop';
+}
 if($category_image) { ?>
 <div id="banner" class="taxonomy-banner">
 	<div class="slides-wrapper static-banner" style="background-image:url('<?php echo $category_image['url'] ?>')">
-		<img src="<?php echo $category_image['url'] ?>" alt="<?php echo $category_image['title'] ?>" class="actual-image">
+		<img src="<?php echo $category_image['url'] ?>" alt="<?php echo $category_image['title'] ?>" class="actual-image <?php echo $dMlass; ?>">
+		<?php if( $category_image_mobile ) { ?>
+			<img src="<?php echo $category_image_mobile['url'] ?>" alt="<?php echo $category_image_mobile['title'] ?>" class="actual-image <?php echo $mMlass; ?>">
+		<?php } ?>
 		<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="helper">
 	</div>
 </div>

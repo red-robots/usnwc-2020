@@ -1747,6 +1747,7 @@ body.nav-open .menu-toggle{opacity:0}
 #banner.taxonomy-banner .static-banner{background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#707070}
 #banner.taxonomy-banner .static-banner img.actual-image{display:block;width:100%;height:auto;float:left}
 #banner.taxonomy-banner .static-banner img.helper{display:none;width:100%;height:auto;float:left}
+#banner.taxonomy-banner .static-banner img.desktop{display:none}
 #subpageSlides{position:relative}
 #subpageSlides .sub-slide-item{width:100%;float:left}
 #subpageSlides .sub-slide-item .slide-image{width:100%;float:left;min-height:200px;background-size:cover;background-position:center}
@@ -4055,7 +4056,9 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 #timeline-area.timeline-wrapper .timeline .middle-line{width:50%}
 #timeline-area.timeline-wrapper .timeline .middle-line:before{content:"";display:block;width:25px;height:25px;border-radius:50%;background-color:#ba0d30;position:absolute;top:-10px;right:-12.5px}
 #timeline-area.timeline-wrapper .timeline .middle-line:after{content:"";display:block;width:7vw;border-bottom:2px solid #ba0d30;position:absolute;bottom:0;right:0;margin-right:-3.5vw;margin-bottom:-1.2vw}
-}@media screen and (min-width:820px){.post-type-entries .imagediv.mobile{display:none}
+}@media screen and (min-width:820px){#banner.taxonomy-banner .static-banner img.desktop{display:block}
+#banner.taxonomy-banner .static-banner img.mobile{display:none}
+.post-type-entries .imagediv.mobile{display:none}
 .post-type-entries .imagediv.desktop{display:block}
 .hero-register-button .stats{position:absolute;top:85px;left:0}
 .double-filter-wrapper .inside{width:45%;float:left;padding:2.5%}

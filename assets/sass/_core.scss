@@ -1207,6 +1207,17 @@ body.nav-open {
 			// 	display: block;
 			// }
 		}
+		img.desktop {
+			display: none;
+			@media screen and (min-width: $tabwidth) {
+				display: block;
+			}
+		}
+		img.mobile {
+			@media screen and (min-width: $tabwidth) {
+				display: none;
+			}
+		}
 	}
 }
 
