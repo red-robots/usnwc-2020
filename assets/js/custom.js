@@ -434,14 +434,7 @@ jQuery(document).ready(function ($) {
   // 		$(".topinfo .today").removeClass("open");
   // 	}
   // );
-
-  /* Today (Top) */
-
-
-  $(".topinfo .today a").on("click", function (e) {
-    e.preventDefault();
-    $(".topinfo .today").toggleClass("open"); // $(".topinfo").addClass("nowopen");
-  }); // $("#todayLink").on("click",function(e){
+  // $("#todayLink").on("click",function(e){
   // 	e.preventDefault();
   // 	$(".topinfo .today").removeClass("open");
   // 	$(".topinfo").removeClass("nowopen");
@@ -453,27 +446,35 @@ jQuery(document).ready(function ($) {
   // 		$(".topinfo .today").removeClass("open");
   // 	}
   // );
-  // When was this added?
-  // 	$(document).on('click', function (e) {
-  // 		var tag = $(this);
-  // 		var exceptions = ['todayToggle','todayLink','todayTxt','today-options'];
-  // 		var elementId = e.target.id;
-  // 		var is_open = false;
-  // 		if( elementId=='today-options' ) {
-  // 			$(".topinfo .today").addClass("open");
-  // 		} else {
-  // 			if($.inArray(elementId, exceptions) != -1) {
-  // 			if( $(".topinfo .today").hasClass("open") ) {
-  // 				$(".topinfo .today").removeClass("open");
-  // 			} else {
-  // 				$(".topinfo .today").addClass("open");
-  // 			}
-  //  		} else {
-  //  			$(".topinfo .today").removeClass("open");
-  //  		}
-  // 		}
-  // });
 
+  /* Today (Top) */
+  // $(".topinfo .today a").on("click",function(e){
+  //   e.preventDefault();
+  //   $(".topinfo .today").toggleClass("open");
+  // });
+  // When was this added?
+
+
+  $(document).on('click', function (e) {
+    var tag = $(this);
+    var exceptions = ['todayToggle', 'todayLink', 'todayTxt', 'today-options'];
+    var elementId = e.target.id;
+    var is_open = false;
+
+    if (elementId == 'today-options') {
+      $(".topinfo .today").addClass("open");
+    } else {
+      if ($.inArray(elementId, exceptions) != -1) {
+        if ($(".topinfo .today").hasClass("open")) {
+          $(".topinfo .today").removeClass("open");
+        } else {
+          $(".topinfo .today").addClass("open");
+        }
+      } else {
+        $(".topinfo .today").removeClass("open");
+      }
+    }
+  });
   $('a[href*="#"]:not([href="#"])').click(function () {
     var headHeight = $("#masthead").height();
     var offset = headHeight + 80;
