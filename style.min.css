@@ -1745,6 +1745,7 @@ body.nav-open .menu-toggle{opacity:0}
 #banner.subpageBanner .slideItem img.desktop{display:none}
 #banner.taxonomy-banner{margin-top:16px}
 #banner.taxonomy-banner .static-banner{background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#707070}
+#banner.taxonomy-banner .static-banner img{display:block;width:100%;height:auto}
 #banner.taxonomy-banner .static-banner img.actual-image{display:block;width:100%;height:auto;float:left}
 #banner.taxonomy-banner .static-banner img.helper{display:none;width:100%;height:auto;float:left}
 #banner.taxonomy-banner .static-banner img.desktop{display:none}
@@ -3761,7 +3762,6 @@ section.route-stories.half .block{width:50%}
 #banner ul.slides.single-slide .type-video{margin-top:0}
 #banner.subpageBanner .slideItem img.desktop{display:block}
 #banner.subpageBanner .slideItem img.mobile{display:none}
-#banner.taxonomy-banner .static-banner{height:600px}
 #banner.taxonomy-banner .static-banner img.actual-image{display:none}
 body.single-activity #subpageSlides ul.slides,body.single-activity #subpageSlides li.sub-slide-item,body.single-activity #subpageSlides .slide-image{height:100% !important}
 .homerow .activities .imagebox{width:33.33%}
@@ -4066,7 +4066,6 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 .camp-caro.swap{display:block}
 .flexslider.swap{display:none}
 }@media(min-width:960px){.topinfo span.el{font-size:12px}
-#banner.taxonomy-banner .static-banner{height:650px}
 .home-video-gallery.count1 .video-big{height:600px}
 .section-content#section-options .categories .box-content{padding-bottom:50px}
 .section-content#section-options .categories.passOptions .graybox .box-title{padding-top:50px}

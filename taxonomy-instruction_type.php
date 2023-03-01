@@ -34,13 +34,15 @@ $category_image_mobile = get_field("category_image_mobile",$taxonomy.'_'.$curren
 if( $category_image_mobile ) {
 	$mMlass = 'mobile';
 	$dMlass = 'desktop';
+} else {
+	$dMlass = 'nomobile';
 }
 if($category_image) { ?>
 <div id="banner" class="taxonomy-banner">
 	<div class="slides-wrapper static-banner" style="background-image:url('<?php echo $category_image['url'] ?>')">
-		<img src="<?php echo $category_image['url'] ?>" alt="<?php echo $category_image['title'] ?>" class="actual-image <?php echo $dMlass; ?>">
+		<img src="<?php echo $category_image['url'] ?>" alt="<?php echo $category_image['title'] ?>" class=" <?php echo $dMlass; ?>">
 		<?php if( $category_image_mobile ) { ?>
-			<img src="<?php echo $category_image_mobile['url'] ?>" alt="<?php echo $category_image_mobile['title'] ?>" class="actual-image <?php echo $mMlass; ?>">
+			<img src="<?php echo $category_image_mobile['url'] ?>" alt="<?php echo $category_image_mobile['title'] ?>" class=" <?php echo $mMlass; ?>">
 		<?php } ?>
 		<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="helper">
 	</div>

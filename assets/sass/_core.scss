@@ -1184,10 +1184,15 @@ body.nav-open {
 		background-repeat: no-repeat;
 		background-color: $gray_dark;
 		@include tab {
-			height: 600px;
+			// height: 600px;
 		}
 		@include mid {
-			height: 650px;
+			// height: 650px;
+		}
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
 		}
 		img.actual-image {
 			display: block;
