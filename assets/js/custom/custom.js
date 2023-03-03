@@ -233,7 +233,7 @@ Reference: http://jsfiddle.net/BB3JK/47/
   $(document).on('click', '.prenav .sitelinks a[data-nav]', function (e) {
     e.preventDefault();
     var currentParent = $(this).parent();
-  var url = $(this).attr('href');
+    var url = $(this).attr('href');
     var target = $(this).attr('data-nav');
     var linkName = $(this).text().trim();
     $('.prenav a[data-nav]').parent().not(currentParent).removeClass('active');
