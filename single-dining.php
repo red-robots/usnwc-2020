@@ -9,7 +9,14 @@
 
 get_header(); 
 $post_type = get_post_type();
+$dClass = '';
+$mClass = '';
 $heroImage = get_field("post_image_full");
+$mobileBanner = get_field('mobile-banner');
+if( $mobileBanner ) {
+	$dClass = 'desktop';
+	$mClass = 'mobile';
+}
 $has_hero = ($heroImage) ? 'has-banner':'no-banner';
 //$customPostTypes = array('activity','festival');
 //get_template_part("parts/subpage-banner");
@@ -23,16 +30,38 @@ $registration_status = get_field("registration_status",$post_id);
 $status = ($registration_status) ? $registration_status : 'open';
 $blank_image = THEMEURI . "images/square.png";
 $status_custom_message = get_field("status_custom_message");
+
+$passport = get_field('passport_btn');
+$passLabel = get_field('passport_label');
+$idArray = array('40','41','42','43','53','54','55','56','57','58','59');
+if( $passport == 'all' ) {
+	$pp = 'data-accesso-launch';
+} elseif(in_array($passport, $idArray )) {
+	$pp = 'data-accesso-package="'.$passport.'"';
+} else {
+	$pp = 'data-accesso-keyword="'.$passport.'"';
+}
 ?>
 	
 <div id="primary" class="content-area-full content-default single-post <?php echo $has_hero;?> post-type-<?php echo $post_type;?>">
 
 		<?php if ($heroImage) { ?>
 		<div class="post-hero-image <?php echo $status; ?>">
+			<img src="<?php echo $heroImage['url'] ?>" alt="<?php echo $heroImage['title'] ?>" class="featured-image <?php echo $dClass; ?>">
+
+			<img src="<?php echo $mobileBanner['url'] ?>" alt="<?php echo $mobileBanner['title'] ?>" class="featured-image <?php echo $mClass; ?>">
 			<?php if ($status=='open') { ?>
 
-				<?php if ($registerButton && $registerLink) { ?>
-					<div class="stats open"><a href="<?php echo $registerLink ?>" target="<?php echo $registerTarget ?>" class="registerBtn"><?php echo $registerButton ?></a></div>
+				<?php if($passport){ ?>
+					<div class="stats open">
+						<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="registerBtn">
+							<?php if($passLabel){echo $passLabel;}else{echo 'Buy';} ?>
+						</a>
+					</div>
+				<?php }else{ ?>
+					<?php if ($registerButton && $registerLink) { ?>
+						<div class="stats open"><a href="<?php echo $registerLink ?>" target="<?php echo $registerTarget ?>" class="registerBtn"><?php echo $registerButton ?></a></div>
+					<?php } ?>
 				<?php } ?>
 			<?php } else if($status=='closed') { ?>
 			<div class="stats closed">SOLD OUT</div>
@@ -43,7 +72,7 @@ $status_custom_message = get_field("status_custom_message");
 				<?php } ?>
 			
 			<?php } ?>
-			<img src="<?php echo $heroImage['url'] ?>" alt="<?php echo $heroImage['title'] ?>" class="featured-image">
+			
 		</div>
 		<?php } ?>
 
@@ -186,6 +215,10 @@ $status_custom_message = get_field("status_custom_message");
 					</div>
 				</section>
 				<?php } ?>
+
+				<?php include(locate_template('parts/adventure-dining-map-v-two.php')); ?>
+
+				<?php include(locate_template('parts/text-image-blocks.php')); ?>
 
 
 				<?php  

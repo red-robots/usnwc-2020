@@ -6,13 +6,15 @@ while ( have_posts() ) : the_post(); ?>
 		<div class="wrapper text-center">
 			<h1 class="pagetitle"><span><?php echo get_the_title(); ?></span></h1>
 			<?php if ( get_the_content() ) { ?>
-			<div class="main-text"><?php the_content(); ?></div>
+			<?php the_content(); ?>
 			<?php } ?>
 		</div>
 	</section>
 	
 
 	<div id="pageTabs"></div>
+
+	<?php include(locate_template('parts/details.php')); ?>
 
 	<?php 
 	$eventInfoBoxes = get_field('use_event_info_boxes');
@@ -120,6 +122,10 @@ while ( have_posts() ) : the_post(); ?>
 			$eventInfo = get_field("additional_event_info"); 
 			$event_info_btn = get_field("event_info_button_name"); 
 			?>
+
+			
+
+
 			<?php if ($registration_note || $eventInfo) { ?>
 			<div class="black-section">
 				<div class="wrapper text-center">
@@ -139,73 +145,9 @@ while ( have_posts() ) : the_post(); ?>
 
 	?>
 
+	<?php include(locate_template('parts/additional-info-race.php')); ?>
 
-
-	<?php
-	/* TEXT AND IMAGE BLOCKS */
-	$textImageData = get_field("textImageCol"); ?>
-	<?php if ($textImageData) { ?>
-	<section class="text-and-image-blocks nomtop">
-		<div class="columns-2">
-		<?php $i=1; foreach ($textImageData as $s) { 
-			$e_title = $s['title'];
-			$e_text = $s['text'];
-			$btn = $s['button'];
-			$btnName = ( isset($btn['title']) && $btn['title'] ) ? $btn['title'] : '';
-			$btnLink = ( isset($btn['url']) && $btn['url'] ) ? $btn['url'] : '';
-			$btnTarget = ( isset($btn['target']) && $btn['target'] ) ? $btn['target'] : '_self';
-			$slides = $s['images'];
-			$boxClass = ( ($e_title || $e_text) && $slides ) ? 'half':'full';
-			if( ($e_title || $e_text) || $slides) {  $colClass = ($i % 2) ? ' odd':' even'; ?>
-			<div id="section<?php echo $i?>" class="mscol <?php echo $boxClass.$colClass ?>">
-					<?php if ( $e_title || $e_text ) { ?>
-					<div class="textcol">
-						<div class="inside">
-
-							<div class="info">
-								<?php if ($e_title) { ?>
-									<h3 class="mstitle"><?php echo $e_title ?></h3>
-								<?php } ?>
-
-								<?php if ($e_text) { ?>
-									<div class="textwrap">
-										<div class="mstext"><?php echo $e_text ?></div>
-									</div>
-								<?php } ?>
-
-								<?php if ($btnName && $btnLink) { ?>
-								<div class="buttondiv">
-									<a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="btn-sm xs"><span><?php echo $btnName ?></span></a>
-								</div>
-								<?php } ?>
-							</div><!-- .info -->
-
-						</div><!-- .inside -->
-					</div><!-- .textcol -->	
-					<?php } ?>
-
-					<?php if ( $slides ) { ?>
-					<div class="gallerycol">
-						<div class="flexslider">
-							<ul class="slides">
-								<?php $helper = THEMEURI . 'images/rectangle-narrow.png'; ?>
-								<?php foreach ($slides as $s) { ?>
-									<li class="slide-item" style="background-image:url('<?php echo $s['url']?>')">
-										<img src="<?php echo $helper ?>" alt="" aria-hidden="true" class="placeholder">
-										<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>" class="actual-image" />
-									</li>
-								<?php } ?>
-							</ul>
-						</div>
-					</div>	
-					<?php } ?>
-
-			</div>
-			<?php $i++; } ?>
-		<?php } ?>
-		</div>
-	</section>	
-	<?php } ?>
+	<?php include(locate_template('parts/text-image-blocks.php')); ?>
 
 
 	<?php 
@@ -218,7 +160,7 @@ while ( have_posts() ) : the_post(); ?>
 	$end = get_field("end_date");
 	$event_date = get_event_date_range($start,$end,true);
 	if($sched_section_title || $has_race_types) { ?>
-	<section id="section-registration" data-section="Schedule" class="section-content">
+	<section id="section-schedule" data-section="Schedule" class="section-content">
 		<?php if ($sched_section_title) { ?>
 			<div class="title-w-icon">
 				<div class="wrapper">
@@ -258,6 +200,9 @@ while ( have_posts() ) : the_post(); ?>
 									<?php $i=1; 
 									$totalTypes = count($race_types);
 									foreach ($race_types as $r) { 
+										// echo '<pre style="background: #fff;">';
+										// print_r($r);
+										// echo '</pre>';
 										$actualName = $r['name']; 
 										$alias = $r['alias'];
 										$name = ($alias) ? $alias : $actualName;
@@ -270,6 +215,7 @@ while ( have_posts() ) : the_post(); ?>
 											$singleDay = ($startdate) ? date('l',strtotime($startdate)) : '';
 										}
 										$activities = ( isset($sched['schedule']) && $sched['schedule'] ) ? $sched['schedule'] : '';
+										$custom_date = $sched['custom_date'];
 										// $is_active = ($i==1) ? ' active':'';
 										$is_active = 'active';
 										$dateRange = '';
@@ -309,7 +255,15 @@ while ( have_posts() ) : the_post(); ?>
 														$event = $a['action'];
 														if($time || $action) { ?>
 														<?php if( $ii == 0 ){ ?>
-															<li class="rdate"><?php echo $newStartDate; ?></li>
+															<li class="rdate">
+																<?php 
+																if($custom_date) {
+																	echo $custom_date;
+																} else {
+																	echo $newStartDate; 
+																}
+																?>
+															</li>
 														<?php } ?>
 														<li class="info">
 															<div class="wrap">
@@ -364,64 +318,8 @@ while ( have_posts() ) : the_post(); ?>
 	</section>
 	<?php } ?>
 
-	<?php 
-	/* COURSE MAP */
-	//$course_section_icon = get_field("course_section_icon"); 
-	$course_section_title = get_field("course_section_title"); 
-	$course_images = get_field("course_images"); 
-	if($course_section_title) { ?>
-	<section id="section-coursemap" data-section="Course Map" class="section-content">
-		<?php if ($course_section_title) { ?>
-			<div class="title-w-icon">
-				<div class="wrapper">
-					<div class="shead-icon text-center">
-						<div class="icon"><span class="ci-map"></span></div>
-						<h2><?php echo $course_section_title ?></h2>
-					</div>
-				</div>
-			</div>
-		<?php } ?>
-
-		<?php if ($course_images) { 
-			$ci_images[] = array('img1','img1_width');
-			$ci_images[] = array('img2','img2_width');
-			$countImages = 0;
-			$courseImagesArrs = array();
-			foreach ($ci_images as $c) { 
-				$img_field = ( isset($c[0]) && $c[0] ) ? $c[0] : '';
-				$img_width = ( isset($c[1]) && $c[1] ) ? $c[1] : '';
-				$img = ( isset($course_images[$img_field]) && $course_images[$img_field] ) ? $course_images[$img_field]:'';
-				$percent = ( isset($course_images[$img_width]) && $course_images[$img_width] ) ? $course_images[$img_width]:'50';
-				if($img) {
-					$courseImagesArrs[$img_field] = $img;
-				}
-			}
-
-			$count_images = ($courseImagesArrs) ? count($courseImagesArrs) : 0;
-			if($courseImagesArrs) { ?>
-			<div class="course-images images-count-<?php echo $count_images?>">
-				<div class="inner">
-					<?php foreach ($ci_images as $c) { 
-						$img_field = ( isset($c[0]) && $c[0] ) ? $c[0] : '';
-						$img_width = ( isset($c[1]) && $c[1] ) ? $c[1] : '';
-						$img = ( isset($course_images[$img_field]) && $course_images[$img_field] ) ? $course_images[$img_field]:'';
-						$percent = ( isset($course_images[$img_width]) && $course_images[$img_width] ) ? $course_images[$img_width]:'50';
-						if($img) { ?>
-							<div class="img" style="width:<?php echo $percent?>%">
-								<a href="<?php echo $img['url'] ?>" class="zoomPic zoom-image">
-									<div class="wrap" style="background-image:url('<?php echo $img['url'] ?>')">
-										<img src="<?php echo $img['url'] ?>" alt="<?php echo $img['title'] ?>" style="visibility:hidden"/>
-									</div>
-								</a>
-							</div>
-						<?php } ?>
-					<?php } ?>
-				</div>
-			</div>
-			<?php } ?>
-		<?php } ?>
-	</section>
-	<?php } ?>
+	<?php include(locate_template('parts/coursemap.php')); ?>
+	<?php include(locate_template('parts/coursemap-two.php')); ?>
 
 	<?php
 	/* AWARDS */
@@ -617,8 +515,58 @@ if($sponsors) { ?>
 </div>
 <?php } ?>
 
+
+<?php // Popups for Marketing 
+$popup_on = get_field('popup_on');
+$popup_creative = get_field('popup_creative');
+$popup_text = get_field('popup_text');
+$popup_link = get_field('popup_link');
+// echo '<pre>';
+// print_r($popup_creative);
+// echo '</pre>';
+?>
+<div style="display: none;">
+	<div class="race-popup ajax" id="race-pop">
+		<?php if($popup_link) {?><a href="<?php echo $popup_link['url']; ?>" target="<?php echo $popup_link['target']; ?>"><?php } ?>
+			<?php if($popup_creative){ ?>
+				<div class="race-pop-img">
+					<img src="<?php echo $popup_creative['url']; ?>" width="<?php echo $popup_creative['width']; ?>" height="<?php echo $popup_creative['height']; ?>" >
+				</div>
+			<?php } ?>
+			<?php if($popup_text){ ?>
+				<div class="race-pop-txt">
+					<?php echo $popup_text; ?>
+				</div>
+			<?php } ?>
+		<?php if($popup_link) {?></a><?php } ?>
+	</div>
+</div>
+<?php if( $popup_on == 'yes' ){ ?>
+	<?php if (!isset($_COOKIE['racepup'])): ?>
+
+	    <!-- replace this whatever you want to show -->
+	    <script>
+	    	$(document).ready(function(){
+			    $.colorbox({
+			    	inline:true, 
+			    	href:".ajax",
+			    	innerWidth: 300
+			    });
+			});
+	    </script>
+
+	    <?php
+	    $Month = 2592000 + time();
+	    setcookie('racepup',date("F jS - g:i a"), $Month); // 30 days
+	    //echo $_COOKIE['racepup'];
+	    ?>
+
+	<?php endif; ?>
+<?php } ?>
 <script>
+
 jQuery(document).ready(function($){
+
 
 	if( $(".customModal").length>0 ) {
 		$(".customModal").insertAfter("#page");
@@ -662,6 +610,37 @@ jQuery(document).ready(function($){
 		});
 		$("#pageTabs").html('<div class="wrapper"><div id="tabcontent">'+tabs+'</div></div>');
 	}
+
+	 $("#tabs a").on("click",function(e){
+    e.preventDefault();
+    var panel = $(this).attr('data-rel');
+    $("#tabs li").not(this).removeClass('active');
+    $(this).parents("li").addClass('active');
+    if( $(panel).length ) {
+      $(".info-panel").not(panel).removeClass('active');
+      $(".info-panel").not(panel).find('.info-inner').removeClass('fadeIn');
+      $(panel).addClass('active');
+      //$(panel).find('.info-inner').addClass('fadeIn').slideToggle();
+      $(panel).find('.info-inner').toggleClass('fadeIn');
+    }
+  });
+
+  $(".info-title").on("click",function(e){
+    var parent = $(this).parents('.info-panel');
+    var parent_id = parent.attr("id");
+    $("#tabs li").removeClass('active');
+    $('.info-panel').not(parent).find('.info-inner').hide();
+    $('.info-panel').not(parent).removeClass('active');
+    parent.find('.info-inner').toggleClass('fadeIn').slideToggle();
+    if( parent.hasClass('active') ) {
+      parent.removeClass('active');
+      $('#tabs a[data-rel="#'+parent_id+'"]').parents('li').removeClass('active');
+    } else {
+      parent.addClass('active');
+      $('#tabs a[data-rel="#'+parent_id+'"]').parents('li').addClass('active');
+    }
+
+  });
 
 });	
 </script>

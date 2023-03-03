@@ -23,7 +23,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 
 		<?php if ($row4_button_name && $row4_button_link) { ?>
 		<div class="buttondiv">
-			<a href="<?php echo $row4_button_link['url'] ?>" target="<?php echo $row4_button_link['target'] ?>" class="btn-sm"><span><?php echo $row4_button_name ?></span></a>
+			<a href="<?php echo $row4_button_link['url'] ?>" target="_blank" class="btn-sm"><span><?php echo $row4_button_name ?></span></a>
 		</div>	
 		<?php } ?>
 	</div>
@@ -31,41 +31,92 @@ $blank_image = THEMEURI . "images/rectangle.png";
 	<?php /* VIDEOS */ ?>
 	<?php  
 	//$post_type = 'story';
-	$post_type = 'post';
+	// $post_type = 'post';
 	$per_page = 2;
-	$args = array(
-		'posts_per_page'	=> $per_page,
-		'post_type'		=> $post_type,
-		'post_status'	=> 'publish',
-		'meta_key'		=> 'show_on_homepage',
-		'meta_value'	=> 'yes'
-	);
-	$posts = new WP_Query($args);
-	if ( $posts->have_posts() ) { 
-		$totalpost = $posts->posts_per_page;
-		//$totalpost = $posts->found_posts; 
-
-
-	// echo '<pre style="background-color: #fff;">';
-	// print_r($posts);
-	// echo '</pre>';
+	// $args = array(
+	// 	'posts_per_page'	=> $per_page,
+	// 	'post_type'		=> $post_type,
+	// 	'post_status'	=> 'publish',
+	// 	'meta_key'		=> 'show_on_homepage',
+	// 	'meta_value'	=> 'yes'
+	// );
+	// $posts = new WP_Query($args);
+	// if ( $posts->have_posts() ) { 
+	// $totalpost = $posts->found_posts;  
 	
-	?>
+
+	$response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=99' );
+
+	if( is_array($response) ) :
+        $code = wp_remote_retrieve_response_code( $response );
+        if(!empty($code) && intval(substr($code,0,1))===2): 
+            $body = json_decode(wp_remote_retrieve_body( $response),true);
+?>
+
+				
 	<div class="home-video-gallery full count<?php echo $totalpost?> numblocks<?php echo $per_page?>">
 		<div class="inner-wrap">
 			<div class="flexwrap">
-				<?php $i=1; while ( $posts->have_posts() ) : $posts->the_post(); 
-				$post_title = get_the_title(); 
-				$videoURL = get_field("video");
-				$custom_thumb = get_field("image");
-				$thumbType = get_field("thumbnail_type");
+				<?php //$i=1; while ( $posts->have_posts() ) : $posts->the_post(); 
+				$sec=.1; $i=1; $q=0;
+
+					// while ( $blogs->have_posts() ) : $blogs->the_post();
+				foreach ($body as $post) :
+					$lPostStory = array();
+					// echo '<pre style="background-color: #fff;">';
+					// print_r($post);
+					// echo '</pre>';
+
+					$indShowOnHome = $post['acf']['wwl_show_on_homepage'];
+					$showOnHome = $post['acf']['show_on_homepage'];
+
+					foreach( $indShowOnHome as $lPost ) {
+						$lPostStory[] = $lPost;
+					}
+					// echo '<pre style="background-color: #fff;">';
+					// print_r($lPostStory);
+					// echo '</pre>';
+					// echo '<!-- show on homepage '.$q.'-->';
+					if( in_array('pisgah', $lPostStory) ) { 
+						$q++;
+					echo '<!-- counter '.$q.'-->';
+					// $thumbId = get_post_thumbnail_id(); 
+					// $featImg = wp_get_attachment_image_src($thumbId,'large');
+					// $featImg = $post['fimg_url'];
+					// // $featThumb = wp_get_attachment_image_src($thumbId,'thumbnail');
+					// $featThumb = $post['acf']['image']['url'];
+
+					// $content = $post['content'];
+					// $title = $post['title']['rendered'];
+					// $divclass = (($content || $title) && $featImg) ? 'half':'full';
+					// $pagelink = $post['link'];
+					// $divclass .= ($i % 2) ? ' odd':' even';
+					// $divclass .= ($i==1) ? ' first':'';
+					$catId = $post['category']['0'];
+					
+					 
+					
+					
+					//include( get_stylesheet_directory() . '/parts/content-post-rest.php' );
+					
+					
+
+
+
+
+
+
+				$post_title = $post['title']['rendered'];
+				$videoURL = $post['acf']['video_url'];
+				$custom_thumb = $post['acf']['image'];
+				$thumbType = $post['acf']['thumbnail_type'];
 				$thumbnail_type = ($thumbType=='custom_image') ? $thumbType : 'default_image';
 				$video_thumbnail = '';
 				$default_thumb = '';
 				$youtubeID = '';
 				$vimeoID = '';
 				$is_video_vimeo = '';
-				$pageLink = get_permalink();
+				$pageLink = $post['link'];
 				$catObj = get_the_terms( get_the_ID(), 'category' );
 				$catNameArray = array();
 				$filmCat = '';
@@ -148,14 +199,14 @@ $blank_image = THEMEURI . "images/rectangle.png";
 						if( $filmCat == 'yes' ) {
 						?>
 						<div class="videoBtn">
-							<a href="#" class="play-btn large"></a>
+							<a target="_blank" href="#" class="play-btn large"></a>
 						</div>
 						<?php } ?>
 
 						<span class="wave">
 							<svg class="waveSvg" shape-rendering="auto" preserveAspectRatio="none" viewBox="0 24 150 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="m-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/></defs><g class="waveAnimation"><use x="85" y="5" xlink:href="#a"/></g></svg>
 						</span>
-						<a href="<?php echo $pageLink ?>" class="videoLink">
+						<a target="_blank" href="<?php echo $pageLink ?>" class="videoLink">
 							<span class="videoName"><span><?php echo $post_title ?></span></span>
 						</a>
 						<div class="mobile-name"><?php echo $post_title ?></div>
@@ -174,14 +225,14 @@ $blank_image = THEMEURI . "images/rectangle.png";
 								if( $filmCat == 'yes' ) {
 									?>
 								<div class="videoBtn">
-									<a href="#" class="play-btn large"></a>
+									<a target="_blank" href="#" class="play-btn large"></a>
 								</div>
 								<?php } ?>
 								
 								<span class="wave">
 									<svg class="waveSvg" shape-rendering="auto" preserveAspectRatio="none" viewBox="0 24 150 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="m-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/></defs><g class="waveAnimation"><use x="85" y="5" xlink:href="#a"/></g></svg>
 								</span>
-								<a href="<?php echo $pageLink ?>" class="videoLink">
+								<a target="_blank" href="<?php echo $pageLink ?>" class="videoLink">
 									<span class="videoName"><span><?php echo $post_title ?></span></span>
 								</a>
 								<div class="mobile-name"><?php echo $post_title ?></div>
@@ -189,13 +240,26 @@ $blank_image = THEMEURI . "images/rectangle.png";
 							
 						</div>
 				<?php } ?>
-				<?php $i++; endwhile; wp_reset_postdata(); ?>
+				<?php $i++; 
+						$sec =  $sec + .1;
+						$i++; 
+					}
+					// if we've reached 2 posts
+					if($q == 2){ 
+						break; 
+					}
+				endforeach;
+
+				//endwhile; wp_reset_postdata(); ?>
 					</div><!-- .wrap -->
 				</div><!-- .colRight -->
 			</div>
 		</div>
 	</div>
-	<?php } ?>
+	<?php //} ?>
 
 </section>
-<?php } ?>
+<?php 
+endif;
+endif;
+} ?>

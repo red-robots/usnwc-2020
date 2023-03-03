@@ -24,20 +24,42 @@ $options[] = array('Ratio',get_field("ratio"));
 	$registerBtn = ( isset($register['title']) && $register['title'] ) ? $register['title'] : 'Register';
 	$registerLink = ( isset($register['url']) && $register['url'] ) ? $register['url'] : '';
 	$regiserTarget = ( isset($register['target']) && $register['target'] ) ? $register['target'] : '_self';
+
+	$passport = get_field('passport_btn');
+	$passLabel = get_field('passport_label');
+	$idArray = array('40','41','42','43','53','54','55','56','57','58','154','152','153');
+	if( $passport == 'all' ) {
+		$pp = 'data-accesso-launch';
+	} elseif(in_array($passport, $idArray )) {
+		$pp = 'data-accesso-package="'.$passport.'"';
+	} else {
+		$pp = 'data-accesso-keyword="'.$passport.'"';
+	}
 ?>
-<?php if ($registerLink) { ?>
-<section id="section-registration" class="section-content section-full-button">
-	<a href="<?php echo $registerLink ?>" target="<?php echo $regiserTarget ?>" class="red-button-full stitle"><span><?php echo $registerBtn ?></span></a>
-</section>
+<?php if($passport) { ?>
+	<!-- <section id="section-registration" class="section-content section-full-button">
+		<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="red-button-full stitle"><span><?php echo $registerBtn ?></span></a>
+	</section> -->
+<?php } else { ?>
+	<?php if ($registerLink) { ?>
+	<section id="section-registration" class="section-content section-full-button">
+		<a href="<?php echo $registerLink ?>" target="<?php echo $regiserTarget ?>" class="red-button-full stitle"><span><?php echo $registerBtn ?></span></a>
+	</section>
+	<?php } ?>
 <?php } ?>
 
-<?php $schedule_items = get_field("schedule_items"); ?>
-<?php if ($schedule_items) { ?>
-<section id="section-schedule" data-section="SCHEDULE" class="section-schedule section-content">
+<?php $schedule_items = get_field("schedule_items"); 
+		$sch_anchor = get_field("schedule_anchor");
+		$sch_anchor_sani = sanitize_title_with_dashes($sch_anchor);
+		$schedule_title = get_field("schedule_title");
+ if ($schedule_items) { ?>
+<section id="section-<?php echo strtolower($sch_anchor_sani); ?>" data-section="<?php echo $sch_anchor; ?>" class="section-schedule section-content">
 	<div class="wrapper">
 		<div class="shead-icon text-center">
 			<div class="icon"><span class="ci-menu"></span></div>
-			<h2 class="stitle">SCHEDULE</h2>
+			<h2 class="stitle">
+				<?php if($schedule_title){ echo $schedule_title; }else{echo 'SCHEDULE';} ?>
+			</h2>
 		</div>
 		<div class="schedules-list">
 			<ul class="items">
@@ -67,8 +89,10 @@ $options[] = array('Ratio',get_field("ratio"));
 </section>
 <?php } ?>
 
-<?php if( $galleries = get_field("gallery") ) { ?>
-<section id="section-galleries" class="section-content">
+<?php $gal_anchor = get_field("gallery_anchor");
+$gal_anchor_sani = sanitize_title_with_dashes($gal_anchor);
+if( $galleries = get_field("gallery") ) { ?>
+<section id="section-<?php echo strtolower($gal_anchor_sani); ?>" data-section="<?php echo $gal_anchor; ?>" class="section-content">
 	<div id="carousel-images">
 		<div class="loop owl-carousel owl-theme">
 		<?php foreach ($galleries as $g) { ?>
@@ -84,13 +108,24 @@ $options[] = array('Ratio',get_field("ratio"));
 <?php } ?>
 
 
-<?php if( $information = get_field("information_content") ) { ?>
-<section id="information-content" data-section="Information" class="section-content gray">
+<?php $info_anchor = get_field("info_anchor");
+$info_anchor_sani = sanitize_title_with_dashes($info_anchor);
+$info_title = get_field("info_title");
+$info_extra_copy = get_field("info_extra_copy");
+if( $information = get_field("information_content") ) { ?>
+<section id="section-<?php echo strtolower($info_anchor_sani); ?>" data-section="<?php echo $info_anchor; ?>" class="section-content gray information-content">
 	<div class="wrapper">
 		<div class="shead-icon text-center">
 			<div class="icon"><span class="ci-info"></span></div>
-			<h2 class="stitle">Information</h2>
+			<h2 class="stitle">
+				<?php if($info_title){ echo $info_title; }else{ echo 'Information'; } ?>
+			</h2>
 		</div>
+		<?php if( $info_extra_copy ) { ?>
+			<div class="text-wrap text-center extrapad">
+				<?php echo $info_extra_copy; ?>
+			</div>
+		<?php } ?>
 		<div class="text-wrap text-center">
 			<?php foreach ($information as $e) { ?>
 			<div class="text">

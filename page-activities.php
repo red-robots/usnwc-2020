@@ -43,9 +43,19 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 			<div class="entryList flexwrap">
 
 				<?php $i=1; while ( $posts->have_posts() ) : $posts->the_post();  
+					$newImage = get_field('child_tile_image');
 					$images = get_field('flexslider_banner');
-					$img = ( $images && isset($images[0]) ) ? $images[0] : '';
-					$thumbnail = ($img) ? $img['image'] : '';
+					// echo '<pre>';
+					// print_r($images);
+					// echo '</pre>';
+					if( $newImage ) {
+						$img = ( $newImage && isset($newImage['url']) ) ? $newImage['url'] : '';
+						$thumbnail = $img;
+					} else {
+						$img = ( $images && isset($images[0]) ) ? $images[0] : '';
+						$thumbnail = ($img) ? $img['image'] : '';
+						$thumbnail = $thumbnail['url'];
+					}
 					$title = get_the_title();
 					$pagelink = get_permalink();
 					?>
@@ -54,7 +64,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 							<div class="imagediv <?php echo ($thumbnail) ? 'hasImage':'noImage'?>">
 								<a href="<?php echo $pagelink; ?>" class="link">
 									<?php if ($thumbnail) { ?>
-										<span class="img" style="background-image:url('<?php echo $thumbnail['url']?>')"></span>
+										<span class="img" style="background-image:url('<?php echo $thumbnail ?>')"></span>
 									<?php } ?>
 									<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" class="placeholder">
 								</a>

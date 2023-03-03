@@ -6,6 +6,7 @@ $square = THEMEURI . "images/square.png";
 $perpage = -1;
 $posttype = 'instructions';
 $total = count($child_terms);
+$passport = ''; // reset variable
 // echo '<pre>';
 // print_r($child_terms);
 // echo '</pre>';

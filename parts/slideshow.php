@@ -11,7 +11,6 @@ $is_subpage = (is_home() || is_front_page()) ? false : true;
 $top_notification = get_field("top_notification",$post_id);
 $banner = get_field("full_image",$post_id);
 
-
 $is_single_post = ( is_single() ) ? true : false;
 $is_default_slide = ($is_single_post && $banner) ? false : true;
 
@@ -52,17 +51,22 @@ if($is_default_slide) { ?>
 			<?php } ?>
 			<ul class="slides <?php echo $numSlides ?>">
 				<?php $i=0; foreach ($flexslider as $row) { 
+					$logoOverlay = $row['logo_overlay'];
 					$is_video = ( isset($row['video']) && $row['video'] ) ? $row['video'] : '';
 					$slideType = ($is_video) ? 'type-video':'type-image';
-					$featuredType = ( isset($row['video_or_image']) && $row['video_or_image'] ) ? $row['video_or_image'] : ''; ?>
+					$featuredType = ( isset($row['video_or_image']) && $row['video_or_image'] ) ? $row['video_or_image'] : ''; 
+					$placeThumb = $row['placeholder']; ?>
 					<?php if( $featuredType=='video' && ($row['video']||$row['native_video']) ) { ?>
 						<li class="slideItem <?php echo $slideType; ?>">
+							<?php if($logoOverlay) { ?>
+								<div class="logo-overlay"><img src="<?php echo $logoOverlay['url'] ?>"></div>
+							<?php } ?>
 							<div class="iframe-wrapper <?php echo ($row['mobile_video']||$row['mobile_image'])?'yes-mobile':'no-mobile';?>">
 		                            <?php if($row['link']):?>
 								    <a href="<?php echo $row['link']; ?>" class="slideLink" <?php if ( $row['target'] ):echo 'target="_blank"'; endif; ?>></a>
 								<?php endif;?>
 									<?php if($row['native_video']):?>
-										<video class="desktop" autoPlay loop muted playsinline>
+										<video class="desktop" autoPlay loop muted playsinline  poster="<?php echo $placeThumb['url']; ?>">
 											<source src="<?php echo $row['native_video'];?>" type="video/mp4">
 										</video>
 									<?php elseif($row['video']):?>
@@ -139,7 +143,7 @@ if($is_default_slide) { ?>
 									
 									<?php endif;
 									if($row['mobile_video']):?>
-										<video class="mobile" autoPlay loop muted playsinline>
+										<video class="mobile" autoPlay loop muted playsinline poster="<?php echo $placeThumb['url']; ?>">
 											<source src="<?php echo $row['mobile_video'];?>" type="video/mp4">
 										</video>
 									<?php elseif($row['mobile_image']):?>
@@ -160,6 +164,9 @@ if($is_default_slide) { ?>
 	                            <?php if($row['link']):?>
 							    <a href="<?php echo $row['link']; ?>" class="slideLink" <?php if ( $row['target'] ):echo 'target="_blank"'; endif; ?>>
 							<?php endif;?>
+							<?php if($logoOverlay) { ?>
+								<div class="logo-overlay"><img src="<?php echo $logoOverlay['url'] ?>"></div>
+							<?php } ?>
 	                                    <img class="desktop <?php if($i!==0) echo 'lazy';?>" <?php if($i!==0) echo 'data-';?>src="<?php echo $row['image']['url']; ?>"
 								     alt="<?php echo $row['image']['alt']; ?>">
 	                                    <?php if($row['mobile_image']):?>

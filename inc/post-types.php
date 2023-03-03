@@ -22,7 +22,7 @@ function js_custom_init() {
             'plural'    => 'Activity Schedules',
             'single'    => 'Activity Schedule',
             'menu_icon' => 'dashicons-calendar-alt',
-            'supports'  => array('title')
+            'supports'  => array('title', 'revisions')
         ),
         array(
             'post_type' => 'pass',
@@ -136,14 +136,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-book-alt',
             'supports'  => array('title','editor')
         ),
-        array(
-            'post_type' => 'job',
-            'menu_name' => 'Jobs',
-            'plural'    => 'Jobs',
-            'single'    => 'Job',
-            'menu_icon' => 'dashicons-index-card',
-            'supports'  => array('title','editor')
-        ),
+        // array(
+        //     'post_type' => 'job',
+        //     'menu_name' => 'Jobs',
+        //     'plural'    => 'Jobs',
+        //     'single'    => 'Job',
+        //     'menu_icon' => 'dashicons-index-card',
+        //     'supports'  => array('title','editor')
+        // ),
         array(
             'post_type' => 'faqs',
             'menu_name' => 'FAQs',
@@ -174,7 +174,7 @@ function js_custom_init() {
             'plural'    => 'Routes',
             'single'    => 'Route',
             'menu_icon' => 'dashicons-location-alt',
-            'supports'  => array('title','editor')
+            'supports'  => array('title','editor','comments')
         ),
     );
     
@@ -259,12 +259,21 @@ function build_taxonomies() {
       'rewrite'   => 'pass-type'
     ),
     array(
-      'post_type' => array('film', 'activity','post'),
+      'post_type' => array('film', 'activity','post','race'),
       'menu_name' => 'Activity',
       'plural'    => 'Activities',
       'single'    => 'Activity',
       'taxonomy'  => 'activity_type',
       'rewrite'   => 'activity-type',
+      'query_var' => true
+    ),
+    array(
+      'post_type' => array('activity'),
+      'menu_name' => 'Activity Medium',
+      'plural'    => 'Activities',
+      'single'    => 'Activity',
+      'taxonomy'  => 'activity_medium',
+      'rewrite'   => 'activity-medium',
       'query_var' => true
     ),
     array(

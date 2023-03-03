@@ -8,6 +8,24 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'resnick';
+    src: url('fonts/Resnick.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'resnick-extrude';
+    src: url('fonts/Resnick-Extrude.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'resnick-outline';
+    src: url('fonts/Resnick-Outline.otf');
+    font-weight: normal;
+    font-style: normal;
+}
 [class*='ci-']:before{
   display: inline-block;
   font-family: 'custom-icon';

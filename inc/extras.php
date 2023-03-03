@@ -15,19 +15,11 @@
  */
 define('THEMEURI',get_template_directory_uri() . '/');
 
-function custom_mime_types( $mimes ) { 
-    // Add new MIME types here
-    $mimes['kml'] = 'application/vnd.google-earth.kml+xml';
-    $mimes['gpx'] = 'application/gpx+xml';
-    $mimes['gpx'] = 'application/xml';
-    $mimes['gpx'] = 'text/xml';
-    $mimes['gpx'] = 'text/gpx';
-    $mimes['gpx'] = 'text/gpsxml';
-    $mimes['gpx'] = 'application/gpsxml';
-
-    return $mimes;
+function add_author_support_to_posts() {
+   add_post_type_support( 'activity_schedule', 'author' ); 
 }
-add_filter( 'upload_mimes', 'custom_mime_types' );
+add_action( 'init', 'add_author_support_to_posts' );
+
 
 
 // Add featured image to REST API
@@ -2294,10 +2286,10 @@ function upcoming_bands_by_date($offset=0,$limit=12) {
 //     $result = $wpdb->get_results($query);
 //     return ($result) ? $result : '';
 // }
-add_action('wp_head', 'show_top_admin_menu_bar', 100);
+add_action('after_setup_theme', 'show_top_admin_menu_bar', 100);
 
 function show_top_admin_menu_bar() {
-  if (current_user_can('scheduler')) {
+  if ( current_user_can('editor') || current_user_can('scheduler') ) {
       show_admin_bar(true);
   }
 }
@@ -2341,3 +2333,6 @@ function is_faqs_visible($postid=null) {
     $faqVisible = ($postid) ? get_field("faqs_visibility",$postid) : get_field("faqs_visibility");
     return ( isset($faqVisible[0]) && $faqVisible[0]=='hide' ) ? false : true;
 }
+
+// remove_filter( 'the_content', 'wpautop' );
+// remove_filter( 'the_excerpt', 'wpautop');

@@ -1,5 +1,6 @@
 <?php
 get_header(); 
+$passport = ''; // reset variable
 $post_type = get_post_type();
 $post_id = get_the_ID();
 $heroImage = get_field("full_image");
@@ -10,6 +11,19 @@ $register = get_field("registration_link");
 $registerBtn = ( isset($register['title']) && $register['title'] ) ? $register['title'] : 'Register';
 $registerLink = ( isset($register['url']) && $register['url'] ) ? $register['url'] : '';
 $regiserTarget = ( isset($register['target']) && $register['target'] ) ? $register['target'] : '_self';
+
+$passport = get_field('passport_btn');
+$passLabel = get_field('passport_label');
+$idArray = array('40','41','42','43','53','54','55','56','57','58','59');
+if( $passport == 'all' ) {
+	$pp = 'data-accesso-launch';
+} elseif(in_array($passport, $idArray )) {
+	$pp = 'data-accesso-package="'.$passport.'"';
+} else {
+	$pp = 'data-accesso-keyword="'.$passport.'"';
+}
+
+
 if($registerLink) {
 	if($regiserTarget=='_self') {
 		$plink = parse_external_url($registerLink);
@@ -17,19 +31,29 @@ if($registerLink) {
 	}
 }
 ?>
-<?php if ($registerLink) { ?>
-<div class="outer-banner-wrap">
-	<div class="top">
-		<a href="<?php echo $registerLink ?>" target="<?php echo $regiserTarget ?>" class="button-arrow">
-			<span><?php echo $registerBtn ?></span>
-		</a>
+<?php if($passport) { ?>
+	<div class="outer-banner-wrap">
+		<div class="top">
+			<a <?php if($passport){echo $pp;} ?> href="#" class="button-arrow">
+				<span><?php if($passLabel){echo $passLabel;}else{echo 'REGISTER';} ?></span>
+			</a>
+		</div>
+		<?php get_template_part("parts/single-banner"); ?>
 	</div>
-	<?php get_template_part("parts/single-banner"); ?>
-</div>	
+<?php } else { ?>
+<?php if ($registerLink) { ?>
+	<div class="outer-banner-wrap">
+		<div class="top">
+			<a href="<?php echo $registerLink ?>" target="<?php echo $regiserTarget ?>" class="button-arrow">
+				<span><?php echo $registerBtn ?></span>
+			</a>
+		</div>
+		<?php get_template_part("parts/single-banner"); ?>
+	</div>	
 <?php } else { ?>
 <?php get_template_part("parts/single-banner"); ?>
 <?php } ?>
-
+<?php } ?>
 <div id="primary" class="content-area-full content-default <?php echo $has_banner;?> temp-<?php echo $template;?>">
 	<main id="main" class="site-main" role="main">
 

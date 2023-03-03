@@ -10,7 +10,7 @@
 get_header(); 
 //$parent_page_id = ( isset($_GET['pp']) && $_GET['pp'] ) ? $_GET['pp'] : '';
 
-
+$passport = ''; // reset variable
 $obj = get_queried_object();
 $current_term_id = $obj->term_id;
 $current_term_name = $obj->name;
@@ -30,10 +30,20 @@ $blank_image = THEMEURI . "images/rectangle-narrow.png";
 // echo '</pre>';
 
 $category_image = get_field("category_image",$taxonomy.'_'.$current_term_id);
+$category_image_mobile = get_field("category_image_mobile",$taxonomy.'_'.$current_term_id);
+if( $category_image_mobile ) {
+	$mMlass = 'mobile';
+	$dMlass = 'desktop';
+} else {
+	$dMlass = 'nomobile';
+}
 if($category_image) { ?>
 <div id="banner" class="taxonomy-banner">
 	<div class="slides-wrapper static-banner" style="background-image:url('<?php echo $category_image['url'] ?>')">
-		<img src="<?php echo $category_image['url'] ?>" alt="<?php echo $category_image['title'] ?>" class="actual-image">
+		<img src="<?php echo $category_image['url'] ?>" alt="<?php echo $category_image['title'] ?>" class=" <?php echo $dMlass; ?>">
+		<?php if( $category_image_mobile ) { ?>
+			<img src="<?php echo $category_image_mobile['url'] ?>" alt="<?php echo $category_image_mobile['title'] ?>" class=" <?php echo $mMlass; ?>">
+		<?php } ?>
 		<img src="<?php echo $blank_image ?>" alt="" aria-hidden="true" class="helper">
 	</div>
 </div>

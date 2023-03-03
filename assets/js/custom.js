@@ -1,6 +1,6 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 /**
  *	Custom jQuery Scripts
@@ -161,42 +161,103 @@ jQuery(document).ready(function ($) {
 
   $(".menu-toggle").on("click", function (e) {
     e.preventDefault();
-    $("body").addClass("nav-open");
-    $("#site-navigation").addClass("open");
+    $("body").toggleClass("nav-open"); // $(".corpnav").addClass("open");
+    //$(".corpnav").addClass("open");
+    // $("li.corplink").addClass('active');
+
+    $(".corpnav").toggleClass('open');
   });
   $("#closeNav,#overlay").on("click", function (e) {
     e.preventDefault();
     $("body").removeClass("nav-open");
-    $("#site-navigation").removeClass("open");
-    $("#site-navigation *").removeClass("open");
-    $("#site-navigation li.parent-link").removeClass("active");
-    $("#site-navigation").removeClass("child-open");
+    /* Close all the elements inside navigation that are opened or active */
+
+    $(".defaultNav").removeClass("open");
+    $('.nav__main').show();
+    $('.nav__other').removeClass('show').html("");
+    $('.prenav li.sitelinks').removeClass("active");
+    $(".defaultNav li.parent-link").removeClass("active");
+    $(".defaultNav li.parent-link a.parentlink").removeClass("active");
+    $('.navigation__children').removeClass("open");
+    $('.navigation__children .navchild-inner [data-parent]').removeClass("open");
   });
   $("#closeNavChild").on("click", function (e) {
     e.preventDefault();
     $("#childrenNavs").removeClass("open");
     $(".children-group").removeClass("open");
-    $("#site-navigation li.parent-link").removeClass("active");
-    $("#site-navigation").removeClass("child-open");
+    $(".corpnav li.parent-link").removeClass("active");
+    $(".corpnav").removeClass("child-open");
   });
-  $(document).on("click", ".navigation .has-children a.parentlink", function (e) {
+  $(document).on("click", ".defaultNav .has-children a.parentlink", function (e) {
     e.preventDefault();
     var link = $(this).attr("href");
 
     if (link == '#') {
+      $(".defaultNav li.parent-link").removeClass("active");
+      $(".defaultNav li.parent-link a.parentlink").removeClass("active");
+      $('.navigation__children').removeClass("open");
+      $('.navigation__children .navchild-inner [data-parent]').removeClass("open");
+      $(this).addClass("active");
+      $(this).parents("li").addClass('active');
+      var parent = $(this).parents('.navgroup');
       var child_menu = $(this).attr("data-parent");
-      $("#site-navigation li.parent-link").removeClass("active");
-      $(".children-group").removeClass("open");
 
-      if ($(".children-group" + child_menu).length > 0) {
-        $("#site-navigation").addClass("child-open");
-        $("#childrenNavs").addClass("open");
-        $(".children-group" + child_menu).addClass("open");
-        $(this).addClass("active");
-        $(this).parents("li").addClass('active');
+      if (parent.find('.navigation__children ' + child_menu).length > 0) {
+        parent.find('.navigation__children').addClass('open');
+        parent.find('.navigation__children ' + child_menu).addClass("open");
       }
     }
   });
+  /* PREV NAV */
+
+  $(document).on('click', '.prenav .sitelinks a[data-nav]', function (e) {
+    e.preventDefault();
+    var currentParent = $(this).parent();
+    var url = $(this).attr('href');
+    var target = $(this).attr('data-nav');
+    var linkName = $(this).text().trim();
+    $('.prenav a[data-nav]').parent().not(currentParent).removeClass('active');
+    currentParent.addClass('active');
+    $(this).addClass('active');
+
+    if (target == '.default') {
+      /* If hashtag points to specific element, add your custom function to hashtag click event.
+       * look for ==> $('a[href*="#"]:not([href="#"])').click(function () {}
+      */
+      if (url == '#') {
+        resetDefaultNavs($(this));
+      }
+    } else {
+      if ($(target).length) {
+        var navInnerContent = $(target).find('.nav__content').html();
+        $('.nav__main').hide();
+        $('.nav__other').html(navInnerContent);
+        $('.nav__other').addClass('show');
+        $('.nav__other').attr('data-for', linkName);
+      }
+    }
+  });
+  /* When clicking the link with data-nav='.default', children links go back to default */
+
+  function resetDefaultNavs(selector) {
+    if (selector.attr('data-nav') != undefined) {
+      if (selector.attr('data-nav') == '.default') {
+        $('.navgroup.nav__main').show();
+        $('.navgroup.nav__other').removeClass('show');
+        $('.navgroup.nav__other').attr('data-for', "");
+        $('.prenav li.sitelinks').removeClass("active");
+        $(".defaultNav li.parent-link").removeClass("active");
+        $(".defaultNav li.parent-link a.parentlink").removeClass("active");
+        $('.navigation__children').removeClass("open");
+        $('.navigation__children .navchild-inner [data-parent]').removeClass("open");
+        selector.addClass('active');
+        selector.parent().addClass('active');
+      }
+    }
+  }
+  /*   END NAVITAION   */
+
+
   $('[data-fancybox]').fancybox({
     touch: true,
     hash: false,
@@ -361,17 +422,37 @@ jQuery(document).ready(function ($) {
     });
   }
   /* Today (Top) */
-  // $(".topinfo .today a").on("click",function(e){
-  // 	e.preventDefault();
-  // 	$(".topinfo .today").toggleClass("open");
+  // 	$( ".topinfo .today a" ).toggle(function() {
+  //   $(".topinfo .today").addClass("open");
+  // }, function() {
+  //   $(".topinfo .today").removeClass("open");
   // });
   // $(".topinfo .today a").hover(
   // 	function(){
   // 		$(".topinfo .today").addClass("open");
   // 	}, function(){
-  // 		//$(".topinfo .today").removeClass("open");
+  // 		$(".topinfo .today").removeClass("open");
   // 	}
   // );
+  // $("#todayLink").on("click",function(e){
+  // 	e.preventDefault();
+  // 	$(".topinfo .today").removeClass("open");
+  // 	$(".topinfo").removeClass("nowopen");
+  // });
+  // $(".topinfo .today a").hover(
+  // 	function(){
+  // 		$(".topinfo .today").addClass("open");
+  // 	}, function(){
+  // 		$(".topinfo .today").removeClass("open");
+  // 	}
+  // );
+
+  /* Today (Top) */
+  // $(".topinfo .today a").on("click",function(e){
+  //   e.preventDefault();
+  //   $(".topinfo .today").toggleClass("open");
+  // });
+  // When was this added?
 
 
   $(document).on('click', function (e) {
@@ -643,6 +724,24 @@ jQuery(document).ready(function ($) {
   $('a[href*="#"]:not([href="#"])').click(function () {
     var headHeight = $("#masthead").height();
     var offset = headHeight + 80;
+    /* Detect if a link is from a navigation */
+
+    /* If Default "Whitewater" is clicked from the Nav, reset navs */
+
+    if ($(this).attr('data-nav') != undefined) {
+      if ($(this).attr('data-nav') == '.default') {
+        $('.navgroup.nav__main').show();
+        $('.navgroup.nav__other').removeClass('show');
+        $('.navgroup.nav__other').attr('data-for', "");
+        $('.prenav li.sitelinks').removeClass("active");
+        $(".defaultNav li.parent-link").removeClass("active");
+        $(".defaultNav li.parent-link a.parentlink").removeClass("active");
+        $('.navigation__children').removeClass("open");
+        $('.navigation__children .navchild-inner [data-parent]').removeClass("open");
+        $(this).addClass('active');
+        $(this).parent().addClass('active');
+      }
+    }
 
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = $(this.hash);
@@ -809,3 +908,62 @@ jQuery(document).ready(function ($) {
     }
   });
 }); // END #####################################    END
+"use strict";
+
+(function ($) {
+  /**
+   * Copyright 2012, Digital Fusion
+   * Licensed under the MIT license.
+   * http://teamdf.com/jquery-plugins/license/
+   *
+   * @author Sam Sehnert
+   * @desc A small plugin that checks whether elements are within
+   *       the user visible viewport of a web browser.
+   *       can accounts for vertical position, horizontal, or both
+   */
+  var $w = $(window);
+
+  $.fn.visible = function (partial, hidden, direction, container) {
+    if (this.length < 1) return; // Set direction default to 'both'.
+
+    direction = direction || 'both';
+    var $t = this.length > 1 ? this.eq(0) : this,
+        isContained = typeof container !== 'undefined' && container !== null,
+        $c = isContained ? $(container) : $w,
+        wPosition = isContained ? $c.position() : 0,
+        t = $t.get(0),
+        vpWidth = $c.outerWidth(),
+        vpHeight = $c.outerHeight(),
+        clientSize = hidden === true ? t.offsetWidth * t.offsetHeight : true;
+
+    if (typeof t.getBoundingClientRect === 'function') {
+      // Use this native browser method, if available.
+      var rec = t.getBoundingClientRect(),
+          tViz = isContained ? rec.top - wPosition.top >= 0 && rec.top < vpHeight + wPosition.top : rec.top >= 0 && rec.top < vpHeight,
+          bViz = isContained ? rec.bottom - wPosition.top > 0 && rec.bottom <= vpHeight + wPosition.top : rec.bottom > 0 && rec.bottom <= vpHeight,
+          lViz = isContained ? rec.left - wPosition.left >= 0 && rec.left < vpWidth + wPosition.left : rec.left >= 0 && rec.left < vpWidth,
+          rViz = isContained ? rec.right - wPosition.left > 0 && rec.right < vpWidth + wPosition.left : rec.right > 0 && rec.right <= vpWidth,
+          vVisible = partial ? tViz || bViz : tViz && bViz,
+          hVisible = partial ? lViz || rViz : lViz && rViz,
+          vVisible = rec.top < 0 && rec.bottom > vpHeight ? true : vVisible,
+          hVisible = rec.left < 0 && rec.right > vpWidth ? true : hVisible;
+      if (direction === 'both') return clientSize && vVisible && hVisible;else if (direction === 'vertical') return clientSize && vVisible;else if (direction === 'horizontal') return clientSize && hVisible;
+    } else {
+      var viewTop = isContained ? 0 : wPosition,
+          viewBottom = viewTop + vpHeight,
+          viewLeft = $c.scrollLeft(),
+          viewRight = viewLeft + vpWidth,
+          position = $t.position(),
+          _top = position.top,
+          _bottom = _top + $t.height(),
+          _left = position.left,
+          _right = _left + $t.width(),
+          compareTop = partial === true ? _bottom : _top,
+          compareBottom = partial === true ? _top : _bottom,
+          compareLeft = partial === true ? _right : _left,
+          compareRight = partial === true ? _left : _right;
+
+      if (direction === 'both') return !!clientSize && compareBottom <= viewBottom && compareTop >= viewTop && compareRight <= viewRight && compareLeft >= viewLeft;else if (direction === 'vertical') return !!clientSize && compareBottom <= viewBottom && compareTop >= viewTop;else if (direction === 'horizontal') return !!clientSize && compareRight <= viewRight && compareLeft >= viewLeft;
+    }
+  };
+})(jQuery);

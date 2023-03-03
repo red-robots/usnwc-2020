@@ -48,13 +48,16 @@ $count_options = count($options);
 <?php 
 $important_note = get_field("important_note"); 
 $schedule_items = get_field("schedule_items"); 
+$sch_anchor = get_field("schedule_anchor");
+$sch_anchor_sani = sanitize_title_with_dashes($sch_anchor);
+$schedule_title = get_field("schedule_title");
 ?>
 <?php if ($schedule_items) { ?>
-<section id="section-schedule" data-section="SCHEDULE" class="section-schedule section-content">
+<section id="section-<?php echo strtolower($sch_anchor_sani); ?>" data-section="<?php echo $sch_anchor; ?>" class="section-schedule section-content">
 	<div class="wrapper">
 		<div class="shead-icon text-center">
 			<div class="icon"><span class="ci-menu"></span></div>
-			<h2 class="stitle">SCHEDULE</h2>
+			<h2 class="stitle"><?php if($schedule_title){ echo $schedule_title; }else{echo 'SCHEDULE';} ?></h2>
 		</div>
 		<div class="schedules-list">
 			<ul class="items">
@@ -87,8 +90,10 @@ $schedule_items = get_field("schedule_items");
 <?php } ?>
 
 
-<?php if( $galleries = get_field("gallery") ) { ?>
-<section id="section-galleries" data-section="Activities" class="section-content">
+<?php $gal_anchor = get_field("gallery_anchor");
+$gal_anchor_sani = sanitize_title_with_dashes($gal_anchor);
+if( $galleries = get_field("gallery") ) { ?>
+<section id="section-<?php echo strtolower($gal_anchor_sani); ?>" data-section="<?php echo $gal_anchor; ?>" class="section-content">
 	<div id="carousel-images">
 		<div class="loop owl-carousel owl-theme">
 		<?php foreach ($galleries as $g) { ?>
@@ -106,8 +111,10 @@ $schedule_items = get_field("schedule_items");
 <?php 
 $instruction_title = get_field("instruction_title");
 $instruction_text = get_field("instruction_text");
+$instruction_anchor = get_field("instruction_anchor");
+$instruction_anchor_sani = sanitize_title_with_dashes($instruction_anchor);
 if( $instruction_text ) { ?>
-<section id="instruction-team"  data-section="<?php echo $instruction_title ?>" class="section-content">
+<section id="instruction-<?php echo strtolower($instruction_anchor_sani); ?>"  data-section="<?php echo $instruction_anchor ?>" class="section-content instruction-team">
 	<div class="wrapper narrow text-center">
 		<div class="shead-icon text-center">
 			<div class="icon"><span class="ci-team-hat"></span></div>
@@ -146,6 +153,40 @@ if( $photo ||  $instructor_text ) { ?>
 					<h2 class="stitle"><?php echo $instructor_title ?></h2>
 				<?php } ?>
 				<div class="info"><?php echo $instructor_text ?></div>
+			</div>
+		</div>	
+		<?php } ?>
+	</div>
+</section>
+<?php } ?>
+
+
+<?php 
+/*
+	Second Instructor
+
+*/
+$photo_two = get_field("instructor_photo_two");
+$instructor_title_two = get_field("instructor_title_two");
+$instructor_text_two = get_field("instructor_text_two");
+$sclass = ($photo_two && $instructor_text_two) ? 'half':'full';
+if( $photo_two ||  $instructor_text_two ) { ?>
+<section id="about-instructor" class="section-content <?php echo $sclass ?>">
+	<div class="flexwrap">
+		<?php if ($instructor_text_two) { ?>
+		<div class="text">
+			<div class="wrap">
+				<?php if ($instructor_title) { ?>
+					<h2 class="stitle textalign-right"><?php echo $instructor_title_two ?></h2>
+				<?php } ?>
+				<div class="info textalign-right"><?php echo $instructor_text_two ?></div>
+			</div>
+		</div>	
+		<?php } ?>
+		<?php if ($photo_two) { ?>
+		<div class="photo">
+			<div class="image" style="background-image:url('<?php echo $photo_two['url'] ?>')">
+				<img src="<?php echo $square ?>" alt="" aria-hidden="true" class="helper">
 			</div>
 		</div>	
 		<?php } ?>
