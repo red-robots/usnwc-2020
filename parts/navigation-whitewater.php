@@ -59,8 +59,11 @@ if($parents) { ?>
   			</ul>
   			<div class="squiggly"><div class="line"></div></div>
 
-  			<?php if ($secondary_menu) { ?>
+  			<?php //if ($secondary_menu) { ?>
   			<div class="secondary-menu">
+          <?php //if ($secondary_menu) { 
+            if( $noSecondary ){
+          ?>
   				<ul class="menu2">
   				<?php foreach ($secondary_menu as $sm) { 
   					$s = $sm['link'];
@@ -81,12 +84,13 @@ if($parents) { ?>
   					<?php } ?>
   				<?php } ?>
   				</ul>
+          <?php } ?>
   				<form action="<?php bloginfo('url'); ?>/" method="get">
   				    <input class="nav-search" type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
   				    <!-- <input type="image" alt="Search" src="<?php bloginfo( 'template_url' ); ?>/images/search.png" /> -->
   				</form>
   			</div>
-  			<?php } ?>
+  			
   		</nav>
   	</div>
 
