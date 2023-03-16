@@ -11,46 +11,46 @@ $childenMenuItems = array();
 $secondary_menu = get_field("secondary_menu","option");
 
 // $whitewater_visibility = get_field("whitewater_visibility","option");
-$whitewater_visibility = get_field("whitewater_visibility","option");
-$pisgah_visibility = get_field("pisgah_visibility","option");
-$santee_visibility = get_field("santee_visibility","option");
-$grayson_visibility = get_field("grayson_visibility","option");
+$locations['whitewater'] = 'Whitewater';
+$locations['center'] = 'Center';
+$locations['pisgah'] = 'Pisgah';
+$locations['santee'] = 'Santee';
+$locations['grayson'] = 'Grayson';
+$preNavs = array();
+foreach ($locations as $slug => $name) { 
+  $visibility = get_field($slug . "_visibility","option");
+  if($slug=='center') {
+    $visibility=='show';
+  }
+  if($visibility=='show') {
+    $preNavs[] = $slug;
+  }
+}
 
 if($parents) { ?>
 
 <div id="site-navigationc" class="corpnav defaultNav">
-	<a href="#" id="closeNav" class="closeNav"><span>x</span></a>
+  <a href="#" id="closeNav" class="closeNav"><span>x</span></a>
 
-<?php if( $whitewater_visibility=='show'||$pisgah_visibility=='show'||$santee_visibility=='show'||$grayson_visibility=='show' ): ?>
-	<div class="prenav">
-		<ul>
-  			
-      <?php if( $whitewater_visibility == 'show' ) { ?>
-  			<li class="sitelinks centerlink umbrella">
-  				<a href="#" data-nav=".whitewaternav">Whitewater</a>
-  			</li>
-        <li class="sitelinks corplink active">
-          <a href="#" data-nav=".default">Center</a>
-        </li>
-      <?php } ?>
-      <?php if( $pisgah_visibility == 'show' ) { ?>
-  			<li class="sitelinks pisgahlink ">
-  				<a href="#" data-nav=".pisgahnav">Pisgah</a>
-  			</li>
-      <?php } ?>
-      <?php if( $santee_visibility == 'show' ) { ?>
-  			<li class="sitelinks santeelink ">
-  				<a href="#" data-nav=".santeenav">Santee</a>
-  			</li>
-      <?php } ?>
-      <?php if( $grayson_visibility == 'show' ) { ?>
-        <li class="sitelinks graysonlink ">
-          <a href="#" data-nav=".graysonnav">Grayson</a>
-        </li>
-      <?php } ?>
-		</ul>
-	</div>
-<?php endif; ?>
+<?php if( $preNavs ) { ?>
+  <div class="prenav">
+    <ul>
+      <?php foreach ($locations as $slug => $name) { 
+        $className = ($slug=='center') ? 'corplink active ' : $slug . 'link';
+        $dataNav = ($slug=='center') ? 'default' : $slug.'nav';
+        $siteLink = get_field($slug . "_sitelink","option");
+        $visibility = ($slug=='center') ? 'show' : get_field($slug . "_visibility","option");
+        
+        if( $visibility == 'show' ) { ?>
+          <li class="sitelinks <?php echo $className ?> <?php if($slug=='whitewater'){echo 'umbrella';} ?>">
+            <a href="#" data-nav=".<?php echo $dataNav ?>" data-home="<?php echo $siteLink ?>"><?php echo $name ?></a>
+          </li>
+        <?php }
+        
+      } ?>
+    </ul>
+  </div>
+<?php } ?>
 	
 
   <div class="navgroup nav__main">

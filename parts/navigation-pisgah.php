@@ -16,25 +16,7 @@ if($parents) { ?>
 	<a href="#" id="closeNav" class="closeNav pisgahclose"><span>x</span></a>
 
 
-	<!-- <div class="prenav">
-		<ul>
-			<li class="sitelinks corplink ">
-				<a href="#a">Whitewater</a>
-			</li>
-			<li class="sitelinks centerlink ">
-				<a href="#b">Center</a>
-			</li>
-			<li class="sitelinks pisgahlink active">
-				<a href="#b">Pisgah</a>
-			</li>
-			<li class="sitelinks santeelink ">
-				<a href="#f">Santee</a>
-			</li>
-		</ul>
-	</div> -->
-
-	
-  <div class="nav__content">
+	<div class="nav__content">
   	<?php //get_template_part('parts/prenav'); ?>
   	<div class="nav-inner">
   		<nav class="navigationz animated pisgah">

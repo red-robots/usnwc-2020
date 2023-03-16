@@ -15,24 +15,6 @@ if($parents) { ?>
 <div id="site-navigations" class="santeenav">
 	<a href="#" id="closeNav" class="closeNav santeeclose"><span>x</span></a>
 
-
-	<!-- <div class="prenav">
-		<ul>
-			<li class="sitelinks corplink ">
-				<a href="#a">Whitewater</a>
-			</li>
-			<li class="sitelinks centerlink ">
-				<a href="#b">Center</a>
-			</li>
-			<li class="sitelinks pisgahlink ">
-				<a href="#b">Pisgah</a>
-			</li>
-			<li class="sitelinks santeelink active">
-				<a href="#f">Santee</a>
-			</li>
-		</ul>
-	</div> -->
-
 	
   <div class="nav__content">
   	<?php //get_template_part('parts/prenav'); ?>
