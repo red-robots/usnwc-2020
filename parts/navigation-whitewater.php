@@ -8,7 +8,7 @@ $current_url = ($current_url) ? rtrim($current_url,"/") : '';
 $parents = get_field("parent_menu_whitewater","option");
 $childenMenuItems = array();
 
-$secondary_menu = get_field("secondary_menu","option");
+$secondary_menu_whitewater = get_field("secondary_menu_whitewater","option");
 
 if($parents) { ?>
 
@@ -62,10 +62,10 @@ if($parents) { ?>
   			<?php //if ($secondary_menu) { ?>
   			<div class="secondary-menu">
           <?php //if ($secondary_menu) { 
-            if( $noSecondary ){
+            if( $secondary_menu_whitewater ){
           ?>
   				<ul class="menu2">
-  				<?php foreach ($secondary_menu as $sm) { 
+  				<?php foreach ($secondary_menu_whitewater as $sm) { 
   					$s = $sm['link'];
   					$s_icon = $sm['icon_class'];
   					if($s) {

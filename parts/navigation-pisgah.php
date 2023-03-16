@@ -8,7 +8,7 @@ $current_url = ($current_url) ? rtrim($current_url,"/") : '';
 $parents = get_field("parent_menu_pisgah","option");
 $childenMenuItems = array();
 
-$secondary_menu = get_field("secondary_menu","option");
+$secondary_menu_pisgah = get_field("secondary_menu_pisgah","option");
 
 if($parents) { ?>
 
@@ -61,11 +61,10 @@ if($parents) { ?>
 
 
   			<div class="secondary-menu">
-          <?php //if ($secondary_menu) { 
-            if( $noSecondary ){
+          <?php if( $secondary_menu_pisgah ){
           ?>
   				<ul class="menu2">
-  				<?php foreach ($secondary_menu as $sm) { 
+  				<?php foreach ($secondary_menu_pisgah as $sm) { 
   					$s = $sm['link'];
   					$s_icon = $sm['icon_class'];
   					if($s) {
