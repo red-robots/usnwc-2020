@@ -42,6 +42,14 @@ function get_rest_featured_image( $object, $field_name, $request ) {
     return false;
 }
 
+function add_race_to_api( $args, $post_type ) {
+    if ( 'race' === $post_type ) {
+        $args['show_in_rest'] = true;
+    }
+    return $args;
+}
+add_filter( 'register_post_type_args', 'add_race_to_api', 10, 2 );
+
 
 function bellaworks_body_classes( $classes ) {
     // Adds a class of group-blog to blogs with more than 1 published author.
