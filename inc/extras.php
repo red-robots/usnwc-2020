@@ -50,6 +50,14 @@ function add_race_to_api( $args, $post_type ) {
 }
 add_filter( 'register_post_type_args', 'add_race_to_api', 10, 2 );
 
+function add_activity_type_to_api( $args, $taxonomy ) {
+    if ( 'activity' === $taxonomy ) {
+        $args['show_in_rest'] = true;
+    }
+    return $args;
+}
+add_filter( 'register_taxonomy_args', 'add_activity_type_to_api', 10, 2 );
+
 
 function bellaworks_body_classes( $classes ) {
     // Adds a class of group-blog to blogs with more than 1 published author.

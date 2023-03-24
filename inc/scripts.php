@@ -34,7 +34,6 @@ function bellaworks_scripts() {
 			true 
 		);
 
-
 	wp_enqueue_script( 
 			'vimeo-player', 
 			'https://player.vimeo.com/api/player.js', 
