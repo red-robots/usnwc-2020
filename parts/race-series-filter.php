@@ -109,9 +109,9 @@ $entries = new WP_Query($args); ?>
 						$eventStatus = ( get_field("eventstatus") ) ? get_field("eventstatus"):'upcoming';
 						$thumbImage = get_field("thumbnail_image");
 						$hideOnPage = get_field("hidePostfromMainPage",$pid);
-						echo '<pre>';
-						print_r($hideOnPage);
-						echo '</pre>';
+						// echo '<pre>';
+						// print_r($hideOnPage);
+						// echo '</pre>';
 						if(!$hideOnPage) {
 							$groupItems[$eventStatus][] = $pid;
 						}

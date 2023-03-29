@@ -6,6 +6,8 @@ $canceledImage = THEMEURI . "images/canceled.svg";
 $portrait_spacer = THEMEURI . "images/portrait.png";
 
 
+
+
 function get_race_posts() {
   $url = 'https://center.whitewater.org/wp-json/wp/v2/race?per_page=99';
   $response = wp_remote_get($url);
@@ -25,7 +27,9 @@ function get_race_posts() {
 		'short_description' => $short_description,
 		'eventStatus' => ( $post['acf']['eventstatus'] ) ? $post['acf']['eventstatus']:'upcoming',
 		'thumbImage' => $post['acf']['thumbnail_image'],
+		'eventlocation' => array(),
 		'terms' => array(),
+		'loc_terms' => array(),
     );
     if (!empty($post['activity_type'])) {
       $terms = get_terms( array(
@@ -35,7 +39,21 @@ function get_race_posts() {
       ) );
       $race_post['terms'] = $terms;
     }
-    if( empty($post['acf']['hidePostfromMainPage'])) {
+    if (!empty($post['acf']['eventlocation'])) {
+    	$raceLoc = $post['acf']['eventlocation'];
+    	foreach( $raceLoc as $rl ){
+    		$race_post['eventlocation'] = $rl;
+    	}
+	}
+    // if (!empty($post['activity_location'])) {
+    //   $locterms = get_terms( array(
+    //     'taxonomy' => 'activity_location',
+    //     'include' => $post['activity_location'],
+    //     'fields' => 'slugs',
+    //   ) );
+    //   $race_post['loc_terms'] = $locterms;
+    // }
+    if( empty($post['acf']['hidePostfromMainPage']) && in_array('center',$race_post['eventlocation'] ) ) {
 	    $race_posts[] = $race_post;
 	}
  
@@ -44,6 +62,7 @@ function get_race_posts() {
 }
 
 $races = get_race_posts();
+
 
 // echo '<pre>';
 // print_r($races);
