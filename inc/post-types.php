@@ -268,6 +268,15 @@ function build_taxonomies() {
       'query_var' => true
     ),
     array(
+      'post_type' => array('race'),
+      'menu_name' => 'Location',
+      'plural'    => 'Locations',
+      'single'    => 'Location',
+      'taxonomy'  => 'activity_location',
+      'rewrite'   => 'activity-location',
+      'query_var' => true
+    ),
+    array(
       'post_type' => array('activity'),
       'menu_name' => 'Activity Medium',
       'plural'    => 'Activities',

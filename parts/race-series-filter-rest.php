@@ -5,148 +5,121 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 $canceledImage = THEMEURI . "images/canceled.svg";
 $portrait_spacer = THEMEURI . "images/portrait.png";
 
-// $postype = 'race';
-// $perpage = 40;
-// $has_filter = array();
-// $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
-// $metaQueries = array(); 
-// $args = array(
-// 	'posts_per_page'   	=> -1,
-// 	'post_type'        	=> $postype,
-// 	'post_status'      	=> 'publish',
-// 	'facetwp' 				 	=> true,
-// 	'meta_key' 					=> 'start_date',
-// 	'orderby'  					=> array(
-// 		'meta_value_num' 	=> 'ASC',
-// 		'post_date'      	=> 'ASC',
-// 	),
-// 	// 'meta_key'			=> 'start_date',
-// 	// 'orderby'			=> 'meta_value',
-// 	// 'order'				=> 'ASC'
-// );
 
-// if( isset($_GET['_race_event_status']) && $_GET['_race_event_status'] ) {
-// 	$status = $_GET['_race_event_status'];
-// 	$has_filter['_race_event_status'] = $status;
-// 	$statusArrs = explode(",",$status);
-// 	// $args['meta_query'] = array(
-// 	// 		array(
-// 	// 			'key'	 	=> 'eventstatus',
-// 	// 			'value'	  	=> $statusArrs,
-// 	// 			'compare' 	=> 'IN'
-// 	// 		)
-// 	// 	);
-// }
-
-// if( isset($_GET['_race_series_discipline']) && $_GET['_race_series_discipline'] ) {
-// 	$discipline = $_GET['_race_series_discipline'];
-// 	$has_filter['_race_series_discipline'] = $discipline;
-// 	$disciplineArrs = explode(",",$discipline);
-// 	// foreach($disciplineArrs as $slug) {
-// 	// 	$term = get_term_by($slug,'activity_type');
-// 	// 	print_r($term);
-// 	// }
-// 	// $args['tax_query'] = array(
-// 	// 	array (
-// 	// 		'taxonomy' => 'activity_type',
-// 	// 		'field' => 'slug',
-// 	// 		'terms' => $disciplineArrs,
-// 	// 		'operator' => 'IN'
-// 	// 	)
-// 	// );
-
-// 	// print_r($args);
-// }
-// $finalList = array();
-// $groupItems = array();
-function get_wordpress_races() {
-  $url = 'https://center.whitewater.org/wp-json/wp/v2/race?per_page=10'; // Replace "example.com" with your own website URL
-  $args = array(
-    'headers' => array(
-      'Accept' => 'application/json'
-    )
-  );
-  
-  $response = wp_remote_get( $url, $args ); // Make the API request using the WP HTTP API
-  
-  if ( is_wp_error( $response ) ) { // Check for errors
+function get_race_posts() {
+  $url = 'https://center.whitewater.org/wp-json/wp/v2/race?per_page=99';
+  $response = wp_remote_get($url);
+  if ( is_wp_error( $response ) ) {
     return false;
-  } else {
-    $races = json_decode( wp_remote_retrieve_body( $response ), true ); // Decode the JSON response into an array
-    
-    // Loop through the races and get the terms for each one
-    foreach ( $races as &$race ) {
-      $terms_url = 'https://center.whitewater.org/wp-json/wp/v2/race/' . $race['id'] . '/activity_type'; // Replace "example.com" with your own website URL
-      
-      $terms_response = wp_remote_get( $terms_url, $args ); // Make the API request for the terms
-      
-      if ( ! is_wp_error( $terms_response ) ) { // Check for errors
-        $terms = json_decode( wp_remote_retrieve_body( $terms_response ), true ); // Decode the JSON response into an array
-        $race['activity_type_terms'] = $terms; // Add the terms to the race array
-      }
-    }
-    
-    return $races;
   }
+  $posts = json_decode( wp_remote_retrieve_body( $response ), true );
+  $race_posts = array();
+  foreach ($posts as $post) {
+    $race_post = array(
+		'title' => $post['title']['rendered'],
+		'pagelink' => $post['link'],
+		'start' => $post['acf']['start_date'],
+		'end' => $post['acf']['end_date'],
+		'hidePostfromMainPage' => $post['acf']['hidePostfromMainPage'],
+		'event_date' => $event_date,
+		'short_description' => $short_description,
+		'eventStatus' => ( $post['acf']['eventstatus'] ) ? $post['acf']['eventstatus']:'upcoming',
+		'thumbImage' => $post['acf']['thumbnail_image'],
+		'terms' => array(),
+    );
+    if (!empty($post['activity_type'])) {
+      $terms = get_terms( array(
+        'taxonomy' => 'activity_type',
+        'include' => $post['activity_type'],
+        'fields' => 'slugs',
+      ) );
+      $race_post['terms'] = $terms;
+    }
+    if( empty($post['acf']['hidePostfromMainPage'])) {
+	    $race_posts[] = $race_post;
+	}
+ 
+  }
+  return $race_posts;
 }
 
+$races = get_race_posts();
 
-$races = get_wordpress_races();
+// echo '<pre>';
+// print_r($races);
+// echo '</pre>';
 
-if ( $races ) {
-  foreach ( $races as $race ) {
-    echo '<h2>' . $race['title']['rendered'] . '</h2>'; // Display the race title
-    echo '<p>' . $race['excerpt']['rendered'] . '</p>'; // Display the race excerpt
-    
-    if ( isset( $race['activity_type_terms'] ) ) { // Check if terms are available
-      echo '<ul>';
-      foreach ( $race['activity_type_terms'] as $term ) {
-        echo '<li>' . $term['name'] . '</li>'; // Display the term name
-      }
-      echo '</ul>';
-    }
-  }
-} else {
-  echo 'Error retrieving races.';
-}
-
-
-
-
-
-$restArray = array();
-//$response = wp_remote_get( 'https://center.whitewater.org/wp-json/wp/v2/race?per_page=99' );
-if( is_array($response) ) :
-    $code = wp_remote_retrieve_response_code( $response );
-    if(!empty($code) && intval(substr($code,0,1))===2) {
-        $body = json_decode(wp_remote_retrieve_body( $response),true);
-    
-//$entries = new WP_Query($args); ?>
-<?php 
-//if ( $entries->have_posts() ) {  $totalFound = $entries->found_posts; 
-
+$i=1; 
 ?>
 
-	<div class="filter-wrapper">
+	<div id="form-ui" class="filter-wrapper">
 			<div class="wrapper">
 				
 				<div class="filter-inner">
 					<div class="flexwrap">
-
-						<?php if ( do_shortcode('[facetwp facet="race_event_status"]') ) { ?>
-						<!-- <div class="select-wrap align-middle"> -->
 						<div class="select-wrap">
 							<label>Status</label>
-							<?php echo do_shortcode('[facetwp facet="race_event_status"]'); ?>
+							<div class="facetwp-facet facetwp-facet-race_event_status facetwp-type-fselect" data-type="fselect">
+								<div class="fs-wrap multiple fs-rest ">
+									<div class="fs-label-wrap">
+										<div class="fs-label">Any</div>
+										<span class="fs-arrow"></span>
+									</div>
+									<div class="fs-dropdown fs-hidden">
+										<div class="fs-options">
+											<div class="fs-option">
+												<label class="chexbox">
+													<input type="checkbox" value=".completed" /> Completed
+												</label>
+											</div>
+											<div class="fs-option">
+												<label class="chexbox">
+													<input type="checkbox" value=".upcoming" /> Upcoming
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<?php } ?>
+						
 
-						<?php if ( do_shortcode('[facetwp facet="race_series_discipline"]') ) { ?>
+						<?php if ( do_shortcode('[facetwp facet="race_series_discipline"]') ) { 
+
+								// for now keep this. It loads the fselect.css file.
+
+						 } ?>
+						<?php 
+						$zurl = 'https://center.whitewater.org/wp-json/wp/v2/activity_type';
+
+						$zresponse = wp_remote_get($zurl);
+
+						if (is_array($zresponse) && !is_wp_error($zresponse)) {
+						    $zterms = json_decode(wp_remote_retrieve_body($zresponse)); ?>
 						<div class="select-wrap">
 							<label>Discipline</label>
-							<?php echo do_shortcode('[facetwp facet="race_series_discipline"]'); ?>
+							<div class="facetwp-facet facetwp-facet-race_event_status facetwp-type-fselect" data-type="fselect">
+								<div class="fs-wrap multiple fs-rest ">
+									<div class="fs-label-wrap">
+										<div class="fs-label">Any</div>
+										<span class="fs-arrow"></span>
+									</div>
+									<div class="fs-dropdown fs-hidden">
+										<div class="fs-options">
+											<?php foreach ($zterms as $zterm) { ?>
+											<div class="fs-option">
+												<label class="chexbox">
+													<input type="checkbox" value=".<?php  echo $zterm->slug; ?>" /> <?php  echo $zterm->name; ?>
+												</label>
+											</div>
+											<?php } ?>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 						<?php } ?>
+						
 
 						<!-- <div id="resetBtn" class="select-reset-wrap <?php //echo ($has_filter) ? '':'hide'; ?>">
 							<a href="<?php //echo get_permalink(); ?>" class="resetpage">Reset</a>
@@ -161,58 +134,11 @@ if( is_array($response) ) :
 	<div class="post-type-entries <?php echo $postype ?>">
 		<div id="data-container">
 			<div class="posts-inner animate__animated animate__fadeIn">
-				<div class="flex-inner result countItems<?php echo $totalFound?>">
-					<?php $i=1; 
-					//while ( $entries->have_posts() ) : $entries->the_post();
-					foreach ($body as $post) {
-						// echo '<pre>';
-						// print_r($post);
-						// echo '</pre>';
-						$pid = $post['id']; //echo $pid;
-						$title = $post['title']['rendered'];
-						$pagelink = $post['link'];
-						$start = $post['acf']['start_date'];
-						$end = $post['acf']['end_date'];
-						$activity_type = $post['activity_type'];
-						$aT = get_activity_type($activity_type);
-						$event_date = get_event_date_range($start,$end);
-						$short_description = $post['acf']['short_description'];
-						$eventStatus = ( $post['acf']['eventstatus'] ) ? $post['acf']['eventstatus']:'upcoming';
-						$thumbImage = $post['acf']['thumbnail_image'];
-						$hideOnPage = get_field("hidePostfromMainPage",$pid);
-						$date_range = get_event_date_range($start,$end);
-						if(!$hideOnPage) {
-							$groupItems[$eventStatus][] = $pid;
-
-							// create an array for rest
-							$restArray[] = array(
-								'pID' => $pid,
-								'title' => $title,
-								'pagelink' => $pagelink,
-								'start' => $start,
-								'end' => $end,
-								'activity_type' => $activity_type,
-								'date_range' => $date_range,
-								'event_date' => $event_date,
-								'short_description' => $short_description,
-								'eventStatus' => $eventStatus,
-								'thumbImage' => $thumbImage,
-							);
-						}
-
-						// echo '<pre>';
-						// print_r($restArray);
-						// echo '</pre>';
-						?>
-					<?php  
-						$i++; 
-						//endwhile; 
-						}
-						//wp_reset_postdata(); ?>
-
+				<div id="rest-isotope" class="flex-inner result countItems<?php echo $totalFound?>">
+					
 					<?php 
-					function sort_events($restArray) {
-					    usort($restArray, function($a, $b) {
+					function sort_events($races) {
+					    usort($races, function($a, $b) {
 					        if ($a['eventStatus'] === $b['eventStatus']) {
 					            if ($a['eventStatus'] === 'upcoming') {
 					                return strtotime($a['start']) - strtotime($b['start']);
@@ -227,78 +153,36 @@ if( is_array($response) ) :
 					            }
 					        }
 					    });
-					    return $restArray;
+					    return $races;
 					}
 
-
-
-
-					$sorted_events = sort_events($restArray);
-					// krsort($sorted_events['completed']);
-
-					// foreach ($sorted_events as $event) {
-					// 	echo $event['title'];
-					// 	echo '<br>';
-					// 	echo $event['date_range'];
-					// 	echo '<div style="width: 100%;"></div>';
-					// }
-
-
-						// echo '<pre>';
-						// print_r($sorted_events);
-						// echo '</pre>';
-						// krsort($groupItems);
-						// krsort($groupItems['completed']);
-						// krsort($restArray);
-						// krsort($restArray['completed']);
-						// echo '<pre>';
-						// print_r($restArray);
-						// echo '</pre>';
-						foreach($groupItems as $k=>$items) {
-							foreach($items as $item) {
-								$finalList[] = $item;
-							}
-						}
-
-						$start = 0;
-			      $stop = $perpage-1;
-			      if($paged>1) {
-			        $stop = (($paged+1) * $perpage) - $perpage;
-			        $start = $stop - $perpage;
-			        $stop = $stop - 1;
-			      }
+					$sorted_events = sort_events($races);
+					
 			    ?>
 
 		      <?php 
 		      foreach ($sorted_events as $event) {
-		      // for($i=$start; $i<=$stop; $i++) {
-		      // 	if( isset($finalList[$i]) && $finalList[$i] ) {
-		      // 		$id = $finalList[$i];
-	    //   		echo '<pre>';
-					// print_r($groupItems);
-					// echo '</pre>';
-		      				$p = $event['pID'];
-							$title = $event['title'];
-							$pagelink = $event['pagelink'];
-							$start = $event['start'];
-							$end = $event['end'];
-							$event_date = $event['event_date'];
-							$short_description = get_field("short_description",$id);
-							$eventStatus = (isset($event['eventStatus']) && $event['eventStatus']) ? $event['eventStatus']:'upcoming';
-							$thumbImage = $event['thumbImage'];
-							$main_event_date = get_field("main_event_date",$id);
-							// if($main_event_date) {
-							// 	$event_date = date('M j, Y',strtotime($main_event_date));
-							// }
+		      	
+      				$p = $event['pID'];
+					$title = $event['title'];
+					$pagelink = $event['pagelink'];
+					$start = $event['start'];
+					$end = $event['end'];
+					$event_date = get_event_date_range($start, $end);
+					$short_description = get_field("short_description",$id);
+					$eventStatus = (isset($event['eventStatus']) && $event['eventStatus']) ? $event['eventStatus']:'upcoming';
+					$thumbImage = $event['thumbImage'];
+					$main_event_date = get_field("main_event_date",$id);
+					$aT = $event['terms'];
 							
 							?>
-							<div id="post-<?php echo $id?>" class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?>">
+							<div id="post-<?php echo $id?>" class="item postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?> <?php echo implode(" ", $aT); ?>" data-filter="">
 								<div class="inside">
 									<?php if ($eventStatus=='completed') { ?>
 										<div class="event-completed"><span>Event Complete</span></div>
 									<?php } ?>
-									<div class="linkwrap js-blocks">
-										<a href="<?php echo $pagelink ?>" class="photo wave-effect js-blocks">
+									<div class="linkwrap js-blocksz">
+										<a href="<?php echo $pagelink ?>" class="photo wave-effect js-blocksz">
 											<?php if ($thumbImage) { ?>
 												<!-- <div class="imagediv" style="background-image:url('<?php //echo $thumbImage['sizes']['medium_large'] ?>')"></div> -->
 												<img src="<?php echo $thumbImage['url']; ?>" alt="<?php echo $thumbImage['title'] ?>" class="feat-img" style="visibility:visible;">
@@ -382,9 +266,9 @@ if( is_array($response) ) :
 	<?php } ?>
 
 <?php 
-} 
+//} 
 // endif;
-endif;
+// endif;
 ?>
 
 

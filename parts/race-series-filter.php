@@ -98,6 +98,7 @@ $entries = new WP_Query($args); ?>
 			<div class="posts-inner animate__animated animate__fadeIn">
 				<div class="flex-inner result countItems<?php echo $totalFound?>">
 					<?php $i=1;  while ( $entries->have_posts() ) : $entries->the_post();
+
 						$pid = get_the_ID(); 
 						$title = get_the_title();
 						$pagelink = get_permalink();
@@ -108,6 +109,9 @@ $entries = new WP_Query($args); ?>
 						$eventStatus = ( get_field("eventstatus") ) ? get_field("eventstatus"):'upcoming';
 						$thumbImage = get_field("thumbnail_image");
 						$hideOnPage = get_field("hidePostfromMainPage",$pid);
+						echo '<pre>';
+						print_r($hideOnPage);
+						echo '</pre>';
 						if(!$hideOnPage) {
 							$groupItems[$eventStatus][] = $pid;
 						}
@@ -116,7 +120,7 @@ $entries = new WP_Query($args); ?>
 
 					<?php 
 						// echo '<pre>';
-						// print_r($groupItems);
+						// print_r($hideOnPage);
 						// echo '</pre>';
 						krsort($groupItems);
 						krsort($groupItems['completed']);

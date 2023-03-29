@@ -3706,6 +3706,8 @@ ul.items .show{display:block}
 .prenav li.active a{background-color:rgba(255,255,255,0.2)}
 .prenav li.umbrella{text-indent:-9000px;background-image:url(images/nav-logo-2.png);background-position:center center;background-size:100px 15px;background-repeat:no-repeat}
 .prenav a{color:#fff;padding:8px 28px;text-decoration:none;font-size:16px;font-weight:bold;text-transform:uppercase;display:block}
+.fs-rest.fs-wrap.multiple .fs-option{float:left;width:100%;padding:0}
+.fs-rest label.chexbox{background-color:white;width:100%;color:#000;text-align:left}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}
