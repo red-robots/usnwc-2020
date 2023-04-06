@@ -97,6 +97,13 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 							<div class="text"><?php echo $short_description ?></div>
 						</div>
 						<?php } ?>
+						<div class="clear"></div>
+						<div class="text-center">
+							<!-- <br> --><br>
+							<div class="button">
+								<a href="#" data-url="<?php echo $pagelink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class="btn-sm xs popdata"><span>See Details</span></a>
+							</div>
+						</div>
 
 						<?php /* SCHEDULE */ 
 								// echo '<pre>';

@@ -590,7 +590,7 @@ function custom_post_column( $column, $post_id ) {
 
             case 'start_date' :
                 $date_string = get_field('start_date',$post_id);
-                if($date_string !=='') {
+                if($date_string) {
                     $sdate = DateTime::createFromFormat('Y-m-d', $date_string);
                     echo $sdate->format('M j, Y');
                 } 

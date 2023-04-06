@@ -205,7 +205,7 @@ $checkboxes.change( function() {
   // combine inclusive filters
   var filterValue = inclusives.length ? inclusives.join(', ') : '*';
 
-  $output.text( filterValue );
+  // $output.text( filterValue );
   $container.isotope({ filter: filterValue })
 });
 
@@ -553,6 +553,7 @@ $checkboxes.change( function() {
  		var tag = $(this);
  		var exceptions = ['todayToggle','todayLink','todayTxt','today-options'];
  		var elementId = e.target.id;
+    console.log(e);
  		var is_open = false;
  		if( elementId=='today-options' ) {
  			$(".topinfo .today").addClass("open");

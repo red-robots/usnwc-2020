@@ -88,6 +88,11 @@ $i=1;
 										<div class="fs-options">
 											<div class="fs-option">
 												<label class="chexbox">
+													<input type="checkbox" value="*" /> All
+												</label>
+											</div>
+											<div class="fs-option">
+												<label class="chexbox">
 													<input type="checkbox" value=".completed" /> Completed
 												</label>
 											</div>
