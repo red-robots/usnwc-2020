@@ -58,6 +58,7 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 						$start_date_format = date('M',strtotime($start_date)) . $period . date('j',strtotime($start_date));
 					}
 					$short_description = get_field("short_description",$pid);
+					$is_festival = get_field("is_festival",$pid);
 					// $schedule = get_field("schedule_repeater",$pid);
 					// $schedule_title = get_field("schedule_title",$pid);
 
@@ -111,9 +112,10 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 								// echo '</pre>';
 
 						?>
-						<?php if ($schedules) { ?>
+						<?php if ( $schedules && $is_festival !== 'yes' ) { ?>
 						<div class="schedule schedules-list">
 							<h3 class="t1"><?php echo ($schedule_title) ? $schedule_title : 'Schedule' ?></h3>
+							<!-- <h4><?php echo $is_festival; ?></h4> -->
 							<ul class="items">
 							<?php $ctr=1; foreach ($schedules as $s) { 
 								$time = $s['time'];
