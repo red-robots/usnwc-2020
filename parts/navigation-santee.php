@@ -59,9 +59,10 @@ if($parents) { ?>
   			</ul>
   			<div class="squiggly"><div class="line"></div></div>
 
-  			<?php if( $secondary_menu_santee ){ ?>
+  			
   			<div class="secondary-menu">
-          
+          <?php if( $secondary_menu_santee ){ 
+            ?>
   				<ul class="menu2">
   				<?php foreach ($secondary_menu_santee as $sm) { 
   					$s = $sm['link'];
