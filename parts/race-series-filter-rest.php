@@ -148,7 +148,7 @@ $i=1;
 						<!-- <div id="resetBtn" class="select-reset-wrap <?php //echo ($has_filter) ? '':'hide'; ?>">
 							<a href="<?php //echo get_permalink(); ?>" class="resetpage">Reset</a>
 						</div> -->
-						<button onclick="FWP.reset()" class="resetBtn jobs"><span>Reset</span></button>
+						<!-- <button onclick="FWP.reset()" class="resetBtn jobs"><span>Reset</span></button> -->
 					</div>
 				</div>
 
