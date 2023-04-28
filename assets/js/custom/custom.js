@@ -9,7 +9,12 @@ jQuery(document).ready(function ($) {
 
 
 
-
+ // $('a.instr').colorbox({
+ //    inline:true, 
+ //    width:"50%",
+ //    // href:".instr",
+ //    // innerWidth: 300
+ //  });
 	/*
     *
     *   Select Dropdowns
@@ -334,6 +339,10 @@ $checkboxes.change( function() {
       }
   } 
  /*   END NAVITAION   */
+
+ $("a#inline").fancybox({
+    'hideOnContentClick': true
+  });
 
 	$('[data-fancybox]').fancybox({
 		touch : true,

@@ -14595,3 +14595,64 @@ Isotope dropdowns to mimic Facets.
 		text-align: left;
 	}
 }
+.text-center {
+	.button.inline {
+		width: auto;
+		display: inline-block;
+		margin-top: 20px;
+	}
+}
+.instr-details {
+	padding: 20px;
+	background-color: #fff;
+	width: 90%;
+	@media screen and (min-width: $tabwidth) {
+		width: 600px;
+		padding: 40px;
+	}
+}
+section.instr-schedule {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: stretch;
+	@media screen and (min-width: $tabwidth) {
+		flex-wrap: nowrap;
+	}
+	.day {
+		background-color: rgba(#000, .05);
+		flex-basis: 45%;
+		margin: 0 0.5%;
+		padding: 20px;
+		@media screen and (min-width: $tabwidth) {
+			flex-basis: 13.5%;
+		}
+		h3 {
+			font-size: 20px;
+			width: 100%;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.row {
+			width: 100%;
+			display: flex;
+			flex-wrap: nowrap;
+			flex-direction: row;
+			justify-content: space-between;
+			margin: 10px 0;
+			border-bottom: 1px dotted #333;
+			overflow: hidden;
+			.left, .right {
+				font-size: 16px;;
+			}
+			.left {
+
+			}
+			.right {
+
+			}
+		}
+	}
+}

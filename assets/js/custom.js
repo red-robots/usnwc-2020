@@ -8,6 +8,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
  *	Developed by: Lisa DeBona
  */
 jQuery(document).ready(function ($) {
+  // $('a.instr').colorbox({
+  //    inline:true, 
+  //    width:"50%",
+  //    // href:".instr",
+  //    // innerWidth: 300
+  //  });
+
   /*
      *
      *   Select Dropdowns
@@ -305,6 +312,9 @@ jQuery(document).ready(function ($) {
   /*   END NAVITAION   */
 
 
+  $("a#inline").fancybox({
+    'hideOnContentClick': true
+  });
   $('[data-fancybox]').fancybox({
     touch: true,
     hash: false,
