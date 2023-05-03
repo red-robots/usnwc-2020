@@ -92,7 +92,7 @@ get_header(); ?>
 													</a>
 												</div>
 												<div class="button inline">
-													<a data-accesso-keyword="" href="#" class="btn-sm xs instr">
+													<a data-accesso-keyword="Kayak_Instruction" href="#" class="btn-sm xs instr">
 														<span>Purchase</span>
 													</a>
 												</div>
