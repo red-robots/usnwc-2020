@@ -14613,13 +14613,16 @@ Isotope dropdowns to mimic Facets.
 }
 section.instr-schedule {
 	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	justify-content: center;
-	align-items: stretch;
-	@media screen and (min-width: $tabwidth) {
-		flex-wrap: nowrap;
+	
+	.flex {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: center;
+		align-items: stretch;
+		@media screen and (min-width: $tabwidth) {
+			flex-wrap: nowrap;
+		}
 	}
 	.day {
 		background-color: rgba(#000, .05);

@@ -3710,7 +3710,8 @@ ul.items .show{display:block}
 .fs-rest label.chexbox{background-color:white;width:100%;color:#000;text-align:left}
 .text-center .button.inline{width:auto;display:inline-block;margin-top:20px}
 .instr-details{padding:20px;background-color:#fff;width:90%}
-section.instr-schedule{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
+section.instr-schedule{width:100%}
+section.instr-schedule .flex{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
 section.instr-schedule .day{background-color:rgba(0,0,0,0.05);-ms-flex-preferred-size:45%;flex-basis:45%;margin:0 .5%;padding:20px}
 section.instr-schedule .day h3{font-size:20px;width:100%;text-align:center;margin-bottom:20px}
 section.instr-schedule .day .row{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;margin:10px 0;border-bottom:1px dotted #333;overflow:hidden}
@@ -4083,7 +4084,7 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 .prenav li.umbrella{background-size:150px 23px}
 .prenav a{padding:8px 60px}
 .instr-details{width:600px;padding:40px}
-section.instr-schedule{-ms-flex-wrap:nowrap;flex-wrap:nowrap}
+section.instr-schedule .flex{-ms-flex-wrap:nowrap;flex-wrap:nowrap}
 section.instr-schedule .day{-ms-flex-preferred-size:13.5%;flex-basis:13.5%}
 }@media(min-width:960px){.topinfo span.el{font-size:12px}
 .home-video-gallery.count1 .video-big{height:600px}

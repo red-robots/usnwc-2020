@@ -25,6 +25,12 @@ get_header(); ?>
 
 		<?php if( have_rows('schedule_days') ): ?>
 			<section class="instr-schedule">
+				<div class="wwrapper">
+					<div class="shead-icon text-center">
+						<h2 class="stitle">Upcoming</h2>
+					</div>
+				</div>
+				<div class="flex">
 				<?php while (have_rows('schedule_days')): the_row(); 
 					$day_name = get_sub_field('day_name');
 				?>
@@ -41,12 +47,20 @@ get_header(); ?>
 					<?php endwhile; endif; ?>
 				</div>
 				<?php endwhile; ?>
+				</div>
 			</section>
 		<?php endif; ?>
+
+
 
 		<?php
 			if ( have_rows('programs') ) { ?>
 			<section class="flex-container store-listings full">
+				<div class="wwrapper">
+					<div class="shead-icon text-center">
+						<h2 class="stitle">Programs</h2>
+					</div>
+				</div>
 				<?php $i=1; while ( have_rows('programs') ) : the_row(); ?>
 					<?php 
 					$title = get_sub_field('program_name'); 
@@ -78,8 +92,8 @@ get_header(); ?>
 													</a>
 												</div>
 												<div class="button inline">
-													<a href="#instr-details<?php echo $i; ?>" class="btn-sm xs instr">
-														<span>See Details</span>
+													<a data-accesso-keyword="" href="#" class="btn-sm xs instr">
+														<span>Purchase</span>
 													</a>
 												</div>
 											</div>
