@@ -7,7 +7,15 @@ $banner = get_field("flexslider_banner");
 $has_banner = ($banner) ? 'hasbanner':'nobanner';
 get_header(); 
 
-
+$dClass = '';
+$mClass = '';
+$heroImage = get_field("post_image_full");
+$mobileBanner = get_field('mobile-banner');
+if( $mobileBanner ) {
+	$dClass = 'desktop';
+	$mClass = 'mobile';
+}
+$has_hero = ($heroImage) ? 'has-banner':'no-banner';
 $passport = get_field('passport_btn');
 $passLabel = get_field('passport_label');
 $idArray = array('40','41','42','43','53','54','55','56','57','58','59');
