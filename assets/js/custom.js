@@ -514,7 +514,7 @@ jQuery(document).ready(function ($) {
 
   $(document).on('click', function (e) {
     var tag = $(this);
-    var exceptions = ['todayToggle', 'todayLink', 'todayTxt', 'today-options'];
+    var exceptions = ['todayToggle', 'todayLink', 'todayTxt', 'today-options', 'arrow'];
     var elementId = e.target.id;
     console.log(e);
     var is_open = false;

@@ -95,7 +95,7 @@ if($postHeroImage) {
 				<span id="todayLink" class="today el">
 					<?php $today_options = get_field("today","option"); ?>
 					<?php if ($today_options) { ?>
-						<a href="#" id="todayToggle" class="spanlink"><i id="todayTxt" class="txt">TODAY</i><i class="arrow"></i></a>
+						<a href="#" id="todayToggle" class="spanlink"><i id="todayTxt" class="txt">TODAY</i><i id="arrow" class="arrow"></i></a>
 						<div id="businessHours" class="businessHours">
 							<ul id="today-options" class="today-options">
 								<?php foreach ($today_options as $t) { 
