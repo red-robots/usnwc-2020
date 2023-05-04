@@ -5,8 +5,52 @@
 $placeholder = THEMEURI . 'images/rectangle.png';
 $banner = get_field("flexslider_banner");
 $has_banner = ($banner) ? 'hasbanner':'nobanner';
-get_header(); ?>
+get_header(); 
+
+
+$passport = get_field('passport_btn');
+$passLabel = get_field('passport_label');
+$idArray = array('40','41','42','43','53','54','55','56','57','58','59');
+if( $passport == 'all' ) {
+	$pp = 'data-accesso-launch';
+} elseif(in_array($passport, $idArray )) {
+	$pp = 'data-accesso-package="'.$passport.'"';
+} else {
+	$pp = 'data-accesso-keyword="'.$passport.'"';
+}
+
+?>
 <div id="primary" class="content-area-full outfitters <?php echo $has_banner ?>">
+	<?php if ($heroImage) { ?>
+		<div class="post-hero-image <?php echo $status; ?>">
+			<img src="<?php echo $heroImage['url'] ?>" alt="<?php echo $heroImage['title'] ?>" class="featured-image <?php echo $dClass; ?>">
+
+			<img src="<?php echo $mobileBanner['url'] ?>" alt="<?php echo $mobileBanner['title'] ?>" class="featured-image <?php echo $mClass; ?>">
+			<?php if ($status=='open') { ?>
+
+				<?php if($passport){ ?>
+					<div class="stats open">
+						<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="registerBtn">
+							<?php if($passLabel){echo $passLabel;}else{echo 'Buy';} ?>
+						</a>
+					</div>
+				<?php }else{ ?>
+					<?php if ($registerButton && $registerLink) { ?>
+						<div class="stats open"><a href="<?php echo $registerLink ?>" target="<?php echo $registerTarget ?>" class="registerBtn"><?php echo $registerButton ?></a></div>
+					<?php } ?>
+				<?php } ?>
+			<?php } else if($status=='closed') { ?>
+			<div class="stats closed">SOLD OUT</div>
+			<?php } else if($status=='custom') { ?>
+
+				<?php if ($status_custom_message) { ?>
+				<div class="stats closed custom-message-banner"><div class="innerTxt"><?php echo $status_custom_message ?></div></div>
+				<?php } ?>
+			
+			<?php } ?>
+			
+		</div>
+	<?php } ?>
 	<main id="main" class="site-main fw-left" role="main">
 		<?php while ( have_posts() ) : the_post(); ?>
 
