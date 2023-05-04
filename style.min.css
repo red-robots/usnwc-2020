@@ -3710,11 +3710,16 @@ ul.items .show{display:block}
 .fs-rest label.chexbox{background-color:white;width:100%;color:#000;text-align:left}
 .text-center .button.inline{width:auto;display:inline-block;margin-top:20px}
 .instr-details{padding:20px;background-color:#fff;width:90%}
+body.page-template-page-instruction-single h2.programs{padding:50px 0 20px 0;text-transform:uppercase}
 section.instr-schedule{width:100%}
+section.instr-schedule #inst-sched li.slide-item{width:450px}
+section.instr-schedule #inst-sched .flex-control-paging{display:none}
 section.instr-schedule .flex{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
-section.instr-schedule .day{background-color:rgba(0,0,0,0.05);-ms-flex-preferred-size:45%;flex-basis:45%;margin:0 .5%;padding:20px}
-section.instr-schedule .day h3{font-size:20px;width:100%;text-align:center;margin-bottom:20px}
-section.instr-schedule .day .row{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;margin:10px 0;border-bottom:1px dotted #333;overflow:hidden}
+section.instr-schedule .day{background-color:black;color:#fff;-ms-flex-preferred-size:45%;flex-basis:45%;margin:0 .5%}
+section.instr-schedule .day .image img{width:100%}
+section.instr-schedule .day .contents{width:100%;padding:30px 20px 30px 20px}
+section.instr-schedule .day h3{font-size:20px;width:100%;text-align:center;margin-bottom:20px;text-transform:uppercase}
+section.instr-schedule .day .row{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;margin:10px 0;border-bottom:1px dotted #fff;overflow:hidden}
 section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{font-size:16px}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}

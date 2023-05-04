@@ -23,115 +23,106 @@ get_header(); ?>
 
 		<?php endwhile; ?>
 
-		<?php if( have_rows('schedule_days') ): ?>
+		<?php 
+		function sortCourseByDay($courses) {
+		    // Get the current day of the week (0 = Sunday, 1 = Monday, etc.)
+		    $currentDayOfWeek = date('w');
+
+		    // Split the array into two parts: the days before the current day and the days after
+		    $daysBeforeCurrentDay = array_slice($courses, $currentDayOfWeek);
+		    $daysAfterCurrentDay = array_slice($courses, 0, $currentDayOfWeek);
+
+		    // Combine the two parts and return the sorted array
+		    $sortedCourses = array_merge($daysBeforeCurrentDay, $daysAfterCurrentDay);
+
+		    return $sortedCourses;
+		}
+
+		$myDays = get_field('schedule_days');
+
+		$sortedCourses = sortCourseByDay($myDays);
+		// echo '<pre>';
+		// print_r($myDays);
+		// echo '</pre>';
+
+
+		if( have_rows('schedule_days') ): ?>
 			<section class="instr-schedule">
 				<div class="wwrapper">
 					<div class="shead-icon text-center">
 						<h2 class="stitle">Upcoming</h2>
 					</div>
 				</div>
-				<div class="flex">
-				<?php while (have_rows('schedule_days')): the_row(); 
-					$day_name = get_sub_field('day_name');
-				?>
-				<div class="day">
-					<h3><?php echo $day_name ?></h3>
-					<?php if( have_rows('coursetime') ): while( have_rows('coursetime') ): the_row(); 
-						$course = get_sub_field('course');
-						$time = get_sub_field('time');
-						?>
-						<div class="row">
-							<div class="left"><?php echo $course; ?></div>
-							<div class="right"><?php echo $time; ?></div>
-						</div>
-					<?php endwhile; endif; ?>
-				</div>
-				<?php endwhile; ?>
+				<div id="inst-sched" class="flexslider-instr flexslider carousel">
+					<ul class="slides">
+					<?php foreach($sortedCourses as $day) { 
+						$courseinfo = $day['coursetime'];
+						$day_image = $day['day_image'];
+					?>
+						<li id="<?php echo $day['day_name'] ?>" class="slide-item">
+							<div class="day">
+								<?php if($day_image){ ?>
+									<div class="image">
+										<img src="<?php echo $day_image['url']; ?>">
+									</div>
+								<?php } ?>
+								<div class="contents js-blocks">
+									<h3><?php echo $day['day_name'] ?></h3>
+									<?php foreach( $courseinfo as $c ) { 
+										$product_link = $c['product_link'];
+										?>
+										<div class="row">
+											<div class="left"><?php echo $c['time']; ?></div>
+											<div class="right">
+												<?php if($product_link){ echo '<a data-accesso-keyword="'.$product_link.'" href="#">'; } ?>
+												<?php echo $c['course']; ?>
+												<?php if($product_link){ echo '</a>'; }?>
+											</div>
+										</div>
+									<?php } ?>
+								</div>
+							</div>
+						</li>
+					<?php } ?>
+					</ul>
 				</div>
 			</section>
 		<?php endif; ?>
 
+		<?php include(locate_template('parts/text-image-blocks-instruction.php')); ?>
 
-
-		<?php
-			if ( have_rows('programs') ) { ?>
-			<section class="flex-container store-listings full">
-				<div class="wwrapper">
-					<div class="shead-icon text-center">
-						<h2 class="stitle">Programs</h2>
-					</div>
-				</div>
-				<?php $i=1; while ( have_rows('programs') ) : the_row(); ?>
-					<?php 
-					$title = get_sub_field('program_name'); 
-					$text = get_sub_field('description');
-					$slides = get_sub_field("gallery");
-					$details = get_sub_field("popup_details");
-					$columnClass = ( $slides && ($text || $brands) ) ? 'half':'full';
-					$columnClass .= ($i % 2) ? ' odd':' even';
-					?>
-					<div id="entry<?php echo $i ?>" data-section="<?php echo $title ?>" class="entry <?php echo $columnClass ?>">
-						<div class="flexwrap wow fadeIn">
-							
-							<?php if ($text) { ?>
-							<div class="block textcol">
-								<div class="inside">
-									<div class="wrap">
-										<div class="text text-center">
-											<h2 class="stitle"><?php echo $title ?></h2>
-											<?php if ($text) { ?>
-												<?php echo $text; ?>
-											<?php } ?>
-										</div>
-										
-										<?php if ($details) { ?>
-											<div class="text-center">
-												<div class="button inline">
-													<a href="#instr-details<?php echo $i; ?>" class="btn-sm xs instr" id="inline">
-														<span>See Details</span>
-													</a>
-												</div>
-												<div class="button inline">
-													<a data-accesso-keyword="Kayak_Instruction" href="#" class="btn-sm xs instr">
-														<span>Purchase</span>
-													</a>
-												</div>
-											</div>
-											<div style="display: none;">
-												<div id="instr-details<?php echo $i; ?>" class="instr-details">
-													<?php echo $details; ?>
-												</div>
-											</div>
-										<?php } ?>
-										
-									</div>
-								</div>r
-							</div>	
-							<?php } ?>
-
-							<?php if ($slides) { $count = count($slides); ?>
-							<div class="block imagecol">
-								<div class="inside">
-										<div id="subSlider<?php echo $i?>" class="flexslider posttypeslider <?php echo ($count>1) ? 'doSlider':'noSlider'?>">
-											<ul class="slides">
-												<?php $helper = THEMEURI . 'images/rectangle-narrow.png'; ?>
-												<?php foreach ($slides as $s) { ?>
-													<li class="slide-item" style="background-image:url('<?php echo $s['url']?>')">
-														<img src="<?php echo $helper ?>" alt="" aria-hidden="true" class="placeholder">
-														<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>" class="actual-image" />
-													</li>
-												<?php } ?>
-											</ul>
-										</div>
+				<?php  
+				/* WHAT TO BRING */
+				$wb_title = get_field("wb_title");
+				$wb_text = get_field("wb_text");
+				if ( $wb_title && $wb_text ) { ?>
+				<section id="section-whattobring" data-section="<?php echo $wb_title ?>" class="section-content dining-section-whattobring">
+					<div class="flexwrap">
+						<div class="wrapper narrow text-center">
+							<?php if ($wb_title) { ?>
+								<div class="shead-icon text-center">
+									<div class="icon"><span class="ci-backpack"></span></div>
+									<h2 class="stitle"><?php echo $wb_title ?></h2>
 								</div>
-							</div>
 							<?php } ?>
-
+							<div class="text"><?php echo $wb_text ?></div>
 						</div>
 					</div>
-				<?php $i++; endwhile; wp_reset_postdata(); ?>
-			</section>
-			<?php } ?>
+				</section>
+				<?php } ?>
+
+				<?php /* FAQ */ ?>
+				<?php 
+				$faq_title = get_field("faq_title");
+				if( $faqs = get_faq_listings($post_id) ) { ?>
+					<?php
+						$customFAQTitle = $faq_title;
+						include( locate_template('parts/content-faqs.php') ); 
+						include( locate_template('inc/faqs.php') ); 
+					?>
+				<?php } ?>
+
+		
 
 			<?php /* FAQ */ ?>
 			<?php 

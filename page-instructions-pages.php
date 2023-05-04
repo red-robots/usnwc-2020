@@ -15,7 +15,7 @@ $parent_page_id = get_the_ID();
 		<div class="intro-text-wrap">
 			<div class="wrapper">
 				<h1 class="page-title"><span><?php the_title(); ?></span></h1>
-				<?php if ( get_the_content() ) { ?>
+				<?php //if ( get_the_content() ) { ?>
 				<div class="intro-text">
 					<?php the_content(); ?>
 						<?php 
@@ -32,7 +32,7 @@ $parent_page_id = get_the_ID();
 
 						?>
 					</div>
-				<?php } ?>
+				<?php //} ?>
 			</div>
 		</div>
 	<?php endwhile; ?>
@@ -71,7 +71,9 @@ $parent_page_id = get_the_ID();
 						foreach( $includer as $p ){
 							$post = get_post($p); 
 							setup_postdata( $post ); 
-						
+							// echo '<pre>';
+							// print_r($p);
+							// echo '</pre>';
 
 							$term_name = get_the_title();
 							$thumbImage = get_field("category_image");

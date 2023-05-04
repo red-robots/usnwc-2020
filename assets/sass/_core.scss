@@ -14611,9 +14611,22 @@ Isotope dropdowns to mimic Facets.
 		padding: 40px;
 	}
 }
+body.page-template-page-instruction-single {
+	h2.programs {
+		padding: 50px 0 20px 0;
+		text-transform: uppercase;
+	}
+}
 section.instr-schedule {
 	width: 100%;
-	
+	#inst-sched {
+		li.slide-item {
+			width: 450px;
+		}
+		.flex-control-paging {
+			display: none;
+		}
+	}
 	.flex {
 		display: flex;
 		flex-wrap: wrap;
@@ -14625,18 +14638,29 @@ section.instr-schedule {
 		}
 	}
 	.day {
-		background-color: rgba(#000, .05);
+		background-color: rgba(#000, 1);
+		color: #fff;
 		flex-basis: 45%;
 		margin: 0 0.5%;
-		padding: 20px;
+		
 		@media screen and (min-width: $tabwidth) {
 			flex-basis: 13.5%;
+		}
+		.image {
+			img {
+				width: 100%;
+			}
+		}
+		.contents {
+			width: 100%;
+			padding: 30px 20px 30px 20px;
 		}
 		h3 {
 			font-size: 20px;
 			width: 100%;
 			text-align: center;
 			margin-bottom: 20px;
+			text-transform: uppercase;
 		}
 		.row {
 			width: 100%;
@@ -14645,7 +14669,7 @@ section.instr-schedule {
 			flex-direction: row;
 			justify-content: space-between;
 			margin: 10px 0;
-			border-bottom: 1px dotted #333;
+			border-bottom: 1px dotted #fff;
 			overflow: hidden;
 			.left, .right {
 				font-size: 16px;;
