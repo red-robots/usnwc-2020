@@ -23,6 +23,14 @@ $textImageData = get_field("textImageCol");
 		$e_text = get_sub_field('text');
 		$details = get_sub_field('popup_details');
 		$passport_product = get_sub_field('passport_product');
+		$idArray = array('266','267','268','269','270','271');
+		if( $passport_product == 'all' ) {
+			$pp = 'data-accesso-launch';
+		} elseif(in_array($product_link, $idArray )) {
+			$pp = 'data-accesso-package="'.$passport_product.'"';
+		} else {
+			$pp = 'data-accesso-keyword="'.$passport_product.'"';
+		}
 		$inquiry = get_sub_field('inquiry');
 // 		echo '<pre>';
 // print_r($passport_product);
@@ -56,7 +64,7 @@ $textImageData = get_field("textImageCol");
 							<?php } ?>
 							<?php if ($passport_product !== 'none') { ?>
 								<div class="button inline">
-									<a data-accesso-keyword="<?php echo $passport_product; ?>" href="#" class="btn-sm xs instr">
+									<a <?php echo $pp; ?> href="#" class="btn-sm xs instr">
 										<span>Purchase</span>
 									</a>
 								</div>

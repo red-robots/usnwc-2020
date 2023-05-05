@@ -26,7 +26,7 @@ $blank_image = THEMEURI . "images/square.png";
 $status_custom_message = get_field("status_custom_message");
 $passport = get_field('passport_btn');
 $passLabel = get_field('passport_label');
-$idArray = array('40','41','42','43','53','54','55','56','57','58','59');
+$idArray = array('266','267','268','269','270','271');
 if( $passport == 'all' ) {
 	$pp = 'data-accesso-launch';
 } elseif(in_array($passport, $idArray )) {
@@ -243,6 +243,7 @@ if( $passport == 'all' ) {
 					<?php foreach($sortedCourses as $day) { 
 						$courseinfo = $day['coursetime'];
 						$day_image = $day['day_image'];
+
 					?>
 						<li id="<?php echo $day['day_name'] ?>" class="slide-item">
 							<div class="day">
@@ -255,11 +256,19 @@ if( $passport == 'all' ) {
 									<h3><?php echo $day['day_name'] ?></h3>
 									<?php foreach( $courseinfo as $c ) { 
 										$product_link = $c['product_link'];
+										$idArray = array('266','267','268','269','270','271');
+										if( $product_link == 'all' ) {
+											$pp = 'data-accesso-launch';
+										} elseif(in_array($product_link, $idArray )) {
+											$pp = 'data-accesso-package="'.$product_link.'"';
+										} else {
+											$pp = 'data-accesso-keyword="'.$product_link.'"';
+										}
 										?>
 										<div class="row">
 											<div class="left"><?php echo $c['time']; ?></div>
 											<div class="right">
-												<?php if($product_link){ echo '<a data-accesso-keyword="'.$product_link.'" href="#">'; } ?>
+												<?php if($product_link){ echo '<a '.$pp.' href="#">'; } ?>
 												<?php echo $c['course']; ?>
 												<?php if($product_link){ echo '</a>'; }?>
 											</div>
