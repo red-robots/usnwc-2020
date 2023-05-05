@@ -2389,6 +2389,8 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 .waveAnimation>use{-webkit-animation:wave .5s cubic-bezier(0.55,0.5,0.45,0.5) infinite;animation:wave .5s cubic-bezier(0.55,0.5,0.45,0.5) infinite;-webkit-animation-delay:-2s;animation-delay:-2s}
 .map-images .flexslider{border-radius:0}
 .text-and-image-blocks,.menu-sections{width:100%;float:left;margin-top:50px}
+.text-and-image-blocks section.section-break,.menu-sections section.section-break{width:100%;padding:40px 0}
+.text-and-image-blocks section.section-break h3,.menu-sections section.section-break h3{text-transform:uppercase;text-align:center}
 .text-and-image-blocks .mscol,.menu-sections .mscol{margin-top:15px;margin-bottom:15px;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .text-and-image-blocks .gallerycol .flexslider,.text-and-image-blocks .gallerycol .slides,.text-and-image-blocks .gallerycol .slides li.slide-item,.menu-sections .gallerycol .flexslider,.menu-sections .gallerycol .slides,.menu-sections .gallerycol .slides li.slide-item{width:100%;float:left;position:relative;background-color:#CCC;border-radius:0}
 .text-and-image-blocks .gallerycol .slides li.slide-item,.menu-sections .gallerycol .slides li.slide-item{background-size:cover;background-position:center;background-repeat:no-repeat}
@@ -2618,21 +2620,21 @@ body.page-template-page-stories .select2-container--default .select2-results__op
 .post-social-share .addtoany_shortcode .addtoany_list a.a2a_button_facebook,.post-social-share .addtoany_shortcode .addtoany_list a.a2a_button_twitter{width:80px}
 .post-social-share .addtoany_shortcode .addtoany_list a.a2a_button_facebook:after{content:"SHARE";display:block;position:absolute;top:11px;left:30px;font-size:11px;line-height:1;color:#707070}
 .post-social-share .addtoany_shortcode .addtoany_list a.a2a_button_twitter:after{content:"TWEET";display:block;position:absolute;top:11px;left:30px;font-size:11px;line-height:1;color:#707070}
-.content-area-full.post-type-dining .post-hero-image{margin-top:85px}
-.content-area-full.post-type-dining .post-hero-image.closed{padding-top:38px}
-.content-area-full.post-type-dining .post-hero-image .stats{width:100%;z-index:10;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1;letter-spacing:1px;-webkit-transition:all ease .3s;transition:all ease .3s}
-.content-area-full.post-type-dining .post-hero-image .stats.closed{text-align:center;padding:11px 20px 10px;background:rgba(186,13,48,0.9)}
-.content-area-full.post-type-dining .post-hero-image .stats.open{text-align:left}
-.content-area-full.post-type-dining .registerBtn{display:inline-block;text-decoration:none;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:50px;background:#ba0d30;height:52px;padding:0 35px;position:relative;width:100%;text-align:center}
-.content-area-full.post-type-dining .registerBtn:hover{background:#000}
-.content-area-full.post-type-dining .registerBtn:hover:after{border-left-color:#000}
+.content-area-full.post-type-dining .post-hero-image,.content-area-full.instruction-page .post-hero-image{margin-top:85px}
+.content-area-full.post-type-dining .post-hero-image.closed,.content-area-full.instruction-page .post-hero-image.closed{padding-top:38px}
+.content-area-full.post-type-dining .post-hero-image .stats,.content-area-full.instruction-page .post-hero-image .stats{width:100%;z-index:10;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1;letter-spacing:1px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.content-area-full.post-type-dining .post-hero-image .stats.closed,.content-area-full.instruction-page .post-hero-image .stats.closed{text-align:center;padding:11px 20px 10px;background:rgba(186,13,48,0.9)}
+.content-area-full.post-type-dining .post-hero-image .stats.open,.content-area-full.instruction-page .post-hero-image .stats.open{text-align:left}
+.content-area-full.post-type-dining .registerBtn,.content-area-full.instruction-page .registerBtn{display:inline-block;text-decoration:none;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:50px;background:#ba0d30;height:52px;padding:0 35px;position:relative;width:100%;text-align:center}
+.content-area-full.post-type-dining .registerBtn:hover,.content-area-full.instruction-page .registerBtn:hover{background:#000}
+.content-area-full.post-type-dining .registerBtn:hover:after,.content-area-full.instruction-page .registerBtn:hover:after{border-left-color:#000}
 .hero-register-button .stats{width:100%;z-index:110;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1;letter-spacing:1px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .hero-register-button .stats.closed{text-align:center;padding:11px 20px 10px;background:rgba(186,13,48,0.9)}
 .hero-register-button .stats.open{text-align:left}
 .hero-register-button .registerBtn{display:inline-block;text-decoration:none;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:50px;background:#ba0d30;height:52px;padding:0 35px;position:relative;-webkit-box-shadow:-12px 8px 17px rgba(0,0,0,0.3);box-shadow:-12px 8px 17px rgba(0,0,0,0.3);width:100%;text-align:center}
 .hero-register-button.has-event-status #banner .static-banner .slideCaption .text{margin-top:3%}
-body.scrolled.single-dining .post-hero-image .stats{position:fixed;z-index:5000}
-body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:130px}
+body.scrolled.single-dining .post-hero-image .stats,body.scrolled.page-template-page-instruction-single .post-hero-image .stats{position:fixed;z-index:5000}
+body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats,body.scrolled.page-template-page-instruction-single.logged-in.admin-bar .post-hero-image .stats{top:130px}
 body.scrolled .stats{position:fixed;z-index:5000;top:85px}
 body.scrolled.logged-in.admin-bar .stats{top:130px}
 .shead-icon{margin-bottom:35px}
@@ -3892,9 +3894,9 @@ body.scrolled .site-header .navbar{background:rgba(255,255,255,0.95)}
 .main-post-text .imagescol{padding-right:5px}
 .main-post-text.half .textcol{width:50%}
 .main-post-text.half .imagescol{width:50%}
-.content-area-full.post-type-dining .post-hero-image .stats{position:absolute;top:0;left:0}
-.content-area-full.post-type-dining .registerBtn{width:auto}
-.content-area-full.post-type-dining .registerBtn:after{content:"";display:block;width:0;height:0;border-left:28px solid #ba0d30;border-top:26px solid transparent;border-bottom:26px solid transparent;position:absolute;top:0;right:-28px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.content-area-full.post-type-dining .post-hero-image .stats,.content-area-full.instruction-page .post-hero-image .stats{position:absolute;top:0;left:0}
+.content-area-full.post-type-dining .registerBtn,.content-area-full.instruction-page .registerBtn{width:auto}
+.content-area-full.post-type-dining .registerBtn:after,.content-area-full.instruction-page .registerBtn:after{content:"";display:block;width:0;height:0;border-left:28px solid #ba0d30;border-top:26px solid transparent;border-bottom:26px solid transparent;position:absolute;top:0;right:-28px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .hero-register-button .stats{display:block}
 .hero-register-button .registerBtn{width:auto}
 .hero-register-button .registerBtn:before,.hero-register-button .registerBtn:after{content:"";display:block;-webkit-transition:all ease .3s;transition:all ease .3s;position:absolute;right:-12px;width:50px;height:50%;background-color:#ba0d30}
@@ -3902,7 +3904,7 @@ body.scrolled .site-header .navbar{background:rgba(255,255,255,0.95)}
 .hero-register-button .registerBtn:after{height:51%;bottom:0;-webkit-transform:skew(-40deg);transform:skew(-40deg)}
 .hero-register-button .registerBtn:hover{background:#000}
 .hero-register-button .registerBtn:hover:before,.hero-register-button .registerBtn:hover:after{background-color:#000}
-body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:118px}
+body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats,body.scrolled.page-template-page-instruction-single.logged-in.admin-bar .post-hero-image .stats{top:118px}
 body.scrolled.logged-in.admin-bar .stats{top:118px}
 body.scrolled .hero-register-button .registerBtn{position:fixed}
 .dining-event-details{padding-top:80px;padding-bottom:70px}

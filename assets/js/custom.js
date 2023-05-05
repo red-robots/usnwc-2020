@@ -378,6 +378,7 @@ jQuery(document).ready(function ($) {
   $('#inst-sched').flexslider({
     animation: "slide",
     animationLoop: false,
+    slideshow: false,
     itemWidth: 210,
     itemMargin: 5,
     minItems: 2,

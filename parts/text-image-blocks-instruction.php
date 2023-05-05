@@ -1,7 +1,13 @@
 <?php
 /* TEXT AND IMAGE BLOCKS */
-$textImageData = get_field("textImageCol"); ?>
-<?php if ($textImageData) { ?>
+$textImageData = get_field("textImageCol"); 
+// echo '<pre>';
+// print_r($textImageData);
+// echo '</pre>';
+?>
+<?php if ($textImageData) { 
+
+?>
 <section class="text-and-image-blocks nomtop">
 	<div class="wrapper">
 		<div class="shead-icon text-center">
@@ -9,15 +15,18 @@ $textImageData = get_field("textImageCol"); ?>
 		</div> 
 	</div>
 	<div class="columns-2">
-	<?php $i=1; foreach ($textImageData as $s) { 
-		$e_title = $s['title'];
-		$e_text = $s['text'];
-		$details = $s['popup_details'];
+	<?php $i=1; while ( have_rows('textImageCol') ) : the_row();
+
+		if( get_row_layout() == 'text_and_image' ):
+
+		$e_title = get_sub_field('title');
+		$e_text = get_sub_field('text');
+		$details = get_sub_field('popup_details');
 		// $btn = $s['button'];
 		// $btnName = ( isset($btn['title']) && $btn['title'] ) ? $btn['title'] : '';
 		// $btnLink = ( isset($btn['url']) && $btn['url'] ) ? $btn['url'] : '';
 		// $btnTarget = ( isset($btn['target']) && $btn['target'] ) ? $btn['target'] : '_self';
-		$slides = $s['images'];
+		$slides = get_sub_field('images');
 		$boxClass = ( ($e_title || $e_text) && $slides ) ? 'half':'full';
 		if( ($e_title || $e_text) || $slides) {  $colClass = ($i % 2) ? ' odd':' even'; ?>
 		<div id="section<?php echo $i?>" class="mscol <?php echo $boxClass.$colClass ?>">
@@ -79,7 +88,17 @@ $textImageData = get_field("textImageCol"); ?>
 
 		</div>
 		<?php $i++; } ?>
-	<?php } ?>
+		<?php elseif( get_row_layout() == 'section_break' ):  
+			$sHeading = get_sub_field('section_heading');
+			$sDetails = get_sub_field('section_details');
+			?>
+			<section class="section-break">
+				<h3><?php echo $sHeading; ?></h3>
+				<?php echo $sDetails; ?>
+			</section>
+		<?php endif; ?>
+	<?php endwhile; ?>
 	</div>
 </section>	
+
 <?php } ?>

@@ -5721,6 +5721,14 @@ body.single-instructions {
 	width: 100%;
 	float: left;
 	margin-top: 50px;
+	section.section-break {
+		width: 100%;
+		padding: 40px 0;
+		h3 {
+			text-transform: uppercase;
+			text-align: center;
+		}
+	}
 	.mscol {
 		margin-top: 15px;
 		margin-bottom: 15px;
@@ -7283,7 +7291,8 @@ body.page-template-page-stories {
 	}
 }
 
-.content-area-full.post-type-dining {
+.content-area-full.post-type-dining,
+.content-area-full.instruction-page {
 	.post-hero-image {
 		margin-top: 85px;
 		&.closed {
@@ -7438,7 +7447,8 @@ body.page-template-page-stories {
 		}
 	}
 }
-body.scrolled.single-dining {
+body.scrolled.single-dining,
+body.scrolled.page-template-page-instruction-single {
 	.post-hero-image .stats {
 		position: fixed;
 		z-index: 5000;
