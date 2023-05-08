@@ -3723,6 +3723,10 @@ section.instr-schedule .day .contents{width:100%;padding:30px 20px 30px 20px}
 section.instr-schedule .day h3{font-size:20px;width:100%;text-align:center;margin-bottom:20px;text-transform:uppercase}
 section.instr-schedule .day .row{width:100%;margin:10px 0;overflow:hidden}
 section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{font-size:16px;width:100%;text-align:center}
+.race-location{width:100%;float:left;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:20px 0}
+.race-location .map{width:25px;margin:0 5px}
+.race-location .map img{width:100%}
+.race-location .location{width:auto;height:25px;line-height:25px;font-size:18px;margin:0 5px;padding-top:2px}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}

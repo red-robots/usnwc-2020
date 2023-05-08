@@ -109,6 +109,7 @@ $entries = new WP_Query($args); ?>
 						$eventStatus = ( get_field("eventstatus") ) ? get_field("eventstatus"):'upcoming';
 						$thumbImage = get_field("thumbnail_image");
 						$hideOnPage = get_field("hidePostfromMainPage",$pid);
+						
 						// echo '<pre>';
 						// print_r($hideOnPage);
 						// echo '</pre>';
@@ -158,6 +159,7 @@ $entries = new WP_Query($args); ?>
 							if($main_event_date) {
 								$event_date = date('M j, Y',strtotime($main_event_date));
 							}
+							$eventlocation = get_field('eventlocation_text',$id);
 							
 							?>
 							<div id="post-<?php echo $id?>" class="postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?>">
@@ -202,6 +204,19 @@ $entries = new WP_Query($args); ?>
 											<?php if ($short_description) { ?>
 											<div class="short-description"><?php echo $short_description; ?></div>	
 											<?php } ?>
+											<div class="race-location">
+												<div class="map">
+													<img src="<?php bloginfo('template_url'); ?>/images/map.png">
+												</div>
+												<div class="location">
+													<?php if($eventlocation) {
+														echo $eventlocation;
+													} else {
+														echo 'Charlotte, NC'; 
+													}
+													?>
+												</div>
+											</div>
 											<div class="button">
 												<a href="<?php echo $pagelink ?>" class="btn-sm"><span>See Details</span></a>
 											</div>

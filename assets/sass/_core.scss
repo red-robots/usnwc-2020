@@ -14701,3 +14701,28 @@ section.instr-schedule {
 		}
 	}
 }
+.race-location {
+	width: 100%;
+	float: left;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 0;
+	.map {
+		width: 25px;
+		margin: 0 5px;
+		img {
+			width: 100%;
+		}
+	}
+	.location {
+		width: auto;
+		height: 25px;
+		line-height: 25px;
+		font-size: 18px;
+		margin: 0 5px;
+		padding-top: 2px;
+	}
+}
