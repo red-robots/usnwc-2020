@@ -404,7 +404,12 @@ $checkboxes.change( function() {
 	// 		smoothHeight: true
 	// 	});
 	// }
-
+  
+// tiny helper function to add breakpoints
+var getGridSize = function() {
+  return (window.innerWidth < 600) ? 1 :
+         (window.innerWidth < 900) ? 2 : 3;
+}
 // Instructions Schedule
   $('#inst-sched').flexslider({
     animation: "slide",
@@ -412,8 +417,8 @@ $checkboxes.change( function() {
     slideshow: false,
     itemWidth: 210,
     itemMargin: 5,
-    minItems: 2,
-    maxItems: 3,
+    minItems: getGridSize(),
+    maxItems: getGridSize(),
     startAt: 0
   });
  

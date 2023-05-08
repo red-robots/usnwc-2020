@@ -372,7 +372,12 @@ jQuery(document).ready(function ($) {
   // 		smoothHeight: true
   // 	});
   // }
-  // Instructions Schedule
+  // tiny helper function to add breakpoints
+
+
+  var getGridSize = function getGridSize() {
+    return window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
+  }; // Instructions Schedule
 
 
   $('#inst-sched').flexslider({
@@ -381,8 +386,8 @@ jQuery(document).ready(function ($) {
     slideshow: false,
     itemWidth: 210,
     itemMargin: 5,
-    minItems: 2,
-    maxItems: 3,
+    minItems: getGridSize(),
+    maxItems: getGridSize(),
     startAt: 0
   });
 
