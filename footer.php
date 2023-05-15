@@ -161,7 +161,7 @@ jQuery(document).ready(function($){
 	});
 });
 </script>
-<script type="text/javascript" src="https://whitewater.secure-cdn.na3.accessoticketing.com/embed/accesso.js"></script>
+<script type="text/javascript" src="https://whitewater.secure-cdn.na3.accessoticketing.com/embed/accesso.js" data-accesso-integration-version="5"></script>
 <!-- Center specific code ---------  Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L51KQDPENF"></script>
 <script>
