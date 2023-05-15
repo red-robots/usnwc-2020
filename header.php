@@ -187,7 +187,9 @@ if($postHeroImage) {
 	$parent_page_id = 298;
 	// Get the current page's ancestors
 	$ancestors = get_post_ancestors( get_the_ID() );
-	if( !in_array( $parent_page_id, $ancestors ) ){ get_template_part("parts/slideshow"); }
+	if( !in_array( $parent_page_id, $ancestors ) ){ 
+		get_template_part("parts/slideshow"); 
+	}
 	 
 	?>
 

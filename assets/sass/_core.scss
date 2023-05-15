@@ -7449,7 +7449,8 @@ body.page-template-page-stories {
 	}
 }
 body.scrolled.single-dining,
-body.scrolled.page-template-page-instruction-single {
+body.scrolled.page-template-page-instruction-single,
+body.scrolled.single-retreat {
 	.post-hero-image .stats {
 		position: fixed;
 		z-index: 5000;
@@ -14630,6 +14631,7 @@ body.page-template-page-instruction-single {
 }
 section.instr-schedule {
 	width: 100%;
+	padding-top: 40px;
 	#inst-sched {
 		li.slide-item {
 			width: 450px;

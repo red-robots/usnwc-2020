@@ -2346,7 +2346,7 @@ function get_default_job_location() {
 }
 
 function exclude_post_types_banner() {
-    $post_types = array('race','dining');
+    $post_types = array('race','dining', 'retreat');
     return $post_types;
 }
 

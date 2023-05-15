@@ -6,7 +6,7 @@ get_header();
 $post_type = get_post_type();
 $dClass = '';
 $mClass = '';
-$heroImage = get_field("post_image_full");
+$heroImage = get_field("category_image");
 $mobileBanner = get_field('mobile-banner');
 if( $mobileBanner ) {
 	$dClass = 'desktop';
