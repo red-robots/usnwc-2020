@@ -15,6 +15,31 @@
  */
 define('THEMEURI',get_template_directory_uri() . '/');
 
+
+// Add Trail Status Endpoint
+add_action('rest_api_init', 'register_rest_acf_options');
+
+function register_rest_acf_options() {
+    register_rest_route('wwtrailstatus/v1', '/options', array(
+        'methods' => 'GET',
+        'callback' => 'get_acf_options',
+        'permission_callback' => '__return_true' // Set this to some authentication function if you want to secure the endpoint
+    ));
+}
+function get_acf_options() {
+    $acf_options = get_fields('option');
+    if( $acf_options ) {
+        return $acf_options;
+    }
+
+    // Return an empty object if there's no data
+    return new WP_Error('no_options', 'No options found', array('status' => 404));
+}
+
+
+
+
+
 function add_author_support_to_posts() {
    add_post_type_support( 'activity_schedule', 'author' ); 
 }
