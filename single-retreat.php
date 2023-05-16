@@ -21,6 +21,10 @@ $blank_image = THEMEURI . "images/square.png";
 $status_custom_message = get_field("status_custom_message");
 $passport = get_field('passport_btn');
 $passLabel = get_field('passport_label');
+$registerLink = get_field('reg_link');
+$registerButton = ( isset($registerLink['title']) && $registerLink['title'] ) ? $registerLink['title'] : '';
+$registerLink = ( isset($registerLink['url']) && $registerLink['url'] ) ? $registerLink['url'] : '';
+$registerTarget = ( isset($registerLink['target']) && $registerLink['target'] ) ? $registerLink['target'] : '_self';
 $idArray = array('266','267','268','269','270','271');
 if( $passport == 'all' ) {
 	$pp = 'data-accesso-launch';
@@ -41,7 +45,7 @@ if( $passport == 'all' ) {
 			<img src="<?php echo $mobileBanner['url'] ?>" alt="<?php echo $mobileBanner['title'] ?>" class="featured-image <?php echo $mClass; ?>">
 			<?php if ($status=='open') { ?>
 
-				<?php if($passport){ ?>
+				<?php if($passport != 'none'){ ?>
 					<div class="stats open">
 						<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="registerBtn">
 							<?php if($passLabel){echo $passLabel;}else{echo 'Buy';} ?>
@@ -224,6 +228,12 @@ if( $passport == 'all' ) {
 		// echo '<pre>';
 		// print_r($myDays);
 		// echo '</pre>';
+		$dayNum = count( $myDays );
+		if( $dayNum >= 3 ) {
+			$divDetails = 'id="inst-sched" class="flexslider-instr flexslider carousel"';
+		} else {
+			$divDetails = 'class="flex"';
+		}
 
 
 		if( have_rows('schedule_days') ): ?>
@@ -233,7 +243,7 @@ if( $passport == 'all' ) {
 						<h2 class="stitle"><img src="<?php bloginfo('template_url'); ?>/images/icons/bw_calendar2.svg" width="30"  /> Upcoming</h2>
 					</div>
 				</div>
-				<div id="inst-sched" class="flexslider-instr flexslider carousel">
+				<div <?php echo $divDetails; ?>>
 					<ul class="slides">
 					<?php foreach($sortedCourses as $day) { 
 						$courseinfo = $day['coursetime'];
@@ -277,6 +287,27 @@ if( $passport == 'all' ) {
 				</div>
 			</section>
 		<?php endif; ?>
+
+		<?php 
+		/*  MAP WIDGET  */
+		$m_section_title = get_field("m_section_title");
+		$m_embed = get_field("m_embed");
+		if( $m_embed ) {
+		 ?>
+			 <section id="section-map" data-section="<?php echo $map_title ?>" class="section-content dining-section-map">
+				<?php if ($m_section_title) { ?>
+					<div class="shead-icon text-center">
+						<div class="wrapper">
+							<div class="icon"><span class="ci-map"></span></div>
+							<h2 class="stitle"><?php echo $m_section_title ?></h2>
+						</div>
+					</div>
+				<?php } ?>
+				<div class="mapwidget">
+					<?php echo $m_embed; ?>
+				</div>
+			</section>
+		<?php } ?>
 
 		<?php include(locate_template('parts/adventure-dining-map-v-two.php')); ?>
 

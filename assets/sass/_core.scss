@@ -14631,17 +14631,18 @@ body.page-template-page-instruction-single {
 }
 section.instr-schedule {
 	width: 100%;
-	padding-top: 40px;
+	padding: 40px 0;
 	float: left;
 	#inst-sched {
-		li.slide-item {
-			width: 450px;
-		}
+		
 		.flex-control-paging {
 			display: none;
 		}
 	}
-	.flex {
+	li.slide-item {
+		width: 450px;
+	}
+	.flex .slides {
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: row;
@@ -14702,6 +14703,14 @@ section.instr-schedule {
 
 			}
 		}
+	}
+}
+.mapwidget {
+	width: 100%;
+	padding: 0 0 40px 0;
+	iframe {
+		width: 100%;
+		min-height: 400px;
 	}
 }
 .race-location {
