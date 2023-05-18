@@ -5725,6 +5725,13 @@ body.single-instructions {
 		width: 100%;
 		padding: 40px 0;
 		text-align: center;
+		.icon {
+			width: 50px;
+			margin: 20px auto;
+			img {
+				width: 100%;
+			}
+		}
 		h3 {
 			text-transform: uppercase;
 			text-align: center;
@@ -5801,6 +5808,7 @@ body.single-instructions {
 				@include flexgroup-center();
 			}
 		}
+
 		.mstitle {
 			font-family: $font_secondary;
 			font-size: 30px;

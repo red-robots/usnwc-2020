@@ -2390,6 +2390,8 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 .map-images .flexslider{border-radius:0}
 .text-and-image-blocks,.menu-sections{width:100%;float:left;margin-top:50px}
 .text-and-image-blocks section.section-break,.menu-sections section.section-break{width:100%;padding:40px 0;text-align:center}
+.text-and-image-blocks section.section-break .icon,.menu-sections section.section-break .icon{width:50px;margin:20px auto}
+.text-and-image-blocks section.section-break .icon img,.menu-sections section.section-break .icon img{width:100%}
 .text-and-image-blocks section.section-break h3,.menu-sections section.section-break h3{text-transform:uppercase;text-align:center}
 .text-and-image-blocks .mscol,.menu-sections .mscol{margin-top:15px;margin-bottom:15px;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .text-and-image-blocks .gallerycol .flexslider,.text-and-image-blocks .gallerycol .slides,.text-and-image-blocks .gallerycol .slides li.slide-item,.menu-sections .gallerycol .flexslider,.menu-sections .gallerycol .slides,.menu-sections .gallerycol .slides li.slide-item{width:100%;float:left;position:relative;background-color:#CCC;border-radius:0}

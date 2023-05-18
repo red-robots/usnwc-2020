@@ -24,6 +24,7 @@ $textImageData = get_field("textImageCol");
 
 		$e_title = get_sub_field('title');
 		$e_text = get_sub_field('text');
+		
 		$details = get_sub_field('popup_details');
 		$passport_product = get_sub_field('passport_product');
 		$idArray = array('266','267','268','269','270','271');
@@ -47,6 +48,7 @@ $textImageData = get_field("textImageCol");
 					<div class="inside">
 
 						<div class="info">
+							
 							<?php if ($e_title) { ?>
 								<h3 class="mstitle"><?php echo $e_title ?></h3>
 							<?php } ?>
@@ -113,9 +115,15 @@ $textImageData = get_field("textImageCol");
 		<?php elseif( get_row_layout() == 'section_break' ):  
 			$sHeading = get_sub_field('section_heading');
 			$sDetails = get_sub_field('section_details');
+			$s_icon = get_sub_field('section_icon');
 			$ptID = sanitize_title_with_dashes($sHeading);
 			?>
 			<section class="section-break" data-section="<?php echo $sHeading ?>" id="<?php echo $ptID ?>">
+				<?php if($s_icon){ ?>
+					<div class="icon">
+						<img src="<?php echo $s_icon['url']; ?>">
+					</div>
+				<?php } ?>
 				<h3><?php echo $sHeading; ?></h3>
 				<?php echo $sDetails; ?>
 			</section>
