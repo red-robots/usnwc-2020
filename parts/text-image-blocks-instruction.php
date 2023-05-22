@@ -27,7 +27,7 @@ $textImageData = get_field("textImageCol");
 		
 		$details = get_sub_field('popup_details');
 		$passport_product = get_sub_field('passport_product');
-		$idArray = array('266','267','268','269','270','271','154','152','153','40','41','42','43','58','57','56','55','54','53','59');
+		$idArray = array('266','267','268','269','270','271','154','152','153','40','41','42','43','58','57','56','55','54','53','59','179','180');
 		if( $passport_product == 'all' ) {
 			$pp = 'data-accesso-launch';
 		} elseif(in_array($product_link, $idArray )) {
