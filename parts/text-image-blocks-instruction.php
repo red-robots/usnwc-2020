@@ -70,7 +70,7 @@ $textImageData = get_field("textImageCol");
 							<?php if ($passport_product !== 'none') { ?>
 								<div class="button inline">
 									<a <?php echo $pp; ?> href="#" class="btn-sm xs instr">
-										<span>Purchase</span>
+										<span>Register</span>
 									</a>
 								</div>
 							<?php } ?>

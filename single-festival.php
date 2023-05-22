@@ -43,6 +43,8 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 			</section>
 
 			<?php get_template_part("parts/subpage-tabs"); ?>
+
+			<?php include(locate_template('parts/details.php')); ?>
 				
 			<?php 
 			$start_date = get_field("start_date");
