@@ -46,12 +46,17 @@ if( $passport == 'all' ) {
 			<img src="<?php echo $mobileBanner['url'] ?>" alt="<?php echo $mobileBanner['title'] ?>" class="featured-image <?php echo $mClass; ?>">
 			<?php if ($status=='open') { ?>
 
-				<?php if($passport){ ?>
+				<?php if( $passport !== 'none' ){ ?>
 					<div class="stats open">
 						<a <?php if($passport){echo $pp;} ?> href="#" target="<?php echo $buttonTarget ?>" class="registerBtn">
-							<?php if($passLabel){echo $passLabel;}else{echo 'Buy';} ?>
+							<?php if($passLabel){
+								echo $passLabel;
+							}else{
+								echo 'Buy';
+							} ?>
 						</a>
 					</div>
+
 				<?php }else{ ?>
 					<?php if ($registerButton && $registerLink) { ?>
 						<div class="stats open"><a href="<?php echo $registerLink ?>" target="<?php echo $registerTarget ?>" class="registerBtn"><?php echo $registerButton ?></a></div>
