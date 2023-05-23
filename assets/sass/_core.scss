@@ -14649,6 +14649,7 @@ section.instr-schedule {
 	}
 	li.slide-item {
 		width: 450px;
+		background-color: rgba(#000, 1);
 	}
 	.flex .slides {
 		display: flex;
@@ -14661,7 +14662,7 @@ section.instr-schedule {
 		}
 	}
 	.day {
-		background-color: rgba(#000, 1);
+		
 		color: #fff;
 		flex-basis: 45%;
 		margin: 0 0.5%;

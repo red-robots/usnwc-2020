@@ -411,7 +411,7 @@ var getGridSize = function() {
          (window.innerWidth < 900) ? 2 : 3;
 }
 // Instructions Schedule
-  $('#inst-sched').flexslider({
+  $('.flexslider-instr').flexslider({
     animation: "slide",
     animationLoop: false,
     slideshow: false,
@@ -419,8 +419,24 @@ var getGridSize = function() {
     itemMargin: 5,
     minItems: getGridSize(),
     maxItems: getGridSize(),
-    startAt: 0
+    startAt: 0,
+    after: function(slider){
+      currHeight = $('.flexslider').find('.slides > li').eq(slider.currentSlide).outerHeight(true);
+      $('.flexslider').height(currHeight);
+    }
   });
+
+  var maxheight = 0;
+
+    // Loop through each slide and find the tallest one
+    $('.flexslider-instr .slides > li').each(function() {
+        if ($(this).height() > maxheight) {
+            maxheight = $(this).height();
+        }
+    });
+
+    // Set all slides to the height of the tallest one
+    $('.flexslider-instr .slides > li').height(maxheight);
  
 
 	if( $(".video__vimeo").length > 0 ) {
