@@ -114,7 +114,10 @@ if( $passport == 'all' ) {
 		// echo '</pre>';
 
 		$num = count($myDays);
-		if( $num >= 3 ) {
+		// echo '<pre>';
+		// print_r($num);
+		// echo '</pre>';
+		if( $num > 3 ) {
 			$dayClass = 'flexslider-instr flexslider carousel';
 		} else {
 			$dayClass = 'flex';

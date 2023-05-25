@@ -42,15 +42,86 @@ $blank_image = THEMEURI . "images/rectangle.png";
 	// );
 	// $posts = new WP_Query($args);
 	// if ( $posts->have_posts() ) { 
-	// $totalpost = $posts->found_posts;  
-	
+	// $totalpost = $posts->found_posts; 
 
+
+function get_gravity_forms_entries() {
+    // API URL
+    $url = 'https://center.whitewater.org/wp-json/gf/v2/entries';
+
+    // API key and secret
+    $api_key = 'ck_252c253f98612078f37fa350e3d72fad2ff12d3b';
+    $api_secret = 'cs_6fcf4013c31973adb528e81c0903e7d50a423fd1';
+
+    
+    // Create a new cURL resource
+    $ch = curl_init();
+
+    // Set URL and other appropriate options
+    curl_setopt($ch, CURLOPT_URL, $url);
+ //    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        'Authorization: Basic ' . base64_encode($api_key . ':' . $api_secret)
+    ));
+
+    // Grab URL and pass it to the browser
+    $response = curl_exec($ch);
+
+    // Check if any error occurred
+    if(curl_errno($ch)){
+        echo 'Curl error: ' . curl_error($ch);
+        return;
+    }
+
+    // Get the HTTP status code of the response
+    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    // Close cURL resource, and free up system resources
+    curl_close($ch);
+
+    // Check the HTTP status code - 200 means success
+    if ($httpcode != 200) {
+        echo 'HTTP error: ' . $httpcode;
+        return;
+    }
+
+    // Decode the response
+    $entries = json_decode($response, true);
+
+    // Check if entries were returned
+    if (is_array($entries)) {
+        // Loop through each entry
+        foreach ($entries as $entry) {
+            // Display the entry
+            echo '<pre>';
+            print_r($entry);
+            echo '</pre>';
+        }
+    } else {
+        echo 'No entries found or response not in expected format.';
+    }
+}
+
+// Call the function
+get_gravity_forms_entries();
+
+ 
+	
+	
+	
 	$response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=99' );
 
 	if( is_array($response) ) :
         $code = wp_remote_retrieve_response_code( $response );
         if(!empty($code) && intval(substr($code,0,1))===2): 
             $body = json_decode(wp_remote_retrieve_body( $response),true);
+
+        // echo '<pre>';
+        // print_r($body);
+        // echo '</pre>';
 ?>
 
 				

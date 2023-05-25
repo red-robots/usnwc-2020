@@ -14648,9 +14648,13 @@ section.instr-schedule {
 		}
 	}
 	li.slide-item {
-		width: 450px;
+		width: 100%;
 		background-color: rgba(#000, 1);
 		padding-bottom: 30px;
+		@media screen and (min-width: $tabwidth) {
+			width: 33%;
+			margin: 5px;
+		}
 	}
 	.flex .slides {
 		display: flex;
