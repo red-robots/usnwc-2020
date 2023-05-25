@@ -106,7 +106,7 @@ function get_gravity_forms_entries() {
 }
 
 // Call the function
-get_gravity_forms_entries();
+// get_gravity_forms_entries();
 
  
 	
