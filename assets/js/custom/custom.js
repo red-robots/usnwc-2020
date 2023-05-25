@@ -420,23 +420,23 @@ var getGridSize = function() {
     minItems: getGridSize(),
     maxItems: getGridSize(),
     startAt: 0,
-    after: function(slider){
-      currHeight = $('.flexslider').find('.slides > li').eq(slider.currentSlide).outerHeight(true);
-      $('.flexslider').height(currHeight);
-    }
+    // after: function(slider){
+    //   currHeight = $('.flexslider').find('.slides > li').eq(slider.currentSlide).outerHeight(true);
+    //   $('.flexslider').height(currHeight);
+    // }
   });
 
-  var maxheight = 0;
+  // var maxheight = 0;
 
-    // Loop through each slide and find the tallest one
-    $('.flexslider-instr .slides > li').each(function() {
-        if ($(this).height() > maxheight) {
-            maxheight = $(this).height();
-        }
-    });
+  //   // Loop through each slide and find the tallest one
+  //   $('.flexslider-instr .slides > li').each(function() {
+  //       if ($(this).height() > maxheight) {
+  //           maxheight = $(this).height();
+  //       }
+  //   });
 
-    // Set all slides to the height of the tallest one
-    $('.flexslider-instr .slides > li').height(maxheight);
+  //   // Set all slides to the height of the tallest one
+  //   $('.flexslider-instr .slides > li').height(maxheight);
  
 
 	if( $(".video__vimeo").length > 0 ) {
