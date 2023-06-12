@@ -4099,7 +4099,7 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 .prenav li.umbrella{background-size:150px 23px}
 .prenav a{padding:8px 60px}
 .instr-details{width:600px;padding:40px}
-section.instr-schedule li.slide-item{width:33%;margin:5px}
+section.instr-schedule li.slide-item{width:49%;margin:5px}
 section.instr-schedule .flex .slides{-ms-flex-wrap:nowrap;flex-wrap:nowrap}
 section.instr-schedule .day{-ms-flex-preferred-size:13.5%;flex-basis:13.5%}
 section.instr-schedule .day .row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
@@ -4136,6 +4136,7 @@ section.route-map .map-frame{height:60vh}
 #timeline-area .horizontal-timeline .timeline{max-width:1100px}
 #timeline-area .horizontal-timeline .events-content{margin-top:10px}
 #timeline-area .history-data .info{min-height:450px}
+}@media screen and (min-width:1200px){section.instr-schedule li.slide-item{width:33%;margin:5px}
 }@media(min-width:1300px){.information-tabs-wrap .tabs-info ul a span.arrow:before,.information-tabs-wrap .tabs-info ul a span.arrow:after{top:15px}
 .archive-posts-wrap .entry{width:33.33%}
 }@media screen and (max-width:1230px){.jobs.resetBtn{position:relative;right:12px;top:3px;float:left}

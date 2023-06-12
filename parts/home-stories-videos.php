@@ -59,8 +59,8 @@ function get_gravity_forms_entries() {
 
     // Set URL and other appropriate options
     curl_setopt($ch, CURLOPT_URL, $url);
- //    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-	// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'Content-Type: application/json',
@@ -96,7 +96,7 @@ function get_gravity_forms_entries() {
         // Loop through each entry
         foreach ($entries as $entry) {
             // Display the entry
-            echo '<pre>';
+            echo '<pre style="color:#fff;">';
             print_r($entry);
             echo '</pre>';
         }

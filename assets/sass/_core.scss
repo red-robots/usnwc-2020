@@ -14652,6 +14652,10 @@ section.instr-schedule {
 		background-color: rgba(#000, 1);
 		padding-bottom: 30px;
 		@media screen and (min-width: $tabwidth) {
+			width: 49%;
+			margin: 5px;
+		}
+		@media screen and (min-width: $deskwidth) {
 			width: 33%;
 			margin: 5px;
 		}
