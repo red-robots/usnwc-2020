@@ -126,58 +126,75 @@ if( $passport == 'all' ) {
 					$dayClass = 'flex';
 				}
 
+				$show_hide = get_field('show_hide');
 
-				if( have_rows('schedule_days') ): ?>
-					<section class="instr-schedule">
-						<div class="wwrapper">
-							<div class="shead-icon text-center">
-								<h2 class="stitle"><img src="<?php bloginfo('template_url'); ?>/images/icons/bw_calendar2.svg" width="30"  /> Upcoming</h2>
+				if( $show_hide == 'show' ) {
+
+
+					if( have_rows('schedule_days') ): ?>
+						<section class="instr-schedule">
+							<div class="wwrapper">
+								<div class="shead-icon text-center">
+									<h2 class="stitle"><img src="<?php bloginfo('template_url'); ?>/images/icons/bw_calendar2.svg" width="30"  /> Upcoming</h2>
+								</div>
 							</div>
-						</div>
-						<div id="inst-sched" class="<?php echo $dayClass; ?>">
-							<ul class="slides">
-							<?php foreach($sortedCourses as $day) { 
-								$courseinfo = $day['coursetime'];
-								$day_image = $day['day_image'];
+							<div id="inst-sched" class="<?php echo $dayClass; ?>">
+								<ul class="slides">
+								<?php foreach($sortedCourses as $day) { 
+									$courseinfo = $day['coursetime'];
+									$day_image = $day['day_image'];
+									
+									// echo '<pre>';
+									// print_r($day);
+									// echo '</pre>';
 
-							?>
-								<li id="<?php echo $day['day_name'] ?>" class="slide-item ">
-									<div class="day">
-										<?php if($day_image){ ?>
-											<div class="image">
-												<img src="<?php echo $day_image['url']; ?>">
-											</div>
-										<?php } ?>
-										<div class="contents js-blocks">
-											<h3><?php echo $day['day_name'] ?></h3>
-											<?php foreach( $courseinfo as $c ) { 
-												$product_link = $c['product_link'];
-												$idArray = array('266','267','268','269','270','271','154','152','153','40','41','42','43','58','57','56','55','54','53','59','179','180','38','39');
-												if( $product_link == 'all' ) {
-													$pp = 'data-accesso-launch';
-												} elseif(in_array($product_link, $idArray )) {
-													$pp = 'data-accesso-package="'.$product_link.'"';
-												} else {
-													$pp = 'data-accesso-keyword="'.$product_link.'"';
-												}
-												?>
-												<div class="row">
-													<div class="left"><?php echo $c['time']; ?></div>
-													<div class="right">
-														<?php if($product_link){ echo '<a '.$pp.' href="#">'; } ?>
-														<?php echo $c['course']; ?>
-														<?php if($product_link){ echo '</a>'; }?>
-													</div>
+								?>
+									<li id="<?php echo $day['day_name'] ?>" class="slide-item ">
+										<div class="day">
+											<?php if($day_image){ ?>
+												<div class="image">
+													<img src="<?php echo $day_image['url']; ?>">
 												</div>
 											<?php } ?>
+											<div class="contents js-blocks">
+												<h3><?php echo $day['day_name'] ?></h3>
+												<?php foreach( $courseinfo as $c ) { 
+													$x_link = $c['extra_link'];
+													$product_link = $c['product_link'];
+													$idArray = array('266','267','268','269','270','271','154','152','153','40','41','42','43','58','57','56','55','54','53','59','179','180','38','39');
+													if( $product_link == 'all' ) {
+														$pp = 'data-accesso-launch';
+													} elseif(in_array($product_link, $idArray )) {
+														$pp = 'data-accesso-package="'.$product_link.'"';
+													} else {
+														$pp = 'data-accesso-keyword="'.$product_link.'"';
+													}
+													?>
+													<div class="row">
+														<div class="left"><?php echo $c['time']; ?></div>
+														<div class="right">
+															<?php if($product_link){ echo '<a '.$pp.' href="#">'; } ?>
+															<?php echo $c['course']; ?>
+															<?php if($product_link){ echo '</a>'; }?>
+
+															<?php if( $product_link && $x_link ){echo ' | ';} ?>
+															<?php if( $x_link ){ ?>
+																<a href="<?php echo $x_link['url']; ?>" target="<?php echo $x_link['target']; ?>">
+																	<?php echo $x_link['title']; ?>
+																</a>
+															<?php } ?>
+														</div>
+													</div>
+												<?php } ?>
+											</div>
 										</div>
-									</div>
-								</li>
-							<?php } ?>
-							</ul>
-						</div>
-					</section>
-				<?php endif; ?>
+									</li>
+								<?php } ?>
+								</ul>
+							</div>
+						</section>
+					<?php endif; ?>
+				<?php } ?>
 
 				<?php  
 				/* EVENT DETAILS */
