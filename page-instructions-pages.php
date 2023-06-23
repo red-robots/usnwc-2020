@@ -70,6 +70,10 @@ $parent_page_id = get_the_ID();
 						// First the pages
 						foreach( $includer as $p ){
 							$post = get_post($p); 
+
+							if (get_post_status($post) == 'private' || get_post_status($post) == 'draft') {
+						        continue; // Skip this iteration and move on to the next post
+						    }
 							setup_postdata( $post ); 
 							// echo '<pre>';
 							// print_r($p);
