@@ -7397,9 +7397,13 @@ body.page-template-page-stories {
 			display: block;
 		}
 		&.closed {
-			text-align: center;
-			padding: 11px 20px 10px;
-			background: rgba($red,0.9);
+			text-align: left;
+			// text-align: center;
+			// padding: 11px 20px 10px;
+			// height: 52px;
+			// padding: 0 35px;
+			// background: rgba($red,0.9);
+			// display: inline-block;
 		}
 		&.open {
 			text-align: left;

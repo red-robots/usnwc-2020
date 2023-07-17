@@ -77,11 +77,13 @@ if($has_red_tag) { ?>
 			<div class="stats open"><a href="<?php echo $registerLink ?>" target="<?php echo $registerTarget ?>" class="registerBtn"><?php echo $registerButton ?></a></div>
 		<?php } ?>
 	<?php } else if($status=='closed') { ?>
-		<div class="stats closed">SOLD OUT</div>
+		<!-- <div class="stats closed">SOLD OUT</div> -->
+		<div class="stats closed"><a href="" class="registerBtn">SOLD OUT</a></div>
 	<?php } else if($status=='custom') { ?>
 
 		<?php if ($status_custom_message) { ?>
-		<div class="stats closed"><?php echo $status_custom_message ?></div>
+		<!-- <div class="stats closed"><?php echo $status_custom_message ?></div> -->
+		<div class="stats closed"><a href="" class="registerBtn"><?php echo $status_custom_message ?></a></div>
 		<?php } ?>
 
 	<?php } ?>
