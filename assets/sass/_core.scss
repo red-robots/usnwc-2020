@@ -6351,11 +6351,17 @@ body.single-instructions {
 		padding-bottom: 30px;
 	}
 	.flexwrap {
-		@include flexbox-justify(center);
+		// @include flexbox-justify(center);
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		align-items: stretch;
 	}
 	.block {
 		text-align: center;
 		padding: 2vw 3vw;
+		flex-basis: 45%;
 		.link * {
 			transition: all ease .3s;
 		}

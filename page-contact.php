@@ -53,7 +53,39 @@ get_header(); ?>
 					<?php if ($contact_form) { ?>
 					<div class="rightcol">
 						<div class="wrap">
-							<div class="contact-form"><?php echo anti_email_spam($contact_form); ?></div>
+							<!-- <div class="contact-form"><?php echo anti_email_spam($contact_form); ?></div> -->
+							<?php if( $links = get_field("icons_links") ) { ?>
+							<?php 
+								$count = 100 / count($links); 
+								$count = number_format($count,2,".","");
+								$colWidth = floor($count);
+							?>
+							<section class="section-links-icons">
+								<div class="wrapper">
+									<div class="flexwrap">
+									<?php foreach ($links as $e) { 
+										$v_link = $e['link'];
+										$v_target = ( isset($v_link['target']) && $v_link['target'] ) ? $v_link['target']:'_self';
+										$v_icon = $e['icon']; ?>
+
+										<?php if ($v_link) { ?>
+										<div class="block" style="width:<?php //echo $colWidth ?>">
+											<a href="<?php echo $v_link['url'] ?>" target="<?php echo $v_target ?>" class="link">
+												<?php if ($v_icon) { ?>
+													<span class="icon"><span style="background-image:url('<?php echo $v_icon['url']?>')"></span></span>
+												<?php } ?>
+												<span class="txt"><?php echo $v_link['title'] ?></span>
+											</a>
+										</div>	
+										<?php } ?>
+
+									<?php } ?>
+									</div>
+								</div>
+							</section>	
+							<?php } ?>
+
+
 						</div>
 					</div>
 					<?php } ?>
@@ -62,36 +94,7 @@ get_header(); ?>
 			<?php } ?>
 				
 			
-			<?php if( $links = get_field("icons_links") ) { ?>
-			<?php 
-				$count = 100 / count($links); 
-				$count = number_format($count,2,".","");
-				$colWidth = floor($count);
-			?>
-			<section class="section-links-icons">
-				<div class="wrapper">
-					<div class="flexwrap">
-					<?php foreach ($links as $e) { 
-						$v_link = $e['link'];
-						$v_target = ( isset($v_link['target']) && $v_link['target'] ) ? $v_link['target']:'_self';
-						$v_icon = $e['icon']; ?>
-
-						<?php if ($v_link) { ?>
-						<div class="block" style="width:<?php echo $colWidth ?>%">
-							<a href="<?php echo $v_link['url'] ?>" target="<?php echo $v_target ?>" class="link">
-								<?php if ($v_icon) { ?>
-									<span class="icon"><span style="background-image:url('<?php echo $v_icon['url']?>')"></span></span>
-								<?php } ?>
-								<span class="txt"><?php echo $v_link['title'] ?></span>
-							</a>
-						</div>	
-						<?php } ?>
-
-					<?php } ?>
-					</div>
-				</div>
-			</section>	
-			<?php } ?>
+			
 
 		<?php endwhile; ?>
 
