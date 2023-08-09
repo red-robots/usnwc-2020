@@ -1,17 +1,26 @@
 <?php
 /* TEXT AND IMAGE BLOCKS */
 $textImageData = get_field("textImageCol"); ?>
+
+
+
+
+
 <?php if ($textImageData) { ?>
 <section class="text-and-image-blocks nomtop">
 	<div class="columns-2">
-	<?php $i=1; foreach ($textImageData as $s) { 
-		$e_title = $s['title'];
-		$e_text = $s['text'];
-		$btn = $s['button'];
+	<?php 
+		$i=1; while ( have_rows('textImageCol') ) : the_row();
+	
+
+		if( get_row_layout() == 'text_and_image' ):
+		$e_title = get_sub_field('title'); //$e_title = $s['title'];
+		$e_text = get_sub_field('text'); //$e_text = $s['text'];
+		$btn = get_sub_field('button'); //$btn = $s['button'];
 		$btnName = ( isset($btn['title']) && $btn['title'] ) ? $btn['title'] : '';
 		$btnLink = ( isset($btn['url']) && $btn['url'] ) ? $btn['url'] : '';
 		$btnTarget = ( isset($btn['target']) && $btn['target'] ) ? $btn['target'] : '_self';
-		$slides = $s['images'];
+		$slides = get_sub_field('images'); //$slides = $s['images'];
 		$boxClass = ( ($e_title || $e_text) && $slides ) ? 'half':'full';
 		if( ($e_title || $e_text) || $slides) {  $colClass = ($i % 2) ? ' odd':' even'; ?>
 		<div id="section<?php echo $i?>" class="mscol <?php echo $boxClass.$colClass ?>">
@@ -56,10 +65,28 @@ $textImageData = get_field("textImageCol"); ?>
 					</div>
 				</div>	
 				<?php } ?>
+		<?php } ?>
 
 		</div>
-		<?php $i++; } ?>
-	<?php } ?>
+		<?php $i++;  ?>
+		<?php elseif( get_row_layout() == 'section_break' ):  
+			$sHeading = get_sub_field('section_heading');
+			$sDetails = get_sub_field('section_details');
+			$s_icon = get_sub_field('section_icon');
+			$ptID = sanitize_title_with_dashes($sHeading);
+			?>
+			<section class="section-break" data-section="<?php echo $sHeading ?>" id="<?php echo $ptID ?>">
+				<?php if($s_icon){ ?>
+					<div class="icon">
+						<img src="<?php echo $s_icon['url']; ?>">
+					</div>
+				<?php } ?>
+				<h3><?php echo $sHeading; ?></h3>
+				<?php echo $sDetails; ?>
+			</section>
+		<?php endif; ?>
+	<?php endwhile; ?>
 	</div>
 </section>	
+
 <?php } ?>
