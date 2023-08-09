@@ -30,15 +30,15 @@ $textImageData = get_field("textImageCol");
 		$idArray = array('266','267','268','269','270','271','154','152','153','40','41','42','43','58','57','56','55','54','53','59','179','180','38','39');
 		if( $passport_product == 'all' ) {
 			$pp = 'data-accesso-launch';
-		} elseif(in_array($product_link, $idArray )) {
+		} elseif(in_array($passport_product, $idArray )) {
 			$pp = 'data-accesso-package="'.$passport_product.'"';
 		} else {
 			$pp = 'data-accesso-keyword="'.$passport_product.'"';
 		}
 		$inquiry = get_sub_field('inquiry');
-// 		echo '<pre>';
-// print_r($passport_product);
-// echo '</pre>';
+		// echo '<pre>';
+		// print_r($pp);
+		// echo '</pre>';
 		$slides = get_sub_field('images');
 		$boxClass = ( ($e_title || $e_text) && $slides ) ? 'half':'full';
 		if( ($e_title || $e_text) || $slides) {  $colClass = ($i % 2) ? ' odd':' even'; ?>
