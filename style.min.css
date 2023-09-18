@@ -3731,6 +3731,39 @@ section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{f
 .race-location .map{width:25px;margin:0 5px}
 .race-location .map img{width:100%}
 .race-location .location{width:auto;height:25px;line-height:25px;font-size:18px;margin:0 5px;padding-top:2px}
+section.teasers{width:100%;position:relative}
+section.teasers section.section-title{padding:60px 0}
+section.teasers section.section-title .stitle{font-size:30px}
+section.teasers section.alt-cards .creative{width:100%}
+section.teasers section.alt-cards .info{width:100%}
+section.teasers section.card .creative{width:100%}
+section.teasers section.card .info{width:100%}
+section.teasers section.alt-cards,section.teasers section.card{width:100%;position:relative}
+section.teasers section.alt-cards .creative img,section.teasers section.card .creative img{width:100%}
+section.teasers section.alt-cards .info,section.teasers section.card .info{padding:20px}
+section.teasers section.alt-cards .info h2,section.teasers section.card .info h2{text-transform:uppercase}
+section.teasers section.alt-cards .info .button,section.teasers section.card .info .button{margin-top:20px;display:inline-block}
+section.teasers section.alt-cards .info .btn-wrapper,section.teasers section.card .info .btn-wrapper{width:100%;text-align:center}
+section.teasers section.small-cards .btn-sm{font-size:16px;padding:5px 20px}
+section.teasers section.small-cards .small-card{width:90%;margin:0 auto 20px auto;background-color:#f2f2f2}
+section.teasers section.small-cards .small-card .image{width:100%}
+section.teasers section.small-cards .small-card .image img{width:100%}
+section.teasers section.small-cards .small-card .desc{width:100%;text-align:center;padding:20px}
+section.teasers section.small-cards .small-card h3{text-transform:uppercase;font-size:20px}
+section.teasers section.small-cards .small-card p{font-size:14px}
+section.teasers .video-wrapper{width:90%;margin:0 auto}
+section.teasers .video-wrapper video{width:100%}
+section.teasers .parallax{width:100%;position:relative;overflow:hidden}
+section.teasers .parallax .hero__inner{display:-webkit-box;display:-ms-flexbox;display:flex;position:relative;width:100vw;max-height:100vh;overflow:hidden}
+section.teasers .parallax .hero__inner::before{content:"";display:block;padding-bottom:calc(100% / (16 / 9))}
+section.teasers .parallax .hero__image{position:absolute;top:0;left:0;width:100%;height:160%;-o-object-fit:cover;object-fit:cover}
+section.teasers .parallax .pinfo{width:100%;position:absolute;top:0;left:0;height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+section.teasers .parallax .hero__content{display:none;position:absolute;right:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:100%;height:100%}
+section.teasers .parallax .hero__headline{--padding:1.5vmin;--duration:400ms;--delay:calc(var(--duration) / 2);--ease:cubic-bezier(0.25,1,0.5,1);font-weight:bold;text-transform:uppercase;position:relative;display:inline-block;font-size:20px;margin-top:calc(var(--padding) * -1);padding:var(--padding)}
+section.teasers .parallax .hero__headline::after{content:"";position:absolute;top:calc(100% - var(--padding));left:0;background-color:white;width:100%;height:1.5vmin;-webkit-transform:scaleX(0);transform:scaleX(0);-webkit-transition:-webkit-transform var(--duration) var(--delay) var(--ease);transition:-webkit-transform var(--duration) var(--delay) var(--ease);transition:transform var(--duration) var(--delay) var(--ease);transition:transform var(--duration) var(--delay) var(--ease),-webkit-transform var(--duration) var(--delay) var(--ease)}
+section.teasers .parallax .hero__headline span{display:block;-webkit-transform:translateY(10%);transform:translateY(10%);-webkit-transition:-webkit-transform var(--duration) var(--ease);transition:-webkit-transform var(--duration) var(--ease);transition:transform var(--duration) var(--ease);transition:transform var(--duration) var(--ease),-webkit-transform var(--duration) var(--ease)}
+.active section.teasers .parallax .hero__headline::after{-webkit-transform:scaleX(1);transform:scaleX(1);-webkit-transition-delay:0s;transition-delay:0s}
+.active section.teasers .parallax .hero__headline span{-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition-delay:var(--delay);transition-delay:var(--delay)}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}
@@ -4104,6 +4137,20 @@ section.instr-schedule .flex .slides{-ms-flex-wrap:nowrap;flex-wrap:nowrap}
 section.instr-schedule .day{-ms-flex-preferred-size:13.5%;flex-basis:13.5%}
 section.instr-schedule .day .row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{width:auto}
+section.teasers section.alt-cards .creative{width:50%}
+section.teasers section.alt-cards .info{width:50%}
+section.teasers section.card{margin-bottom:20px}
+section.teasers section.card .creative{width:60%}
+section.teasers section.card .info{width:40%}
+section.teasers section.alt-cards,section.teasers section.card{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
+section.teasers section.alt-cards:nth-of-type(even),section.teasers section.card:nth-of-type(even){-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-flow:row-reverse;flex-flow:row-reverse}
+section.teasers section.alt-cards .info,section.teasers section.card .info{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:40px}
+section.teasers section.small-cards{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
+section.teasers section.small-cards.cardwrap{padding:20px 10%}
+section.teasers section.small-cards .small-card{width:24%;-ms-flex-preferred-size:24%;flex-basis:24%}
+section.teasers .video-wrapper{width:60%}
+section.teasers .parallax .hero__headline{font-size:20vmin}
+section.teasers .parallax .hero__headline span{-webkit-transform:translateY(110%);transform:translateY(110%)}
 }@media(min-width:960px){.topinfo span.el{font-size:12px}
 .home-video-gallery.count1 .video-big{height:600px}
 .section-content#section-options .categories .box-content{padding-bottom:50px}

@@ -7,7 +7,7 @@ function bellaworks_scripts() {
 		'bellaworks-style',
 		 get_stylesheet_uri(),
 		 array(),
-		 '1.90.7'
+		 '1.90.8'
 	);
 
 	wp_deregister_script('jquery');
@@ -19,6 +19,24 @@ function bellaworks_scripts() {
 			array(), '20200713', 
 			false 
 		);
+
+
+	wp_enqueue_script( 
+			'gsap','https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426', 
+			array(), '20200713', 
+			false 
+		);
+	wp_enqueue_script( 
+			'scrolltrigger','https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js', 
+			array(), '20200713', 
+			false 
+		);
+
+	// wp_enqueue_script( 
+	// 		'smoothscroller','https://assets.codepen.io/16327/ScrollSmoother.min.js', 
+	// 		array(), '20200713', 
+	// 		false 
+	// 	);
 
 	wp_enqueue_script( 
 			'bellaworks-blocks', 
@@ -66,7 +84,7 @@ function bellaworks_scripts() {
 	wp_enqueue_script( 
 			'bellaworks-custom', 
 			get_template_directory_uri() . '/assets/js/custom.js', 
-			array(), '2.34', 
+			array(), '2.35', 
 			true 
 		);
 
