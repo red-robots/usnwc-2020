@@ -362,6 +362,8 @@ $checkboxes.change( function() {
 	  hash : false
 	});
 
+  
+
 
 	var windowHeight = $(window).scrollTop();
 	if(windowHeight  > 200) {

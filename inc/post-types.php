@@ -41,6 +41,14 @@ function js_custom_init() {
             'supports'  => array('title','editor')
         ),
         array(
+            'post_type' => 'race-forms',
+            'menu_name' => 'Race Forms',
+            'plural'    => 'Race Forms',
+            'single'    => 'Race Form',
+            'menu_icon' => 'dashicons-location-alt',
+            'supports'  => array('title','editor')
+        ),
+        array(
             'post_type' => 'film-series',
             'menu_name' => 'Film Series',
             'plural'    => 'Film Series',
