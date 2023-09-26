@@ -3765,7 +3765,6 @@ section.teasers .parallax .hero__headline::after{content:"";position:absolute;to
 section.teasers .parallax .hero__headline span{display:block;-webkit-transform:translateY(10%);transform:translateY(10%);-webkit-transition:-webkit-transform var(--duration) var(--ease);transition:-webkit-transform var(--duration) var(--ease);transition:transform var(--duration) var(--ease);transition:transform var(--duration) var(--ease),-webkit-transform var(--duration) var(--ease)}
 .active section.teasers .parallax .hero__headline::after{-webkit-transform:scaleX(1);transform:scaleX(1);-webkit-transition-delay:0s;transition-delay:0s}
 .active section.teasers .parallax .hero__headline span{-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition-delay:var(--delay);transition-delay:var(--delay)}
-.lottie{margin-top:15px}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}
