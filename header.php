@@ -30,6 +30,9 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
 <!-- end of SOCIAL MEDIA META TAGS -->
 <?php } ?>
 
+<script type='text/javascript' src='<?php bloginfo( 'template_url' ); ?>/assets/js/lottieplayer.js' id='sgr-js'></script>
+<script type='text/javascript' src='<?php bloginfo( 'template_url' ); ?>/assets/js/lottiein.js' id='sgrm'></script>
+
 <script defer src="<?php bloginfo( 'template_url' ); ?>/assets/svg-with-js/js/fontawesome-all.js"></script>
 <script>
 var currentURL = '<?php echo get_permalink();?>';

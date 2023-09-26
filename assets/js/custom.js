@@ -1016,6 +1016,22 @@ jQuery(document).ready(function ($) {
     },
     y: "-30%"
   });
+  gsap.utils.toArray(".image-container").forEach(function (container) {
+    var image = container.querySelector("img");
+    gsap.to(image, {
+      y: function y() {
+        return image.offsetHeight - container.offsetHeight;
+      },
+      ease: "none",
+      scrollTrigger: {
+        trigger: container,
+        scrub: true,
+        pin: false,
+        // markers: true,
+        invalidateOnRefresh: true
+      }
+    });
+  });
 }); // END #####################################    END
 "use strict";
 

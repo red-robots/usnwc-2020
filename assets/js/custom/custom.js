@@ -362,7 +362,7 @@ $checkboxes.change( function() {
 	  hash : false
 	});
 
-  
+
 
 
 	var windowHeight = $(window).scrollTop();
@@ -1108,6 +1108,25 @@ var getGridSize = function() {
       },
       y: "-30%"
     });
+
+
+
+
+  gsap.utils.toArray(".image-container").forEach(function(container) {
+    let image = container.querySelector("img");
+  
+      gsap.to(image, {
+        y: () => image.offsetHeight - container.offsetHeight,
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          scrub: true,
+          pin: false,
+          // markers: true,
+          invalidateOnRefresh: true
+        },
+      }); 
+  });
 
 
 

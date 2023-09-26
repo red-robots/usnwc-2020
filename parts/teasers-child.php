@@ -31,11 +31,11 @@
     			$description = $c['description'];
     			$cta = $c['cta'];
     			?>
-    			<section class="card">
-    				<div class="creative">
+    			<section class="child-card">
+    				<div class="creative image-container">
     					<img src="<?php echo $creative['url']; ?>">
     				</div>
-    				<div class="info">
+    				<div class="info wow fadeIn" data-wow-duration="2s" data-wow-delay="1s">
     					<h2><?php echo $title; ?></h2>
             			<div class="desc"><?php echo $description; ?></div>
             			<div class="btn-wrapper">

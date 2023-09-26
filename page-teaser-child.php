@@ -19,6 +19,14 @@ if( is_page('waiver') ) {
 }
 ?>
 
+<div class="svg lottie" id="svgz">
+<lottie-player
+         id="svg"
+         src="<?php bloginfo('template_url'); ?>/images/bg.json"
+  >
+  </lottie-player> 
+</div>
+
 <div id="primary" class="content-area-full content-default page-default-template <?php echo $has_banner ?>">
 	<main id="main" class="site-main wrapper" role="main">
 
@@ -51,6 +59,26 @@ if( is_page('waiver') ) {
 	</section>
 
 </div><!-- #primary -->
+<script type="text/javascript">
+		
+		let player = document.getElementById("svg");
+
+		player.addEventListener("ready", () => {
+		  LottieInteractivity.create({
+					  mode:"scroll",
+					  player: "#svg",
+					  actions: [
+				        {
+				            visibility:[0.5, 1.0],
+				            type: "seek",
+				            frames: [0, 60],
+				        },
+				        ]
+					});
+		});
+
+
+	</script>
 
 <?php
 get_footer();
