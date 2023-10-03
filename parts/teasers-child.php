@@ -89,6 +89,15 @@
     		
 
     	<?php
+    	elseif( get_row_layout() == 'mailchimp_signup' ):
+    		$mc_form = get_sub_field('form');
+    		$mc_title = get_sub_field('title');
+    		$mc_desc = get_sub_field('description');
+
+    		if( $mc_form == 'general' ) { 
+    			include( locate_template('parts/mc-embed-form.php') );
+    		} ?>
+    	<?php
     	elseif( get_row_layout() == 'video' ):
     		$vid_url = get_sub_field('video');
     		?>

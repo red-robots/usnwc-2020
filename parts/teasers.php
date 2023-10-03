@@ -47,6 +47,16 @@
             </section>
         	<?php endforeach; ?>
 
+        <?php
+    	elseif( get_row_layout() == 'mailchimp_signup' ):
+    		$mc_form = get_sub_field('form');
+    		$mc_title = get_sub_field('title');
+    		$mc_desc = get_sub_field('description');
+
+    		if( $mc_form == 'general' ) { 
+    			include( locate_template('parts/mc-embed-form.php') );
+    		} ?>
+
         <?php // Case: Download layout.
         elseif( get_row_layout() == 'small_row_cards' ): 
         	$sectionTitle = get_sub_field('section_title');
