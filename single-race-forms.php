@@ -15,7 +15,7 @@ if( is_page('waiver') ) {
 }
 ?>
 
-<div id="primary" class="content-area-full content-default page-default-template <?php echo $has_banner ?>">
+<div id="primary" class="raceform content-area-full content-default page-default-template <?php echo $has_banner ?>">
 	<main id="main" class="site-main wrapper" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
