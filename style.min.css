@@ -3754,7 +3754,7 @@ section.teasers section.small-cards .small-card .image img{width:100%}
 section.teasers section.small-cards .small-card .desc{width:100%;text-align:center;padding:20px}
 section.teasers section.small-cards .small-card h3{text-transform:uppercase;font-size:20px}
 section.teasers section.small-cards .small-card p{font-size:14px}
-section.teasers .video-wrapper{width:90%;margin:0 auto}
+section.teasers .video-wrapper{width:90%;margin:0 auto;-webkit-box-shadow:0 4px 15px 3px rgba(0,0,0,0.76);box-shadow:0 4px 15px 3px rgba(0,0,0,0.76);line-height:0}
 section.teasers .video-wrapper video{width:100%}
 section.teasers .parallax{width:100%;position:relative;overflow:hidden}
 section.teasers .parallax .hero__inner{display:-webkit-box;display:-ms-flexbox;display:flex;position:relative;width:100vw;max-height:100vh;overflow:hidden}
