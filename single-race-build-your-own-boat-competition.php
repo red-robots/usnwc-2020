@@ -95,13 +95,14 @@ $post_id = get_the_ID(); ?>
 				?>
 
 				<?php include(locate_template('parts/additional-info-race.php')); // additional info ?>
+				<?php include(locate_template('parts/byob-faqs.php')); // additional info ?>
 
 				<?php //include(locate_template('parts/text-image-blocks.php')); //photo gallery ?>
 
 
 				<?php // include(locate_template('parts/byob-schedule.php')); ?>
 
-				<?php include(locate_template('parts/details.php')); ?>
+				<?php //include(locate_template('parts/details.php')); ?>
 
 				<?php include(locate_template('parts/coursemap.php')); ?>
 				<?php include(locate_template('parts/coursemap-two.php')); ?>
