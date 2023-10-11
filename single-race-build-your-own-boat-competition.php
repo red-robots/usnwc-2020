@@ -377,14 +377,14 @@ $post_id = get_the_ID(); ?>
 				});
 
 				/* FAQS */
-				// $(".faqsItems .collapsible").on("click",function(){
-				// 	if( $(this).hasClass('active') ) {
-				// 		$(this).removeClass("active fadeIn");
-				// 	} else {
-				// 		$(".faqsItems .collapsible").removeClass("active fadeIn");
-				// 		$(this).addClass("active fadeIn");
-				// 	}
-				// });
+				$(".faqsItems .collapsible").on("click",function(){
+					if( $(this).hasClass('active') ) {
+						$(this).removeClass("active fadeIn");
+					} else {
+						$(".faqsItems .collapsible").removeClass("active fadeIn");
+						$(this).addClass("active fadeIn");
+					}
+				});
 
 				/* page anchors */
 				if( $('[data-section]').length > 0 ) {
