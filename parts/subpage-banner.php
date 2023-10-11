@@ -78,7 +78,9 @@ if($has_red_tag) { ?>
 		<?php } ?>
 	<?php } else if($status=='closed') { ?>
 		<!-- <div class="stats closed">SOLD OUT</div> -->
-		<div class="stats closed"><a href="" class="registerBtn">SOLD OUT</a></div>
+		<?php //if( !is_singular('build-your-own-boat-competition') ) { ?>
+			<div class="stats closed"><a href="" class="registerBtn">SOLD OUT</a></div>
+		<?php //} ?>
 	<?php } else if($status=='custom') { ?>
 
 		<?php if ($status_custom_message) { ?>
