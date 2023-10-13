@@ -78,6 +78,148 @@ if( is_page('waiver') ) {
 		});
 
 
+	// gsap.registerPlugin(ScrollTrigger);
+
+ //    gsap.to(".parallax", {
+ //      scrollTrigger: {
+ //        trigger: ".parallax",
+ //        scrub: true,
+ //        pin: true,
+ //        start: "center center",
+ //        end: "bottom -100%",
+ //        toggleClass: "active",
+ //        ease: "power2"
+ //      }
+ //    });
+
+ //    gsap.to(".hero__image", {
+ //      scrollTrigger: {
+ //        trigger: ".parallax",
+ //        scrub: 0.5,
+ //        start: "top bottom",
+ //        end: "bottom -300%",
+ //        ease: "power2"
+ //      },
+ //      y: "-30%"
+ //    });
+
+
+
+
+  // gsap.utils.toArray(".image-container").forEach(function(container) {
+  //   let image = container.querySelector("img");
+  
+  //     gsap.to(image, {
+  //       y: () => image.offsetHeight - container.offsetHeight,
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         trigger: container,
+  //         scrub: true,
+  //         pin: false,
+  //         invalidateOnRefresh: true
+  //       },
+  //     }); 
+  // });
+
+class App {
+
+	constructor() {
+		this.heroImages = [...document.querySelectorAll('.image-container img')];
+		this.myContainer = [...document.querySelectorAll('.image-container')];
+		this._initialize();
+		this._render();
+	}
+
+	_initialize() {
+		this._setInitialStates();
+		this._createLenis();
+		this._createParallaxSections();
+		this._createPinnedSection();
+	}
+
+	_setInitialStates() {
+		gsap.set('.image-container img', {
+			scale: 1
+		})
+		gsap.set('.fullwidth-image__text', {
+			opacity: 0,
+			y: 32
+		})
+		gsap.set('.fullwidth-image img', {
+			scale: 1.3
+		})
+	}
+
+	_createLenis() {
+		this.lenis = new Lenis({
+			lerp: 0.1
+		})
+	}
+
+	_createParallaxSections() {
+		gsap.utils.toArray(this.myContainer).forEach(function(container) {
+		    let image = container.querySelector("img");
+		  
+		      gsap.to(image, {
+		        y: () => image.offsetHeight - container.offsetHeight,
+		        ease: "none",
+		        scale: 1.1,
+		        scrollTrigger: {
+		          trigger: container,
+		          scrub: true,
+		          pin: false,
+		          invalidateOnRefresh: true
+		        },
+		      }); 
+		  });
+		// const tl = gsap.timeline();
+
+		// this.heroImages.forEach(image => {
+		// 	tl.to(image, {
+		// 		ease: 'none',
+		// 		y: () => image.offsetHeight - this.container.offsetHeight,
+		// 		scrollTrigger: {
+		// 			trigger: this.heroImages,
+		// 			scrub: true,
+		// 			pin: false,
+		// 			invalidateOnRefresh: true
+		// 		}
+		// 	}, 0)
+		// })
+	}
+
+	_createPinnedSection() {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.fullwidth-image',
+				start: 'top top',
+				end: '+=1500',
+				scrub: true,
+				pin: true
+			}
+		});
+		tl.to('.fullwidth-image__overlay', {
+			opacity: 0.4,
+
+		}).to('.fullwidth-image', {
+			"clip-path": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%",
+		}, 0).to('.fullwidth-image img', {
+			scale: 1
+		}, 0).to('.fullwidth-image__text', {
+			y: 0,
+			opacity: 1
+		}, 0)
+	}
+
+	_render(time) {
+		this.lenis.raf(time);
+		requestAnimationFrame(this._render.bind(this))
+	}
+
+}
+
+new App();
+
 	</script>
 
 <?php

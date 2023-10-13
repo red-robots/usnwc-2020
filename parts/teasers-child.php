@@ -67,7 +67,7 @@
     		}
     		?>
     		
-    		<div class="parallax">
+    		<!-- <div class="parallax h">
     			
     			<div class="hero__inner">
     				<div class="hero__images">
@@ -85,7 +85,18 @@
 	    				</div>
 	    			</div>
     			</div>
-    		</div>
+    		</div> -->
+            <section class="fullwidth-image">
+                <div class="fullwidth-image__overlay"></div>
+                <div class="fullwidth-image__text">
+                  <?php if( $title ){ ?>
+                        <h3 style="color:<?php echo $tC; ?>">
+                            <?php echo $title; ?>
+                        </h3>
+                    <?php } ?>
+                </div>
+                <img src="<?php echo $pImage['url']; ?>" alt="<?php echo $pImage['alt']; ?>" class="hero__image">
+            </section>
     		
 
     	<?php
