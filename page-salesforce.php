@@ -15,6 +15,12 @@ if( is_page('waiver') ) {
 }
 ?>
 
+<style type="text/css">
+	div#gform_wrapper_23 {
+		display: none;
+	}
+</style>
+
 <div id="primary" class="content-area-full content-default page-default-template <?php echo $has_banner ?>">
 	<main id="main" class="site-main wrapper" role="main">
 
@@ -29,7 +35,7 @@ if( is_page('waiver') ) {
 						<?php the_content(); ?>
 					
 
-
+<?php echo do_shortcode('[gravityform id="23" title="false" description="false"]'); ?>
 
 <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
 <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
