@@ -15,6 +15,9 @@ if( is_page('waiver') ) {
 }
 ?>
 
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <style type="text/css">
 	div#gform_wrapper_23 {
 		display: none;
@@ -37,8 +40,7 @@ if( is_page('waiver') ) {
 
 <?php echo do_shortcode('[gravityform id="23" title="false" description="false"]'); ?>
 
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-<!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
+
 <script>
  function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
 </script>
@@ -117,7 +119,7 @@ if( is_page('waiver') ) {
 				</li>
 
 				<li class="gfield">
-					<label class="gfield_label">Group Number:</label>
+					<label class="gfield_label">Group Size:</label>
 					<div class="ginput_container">
 						<input class="medium" id="00N40000001qNv4" name="00N40000001qNv4" size="20" type="text" />
 					</div>
@@ -175,6 +177,7 @@ if( is_page('waiver') ) {
 
 				<input type="hidden" id="lead_source" name="lead_source" value="Info Email" />
 
+				<!-- <div class="g-recaptcha" data-sitekey="6Le9UacoAAAAAK7BxLYJU6iPz9Cmky05QmFRO9_o"></div> -->
 				<div class="g-recaptcha" data-sitekey="6LdQw5MaAAAAAKYH6qvsi_EArVCM751GSi9PXfZO"></div>
 			
 			</ul>
