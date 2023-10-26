@@ -59,42 +59,42 @@ if( is_page('waiver') ) {
 				<!--  ----------------------------------------------------------------------  -->
 				<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
 				<!--  these lines if you wish to test in debug mode.                          -->
-				<!--  <input type="hidden" name="debug" value=1>                              -->
-				<!--  <input type="hidden" name="debugEmail"                                  -->
-				<!--  value="brenden@crmscenarios.com">                                       -->
+				  <input type="hidden" name="debug" value=1>                              
+				  <input type="hidden" name="debugEmail"                                  
+				  value="brenden@crmscenarios.com">                                      
 				<!--  ----------------------------------------------------------------------  -->
 				<li class="gfield">
 					<label class="gfield_label" for="first_name">First Name</label>
 					<div class="ginput_container">
-						<input class="medium"  id="first_name" maxlength="40" name="first_name" size="20" type="text" />
+						<input class="medium"  id="first_name" maxlength="40" name="first_name" size="20" type="text" required=true/>
 					</div>
 				</li>
 
 				<li class="gfield">
 					<label class="gfield_label" for="last_name">Last Name</label>
 					<div class="ginput_container">
-						<input class="medium" id="last_name" maxlength="80" name="last_name" size="20" type="text" />
+						<input class="medium" id="last_name" maxlength="80" name="last_name" size="20" type="text" required=true/>
 					</div>
 				</li>
 
 				<li class="gfield">
 					<label class="gfield_label" for="company">Organization</label>
 					<div class="ginput_container">
-						<input class="medium" id="company" maxlength="40" name="company" size="20" type="text" />
+						<input class="medium" id="company" maxlength="40" name="company" size="20" type="text" required=truerequired=true/>
 					</div>
 				</li>
 
 				<li class="gfield">
 					<label class="gfield_label" for="email">Email</label>
 					<div class="ginput_container">
-						<input class="medium" id="email" maxlength="80" name="email" size="20" type="text" />
+						<input class="medium" id="email" maxlength="80" name="email" size="20" type="text" required=true/>
 					</div>
 				</li>
 
 				<li class="gfield">
 					<label class="gfield_label" for="phone">Phone</label>
 					<div class="ginput_container">
-						<input class="medium" id="phone" maxlength="40" name="phone" size="20" type="text" />
+						<input class="medium" id="phone" maxlength="40" name="phone" size="20" type="text" required=true/>
 					</div>
 				</li>
 
@@ -102,7 +102,7 @@ if( is_page('waiver') ) {
 					<label class="gfield_label">Requested Event Date:</label>
 					<div class="ginput_container">
 						<span class="dateInput">
-							<input class="medium" id="00N40000001qO1l" name="00N40000001qO1l" size="20" type="text" />
+							<input class="medium" id="00N40000001qO1l" name="00N40000001qO1l" size="20" type="text" type="datetime-local" required=true />
 						</span>
 					</div>
 				</li>
@@ -110,7 +110,7 @@ if( is_page('waiver') ) {
 				<li class="gfield">
 					<label class="gfield_label">Is This Date Flexible?:</label>
 					<div class="ginput_container">
-						<select  id="00N5a00000D0Y8U" name="00N5a00000D0Y8U" title="Is This Date Flexible?">
+						<select  id="00N5a00000D0Y8U" name="00N5a00000D0Y8U" title="Is This Date Flexible?" required=true>
 							<option value="">--None--</option>
 							<option value="Yes">Yes</option>
 							<option value="No">No</option>
@@ -121,14 +121,14 @@ if( is_page('waiver') ) {
 				<li class="gfield">
 					<label class="gfield_label">Group Size:</label>
 					<div class="ginput_container">
-						<input class="medium" id="00N40000001qNv4" name="00N40000001qNv4" size="20" type="text" />
+						<input class="medium" id="00N40000001qNv4" name="00N40000001qNv4" size="20" type="text" required=true/>
 					</div>
 				</li>
 
 				<li class="gfield">
 					<label class="gfield_label">Interest in Venue:</label>
 					<div class="ginput_container">
-						<select  id="00N40000001qNud" name="00N40000001qNud" title="Interest in Venue">
+						<select  id="00N40000001qNud" name="00N40000001qNud" title="Interest in Venue" required=true>
 							<option value="">--None--</option>
 							<option value="Yes">Yes</option>
 							<option value="No">No</option>
@@ -139,7 +139,7 @@ if( is_page('waiver') ) {
 				<li class="gfield">
 					<label class="gfield_label">Which activities are you interested in?:</label>
 					<div class="ginput_container">
-						<select style="min-width: 280px" id="00N5a00000D0Y8Z" multiple="multiple" name="00N5a00000D0Y8Z" title="Which activities are you interested in?">
+						<select style="min-width: 280px" id="00N5a00000D0Y8Z" multiple="multiple" name="00N5a00000D0Y8Z" title="Which activities are you interested in?" required=true>
 							<option value="Day Passes">Day Passes</option>
 							<option value="Team Development">Team Development</option>
 							<option value="Educational Adventures">Educational Adventures</option>
@@ -150,7 +150,7 @@ if( is_page('waiver') ) {
 				<li class="gfield">
 					<label class="gfield_label">How would you prefer to be contacted?:</label>
 					<div class="ginput_container">
-						<select style="min-width: 280px" id="00N5a00000D0Y8e" multiple="multiple" name="00N5a00000D0Y8e" title="How would you prefer to be contacted?">
+						<select style="min-width: 280px" id="00N5a00000D0Y8e" multiple="multiple" name="00N5a00000D0Y8e" title="How would you prefer to be contacted?" required=true>
 							<option value="Email">Email</option>
 							<option value="Phone">Phone</option>
 						</select>
@@ -160,7 +160,7 @@ if( is_page('waiver') ) {
 				<li class="gfield">
 					<label class="gfield_label">Catering Required:</label>
 					<div class="ginput_container">
-						<select  id="00N40000001qO1g" name="00N40000001qO1g" title="Catering Required">
+						<select  id="00N40000001qO1g" name="00N40000001qO1g" title="Catering Required" required=true>
 							<option value="">--None--</option>
 							<option value="Yes">Yes</option>
 							<option value="No">No</option>
