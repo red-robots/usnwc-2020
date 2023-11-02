@@ -22,6 +22,18 @@ if( is_page('waiver') ) {
 	div#gform_wrapper_23 {
 		display: none;
 	}
+	input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+	    background: transparent;
+	    bottom: 0;
+	    color: transparent;
+	    cursor: pointer;
+	    height: auto;
+	    left: 0;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    width: auto;
+	}
 </style>
 
 <div id="primary" class="content-area-full content-default page-default-template <?php echo $has_banner ?>">
@@ -102,7 +114,8 @@ if( is_page('waiver') ) {
 					<label class="gfield_label">Requested Event Date:</label>
 					<div class="ginput_container">
 						<span class="dateInput">
-							<input class="medium" id="00N40000001qO1l" name="00N40000001qO1l" size="20" type="text" type="datetime-local" required=true />
+							<input class="medium" id="00N40000001qO1l" name="00N40000001qO1l" size="20" type="date" required="true" placeholder="mm/dd/yyyy" />
+
 						</span>
 					</div>
 				</li>
