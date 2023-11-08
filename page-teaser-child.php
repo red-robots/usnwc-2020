@@ -19,13 +19,13 @@ if( is_page('waiver') ) {
 }
 ?>
 
-<div class="svg lottie" id="svgz">
+<!-- <div class="svg lottie" id="svgz">
 <lottie-player
          id="svg"
          src="<?php bloginfo('template_url'); ?>/images/bg.json"
   >
   </lottie-player> 
-</div>
+</div> -->
 
 <div id="primary" class="content-area-full content-default page-default-template <?php echo $has_banner ?>">
 	<main id="main" class="site-main wrapper" role="main">
@@ -61,65 +61,30 @@ if( is_page('waiver') ) {
 </div><!-- #primary -->
 <script type="text/javascript">
 		
-		let player = document.getElementById("svg");
 
-		player.addEventListener("ready", () => {
-		  LottieInteractivity.create({
-					  mode:"scroll",
-					  player: "#svg",
-					  actions: [
-				        {
-				            visibility:[0.5, 1.0],
-				            type: "seek",
-				            frames: [0, 60],
-				        },
-				        ]
-					});
-		});
+		/*
 
+			Lottie Player
 
-	// gsap.registerPlugin(ScrollTrigger);
+		*/
+		// let player = document.getElementById("svg");
 
- //    gsap.to(".parallax", {
- //      scrollTrigger: {
- //        trigger: ".parallax",
- //        scrub: true,
- //        pin: true,
- //        start: "center center",
- //        end: "bottom -100%",
- //        toggleClass: "active",
- //        ease: "power2"
- //      }
- //    });
-
- //    gsap.to(".hero__image", {
- //      scrollTrigger: {
- //        trigger: ".parallax",
- //        scrub: 0.5,
- //        start: "top bottom",
- //        end: "bottom -300%",
- //        ease: "power2"
- //      },
- //      y: "-30%"
- //    });
+		// player.addEventListener("ready", () => {
+		//   LottieInteractivity.create({
+		// 			  mode:"scroll",
+		// 			  player: "#svg",
+		// 			  actions: [
+		// 		        {
+		// 		            visibility:[0.5, 1.0],
+		// 		            type: "seek",
+		// 		            frames: [0, 60],
+		// 		        },
+		// 		        ]
+		// 			});
+		// });
 
 
 
-
-  // gsap.utils.toArray(".image-container").forEach(function(container) {
-  //   let image = container.querySelector("img");
-  
-  //     gsap.to(image, {
-  //       y: () => image.offsetHeight - container.offsetHeight,
-  //       ease: "none",
-  //       scrollTrigger: {
-  //         trigger: container,
-  //         scrub: true,
-  //         pin: false,
-  //         invalidateOnRefresh: true
-  //       },
-  //     }); 
-  // });
 
 class App {
 
