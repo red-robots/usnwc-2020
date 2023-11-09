@@ -305,6 +305,7 @@ while ( have_posts() ) : the_post();
 			$singleAccPass = get_field('single_access_price');
 			$passOptionLink = get_field('pass_options_link');
 			$passOptionLabel = get_field('pass_options_btn');
+			$singleSmDesc = get_field('single_act_desc');
 			if( $passOptionLabel == '' ) { $passOptionLabel = 'View all Pass Pricing';}
 			// echo '<pre>';
 			// print_r($categories);
@@ -338,6 +339,9 @@ while ( have_posts() ) : the_post();
 									<span class="icon"></span>
 									<span class="catName">
 										<?php echo $cat->name; ?>
+										<?php if( $singleSmDesc && $cat->term_id == '3' ) { ?>
+											<small><?php echo $singleSmDesc; ?></small>
+										<?php } ?>
 										<?php if ($pass_types_list) { ?>
 										<small>(<?php echo $pass_types_list ?>)</small>	
 										<?php } ?>
