@@ -44,7 +44,7 @@ if( is_page('waiver') ) {
 				</div>
 			</section>
 
-
+			<div id="pageTabs"></div>
 
 		<?php endwhile; ?>
 
@@ -88,15 +88,20 @@ if( is_page('waiver') ) {
 
 class App {
 
+	
+
 	constructor() {
 		this.heroImages = [...document.querySelectorAll('.image-container img')];
 		this.myContainer = [...document.querySelectorAll('.image-container')];
+		this.fullBleedImages = [...document.querySelectorAll('.full-bleed-img img')];
+		this.fullBleedContainer = [...document.querySelectorAll('.full-bleed-img')];
 		this._initialize();
 		this._render();
 	}
 
 	_initialize() {
 		this._setInitialStates();
+		this._createFullBleed();
 		this._createLenis();
 		this._createParallaxSections();
 		this._createPinnedSection();
@@ -121,7 +126,40 @@ class App {
 		})
 	}
 
+	_createFullBleed() {
+		let mm = gsap.matchMedia();
+
+		// mm.add("(min-width: 800px)", () => {
+
+			gsap.utils.toArray(this.fullBleedContainer).forEach(function(container) {
+			    let image = container.querySelector("img");
+			    let heightOffset = image.offsetHeight - container.offsetHeight;
+
+			   
+			  
+				gsap.fromTo(image, {
+					y: -heightOffset,
+				}, {
+					scrollTrigger: {
+						scrub: true,
+						trigger: container,
+						start: 'top bottom',
+						end: 'bottom top',
+						// markers: true
+					},
+					y: 0,
+					ease: 'none',
+				});
+				});
+
+		// });
+	}
+
 	_createParallaxSections() {
+		let mm = gsap.matchMedia();
+
+		// mm.add("(min-width: 800px)", () => {
+
 		gsap.utils.toArray(this.myContainer).forEach(function(container) {
 		    let image = container.querySelector("img");
 		  
@@ -136,7 +174,9 @@ class App {
 		          invalidateOnRefresh: true
 		        },
 		      }); 
-		  });
+		  // });
+
+		});
 		// const tl = gsap.timeline();
 
 		// this.heroImages.forEach(image => {
@@ -154,6 +194,11 @@ class App {
 	}
 
 	_createPinnedSection() {
+
+		let mm = gsap.matchMedia();
+		
+		mm.add("(min-width: 800px)", () => {
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '.fullwidth-image',
@@ -174,6 +219,8 @@ class App {
 			y: 0,
 			opacity: 1
 		}, 0)
+
+		});
 	}
 
 	_render(time) {
@@ -184,6 +231,32 @@ class App {
 }
 
 new App();
+
+
+/* page anchors */
+	if( $('[data-section]').length > 0 ) {
+		var tabs = '';
+		$('[data-section]').each(function(){
+			var name = $(this).attr('data-section');
+			var id = $(this).attr("id");
+			tabs += '<span class="mini-nav"><a href="#'+id+'">'+name+'</a></span>';
+		});
+		$("#pageTabs").html('<div class="wrapper"><div id="tabcontent">'+tabs+'</div></div>');
+	}
+
+	 $("#tabs a").on("click",function(e){
+    e.preventDefault();
+    var panel = $(this).attr('data-rel');
+    $("#tabs li").not(this).removeClass('active');
+    $(this).parents("li").addClass('active');
+    if( $(panel).length ) {
+      $(".info-panel").not(panel).removeClass('active');
+      $(".info-panel").not(panel).find('.info-inner').removeClass('fadeIn');
+      $(panel).addClass('active');
+      //$(panel).find('.info-inner').addClass('fadeIn').slideToggle();
+      $(panel).find('.info-inner').toggleClass('fadeIn');
+    }
+  });
 
 	</script>
 

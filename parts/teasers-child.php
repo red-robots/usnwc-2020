@@ -16,8 +16,9 @@
 
     	if( get_row_layout() == 'section_title' ): 
     		$sTitle = get_sub_field('title');
+            $sani = sanitize_title_with_dashes($sTitle);
     		?>
-    		<section class="section-title">
+    		<section class="section-title" id="section-<?php echo $sani; ?>" data-section="<?php echo $sTitle; ?>">
     			<h2><?php echo $sTitle; ?></h2>
     		</section>
 
@@ -31,7 +32,7 @@
     			$description = $c['description'];
     			$cta = $c['cta'];
     			?>
-    			<section class="child-card">
+    			<section class="child-card"  >
     				<div class="creative image-container">
     					<img src="<?php echo $creative['url']; ?>">
     				</div>
@@ -53,6 +54,15 @@
     			
     		<?php } ?>
     		
+        <?php
+        elseif( get_row_layout() == 'full_bleed_image' ):
+            $fb_image = get_sub_field('full_image');
+            ?>
+            <section class="full-bleed">
+                <div class="full-bleed-img " style="--aspect-ratio: 16/9">
+                    <img src="<?php echo $fb_image['url']; ?>">
+                </div>
+            </section>
 
     	<?php 
     	elseif( get_row_layout() == 'parallax' ):

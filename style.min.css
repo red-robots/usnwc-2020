@@ -3734,6 +3734,11 @@ section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{f
 .race-location .map img{width:100%}
 .race-location .location{width:auto;height:25px;line-height:25px;font-size:18px;margin:0 5px;padding-top:2px}
 section.teasers{width:100%;position:relative}
+section.teasers section.full-bleed{width:100%}
+section.teasers section.full-bleed [style*='--aspect-ratio']>:first-child{width:100%}
+section.teasers section.full-bleed [style*='--aspect-ratio']>img{height:auto;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center}
+section.teasers section.full-bleed .full-bleed-img{width:100%;position:relative;overflow:hidden}
+section.teasers section.full-bleed .full-bleed-img img{height:140% !important}
 section.teasers section.section-title{padding:60px 0}
 section.teasers section.section-title .stitle{font-size:30px}
 section.teasers section.alt-cards .creative{width:100%}
@@ -3743,7 +3748,7 @@ section.teasers section.child-card .creative img{position:absolute;bottom:0;left
 section.teasers section.child-card .info{width:100%}
 section.teasers section.alt-cards,section.teasers section.child-card{width:100%;position:relative}
 section.teasers section.alt-cards .creative img,section.teasers section.child-card .creative img{width:100%}
-section.teasers section.alt-cards .info,section.teasers section.child-card .info{padding:20px}
+section.teasers section.alt-cards .info,section.teasers section.child-card .info{padding:60px 20px}
 section.teasers section.alt-cards .info h2,section.teasers section.child-card .info h2{text-transform:uppercase}
 section.teasers section.alt-cards .info .button,section.teasers section.child-card .info .button{margin-top:20px;display:inline-block}
 section.teasers section.alt-cards .info .btn-wrapper,section.teasers section.child-card .info .btn-wrapper{width:100%;text-align:center}
