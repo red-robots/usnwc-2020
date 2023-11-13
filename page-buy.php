@@ -223,6 +223,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 										<?php foreach ($single_activities as $s) { 
 											$id = $s->ID;
 											$price = get_field("single_access_price",$id);
+											$singleSmDesc = get_field('single_act_desc',$id);
 											if( $price ) {
 												if (strpos($price, '$') !== false) {
 													$price = $price;
@@ -240,7 +241,12 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 											$noButton = ($buy_link) ? '':' nobutton';
 											if($price) { ?>
 											<div class="itemrow singleActivity<?php echo $noButton ?>">
-												<span class="activity-name"><span><?php echo $activityName ?></span></span>
+												<span class="activity-name">
+													<span>
+														<?php echo $activityName ?>
+														<?php if($singleSmDesc){echo ' '.$singleSmDesc;} ?>
+													</span>
+												</span>
 												<?php if ($price || $buy_btn) { ?>
 													<span class="button-group">
 														<span class="wrap">
