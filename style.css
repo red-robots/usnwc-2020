@@ -8392,7 +8392,7 @@ body.logged-in.admin-bar .job-info-page .text-centered-section { margin-top: -5p
 
 .page-activity-passes .itemrow .button-group .wrap { display: inline-block; background: #F2F2F2; float: right; padding-left: 3px; }
 
-.page-activity-passes .itemrow .activity-name { float: left; line-height: 1.2; padding-right: 5px; max-width: 60%; width: 100%; text-align: left; }
+.page-activity-passes .itemrow .activity-name { float: left; line-height: 1.2; padding-right: 5px; max-width: 70%; width: 100%; text-align: left; }
 
 .page-activity-passes .itemrow .activity-name span { display: inline; background: #F2F2F2; padding-right: 0; position: relative; z-index: 15; bottom: 0; }
 
@@ -8401,7 +8401,7 @@ body.logged-in.admin-bar .job-info-page .text-centered-section { margin-top: -5p
 @media screen and (max-width: 320px) { .page-activity-passes .itemrow .activity-name { max-width: 100%; bottom: 0; margin-bottom: 10px; text-align: left; }
   .page-activity-passes .itemrow .activity-name span { bottom: 0 !important; } }
 
-.page-activity-passes .itemrow .button-group { float: right; padding-left: 8px; max-width: 40%; width: 100%; }
+.page-activity-passes .itemrow .button-group { float: right; padding-left: 8px; max-width: 30%; width: 100%; }
 
 .page-activity-passes .itemrow .button-group .price, .page-activity-passes .itemrow .button-group .btn-sm { display: inline-block; float: left; }
 
