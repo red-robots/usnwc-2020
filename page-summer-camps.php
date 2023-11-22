@@ -36,7 +36,7 @@ $perpage = 16;
 									<div class="customselectdiv">
 										<select name="age" id="agelist" class="js-select2" multiple="multiple">
 										<?php 
-										$min=8; $max=18;
+										$min=4; $max=18;
 										for($i=$min; $i<=$max; $i++) { 
 												$selected = '';
 												if($ages && in_array($i,$ages)) {
