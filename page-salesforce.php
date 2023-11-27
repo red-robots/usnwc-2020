@@ -66,12 +66,12 @@ if( is_page('waiver') ) {
 
 				<input type=hidden name='captcha_settings' value='{"keyname":"ww","fallback":"true","orgId":"00D400000007IQu","ts":""}'>
 				<input type=hidden name="oid" value="00D400000007IQu">
-				<input type=hidden name="retURL" value="https://center.whitewater.org/">
+				<input type=hidden name="retURL" value="https://center.whitewater.org/contact/events-inquiry/events-inquiry-confirmation/">
 
 				<!--  ----------------------------------------------------------------------  -->
 				<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
 				<!--  these lines if you wish to test in debug mode.                          -->
-				  <input type="hidden" name="debug" value=1>                              
+				  <input type="hidden" name="debug" value=0>                              
 				  <input type="hidden" name="debugEmail"                                  
 				  value="brenden@crmscenarios.com">                                      
 				<!--  ----------------------------------------------------------------------  -->
