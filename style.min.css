@@ -4151,6 +4151,7 @@ section.teasers section.small-cards{display:-webkit-box;display:-ms-flexbox;disp
 section.teasers section.small-cards.cardwrap{padding:20px 10%}
 section.teasers section.small-cards .small-card{width:24%;-ms-flex-preferred-size:24%;flex-basis:24%}
 section.teasers .video-wrapper{width:60%}
+section.teasers .fullwidth-image .fullwidth-image__text h3.mobile{display:none}
 }@media(min-width:960px){.topinfo span.el{font-size:12px}
 .home-video-gallery.count1 .video-big{height:600px}
 .section-content#section-options .categories .box-content{padding-bottom:50px}

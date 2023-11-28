@@ -14997,7 +14997,11 @@ section.teasers {
 			z-index: 3;
 			color: #fff;
 			h3 {
-
+				&.mobile {
+					@media screen and (min-width: $tabwidth) {
+						display: none;
+					}
+				}
 			}
 		}
 	}

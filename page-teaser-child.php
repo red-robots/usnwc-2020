@@ -111,10 +111,14 @@ class App {
 		gsap.set('.image-container img', {
 			scale: 1
 		})
-		gsap.set('.fullwidth-image__text', {
-			opacity: 0,
-			y: 32
-		})
+
+		// mm.add("(min-width: 800px)", () => {
+			gsap.set('.fullwidth-image__text', {
+				// opacity: 0,
+				y: 32
+			})
+		// });
+
 		gsap.set('.fullwidth-image img', {
 			scale: 1.3
 		})

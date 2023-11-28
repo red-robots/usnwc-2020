@@ -98,11 +98,12 @@
     		</div> -->
             <section class="fullwidth-image">
                 <div class="fullwidth-image__overlay"></div>
-                <div class="fullwidth-image__text">
+                <div class="fullwidth-image__text zzz">
                   <?php if( $title ){ ?>
                         <h3 style="color:<?php echo $tC; ?>">
                             <?php echo $title; ?>
                         </h3>
+                        <!-- <h3 style="color:<?php echo $tC; ?>" class="mobile"><?php echo $title; ?></h3> -->
                     <?php } ?>
                 </div>
                 <img src="<?php echo $pImage['url']; ?>" alt="<?php echo $pImage['alt']; ?>" class="hero__image">
