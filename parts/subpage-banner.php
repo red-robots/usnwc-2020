@@ -6,7 +6,12 @@ $status = get_field('registration_status');
 $registerLink = get_field('registrationLink');
 $regTarget = get_field('registrationLinkTarget');
 $status_custom_message = get_field('status_custom_message');
-$registerButton = 'Register';
+if( is_page('pond-hockey') ){
+	$registerButton = 'Youth Tournament Registration';
+} else {
+	$registerButton = 'Register';
+}
+
 $registerTarget = ( isset($regTarget[0]) && $regTarget[0]=='yes' ) ? '_blank':'_self';
 $has_red_tag = false;
 $excludePostTypes = exclude_post_types_banner();
