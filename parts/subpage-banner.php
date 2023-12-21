@@ -6,7 +6,7 @@ $status = get_field('registration_status');
 $registerLink = get_field('registrationLink');
 $regTarget = get_field('registrationLinkTarget');
 $status_custom_message = get_field('status_custom_message');
-if( is_page('pond-hockey') ){
+if( is_single('pond-hockey') ){
 	$registerButton = 'Youth Tournament Registration';
 } else {
 	$registerButton = 'Register';
