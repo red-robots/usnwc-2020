@@ -3740,6 +3740,7 @@ section.teasers section.full-bleed [style*='--aspect-ratio']>img{height:auto;-o-
 section.teasers section.full-bleed .full-bleed-img{width:100%;position:relative;overflow:hidden}
 section.teasers section.full-bleed .full-bleed-img img{height:140% !important}
 section.teasers section.section-title{padding:60px 0}
+section.teasers section.section-title p.sdesc{max-width:600px;margin:0 auto}
 section.teasers section.section-title .stitle{font-size:30px}
 section.teasers section.alt-cards .creative{width:100%}
 section.teasers section.alt-cards .info{width:100%}

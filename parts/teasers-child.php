@@ -21,7 +21,7 @@
     		?>
     		<section class="section-title" id="section-<?php echo $sani; ?>" data-section="<?php echo $sTitle; ?>">
     			<h2><?php echo $sTitle; ?></h2>
-                <?php if( $sDesc ){ echo '<p>'.$sDesc.'</p>';} ?>
+                <?php if( $sDesc ){ echo '<p class="sdesc">'.$sDesc.'</p>';} ?>
     		</section>
 
 
