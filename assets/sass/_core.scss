@@ -14788,6 +14788,7 @@ section.teasers {
 	position: relative;
 	section.full-bleed {
 		width: 100%;
+		margin-bottom: 20px;
 		[style*='--aspect-ratio'] > :first-child { width: 100%; }
 
 		[style*='--aspect-ratio'] > img { height: auto; -o-object-fit: cover; object-fit: cover; -o-object-position: center; object-position: center; }

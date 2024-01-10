@@ -16,10 +16,12 @@
 
     	if( get_row_layout() == 'section_title' ): 
     		$sTitle = get_sub_field('title');
+            $sDesc = get_sub_field('short_description');
             $sani = sanitize_title_with_dashes($sTitle);
     		?>
     		<section class="section-title" id="section-<?php echo $sani; ?>" data-section="<?php echo $sTitle; ?>">
     			<h2><?php echo $sTitle; ?></h2>
+                <?php if( $sDesc ){ echo '<p>'.$sDesc.'</p>';} ?>
     		</section>
 
 
@@ -34,9 +36,11 @@
     			?>
     			<section class="child-card"  >
     				<div class="creative image-container">
+                        <div class="full-bleed-img" style="--aspect-ratio: 16/9">
     					<img src="<?php echo $creative['url']; ?>">
+                        </div>
     				</div>
-    				<div class="info wow fadeIn" data-wow-duration="2s" data-wow-delay="1s">
+    				<div class="info wow fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">
     					<h2><?php echo $title; ?></h2>
             			<div class="desc"><?php echo $description; ?></div>
             			<div class="btn-wrapper">

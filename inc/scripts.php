@@ -7,7 +7,7 @@ function bellaworks_scripts() {
 		'bellaworks-style',
 		 get_stylesheet_uri(),
 		 array(),
-		 '1.92.7'
+		 '1.92.8'
 	);
 
 	wp_deregister_script('jquery');
@@ -33,7 +33,7 @@ function bellaworks_scripts() {
 		);
 
 	wp_enqueue_script( 
-			'lenis','https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js', 
+			'lenis','h<script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script> ', 
 			array(), '20200713', 
 			false 
 		);

@@ -3734,7 +3734,7 @@ section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{f
 .race-location .map img{width:100%}
 .race-location .location{width:auto;height:25px;line-height:25px;font-size:18px;margin:0 5px;padding-top:2px}
 section.teasers{width:100%;position:relative}
-section.teasers section.full-bleed{width:100%}
+section.teasers section.full-bleed{width:100%;margin-bottom:20px}
 section.teasers section.full-bleed [style*='--aspect-ratio']>:first-child{width:100%}
 section.teasers section.full-bleed [style*='--aspect-ratio']>img{height:auto;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center}
 section.teasers section.full-bleed .full-bleed-img{width:100%;position:relative;overflow:hidden}

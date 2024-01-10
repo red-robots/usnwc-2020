@@ -102,7 +102,7 @@ class App {
 	_initialize() {
 		this._setInitialStates();
 		this._createFullBleed();
-		this._createLenis();
+		// this._createLenis();
 		this._createParallaxSections();
 		this._createPinnedSection();
 	}
@@ -112,23 +112,23 @@ class App {
 			scale: 1
 		})
 
-		// mm.add("(min-width: 800px)", () => {
+		
 			gsap.set('.fullwidth-image__text', {
 				// opacity: 0,
 				y: 32
 			})
-		// });
+		
 
 		gsap.set('.fullwidth-image img', {
 			scale: 1.3
 		})
 	}
 
-	_createLenis() {
-		this.lenis = new Lenis({
-			lerp: 0.1
-		})
-	}
+	// _createLenis() {
+	// 	this.lenis = new Lenis({
+	// 		lerp: 0.1
+	// 	})
+	// }
 
 	_createFullBleed() {
 		let mm = gsap.matchMedia();
@@ -160,9 +160,9 @@ class App {
 	}
 
 	_createParallaxSections() {
-		let mm = gsap.matchMedia();
+		//let mm = gsap.matchMedia();
 
-		// mm.add("(min-width: 800px)", () => {
+		
 
 		gsap.utils.toArray(this.myContainer).forEach(function(container) {
 		    let image = container.querySelector("img");
@@ -178,7 +178,7 @@ class App {
 		          invalidateOnRefresh: true
 		        },
 		      }); 
-		  // });
+		 
 
 		});
 		// const tl = gsap.timeline();
@@ -227,14 +227,29 @@ class App {
 		});
 	}
 
-	_render(time) {
-		this.lenis.raf(time);
-		requestAnimationFrame(this._render.bind(this))
+	// _render(time) {
+	// 	this.lenis.raf(time);
+	// 	requestAnimationFrame(this._render.bind(this))
+	// }
+
+	_render() {
+		
 	}
 
 }
 
 new App();
+
+
+// const lenis = new Lenis({
+// 	lerp: 0.1
+// });
+// function raf(time) {
+//   lenis.raf(time)
+//   requestAnimationFrame(raf);
+// }
+
+// requestAnimationFrame(raf);
 
 
 /* page anchors */
