@@ -59,6 +59,10 @@ if( is_page('waiver') ) {
 	</section>
 
 </div><!-- #primary -->
+<?php
+	/* FAQS JAVASCRIPT */ 
+	include( locate_template('inc/faqs-script.php') ); 
+?>
 <script type="text/javascript">
 		
 
