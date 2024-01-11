@@ -137,9 +137,9 @@
                 $faq_title = get_sub_field('faq_section_title');
                 $faq_items = get_sub_field('the_faqs');
 
-                echo '<pre>';
-                print_r($faq_items);
-                echo '</pre>';
+                // echo '<pre>';
+                // print_r($faq_items);
+                // echo '</pre>';
             ?>
             <section id="section-faqs" data-section="FAQ" class="section-content no-image faqs-race">
                 <div class="wrapper">
