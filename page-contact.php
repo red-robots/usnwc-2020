@@ -53,7 +53,7 @@ get_header(); ?>
 					<?php if ($contact_form) { ?>
 					<div class="rightcol">
 						<div class="wrap">
-							<!-- <div class="contact-form"><?php echo anti_email_spam($contact_form); ?></div> -->
+							<div class="contact-form"><?php echo $contact_form; ?></div>
 							<?php if( $links = get_field("icons_links") ) { ?>
 							<?php 
 								$count = 100 / count($links); 
