@@ -107,6 +107,7 @@ if( $passport == 'all' ) {
 		}
 
 		$myDays = get_field('schedule_days');
+		$showHide = get_field('schedule_show_hide');
 
 		$sortedCourses = sortCourseByDay($myDays);
 		// echo '<pre>';
@@ -124,7 +125,7 @@ if( $passport == 'all' ) {
 		}
 
 
-		if( have_rows('schedule_days') ): ?>
+		if( have_rows('schedule_days') && $showHide !== 'hide' ): ?>
 			<section class="instr-schedule">
 				<div class="wwrapper">
 					<div class="shead-icon text-center">
