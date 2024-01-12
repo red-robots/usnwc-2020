@@ -16,10 +16,18 @@
 
     	if( get_row_layout() == 'section_title' ): 
     		$sTitle = get_sub_field('title');
+            // $dataTitle = get_sub_field();
+            $anchor_name = get_sub_field('anchor_name');
             $sDesc = get_sub_field('short_description');
-            $sani = sanitize_title_with_dashes($sTitle);
+            if( $anchor_name ) {
+                $sani = sanitize_title_with_dashes($anchor_name);
+                $dataTitle = $anchor_name;
+            } else {
+                $sani = sanitize_title_with_dashes($sTitle);
+                $dataTitle = $sTitle;
+            }
     		?>
-    		<section class="section-title" id="section-<?php echo $sani; ?>" data-section="<?php echo $sTitle; ?>">
+    		<section class="section-title" id="section-<?php echo $sani; ?>" data-section="<?php echo $dataTitle; ?>">
     			<h2><?php echo $sTitle; ?></h2>
                 <?php if( $sDesc ){ echo '<p class="sdesc">'.$sDesc.'</p>';} ?>
     		</section>
