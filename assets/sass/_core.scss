@@ -14860,8 +14860,13 @@ section.teasers {
 		}
 		.info {
 			width: 100%;
+			background-color: #F2F2F2;
+			font-size: 16px;
 			@media screen and (min-width: $tabwidth) {
 				width: 40%;
+			}
+			h2 {
+				font-size: 30px;
 			}
 		}
 	}
