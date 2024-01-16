@@ -14811,7 +14811,10 @@ section.teasers {
 		}
 	}
 	section.section-title {
-		padding: 60px 0;
+		padding: 60px 20px;
+		@media screen and (min-width: $tabwidth) {
+			// padding: 60px 20px;
+		}
 		p.sdesc {
 			max-width: 900px;
 			margin: 0 auto;
