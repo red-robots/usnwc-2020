@@ -33,7 +33,7 @@ function bellaworks_scripts() {
 		);
 
 	wp_enqueue_script( 
-			'lenis','h<script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script> ', 
+			'lenis','https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js', 
 			array(), '20200713', 
 			false 
 		);
