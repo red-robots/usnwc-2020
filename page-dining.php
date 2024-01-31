@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Adventure Dining BAK
+ * Template Name: Adventure Dining 
  */
 
 get_header(); 
@@ -45,10 +45,12 @@ $canceledImage = THEMEURI . "images/canceled.svg";
 			'post_status'      	=> 'publish',
 			'facetwp' 				 	=> true,
 			'meta_key' 					=> 'eventstatus',
-			'orderby'  					=> array(
-				'meta_value_num' 	=> 'DESC',
-				'post_date'      	=> 'ASC',
-			)
+			'orderby'           => 'menu_order',
+      		'order'             => 'ASC'
+			// 'orderby'  					=> array(
+			// 	'meta_value_num' 	=> 'DESC',
+			// 	'post_date'      	=> 'ASC',
+			// )
 		);
 		$entries = new WP_Query($args);
 		if( $entries->have_posts() ) { ?>	
