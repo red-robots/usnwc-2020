@@ -19,6 +19,7 @@
             // $dataTitle = get_sub_field();
             $anchor_name = get_sub_field('anchor_name');
             $sDesc = get_sub_field('short_description');
+            $sLink = get_sub_field('calls_to_action_buttons');
             if( $anchor_name ) {
                 $sani = sanitize_title_with_dashes($anchor_name);
                 $dataTitle = $anchor_name;
@@ -30,6 +31,23 @@
     		<section class="section-title" id="section-<?php echo $sani; ?>" data-section="<?php echo $dataTitle; ?>">
     			<h2><?php echo $sTitle; ?></h2>
                 <?php if( $sDesc ){ echo '<p class="sdesc">'.$sDesc.'</p>';} ?>
+                <?php if( $sLink ){ 
+                    // echo '<pre>';
+                    // print_r($sLink);
+                    // echo '</pre>';
+
+                    ?>
+                    <br>
+                    <div class="btn-wrapper">
+                        <?php foreach( $sLink as $nLink ){ ?>
+                            <div class="button">
+                                <a href="<?php echo $nLink['cta_link']['url']; ?>" target="<?php echo $nLink['cta_link']['target']; ?>" class="btn-sm">
+                                    <span><?php echo $nLink['cta_link']['title']; ?></span>
+                                </a>
+                            </div>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
     		</section>
 
 
