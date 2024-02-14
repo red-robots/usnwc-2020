@@ -8,6 +8,28 @@ $rectangle = THEMEURI . "images/rectangle.png";
 $square = THEMEURI . "images/square.png";
 ?>
 
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<style type="text/css">
+	div#gform_wrapper_114 {
+		display: none;
+	}
+	input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+	    background: transparent;
+	    bottom: 0;
+	    color: transparent;
+	    cursor: pointer;
+	    height: auto;
+	    left: 0;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    width: auto;
+	}
+</style>
+
+
 <div id="primary" data-post="<?php echo get_the_ID()?>" class="content-area-full field-trips-page">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<div class="intro-text-wrap">
@@ -127,6 +149,20 @@ $square = THEMEURI . "images/square.png";
 				<h2 class="stitle text-center"><?php echo $form_title ?></h2>
 				<?php } ?>
 				<div class="form-content"><?php echo $form ?></div>
+			</div>
+		</section>
+		<?php } ?>
+
+
+		<?php if( is_page(61127) ){ ?>
+			<section id="group-outings-form" data-section="<?php echo $form_title ?>" class="section-content group-form-section">
+			<div class="wrapper narrow">
+				<div class="form-content">
+					
+						<h2 class="stitle text-center">Educational Adventures Inquiry Form</h2>
+					
+					<?php include( locate_template('parts/salesforce-fieldtrip.php') ); ?>
+				</div>
 			</div>
 		</section>
 		<?php } ?>
