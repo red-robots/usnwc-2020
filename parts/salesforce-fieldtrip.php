@@ -82,7 +82,7 @@
 
 				<input type="hidden" id="lead_source" name="lead_source" value="Info Email" />
 
-				<div class="g-recaptcha" data-sitekey="6Le9UacoAAAAAK7BxLYJU6iPz9Cmky05QmFRO9_o"></div>
+				<div class="g-recaptcha" data-sitekey="6LdQw5MaAAAAAKYH6qvsi_EArVCM751GSi9PXfZO"></div>
 
 			</ul>
 		</div>

@@ -41,6 +41,11 @@ $parent_page_id = get_the_ID();
 							$thumbImageMobile = get_field("category_image_mobile",$taxonomy.'_'.$term_id);
 							$pagelink = get_term_link($term,$taxonomy);
 							//$child_terms = get_term_children($term_id,$taxonomy);
+
+							if( $term_name == 'yoga' ) {
+								$pagelink = bloginfo('url').'/instructions/200-hour-yoga-teacher-training/';
+							}
+
 							?>
 							<div id="postbox<?php echo $i?>" class="postbox animated fadeIn <?php echo ($thumbImage) ? 'has-image':'no-image';?>">
 								<div class="inside">

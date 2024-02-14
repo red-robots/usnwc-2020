@@ -83,6 +83,8 @@ $parent_page_id = get_the_ID();
 							$thumbImage = get_field("category_image");
 							$thumbImageMobile = get_field("category_image_mobile");
 							$pagelink = get_the_permalink();
+
+							
 						?>
 							<?php include(locate_template('parts/instruction-guts.php')); ?>
 						<?php 
@@ -101,6 +103,12 @@ $parent_page_id = get_the_ID();
 							$thumbImageMobile = get_field("category_image_mobile",$taxonomy.'_'.$term_id);
 							$pagelink = get_term_link($term,$taxonomy);
 							//$child_terms = get_term_children($term_id,$taxonomy);
+
+							// quick hack for yoga - because there is only one
+							if( $term_name == 'Yoga' ) {
+								$pagelink = get_bloginfo('url').'/instructions/200-hour-yoga-teacher-training/';
+							}
+
 							?>
 							<?php include(locate_template('parts/instruction-guts.php')); ?>
 						<?php $i++; } ?>
