@@ -107,6 +107,7 @@ $parent_page_id = get_the_ID();
 							// quick hack for yoga - because there is only one
 							if( $term_name == 'Yoga' ) {
 								$pagelink = get_bloginfo('url').'/instructions/200-hour-yoga-teacher-training/';
+								$term_name = 'Yoga Teacher Training';
 							}
 
 							?>
