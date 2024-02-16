@@ -52,7 +52,7 @@
 					<label class="gfield_label">Event Date:</label>
 					<div class="ginput_container">
 						<span class="dateInput">
-							<input  id="00N40000001qO1l" name="00N40000001qO1l" size="20" type="datetime-local" required=true placeholder="mm/dd/yyyy" />
+							<input  id="00N40000001qO1l" name="00N40000001qO1l" size="20" type="datetime-local" placeholder="mm/dd/yyyy" />
 						</span>
 					</div>
 				</div>
