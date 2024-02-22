@@ -15021,6 +15021,7 @@ section.teasers {
 			}
 		}
 	}
+
 	// .parallax {
 	// 	width: 100%;
 	// 	position: relative;
@@ -15121,4 +15122,27 @@ section.teasers {
 }
 .lottie {
 	// margin-top: 15px;
+}
+.gform_wrapper.gravity-theme {
+	form#gform_398 {
+		.gform_body {
+			max-width: 400px;
+			display: inline-block;
+		}
+		.gform_footer {
+			display: inline-block;
+			width: auto;
+			input.button {
+				border-radius: 0;
+				color: #fff;
+				background-color: $red;
+				border: 0;
+				padding: 12px 10px 9px 10px;
+				line-height: 1.6;
+				font-size: 12px;
+				text-transform: uppercase;
+			}
+		}
+	}
+		
 }
