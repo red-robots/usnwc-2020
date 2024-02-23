@@ -10,7 +10,7 @@
 	<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D400000007IQu" method="POST">
 		<div class="gform_body gform-body">
 			<ul class="gform_fields top_label form_sublabel_below description_above">
-				<input type=hidden name='captcha_settings' value='{"keyname":"ww2","fallback":"true","orgId":"00D400000007IQu","ts":""}'>
+				<input type=hidden name='captcha_settings' value='{"keyname":"ww","fallback":"true","orgId":"00D400000007IQu","ts":""}'>
 				<input type=hidden name="oid" value="00D400000007IQu">
 				<input type=hidden name="retURL" value="https://center.whitewater.org/contact/events-inquiry/events-inquiry-confirmation/">
 
