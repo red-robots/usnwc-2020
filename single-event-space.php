@@ -289,11 +289,17 @@ get_header(); ?>
 				</div>
 				<?php } ?>
 
-				<?php if ($event_space_bottom_form) { ?>
+
+				<style type="text/css">
+					.gform_legacy_markup_wrapper select {color: #000;}
+				</style>
+
+				<?php //if ($event_space_bottom_form) { ?>
 				<div class="event-form-wrap">
-					<?php echo $event_space_bottom_form ?>
+					<?php include( locate_template('parts/salesforce-event.php') ); ?>
+					<?php //echo $event_space_bottom_form ?>
 				</div>	
-				<?php } ?>
+				<?php //} ?>
 			</div>		
 		</div>
 		<?php } ?>
