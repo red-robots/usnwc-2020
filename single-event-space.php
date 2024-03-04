@@ -296,7 +296,7 @@ get_header(); ?>
 
 				<?php //if ($event_space_bottom_form) { ?>
 				<div class="event-form-wrap" id="gform_wrapper_23">
-					<?php include( locate_template('parts/salesforce-event.php') ); ?>
+					<?php //include( locate_template('parts/salesforce-event.php') ); ?>
 					<?php //echo $event_space_bottom_form ?>
 				</div>	
 				<?php //} ?>
