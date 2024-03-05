@@ -14795,6 +14795,9 @@ section.instr-schedule {
 	justify-content: center;
 	text-align: center;
 	.text-centered-section {
+		h1, p {
+			text-shadow: 2px 2px 11px rgba(0, 0, 0, 0.62);
+		}
 		p {
 			margin-top: 0;
 		}

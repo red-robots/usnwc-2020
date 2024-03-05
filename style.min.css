@@ -3734,6 +3734,7 @@ section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{f
 .race-location .map img{width:100%}
 .race-location .location{width:auto;height:25px;line-height:25px;font-size:18px;margin:0 5px;padding-top:2px}
 .teaser-overlay{width:100%;height:100%;position:absolute;top:0;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}
+.teaser-overlay .text-centered-section h1,.teaser-overlay .text-centered-section p{text-shadow:2px 2px 11px rgba(0,0,0,0.62)}
 .teaser-overlay .text-centered-section p{margin-top:0}
 .teaser-overlay h1:after{background:#fff}
 .teaser-overlay .gform_wrapper.gravity-theme form#gform_398 .gform_footer input.button{background-color:#000;color:#fff}
