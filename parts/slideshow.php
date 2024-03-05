@@ -174,8 +174,8 @@ if($is_default_slide) { ?>
 							<?php if( $templateSlug == 'page-teaser-child-v2.php' ){ ?>
 								<div class="teaser-overlay">
 									<section class="text-centered-section">
-										<h1 class="page-title"><?php the_title(); ?></h1>
-										<?php the_content(); ?>
+										<h1 style="color:#fff;" class="page-title"><?php the_title(); ?></h1>
+										<div style="color:#fff;"><?php the_content(); ?></div>
 									</section>
 								</div>
 								
