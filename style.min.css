@@ -3736,7 +3736,7 @@ section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{f
 .teaser-overlay{width:100%;height:100%;position:absolute;top:0;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}
 .teaser-overlay .text-centered-section p{margin-top:0}
 .teaser-overlay h1:after{background:#fff}
-.teaser-overlay .gform_wrapper.gravity-theme form#gform_398 .gform_footer input.button{background-color:#fff;color:#000}
+.teaser-overlay .gform_wrapper.gravity-theme form#gform_398 .gform_footer input.button{background-color:#000;color:#fff}
 section.teasers{width:100%;position:relative}
 section.teasers section.full-bleed{width:100%;margin-bottom:20px}
 section.teasers section.full-bleed [style*='--aspect-ratio']>:first-child{width:100%}
