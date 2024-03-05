@@ -1,5 +1,7 @@
 <?php
 $post_id = get_the_ID();
+$templateSlug = get_page_template_slug( $post_id );
+
 $use_parent_page = false;
 if( isset($parent_page_id) && $parent_page_id ) {
 	$post_id = $parent_page_id;
@@ -61,6 +63,7 @@ if($is_default_slide) { ?>
 							<?php if($logoOverlay) { ?>
 								<div class="logo-overlay"><img src="<?php echo $logoOverlay['url'] ?>"></div>
 							<?php } ?>
+							
 							<div class="iframe-wrapper <?php echo ($row['mobile_video']||$row['mobile_image'])?'yes-mobile':'no-mobile';?>">
 		                            <?php if($row['link']):?>
 								    <a href="<?php echo $row['link']; ?>" class="slideLink" <?php if ( $row['target'] ):echo 'target="_blank"'; endif; ?>></a>
@@ -167,6 +170,18 @@ if($is_default_slide) { ?>
 							<?php if($logoOverlay) { ?>
 								<div class="logo-overlay"><img src="<?php echo $logoOverlay['url'] ?>"></div>
 							<?php } ?>
+
+							<?php if( $templateSlug == 'page-teaser-child-v2.php' ){ ?>
+								<div class="teaser-overlay">
+									<section class="text-centered-section">
+										<h1 class="page-title"><?php the_title(); ?></h1>
+										<?php the_content(); ?>
+									</section>
+								</div>
+								
+								
+							<?php } ?>
+
 	                                    <img class="desktop <?php if($i!==0) echo 'lazy';?>" <?php if($i!==0) echo 'data-';?>src="<?php echo $row['image']['url']; ?>"
 								     alt="<?php echo $row['image']['alt']; ?>">
 	                                    <?php if($row['mobile_image']):?>
