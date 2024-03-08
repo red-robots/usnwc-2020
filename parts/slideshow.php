@@ -172,6 +172,9 @@ if($is_default_slide) { ?>
 							<?php } ?>
 
 							<?php if( $templateSlug == 'page-teaser-child-v2.php' ){ ?>
+								<style type="text/css">
+									body.page-template-page-teaser-child-v2 input {color: #000;}
+								</style>
 								<div class="teaser-overlay">
 									<section class="text-centered-section">
 										<h1 style="color:#fff;" class="page-title"><?php the_title(); ?></h1>
