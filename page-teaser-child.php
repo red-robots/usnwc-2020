@@ -90,159 +90,137 @@ if( is_page('waiver') ) {
 
 
 
-class App {
+// class App {
 
 	
 
-	constructor() {
-		this.heroImages = [...document.querySelectorAll('.image-container img')];
-		this.myContainer = [...document.querySelectorAll('.image-container')];
-		this.fullBleedImages = [...document.querySelectorAll('.full-bleed-img img')];
-		this.fullBleedContainer = [...document.querySelectorAll('.full-bleed-img')];
-		this._initialize();
-		this._render();
-	}
+// 	constructor() {
+// 		this.heroImages = [...document.querySelectorAll('.image-container img')];
+// 		this.myContainer = [...document.querySelectorAll('.image-container')];
+// 		this.fullBleedImages = [...document.querySelectorAll('.full-bleed-img img')];
+// 		this.fullBleedContainer = [...document.querySelectorAll('.full-bleed-img')];
+// 		this._initialize();
+// 		this._render();
+// 	}
 
-	_initialize() {
-		this._setInitialStates();
-		this._createFullBleed();
-		// this._createLenis();
-		this._createParallaxSections();
-		this._createPinnedSection();
-	}
+// 	_initialize() {
+// 		this._setInitialStates();
+// 		this._createFullBleed();
+// 		// this._createLenis();
+// 		this._createParallaxSections();
+// 		this._createPinnedSection();
+// 	}
 
-	_setInitialStates() {
-		gsap.set('.image-container img', {
-			scale: 1
-		})
+// 	_setInitialStates() {
+// 		gsap.set('.image-container img', {
+// 			scale: 1
+// 		})
 
 		
-			gsap.set('.fullwidth-image__text', {
-				// opacity: 0,
-				y: 32
-			})
+// 			gsap.set('.fullwidth-image__text', {
+			
+// 				y: 32
+// 			})
 		
 
-		gsap.set('.fullwidth-image img', {
-			scale: 1.3
-		})
-	}
+// 		gsap.set('.fullwidth-image img', {
+// 			scale: 1.3
+// 		})
+// 	}
 
-	// _createLenis() {
-	// 	this.lenis = new Lenis({
-	// 		lerp: 0.1
-	// 	})
-	// }
+	
 
-	_createFullBleed() {
-		let mm = gsap.matchMedia();
+// 	_createFullBleed() {
+// 		let mm = gsap.matchMedia();
 
-		// mm.add("(min-width: 800px)", () => {
+		
 
-			gsap.utils.toArray(this.fullBleedContainer).forEach(function(container) {
-			    let image = container.querySelector("img");
-			    let heightOffset = image.offsetHeight - container.offsetHeight;
+// 			gsap.utils.toArray(this.fullBleedContainer).forEach(function(container) {
+// 			    let image = container.querySelector("img");
+// 			    let heightOffset = image.offsetHeight - container.offsetHeight;
 
 			   
 			  
-				gsap.fromTo(image, {
-					y: -heightOffset,
-				}, {
-					scrollTrigger: {
-						scrub: true,
-						trigger: container,
-						start: 'top bottom',
-						end: 'bottom top',
-						// markers: true
-					},
-					y: 0,
-					ease: 'none',
-				});
-				});
+// 				gsap.fromTo(image, {
+// 					y: -heightOffset,
+// 				}, {
+// 					scrollTrigger: {
+// 						scrub: true,
+// 						trigger: container,
+// 						start: 'top bottom',
+// 						end: 'bottom top',
+// 						// markers: true
+// 					},
+// 					y: 0,
+// 					ease: 'none',
+// 				});
+// 				});
 
-		// });
-	}
+// 	}
 
-	_createParallaxSections() {
-		//let mm = gsap.matchMedia();
+// 	_createParallaxSections() {
 
 		
 
-		gsap.utils.toArray(this.myContainer).forEach(function(container) {
-		    let image = container.querySelector("img");
+// 		gsap.utils.toArray(this.myContainer).forEach(function(container) {
+// 		    let image = container.querySelector("img");
 		  
-		      gsap.to(image, {
-		        y: () => image.offsetHeight - container.offsetHeight,
-		        ease: "none",
-		        scale: 1.1,
-		        scrollTrigger: {
-		          trigger: container,
-		          scrub: true,
-		          pin: false,
-		          invalidateOnRefresh: true
-		        },
-		      }); 
+// 		      gsap.to(image, {
+// 		        y: () => image.offsetHeight - container.offsetHeight,
+// 		        ease: "none",
+// 		        scale: 1.1,
+// 		        scrollTrigger: {
+// 		          trigger: container,
+// 		          scrub: true,
+// 		          pin: false,
+// 		          invalidateOnRefresh: true
+// 		        },
+// 		      }); 
 		 
 
-		});
-		// const tl = gsap.timeline();
+// 		});
+	
+// 	}
 
-		// this.heroImages.forEach(image => {
-		// 	tl.to(image, {
-		// 		ease: 'none',
-		// 		y: () => image.offsetHeight - this.container.offsetHeight,
-		// 		scrollTrigger: {
-		// 			trigger: this.heroImages,
-		// 			scrub: true,
-		// 			pin: false,
-		// 			invalidateOnRefresh: true
-		// 		}
-		// 	}, 0)
-		// })
-	}
+// 	_createPinnedSection() {
 
-	_createPinnedSection() {
-
-		let mm = gsap.matchMedia();
+// 		let mm = gsap.matchMedia();
 		
-		mm.add("(min-width: 800px)", () => {
+// 		mm.add("(min-width: 800px)", () => {
 
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: '.fullwidth-image',
-				start: 'top top',
-				end: '+=1500',
-				scrub: true,
-				pin: true
-			}
-		});
-		tl.to('.fullwidth-image__overlay', {
-			opacity: 0.4,
+// 		const tl = gsap.timeline({
+// 			scrollTrigger: {
+// 				trigger: '.fullwidth-image',
+// 				start: 'top top',
+// 				end: '+=1500',
+// 				scrub: true,
+// 				pin: true
+// 			}
+// 		});
+// 		tl.to('.fullwidth-image__overlay', {
+// 			opacity: 0.4,
 
-		}).to('.fullwidth-image', {
-			"clip-path": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%",
-		}, 0).to('.fullwidth-image img', {
-			scale: 1
-		}, 0).to('.fullwidth-image__text', {
-			y: 0,
-			opacity: 1
-		}, 0)
+// 		}).to('.fullwidth-image', {
+// 			"clip-path": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%",
+// 		}, 0).to('.fullwidth-image img', {
+// 			scale: 1
+// 		}, 0).to('.fullwidth-image__text', {
+// 			y: 0,
+// 			opacity: 1
+// 		}, 0)
 
-		});
-	}
+// 		});
+// 	}
 
-	// _render(time) {
-	// 	this.lenis.raf(time);
-	// 	requestAnimationFrame(this._render.bind(this))
-	// }
 
-	_render() {
+
+// 	_render() {
 		
-	}
+// 	}
 
-}
+// }
 
-new App();
+// new App();
 
 
 // const lenis = new Lenis({
