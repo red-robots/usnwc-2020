@@ -14823,6 +14823,17 @@ section.teasers {
 		@supports (--custom: property) { [style*='--aspect-ratio'] { position: relative; }
   		[style*='--aspect-ratio']::before { content: ''; display: block; padding-bottom: calc(100% / (var(--aspect-ratio))); }
   		[style*='--aspect-ratio'] > :first-child { position: absolute; top: 0; left: 0; height: 100%; } }
+		.icon {
+			width: 55px;
+			margin: 0 auto;
+			img {
+				width: 100%;
+			}
+		}
+		h2 {
+			margin-bottom: 30px;
+			font-size: 2rem;
+		}
 		.full-bleed-img {
 			width: 100%;
 			position: relative;
@@ -14838,6 +14849,7 @@ section.teasers {
 		}
 	}
 	section.section-title {
+
 		padding: 60px 20px;
 		@media screen and (min-width: $tabwidth) {
 			// padding: 60px 20px;

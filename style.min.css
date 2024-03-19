@@ -3742,6 +3742,9 @@ section.teasers{width:100%;position:relative}
 section.teasers section.full-bleed{width:100%;margin-bottom:20px}
 section.teasers section.full-bleed [style*='--aspect-ratio']>:first-child{width:100%}
 section.teasers section.full-bleed [style*='--aspect-ratio']>img{height:auto;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center}
+section.teasers section.full-bleed .icon{width:55px;margin:0 auto}
+section.teasers section.full-bleed .icon img{width:100%}
+section.teasers section.full-bleed h2{margin-bottom:30px;font-size:2rem}
 section.teasers section.full-bleed .full-bleed-img{width:100%;position:relative;overflow:hidden}
 section.teasers section.full-bleed .full-bleed-img img{height:140% !important}
 section.teasers section.section-title{padding:60px 20px}

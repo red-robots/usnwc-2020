@@ -5,6 +5,7 @@
     // Loop through rows.
     while ( have_rows('section_type') ) : the_row(); 
     	$cards = get_sub_field('card');
+        $card_w_anchor = get_sub_field('card_w_anchor');
     	// $sTitle = get_sub_field('section_title');
     	$parallax = get_sub_field('parallax');
 
@@ -83,12 +84,64 @@
     			</section>
     			
     		<?php } ?>
+
+
+            <?php
+        elseif( get_row_layout() == 'alternating_cards_with_anchors' ): ?>
+            
+            <?php foreach( $card_w_anchor as $c ) {
+                $creative = $c['creative'];
+                $title = $c['title'];
+                $description = $c['description'];
+                $cta = $c['cta'];
+
+                    $sani = sanitize_title_with_dashes($title);
+                    $dataTitle = $title;
+                
+                ?>
+                <section class="child-card"  id="section-<?php echo $sani; ?>" data-section="<?php echo $dataTitle; ?>" >
+                    <div class="creative image-container">
+                        <div class="full-bleed-img" style="--aspect-ratio: 16/9">
+                        <img src="<?php echo $creative['url']; ?>">
+                        </div>
+                    </div>
+                    <div class="info wow fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">
+                        <h2><?php echo $title; ?></h2>
+                        <div class="desc"><?php echo $description; ?></div>
+                        <div class="btn-wrapper">
+                            <?php if( $cta ){ ?>
+                                <div class="button">
+                                    <a href="<?php echo $cta['url']; ?>" target="<?php echo $cta['target']; ?>" class="btn-sm">
+                                        <span><?php echo $cta['title']; ?></span>
+                                    </a>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+
+                </section>
+                
+            <?php } ?>
+
     		
         <?php
         elseif( get_row_layout() == 'full_bleed_image' ):
             $fb_image = get_sub_field('full_image');
+            $fb_image_title = get_sub_field('title');
+            $fb_image_icon = get_sub_field('icon');
+            if( $fb_image_title ) {
+                $sani = sanitize_title_with_dashes($fb_image_title);
+                $dataTitle = $fb_image_title;
+            }
             ?>
-            <section class="full-bleed">
+            <section class="full-bleed"  id="section-<?php echo $sani; ?>" data-section="<?php echo $dataTitle; ?>" >
+                <div class="wrapper">
+                    <div class="icon">
+                        <img src="<?php echo $fb_image_icon['url']; ?>">
+                    </div>
+                    <h2 class="stitle"><?php echo $fb_image_title; ?></h2>
+                </div>
+                
                 <div class="full-bleed-img " style="--aspect-ratio: 16/9">
                     <img src="<?php echo $fb_image['url']; ?>">
                 </div>
