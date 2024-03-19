@@ -95,11 +95,11 @@
                 $description = $c['description'];
                 $cta = $c['cta'];
 
-                    $sani = sanitize_title_with_dashes($title);
-                    $dataTitle = $title;
+                    $sani_w = sanitize_title_with_dashes($title);
+                    $dataTitle_w = $title;
                 
                 ?>
-                <section class="child-card"  id="section-<?php echo $sani; ?>" data-section="<?php echo $dataTitle; ?>" >
+                <section class="child-card"  id="section-<?php echo $sani_w; ?>" data-section="<?php echo $dataTitle_w; ?>" >
                     <div class="creative image-container">
                         <div class="full-bleed-img" style="--aspect-ratio: 16/9">
                         <img src="<?php echo $creative['url']; ?>">
@@ -130,11 +130,11 @@
             $fb_image_title = get_sub_field('title');
             $fb_image_icon = get_sub_field('icon');
             if( $fb_image_title ) {
-                $sani = sanitize_title_with_dashes($fb_image_title);
-                $dataTitle = $fb_image_title;
+                $fb_sani = sanitize_title_with_dashes($fb_image_title);
+                $fb_dataTitle = $fb_image_title;
             }
             ?>
-            <section class="full-bleed"  id="section-<?php echo $sani; ?>" data-section="<?php echo $dataTitle; ?>" >
+            <section class="full-bleed"  id="section-<?php echo $fb_sani; ?>" data-section="<?php echo $fb_dataTitle; ?>" >
                 <div class="wrapper">
                     <div class="icon">
                         <img src="<?php echo $fb_image_icon['url']; ?>">
