@@ -182,7 +182,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
                         <h2><?php echo $title_w; ?></h2>
                         <div class="desc"><?php echo $description_w; ?></div>
                         <div class="btn-wrapper">
-                            <?php if( $cta ){ ?>
+                            <?php if( $cta_w ){ ?>
                                 <div class="button">
                                     <a href="<?php echo $cta_w['url']; ?>" target="<?php echo $cta_w['target']; ?>" class="btn-sm">
                                         <span><?php echo $cta_w['title']; ?></span>
