@@ -8,7 +8,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
  *	Developed by: Lisa DeBona
  */
 jQuery(document).ready(function ($) {
-  // $('a.instr').colorbox({
+  $('.inline').colorbox({
+    inline: true,
+    width: "50%" // href:".instr",
+    // innerWidth: 300
+
+  }); // $('a.instr').colorbox({
   //    inline:true, 
   //    width:"50%",
   //    // href:".instr",
@@ -48,6 +53,7 @@ jQuery(document).ready(function ($) {
   // 	});
   // }
   // $("select#diff").on("change", vali);
+
   $("select#diff").change(function () {
     var diffResult = $(this).val();
     $('ul.items').find('li.show').removeClass('show');
@@ -366,14 +372,18 @@ jQuery(document).ready(function ($) {
         $("#pageTabs").removeClass('fixed-top');
       }
     });
-  } // if( $(".subpage-sliders").length > 0 ) {
-  // 	$('.subpage-sliders').flexslider({
-  // 		animation: "fade",
-  // 		smoothHeight: true
-  // 	});
+  }
+
+  $('.subpageSlides').flexslider({
+    animation: "fade",
+    smoothHeight: true
+  }); // if( $(".subpage-sliders").length > 0 ) {
+  // $('.subpage-sliders').flexslider({
+  // 	animation: "fade",
+  // 	smoothHeight: true
+  // });
   // }
   // tiny helper function to add breakpoints
-
 
   var getGridSize = function getGridSize() {
     return window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;

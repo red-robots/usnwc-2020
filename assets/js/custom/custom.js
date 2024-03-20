@@ -8,7 +8,12 @@ jQuery(document).ready(function ($) {
 
 
 
-
+$('.inline').colorbox({
+                        inline:true, 
+                        width:"50%",
+                        // href:".instr",
+                        // innerWidth: 300
+                      });
  // $('a.instr').colorbox({
  //    inline:true, 
  //    width:"50%",
@@ -400,12 +405,17 @@ $checkboxes.change( function() {
 	}
 
 
+    $('.subpageSlides').flexslider({
+      animation: "fade",
+      smoothHeight: true
+    });
 	// if( $(".subpage-sliders").length > 0 ) {
-	// 	$('.subpage-sliders').flexslider({
-	// 		animation: "fade",
-	// 		smoothHeight: true
-	// 	});
+		// $('.subpage-sliders').flexslider({
+		// 	animation: "fade",
+		// 	smoothHeight: true
+		// });
 	// }
+  
   
 // tiny helper function to add breakpoints
 var getGridSize = function() {

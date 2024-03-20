@@ -1,4 +1,5 @@
 <?php
+$placeholder = THEMEURI . 'images/rectangle.png';
 // Check value exists.
  if ( have_rows('section_type') ) :
 
@@ -20,7 +21,11 @@
             // $dataTitle = get_sub_field();
             $anchor_name = get_sub_field('anchor_name');
             $sDesc = get_sub_field('short_description');
+            $link_type = get_sub_field('link_type');
+            $popup_button_text = get_sub_field('popup_button_text');
+            $popup_contents = get_sub_field('popup_contents');
             $sLink = get_sub_field('calls_to_action_buttons');
+            $pop_unique = sanitize_title_with_dashes($popup_button_text);
             if( $anchor_name ) {
                 $sani = sanitize_title_with_dashes($anchor_name);
                 $dataTitle = $anchor_name;
@@ -39,16 +44,37 @@
 
                     ?>
                     <br>
-                    <div class="btn-wrapper">
-                        <?php foreach( $sLink as $nLink ){ ?>
-                            <div class="button">
-                                <a href="<?php echo $nLink['cta_link']['url']; ?>" target="<?php echo $nLink['cta_link']['target']; ?>" class="btn-sm">
-                                    <span><?php echo $nLink['cta_link']['title']; ?></span>
-                                </a>
-                            </div>
-                        <?php } ?>
-                    </div>
+                    <?php if( $link_type == 'popup' ){ ?>
+                        <div class="button">
+                            <a href="#view-this-shit" class="btn-sm inline <?php echo $pop_unique; ?>">
+                                <span><?php echo $popup_button_text; ?></span>
+                            </a>
+                        </div>
+                    <?php } else { ?>
+                        <div class="btn-wrapper">
+                            <?php foreach( $sLink as $nLink ){ ?>
+                                <div class="button">
+                                    <a href="<?php echo $nLink['cta_link']['url']; ?>" target="<?php echo $nLink['cta_link']['target']; ?>" class="btn-sm">
+                                        <span><?php echo $nLink['cta_link']['title']; ?></span>
+                                    </a>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
                 <?php } ?>
+                <div style="display: none;">
+                    <div id="" class="pup-rules <?php echo $pop_unique; ?> inline">
+                        <?php echo $popup_contents; ?>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    // $('.inline').colorbox({
+                    //     inline:true, 
+                    //     width:"50%",
+                    //     // href:".instr",
+                    //     // innerWidth: 300
+                    //   });
+                </script>
     		</section>
 
 
@@ -56,17 +82,41 @@
     	elseif( get_row_layout() == 'alternating_cards' ): ?>
     		
     		<?php foreach( $cards as $c ) {
-    			$creative = $c['creative'];
+
+    			$media_type = $c['media_type'];
+                $creative = $c['creative'];
     			$title = $c['title'];
     			$description = $c['description'];
     			$cta = $c['cta'];
+                $gallery = $c['gallery'];
+                $video = $c['video'];
     			?>
-    			<section class="child-card"  >
+    			<section class="child-card" id="ho"  >
     				<div class="creative image-container">
-                        <div class="full-bleed-img" style="--aspect-ratio: 16/9">
-    					<img src="<?php echo $creative['url']; ?>">
-                        </div>
-    				</div>
+                         <?php if( $media_type == 'gallery' ) { ?>
+                            <div id="subpageSlides" class="subpageSlides rightcol <?php echo $slider_class ?>">
+                                <ul class="slides">
+                                    <?php foreach ($gallery as $g) { ?>
+                                    <li class="sub-slide-item">
+                                        <a href="<?php echo $g['url'] ?>" class="zoomPic zoom-image" data-fancybox="gallery">
+                                            <div class="slide-image" style="background-image:url('<?php echo $g['url']?>')">
+                                                <img src="<?php echo $g['url']?>" alt="">
+                                            </div>
+                                        </a>
+                                    </li>   
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        <?php } elseif( $media_type == 'video' ) { ?>
+                            <div class="embed-container">
+                                <?php echo $video; ?>
+                            </div>
+                        <?php } else { ?>
+                            <div class="full-bleed-img" style="--aspect-ratio: 16/9">
+                               <img src="<?php echo $creative['url']; ?>">
+                            </div>
+                        <?php } ?>
+                    </div>
     				<div class="info wow fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">
     					<h2><?php echo $title; ?></h2>
             			<div class="desc"><?php echo $description; ?></div>
@@ -90,29 +140,52 @@
         elseif( get_row_layout() == 'alternating_cards_with_anchors' ): ?>
             
             <?php foreach( $card_w_anchor as $c ) {
-                $creative = $c['creative'];
-                $title = $c['title'];
-                $description = $c['description'];
-                $cta = $c['cta'];
+                $media_type_w = $c['media_type'];
+                $creative_w = $c['creative'];
+                $title_w = $c['title'];
+                $description_w = $c['description'];
+                $cta_w = $c['cta'];
+                $gallery_w = $c['gallery'];
+                $video_w = $c['video'];
 
-                    $sani_w = sanitize_title_with_dashes($title);
-                    $dataTitle_w = $title;
+                    $sani_w = sanitize_title_with_dashes($title_w);
+                    $dataTitle_w = $title_w;
                 
                 ?>
                 <section class="child-card"  id="section-<?php echo $sani_w; ?>" data-section="<?php echo $dataTitle_w; ?>" >
                     <div class="creative image-container">
-                        <div class="full-bleed-img" style="--aspect-ratio: 16/9">
-                        <img src="<?php echo $creative['url']; ?>">
-                        </div>
+                         <?php if( $media_type_w == 'gallery' ) { ?>
+                            <div id="subpageSlides" class="subpageSlides rightcol <?php echo $slider_class ?>">
+                                <ul class="slides">
+                                    <?php foreach ($gallery_w as $g) { ?>
+                                    <li class="sub-slide-item">
+                                        <a href="<?php echo $g['url'] ?>" class="zoomPic zoom-image" data-fancybox="gallery">
+                                            <div class="slide-image" style="background-image:url('<?php echo $g['url']?>')">
+                                                <img src="<?php echo $g['url']?>" alt="">
+                                            </div>
+                                        </a>
+                                    </li>   
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        <?php } elseif( $media_type_w == 'video' ) { ?>
+                            <div class="embed-container">
+                                <?php echo $video_w; ?>
+                            </div>
+                        <?php } else { ?>
+                            <div class="full-bleed-img" style="--aspect-ratio: 16/9">
+                               <img src="<?php echo $creative_w['url']; ?>">
+                            </div>
+                        <?php } ?>
                     </div>
                     <div class="info wow fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">
-                        <h2><?php echo $title; ?></h2>
-                        <div class="desc"><?php echo $description; ?></div>
+                        <h2><?php echo $title_w; ?></h2>
+                        <div class="desc"><?php echo $description_w; ?></div>
                         <div class="btn-wrapper">
                             <?php if( $cta ){ ?>
                                 <div class="button">
-                                    <a href="<?php echo $cta['url']; ?>" target="<?php echo $cta['target']; ?>" class="btn-sm">
-                                        <span><?php echo $cta['title']; ?></span>
+                                    <a href="<?php echo $cta_w['url']; ?>" target="<?php echo $cta_w['target']; ?>" class="btn-sm">
+                                        <span><?php echo $cta_w['title']; ?></span>
                                     </a>
                                 </div>
                             <?php } ?>
