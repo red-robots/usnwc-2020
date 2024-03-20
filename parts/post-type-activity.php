@@ -303,6 +303,7 @@ while ( have_posts() ) : the_post();
 			$purchase_link = get_field("purchase_link");
 			$reservation = get_field("reservation_data");
 			$singleAccPass = get_field('single_access_price');
+			$monthlyAccPass = get_field('monthly_access_price');
 			$passOptionLink = get_field('pass_options_link');
 			$passOptionLabel = get_field('pass_options_btn');
 			$singleSmDesc = get_field('single_act_desc');
@@ -348,6 +349,14 @@ while ( have_posts() ) : the_post();
 									</span>
 									<?php if( $cat_slug == 'single-activity-pass' ) { ?>
 										<div class="sap-price"><?php echo '$'.$singleAccPass; ?></div>
+										<?php if( $passOptionLink ){ ?>
+											<div class="buttondiv tothetop">
+												<a href="<?php echo $passOptionLink; ?>" class="btn-sm xs"><?php echo $passOptionLabel; ?></a>
+											</div>
+										<?php } ?>
+									<?php } ?>
+									<?php if( $cat_slug == 'monthly-off-leash-pass' ) { ?>
+										<div class="sap-price"><?php echo '$'.$monthlyAccPass; ?></div>
 										<?php if( $passOptionLink ){ ?>
 											<div class="buttondiv tothetop">
 												<a href="<?php echo $passOptionLink; ?>" class="btn-sm xs"><?php echo $passOptionLabel; ?></a>
