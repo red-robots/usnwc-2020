@@ -15009,6 +15009,7 @@ section.teasers {
 		-moz-box-shadow: 0px 4px 15px 3px rgba(0,0,0,0.76);
 		box-shadow: 0px 4px 15px 3px rgba(0,0,0,0.76);
 		line-height: 0;
+		clear: both;
 		@media screen and (min-width: $tabwidth) {
 			width: 60%;
 		}

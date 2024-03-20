@@ -277,12 +277,20 @@ $placeholder = THEMEURI . 'images/rectangle.png';
     		} ?>
     	<?php
     	elseif( get_row_layout() == 'video' ):
-    		$vid_url = get_sub_field('video');
+    		$vid_type = get_sub_field('type');
+            $vid_url = get_sub_field('video');
+            $embed = get_sub_field('embed');
     		?>
     		<div class="video-wrapper">
-	    		<video class="desktop" autoPlay loop muted playsinline  poster="https://center.whitewater.org/wp-content/uploads/2023/02/Homepage-Spring-02.jpg">
-					<source src="<?php echo $vid_url['url']; ?>" type="video/mp4">
-				</video>
+                <?php if( $vid_type == 'file' ){ ?>
+    	    		<video class="desktop" autoPlay loop muted playsinline  poster="https://center.whitewater.org/wp-content/uploads/2023/02/Homepage-Spring-02.jpg">
+    					<source src="<?php echo $vid_url['url']; ?>" type="video/mp4">
+    				</video>
+                <?php } else { ?>
+                    <div class="embed-container">
+                        <?php echo $embed; ?>
+                    </div>
+                <?php } ?>
 			</div>
         <?php elseif( get_row_layout() == 'faqs'): 
                 $faq_icon = get_sub_field('faq_section_icon');

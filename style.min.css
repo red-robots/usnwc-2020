@@ -3768,7 +3768,7 @@ section.teasers section.small-cards .small-card .image img{width:100%}
 section.teasers section.small-cards .small-card .desc{width:100%;text-align:center;padding:20px}
 section.teasers section.small-cards .small-card h3{text-transform:uppercase;font-size:20px}
 section.teasers section.small-cards .small-card p{font-size:14px}
-section.teasers .video-wrapper{width:90%;margin:0 auto;-webkit-box-shadow:0 4px 15px 3px rgba(0,0,0,0.76);box-shadow:0 4px 15px 3px rgba(0,0,0,0.76);line-height:0}
+section.teasers .video-wrapper{width:90%;margin:0 auto;-webkit-box-shadow:0 4px 15px 3px rgba(0,0,0,0.76);box-shadow:0 4px 15px 3px rgba(0,0,0,0.76);line-height:0;clear:both}
 section.teasers .video-wrapper video{width:100%}
 section.teasers .fullwidth-image{position:relative;height:100vh;width:100%;overflow:hidden;-webkit-clip-path:polygon(5% 10%,95% 10%,95% 90%,5% 90%);clip-path:polygon(5% 10%,95% 10%,95% 90%,5% 90%)}
 section.teasers .fullwidth-image img{position:absolute;inset:0;-o-object-fit:cover;object-fit:cover;height:100%;width:100%}
