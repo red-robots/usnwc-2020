@@ -112,7 +112,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
                                 <?php echo $video; ?>
                             </div>
                         <?php } else { ?>
-                            <div class="full-bleed-img" style="--aspect-ratio: 16/9">
+                            <div class="full-bleed-img">
                                <img src="<?php echo $creative['url']; ?>">
                             </div>
                         <?php } ?>
@@ -173,7 +173,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
                                 <?php echo $video_w; ?>
                             </div>
                         <?php } else { ?>
-                            <div class="full-bleed-img" style="--aspect-ratio: 16/9">
+                            <div class="full-bleed-img" >
                                <img src="<?php echo $creative_w['url']; ?>">
                             </div>
                         <?php } ?>
