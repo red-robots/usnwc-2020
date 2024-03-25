@@ -9,6 +9,14 @@ add_action('init', 'js_custom_init', 1);
 function js_custom_init() {
     $post_types = array(
         array(
+            'post_type' => 'whats-new',
+            'menu_name' => 'What\'s New',
+            'plural'    => 'What\'s New',
+            'single'    => 'What\'s New',
+            'menu_icon' => 'dashicons-sos',
+            'supports'  => array('title','editor')
+        ),
+        array(
             'post_type' => 'activity',
             'menu_name' => 'Activities',
             'plural'    => 'Activities',
