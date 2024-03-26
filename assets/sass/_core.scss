@@ -7113,10 +7113,14 @@ body.page-template-page-stories {
 				background: $red;
 				margin: 30px 0;
 			}
-			p {
+			&.noline:after {
+				height: 0;
+			}
+			p, em {
 				max-width: 900px;
 				margin: 1em auto;
 			}
+			em {display: block;}
 		}
 	}
 	.imagescol {
@@ -8129,6 +8133,7 @@ body.pageNoBanner {
 
 #carousel-images {
 	position: relative;
+	margin: 80px 0;
 	.owl-carousel {
 		position: relative;
 	}

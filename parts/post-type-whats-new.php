@@ -25,7 +25,12 @@ if( have_rows('the_story') ): ?>
 
 				        
 				        <?php elseif( get_row_layout() == 'gallery' ): 
-				            $new_galleries = get_sub_field('gallery'); ?>
+				            $new_galleries = get_sub_field('gallery'); 
+
+				            // echo '<pre>';
+				            // print_r($new_galleries);
+				            // echo '</pre>';
+				            ?>
 				            
 				            <div id="carousel-images" class="camp-caro swap">
 								<div class="loop owl-carousel owl-theme">

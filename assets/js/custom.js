@@ -13,6 +13,25 @@ jQuery(document).ready(function ($) {
     width: "50%" // href:".instr",
     // innerWidth: 300
 
+  });
+  $('.loop').owlCarousel({
+    center: true,
+    items: 2,
+    nav: true,
+    loop: true,
+    margin: 15,
+    autoplay: true,
+    smartSpeed: 1000,
+    autoplayTimeout: 10000,
+    autoplayHoverPause: true,
+    responsive: {
+      600: {
+        items: 2
+      },
+      400: {
+        items: 1
+      }
+    }
   }); // $('a.instr').colorbox({
   //    inline:true, 
   //    width:"50%",
