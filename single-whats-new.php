@@ -106,11 +106,17 @@ $post_id = get_the_ID(); ?>
 				$short_description = get_field("short_description_text");
 				$custom_post_author = get_field("custom_post_author");
 				$postdate = get_the_date('F j, Y');
+				$main_content = get_the_content();
 				?>
 				<section class="text-centered-section dark">
 					<div class="wrapper text-center">
 						<div class="page-header">
 							<h1 class="page-title"><?php the_title(); ?></h1>
+							<?php if($main_content){ ?>
+								<div class="intro-main">
+									<?php echo $main_content; ?>
+								</div>
+							<?php } ?>
 							<?php if ($custom_post_author) { ?>
 								<p class="author">By <?php echo $custom_post_author; ?></p>
 							<?php } ?>
@@ -135,34 +141,18 @@ $post_id = get_the_ID(); ?>
 
 				<?php  
 				$galleries = get_field("image_gallery");
-				$main_content = get_the_content();
+				
 				$authorId = '';
 				$author_description = get_the_author_meta('description');
 				$main_class = ($main_content && $galleries) ? 'half':'full';
 				$new_count = ($galleries) ? count($galleries) : 0;
 				$img_class = ($new_count%2) ? ' default':' twocol';
 
-				if($main_content || $galleries) { ?>
-				<section class="main-post-text  <?php echo $main_class.$img_class ?>">
-					<div class="flexwrap">
-						<?php if ($main_content) { ?>
-						<div class="textcol">
-							<div class="inside">
-								<div class="textwrap noline"><?php echo anti_email_spam( $main_content ); ?></div>
-								<?php if ($author_description) { ?>
-								<div class="author-bio"><?php echo $author_description ?></div>	
-								<?php } ?>
-							</div>
-						</div>	
-						<?php } ?>
-
-						<?php get_template_part('parts/post-type-'.$post_type); ?>
-
-						
-
-					</div>
-				</section>
-				<?php } ?>
+				
+				
+						get_template_part('parts/post-type-'.$post_type); 
+					
+				  ?>
 
 			<?php endwhile; ?>
 		</main>
