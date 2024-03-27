@@ -13594,6 +13594,7 @@ body.single-race .filter-wrapper {
 		text-indent: -999em;
 		overflow: hidden;
 		background-color: transparent;
+		z-index: 1000000;
 	}
 	#subscribeBtnIcon {
 		display: block;

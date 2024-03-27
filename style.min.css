@@ -3580,7 +3580,7 @@ body.page-template-page-race .post-type-entries .flex-inner.countItems1,body.pag
 .subscribeForm input[type="text"],.subscribeForm input[type="email"]{width:100%;height:35px;line-height:30px;border:1px solid #FFF;position:relative;background-color:#FFF;z-index:10;padding:5px 45px 5px 10px;color:#000;font-size:14px;font-weight:500}
 .subscribeForm input[type="text"]:focus,.subscribeForm input[type="email"]:focus{background-color:#FFF;border-color:#FFF;outline:0;-webkit-box-shadow:0 0 0 .2rem #ba0d30;box-shadow:0 0 0 .2rem #ba0d30}
 .subscribeForm .input-focus input[type="text"],.subscribeForm .input-focus input[type="email"]{background-color:#FFF}
-.subscribeForm input[type="submit"],.subscribeForm button{position:absolute;top:0;right:0;width:40px;height:100%;border:0;-webkit-box-shadow:none;box-shadow:none;border-radius:0;outline:0;-webkit-appearance:none;background:transparent;text-indent:-999em;overflow:hidden;background-color:transparent}
+.subscribeForm input[type="submit"],.subscribeForm button{position:absolute;top:0;right:0;width:40px;height:100%;border:0;-webkit-box-shadow:none;box-shadow:none;border-radius:0;outline:0;-webkit-appearance:none;background:transparent;text-indent:-999em;overflow:hidden;background-color:transparent;z-index:1000000}
 .subscribeForm #subscribeBtnIcon{display:block;width:40px;height:100%;position:absolute;top:0;right:0;z-index:15;cursor:pointer;text-align:center}
 .subscribeForm #subscribeBtnIcon .subicon{position:relative;color:#ba0d30;font-size:18px;top:8px}
 .subscribeForm #mce-success-response{margin-top:10px;color:#FFF}
