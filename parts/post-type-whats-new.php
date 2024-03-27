@@ -31,7 +31,7 @@ if( have_rows('the_story') ): ?>
 				            // print_r($new_galleries);
 				            // echo '</pre>';
 				            ?>
-				            
+				            <?php if( count($new_galleries) > 1 ) { ?>
 				            <div id="carousel-images" class="camp-caro swap">
 								<div class="loop owl-carousel owl-theme">
 								<?php foreach ($new_galleries as $g) { ?>
@@ -45,7 +45,11 @@ if( have_rows('the_story') ): ?>
 								<?php } ?>
 								</div>
 							</div>
-
+							<?php } else { ?>
+								<div class="single-image">
+									<img src="<?php echo $new_galleries[0]['url']?>" alt="" aria-hidden="true" />	
+								</div>
+							<?php } ?>
 				        <?php endif;
 				        ?>
 
