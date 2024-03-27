@@ -7140,9 +7140,9 @@ body.page-template-page-stories .select2-container--default .select2-results__op
 
 @media (min-width: 820px) { .main-post-text { padding-top: 100px; padding-bottom: 100px; } }
 
-.main-post-text .single-image { width: 100%; margin: 80px auto; }
+.main-post-text .single-image { width: 100%; margin: 20px auto; }
 
-@media (min-width: 820px) { .main-post-text .single-image { width: 70%; margin: 20px auto; } }
+@media (min-width: 820px) { .main-post-text .single-image { width: 70%; margin: 80px auto; } }
 
 .main-post-text .single-image img { width: 100%; }
 
