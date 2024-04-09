@@ -292,6 +292,121 @@ $placeholder = THEMEURI . 'images/rectangle.png';
                     </div>
                 <?php } ?>
 			</div>
+
+
+        <?php elseif( get_row_layout() == 'schedule'): 
+                $filter_activites = get_sub_field('festival_activities');
+                $schedule_dates = get_sub_field('schedule_dates');
+                // $filter_activites = array();
+                $selected_activities = array();
+                    foreach ($filter_activites as $a) { 
+                        // echo '<pre>';
+                        // print_r($a);
+                        // echo '<?pre>';
+                        $schedules = $a['schedule'];
+                        $day = $a['day'];
+                        // $day = $a['acf_fc_layout']['day'];
+                        $daySlug = ($day) ? sanitize_title($day) : '';
+                        if($schedules) {
+                            foreach ($schedules as $s) { 
+                                $time = $s['time'];
+                                $altText = ( isset($s['alt_text']) && $s['alt_text'] ) ? $s['alt_text']:'';
+                                $is_pop_up = ( isset($s['popup_info'][0]) && $s['popup_info'][0] ) ? true : false;
+                                $act = ( isset($s['activity']) && $s['activity'] ) ? $s['activity']:'';
+                                if($act) {
+                                    $id = $act->ID;
+                                    $act->schedule = $time;
+                                    $act->popup_info = $is_pop_up;
+                                    $act->alt_text = $altText;
+                                    if( in_array($id,$posts_selected) ) {
+                                        $filter_activites[$day][] = $act;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                // echo '<pre>';
+                // print_r($filter_activites);
+                // echo '<?pre>';
+        ?>
+            <section id="section-schedule" data-section="SCHEDULE" class="section-content">
+                <div class="wrapper">
+                    <div class="shead-icon text-center">
+                        <div class="icon"><span class="ci-menu"></span></div>
+                        <h2 class="stitle">SCHEDULE</h2>
+                        <?php if ($schedule_dates) { ?>
+                        <p class="eventDates"><?php echo $schedule_dates ?></p> 
+                        <?php } ?>
+                    </div>
+
+                    <div id="filterResults" class="full filterResults">
+                        <div id="tabSchedules" class="schedules-list-wrap">
+                            <div id="tabOptions">
+                                <ul>
+                                <?php $n=1; foreach ($filter_activites as $day=>$objs) {
+                                    // echo '<pre>';
+                                    // print_r($objs);
+                                    // echo '<?pre>';
+                                    $day = $objs['day'];
+                                    if($day) {
+                                        $tabActive = ($n==1) ? ' active':''; ?>
+                                        <li class="tablink<?php echo $tabActive?>"><a href="#" data-tab="#daygroup<?php echo $n?>"><?php echo ucwords($day)?></a></li>
+                                    <?php $n++; } ?>
+                                <?php } ?>
+                                </ul>
+                            </div>
+                            <div class="scheduleContent">
+                            <?php 
+                            $ctr=1; 
+                            // echo '<pre>';
+                            // print_r($filter_activites);
+                            foreach ($filter_activites as $day=>$newItems) {
+                            $isActive = ($ctr==1) ? ' active':'';  
+                            // echo '<pre>';
+                            // print_r($newItems);
+                            // echo '<?pre>';
+                            $items = $newItems['schedule'];
+                            ?>
+                            <div id="daygroup<?php echo $ctr?>" class="schedules-list<?php echo $isActive?>">
+                                <h3 class="day" style="display:none;"><?php echo ucwords($day) ?></h3>
+                                <ul class="items">
+                                    <?php foreach ($items as $m) {
+                                        // echo '<pre>';
+                                        // print_r($m);
+                                        // echo '<?pre>';
+                                        // $pid = $m->ID; 
+                                        // $pageLink = get_permalink($pid);
+                                        $altText = $m['alt_text'];
+                                        $time = $m['time'];
+                                        // $is_pop_up = (isset($m->popup_info) && $m->popup_info) ? true : false;
+                                        // $altText = (isset($m->alt_text) && $m->alt_text) ? $m->alt_text : '';
+                                        ?>
+                                        <li class="item">
+                                            <div class="time"><?php echo $time ?></div>
+                                            <div class="event">
+                                                <?php //if ($is_pop_up) { ?>
+                                                <!-- <a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class="actname popdata"><?php echo $activityName ?></a>  -->  
+                                                <?php //} else { ?>
+                                                <span class="actname"><?php echo $activityName ?></span>    
+                                                <?php //} ?>
+
+                                                <?php if ($altText) { ?>
+                                                <span class="alttext">(<?php echo $altText ?>)</span>
+                                                <?php } ?>
+                                            </div>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                            <?php $ctr++; } ?>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
         <?php elseif( get_row_layout() == 'faqs'): 
                 $faq_icon = get_sub_field('faq_section_icon');
                 $faq_title = get_sub_field('faq_section_title');

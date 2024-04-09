@@ -26,7 +26,7 @@ $currentPageLink = get_permalink();
 		<?php
 		$canceledImage = THEMEURI . "images/canceled.svg";
 		$postype = 'event-space';
-		$perpage = 12;
+		$perpage = -1;
 		$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 		$args = array(
 			'post_type'				=> $postype,

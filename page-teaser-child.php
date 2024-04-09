@@ -235,6 +235,18 @@ if( is_page('waiver') ) {
 
 
 /* page anchors */
+
+$(document).on("click","#tabOptions a",function(e){
+	e.preventDefault();
+	$("#tabOptions li").removeClass('active');
+	$(this).parent().addClass('active');
+	$(".schedules-list").removeClass('active');
+	var tabContent = $(this).attr("data-tab");
+	$(tabContent).addClass('active');
+});
+
+
+
 	if( $('[data-section]').length > 0 ) {
 		var tabs = '';
 		$('[data-section]').each(function(){
