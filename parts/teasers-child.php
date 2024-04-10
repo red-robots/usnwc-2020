@@ -391,7 +391,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
                                                 <?php //} ?>
 
                                                 <?php if ($altText) { ?>
-                                                <span class="alttext">(<?php echo $altText ?>)</span>
+                                                <span class="alttext"><?php echo $altText ?></span>
                                                 <?php } ?>
                                             </div>
                                         </li>
