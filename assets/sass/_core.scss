@@ -7404,6 +7404,11 @@ body.page-template-page-stories {
 		}
 	}
 }
+.hero-register-button .stats.teaser {
+	@include tab() {
+		top: 90px;
+	}
+}
 .hero-register-button {
 	.stats {
 		// display: none;
@@ -8076,13 +8081,15 @@ body.pageNoBanner {
 		min-height: 35em;
 	}
 }
-
+// .section-price-ages.teaser {
+// 	overflow: hidden;
+// }
 .section-price-ages {
 	.flexwrap {
 		margin-left: -6px;
 		margin-right: -6px;
 		padding-top: 10px;
-    padding-bottom: 10px;
+    	padding-bottom: 10px;
 	}
 	.info {
 		width: 100%;
@@ -14833,6 +14840,49 @@ section.instr-schedule {
 	.gform_wrapper.gravity-theme form#gform_398 .gform_footer input.button {
 		background-color: #000;
 		color: #fff;
+	}
+}
+.grey-section-blocks {
+	width: 100%;
+	margin: 30px 0;
+	.flexwrap {
+		
+		@include tab {
+			display: flex;
+			flex-direction: row;
+			align-content: stretch;
+			justify-content: stretch;
+		}
+	}
+	.wrap {
+		// width: 100%;
+		padding: 6px;
+		text-align: center;
+		@include tab {
+			// width: 33.33%;
+		}
+		.label {
+			font-family: $font-secondary;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 1.2;
+			color: $gray_dark;
+			margin: 0 0 8px;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+		.val {
+			font-size: 20px;
+			font-weight: 600;
+			line-height: 1.2;
+			color: $dark;
+			text-transform: uppercase;
+		}
+	}
+	.wrap {
+		height: 100%;
+		padding: 30px 15px;
+		background: $gray;
 	}
 }
 section.teasers {

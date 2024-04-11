@@ -233,25 +233,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
     		}
     		?>
     		
-    		<!-- <div class="parallax h">
-    			
-    			<div class="hero__inner">
-    				<div class="hero__images">
-    					<img src="<?php echo $pImage['url']; ?>" alt="<?php echo $pImage['alt']; ?>" class="hero__image">
-    				</div>
-    				<div class="hero__content">
-    					<div class="hero__headline">
-	    				<span>
-	    					<?php if( $title ){ ?>
-		    					<h3 style="color:<?php echo $tC; ?>">
-		    						<?php echo $title; ?>
-		    					</h3>
-		    				<?php } ?>
-	    				</span>
-	    				</div>
-	    			</div>
-    			</div>
-    		</div> -->
+    		
             <section class="fullwidth-image">
                 <div class="fullwidth-image__overlay"></div>
                 <div class="fullwidth-image__text zzz">
@@ -344,9 +326,6 @@ $placeholder = THEMEURI . 'images/rectangle.png';
                             <div id="tabOptions">
                                 <ul>
                                 <?php $n=1; foreach ($filter_activites as $day=>$objs) {
-                                    // echo '<pre>';
-                                    // print_r($objs);
-                                    // echo '<?pre>';
                                     $day = $objs['day'];
                                     if($day) {
                                         $tabActive = ($n==1) ? ' active':''; ?>
@@ -358,38 +337,21 @@ $placeholder = THEMEURI . 'images/rectangle.png';
                             <div class="scheduleContent">
                             <?php 
                             $ctr=1; 
-                            // echo '<pre>';
-                            // print_r($filter_activites);
                             foreach ($filter_activites as $day=>$newItems) {
                             $isActive = ($ctr==1) ? ' active':'';  
-                            // echo '<pre>';
-                            // print_r($newItems);
-                            // echo '<?pre>';
                             $items = $newItems['schedule'];
                             ?>
                             <div id="daygroup<?php echo $ctr?>" class="schedules-list<?php echo $isActive?>">
                                 <h3 class="day" style="display:none;"><?php echo ucwords($day) ?></h3>
                                 <ul class="items">
                                     <?php foreach ($items as $m) {
-                                        // echo '<pre>';
-                                        // print_r($m);
-                                        // echo '<?pre>';
-                                        // $pid = $m->ID; 
-                                        // $pageLink = get_permalink($pid);
                                         $altText = $m['alt_text'];
                                         $time = $m['time'];
-                                        // $is_pop_up = (isset($m->popup_info) && $m->popup_info) ? true : false;
-                                        // $altText = (isset($m->alt_text) && $m->alt_text) ? $m->alt_text : '';
                                         ?>
                                         <li class="item">
                                             <div class="time"><?php echo $time ?></div>
                                             <div class="event">
-                                                <?php //if ($is_pop_up) { ?>
-                                                <!-- <a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class="actname popdata"><?php echo $activityName ?></a>  -->  
-                                                <?php //} else { ?>
                                                 <span class="actname"><?php echo $activityName ?></span>    
-                                                <?php //} ?>
-
                                                 <?php if ($altText) { ?>
                                                 <span class="alttext"><?php echo $altText ?></span>
                                                 <?php } ?>
@@ -406,15 +368,53 @@ $placeholder = THEMEURI . 'images/rectangle.png';
                 </div>
             </section>
 
+        <?php elseif( get_row_layout() == 'information_blocks'): 
+                $blocks = get_sub_field('blocks');
+                $countClass = count($blocks);
+                if( $countClass == 1 ){
+                    $c = 'oneCol';
+                } elseif( $countClass == 2 ){
+                    $c = 'twoCols';
+                } elseif( $countClass == 3 ){
+                    $c = 'threeCols';
+                } elseif( $countClass == 4 ){
+                    $c = 'fourCols';
+                } 
+                // echo '<pre>';
+                // print_r($blocks);
+                // echo '</pre>';
+            ?>
+                <div class="section-price-ages  <?php echo $c; ?>">
+                    <div class="flexwrap">
+                        <?php foreach ( $blocks as $b ) {
+                                $bTitle = $b['blocks_title'];
+                                $bInfo = $b['blocks_info'];
+                        ?>
+                            <div class="info">
+                                <div class="wrap">
+                                    <?php if($bTitle) { ?>
+                                        <div class="label">
+                                            <?php echo $bTitle; ?>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if($bInfo) { ?>
+                                        <div class="val">
+                                            <?php echo $bInfo; ?>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+
+
+            <?php  //}  ?>
 
         <?php elseif( get_row_layout() == 'faqs'): 
                 $faq_icon = get_sub_field('faq_section_icon');
                 $faq_title = get_sub_field('faq_section_title');
                 $faq_items = get_sub_field('the_faqs');
-
-                // echo '<pre>';
-                // print_r($faq_items);
-                // echo '</pre>';
             ?>
             <section id="section-faqs" data-section="FAQ" class="section-content no-image faqs-race">
                 <div class="wrapper">
@@ -430,10 +430,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
                         <?php } ?>
 
                         <div class="faqsItems">
-                            <?php //foreach ($faqs as $q) { 
-                                // $faq_id = $q['ID'];
-                                // $faq_title = $q['title'];
-                                // $faq_items = $q['faqs'];
+                            <?php 
                                 if($faq_items) { ?>
                                         <?php $n=1; foreach ($faq_items as $f) { 
                                             $question = $f['question'];
