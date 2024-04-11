@@ -384,7 +384,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
                 // print_r($blocks);
                 // echo '</pre>';
             ?>
-                <div class="section-price-ages  <?php echo $c; ?>">
+                <div class="section-price-ages full  <?php echo $c; ?>">
                     <div class="flexwrap">
                         <?php foreach ( $blocks as $b ) {
                                 $bTitle = $b['blocks_title'];
