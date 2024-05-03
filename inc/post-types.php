@@ -14,7 +14,7 @@ function js_custom_init() {
             'plural'    => 'What\'s New',
             'single'    => 'What\'s New',
             'menu_icon' => 'dashicons-sos',
-            'supports'  => array('title','editor')
+            'supports'  => array('title','editor', 'thumbnail')
         ),
         array(
             'post_type' => 'activity',
