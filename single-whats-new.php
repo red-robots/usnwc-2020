@@ -80,7 +80,9 @@ $post_id = get_the_ID(); ?>
 
 		<?php } else { ?>
 
-			<?php if ($featImg) { 
+			<?php 
+			// if ($featImg) { 
+			if (   $chnageVariableToHide   ) { 
 				$hero_alt = get_the_title($thumbId); 
 				$photographer = get_field("photographer",$thumbId);
 				$photolocation = get_field("location",$thumbId);
