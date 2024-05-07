@@ -7134,7 +7134,11 @@ body.page-template-page-stories {
 				max-width: 900px;
 				margin: 1em auto;
 			}
-			em {display: block;}
+			em, i {
+				display: inline-block;
+				margin: 0;
+			}
+			// i {display: inline-block;}
 		}
 	}
 	.imagescol {
