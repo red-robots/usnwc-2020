@@ -3792,6 +3792,7 @@ section.teasers .fullwidth-image .fullwidth-image__text h3{opacity:0}
 .embed-container{position:relative;padding-bottom:56.25%;overflow:hidden;max-width:100%;height:auto}
 .embed-container iframe,.embed-container object,.embed-container embed{position:absolute;top:0;left:0;width:100%;height:100%}
 body.single-whats-new .main-post-text .textcol .inside{font-size:19px}
+#tribe-events-content a{color:#ba0d30}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}
