@@ -387,7 +387,7 @@ function build_taxonomies() {
       'single'    => 'Instruction Type',
       'taxonomy'  => 'instruction_type',
       'rewrite'   => 'instruction-type',
-      'query_var' => true,
+      'query_var' => false,
       'show_admin_column'=>true
     ),
     array(
@@ -423,8 +423,8 @@ function build_taxonomies() {
       'plural'    => 'Instructions Templates',
       'single'    => 'Instructions Template',
       'taxonomy'  => 'instructions-template',
-      'query_var' => false,
-      'show_admin_column'=>false
+      'query_var' => true,
+      'show_admin_column'=>true
     ),
     array(
       'post_type' => array('event-space'),

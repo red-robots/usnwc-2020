@@ -1719,11 +1719,11 @@ if ( ($pagenow == 'post.php' && get_post_type($postid) == 'instructions') ||  ($
     add_action('admin_head', 'ins_custom_admin_css');
     function ins_custom_admin_css() { ?>
     <style type="text/css">
-        #instructions-template-tabs,
+        /*#instructions-template-tabs,
         #instructions-template-add-toggle{display:none!important;}
         #instructions-template-all.tabs-panel {
             border: none;
-        }
+        }*/
     </style>
     <?php
     }
