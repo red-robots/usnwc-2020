@@ -65,7 +65,7 @@ if($registerLink) {
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<section class="text-centered-section full">
+			<!-- <section class="text-centered-section full">
 				<div class="wrapper text-center">
 					<div class="page-header">
 						<h1 class="page-title"><?php the_title(); ?></h1>
@@ -74,11 +74,12 @@ if($registerLink) {
 					<div class="text"><?php the_content(); ?></div>
 					<?php } ?>
 				</div>
+			</section> -->
+
+			<?php //get_template_part("parts/subpage-tabs"); ?>
+			<section class="teasers">
+				<?php get_template_part("parts/instructions-flexible"); ?>
 			</section>
-
-			<?php get_template_part("parts/subpage-tabs"); ?>
-
-			<?php //get_template_part("parts/instructions-".$template); ?>
 
 		<?php endwhile; ?>
 
@@ -117,6 +118,16 @@ jQuery(document).ready(function($){
 	    }
 		});
 	}
+
+	$(document).on("click","#tabOptions a",function(e){
+		e.preventDefault();
+		$("#tabOptions li").removeClass('active');
+		$(this).parent().addClass('active');
+		$(".schedules-list").removeClass('active');
+		var tabContent = $(this).attr("data-tab");
+		$(tabContent).addClass('active');
+	});
+	
 });
 </script>
 <?php

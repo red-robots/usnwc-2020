@@ -3749,6 +3749,18 @@ section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{f
 .grey-section-blocks .wrap .label{font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1.2;color:#707070;margin:0 0 8px;letter-spacing:1px;text-transform:uppercase}
 .grey-section-blocks .wrap .val{font-size:20px;font-weight:600;line-height:1.2;color:#191919;text-transform:uppercase}
 .grey-section-blocks .wrap{height:100%;padding:30px 15px;background:#f2f2f2}
+section.flexible-row{width:100%;clear:both;padding:50px 0}
+section.flexible-row .disclaimer,section.flexible-row .text-copy{max-width:50%;margin:0 auto}
+section.flexible-row .text-copy{font-size:16px}
+.email-submission form{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
+.email-submission form label{display:none !important}
+.email-submission .gform-wrapper .gfield_label{display:none}
+.email-submission .gform_body{max-width:350px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:20px}
+.email-submission .gform_footer{max-width:100px}
+.email-submission .gform_footer input.gform_button{border-radius:0;border:0;background-color:#ba0d30;color:#fff;text-transform:uppercase;padding:7px 15px}
+.icon-via-img{width:50px;margin:0 auto}
+.icon-via-img img{width:100%}
+.carousel-item-text{padding:30px;background-color:#f2f2f2;font-size:14px;width:100%;clear:both}
 section.teasers{width:100%;position:relative}
 section.teasers section.full-bleed{width:100%;margin-bottom:20px}
 section.teasers section.full-bleed [style*='--aspect-ratio']>:first-child{width:100%}

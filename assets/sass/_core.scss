@@ -14889,6 +14889,66 @@ section.instr-schedule {
 		background: $gray;
 	}
 }
+section.flexible-row {
+	width: 100%;
+	clear: both;
+	padding: 50px 0;
+	.disclaimer, .text-copy {
+		max-width: 50%;
+		margin: 0 auto;
+	}
+	.text-copy {
+		font-size: 16px;
+	}
+}
+.email-submission {
+	form {
+		display: flex;
+		flex-direction: row;
+		justify-content: start;
+		align-items: stretch;
+		label {
+			display: none !important;
+		}
+	}
+	.gform-wrapper {
+		.gfield_label {
+			display: none;
+		}
+	}
+	.gform_body {
+		max-width: 350px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-right: 20px;
+	}
+	.gform_footer {
+		max-width: 100px;
+		input.gform_button {
+			border-radius: 0;
+			border: 0;
+			background-color: $red;
+			color: #fff;
+			text-transform: uppercase;
+			padding: 7px 15px;
+		}
+	}
+}
+.icon-via-img {
+	width: 50px;
+	margin: 0  auto;
+	img {
+		width: 100%;
+	}
+}
+.carousel-item-text {
+	padding: 30px;
+	background-color: #F2F2F2;
+	font-size: 14px;
+	width: 100%;
+	clear: both;
+}
 section.teasers {
 	width: 100%;
 	position: relative;
