@@ -56,9 +56,11 @@ $placeholder = THEMEURI . 'images/rectangle.png';
         		$text_title = get_sub_field('text_title'); ?>
         		<section class="text-centered-section full">
 					<div class="wrapper text-center email-submission">
-						<div class="page-header">
-							<h1 class="page-title"><?php the_title(); ?></h1>
-						</div>
+						<?php if($text_title) { ?>
+							<div class="page-header">
+								<h1 class="page-title"><?php echo $text_title; ?></h1>
+							</div>
+						<?php } ?>
 						<div class="text" style="text-align: left;"><?php echo $text_content; ?></div>
 					</div>
 				</section>
@@ -337,7 +339,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 											$time = $m['time'];
 											$end_time = $m['end_time'];
 											$oDate = $m['date'];
-											$date = DateTime::createFromFormat('m/d/Y', $oDate);
+											$date = DateTime::createFromFormat('d/m/Y', $oDate);
 											$formatted_date = $date->format('l, F j');
 											$zoom = $m['zoom'][0];
 											if( $zoom == 'Yes' ){ $zoom = 'via Zoom';}
