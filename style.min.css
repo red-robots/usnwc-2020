@@ -3787,7 +3787,8 @@ section.teasers section.child-card .info{width:100%;background-color:#f2f2f2;fon
 section.teasers section.child-card .info h2{font-size:30px}
 section.teasers section.alt-cards,section.teasers section.child-card{width:100%;position:relative}
 section.teasers section.alt-cards .creative img,section.teasers section.child-card .creative img{width:100%}
-section.teasers section.alt-cards .info,section.teasers section.child-card .info{padding:60px 20px}
+section.teasers section.alt-cards .info,section.teasers section.child-card .info{padding:60px 20px;font-size:20px;line-height:1.7}
+section.teasers section.alt-cards .info input.button,section.teasers section.child-card .info input.button{margin-top:0}
 section.teasers section.alt-cards .info h2,section.teasers section.child-card .info h2{text-transform:uppercase}
 section.teasers section.alt-cards .info .button,section.teasers section.child-card .info .button{margin-top:20px;display:inline-block}
 section.teasers section.alt-cards .info .btn-wrapper,section.teasers section.child-card .info .btn-wrapper{width:100%;text-align:center}
@@ -4196,7 +4197,7 @@ section.teasers section.child-card .creative{width:60%}
 section.teasers section.child-card .info{width:40%}
 section.teasers section.alt-cards,section.teasers section.child-card{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
 section.teasers section.alt-cards:nth-of-type(even),section.teasers section.child-card:nth-of-type(even){-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-flow:row-reverse;flex-flow:row-reverse}
-section.teasers section.alt-cards .info,section.teasers section.child-card .info{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:40px}
+section.teasers section.alt-cards .info,section.teasers section.child-card .info{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:60px}
 section.teasers section.small-cards{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
 section.teasers section.small-cards.cardwrap{padding:20px 10%}
 section.teasers section.small-cards .small-card{width:24%;-ms-flex-preferred-size:24%;flex-basis:24%}

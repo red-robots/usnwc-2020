@@ -15116,11 +15116,16 @@ section.teasers {
 		}
 		.info {
 			padding: 60px 20px;
+			font-size: 20px;
+			line-height: 1.7;
+			input.button {
+				margin-top: 0;
+			}
 			@media screen and (min-width: $tabwidth) {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
-				padding: 40px;
+				padding: 60px;
 			}
 			h2 {
 				text-transform: uppercase;
