@@ -1396,10 +1396,10 @@ html[xmlns] .flexslider .slides{display:block}
 .owl-carousel .owl-video-playing .owl-video-play-icon,.owl-carousel .owl-video-playing .owl-video-tn{display:none}
 .owl-carousel .owl-video-tn{opacity:0;height:100%;background-position:center center;background-repeat:no-repeat;background-size:contain;-webkit-transition:opacity .4s ease;transition:opacity .4s ease}
 .owl-carousel .owl-video-frame{position:relative;z-index:1;height:100%;width:100%}
-@font-face{font-family:'custom-icon';src:url("fonts/custom-icon.eot");src:url("fonts/custom-icon.eot?#iefix") format("embedded-opentype"),url("fonts/custom-icon.woff") format("woff"),url("fonts/custom-icon.ttf") format("truetype"),url("fonts/custom-icon.svg#custom-icon") format("svg");font-weight:normal;font-style:normal}
 @font-face{font-family:'resnick';src:url("fonts/Resnick.otf");font-weight:normal;font-style:normal}
 @font-face{font-family:'resnick-extrude';src:url("fonts/Resnick-Extrude.otf");font-weight:normal;font-style:normal}
 @font-face{font-family:'resnick-outline';src:url("fonts/Resnick-Outline.otf");font-weight:normal;font-style:normal}
+@font-face{font-family:'custom-icon';src:url("fonts/custom-icon.eot");src:url("fonts/custom-icon.eot?#iefix") format("embedded-opentype"),url("fonts/custom-icon.woff") format("woff"),url("fonts/custom-icon.ttf") format("truetype"),url("fonts/custom-icon.svg#custom-icon") format("svg");font-weight:normal;font-style:normal}
 [class*='ci-']:before{display:inline-block;font-family:'custom-icon';font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .ci-backpack:before{content:'\0041'}
 .ci-board-alt:before{content:'\0042'}
@@ -1455,6 +1455,7 @@ html[xmlns] .flexslider .slides{display:block}
 .ci-wedding:before{content:'\007a'}
 .ci-yoga:before{content:'\0030'}
 .ci-zipline:before{content:'\0031'}
+.ci-off-leash:before{content:'\0032'}
 .fw-left{width:100%;float:left}
 section.route-details{background:#f2f2f2}
 section.route-details .flexwrap{padding-top:50px;padding-bottom:70px;margin-left:-30px;margin-right:-30px;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
@@ -3015,7 +3016,10 @@ body.logged-in.admin-bar .job-info-page .text-centered-section{margin-top:-5px}
 .main-faqs-icons .faq .icon{font-size:30px;line-height:1}
 .main-faqs-icons .faq .title{font-family:"Lato",sans-serif;font-size:18px;line-height:1.2;text-transform:uppercase;letter-spacing:1px}
 .main-faqs-icons .faq:hover{color:#ba0d30}
+.main-faqs-icons .faq:hover svg{fill:#ba0d30}
 .main-faqs-icons .faq.active{color:#ba0d30}
+.main-faqs-icons .faq svg{width:40px}
+.main-faqs-icons .faq svg:hover{fill:#ba0d30}
 .main-faq-items{width:100%;float:left;padding-top:60px;padding-bottom:60px;position:relative}
 .main-faq-items #loaderDiv{position:absolute !important;background:rgba(255,255,255,0.85)}
 .main-faq-items .loaderInline{position:absolute;top:20%}

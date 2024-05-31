@@ -9951,9 +9951,18 @@ body.logged-in.admin-bar {
 		}
 		&:hover {
 			color: $red;
+			svg {
+				fill: $red;
+			}
 		}
 		&.active {
 			color: $red;
+		}
+		svg {
+			width: 40px;
+			&:hover {
+				fill: $red;
+			}
 		}
 	}
 }

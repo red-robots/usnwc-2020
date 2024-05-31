@@ -1,14 +1,4 @@
 @font-face {
-    font-family: 'custom-icon';
-    src: url('fonts/custom-icon.eot');
-    src: url('fonts/custom-icon.eot?#iefix') format('embedded-opentype'),
-         url('fonts/custom-icon.woff') format('woff'),
-         url('fonts/custom-icon.ttf') format('truetype'),
-         url('fonts/custom-icon.svg#custom-icon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
     font-family: 'resnick';
     src: url('fonts/Resnick.otf');
     font-weight: normal;
@@ -26,6 +16,19 @@
     font-weight: normal;
     font-style: normal;
 }
+
+
+@font-face {
+    font-family: 'custom-icon';
+    src: url('fonts/custom-icon.eot');
+    src: url('fonts/custom-icon.eot?#iefix') format('embedded-opentype'),
+         url('fonts/custom-icon.woff') format('woff'),
+         url('fonts/custom-icon.ttf') format('truetype'),
+         url('fonts/custom-icon.svg#custom-icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 [class*='ci-']:before{
   display: inline-block;
   font-family: 'custom-icon';
@@ -96,4 +99,5 @@ See `extras.php` and look for displayCustomIcons() function.
 .ci-wedding:before{content:'\007a';}
 .ci-yoga:before{content:'\0030';}
 .ci-zipline:before{content:'\0031';}
+.ci-off-leash:before{content:'\0032';}
 /*==custom icons==*/

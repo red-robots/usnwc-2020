@@ -71,6 +71,7 @@ get_header(); ?>
 						<?php $i=1; while ( $faqs->have_posts() ) : $faqs->the_post(); 
 								$id = get_the_ID();
 								$icon = get_field("custom_icon");
+								$upload_your_own = get_field('upload_your_own');
 								$title = get_the_title();
 								if($i==1) {
 									$first_faq = $id;
@@ -89,9 +90,18 @@ get_header(); ?>
 								// var_dump($faqNum);
 							?>
 							<a href="#" data-id="<?php echo $id ?>" data-termid="<?php echo $postTermId ?>" class="faq faqGroup faqpid-<?php echo $id.$termClass ?> " <?php echo $styleIt; ?>>
-								<?php if ($icon) { ?>
-								<span class="icon"><i class="<?php echo $icon ?>"></i></span>	
+								<?php if($upload_your_own) { 
+									// echo '<pre>';
+									// print_r($upload_your_own);
+
+									?>
+									<?php echo $upload_your_own; ?>
+								<?php } else { ?>
+									<?php if ($icon) { ?>
+									<span class="icon"><i class="<?php echo $icon ?>"></i></span>	
+									<?php } ?>
 								<?php } ?>
+
 								<?php if ($title) { ?>
 								<span class="title"><?php echo $title ?></span>	
 								<?php } ?>
