@@ -3766,12 +3766,12 @@ section.flexible-row .text-copy{font-size:16px}
 .email-submission form{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
 .email-submission form label{display:none !important}
 .email-submission .gform-wrapper .gfield_label{display:none}
-.email-submission .gform_body{max-width:350px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:20px}
+.email-submission .gform_body{width:80%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:20px}
 .email-submission .gform_footer{max-width:100px}
 .email-submission .gform_footer input.gform_button{border-radius:0;border:0;background-color:#ba0d30;color:#fff;text-transform:uppercase;padding:7px 15px}
 .icon-via-img{width:50px;margin:0 auto}
 .icon-via-img img{width:100%}
-.carousel-item-text{padding:30px;background-color:#f2f2f2;font-size:14px;width:100%;clear:both}
+.carousel-item-text{padding:30px;background-color:#f2f2f2;font-size:18px;width:100%;clear:both}
 section.teasers{width:100%;position:relative}
 section.teasers section.full-bleed{width:100%;margin-bottom:20px}
 section.teasers section.full-bleed [style*='--aspect-ratio']>:first-child{width:100%}
@@ -3817,6 +3817,9 @@ section.teasers .fullwidth-image .fullwidth-image__text h3{opacity:0}
 .embed-container iframe,.embed-container object,.embed-container embed{position:absolute;top:0;left:0;width:100%;height:100%}
 body.single-whats-new .main-post-text .textcol .inside{font-size:19px}
 #tribe-events-content a{color:#ba0d30}
+.photo-flex{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.photo{width:47%;margin-bottom:30px;text-align:center}
+.photo img{width:100%}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}
@@ -4177,6 +4180,7 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 #timeline-area.timeline-wrapper .timeline .middle-line:before{content:"";display:block;width:25px;height:25px;border-radius:50%;background-color:#ba0d30;position:absolute;top:-10px;right:-12.5px}
 #timeline-area.timeline-wrapper .timeline .middle-line:after{content:"";display:block;width:7vw;border-bottom:2px solid #ba0d30;position:absolute;bottom:0;right:0;margin-right:-3.5vw;margin-bottom:-1.2vw}
 .grey-section-blocks .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-line-pack:stretch;align-content:stretch;-webkit-box-pack:stretch;-ms-flex-pack:stretch;justify-content:stretch}
+.photo{width:30%}
 }@media screen and (min-width:820px){#banner.taxonomy-banner .static-banner img.desktop{display:block}
 #banner.taxonomy-banner .static-banner img.mobile{display:none}
 .post-type-entries .imagediv.mobile{display:none}

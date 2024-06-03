@@ -14970,7 +14970,7 @@ section.flexible-row {
 		}
 	}
 	.gform_body {
-		max-width: 350px;
+		width: 80%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -14998,7 +14998,7 @@ section.flexible-row {
 .carousel-item-text {
 	padding: 30px;
 	background-color: #F2F2F2;
-	font-size: 14px;
+	font-size: 18px;
 	width: 100%;
 	clear: both;
 }
@@ -15408,3 +15408,28 @@ body.single-whats-new {
 #tribe-events-content a {
 	color: $red;
 }
+// camp photos
+.photo-flex {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	@include tab() {
+
+	}
+}
+.photo {
+	width: 47%;
+	margin-bottom: 30px;
+	text-align: center;
+	@include tab() {
+		width: 30%;
+	}
+	img {
+		width: 100%;
+	}
+}
+// camp photos
+
+

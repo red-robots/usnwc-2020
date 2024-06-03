@@ -200,6 +200,15 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-location-alt',
             'supports'  => array('title','editor','comments')
         ),
+        array(
+            'post_type' => 'camp_photos',
+            'menu_name' => 'Camp Photos',
+            'plural'    => 'Camp Photos',
+            'single'    => 'Camp Photos',
+            'menu_icon' => 'dashicons-location-alt',
+            'supports'  => array('title','editor', 'page-attributes'),
+            'hierarchical' => true
+        ),
     );
     
     if($post_types) {
@@ -207,7 +216,9 @@ function js_custom_init() {
             $p_type = ( isset($p['post_type']) && $p['post_type'] ) ? $p['post_type'] : ""; 
             $single_name = ( isset($p['single']) && $p['single'] ) ? $p['single'] : "Custom Post"; 
             $plural_name = ( isset($p['plural']) && $p['plural'] ) ? $p['plural'] : "Custom Post"; 
-            $menu_name = ( isset($p['menu_name']) && $p['menu_name'] ) ? $p['menu_name'] : $p['plural']; 
+            
+            $menu_name = ( isset($p['menu_name']) && $p['menu_name'] ) ? $p['menu_name'] : $p['plural'];
+            $hierarchical = ( isset($p['hierarchical']) && $p['hierarchical'] ) ? true : false;
             $menu_icon = ( isset($p['menu_icon']) && $p['menu_icon'] ) ? $p['menu_icon'] : "dashicons-admin-post"; 
             $supports = ( isset($p['supports']) && $p['supports'] ) ? $p['supports'] : array('title','editor','custom-fields','thumbnail'); 
             $taxonomies = ( isset($p['taxonomies']) && $p['taxonomies'] ) ? $p['taxonomies'] : array(); 
@@ -243,7 +254,7 @@ function js_custom_init() {
                     'rewrite' => true,
                     'capability_type' => 'post',
                     'has_archive' => false, 
-                    'hierarchical' => false, // 'false' acts like posts 'true' acts like pages
+                    'hierarchical' => $hierarchical, // 'false' acts like posts 'true' acts like pages
                     'menu_position' => $menu_position,
                     'menu_icon'=> $menu_icon,
                     'supports' => $supports

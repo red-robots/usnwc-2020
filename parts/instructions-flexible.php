@@ -149,7 +149,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 								<div class="image" >
 									<img src="<?php echo $photo; ?>" alt=""  />
 								</div>
-								<div class="carousel-item-text">
+								<div class="carousel-item-text js-blocks">
 									<?php echo $info; ?>
 								</div>
 							</div>
