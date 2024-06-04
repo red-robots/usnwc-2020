@@ -93,7 +93,7 @@ if($registerLink) {
 </div><!-- #primary -->
 
 
-<?php get_template_part("parts/similar-posts"); ?>
+<?php //get_template_part("parts/similar-posts"); ?>
 
 
 <script type="text/javascript">
@@ -127,7 +127,7 @@ jQuery(document).ready(function($){
 		var tabContent = $(this).attr("data-tab");
 		$(tabContent).addClass('active');
 	});
-	
+
 });
 </script>
 <?php
