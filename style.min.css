@@ -3754,7 +3754,10 @@ section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{f
 .teaser-overlay .text-centered-section h1,.teaser-overlay .text-centered-section p{text-shadow:2px 2px 11px rgba(0,0,0,0.62)}
 .teaser-overlay .text-centered-section p{margin-top:0}
 .teaser-overlay h1:after{background:#fff}
-.teaser-overlay .gform_wrapper.gravity-theme form#gform_398 .gform_footer input.button{background-color:#000;color:#fff}
+.teaser-overlay .gform_wrapper.gravity-theme form#gform_398 .gform_footer input.button,.teaser-overlay .gform_wrapper.gravity-theme form#gform_426 .gform_footer input.button{background-color:#000;color:#fff}
+.teaser-overlay form{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin:0 auto;width:auto;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.teaser-overlay .gform_wrapper.gravity-theme .gform_footer{padding:0;margin:0}
+.teaser-overlay .gform_wrapper.gravity-theme .gform_footer input.gform_button{border:0;-webkit-box-shadow:none;box-shadow:none;padding:5px 15px 8px 15px;margin-bottom:0;margin-left:20px}
 .grey-section-blocks{width:100%;margin:30px 0}
 .grey-section-blocks .wrap{padding:6px;text-align:center}
 .grey-section-blocks .wrap .label{font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1.2;color:#707070;margin:0 0 8px;letter-spacing:1px;text-transform:uppercase}

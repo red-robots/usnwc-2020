@@ -14894,10 +14894,34 @@ section.instr-schedule {
 	h1:after {
 		background: #fff;
 	}
-	.gform_wrapper.gravity-theme form#gform_398 .gform_footer input.button {
+	.gform_wrapper.gravity-theme form#gform_398 .gform_footer input.button,
+	.gform_wrapper.gravity-theme form#gform_426 .gform_footer input.button {
 		background-color: #000;
 		color: #fff;
 	}
+	.ginput_container {
+		// max-width: 400px;
+	}
+	form {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin: 0 auto;
+		width: auto;
+		justify-content: center;
+	}
+	.gform_wrapper.gravity-theme .gform_footer {
+		padding: 0;
+		margin: 0;
+		input.gform_button {
+			border: 0;
+			box-shadow: none;
+			padding: 5px 15px 8px 15px;
+			margin-bottom: 0;
+			margin-left: 20px;
+		}
+	}
+	
 }
 .grey-section-blocks {
 	width: 100%;
