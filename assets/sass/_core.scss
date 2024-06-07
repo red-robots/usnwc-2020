@@ -15131,6 +15131,7 @@ section.teasers {
 	section.alt-cards, section.child-card {
 		width: 100%;
 		position: relative;
+		clear: both;
 		@media screen and (min-width: $tabwidth) {
 			display: flex;
 			flex-direction: row;

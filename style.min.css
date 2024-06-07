@@ -3792,7 +3792,7 @@ section.teasers section.alt-cards .info{width:100%}
 section.teasers section.child-card .creative{width:100%;position:relative;overflow:hidden}
 section.teasers section.child-card .info{width:100%;background-color:#f2f2f2;font-size:16px}
 section.teasers section.child-card .info h2{font-size:30px}
-section.teasers section.alt-cards,section.teasers section.child-card{width:100%;position:relative}
+section.teasers section.alt-cards,section.teasers section.child-card{width:100%;position:relative;clear:both}
 section.teasers section.alt-cards .creative img,section.teasers section.child-card .creative img{width:100%}
 section.teasers section.alt-cards .info,section.teasers section.child-card .info{padding:60px 20px;font-size:20px;line-height:1.7}
 section.teasers section.alt-cards .info input.button,section.teasers section.child-card .info input.button{margin-top:0}
