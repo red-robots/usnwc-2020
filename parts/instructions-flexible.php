@@ -87,9 +87,21 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 
 
         <?php elseif( get_row_layout() == 'gallery'): 
-        		$photo_gallery = get_sub_field('photo_gallery'); ?>
+        		$photo_gallery = get_sub_field('photo_gallery');
+        		$hide = get_sub_field('hide_on_mobile');
+        		if( $hide[0] == 'Hide' ) {
+        			$hideClass = 'hide-gal';
+        		} else {
+        			$hideClass ='lll';
+        		}
 
-        		<section class="gallery-section full">
+        		 ?>
+
+        		<section class="gallery-section full <?php echo $hideClass; ?>">
+        			<?php 
+        			// echo '<pre>';
+        			// print_r($hide);
+        			 ?>
 						<div class="flexslider swap">
 							<ul class="slides">
 								<?php foreach ($photo_gallery as $g) { ?>

@@ -15385,6 +15385,12 @@ section.teasers {
 .lottie {
 	// margin-top: 15px;
 }
+.hide-gal {
+	display: none;
+	@include tab() {
+		display: block;
+	}
+}
 .gform_wrapper.gravity-theme {
 	form#gform_398 {
 		.gform_body {

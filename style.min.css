@@ -3813,6 +3813,7 @@ section.teasers .fullwidth-image img{position:absolute;inset:0;-o-object-fit:cov
 section.teasers .fullwidth-image .fullwidth-image__overlay{position:absolute;inset:0;z-index:2;background-color:#000;opacity:0}
 section.teasers .fullwidth-image .fullwidth-image__text{width:100%;height:100%;position:absolute;top:0;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;z-index:3;color:#fff}
 section.teasers .fullwidth-image .fullwidth-image__text h3{opacity:0}
+.hide-gal{display:none}
 .gform_wrapper.gravity-theme form#gform_398 .gform_body{max-width:400px;display:inline-block}
 .gform_wrapper.gravity-theme form#gform_398 .gform_footer{display:inline-block;width:auto}
 .gform_wrapper.gravity-theme form#gform_398 .gform_footer input.button{border-radius:0;color:#fff;background-color:#ba0d30;border:0;padding:12px 10px 9px 10px;line-height:1.6;font-size:12px;text-transform:uppercase}
@@ -4183,6 +4184,7 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 #timeline-area.timeline-wrapper .timeline .middle-line:before{content:"";display:block;width:25px;height:25px;border-radius:50%;background-color:#ba0d30;position:absolute;top:-10px;right:-12.5px}
 #timeline-area.timeline-wrapper .timeline .middle-line:after{content:"";display:block;width:7vw;border-bottom:2px solid #ba0d30;position:absolute;bottom:0;right:0;margin-right:-3.5vw;margin-bottom:-1.2vw}
 .grey-section-blocks .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-line-pack:stretch;align-content:stretch;-webkit-box-pack:stretch;-ms-flex-pack:stretch;justify-content:stretch}
+.hide-gal{display:block}
 .photo{width:30%}
 }@media screen and (min-width:820px){#banner.taxonomy-banner .static-banner img.desktop{display:block}
 #banner.taxonomy-banner .static-banner img.mobile{display:none}
