@@ -14033,12 +14033,12 @@ ul.items {
 		width: 100% !important;
 	}
 }
-.camp-caro.swap {
-	display: none;
-	@media screen and (min-width: $tabwidth) {
-		display: block;
-	}
-}
+// .camp-caro.swap {
+// 	display: none;
+// 	@media screen and (min-width: $tabwidth) {
+// 		display: block;
+// 	}
+// }
 .flexslider.swap {
 	@media screen and (min-width: $tabwidth) {
 		display: none;
@@ -15020,11 +15020,21 @@ section.flexible-row {
 	}
 }
 .carousel-item-text {
-	padding: 30px;
+	padding: 10px;
 	background-color: #F2F2F2;
 	font-size: 18px;
 	width: 100%;
 	clear: both;
+	@include tab() {
+		padding: 30px;
+	}
+	h3 {
+		font-size: 1.2rem;
+		font-weight: bold;
+		@include tab() {
+			font-size: 1.75rem;
+		}
+	}
 }
 section.teasers {
 	width: 100%;

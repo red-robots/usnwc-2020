@@ -102,15 +102,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
         			// echo '<pre>';
         			// print_r($hide);
         			 ?>
-						<div class="flexslider swap">
-							<ul class="slides">
-								<?php foreach ($photo_gallery as $g) { ?>
-									<li>
-										<img src="<?php echo $g['url']; ?>" alt="" aria-hidden="true" />
-									</li>
-								<?php } ?>
-							</ul>
-						</div>
+						
 
 					<div id="carousel-images" class="camp-caro swap">
 						<div class="loop owl-carousel owl-theme">
@@ -133,23 +125,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
         		// echo '</pre>';
 		?>
         		<section class="gallery-section full">
-						<!-- <div class="flexslider swap">
-							<ul class="slides">
-								<?php foreach ($card as $g) { 
-										$photo = $g['photo']['url'];
-										$info = $g['info'];
-									?>
-									<li>
-										<div class="flex-card">
-											<img src="<?php echo $g['url']; ?>" alt="" aria-hidden="true" />
-											<div class="info">
-												<?php echo $info; ?>
-											</div>
-										</div>
-									</li>
-								<?php } ?>
-							</ul>
-						</div> -->
+						
 
 					<div id="carousel-images" class="camp-caro swap">
 						<div class="loop owl-carousel owl-theme">

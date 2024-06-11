@@ -3644,7 +3644,6 @@ ul.items .show{display:block}
 .diff-filter-wrap.hide{max-width:0}
 .diff-filter-wrap.show{max-width:1000px}
 #fi .select2-container.show{width:100% !important}
-.camp-caro.swap{display:none}
 .gform_body p{width:100%;float:left}
 .gform_body ul.gfield_checkbox li.gchoice{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;justify-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .gform_body ul.gfield_checkbox li.gchoice br{display:none}
@@ -3774,7 +3773,8 @@ section.flexible-row .text-copy{font-size:16px}
 .email-submission .gform_footer input.gform_button{border-radius:0;border:0;background-color:#ba0d30;color:#fff;text-transform:uppercase;padding:7px 15px}
 .icon-via-img{width:50px;margin:0 auto}
 .icon-via-img img{width:100%}
-.carousel-item-text{padding:30px;background-color:#f2f2f2;font-size:18px;width:100%;clear:both}
+.carousel-item-text{padding:10px;background-color:#f2f2f2;font-size:18px;width:100%;clear:both}
+.carousel-item-text h3{font-size:1.2rem;font-weight:bold}
 section.teasers{width:100%;position:relative}
 section.teasers section.full-bleed{width:100%;margin-bottom:20px}
 section.teasers section.full-bleed [style*='--aspect-ratio']>:first-child{width:100%}
@@ -4184,6 +4184,8 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 #timeline-area.timeline-wrapper .timeline .middle-line:before{content:"";display:block;width:25px;height:25px;border-radius:50%;background-color:#ba0d30;position:absolute;top:-10px;right:-12.5px}
 #timeline-area.timeline-wrapper .timeline .middle-line:after{content:"";display:block;width:7vw;border-bottom:2px solid #ba0d30;position:absolute;bottom:0;right:0;margin-right:-3.5vw;margin-bottom:-1.2vw}
 .grey-section-blocks .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-line-pack:stretch;align-content:stretch;-webkit-box-pack:stretch;-ms-flex-pack:stretch;justify-content:stretch}
+.carousel-item-text{padding:30px}
+.carousel-item-text h3{font-size:1.75rem}
 .hide-gal{display:block}
 .photo{width:30%}
 }@media screen and (min-width:820px){#banner.taxonomy-banner .static-banner img.desktop{display:block}
@@ -4193,7 +4195,6 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 .hero-register-button .stats{position:absolute;top:85px;left:0}
 .double-filter-wrapper .inside{width:45%;float:left;padding:2.5%}
 .double-filter-wrapper .filter-wrapper .select,.double-filter-wrapper .filter-wrapper .select-wrap.align-middle{width:100%}
-.camp-caro.swap{display:block}
 .flexslider.swap{display:none}
 .prenav li.umbrella{background-size:150px 23px}
 .prenav a{padding:8px 60px}

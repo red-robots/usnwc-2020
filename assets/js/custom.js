@@ -26,7 +26,7 @@ jQuery(document).ready(function ($) {
     autoplayHoverPause: true,
     responsive: {
       600: {
-        items: 2
+        items: 1
       },
       400: {
         items: 1
