@@ -1,6 +1,6 @@
 <?php 
 if( is_faqs_visible() ) {
-	
+	// echo 'we have faqa';
 	$postid = get_the_ID();
 	$faq_image = get_field("faq_image"); 
 	//$faqsIds = get_faqs_by_single_post($postid);

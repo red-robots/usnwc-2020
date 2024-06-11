@@ -329,6 +329,7 @@ if( $passport == 'all' ) {
 				<?php /* FAQ */ ?>
 				<?php 
 				$faq_title = get_field("faq_title");
+				$post_id = get_the_ID();
 				if( $faqs = get_faq_listings($post_id) ) { ?>
 					<?php
 						$customFAQTitle = $faq_title;
