@@ -3765,10 +3765,8 @@ section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{f
 section.flexible-row{width:100%;clear:both;padding:50px 0}
 section.flexible-row .disclaimer,section.flexible-row .text-copy{max-width:50%;margin:0 auto}
 section.flexible-row .text-copy{font-size:16px}
-.email-submission form{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
 .email-submission form label{display:none !important}
 .email-submission .gform-wrapper .gfield_label{display:none}
-.email-submission .gform_body{width:80%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:20px}
 .email-submission .gform_footer{max-width:100px}
 .email-submission .gform_footer input.gform_button{border-radius:0;border:0;background-color:#ba0d30;color:#fff;text-transform:uppercase;padding:7px 15px}
 .icon-via-img{width:50px;margin:0 auto}
@@ -4184,6 +4182,8 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 #timeline-area.timeline-wrapper .timeline .middle-line:before{content:"";display:block;width:25px;height:25px;border-radius:50%;background-color:#ba0d30;position:absolute;top:-10px;right:-12.5px}
 #timeline-area.timeline-wrapper .timeline .middle-line:after{content:"";display:block;width:7vw;border-bottom:2px solid #ba0d30;position:absolute;bottom:0;right:0;margin-right:-3.5vw;margin-bottom:-1.2vw}
 .grey-section-blocks .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-line-pack:stretch;align-content:stretch;-webkit-box-pack:stretch;-ms-flex-pack:stretch;justify-content:stretch}
+.email-submission form{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}
+.email-submission .gform_body{width:80%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:20px}
 .carousel-item-text{padding:30px}
 .carousel-item-text h3{font-size:1.75rem}
 .hide-gal{display:block}

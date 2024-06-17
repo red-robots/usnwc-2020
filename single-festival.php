@@ -85,7 +85,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 			<?php 
 				if( $galleries = get_field("gallery") ) { ?>
 					<section class="gallery-section full">
-						<div class="flexslider swap">
+						<!-- <div class="flexslider swap">
 							<ul class="slides">
 								<?php foreach ($galleries as $g) { ?>
 									<li>
@@ -93,7 +93,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 									</li>
 								<?php } ?>
 							</ul>
-						</div>
+						</div> -->
 
 					<div id="carousel-images" class="camp-caro swap">
 						<div class="loop owl-carousel owl-theme">
