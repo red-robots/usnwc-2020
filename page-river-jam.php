@@ -107,9 +107,9 @@ $rectangle = THEMEURI . "images/rectangle-lg.png";
 						</div>
 
 						<?php /* SCHEDULE */ 
-								// echo '<pre>';
-								// print_r($showRelated);
-								// echo '</pre>';
+								echo '<pre>';
+								print_r($showRelated);
+								echo '</pre>';
 
 						?>
 						<?php if ( $schedules && $is_festival !== 'yes' ) { ?>
