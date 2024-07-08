@@ -98,10 +98,10 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 										<div class="pass-name"><?php echo $p->post_title ?></div>
 										<div class="price">
 											<?php if ($adult) { ?>
-											<div class="adult-price pr">Adult &ndash; <?php echo $adult ?></div>	
+											<div class="adult-price pr"><?php echo $adult ?></div>	
 											<?php } ?>
 											<?php if ($young) { ?>
-											<div class="young-price pr">Youth &ndash; <?php echo $young ?></div>	
+											<div class="young-price pr"><?php echo $young ?></div>	
 											<?php } ?>
 
 											<?php if( $passport ) { ?>
