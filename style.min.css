@@ -3730,7 +3730,7 @@ ul.items .show{display:block}
 .prenav a{color:#fff;padding:8px 28px;text-decoration:none;font-size:16px;font-weight:bold;text-transform:uppercase;display:block}
 .fs-rest.fs-wrap.multiple .fs-option{float:left;width:100%;padding:0}
 .fs-rest label.chexbox{background-color:white;width:100%;color:#000;text-align:left}
-.text-center .button.inline{width:auto;display:inline-block;margin-top:20px}
+.text-center .button.inline-btn{width:auto;display:inline-block;margin-top:20px}
 .instr-details{padding:20px;background-color:#fff;width:90%}
 body.page-template-page-instruction-single h2.programs{padding:50px 0 20px 0;text-transform:uppercase}
 section.instr-schedule{width:100%;padding:40px 0;float:left}

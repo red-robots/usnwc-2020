@@ -61,21 +61,21 @@ $textImageData = get_field("textImageCol");
 
 							<div class="text-center">
 							<?php if ($details) { ?>
-								<div class="button inline">
+								<div class="button inline-btn">
 									<a href="#instr-details<?php echo $i; ?>" class="btn-sm xs instr" id="inline">
 										<span>See Details</span>
 									</a>
 								</div>
 							<?php } ?>
 							<?php if ($passport_product !== 'none') { ?>
-								<div class="button inline">
+								<div class="button inline-btn">
 									<a <?php echo $pp; ?> href="#" class="btn-sm xs instr">
 										<span>Register</span>
 									</a>
 								</div>
 							<?php } ?>
 							<?php if ($inquiry) { ?>
-								<div class="button inline">
+								<div class="button inline-btn">
 									<a href="<?php echo $inquiry['url'] ?>" class="btn-sm xs instr" target="<?php echo $inquiry['target'] ?>">
 										<span><?php echo $inquiry['title'] ?></span>
 									</a>
