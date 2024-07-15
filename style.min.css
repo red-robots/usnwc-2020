@@ -3765,6 +3765,7 @@ section.instr-schedule .day .row .left,section.instr-schedule .day .row .right{f
 section.flexible-row{width:100%;clear:both;padding:50px 0}
 section.flexible-row .disclaimer,section.flexible-row .text-copy{max-width:50%;margin:0 auto}
 section.flexible-row .text-copy{font-size:16px}
+.gform_wrapper input.gform_button{border-radius:0;border:0;background-color:#ba0d30;color:#fff;text-transform:uppercase;padding:7px 15px}
 .email-submission form label{display:none !important}
 .email-submission .gform-wrapper .gfield_label{display:none}
 .email-submission .gform_footer{max-width:100px}

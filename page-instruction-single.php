@@ -81,7 +81,7 @@ if( $passport == 'all' ) {
 				<div class="intro-text-wrap">
 					<div class="wrapper">
 						<h1 class="page-title"><span><?php the_title(); ?></span></h1>
-						<div class="intro-text"><?php the_content(); ?></div>
+						<div class="intro-text" style="text-align: left;"><?php the_content(); ?></div>
 					</div>
 				</div>
 			<?php } ?>

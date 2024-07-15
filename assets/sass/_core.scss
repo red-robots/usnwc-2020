@@ -14978,7 +14978,18 @@ section.flexible-row {
 		font-size: 16px;
 	}
 }
+.gform_wrapper {
+	input.gform_button {
+		border-radius: 0;
+		border: 0;
+		background-color: $red;
+		color: #fff;
+		text-transform: uppercase;
+		padding: 7px 15px;
+	}
+}
 .email-submission {
+ 
 	form {
 		@include tab() {
 			display: flex;

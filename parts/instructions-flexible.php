@@ -55,7 +55,7 @@ $placeholder = THEMEURI . 'images/rectangle.png';
         		$text_content = get_sub_field('text_content');
         		$text_title = get_sub_field('text_title'); ?>
         		<section class="text-centered-section full">
-					<div class="wrapper text-center email-submission">
+					<div class="wrapper text-center email-submissionz">
 						<?php if($text_title) { ?>
 							<div class="page-header">
 								<h1 class="page-title"><?php echo $text_title; ?></h1>
