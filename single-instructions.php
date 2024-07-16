@@ -14,7 +14,7 @@ $regiserTarget = ( isset($register['target']) && $register['target'] ) ? $regist
 
 $passport = get_field('passport_btn');
 $passLabel = get_field('passport_label');
-$idArray = array('40','41','42','43','53','54','55','56','57','58','59');
+$idArray = array('40','41','42','43','53','54','55','56','57','58','59', '412');
 if( $passport == 'all' ) {
 	$pp = 'data-accesso-launch';
 } elseif(in_array($passport, $idArray )) {
