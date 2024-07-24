@@ -32,7 +32,7 @@ if( have_rows('the_story') ): ?>
 				            // echo '</pre>';
 				            ?>
 				            <?php if( count($new_galleries) > 1 ) { ?>
-				            <div id="carousel-images" class="camp-carozzz swap">
+				            <div id="carousel-images" class="camp-caro swap">
 								<div class="loop owl-carousel owl-theme">
 								<?php foreach ($new_galleries as $g) { ?>
 									<div class="item">

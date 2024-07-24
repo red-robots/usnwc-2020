@@ -26,9 +26,10 @@ $('.loop').owlCarousel({
     smartSpeed: 1000,
     autoplayTimeout:10000,
     autoplayHoverPause:true,
+    // stagePadding: 20,
     responsive:{
       600:{
-        items:1
+        items:2
       },
       400:{
         items:1
