@@ -345,8 +345,8 @@ get_template_part("parts/subpage-banner");
 
 				<div class="form-content">
 					<div class="wrapper narrow">
-						<?php include( locate_template('parts/salesforce-fieldtrip.php') ); ?>
-						<?php //echo $form_content ?>
+						<?php //include( locate_template('parts/salesforce-fieldtrip.php') ); ?>
+						<?php echo $form_content ?>
 					</div>
 				</div>
 			</div>
