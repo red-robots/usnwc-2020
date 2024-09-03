@@ -198,12 +198,14 @@ get_template_part("parts/subpage-banner");
 				<div id="data-container">
 					<div class="posts-inner">
 						<div class="flex-inner">
-							<?php foreach ($repeater_blocks as $e) { 
+							<?php $i=1; foreach ($repeater_blocks as $e) { 
 								$title = $e['title'];
 								$description = $e['text'];
 								$thumbImage = $e['image'];
 								$grades2 = $e['grades'];
 								$hours = $e['hours'];
+								$popup_button_label_two = $e['popup_button_label_2'];
+								$popup_content_two = $e['popup_content_2'];
 								//$display_option = ($e['display_option']) ? 'fullwidth' : 'normal';
 								$blockWidth = ( isset($e['blockWidth']) && $e['blockWidth'] ) ? $e['blockWidth'] : '';
 								$display_option = ($blockWidth) ? ' style="width:'.$blockWidth.'%"':'';
@@ -243,12 +245,40 @@ get_template_part("parts/subpage-banner");
 												</div>
 												<?php } ?>
 
+												<?php if( $popup_content_two && $popup_button_label_two ) { ?>
+													<div class="titlediv">
+														<div class="buttondiv">
+															<a data-toggle="modal" data-target="#entryBlock<?php echo $i?>ModalClasses" class="btn-sm xs">
+																<span><?php echo $popup_button_label_two; ?></span>
+															</a>
+														</div>
+													</div>
+													<!-- DETAILS -->
+													<div class="modal customModal fade" id="entryBlock<?php echo $i?>ModalClasses" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+													  <div class="modal-dialog modal-lg" role="document">
+													    <div class="modal-content">
+													      <div class="modal-header">
+													        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													          <span aria-hidden="true">&times;</span>
+													        </button>
+													      </div>
+													      <div class="modal-body">
+															<div class="modalText">
+													      		<div class="text"><?php echo $popup_content_two; ?></div>
+													      	</div>
+													      </div>
+													    </div>
+													  </div>
+													</div>
+													
+												<?php } ?>
+
 											</div>
 										</div>
 
 									</div>
 								</div>
-							<?php } ?>
+							<?php $i++; } ?>
 						</div>
 					</div>
 				</div>
