@@ -77,8 +77,8 @@ if($camp_activities) { ?>
 					      		<div class="text"><?php echo $description ?></div>
 					      		<?php if ($buttonName && $buttonLink) { ?>
 					      			<div class="buttondiv text-center">
-												<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $buttonName ?></span></a>
-											</div>
+										<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm"><span><?php echo $buttonName ?></span></a>
+									</div>
 					      		<?php } ?>
 					      	</div>
 					      </div>

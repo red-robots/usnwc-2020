@@ -85,11 +85,13 @@ get_template_part("parts/subpage-banner");
 
 			<div class="columns-wrapper">
 				<div class="flexwrap">
-					<?php foreach ($prog_repeater_blocks as $p) {
+					<?php $i=1; foreach ($prog_repeater_blocks as $p) {
 						$p_image = $p['image']; 
 						$p_title = $p['title']; 
 						$p_text = $p['text']; 
 						$p_features = $p['features']; 
+						$popup_button_label = $p['popup_button_label'];
+						$popup_content = $p['popup_content'];
 						$p_price = $p['price']; 
 						$haspic = ($p_image) ? 'haspic':'nopic';
 						$link = (isset($p['pagelink']['url']) && $p['pagelink']['url']) ? $p['pagelink']['url'] : '';
@@ -133,6 +135,33 @@ get_template_part("parts/subpage-banner");
 								</div>
 								<?php } ?>
 
+								<?php if( $popup_content && $popup_button_label ) { ?>
+									<div class="titlediv">
+										<p class="name"><?php echo $title ?></p>
+										<div class="buttondiv">
+											<a data-toggle="modal" data-target="#entryBlock<?php echo $i?>Modal" class="btn-sm xs"><span><?php echo $popup_button_label ?></span></a>
+										</div>
+									</div>
+
+									<!-- DETAILS -->
+									<div class="modal customModal fade" id="entryBlock<?php echo $i?>Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog modal-lg" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									          <span aria-hidden="true">&times;</span>
+									        </button>
+									      </div>
+									      <div class="modal-body">
+											<div class="modalText">
+									      		<div class="text"><?php echo $popup_content; ?></div>
+									      	</div>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+								<?php } ?>
+
 								<?php if ($p_price) { ?>
 									<div class="price"><span><?php echo $p_price ?></span></div>
 								<?php } ?>
@@ -146,7 +175,7 @@ get_template_part("parts/subpage-banner");
 							</div>
 						</div>
 					</div>
-					<?php } ?>
+					<?php $i++; } ?>
 				</div>
 			</div>
 		</section>
