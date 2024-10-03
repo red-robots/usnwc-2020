@@ -12,7 +12,9 @@ $args = array(
 	'post_type'        => 'whats-new',
 	'post_status'      => 'publish',
 	'facetwp' 				 => true,
-	'paged'			   		 => $paged
+	'paged'			   		 => $paged,
+	'orderby' => 'post_date',
+	'order' => 'DESC'
 );
 
 $get_is_all = array();
