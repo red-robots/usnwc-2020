@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php bloginfo("template_url") ?>/css/select2.min.css">
 <meta name="facebook-domain-verification" content="vcbl42j06vfl4vocp07qka3fcdtyir" />
+
+<link rel="stylesheet" href="https://use.typekit.net/wpd4otp.css">
+
+
 <?php if ( is_singular(array('post')) ) { 
 global $post;
 $post_id = $post->ID;
