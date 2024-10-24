@@ -1400,6 +1400,7 @@ html[xmlns] .flexslider .slides{display:block}
 @font-face{font-family:'resnick-extrude';src:url("fonts/Resnick-Extrude.otf");font-weight:normal;font-style:normal}
 @font-face{font-family:'resnick-outline';src:url("fonts/Resnick-Outline.otf");font-weight:normal;font-style:normal}
 @font-face{font-family:'custom-icon';src:url("fonts/custom-icon.eot");src:url("fonts/custom-icon.eot?#iefix") format("embedded-opentype"),url("fonts/custom-icon.woff") format("woff"),url("fonts/custom-icon.ttf") format("truetype"),url("fonts/custom-icon.svg#custom-icon") format("svg");font-weight:normal;font-style:normal}
+@font-face{font-family:"novecento-sans-narrow",sans-serif;font-style:normal}
 [class*='ci-']:before{display:inline-block;font-family:'custom-icon';font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .ci-backpack:before{content:'\0041'}
 .ci-board-alt:before{content:'\0042'}
@@ -3823,6 +3824,36 @@ body.single-whats-new .main-post-text .textcol .inside{font-size:19px}
 .photo-flex{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .photo{width:47%;margin-bottom:30px;text-align:center}
 .photo img{width:100%}
+body.postid-2350 .main-description{color:#7f7c73}
+body.postid-2350 #pageTabs a,body.postid-2350 .title-w-icon h2,body.postid-2350 h2.stitle,body.postid-2350 .stitle,body.postid-2350 .text-and-image-blocks .textcol .mstitle,body.postid-2350 .sectionTitle,body.postid-2350 .information-tabs-wrap{font-family:novecento-sans-narrow}
+body.postid-2350 .information-tabs-wrap .tabs-info ul li a{background-color:#f3edd9;color:#7f7c73}
+body.postid-2350 .information-tabs-wrap .tabs-info ul li a span.arrow,body.postid-2350 .information-tabs-wrap .tabs-info ul li a span.arrow:after,body.postid-2350 .information-tabs-wrap .tabs-info ul li a span.arrow:before{background-color:#7f7c73}
+body.postid-2350 .information-tabs-wrap .tabs-info ul li.active a{background-color:#7f7c73;color:#fff}
+body.postid-2350 .information-tabs-wrap .info-panel{background-color:#7f7c73}
+body.postid-2350 .information-tabs-wrap .info-panel li:before{border-left:3px solid #fff;border-bottom:3px solid #fff;top:18px}
+body.postid-2350 #primary #section-schedule{background-color:#fef9e7}
+body.postid-2350 #primary #section-schedule .title-w-icon{background-color:#b4282e}
+body.postid-2350 #section-coursemap,body.postid-2350 #route-information,body.postid-2350 #section-awards{color:#7f7c73}
+body.postid-2350 #section-coursemap .shead-icon,body.postid-2350 #section-coursemap h2.stitle,body.postid-2350 #section-coursemap .stitle,body.postid-2350 #route-information .shead-icon,body.postid-2350 #route-information h2.stitle,body.postid-2350 #route-information .stitle,body.postid-2350 #section-awards .shead-icon,body.postid-2350 #section-awards h2.stitle,body.postid-2350 #section-awards .stitle{color:#7f7c73}
+body.postid-2350.subpage.single h1.pagetitle{color:#b4282e;font-size:2.6em;font-family:novecento-sans-narrow}
+body.postid-2350.subpage.single h1.pagetitle span:after{display:none}
+body.postid-2350.subpage.single .content-default{background-color:#fef9e7;text-transform:uppercase;font-family:novecento-sans-narrow}
+body.postid-2350.subpage.single .content-default .wrapper{font-size:2em;font-weight:300}
+body.postid-2350.subpage.single .content-default .black-section{background-color:#b4282e}
+body.postid-2350 li.rdate{background-color:#f3edd9}
+body.postid-2350 .post-type-race #section-registration .title-w-icon{background-color:#b4282e}
+body.postid-2350 .post-type-race .race-types{background-color:#7f7c73;font-family:novecento-sans-narrow}
+body.postid-2350 .post-type-race .race-types .inner-wrap{padding:20px 10px}
+body.postid-2350 .post-type-race .race-types .type{padding:0 10px}
+body.postid-2350 .post-type-race .race-types .type .inside{background-color:#fef9e7}
+body.postid-2350 .post-type-race .race-types .type .type-name{background-color:#fef9e7}
+body.postid-2350 .post-type-race .race-types .type .type-name h3{color:#7f7c73;font-family:novecento-sans-narrow}
+body.postid-2350 section.route-details{background-color:#f3edd9}
+body.postid-2350 #section-awards .awards-columns .inside{background-color:#f3edd9}
+body.postid-2350 .text-and-image-blocks .half.odd .textcol{border-right:15px solid #fef9e7}
+body.postid-2350 .text-and-image-blocks .half.even .textcol{border-left:15px solid #fef9e7}
+body.postid-2350 .text-and-image-blocks{color:#7f7c73}
+body.postid-2350 .text-and-image-blocks .textcol{background-color:#f3edd9}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}
