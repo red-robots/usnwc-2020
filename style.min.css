@@ -3125,6 +3125,7 @@ body.logged-in.admin-bar .job-info-page .text-centered-section{margin-top:-5px}
 .page-activity-passes .camp-activities.section-content{padding-top:40px}
 .page-activity-passes .flex-btns{padding:30px 0;width:100%;clear:both}
 #section-activities.section-content .entryList{margin-left:-10px;margin-right:-10px}
+#section-activities.section-content .entryList.flexwrap{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 #section-activities.homerow,.featured-events-section{padding-top:5px;padding-right:10px;padding-left:10px}
 .activity-blocks .imagediv span.img{position:absolute;top:0;left:0}
 .activity-blocks .imagediv iframe{position:absolute;top:0;left:0;width:100% !important;height:100% !important}

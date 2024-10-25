@@ -10669,6 +10669,9 @@ body.logged-in.admin-bar {
 	.entryList {
 		margin-left: -10px;
 		margin-right: -10px;
+		&.flexwrap {
+			justify-content: center;
+		}
 	}
 }
 #section-activities.homerow,
