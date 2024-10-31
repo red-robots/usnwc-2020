@@ -3735,6 +3735,7 @@ ul.items .show{display:block}
 .text-center .button.inline-btn{width:auto;display:inline-block;margin-top:20px}
 .instr-details{padding:20px;background-color:#fff;width:90%}
 body.page-template-page-instruction-single h2.programs{padding:50px 0 20px 0;text-transform:uppercase}
+body.single-camp section.instr-schedule .day .row{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 section.instr-schedule{width:100%;padding:40px 0;float:left}
 section.instr-schedule #inst-sched .flex-control-paging{display:none}
 section.instr-schedule li.slide-item{width:100%;background-color:black;padding-bottom:30px}
