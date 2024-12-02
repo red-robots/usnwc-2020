@@ -209,6 +209,14 @@ function js_custom_init() {
             'supports'  => array('title','editor', 'page-attributes'),
             'hierarchical' => true
         ),
+        array(
+            'post_type' => 'wildwoods_activities',
+            'menu_name' => 'Wildwoods',
+            'plural'    => 'Wildwoods',
+            'single'    => 'Wildwoods',
+            'menu_icon' => 'dashicons-location-alt',
+            'supports'  => array('title','editor', 'page-attributes')
+        ),
     );
     
     if($post_types) {
